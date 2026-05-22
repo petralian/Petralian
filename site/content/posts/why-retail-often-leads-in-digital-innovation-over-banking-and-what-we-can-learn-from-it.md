@@ -1,4 +1,4 @@
----
+﻿---
 title: "Why Retail Often Leads in Digital Innovation Over Banking (and What We Can Learn From It)"
 slug: why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
 date: 2025-01-20
@@ -18,7 +18,7 @@ Retail and banking follow distinct trajectories in digital innovation, shaped by
 
 ### **Customer-Centric Focus**
 
-Retail thrives on delivering convenience, personalization, and seamless shopping experiences. My work for global retail clients like Ralph Lauren and IT Apparels involved implementing omnichannel strategies that bridged the gap between physical stores and digital platforms. For instance, we integrated Salesforce and Adobe Commerce systems to create unified customer journeys, allowing shoppers to move effortlessly between online and offline channels—a standard now expected by consumers.
+Retail thrives on delivering convenience, personalization, and seamless shopping experiences. My work for global retail clients like Ralph Lauren and IT Apparels involved implementing omnichannel strategies that bridged the gap between physical stores and digital platforms. For instance, we integrated Salesforce and Adobe Commerce systems to create unified customer journeys, allowing shoppers to move effortlessly between online and offline channels-a standard now expected by consumers.
 
 Banks can learn from this customer-first mindset by tailoring their services to individual financial needs, such as offering personalized investment options or savings plans powered by AI-driven analytics.
 

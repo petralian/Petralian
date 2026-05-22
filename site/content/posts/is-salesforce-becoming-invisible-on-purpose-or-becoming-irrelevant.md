@@ -1,4 +1,4 @@
----
+﻿---
 title: "Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?"
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 date: 2026-05-09
@@ -40,7 +40,7 @@ The timing is not great for enterprise software players. Worries around AI have 
 
 According to [SellersCommerce](https://www.sellerscommerce.com/blog/crm-statistics/), the AI in CRM market is worth $11.04 billion in 2025, set to hit $48.4 billion by 2033.[\[2\]](https://www.sellerscommerce.com/blog/crm-statistics/) The opportunity is enormous. The question is simply who owns the customer relationship when an agent is doing all the work.
 
-## My Take
+## What I Think
 
 CRM was never really about software. It was always about data proximity to the customer. Salesforce built a $37.9 billion empire on being that proximity layer. Now AI agents threaten to dissolve the interface that justified the price tag.
 

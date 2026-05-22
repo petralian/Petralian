@@ -1,4 +1,4 @@
----
+﻿---
 title: "My Time at Merkle Hong Kong"
 slug: thank-you-merkle
 date: 2023-12-17

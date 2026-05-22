@@ -1,4 +1,4 @@
----
+﻿---
 title: "Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk"
 slug: programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk
 date: 2026-04-17
@@ -78,7 +78,7 @@ The agencies that lean into that evolution openly and build their value proposit
 
 **Further Reading:**
 
--   [Forrester: Predictions 2026 — Marketing Agencies Resign Their Agency](https://www.forrester.com/blogs/predictions-2026-marketing-agencies-resign-their-agency/)
--   [ANA Q1 2025 Programmatic Transparency Benchmark — HUMAN Security Analysis](https://www.humansecurity.com/learn/blog/which-supply-paths-work-unlocking-the-hidden-map-of-programmatic-spend/)
--   [eMarketer: FAQ on Ad Agencies — Consolidation, AI, and What's Changing in 2026](https://www.emarketer.com/content/faq-on-ad-agencies--consolidation--ai-disruption--what-s-changing-2026)
+-   [Forrester: Predictions 2026 - Marketing Agencies Resign Their Agency](https://www.forrester.com/blogs/predictions-2026-marketing-agencies-resign-their-agency/)
+-   [ANA Q1 2025 Programmatic Transparency Benchmark - HUMAN Security Analysis](https://www.humansecurity.com/learn/blog/which-supply-paths-work-unlocking-the-hidden-map-of-programmatic-spend/)
+-   [eMarketer: FAQ on Ad Agencies - Consolidation, AI, and What's Changing in 2026](https://www.emarketer.com/content/faq-on-ad-agencies--consolidation--ai-disruption--what-s-changing-2026)
 -   [AI Digital: How Programmatic Platforms Absorb Budget Through Supply Chain Inefficiency](https://www.aidigital.com/blog/supply-side-optimization-with-ai)

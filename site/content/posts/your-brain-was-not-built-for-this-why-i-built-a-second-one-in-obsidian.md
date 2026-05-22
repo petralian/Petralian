@@ -1,10 +1,10 @@
----
+﻿---
 title: "Your Brain Was Not Built for This: Why I Built a Second One in Obsidian"
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
 date: 2026-05-20
 status: published
 category: Ideas
-tags: ["AI", "obsidian", "personal knowledge management", "Productivity", "second brain"]
+tags: ["AI", "obsidian", "personal-knowledge-management", "productivity", "second-brain"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/obsidian-second-brain-graph-view.jpg"
 seo_description: ""
@@ -42,10 +42,10 @@ I am not going to pretend my system was elegant from day one. It was not. I spen
 
 My vault is organized around a structure I adapted from the PARA method that Tiago Forte popularizes:
 
--   **Projects** — active engagements with deliverables and deadlines
--   **Areas** — ongoing responsibilities, client relationships, thought leadership, personal development
--   **Resources** — reference material, frameworks, industry analysis
--   **Archive** — completed or dormant items
+-   **Projects** - active engagements with deliverables and deadlines
+-   **Areas** - ongoing responsibilities, client relationships, thought leadership, personal development
+-   **Resources** - reference material, frameworks, industry analysis
+-   **Archive** - completed or dormant items
 
 But I made it my own. I run a universal Brain vault, 00\_Brain, that holds all my cross-project conventions, AI agent methodology, templates, and bootstrapping rules. Every project or client gets its own vault under 40\_VSCode/, and each project vault links back to the Brain rather than duplicating its rules. That dual-vault architecture means my AI assistants always have access to both project-specific context and universal rules, without either one polluting the other.
 
@@ -98,7 +98,7 @@ That openness matters beyond note-taking. It is the same reason I have been skep
 
 That is not a missing feature. That is an architectural decision, and I think it is the right one.
 
-## My Take
+## What I Think
 
 A second brain is not a productivity hack. It is an infrastructure decision. Just like enterprises need data governance before they can extract value from AI, individuals need knowledge governance before they can extract value from their own thinking. Obsidian is the best tool I have found for that purpose, and the reason comes down to one thing: it gets out of the way.
 
@@ -116,11 +116,11 @@ If you want to compare notes on how I set up my vault, or discuss whether a seco
 
 1.  Tiago Forte, Building a Second Brain: A Proven Method to Organize Your Digital Life and Unlock Your Creative Potential (Atria Books, 2022). [https://www.buildingasecondbrain.com/](https://www.buildingasecondbrain.com/)
 2.  Dix, Alan. "The future of PIM: pragmatics and potential." Human-Computer Interaction, Taylor & Francis, June 2024. [https://www.tandfonline.com/doi/pdf/10.1080/07370024.2024.2356155](https://www.tandfonline.com/doi/pdf/10.1080/07370024.2024.2356155)
-3.  Obsidian, "Manifesto — Durable." [https://obsidian.md/about](https://obsidian.md/about)
+3.  Obsidian, "Manifesto - Durable." [https://obsidian.md/about](https://obsidian.md/about)
 4.  Pyne, Yvette and Stewart, Stuart. "Meta-work: how we research is as important as what we research." British Journal of General Practice, March 2022. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8884432](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8884432)
 5.  Obsidian Community Plugins. [https://community.obsidian.md/](https://community.obsidian.md/)
 6.  Newman, Jared. "The cult of Obsidian: Why people are obsessed with the note-taking app." Fast Company, October 13, 2023. [https://www.fastcompany.com/90960653/why-people-are-obsessed-with-obsidian-the-indie-darling-of-notetaking-apps](https://www.fastcompany.com/90960653/why-people-are-obsessed-with-obsidian-the-indie-darling-of-notetaking-apps)
-7.  Obsidian, "Manifesto — Independent." [https://obsidian.md/about](https://obsidian.md/about)
+7.  Obsidian, "Manifesto - Independent." [https://obsidian.md/about](https://obsidian.md/about)
 8.  Pot, Justin. "Obsidian Review." PCMag, December 7, 2025. [https://www.pcmag.com/reviews/obsidian](https://www.pcmag.com/reviews/obsidian)
 9.  Newton, Casey. "Obsidian's CEO on why productivity tools need community more than AI." The Verge, August 18, 2025. [https://www.theverge.com/decoder-podcast-with-nilay-patel/760522/obsidian-ceo-steph-ango-kepano-productivity-software-notes-app](https://www.theverge.com/decoder-podcast-with-nilay-patel/760522/obsidian-ceo-steph-ango-kepano-productivity-software-notes-app)
 

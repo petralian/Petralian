@@ -1,4 +1,4 @@
----
+﻿---
 title: "Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges"
 slug: generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
 date: 2024-05-25
@@ -16,11 +16,11 @@ Recently, I added my voice to the **[Marketing Interactive article](https://www.
 
 Generative AI is undoubtedly transformative, but in the APAC region, most companies are still in the **early exploration phase**. According to [WE Communications' “Brands in Motion” report](https://www.we-worldwide.com/insights/brands-in-motion-2024-bridging-the-ai-expectation-gap), only **46% of businesses are investing in upskilling employees** to use AI, and a mere **26% in Singapore** are actively encouraging experimentation with AI for work and personal use.
 
-Even though agencies are slightly ahead—**46% of agencies** are using generative AI compared to **24% of brand marketers**—overall investment is still low. The **2024 Forrester survey** found that most brands and agencies spent less than **USD $50,000** on AI in the past year. This slow adoption has led to what McKinsey calls a **“generative AI reset”**, as companies recalibrate their expectations and realize that unlocking AI’s value is more challenging than it initially seemed.
+Even though agencies are slightly ahead-**46% of agencies** are using generative AI compared to **24% of brand marketers**-overall investment is still low. The **2024 Forrester survey** found that most brands and agencies spent less than **USD $50,000** on AI in the past year. This slow adoption has led to what McKinsey calls a **“generative AI reset”**, as companies recalibrate their expectations and realize that unlocking AI’s value is more challenging than it initially seemed.
 
 ### My Perspective on Generative AI Adoption
 
-In my comments for the article, I emphasized that adopting generative AI is not just about acquiring the technology—it’s about building the ecosystem around it. Here’s what I believe companies must prioritize to maximize AI’s potential:
+In my comments for the article, I emphasized that adopting generative AI is not just about acquiring the technology-it’s about building the ecosystem around it. Here’s what I believe companies must prioritize to maximize AI’s potential:
 
 #### 1\. **Invest in Data Infrastructure**
 
@@ -32,7 +32,7 @@ As AI becomes more integrated into decision-making processes, businesses need to
 
 #### 3\. **Continuous Model Training and Monitoring**
 
-AI models are not static—they need **ongoing updates and refinements** to remain effective. Businesses should invest in processes and resources to monitor and retrain their models regularly, ensuring they stay accurate and aligned with business goals.
+AI models are not static-they need **ongoing updates and refinements** to remain effective. Businesses should invest in processes and resources to monitor and retrain their models regularly, ensuring they stay accurate and aligned with business goals.
 
 #### 4\. **Focus Beyond Cost Savings**
 
@@ -61,7 +61,7 @@ Beyond the article, I believe there’s room to expand the discussion with:
 
 ### Final Thoughts
 
-Generative AI is no longer a futuristic concept—it’s here, and it’s transforming how businesses operate. However, as highlighted in the article and my own experiences, success with AI depends on more than just adopting the latest tools. It requires a thoughtful, ethical, and data-driven approach, combined with continuous investment in skills and infrastructure.
+Generative AI is no longer a futuristic concept-it’s here, and it’s transforming how businesses operate. However, as highlighted in the article and my own experiences, success with AI depends on more than just adopting the latest tools. It requires a thoughtful, ethical, and data-driven approach, combined with continuous investment in skills and infrastructure.
 
 The APAC region has immense potential to lead in AI innovation, but it’s clear there’s still work to be done. By prioritizing long-term strategies and focusing on value creation rather than just cost-cutting, companies can unlock the full potential of generative AI and achieve transformative results.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Bringing the Retail Mindset to Finance: How Personalization Can Transform Banking in APAC"
 slug: bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
 date: 2025-01-15
@@ -16,7 +16,7 @@ Let’s dive deeper into how financial institutions in APAC can leverage retail-
 
 ## The Power of Personalization in APAC
 
-Personalization in finance is more than just a trend—it’s a necessity. Retail professionals have long mastered the art of tailoring experiences based on customer behavior, preferences, and data. Banks in APAC can achieve similar success by adopting these techniques while navigating the region’s specific challenges.
+Personalization in finance is more than just a trend-it’s a necessity. Retail professionals have long mastered the art of tailoring experiences based on customer behavior, preferences, and data. Banks in APAC can achieve similar success by adopting these techniques while navigating the region’s specific challenges.
 
 ### 1\. Personalized Financial Solutions
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Crafting a Strong Digital Identity for Startups"
 slug: crafting-a-strong-digital-identity-for-startups-essential-branding-tips
 date: 2025-01-13
@@ -46,4 +46,4 @@ _Ask yourself: How can your startup leverage new tools or technologies to enhanc
 
 ## Final Thoughts
 
-My experience at Glassesgallery taught me that crafting a strong digital identity goes beyond aesthetics—it’s about creating meaningful connections, embracing innovation, and staying true to your brand’s core values.
+My experience at Glassesgallery taught me that crafting a strong digital identity goes beyond aesthetics-it’s about creating meaningful connections, embracing innovation, and staying true to your brand’s core values.

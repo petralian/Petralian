@@ -10,6 +10,7 @@ import type { Options as PrettyCodeOptions } from "rehype-pretty-code";
 import { format, parseISO } from "date-fns";
 import { getAllSlugs, getPost } from "@/lib/posts";
 import { SITE_NAME } from "@/lib/constants";
+import SubscribeBox from "@/components/SubscribeBox";
 
 // Static params for SSG
 export async function generateStaticParams() {
@@ -123,6 +124,8 @@ export default async function PostPage({
           }}
         />
       </article>
+
+      <SubscribeBox />
 
       {post.tags.length > 0 && (
         <div
