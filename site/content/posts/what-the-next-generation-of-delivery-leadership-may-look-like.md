@@ -130,22 +130,22 @@ The delivery director role was built for a specific set of conditions. Some of t
 
 I think that shift is largely positive. Here is what the capability profile looks like on the other side of it.
 
-https://petralian.com/what-the-next-generation-of-delivery-leadership-may-look-like/
+/posts/what-the-next-generation-of-delivery-leadership-may-look-like
 
 ### LinkedIn Teaser 2
 
 The coordination layer of delivery leadership is being compressed by AI tooling and leaner operating models. What remains is the part that was always the real work: translation between technical reality and commercial expectation, and contextual continuity across complex programs.
 
-Here is what I see in the delivery professionals navigating this well: https://petralian.com/what-the-next-generation-of-delivery-leadership-may-look-like/
+Here is what I see in the delivery professionals navigating this well: /posts/what-the-next-generation-of-delivery-leadership-may-look-like
 
 ### X Teaser 1
 
 The delivery director role is changing — not disappearing. Here is what the capability profile looks like when the coordination layer gets automated.
 
-https://petralian.com/what-the-next-generation-of-delivery-leadership-may-look-like/
+/posts/what-the-next-generation-of-delivery-leadership-may-look-like
 
 ### X Teaser 2
 
 Two forces are reshaping delivery leadership simultaneously. I think the direction is positive. Here is why.
 
-https://petralian.com/what-the-next-generation-of-delivery-leadership-may-look-like/
+/posts/what-the-next-generation-of-delivery-leadership-may-look-like

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail } from "lucide-react";
 import { SITE_NAME, SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
+import ThemeToggle from "./ThemeToggle";
 
 function LinkedInIcon() {
   return (
@@ -69,6 +70,7 @@ export default function Header() {
               <GitHubIcon />
             </a>
           </div>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

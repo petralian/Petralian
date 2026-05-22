@@ -74,34 +74,31 @@ scripts/
 └── sync-obsidian.ps1  ← Obsidian → site publish workflow
 ```
 
+## Deploy
+
+The site deploys automatically on every push to `master` via **Vercel**.
+
+| Setting | Value |
+|---|---|
+| **Root directory** | `site/` |
+| **Framework preset** | Next.js (auto-detected) |
+| **Build command** | `npm run build` |
+| **Production URL** | https://petralian.com |
+
+### First-time setup
+
+1. [vercel.com/new](https://vercel.com/new) → Import `petralian/Petralian`
+2. Set **Root Directory** → `site`
+3. Deploy — framework auto-detected
+4. Add custom domain `petralian.com` in Project → Settings → Domains
+5. Point DNS at your registrar to Vercel's nameservers
+
+### Always verify before pushing
+
+```bash
+cd site && npm run build   # must exit 0
+```
+
 ## License
 
 MIT — code only. Article content © Nathan Petralia, all rights reserved.
-
-WordPress admin: http://localhost:8082/wp-admin
-Default credentials (first run): set during WordPress install wizard.
-
-## Structure
-
-```
-wp-content/
-  themes/
-    petralian/       ← custom theme (edit here, deploy to live)
-  plugins/           ← custom or managed plugins
-  uploads/           ← gitignored (large media)
-scripts/
-  obsidian-mcp-server.mjs  ← AI agent memory bridge
-docs/
-  deploy.md          ← how to push changes to petralian.com
-  content-workflow.md
-docker-compose.yml   ← local dev environment
-```
-
-## Deploying to petralian.com
-
-See [docs/deploy.md](docs/deploy.md).
-
-## Blog Series: Vibe Coding with VS Code
-
-Posts live in `content/posts/` as Markdown drafts before being published to WordPress.
-See [docs/content-workflow.md](docs/content-workflow.md) for the draft → publish pipeline.

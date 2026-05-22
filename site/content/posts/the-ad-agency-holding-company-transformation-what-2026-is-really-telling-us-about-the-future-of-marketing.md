@@ -62,7 +62,7 @@ What strikes me most about 2026 is not the turbulence, it is the opportunity emb
 
 The organisations that come through this period strongest will be those that pair strategic clarity with genuine operational execution across markets. Not those with the most ambitious press releases, but those with the governance, the talent, and the client trust to actually deliver on them.
 
-I find that genuinely exciting. If you are working through a similar transformation inside your own organisation, or thinking about how to evaluate your agency partnerships against this new landscape, I would love to compare notes. Feel free to [contact me directly](https://petralian.com/contact/).
+I find that genuinely exciting. If you are working through a similar transformation inside your own organisation, or thinking about how to evaluate your agency partnerships against this new landscape, I would love to compare notes. Feel free to [contact me directly](/about).
 
 ---
 

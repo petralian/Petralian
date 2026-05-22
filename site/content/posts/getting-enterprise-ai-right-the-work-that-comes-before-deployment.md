@@ -125,7 +125,7 @@ The most interesting conversation in enterprise AI right now is not about which 
 
 The organizations that get sustained value from AI share one pattern: they take the foundation work seriously before the deployment work. Data readiness, governance structure, change management runway.
 
-I wrote about what that looks like in practice: https://petralian.com/getting-enterprise-ai-right-the-work-that-comes-before-deployment/
+I wrote about what that looks like in practice: /posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
 
 ### LinkedIn Teaser 2
 
@@ -133,14 +133,14 @@ I wrote about what that looks like in practice: https://petralian.com/getting-en
 
 I have heard that from a dozen executives across as many enterprise AI programs. In most cases, the technology worked fine. The use cases were sound. What was not ready was the organization.
 
-Here is what getting ready actually looks like: https://petralian.com/getting-enterprise-ai-right-the-work-that-comes-before-deployment/
+Here is what getting ready actually looks like: /posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
 
 ### X Teaser 1
 
 Enterprise AI programs do not struggle because the model is not good enough. They struggle because the foundation work — data, governance, change management — gets compressed.
 
-Here is what getting the order right looks like: https://petralian.com/getting-enterprise-ai-right-the-work-that-comes-before-deployment/
+Here is what getting the order right looks like: /posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
 
 ### X Teaser 2
 
-The organizations that extract real value from AI built the foundation before they built the model. Here is what that foundation actually consists of: https://petralian.com/getting-enterprise-ai-right-the-work-that-comes-before-deployment/
+The organizations that extract real value from AI built the foundation before they built the model. Here is what that foundation actually consists of: /posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment

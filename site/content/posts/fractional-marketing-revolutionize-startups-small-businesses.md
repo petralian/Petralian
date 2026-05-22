@@ -94,4 +94,4 @@ Fractional marketing isn’t just a trend, it’s a transformative solution for 
 
 Having worked with businesses across industries and markets, I know how critical it is to have the right marketing leadership at the right time. Fractional marketing offers exactly that, with the flexibility and focus needed to navigate today’s fast-paced environment.
 
-Are you considering fractional marketing for your business? Or perhaps you’re wondering how to get started with brand and product growth strategies? [Contact me, I’d love to offer insights or help you explore your next steps!](https://petralian.com/contact/)
+Are you considering fractional marketing for your business? Or perhaps you’re wondering how to get started with brand and product growth strategies? [Contact me, I’d love to offer insights or help you explore your next steps!](/about)

@@ -108,7 +108,7 @@ I went into it as a delivery director, not an engineer. What I learned about con
 
 This is not a tutorial. It is a leadership account.
 
-https://petralian.com/what-i-learned-directing-ai-as-my-primary-engineer/
+/posts/what-i-learned-directing-ai-as-my-primary-engineer
 
 ### LinkedIn Teaser 2
 
@@ -116,16 +116,16 @@ The productivity gains from AI-assisted development are real. So is the efficien
 
 The gains are enormous in the prototyping phase. They flatten, sharply, as you approach production quality. If your program's business case is built on the easy part of the curve, the production hardening phase will arrive looking more expensive than planned.
 
-Here's what I found after a year of directing AI as my primary engineer: https://petralian.com/what-i-learned-directing-ai-as-my-primary-engineer/
+Here's what I found after a year of directing AI as my primary engineer: /posts/what-i-learned-directing-ai-as-my-primary-engineer
 
 ### X Teaser 1
 
 I built two software products with AI as the primary engineer, no dev team. The lesson was not about the model. It was about context management.
 
-https://petralian.com/what-i-learned-directing-ai-as-my-primary-engineer/
+/posts/what-i-learned-directing-ai-as-my-primary-engineer
 
 ### X Teaser 2
 
 AI is exceptional at prototyping. It is a different conversation when you are approaching production. Here is what the efficiency curve actually looks like from inside a solo AI-directed build.
 
-https://petralian.com/what-i-learned-directing-ai-as-my-primary-engineer/
+/posts/what-i-learned-directing-ai-as-my-primary-engineer

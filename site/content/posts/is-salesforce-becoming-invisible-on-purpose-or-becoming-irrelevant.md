@@ -48,7 +48,7 @@ Bears fear that AI agents will replace human beings and that Salesforce's seat c
 
 The interface was never the moat. The data was. And if AI agents can pull that data from anywhere, the moat gets a lot narrower.
 
-If you want to discuss this topic, feel free to [reach out to me directly](https://petralian.com/contact). I would love to hear your perspective.
+If you want to discuss this topic, feel free to [reach out to me directly](/about). I would love to hear your perspective.
 
 ---
 
