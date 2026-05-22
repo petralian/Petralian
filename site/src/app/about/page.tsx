@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -18,6 +19,11 @@ export default function AboutPage() {
       </header>
 
       <div className="about-body">
+        <div className="about-status">
+          <span className="about-status-dot" />
+          Deep in vibe coding mode
+        </div>
+
         <p>
           Twenty years inside APAC&apos;s most demanding digital programs. Est&eacute;e
           Lauder, Shiseido, Microsoft, Merkle - where I served as Managing
@@ -45,6 +51,24 @@ export default function AboutPage() {
           </a>
           <a href={SOCIAL_LINKS.email} className="about-link-secondary">
             Email
+          </a>
+        </div>
+
+        <div className="about-github">
+          <p className="about-github-label">GitHub activity</p>
+          <a
+            href={SOCIAL_LINKS.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://ghchart.rshah.org/petralian"
+              alt="Nathan Petralia's GitHub contribution graph"
+              width={900}
+              height={165}
+              unoptimized
+              className="about-github-chart"
+            />
           </a>
         </div>
       </div>

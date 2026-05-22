@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         hostname: "petralian.com",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "ghchart.rshah.org",
+      },
     ],
   },
 };
