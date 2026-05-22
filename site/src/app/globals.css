@@ -262,7 +262,7 @@ body {
 .post-card {
   display: block;
   background-color: var(--color-surface-card);
-  padding: 1.25rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   text-decoration: none;
   transition: background-color 0.15s;
 }
@@ -271,7 +271,7 @@ body {
 }
 
 .post-card--featured {
-  padding: 1.625rem 1.5rem;
+  padding: 1.125rem 1.5rem;
 }
 
 .post-card-meta {
@@ -483,6 +483,48 @@ body {
   font-size: 1rem;
   color: var(--color-ink-secondary);
 }
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-body p {
+  font-size: 0.9375rem;
+  color: var(--color-ink-secondary);
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+
+.about-links {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1.75rem;
+}
+
+.about-link-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4375rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.about-link-primary:hover { background-color: var(--color-accent-hover); }
+
+.about-link-secondary {
+  font-size: 0.875rem;
+  color: var(--color-ink-tertiary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.about-link-secondary:hover { color: var(--color-ink); }
 
 /* ══════════════════════════════════════════════════════════════════
    SUBSCRIBE BOX

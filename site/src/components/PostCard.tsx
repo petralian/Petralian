@@ -9,7 +9,7 @@ interface PostCardProps {
 
 function formatDate(dateStr: string): string {
   try {
-    return format(parseISO(dateStr), "MMMM d, yyyy");
+    return format(parseISO(dateStr), "MMM d, yyyy");
   } catch {
     return dateStr;
   }
@@ -34,14 +34,6 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         <h2 className={featured ? "post-card-title--featured" : "post-card-title"}>
           {post.title}
         </h2>
-
-        {post.excerpt && (
-          <p className="post-card-excerpt">{post.excerpt}</p>
-        )}
-
-        <span className="post-card-read-more" aria-hidden>
-          Read more →
-        </span>
       </article>
     </Link>
   );
