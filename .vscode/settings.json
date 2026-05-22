@@ -1,0 +1,36 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "git fetch": true,
+        "docker compose ps": true,
+        "docker compose logs": true
+    },
+    "editor.formatOnSave": true,
+    "[php]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": null
+    },
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.wordWrap": "on"
+    },
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/.git": false
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "wp-content/uploads": true
+    }
+}

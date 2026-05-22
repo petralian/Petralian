@@ -1,0 +1,55 @@
+# Environment
+.env
+*.env.local
+*.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp files
+.tmp_*
+*.tmp
+
+# Editor
+*.swp
+*.swo
+
+!wp-content/plugins/petralian-*/
+!wp-content/plugins/index.php
+
+# ── Composer / Node ───────────────────────────────────────────────────────────
+vendor/
+node_modules/
+
+# ── OS / IDE ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── WordPress config (contains DB credentials) ────────────────────────────────
+wp-config.php
+wp-config-local.php
+
+# ── Docker volumes (if ever exported locally) ────────────────────────────────
+*.sql
+*.sql.gz
+db-backups/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+debug.log
+
+# ── Debug / scratch files (never commit) ─────────────────────────────────────
+wp-content/mu-plugins/
+*.tmp.php
+
+# Debug/test artifacts
+node_modules/
+package.json
+package-lock.json
+*.zip
+*.html
+scripts_*.txt
+

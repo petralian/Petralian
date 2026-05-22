@@ -1,0 +1,370 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ── Design tokens ─────────────────────────────────────────────────── */
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace,
+    SFMono-Regular, monospace;
+
+  /* Light palette (Apple-inspired) */
+  --color-ink:           #1d1d1f;
+  --color-ink-secondary: #6e6e73;
+  --color-ink-tertiary:  #86868b;
+  --color-surface:       #fbfbfd;
+  --color-surface-card:  #ffffff;
+  --color-border:        #d2d2d7;
+  --color-accent:        #0066cc;
+  --color-accent-hover:  #004f9e;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ink:           #f5f5f7;
+    --color-ink-secondary: #a1a1a6;
+    --color-ink-tertiary:  #6e6e73;
+    --color-surface:       #000000;
+    --color-surface-card:  #1c1c1e;
+    --color-border:        #3a3a3c;
+    --color-accent:        #2997ff;
+    --color-accent-hover:  #0a84ff;
+  }
+}
+
+/* ── Header ────────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.wordmark:hover { color: var(--color-accent); }
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-link:hover,
+.nav-link--active { color: var(--color-ink); }
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-ink-tertiary);
+  transition: color 0.15s;
+}
+.social-icon:hover { color: var(--color-ink); }
+
+/* ── Page shell ────────────────────────────────────────────────────── */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+.prose-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────── */
+.hero {
+  padding: 5rem 0 3.5rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 3.5rem;
+}
+.hero-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-ink);
+  margin-bottom: 1.25rem;
+  max-width: 720px;
+}
+.hero-tagline {
+  font-size: 1.125rem;
+  color: var(--color-ink-secondary);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* ── Section headings ──────────────────────────────────────────────── */
+.section-heading {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-tertiary);
+  margin-bottom: 2rem;
+}
+
+/* ── Post cards ────────────────────────────────────────────────────── */
+.posts-grid {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-border);
+}
+
+.post-card {
+  display: block;
+  background-color: var(--color-surface-card);
+  padding: 1.75rem 2rem;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.post-card:hover { background-color: color-mix(in srgb, var(--color-accent) 4%, var(--color-surface-card)); }
+
+.post-card--featured {
+  padding: 2.25rem 2rem;
+}
+
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-tertiary);
+  margin-bottom: 0.625rem;
+}
+.post-card-category {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.post-card-dot { opacity: 0.4; }
+
+.post-card-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+.post-card-title--featured {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  line-height: 1.25;
+  margin-bottom: 0.625rem;
+}
+
+.post-card-excerpt {
+  font-size: 0.9375rem;
+  color: var(--color-ink-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.875rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card-read-more {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+/* ── Posts index ───────────────────────────────────────────────────── */
+.posts-index-header {
+  margin-bottom: 2.5rem;
+}
+.posts-page-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+.posts-page-subtitle {
+  color: var(--color-ink-secondary);
+}
+
+/* ── Individual post ───────────────────────────────────────────────── */
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-secondary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.15s;
+}
+.post-back:hover { color: var(--color-ink); }
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-tertiary);
+  margin-bottom: 1.25rem;
+}
+.post-meta-category { color: var(--color-accent); font-weight: 500; }
+.post-meta-dot { opacity: 0.4; }
+
+.post-title {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+}
+.post-excerpt {
+  font-size: 1.125rem;
+  color: var(--color-ink-secondary);
+  line-height: 1.65;
+}
+
+.post-featured-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  display: block;
+}
+
+/* ── Prose (blog body) ─────────────────────────────────────────────── */
+.prose {
+  --tw-prose-body:        var(--color-ink);
+  --tw-prose-headings:    var(--color-ink);
+  --tw-prose-links:       var(--color-accent);
+  --tw-prose-bold:        var(--color-ink);
+  --tw-prose-counters:    var(--color-ink-secondary);
+  --tw-prose-bullets:     var(--color-border);
+  --tw-prose-hr:          var(--color-border);
+  --tw-prose-quotes:      var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions:    var(--color-ink-secondary);
+  --tw-prose-code:        var(--color-ink);
+  --tw-prose-pre-code:    #e8e8ed;
+  --tw-prose-pre-bg:      #1c1c1e;
+  --tw-prose-th-borders:  var(--color-border);
+  --tw-prose-td-borders:  var(--color-border);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+/* Code block chrome — rehype-pretty-code */
+.prose [data-rehype-pretty-code-figure] pre {
+  border-radius: 10px;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.prose code:not(pre code) {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  color: var(--color-accent);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-ink-tertiary);
+}
+
+/* ── About page ────────────────────────────────────────────────────── */
+.about-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.about-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+.about-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-ink-secondary);
+}
+
