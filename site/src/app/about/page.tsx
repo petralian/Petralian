@@ -67,6 +67,7 @@ export default function AboutPage() {
               width={900}
               height={165}
               unoptimized
+              loading="eager"
               className="about-github-chart"
             />
           </a>
