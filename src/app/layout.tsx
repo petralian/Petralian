@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Red_Hat_Text, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Nathan Petralia",
     "AI strategy",
     "GTM",
-    "programme delivery",
+    "program delivery",
     "AI deployment",
     "Hong Kong",
   ],
@@ -107,7 +107,7 @@ export default function RootLayout({
           "Commercial Growth",
           "APAC Markets",
           "GTM Strategy",
-          "Programme Delivery",
+          "Program Delivery",
           "Generative AI",
         ],
       },

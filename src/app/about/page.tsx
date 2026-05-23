@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { SOCIAL_LINKS, SITE_URL, AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from "@/lib/constants";
 import aboutContent from "../../../content/pages/about.json";
@@ -6,12 +6,12 @@ import aboutContent from "../../../content/pages/about.json";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programmes across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
+    "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: `About ${AUTHOR_NAME}`,
     description:
-      "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programmes across APAC.",
+      "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC.",
     type: "profile",
     url: `${SITE_URL}/about`,
   },
@@ -40,7 +40,7 @@ export default function AboutPage() {
       "Digital Transformation",
       "Commercial Growth",
       "GTM Strategy",
-      "Programme Delivery",
+      "Program Delivery",
       "Generative AI in Marketing",
       "APAC Markets",
       "CXM",

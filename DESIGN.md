@@ -1,7 +1,7 @@
-# Petralian — Visual Design System
+﻿# Petralian — Visual Design System
 
 > Last updated: May 2026  
-> Stack: Next.js 15 · Tailwind CSS v4 (CSS-first) · `src/app/globals.css`
+> Stack: Next.js 16 · Tailwind CSS v4 (CSS-first) · `src/app/globals.css`
 
 All tokens live in the `@theme {}` block in `globals.css`. Tailwind v4 reads them automatically — no `tailwind.config.js` needed.
 
@@ -19,7 +19,7 @@ Fonts are injected via `next/font/google` in `layout.tsx` and attached as CSS va
 
 ---
 
-## Colour Palette
+## Color Palette
 
 ### Light mode (default)
 
@@ -126,7 +126,7 @@ Tailwind v4 defaults supply most steps (`xs`, `sm`, `base`, `lg`, `2xl`). Only `
 
 | Token | Value | Use |
 |---|---|---|
-| `--duration-fast` | `100ms` | Micro-interactions (hover colour) |
+| `--duration-fast` | `100ms` | Micro-interactions (hover color) |
 | `--duration-base` | `200ms` | Standard transitions (Apple HIG) |
 | `--duration-slow` | `300ms` | Page-level reveals |
 | `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | Material standard — moving elements |
@@ -143,7 +143,7 @@ Shorthand aliases in `:root` for convenience:
 
 ## Layout
 
-- **Max content width:** `1200px` (centred with `margin: 0 auto`)
+- **Max content width:** `1200px` (centered with `margin: 0 auto`)
 - **Page padding:** `0 var(--space-6)` (24px sides)
 - **Header height:** `64px` (sticky, frosted glass)
 - **Grid:** masonry 3-col on ≥1024px, 2-col ≥640px, 1-col mobile
@@ -161,7 +161,7 @@ Shorthand aliases in `:root` for convenience:
 | `.site-logo` | Logo link |
 | `.wordmark` | Text logo — Lexend Deca 700 |
 | `.nav-link` | Navigation anchor |
-| `.nav-cta` | Accent-coloured CTA button in header |
+| `.nav-cta` | Accent-colored CTA button in header |
 
 ### Post Cards
 
@@ -170,14 +170,14 @@ Shorthand aliases in `:root` for convenience:
 | `.post-card` | 16:9 image top, category pill, date, title, excerpt, tags |
 | `.post-card-image-wrap` | Aspect-ratio container for the card image |
 | `.post-card-body` | Padding container for card content |
-| `.post-card-category` | Eyebrow category pill — `--text-2xs`, accent colour |
+| `.post-card-category` | Eyebrow category pill — `--text-2xs`, accent color |
 | `.post-card-date` | Tertiary ink date label |
 | `.post-card-title` | Card heading |
 | `.post-card-title--featured` | Larger variant for featured cards |
 | `.post-card-excerpt` | Short excerpt in secondary ink |
 | `.post-card-tags` | Row of tag pills |
 | `.post-card-tag` | Individual tag button — navigates to `/posts?tag=X` |
-| `.post-card-read-more` | "Read more →" link in accent colour |
+| `.post-card-read-more` | "Read more →" link in accent color |
 
 ### Blog Index
 
@@ -205,7 +205,7 @@ Shorthand aliases in `:root` for convenience:
 | `.post-hero` | Dark full-width banner — `background: var(--color-surface-dark)` |
 | `.post-hero-inner` | Two-column layout (text left, image right) |
 | `.post-hero-back` | "← All articles" navigation link |
-| `.post-hero-eyebrow` | Category label in accent colour |
+| `.post-hero-eyebrow` | Category label in accent color |
 | `.post-hero-title` | Post headline — large white type |
 | `.post-hero-excerpt` | Subtitle paragraph |
 | `.post-hero-meta` | Date · reading time row |
@@ -216,7 +216,7 @@ Shorthand aliases in `:root` for convenience:
 
 | Class | Description |
 |---|---|
-| `.article-body-wrap` | Centred container, max 720px prose column |
+| `.article-body-wrap` | Centered container, max 720px prose column |
 | `.prose` | Tailwind Typography prose styles |
 
 ### Related Posts
@@ -240,7 +240,7 @@ All tags are Title Case. Every post has 2–3 tags from this list.
 | `AI in Marketing` | AI & Technology / Marketing |
 | `Future of Search` | AI & Technology |
 | `Digital Transformation` | Digital Transformation |
-| `Programme Delivery` | Digital Transformation |
+| `Program Delivery` | Digital Transformation |
 | `Ecommerce` | Commerce & Growth |
 | `Social Commerce` | Commerce & Growth |
 | `Customer Experience` | Commerce & Growth |
@@ -261,7 +261,7 @@ All tags are Title Case. Every post has 2–3 tags from this list.
 | `Digital Transformation` | Enterprise change programs, governance, delivery |
 | `Commerce & Growth` | Ecommerce, social commerce, CX, GTM |
 | `Marketing & Media` | Martech, programmatic, agencies, brand |
-| `Leadership` | Management, culture, career, programme delivery |
+| `Leadership` | Management, culture, career, program delivery |
 
 ---
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
 import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
 import writingContent from "../../../content/pages/writing.json";
@@ -6,7 +6,7 @@ import writingContent from "../../../content/pages/writing.json";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Insights on AI, digital transformation, and the work that moves organisations forward.",
+    "Insights on AI, digital transformation, and the work that moves organizations forward.",
 };
 
 export default async function PostsPage({
