@@ -107,7 +107,7 @@ The best outcome from building this would be someone else not spending six month
 
 ## What I'd Tell Anyone Considering This
 
-If you're a writer first and the tooling is getting in the way, it's worth the rebuild. The investment is front-loaded — a few weeks of setup — but the ongoing overhead is dramatically lower than maintaining a WordPress installation.
+If you're a writer first and the tooling is getting in the way, it's worth the rebuild. The investment is front-loaded — a few hours of setup (fork my code) — but the ongoing overhead is dramatically lower than maintaining a WordPress installation.
 
 If you're comfortable with Markdown and Obsidian already, the friction delta is small. If you're not, there's a learning curve, but Tina CMS narrows it considerably.
 
