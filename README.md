@@ -6,7 +6,7 @@ Source for [petralian.com](https://petralian.com) — Nathan Petralia's personal
 
 | | |
 |---|---|
-| **Framework** | [Next.js 15](https://nextjs.org) — App Router, Turbopack |
+| **Framework** | [Next.js 16](https://nextjs.org) — App Router, Turbopack |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) — CSS-first, no config file |
 | **Content** | Markdown files with gray-matter frontmatter |
 | **Syntax highlighting** | [Shiki](https://shiki.style) via rehype-pretty-code |
