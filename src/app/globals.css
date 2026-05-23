@@ -229,11 +229,7 @@ a {
   outline: none;
 }
 
-.site-logo:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
+
 
 .site-logo-dark {
   display: none;
