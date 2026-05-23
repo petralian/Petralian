@@ -78,7 +78,7 @@ export default function AboutPage() {
               <p>
                 In 2024 I started building software with AI as the primary engineer.
                 What I learned is the gap between AI programs that get funded and ones
-                that actually deliver &mdash; and most of it isn&apos;t in the mainstream conversation.
+                that deliver &mdash; and most of it isn&apos;t in the mainstream conversation.
               </p>
               <p>
                 I write about where strategy meets delivery: the sales motion, the GTM,

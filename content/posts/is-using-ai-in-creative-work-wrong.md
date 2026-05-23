@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Is using AI in creative work wrong?"
 slug: is-using-ai-in-creative-work-wrong
 date: 2025-05-29
@@ -10,7 +10,7 @@ featured_image: "/images/posts/creative-ai-hero.jpg"
 seo_description: ""
 ---
 
-I recently had an interesting conversation with a client who voiced a concern I’m hearing more and more often: "How do I know if the creative work I’m buying comes from a human, or if it’s been heavily influenced-or even entirely produced-by AI?" Is using AI in creative work wrong? In today’s blurred digital landscape, where the boundaries between human and machine creativity are vanishing fast, I think it’s time we pause and ask this question honestly.
+I recently had an interesting conversation with a client who voiced a concern I’m hearing more and more often: "How do I know if the creative work I’m buying comes from a human, or if it’s been heavily influenced-or even entirely produced-by AI?" Is using AI in creative work wrong? In today’s blurred digital landscape, where the boundaries between human and machine creativity are vanishing fast, I think it’s time we pause and ask this question.
 
 ## The AI-Human Creative Blend: Today’s Normal
 

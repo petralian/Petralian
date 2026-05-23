@@ -3,7 +3,7 @@
 
 export const SITE_NAME = "Petralian";
 export const SITE_TAGLINE =
-  "Writing on enterprise AI and commercial growth — from someone with the track record to close it, build the team, and ship it.";
+  "Writing on enterprise AI, digital transformation, and what it takes to make change stick in large organisations.";
 export const SITE_URL = "https://petralian.com";
 
 export const AUTHOR_NAME = "Nathan Petralia";

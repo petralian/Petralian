@@ -12,10 +12,9 @@ export default function HomePage() {
     <div className="page-container">
       {/* Hero */}
       <section className="hero">
-        <p className="hero-eyebrow">Petralian.com</p>
+        <p className="hero-eyebrow">Connecting Business and Digital Transformation</p>
         <h1 className="hero-title">
-          Sell it. Build it.<br />
-          Deliver it.
+          Technology, Transformation, and the People Navigating Both
         </h1>
         <p className="hero-tagline">{SITE_TAGLINE}</p>
       </section>

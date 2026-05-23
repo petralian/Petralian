@@ -5,7 +5,7 @@ import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Insights on AI, digital transformation, and the work that actually moves organisations forward.",
+    "Insights on AI, digital transformation, and the work that moves organisations forward.",
 };
 
 export default async function PostsPage({
@@ -26,7 +26,7 @@ export default async function PostsPage({
         <h1 className="blog-header-title">Perspectives on Technology and Change</h1>
         <p className="blog-header-description">
           Thinking at the intersection of enterprise AI, digital transformation,
-          and what it actually takes to make change stick inside large organisations.
+          and what it takes to make change stick inside large organisations.
         </p>
 
         <div className="blog-topic-row">
