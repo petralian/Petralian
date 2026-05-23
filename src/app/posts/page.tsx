@@ -22,7 +22,6 @@ export default async function PostsPage({
     <div className="page-container">
       {/* ── Blog header ───────────────────────────────────────── */}
       <header className="blog-header">
-        <p className="blog-header-eyebrow">Insights into Digital Transformation</p>
         <h1 className="blog-header-title">Perspectives on Technology and Change</h1>
         <p className="blog-header-description">
           Thinking at the intersection of enterprise AI, digital transformation,

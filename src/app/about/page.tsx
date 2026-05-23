@@ -62,7 +62,6 @@ export default function AboutPage() {
         <div className="about-hero-inner">
           {/* Left: text */}
           <div>
-            <p className="about-hero-eyebrow">About</p>
             <h1 className="about-hero-name">Nathan Petralia</h1>
             <p className="about-hero-tagline">
               Twenty years closing deals, building teams, and delivering<br />
