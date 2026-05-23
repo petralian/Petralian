@@ -1,0 +1,16 @@
+{
+  "header_title": "Perspectives on Technology and Change",
+  "header_description": "Thinking at the intersection of enterprise AI, digital transformation, and what it takes to make change stick inside large organisations.",
+  "topic_cards": [
+    {
+      "title": "AI & Technology",
+      "description": "How AI is reshaping enterprise strategy, operations, and the humans navigating the shift.",
+      "style": "dark"
+    },
+    {
+      "title": "Digital Transformation",
+      "description": "The work behind the roadmaps — governance, change management, and delivery at scale in APAC.",
+      "style": "light"
+    }
+  ]
+}

@@ -112,6 +112,111 @@ export default defineConfig({
                     },
                 ],
             },
+            {
+                name: "homePage",
+                label: "Home Page",
+                path: "content/pages",
+                match: { include: "home" },
+                format: "json",
+                fields: [
+                    {
+                        type: "string",
+                        name: "hero_title",
+                        label: "Hero Title",
+                    },
+                    {
+                        type: "string",
+                        name: "hero_tagline",
+                        label: "Hero Tagline",
+                        ui: { component: "textarea" },
+                    },
+                    {
+                        type: "string",
+                        name: "intro_bio",
+                        label: "Intro Bio",
+                        ui: { component: "textarea" },
+                    },
+                ],
+            },
+            {
+                name: "aboutPage",
+                label: "About Page",
+                path: "content/pages",
+                match: { include: "about" },
+                format: "json",
+                fields: [
+                    {
+                        type: "string",
+                        name: "hero_tagline",
+                        label: "Hero Tagline",
+                        ui: { component: "textarea" },
+                    },
+                    {
+                        type: "string",
+                        name: "bio_paragraphs",
+                        label: "Bio Paragraphs",
+                        list: true,
+                        ui: { component: "textarea" },
+                    },
+                    {
+                        type: "object",
+                        name: "pillars",
+                        label: "Capability Pillars",
+                        list: true,
+                        fields: [
+                            { type: "string", name: "label", label: "Label" },
+                            { type: "string", name: "title", label: "Title" },
+                            {
+                                type: "string",
+                                name: "text",
+                                label: "Text",
+                                ui: { component: "textarea" },
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: "writingPage",
+                label: "Writing Page",
+                path: "content/pages",
+                match: { include: "writing" },
+                format: "json",
+                fields: [
+                    {
+                        type: "string",
+                        name: "header_title",
+                        label: "Header Title",
+                    },
+                    {
+                        type: "string",
+                        name: "header_description",
+                        label: "Header Description",
+                        ui: { component: "textarea" },
+                    },
+                    {
+                        type: "object",
+                        name: "topic_cards",
+                        label: "Topic Cards",
+                        list: true,
+                        fields: [
+                            { type: "string", name: "title", label: "Title" },
+                            {
+                                type: "string",
+                                name: "description",
+                                label: "Description",
+                                ui: { component: "textarea" },
+                            },
+                            {
+                                type: "string",
+                                name: "style",
+                                label: "Style",
+                                options: ["dark", "light"],
+                            },
+                        ],
+                    },
+                ],
+            },
         ],
     },
 });

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
 import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
+import writingContent from "../../../content/pages/writing.json";
 
 export const metadata: Metadata = {
   title: "Writing",
@@ -22,27 +23,16 @@ export default async function PostsPage({
     <div className="page-container">
       {/* ── Blog header ───────────────────────────────────────── */}
       <header className="blog-header">
-        <h1 className="blog-header-title">Perspectives on Technology and Change</h1>
-        <p className="blog-header-description">
-          Thinking at the intersection of enterprise AI, digital transformation,
-          and what it takes to make change stick inside large organisations.
-        </p>
+        <h1 className="blog-header-title">{writingContent.header_title}</h1>
+        <p className="blog-header-description">{writingContent.header_description}</p>
 
         <div className="blog-topic-row">
-          <div className="blog-topic-card blog-topic-card--dark">
-            <p className="blog-topic-title">AI &amp; Technology</p>
-            <p className="blog-topic-desc">
-              How AI is reshaping enterprise strategy, operations, and the
-              humans navigating the shift.
-            </p>
-          </div>
-          <div className="blog-topic-card blog-topic-card--light">
-            <p className="blog-topic-title">Digital Transformation</p>
-            <p className="blog-topic-desc">
-              The work behind the roadmaps &mdash; governance, change management,
-              and delivery at scale in APAC.
-            </p>
-          </div>
+          {writingContent.topic_cards.map((card) => (
+            <div key={card.title} className={`blog-topic-card blog-topic-card--${card.style}`}>
+              <p className="blog-topic-title">{card.title}</p>
+              <p className="blog-topic-desc">{card.description}</p>
+            </div>
+          ))}
         </div>
       </header>
 

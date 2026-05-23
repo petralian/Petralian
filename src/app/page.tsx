@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
-import { SITE_TAGLINE } from "@/lib/constants";
+import homeContent from "../../content/pages/home.json";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -12,10 +12,8 @@ export default function HomePage() {
     <div className="page-container">
       {/* Hero */}
       <section className="hero">
-        <h1 className="hero-title">
-          Technology, Transformation, and the People Navigating Both
-        </h1>
-        <p className="hero-tagline">{SITE_TAGLINE}</p>
+        <h1 className="hero-title">{homeContent.hero_title}</h1>
+        <p className="hero-tagline">{homeContent.hero_tagline}</p>
       </section>
 
       {/* Intro strip */}
@@ -23,12 +21,7 @@ export default function HomePage() {
         <div className="home-intro-inner">
           <div className="home-intro-text">
             <p className="home-intro-eyebrow">Nathan Petralia</p>
-            <p className="home-intro-bio">
-              Twenty years inside APAC&apos;s most demanding digital programs &mdash;
-              Est&eacute;e Lauder, Shiseido, Microsoft, Merkle. Managing Director,
-              Hong Kong. In 2024 I started building AI products from scratch.
-              The gap between what I expected and what I found is what I write about.
-            </p>
+            <p className="home-intro-bio">{homeContent.intro_bio}</p>
             <Link href="/about" className="home-intro-link">
               About Nathan &rarr;
             </Link>
