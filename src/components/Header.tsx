@@ -40,6 +40,7 @@ export default function Header() {
             height={40}
             priority
             className="site-logo-img"
+            style={{ height: "auto" }}
           />
         </Link>
 
