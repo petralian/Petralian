@@ -216,6 +216,11 @@ function Test-ArticlePreflight {
     }
   }
 
+  # Alt text on featured image
+  if (-not $fm['featured_image_alt'] -or $fm['featured_image_alt'] -eq '') {
+    $warnings.Add('Missing featured_image_alt — hero image will have no alt text (accessibility + AIO/GEO signal)')
+  }
+
   # Strip frontmatter for body checks
   $body = $raw -replace '(?s)^---.*?---\s*', ''
 
@@ -358,6 +363,15 @@ if ($DryRun) {
 if ($copied.Count -eq 0 -and $removed.Count -eq 0) {
   Write-Host "Nothing to sync." -ForegroundColor Yellow
   exit 0
+}
+
+# ── Compress newly copied images ─────────────────────────────────────────────
+if ($copied.Count -gt 0) {
+  Write-Host ''
+  Write-Host '── Image compression ────────────────────────────────────────────' -ForegroundColor Cyan
+  $nodeOutput = node "$PSScriptRoot\optimize-images.mjs" 2>&1
+  $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
 
 # ── Git: stage all changes (additions, updates, deletions), commit, push ────
