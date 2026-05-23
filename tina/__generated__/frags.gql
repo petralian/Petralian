@@ -1,0 +1,16 @@
+fragment PostParts on Post {
+  __typename
+  title
+  slug
+  date
+  status
+  category
+  tags
+  excerpt
+  featured_image
+  featured_image_alt
+  focus_keyword
+  seo_title
+  meta_description
+  body
+}

@@ -51,8 +51,6 @@ wp-content/mu-plugins/
 next-env.d.ts
 *.tsbuildinfo
 .vercel
-tina/__generated__
-/public/admin
 
 # Debug/test artifacts
 *.zip
