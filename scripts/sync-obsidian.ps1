@@ -8,10 +8,14 @@
 # Usage:
 #   .\scripts\sync-obsidian.ps1              # sync + commit + push
 #   .\scripts\sync-obsidian.ps1 -DryRun      # preview only, no writes
+#   .\scripts\sync-obsidian.ps1 -Preflight   # check articles only, no sync
+#   .\scripts\sync-obsidian.ps1 -Force       # sync even if preflight has warnings
 # ─────────────────────────────────────────────────────────────────────────────
 
 param(
-  [switch]$DryRun
+  [switch]$DryRun,
+  [switch]$Preflight,
+  [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
@@ -145,6 +149,132 @@ function Resolve-Images {
     })
 
   return $content
+}
+
+# ── Preflight: validate an article before publishing ─────────────────────────
+function Test-ArticlePreflight {
+  param([string]$filePath, [string]$articleFolder)
+
+  $errors   = [System.Collections.Generic.List[string]]::new()
+  $warnings = [System.Collections.Generic.List[string]]::new()
+
+  $raw = Get-Content $filePath -Raw -Encoding UTF8
+
+  # Parse frontmatter
+  $fm = @{}
+  if ($raw -match '(?s)^---\s*\n(.+?)\n---') {
+    foreach ($line in ($matches[1] -split '\n')) {
+      if ($line -match '^([\w][\w_-]*):\s*(.*)$') {
+        $fm[$matches[1].Trim()] = $matches[2].Trim().Trim('"').Trim("'")
+      }
+    }
+  }
+  else {
+    $errors.Add('No YAML frontmatter block found')
+    return [PSCustomObject]@{ Errors = $errors; Warnings = $warnings; WordCount = 0 }
+  }
+
+  # Required fields — block publish if missing
+  foreach ($field in @('title', 'slug', 'date', 'category')) {
+    if (-not $fm[$field] -or $fm[$field] -eq '') {
+      $errors.Add("Missing required field: $field")
+    }
+  }
+
+  # Recommended fields — warn only
+  foreach ($field in @('excerpt', 'seo_description', 'focus_keyword')) {
+    if (-not $fm[$field] -or $fm[$field] -eq '') {
+      $warnings.Add("Missing recommended field: $field")
+    }
+  }
+
+  # Featured image
+  $fi = $fm['featured_image']
+  if (-not $fi -or $fi -eq '') {
+    $warnings.Add('No featured_image set — article will render without a header image')
+  }
+  elseif (-not $fi.StartsWith('http')) {
+    $fname = [System.IO.Path]::GetFileName($fi)
+    if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
+      $errors.Add("featured_image file not found in vault: $fname")
+    }
+  }
+
+  # Strip frontmatter for body checks
+  $body = $raw -replace '(?s)^---.*?---\s*', ''
+
+  # Body images — wiki-link syntax  ![[file.ext]]
+  foreach ($m in [regex]::Matches($body, '!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]')) {
+    $fname = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
+    $ext   = [System.IO.Path]::GetExtension($fname).ToLower()
+    if ($ext -in $imageExtensions) {
+      if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
+        $errors.Add("Body image not found in vault: $fname")
+      }
+    }
+  }
+
+  # Body images — standard markdown  ![alt](relative/path.ext)
+  foreach ($m in [regex]::Matches($body, '!\[([^\]]*)\]\((?!https?://)([^)]+)\)')) {
+    $path = $m.Groups[2].Value.Trim()
+    if ($path.StartsWith('/images/')) { continue }
+    $fname = [System.IO.Path]::GetFileName($path)
+    $ext   = [System.IO.Path]::GetExtension($fname).ToLower()
+    if ($ext -in $imageExtensions) {
+      if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
+        $errors.Add("Body image not found in vault: $fname")
+      }
+    }
+  }
+
+  # Word count
+  $wordCount = ($body -split '\s+' | Where-Object { $_ -ne '' }).Count
+  if ($wordCount -lt 300) {
+    $warnings.Add("Low word count: $wordCount words (recommended minimum: 300)")
+  }
+
+  return [PSCustomObject]@{ Errors = $errors; Warnings = $warnings; WordCount = $wordCount }
+}
+
+# ── Run preflight on all articles in 02 Ready to publish ────────────────────
+$readyForPreflight = Get-ChildItem -Path $obsidianReady -Filter '*.md'
+$preflightBlocking = $false
+
+if ($readyForPreflight.Count -gt 0) {
+  Write-Host ''
+  Write-Host '── Preflight checks ────────────────────────────────────────────' -ForegroundColor Cyan
+
+  foreach ($file in $readyForPreflight) {
+    $result = Test-ArticlePreflight -filePath $file.FullName -articleFolder $file.DirectoryName
+    $slug   = Get-FileSlug $file.FullName
+    $status = if ($result.Errors.Count -gt 0) { 'FAIL' } elseif ($result.Warnings.Count -gt 0) { 'WARN' } else { 'PASS' }
+    $color  = switch ($status) { 'FAIL' { 'Red' } 'WARN' { 'Yellow' } default { 'Green' } }
+
+    Write-Host "  [$status] $slug  ($($result.WordCount) words)" -ForegroundColor $color
+
+    foreach ($e in $result.Errors)   { Write-Host "        ERROR   $e" -ForegroundColor Red }
+    foreach ($w in $result.Warnings) { Write-Host "        WARN    $w" -ForegroundColor Yellow }
+
+    if ($result.Errors.Count -gt 0) { $preflightBlocking = $true }
+  }
+
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
+if ($Preflight) {
+  Write-Host ''
+  if ($preflightBlocking) {
+    Write-Host 'Preflight FAILED — fix errors before publishing.' -ForegroundColor Red
+  } else {
+    Write-Host 'Preflight passed. Run without -Preflight to publish.' -ForegroundColor Green
+  }
+  exit 0
+}
+
+if ($preflightBlocking -and -not $Force) {
+  Write-Host ''
+  Write-Host 'Sync blocked by preflight errors. Fix the issues above, or run with -Force to skip.' -ForegroundColor Red
+  exit 1
 }
 
 # ── Build set of slugs authorised to be in content/posts/ ───────────────────
