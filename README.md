@@ -48,15 +48,22 @@ title: "Article title"
 slug: article-slug
 date: "2026-01-15"
 status: published
-category: "Enterprise AI"
-tags: [AI, transformation, strategy]
+category: "AI & Technology"
+tags: ["AI", "transformation", "strategy"]
 excerpt: "Short summary shown on article cards."
-seo_description: "Longer meta description for search engines."
+featured_image: "/images/posts/my-hero-image.jpg"
+seo_title: "55-60 char SEO title (optional override of title)"
+seo_description: "150-160 char meta description for search engines."
+featured_image_alt: "Descriptive alt text for the hero image."
 focus_keyword: "enterprise AI strategy"
 ---
 ```
 
 Only articles with `status: published` appear on the site.
+
+**SEO fields:** `seo_title` overrides the page `<title>` tag; `seo_description` populates the meta description and OG description; `featured_image_alt` sets the hero image alt text. If `seo_title` is absent, the article `title` is used.
+
+**Categories in use:** `AI & Technology`, `Digital Transformation`, `Marketing & Strategy`, `Leadership`, `Marketing & Media`
 
 ## Project structure
 

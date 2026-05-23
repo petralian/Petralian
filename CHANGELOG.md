@@ -7,15 +7,23 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - `src/app/icon.png` — favicon from `public/images/posts/petralian_ico.png`
+- SEO metadata (`seo_title`, `seo_description`, `featured_image_alt`, `focus_keyword`) added to all 37 published posts
+- `image_prompt` frontmatter field documented in Writing Session Guide (Obsidian-only, stripped by sync script)
 
 ### Changed
 - Masonry grid: replaced CSS `column-count` with flex split-column layout for correct left-to-right reading order on home page and blog index
 - Blog filters: `reorderForMasonry` replaced with `splitIntoColumns` — responsive column arrays via `matchMedia`
 - Next.js version references updated from 15 → 16 across all docs and published content
 - All prose and UI copy standardized to American English spelling
+- TinaCMS `tina/config.ts`: renamed `meta_description` field → `seo_description` to match what `src/lib/posts.ts` reads
+- `src/lib/posts.ts`: `PostMeta` interface now exposes `seo_title` and `featured_image_alt`
+- `src/app/posts/[slug]/page.tsx`: `generateMetadata` uses `seo_title` for `<title>` tag; featured image uses `featured_image_alt`
+- Brand logos moved from `public/images/posts/` → `public/images/` (petralian_blue.png, petralian_white.png, petralian_ico.png)
+- Next.js placeholder SVGs removed from `public/` root
 
 ### Fixed
 - British → American English spelling corrected across 6 content files and `src/app/posts/[slug]/page.tsx`
+- `meta_description` field renamed to `seo_description` in 3 posts (getting-enterprise-ai-right, what-i-learned-directing-ai, what-the-next-generation-of-delivery-leadership)
 
 ## [2.0.0] — 2026-05-22
 
