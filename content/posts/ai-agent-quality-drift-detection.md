@@ -11,7 +11,7 @@ tags:
   - Gravio
   - Engineering Management
 excerpt: Your AI outputs can look great this month and degrade next month without obvious failures. Here is why drift happens and how to detect it before it reaches production.
-featured_image:
+featured_image: /images/posts/ai-agent-quality-drift-detection.png
 focus_keyword: ai output quality drift
 seo_description: Learn the hidden causes of AI agent quality drift and a practical monitoring approach using recurring scans, trend signals, and release thresholds.
 image_prompt: A timeline dashboard with quality score trend lines bending downward then recovering, subtle warning markers and detection signals, sleek data-visualization style, teal and amber palette

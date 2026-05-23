@@ -11,7 +11,7 @@ tags:
   - Privacy
   - Code Quality
 excerpt: "Most AI quality platforms ask you to trust them with your source code. Gravio takes a different path: encrypted scoring designed to keep plaintext out of the server path."
-featured_image:
+featured_image: /images/posts/zero-knowledge-ai-quality-gravio.png
 focus_keyword: zero knowledge ai code quality
 seo_description: Learn how Gravio approaches privacy-first AI agent scoring with encrypted run data and why zero-knowledge architecture matters for teams handling sensitive code.
 image_prompt: A cinematic workstation scene with encrypted data streams flowing from local code editor into a secure cloud lock icon, neon blue and graphite palette, modern SaaS illustration style, high detail, no text overlay

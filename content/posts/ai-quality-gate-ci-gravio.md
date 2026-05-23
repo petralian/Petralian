@@ -11,7 +11,7 @@ tags:
   - Release Engineering
   - Gravio
 excerpt: Unit tests catch code failures. They do not always catch AI quality regressions. Here is how to add quality thresholds as a first-class release gate.
-featured_image:
+featured_image: /images/posts/ai-quality-gate-ci-gravio.png
 focus_keyword: ai quality gate ci
 seo_description: Implement AI quality thresholds in CI/CD with Gravio-style scoring so releases fail on meaningful regression signals, not only traditional test failures.
 image_prompt: A CI pipeline diagram where one stage is AI Quality Gate with pass/fail badges, code and model icons connected, clean enterprise infographic style, blue and orange contrast

@@ -11,7 +11,7 @@ tags:
   - AI Agents
   - Developer Experience
 excerpt: A practical, no-fluff walkthrough for getting Gravio running from a clean folder to your first quality score, including the exact command flow and common mistakes.
-featured_image:
+featured_image: /images/posts/first-gravio-score-in-10-minutes.png
 focus_keyword: gravio setup guide
 seo_description: Follow a step-by-step Gravio onboarding guide from zero setup to first AI quality score in about 10 minutes, with troubleshooting tips for common friction points.
 image_prompt: A clean developer desktop with terminal commands and checklist steps floating as UI cards, bright neutral lighting, modern technical illustration, subtle green success accents, no text
