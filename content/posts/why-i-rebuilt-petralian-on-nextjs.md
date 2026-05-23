@@ -1,20 +1,23 @@
-﻿---
-title: "Why I Rebuilt Petralian on Next.js (And Open Sourced It)"
+---
+seo_description: 'I rebuilt petralian.com from WordPress to Next.js to unblock a writing workflow centered on Obsidian. Here''s what I built, why Vercel and Tina CMS made it practical, and why the whole framework is now open source.'
+title: Why I Rebuilt Petralian on Next.js (And Open Sourced It)
 slug: why-i-rebuilt-petralian-on-nextjs
-date: 2026-05-23
+date: 2026-05-23T00:00:00.000Z
 status: published
 category: AI & Technology
-tags: ["Next.js", "Obsidian", "Developer Tools", "Writing"]
-excerpt: "WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com on Next.js, how Obsidian now sits at the center of my publishing workflow, and why I decided to open source the whole thing."
+tags:
+  - Next.js
+  - Obsidian
+  - Developer Tools
+  - Writing
+excerpt: 'WordPress was slowing down the actual writing. Here''s why I rebuilt petralian.com on Next.js, how Obsidian now sits at the center of my publishing workflow, and why I decided to open source the whole thing.'
 featured_image: /images/posts/why-i-rebuilt-petralian-hero.png
 focus_keyword: rebuild petralian wordpress nextjs obsidian
-seo_description: "I rebuilt petralian.com from WordPress to Next.js to unblock a writing workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS made it practical, and why the whole framework is now open source."
 ---
-There's a version of this article where I lead with the tech stack. I'm not going to do that, because the tech stack was never the point.
 
-The point was that I wanted to write more — and WordPress was making that harder than it needed to be.
+There's a version of this article where I lead with the tech stack. I'm not going to do that, because the tech stack is not the point. The point was that I wanted to write more — and WordPress is making that harder than it needs to be for me.
 
----
+***
 
 ## The Real Problem Was the Workflow
 
@@ -28,7 +31,7 @@ I found myself writing less — not because I had less to say, but because the p
 
 That's the problem I set out to fix.
 
----
+***
 
 ## What I Actually Built
 
@@ -38,7 +41,7 @@ The Obsidian workflow is now a PowerShell script — `sync-obsidian.ps1` — tha
 
 That's the gap closed.
 
----
+***
 
 ## Obsidian as a Publishing Layer
 
@@ -50,7 +53,7 @@ This means my entire content pipeline — from first sentence to live site — l
 
 The writing experience didn't change. I still write in Obsidian. The only thing that changed is what happens next.
 
----
+***
 
 ## Why Vercel Made This Practical
 
@@ -60,7 +63,7 @@ I connect the GitHub repo, set the root directory, and Vercel handles the rest. 
 
 For a personal site where I want to write, not operate infrastructure, this matters. The operational overhead of a WordPress site — plugin updates, security patches, PHP version compatibility, caching plugin conflicts — was background noise I was tired of managing. Static generation on Vercel is genuinely lower maintenance.
 
----
+***
 
 ## The Design System
 
@@ -70,7 +73,7 @@ The PostCard component uses a 16:9 image-led layout with category pill, date, ti
 
 The result is fast, accessible, and visually coherent without requiring a page builder or a separate design tool to maintain it.
 
----
+***
 
 ## Tina CMS — For When You're Not at the Terminal
 
@@ -80,7 +83,7 @@ I'm comfortable writing in Obsidian and pushing from the command line, but I wan
 
 For now it's an option rather than the default workflow. But it means the architecture supports non-technical contributors without abandoning the simplicity of file-based content.
 
----
+***
 
 ## The Decision to Open Source It
 
@@ -90,17 +93,17 @@ So I built it myself. And then it occurred to me that other people writing in Ob
 
 The full repository is [open source on GitHub](https://github.com/petralian/petralian). If you want a site that:
 
-- Publishes from Obsidian with a script
-- Deploys to Vercel on push
-- Has a design system you can actually read on
-- Uses Tina CMS for visual editing when you need it
-- Is entirely file-based with no database dependency
+* Publishes from Obsidian with a script
+* Deploys to Vercel on push
+* Has a design system you can actually read on
+* Uses Tina CMS for visual editing when you need it
+* Is entirely file-based with no database dependency
 
 Fork it. Adapt it. Change the colors and the fonts and the author bio and ship your own version.
 
 The best outcome from building this would be someone else not spending six months stuck on WordPress when they should be writing.
 
----
+***
 
 ## What I'd Tell Anyone Considering This
 
