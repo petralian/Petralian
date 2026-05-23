@@ -34,13 +34,22 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="site-logo" aria-label="Petralian — home">
           <Image
-            src="https://petralian.com/wp-content/uploads/petralian-logo-v9-1.png"
+            src="/images/posts/petralian_blue.png"
             alt="Petralian"
-            width={160}
-            height={40}
+            width={3450}
+            height={503}
             priority
-            className="site-logo-img"
-            style={{ height: "auto" }}
+            className="site-logo-img site-logo-light"
+            style={{ height: "36px", width: "auto" }}
+          />
+          <Image
+            src="/images/posts/petralian_white.png"
+            alt="Petralian"
+            width={1702}
+            height={247}
+            priority
+            className="site-logo-img site-logo-dark"
+            style={{ height: "36px", width: "auto" }}
           />
         </Link>
 
