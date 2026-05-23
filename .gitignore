@@ -45,11 +45,16 @@ debug.log
 wp-content/mu-plugins/
 *.tmp.php
 
+# ── Next.js ───────────────────────────────────────────────────────────────────
+.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel
+tina/__generated__
+/public/admin
+
 # Debug/test artifacts
-node_modules/
-package.json
-package-lock.json
 *.zip
-*.html
 scripts_*.txt
 

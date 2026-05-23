@@ -19,8 +19,8 @@ $ErrorActionPreference = "Stop"
 
 $obsidianReady  = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
 $obsidianVault  = "D:\Obsidian\Obsidian\40_VSCode\Petralian"
-$sitePosts      = "$PSScriptRoot\..\site\content\posts"
-$siteImages     = "$PSScriptRoot\..\site\public\images\posts"
+$sitePosts      = "$PSScriptRoot\..\content\posts"
+$siteImages     = "$PSScriptRoot\..\public\images\posts"
 $repo           = "$PSScriptRoot\.."
 
 $imageExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.avif')

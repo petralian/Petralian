@@ -16,7 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Font: SF Pro Text / Inter, base size 15px (slightly smaller, cleaner)
 - Content: Markdown files with gray-matter frontmatter (no database)
 - Publish workflow: Obsidian → `scripts/sync-obsidian.ps1` → Vercel
-- Deploy: Vercel (root directory `site/`), auto-deploy on push to `master`
+- Deploy: Vercel (root directory: repo root), auto-deploy on push to `master`
 - Repo: clean open-source release — single commit, zero WordPress history
 
 ### Added

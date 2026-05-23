@@ -70,24 +70,23 @@ Every chat session **must** follow this loop — no exceptions:
 
 | Concern | Path |
 |---|---|
-| Next.js site | `site/` |
-| Pages | `site/src/app/` |
-| Components | `site/src/components/` |
-| Styles | `site/src/app/globals.css` |
-| Content | `site/content/posts/` |
-| Site config | `site/src/lib/constants.ts` |
-| Post utils | `site/src/lib/posts.ts` |
+| Pages | `src/app/` |
+| Components | `src/components/` |
+| Styles | `src/app/globals.css` |
+| Content | `content/posts/` |
+| Site config | `src/lib/constants.ts` |
+| Post utils | `src/lib/posts.ts` |
 | Publish script | `scripts/sync-obsidian.ps1` |
 | Blog drafts (Obsidian) | `D:\Obsidian\...\Blog\` |
 
 ## Next.js Development Rules
 
-1. **App Router only** — all pages in `site/src/app/`. No pages router.
+1. **App Router only** — all pages in `src/app/`. No pages router.
 2. **Server components by default** — only `'use client'` when strictly needed (interactivity, browser APIs, hooks).
 3. **TypeScript** — all files `.ts` or `.tsx`. No `any` without justification.
 4. **Tailwind CSS v4 (CSS-first)** — config lives in `globals.css` under `@theme`. No `tailwind.config.js`.
 5. **JSX escaping** — apostrophes must be `&apos;`, quotes `&quot;` in JSX text. Never raw `'` or `"`.
-6. **No hardcoded URLs** — use `SITE_URL`, `SOCIAL_LINKS` from `site/src/lib/constants.ts`.
+6. **No hardcoded URLs** — use `SITE_URL`, `SOCIAL_LINKS` from `src/lib/constants.ts`.
 7. **Content visibility** — `getAllPosts()` filters by `status === 'published'`. Always set `status: published` in frontmatter before publishing.
 8. **Images** — use `next/image`. Remote domains must be in `next.config.ts` `remotePatterns`.
 9. **Metadata** — every page must export `metadata` with `title` and `description`.
@@ -97,11 +96,9 @@ Every chat session **must** follow this loop — no exceptions:
 
 ```powershell
 # Start local dev server
-cd site
 npm run dev
 
 # Build (verify before deploying)
-cd site
 npm run build
 
 # Publish article from Obsidian to site
@@ -113,14 +110,14 @@ npm run build
 
 ## Deploy
 
-Vercel auto-deploys on every push to `master`. Root directory: `site/`.
+Vercel auto-deploys on every push to `master`. Root directory: repo root (no subdirectory).
 
 - Push to GitHub → Vercel builds in ~30 seconds → live at https://petralian.com
-- Always run `cd site && npm run build` locally to verify before pushing.
+- Always run `npm run build` locally to verify before pushing.
 
 ## Test Baseline
 
-- No automated test suite. Test = `cd site && npm run build` passes (zero TypeScript/Next.js errors) + manual verify at http://localhost:3000.
+- No automated test suite. Test = `npm run build` passes (zero TypeScript/Next.js errors) + manual verify at http://localhost:3000.
 - When a test suite is added, update this section with baseline count.
 
 ---
