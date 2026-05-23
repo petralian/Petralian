@@ -47,6 +47,7 @@ export default function Header() {
             width={3450}
             height={503}
             priority
+            sizes="247px"
             className="site-logo-img site-logo-light"
           />
           <Image
@@ -54,7 +55,7 @@ export default function Header() {
             alt="Petralian"
             width={1702}
             height={247}
-            priority
+            sizes="247px"
             className="site-logo-img site-logo-dark"
           />
         </Link>

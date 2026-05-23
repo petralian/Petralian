@@ -24,13 +24,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   images: {
-    // Allow featured images served from the old WP uploads CDN during migration
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "petralian.com",
-        pathname: "/wp-content/uploads/**",
-      },
       {
         protocol: "https",
         hostname: "ghchart.rshah.org",

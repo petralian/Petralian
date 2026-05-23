@@ -99,7 +99,7 @@ export default function AboutPage() {
           {/* Right: photo */}
           <div className="about-hero-photo-wrap">
             <Image
-              src="https://petralian.com/wp-content/uploads/2024/12/DSC01892-980x655.jpg.webp"
+              src="/images/nathan-petralia-about.jpg"
               alt="Nathan Petralia"
               fill
               priority

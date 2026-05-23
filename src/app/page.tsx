@@ -43,7 +43,7 @@ export default function HomePage() {
           </div>
           <div className="home-intro-photo-wrap">
             <Image
-              src="https://petralian.com/wp-content/uploads/2025/01/IMG_9214-e1736070938203.jpg"
+              src="/images/nathan-petralia.jpg"
               alt="Nathan Petralia at HKU"
               fill
               priority
