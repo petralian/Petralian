@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Next.js", "Obsidian", "Developer Tools", "Writing"]
 excerpt: "WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com on Next.js, how Obsidian now sits at the center of my publishing workflow, and why I decided to open source the whole thing."
-featured_image: /images/posts/obsidian-second-brain-graph-view.jpg
+featured_image: /images/posts/why-i-rebuilt-petralian-hero.png
 focus_keyword: rebuild petralian wordpress nextjs obsidian
 seo_description: "I rebuilt petralian.com from WordPress to Next.js to unblock a writing workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS made it practical, and why the whole framework is now open source."
 ---
