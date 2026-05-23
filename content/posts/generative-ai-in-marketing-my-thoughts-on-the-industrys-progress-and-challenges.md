@@ -1,4 +1,4 @@
----
+﻿---
 title: "Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges"
 slug: generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
 date: 2024-05-25
@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/2024/05/Generative-AI-e1736080910554.jpeg"
+featured_image: "/images/posts/Generative-AI-e1736080910554.jpeg"
 seo_description: ""
 ---
 

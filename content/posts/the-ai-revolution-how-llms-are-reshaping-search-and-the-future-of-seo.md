@@ -1,4 +1,4 @@
----
+﻿---
 title: "The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO"
 slug: the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo
 date: 2025-04-09
@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Future of Search", "Enterprise AI", "Generative AI"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/0_2-e1744184382153.jpg"
+featured_image: "/images/posts/0_2-e1744184382153.jpg"
 seo_description: ""
 ---
 
@@ -18,7 +18,7 @@ The traditional model of search-typing a query and clicking through "blue links"
 
 This shift is more than theoretical. According to recent data from Similarweb, traffic to knowledge-based platforms like Stack Overflow has declined by nearly 14% since the widespread adoption of AI assistants began, indicating a clear change in user behavior patterns.
 
-![](https://petralian.com/wp-content/uploads/stackoverflow-3-months-traffic-1024x472.jpg)
+![](/images/posts/stackoverflow-3-months-traffic-1024x472.jpg)
 _Screenshot of https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/\*/999/3m?webSource=Total&key=stackoverflow.com_
 
 ## From SEO to AIO: The New Frontier

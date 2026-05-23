@@ -1,4 +1,4 @@
----
+﻿---
 title: "My Time at Merkle Hong Kong"
 slug: thank-you-merkle
 date: 2023-12-17
@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/2023/12/IMG_7630-scaled-e1736077900101.jpg"
+featured_image: "/images/posts/IMG_7630-scaled-e1736077900101.jpg"
 seo_description: ""
 ---
 

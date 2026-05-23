@@ -1,4 +1,4 @@
----
+﻿---
 title: "Bringing the Retail Mindset to Finance: How Personalization Can Transform Banking in APAC"
 slug: bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
 date: 2025-01-15
@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Digital Transformation", "APAC", "Customer Experience"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/Financial-advisor-engaging-with-a-customer-via-a-personalized-digital-banking-app-in-APAC-e1736950772132.jpg"
+featured_image: "/images/posts/Financial-advisor-engaging-with-a-customer-via-a-personalized-digital-banking-app-in-APAC-e1736950772132.jpg"
 seo_description: ""
 ---
 

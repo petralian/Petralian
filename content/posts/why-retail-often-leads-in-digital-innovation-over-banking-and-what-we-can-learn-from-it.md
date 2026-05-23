@@ -1,4 +1,4 @@
----
+﻿---
 title: "Why Retail Often Leads in Digital Innovation Over Banking (and What We Can Learn From It)"
 slug: why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
 date: 2025-01-20
@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Digital Transformation", "Ecommerce", "APAC"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/11553ff0aeb85ec5e80c911bca80c834a3b3fb0f83680398cc25e6175a5ca0ff-e1737371134564.jpg"
+featured_image: "/images/posts/11553ff0aeb85ec5e80c911bca80c834a3b3fb0f83680398cc25e6175a5ca0ff-e1737371134564.jpg"
 seo_description: ""
 ---
 

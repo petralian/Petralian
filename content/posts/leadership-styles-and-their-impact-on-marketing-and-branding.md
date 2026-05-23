@@ -1,4 +1,4 @@
----
+﻿---
 title: "Leadership Styles and Their Impact on Marketing and Branding"
 slug: leadership-styles-and-their-impact-on-marketing-and-branding
 date: 2025-02-26
@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "Brand Strategy"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/a_leader_standing_image-e1740547276706.jpeg"
+featured_image: "/images/posts/a_leader_standing_image-e1740547276706.jpeg"
 seo_description: ""
 ---
 

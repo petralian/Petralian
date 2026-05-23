@@ -1,4 +1,4 @@
----
+﻿---
 title: "The Ad Agency Holding Company Transformation: What 2026 Is Really Telling Us About the Future of Marketing"
 slug: the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
 date: 2026-04-16
@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Agency Landscape", "Digital Transformation", "AI in Marketing"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/fa31d351bdaa223160484eb59818b8e7efb040c594156f552b1d4998dc7a754a.jpg"
+featured_image: "/images/posts/fa31d351bdaa223160484eb59818b8e7efb040c594156f552b1d4998dc7a754a.jpg"
 seo_description: ""
 ---
 

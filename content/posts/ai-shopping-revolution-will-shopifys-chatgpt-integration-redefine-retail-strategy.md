@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI Shopping Revolution: Will Shopify&#8217;s ChatGPT Integration Redefine Retail Strategy?"
 slug: ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
 date: 2025-04-24
@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Ecommerce", "Agentic AI", "AI in Marketing"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/0_1-e1745491049250.jpg"
+featured_image: "/images/posts/0_1-e1745491049250.jpg"
 seo_description: ""
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Precision and the Right AI Tools"
 slug: mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
 date: 2025-03-19
@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["AI in Marketing", "Generative AI", "Marketing Technology"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/61ade0a299577fe287e93e30e632ac4dd058cabbd3f313ab3a67cc7121fca7ba-e1742363187423.jpg"
+featured_image: "/images/posts/61ade0a299577fe287e93e30e632ac4dd058cabbd3f313ab3a67cc7121fca7ba-e1742363187423.jpg"
 seo_description: ""
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Is using AI in creative work wrong?"
 slug: is-using-ai-in-creative-work-wrong
 date: 2025-05-29
@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/0_1-e1745491049250.jpg"
+featured_image: "/images/posts/0_1-e1745491049250.jpg"
 seo_description: ""
 ---
 

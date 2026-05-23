@@ -1,4 +1,4 @@
----
+﻿---
 title: "Marketing 101: Fundamental Principles for Sustainable Business Growth"
 slug: marketing-101-fundamental-principles-for-sustainable-business-growth
 date: 2025-04-04
@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Marketing Technology", "Brand Strategy", "Customer Experience"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/a5ae8a1efc23f944b3c38d347c34360548baf8b1fd47eef6f2cc056cdae886c9-e1744168494724.jpg"
+featured_image: "/images/posts/a5ae8a1efc23f944b3c38d347c34360548baf8b1fd47eef6f2cc056cdae886c9-e1744168494724.jpg"
 seo_description: ""
 ---
 

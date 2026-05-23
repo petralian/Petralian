@@ -1,4 +1,4 @@
----
+﻿---
 title: "Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC"
 slug: redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
 date: 2025-06-16
@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC", "Enterprise AI"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/59fe562fdd5ed97ee66d729879f6a37dd35781695d188ae97d131a26dddda102.jpg"
+featured_image: "/images/posts/59fe562fdd5ed97ee66d729879f6a37dd35781695d188ae97d131a26dddda102.jpg"
 seo_description: ""
 ---
 

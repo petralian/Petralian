@@ -1,4 +1,4 @@
----
+﻿---
 title: "How Fractional Marketing Can Revolutionize Startups and Small Businesses"
 slug: fractional-marketing-revolutionize-startups-small-businesses
 date: 2025-02-05
@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Marketing Technology", "Leadership", "Agency Landscape"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/fractional-cmo-e1738764955900.jpeg"
+featured_image: "/images/posts/fractional-cmo-e1738764955900.jpeg"
 seo_description: ""
 ---
 

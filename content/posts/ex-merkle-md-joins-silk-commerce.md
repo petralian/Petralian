@@ -1,4 +1,4 @@
----
+﻿---
 title: "Reflecting on My 5-Month Engagement with Silk Commerce"
 slug: ex-merkle-md-joins-silk-commerce
 date: 2024-07-23
@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/2024/03/IMG_4099-scaled.jpg"
+featured_image: "/images/posts/IMG_4099-scaled.jpg"
 seo_description: ""
 ---
 

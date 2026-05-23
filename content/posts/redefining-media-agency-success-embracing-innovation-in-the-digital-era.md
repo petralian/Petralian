@@ -1,4 +1,4 @@
----
+﻿---
 title: "Redefining Media Agency Success: Embracing Innovation in the Digital Era"
 slug: redefining-media-agency-success-embracing-innovation-in-the-digital-era
 date: 2025-05-12
@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Agency Landscape", "AI in Marketing", "Digital Transformation"]
 excerpt: ""
-featured_image: "https://petralian.com/wp-content/uploads/052eb9991557d9d6e68451840192f29d38b32a284ef5c1e537c0c93934830a9b-e1747138638190.jpg"
+featured_image: "/images/posts/052eb9991557d9d6e68451840192f29d38b32a284ef5c1e537c0c93934830a9b-e1747138638190.jpg"
 seo_description: ""
 ---
 
