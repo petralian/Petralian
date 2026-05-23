@@ -10,6 +10,29 @@ interface SubscribeBody {
     company?: string;
 }
 
+class ProviderError extends Error {
+    provider: string;
+    status: number;
+    details: string;
+
+    constructor(provider: string, status: number, details: string) {
+        super(`${provider} subscribe failed: ${status}`);
+        this.provider = provider;
+        this.status = status;
+        this.details = details;
+    }
+}
+
+function toDetails(text: string): string {
+    const value = text.trim();
+    if (!value) return "No response body";
+    return value.slice(0, 600);
+}
+
+function isDebugMode(): boolean {
+    return process.env.NEWSLETTER_DEBUG === "1" || process.env.NODE_ENV !== "production";
+}
+
 function getClientIp(req: Request): string {
     const header = req.headers.get("x-forwarded-for") || "";
     const first = header.split(",")[0]?.trim();
@@ -52,7 +75,8 @@ async function subscribeWithKit(name: string, email: string): Promise<void> {
     });
 
     if (!response.ok) {
-        throw new Error(`Kit subscribe failed: ${response.status}`);
+        const details = toDetails(await response.text());
+        throw new ProviderError("kit", response.status, details);
     }
 }
 
@@ -79,7 +103,8 @@ async function subscribeWithButtondown(name: string, email: string): Promise<voi
     });
 
     if (!response.ok && response.status !== 409) {
-        throw new Error(`Buttondown subscribe failed: ${response.status}`);
+        const details = toDetails(await response.text());
+        throw new ProviderError("buttondown", response.status, details);
     }
 }
 
@@ -119,7 +144,8 @@ async function subscribeWithBrevo(name: string, email: string): Promise<void> {
     });
 
     if (!response.ok) {
-        throw new Error(`Brevo subscribe failed: ${response.status}`);
+        const details = toDetails(await response.text());
+        throw new ProviderError("brevo", response.status, details);
     }
 }
 
@@ -179,11 +205,34 @@ export async function POST(req: Request): Promise<Response> {
 
         return NextResponse.json({ ok: true });
     } catch (error) {
-        console.error("Subscribe error", error);
+        const ref = `sub_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+
+        if (error instanceof ProviderError) {
+            console.error("Subscribe provider error", {
+                ref,
+                provider: error.provider,
+                status: error.status,
+                details: error.details,
+            });
+
+            if (isDebugMode()) {
+                return NextResponse.json(
+                    {
+                        ok: false,
+                        message: `Subscribe failed (${error.provider} ${error.status}): ${error.details}`,
+                        ref,
+                    },
+                    { status: 502 }
+                );
+            }
+        } else {
+            console.error("Subscribe unknown error", { ref, error });
+        }
+
         return NextResponse.json(
             {
                 ok: false,
-                message: "Could not subscribe right now. Please try again in a minute.",
+                message: `Could not subscribe right now. Please try again in a minute. (Ref: ${ref})`,
             },
             { status: 502 }
         );
