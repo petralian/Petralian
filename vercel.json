@@ -1,5 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --ignore-scripts",
-  "outputDirectory": "site/.next"
+  "buildCommand": "cd site && npm run build",
+  "installCommand": "cd site && npm install --ignore-scripts"
 }
