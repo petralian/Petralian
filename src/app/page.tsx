@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
+import { SITE_TAGLINE } from "@/lib/constants";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -11,10 +12,10 @@ export default function HomePage() {
     <div className="page-container">
       {/* Hero */}
       <section className="hero">
-        <p className="hero-eyebrow">Connecting Business and Digital Transformation</p>
         <h1 className="hero-title">
           Technology, Transformation, and the People Navigating Both
         </h1>
+        <p className="hero-tagline">{SITE_TAGLINE}</p>
       </section>
 
       {/* Intro strip */}
