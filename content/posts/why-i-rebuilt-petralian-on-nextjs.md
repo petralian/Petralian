@@ -5,10 +5,10 @@ date: 2026-05-23
 status: published
 category: AI & Technology
 tags: ["Next.js", "Obsidian", "Developer Tools", "Writing"]
-excerpt: "WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com on Next.js, how Obsidian now sits at the centre of my publishing workflow, and why I decided to open source the whole thing."
+excerpt: "WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com on Next.js, how Obsidian now sits at the center of my publishing workflow, and why I decided to open source the whole thing."
 featured_image: /images/posts/obsidian-second-brain-graph-view.jpg
 focus_keyword: rebuild petralian wordpress nextjs obsidian
-seo_description: "I rebuilt petralian.com from WordPress to Next.js to unblock a writing workflow centred on Obsidian. Here's what I built, why Vercel and Tina CMS made it practical, and why the whole framework is now open source."
+seo_description: "I rebuilt petralian.com from WordPress to Next.js to unblock a writing workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS made it practical, and why the whole framework is now open source."
 ---
 There's a version of this article where I lead with the tech stack. I'm not going to do that, because the tech stack was never the point.
 
@@ -32,7 +32,7 @@ That's the problem I set out to fix.
 
 ## What I Actually Built
 
-The new petralian.com runs on [Next.js 15](https://nextjs.org/) with the App Router, TypeScript throughout, and [Tailwind CSS v4](https://tailwindcss.com/) using its CSS-first config model. It's deployed on [Vercel](https://vercel.com/) with a push-to-deploy pipeline on `master`. Every article is a Markdown file in a `content/posts/` folder inside the repo.
+The new petralian.com runs on [Next.js 16](https://nextjs.org/) with the App Router, TypeScript throughout, and [Tailwind CSS v4](https://tailwindcss.com/) using its CSS-first config model. It's deployed on [Vercel](https://vercel.com/) with a push-to-deploy pipeline on `master`. Every article is a Markdown file in a `content/posts/` folder inside the repo.
 
 The Obsidian workflow is now a PowerShell script — `sync-obsidian.ps1` — that reads a post draft from my vault, strips author-only scaffolding, applies a few transformations, drops the file into the repo, and commits. I can run it with a `-DryRun` flag to preview without writing anything. Publishing an article is now two commands and a push.
 
@@ -56,7 +56,7 @@ The writing experience didn't change. I still write in Obsidian. The only thing 
 
 Deploying a Next.js site used to mean managing a Node.js server, thinking about build caches, and worrying about memory at peak traffic. Vercel removes all of that.
 
-I connect the GitHub repo, set the root directory, and Vercel handles the rest. Every push to `master` triggers a build in roughly 30 seconds. Edge caching, image optimisation via `next/image`, and automatic HTTPS are all default. There's nothing to maintain.
+I connect the GitHub repo, set the root directory, and Vercel handles the rest. Every push to `master` triggers a build in roughly 30 seconds. Edge caching, image optimization via `next/image`, and automatic HTTPS are all default. There's nothing to maintain.
 
 For a personal site where I want to write, not operate infrastructure, this matters. The operational overhead of a WordPress site — plugin updates, security patches, PHP version compatibility, caching plugin conflicts — was background noise I was tired of managing. Static generation on Vercel is genuinely lower maintenance.
 
@@ -96,7 +96,7 @@ The full repository is [open source on GitHub](https://github.com/nathanpetralia
 - Uses Tina CMS for visual editing when you need it
 - Is entirely file-based with no database dependency
 
-Fork it. Adapt it. Change the colours and the fonts and the author bio and ship your own version.
+Fork it. Adapt it. Change the colors and the fonts and the author bio and ship your own version.
 
 The best outcome from building this would be someone else not spending six months stuck on WordPress when they should be writing.
 

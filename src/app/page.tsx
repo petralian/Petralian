@@ -46,6 +46,7 @@ export default function HomePage() {
               src="https://petralian.com/wp-content/uploads/2025/01/IMG_9214-e1736070938203.jpg"
               alt="Nathan Petralia at HKU"
               fill
+              priority
               className="home-intro-photo"
               sizes="(max-width: 768px) 100vw, 420px"
             />

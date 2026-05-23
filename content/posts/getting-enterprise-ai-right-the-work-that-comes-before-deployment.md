@@ -1,10 +1,10 @@
----
+﻿---
 title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-05-21
 status: draft
 category: AI & Technology
-tags: ["Enterprise AI", "Digital Transformation", "Programme Delivery"]
+tags: ["Enterprise AI", "Digital Transformation", "Program Delivery"]
 excerpt: "The organizations that get the most sustained value from enterprise AI share one pattern. They build the foundation before they build the model."
 focus_keyword: enterprise AI program
 seo_title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"

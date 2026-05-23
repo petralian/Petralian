@@ -1,10 +1,10 @@
----
+﻿---
 title: "What the Next Generation of Delivery Leadership May Look Like"
 slug: what-the-next-generation-of-delivery-leadership-may-look-like
 date: 2026-05-21
 status: draft
 category: Leadership
-tags: ["Leadership", "Programme Delivery", "Enterprise AI"]
+tags: ["Leadership", "Program Delivery", "Enterprise AI"]
 excerpt: "Two forces are reshaping what it means to lead delivery programs. The transition is largely positive - for the people moving toward it."
 focus_keyword: delivery leadership AI era
 seo_title: "What the Next Generation of Delivery Leadership May Look Like"

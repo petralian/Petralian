@@ -59,7 +59,7 @@ Every chat session **must** follow this loop — no exceptions:
 ## Project Identity
 
 - **Site:** petralian.com — personal website + writing on enterprise AI and transformation
-- **Stack:** Next.js 15 · TypeScript · Tailwind CSS v4 · Markdown · Vercel
+- **Stack:** Next.js 16 · TypeScript · Tailwind CSS v4 · Markdown · Vercel
 - **Repo:** `D:\VS Code Projects\Petralian`
 - **Local URL:** http://localhost:3000
 - **Live URL:** https://petralian.com (Vercel, auto-deploy from `master`)
@@ -85,8 +85,7 @@ Every chat session **must** follow this loop — no exceptions:
 2. **Server components by default** — only `'use client'` when strictly needed (interactivity, browser APIs, hooks).
 3. **TypeScript** — all files `.ts` or `.tsx`. No `any` without justification.
 4. **Tailwind CSS v4 (CSS-first)** — config lives in `globals.css` under `@theme`. No `tailwind.config.js`.
-5. **JSX escaping** — apostrophes must be `&apos;`, quotes `&quot;` in JSX text. Never raw `'` or `"`.
-6. **No hardcoded URLs** — use `SITE_URL`, `SOCIAL_LINKS` from `src/lib/constants.ts`.
+5. **JSX escaping** — apostrophes must be `&apos;`, quotes `&quot;` in JSX text. Never raw `'` or `"`.7. **American English** — all prose, UI copy, and article content uses American English spelling. Never British spellings (organisation→organization, colour→color, whilst→while, programme→program, etc.).6. **No hardcoded URLs** — use `SITE_URL`, `SOCIAL_LINKS` from `src/lib/constants.ts`.
 7. **Content visibility** — `getAllPosts()` filters by `status === 'published'`. Always set `status: published` in frontmatter before publishing.
 8. **Images** — use `next/image`. Remote domains must be in `next.config.ts` `remotePatterns`.
 9. **Metadata** — every page must export `metadata` with `title` and `description`.

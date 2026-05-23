@@ -1,10 +1,10 @@
----
+﻿---
 title: "What I Learned Directing AI as My Primary Engineer"
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-05-21
 status: draft
 category: AI & Technology
-tags: ["Enterprise AI", "Agentic AI", "Programme Delivery"]
+tags: ["Enterprise AI", "Agentic AI", "Program Delivery"]
 excerpt: "I built two software products with AI as the primary engineer. Not as an assistant to a team - as the team. Here's the leadership account of what I actually learned."
 focus_keyword: directing AI as primary engineer
 seo_title: "What I Learned Directing AI as My Primary Engineer"
@@ -55,7 +55,7 @@ The transition to production quality is where the operating model matters most.
 
 What made the difference in my builds was not the model selection. It was the context infrastructure - the external memory, the decision documentation, the architectural governance ensuring the AI was always working with an accurate picture of the whole system.
 
-> **90% more fulfilled, 84% increase in successful builds** - In GitHub's enterprise study with Accenture, 90% of developers felt more fulfilled at work using Copilot, 95% enjoyed coding more, and successful CI builds increased 84%. The quality gains are real - but they depend on the operating model around the tool, not the tool alone. [4]
+> **90% more fulfillllled, 84% increase in successful builds** - In GitHub's enterprise study with Accenture, 90% of developers felt more fulfillllled at work using Copilot, 95% enjoyed coding more, and successful CI builds increased 84%. The quality gains are real - but they depend on the operating model around the tool, not the tool alone. [4]
 
 Stanford HAI's 2026 AI Index confirms that AI coding productivity gains vary significantly with complexity and context [3]. Simple, well-specified tasks: excellent. Complex, context-dependent work in a mature codebase: reliable only with proper context management in place.
 
