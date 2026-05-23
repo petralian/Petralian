@@ -7,6 +7,8 @@ type FormState = "idle" | "submitting" | "success" | "error";
 export default function SubscribeBox() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [state, setState] = useState<FormState>("idle");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -14,27 +16,36 @@ export default function SubscribeBox() {
     if (!email.trim()) return;
 
     setState("submitting");
-
-    const endpoint = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT;
-    if (!endpoint) {
-      // No endpoint configured — open a mailto as fallback
-      window.location.href = `mailto:nathan@petralian.com?subject=Subscribe&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}`;
-      setState("success");
-      return;
-    }
+    setErrorMessage("");
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          company: company.trim(),
+        }),
       });
+
+      const data = (await res.json().catch(() => null)) as
+        | { message?: string }
+        | null;
+
       if (res.ok) {
         setState("success");
       } else {
+        setErrorMessage(
+          data?.message ||
+          "Could not subscribe right now. Try again in a minute, or email me directly at nathan@petralian.com."
+        );
         setState("error");
       }
     } catch {
+      setErrorMessage(
+        "Could not subscribe right now. Try again in a minute, or email me directly at nathan@petralian.com."
+      );
       setState("error");
     }
   }
@@ -43,7 +54,7 @@ export default function SubscribeBox() {
     return (
       <div className="subscribe-box">
         <p className="subscribe-confirm">
-          You&apos;re in. New posts will land in your inbox when they&apos;re worth reading.
+          You&apos;re in. Weekly digest, only when there&apos;s something worth reading. Unsubscribe anytime.
         </p>
       </div>
     );
@@ -56,6 +67,15 @@ export default function SubscribeBox() {
         New posts in your inbox when they&apos;re worth saying.
       </p>
       <form onSubmit={handleSubmit} className="subscribe-form" noValidate>
+        <input
+          type="text"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          autoComplete="off"
+          tabIndex={-1}
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px" }}
+        />
         <input
           type="text"
           placeholder="First name"
@@ -82,9 +102,9 @@ export default function SubscribeBox() {
         </button>
       </form>
       {state === "error" && (
-        <p className="subscribe-error">Something went wrong. Try emailing me directly: nathan@petralian.com</p>
+        <p className="subscribe-error">{errorMessage}</p>
       )}
-      <p className="subscribe-note">No cadence. No fluff. Just new posts.</p>
+      <p className="subscribe-note">Weekly digest. No fluff. Unsubscribe anytime.</p>
     </div>
   );
 }
