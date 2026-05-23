@@ -4,6 +4,12 @@ import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
 import homeContent from "../../content/pages/home.json";
 
+function splitIntoColumns<T>(items: T[], numCols: number): T[][] {
+  const cols: T[][] = Array.from({ length: numCols }, () => []);
+  items.forEach((item, i) => cols[i % numCols].push(item));
+  return cols;
+}
+
 export default function HomePage() {
   const posts = getAllPosts();
   const recent = posts.slice(0, 9);
@@ -52,8 +58,12 @@ export default function HomePage() {
         <section>
           <p className="section-heading">Latest Writing</p>
           <div className="masonry-grid">
-            {recent.map((post) => (
-              <PostCard key={post.slug} post={post} />
+            {splitIntoColumns(recent, 3).map((col, ci) => (
+              <div key={ci} className="masonry-col">
+                {col.map((post) => (
+                  <PostCard key={post.slug} post={post} />
+                ))}
+              </div>
             ))}
           </div>
         </section>

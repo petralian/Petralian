@@ -11,18 +11,12 @@ interface BlogFiltersProps {
     initialTag?: string;
 }
 
-/** Reorder array so CSS column-count fills produce left-to-right visual order */
-function reorderForMasonry<T>(items: T[], numCols: number): T[] {
-    if (numCols <= 1) return items;
-    const rows = Math.ceil(items.length / numCols);
-    const result: T[] = [];
-    for (let col = 0; col < numCols; col++) {
-        for (let row = 0; row < rows; row++) {
-            const idx = row * numCols + col;
-            if (idx < items.length) result.push(items[idx]);
-        }
-    }
-    return result;
+/** Split items into N columns for left-to-right masonry reading order */
+function splitIntoColumns<T>(items: T[], numCols: number): T[][] {
+    if (numCols <= 1) return [items];
+    const cols: T[][] = Array.from({ length: numCols }, () => []);
+    items.forEach((item, i) => cols[i % numCols].push(item));
+    return cols;
 }
 
 export default function BlogFilters({
@@ -86,8 +80,8 @@ export default function BlogFilters({
         });
     }, [posts, search, activeCategory, activeTag]);
 
-    const orderedPosts = useMemo(
-        () => reorderForMasonry(filtered, cols),
+    const columns = useMemo(
+        () => splitIntoColumns(filtered, cols),
         [filtered, cols]
     );
 
@@ -151,8 +145,12 @@ export default function BlogFilters({
                 <p className="blog-empty">No articles match your search.</p>
             ) : (
                 <div className="masonry-grid">
-                    {orderedPosts.map((post) => (
-                        <PostCard key={post.slug} post={post} />
+                    {columns.map((col, ci) => (
+                        <div key={ci} className="masonry-col">
+                            {col.map((post) => (
+                                <PostCard key={post.slug} post={post} />
+                            ))}
+                        </div>
                     ))}
                 </div>
             )}
