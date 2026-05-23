@@ -67,9 +67,18 @@ export default function AboutPage() {
             <p className="about-hero-tagline">{aboutContent.hero_tagline}</p>
 
             <div className="about-hero-bio">
-              {aboutContent.bio_paragraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+              {aboutContent.bio_paragraphs.flatMap((para, i) =>
+                para.split("\n\n").map((block, j) => (
+                  <p key={`${i}-${j}`}>
+                    {block.split("\n").map((line, k, arr) => (
+                      <span key={k}>
+                        {line}
+                        {k < arr.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                ))
+              )}
             </div>
 
             <div className="about-hero-links">
