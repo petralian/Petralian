@@ -1,10 +1,9 @@
 # ── Obsidian → Site Sync ─────────────────────────────────────────────────────
-# Copies articles from Obsidian's "02 Ready to publish" folder into the
-# site's content/posts directory, sets status to published, and pushes to git.
-#
-# Also copies referenced images to site/public/images/posts/ and rewrites
-# both Obsidian wiki-link syntax (![[image.png]]) and relative image paths
-# to absolute /images/posts/ paths the Next.js site can serve.
+# Bidirectional sync between Obsidian and content/posts:
+#   PUBLISH   — copies articles from "02 Ready to publish" into content/posts,
+#               sets status: published, resolves images from Attachments/.
+#   UNPUBLISH — removes any content/posts file whose slug does not exist in
+#               either "02 Ready to publish" OR "03 Published".
 #
 # Usage:
 #   .\scripts\sync-obsidian.ps1              # sync + commit + push
@@ -18,6 +17,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $obsidianReady = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
+$obsidianPublished = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\03 Published"
 $obsidianVault = "D:\Obsidian\Obsidian\40_VSCode\Petralian"
 $sitePosts = "$PSScriptRoot\..\content\posts"
 $siteImages = "$PSScriptRoot\..\public\images\posts"
@@ -35,23 +35,37 @@ if (-not $DryRun -and -not (Test-Path $siteImages)) {
   New-Item -ItemType Directory -Path $siteImages -Force | Out-Null
 }
 
-# ── Locate an image file anywhere under the vault ──────────────────────────
+# ── Extract slug from a markdown file (frontmatter slug: or filename fallback)
+function Get-FileSlug {
+  param([string]$filePath)
+  $raw = Get-Content $filePath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+  if ($raw -match '(?m)^slug:\s*(.+)$') {
+    return $matches[1].Trim().Trim('"').Trim("'")
+  }
+  $base = [System.IO.Path]::GetFileNameWithoutExtension($filePath)
+  return ($base -replace '[^a-zA-Z0-9]+', '-' -replace '^-|-$', '').ToLower()
+}
+
+# ── Locate an image file anywhere under the vault ────────────────────────────
 function Find-VaultImage {
   param([string]$filename, [string]$articleFolder)
-  # 1. Same folder as the article
+  # 1. Attachments subfolder (Obsidian default for "In subfolder under current folder")
+  $candidate = Join-Path $articleFolder "Attachments" $filename
+  if (Test-Path $candidate) { return $candidate }
+  # 2. Same folder as the article
   $candidate = Join-Path $articleFolder $filename
   if (Test-Path $candidate) { return $candidate }
-  # 2. Sibling assets / attachments folder
+  # 3. Other common sibling subfolder names
   foreach ($sub in @('assets', 'attachments', 'images')) {
     $candidate = Join-Path $articleFolder $sub $filename
     if (Test-Path $candidate) { return $candidate }
   }
-  # 3. Vault-level attachments folder
-  foreach ($sub in @('assets', 'attachments', 'images')) {
+  # 4. Vault-level Attachments / assets folder
+  foreach ($sub in @('Attachments', 'assets', 'attachments', 'images')) {
     $candidate = Join-Path $obsidianVault $sub $filename
     if (Test-Path $candidate) { return $candidate }
   }
-  # 4. Recursive vault search (slower, last resort)
+  # 5. Recursive vault search (slower, last resort)
   $found = Get-ChildItem -Path $obsidianVault -Recurse -Filter $filename -ErrorAction SilentlyContinue | Select-Object -First 1
   if ($found) { return $found.FullName }
   return $null
@@ -133,27 +147,43 @@ function Resolve-Images {
   return $content
 }
 
-$files = Get-ChildItem -Path $obsidianReady -Filter "*.md"
+# ── Build set of slugs authorised to be in content/posts/ ───────────────────
+Write-Host ""
+Write-Host "Scanning authorised slugs..." -ForegroundColor White
 
-if ($files.Count -eq 0) {
-  Write-Host "Nothing in '02 Ready to publish' - done." -ForegroundColor Yellow
-  exit 0
+$authorisedSlugs = @{}
+foreach ($folder in @($obsidianReady, $obsidianPublished)) {
+  if (-not (Test-Path $folder)) { continue }
+  Get-ChildItem -Path $folder -Filter "*.md" | ForEach-Object {
+    $slug = Get-FileSlug $_.FullName
+    $authorisedSlugs[$slug] = $true
+  }
 }
 
+# ── Unpublish: remove content/posts files not in authorised set ─────────────
+$removed = @()
+Get-ChildItem -Path $sitePosts -Filter "*.md" | ForEach-Object {
+  $slug = $_.BaseName
+  if (-not $authorisedSlugs.ContainsKey($slug)) {
+    if ($DryRun) {
+      Write-Host "[DryRun] Would remove: posts/$slug.md" -ForegroundColor Yellow
+    }
+    else {
+      Remove-Item $_.FullName -Force
+      Write-Host "Removed: posts/$slug.md" -ForegroundColor Red
+      $removed += $slug
+    }
+  }
+}
+
+# ── Publish: copy new/updated articles from 02 Ready to publish ─────────────
+$readyFiles = Get-ChildItem -Path $obsidianReady -Filter "*.md"
 $copied = @()
 
-foreach ($file in $files) {
+foreach ($file in $readyFiles) {
   Write-Host "Processing: $($file.Name)" -ForegroundColor White
   $raw = Get-Content $file.FullName -Raw -Encoding UTF8
-
-  # Extract slug from frontmatter
-  if ($raw -match '(?m)^slug:\s*(.+)$') {
-    $slug = $matches[1].Trim().Trim('"').Trim("'")
-  }
-  else {
-    $slug = $file.BaseName -replace '[^a-zA-Z0-9]+', '-' -replace '^-|-$', '' | ForEach-Object { $_.ToLower() }
-  }
-
+  $slug = Get-FileSlug $file.FullName
   $destFile = Join-Path $sitePosts "$slug.md"
 
   # Set status: published
@@ -178,17 +208,28 @@ if ($DryRun) {
   exit 0
 }
 
-if ($copied.Count -eq 0) {
-  Write-Host "No files were copied." -ForegroundColor Yellow
+if ($copied.Count -eq 0 -and $removed.Count -eq 0) {
+  Write-Host "Nothing to sync." -ForegroundColor Yellow
   exit 0
 }
 
-# Git: stage, commit, push
+# ── Git: stage all changes (additions, updates, deletions), commit, push ────
 Push-Location $repo
 try {
-  git add site/content/posts site/public/images/posts
-  $msg = "content: publish $($copied.Count) article(s) from Obsidian"
-  if ($copied.Count -le 3) { $msg = "content: publish $($copied -join ', ')" }
+  # -A stages new files, modifications, AND deletions
+  git add -A content/posts public/images/posts
+
+  $parts = @()
+  if ($copied.Count -gt 0) {
+    $label = if ($copied.Count -le 3) { $copied -join ', ' } else { "$($copied.Count) articles" }
+    $parts += "publish $label"
+  }
+  if ($removed.Count -gt 0) {
+    $label = if ($removed.Count -le 3) { $removed -join ', ' } else { "$($removed.Count) articles" }
+    $parts += "unpublish $label"
+  }
+  $msg = "content: $($parts -join '; ')"
+
   git commit -m $msg
   git push origin master
   Write-Host ""
