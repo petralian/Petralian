@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Boutiques, Agencies, or Consultancies? Which one should you work with?"
 slug: boutiques-agencies-consultancies-digital-transformation-roi
 date: 2025-04-11
 status: published
-category: Case Studies
-tags: ["agency selection", "consultancies", "consulting ROI", "digital strategy", "Digital Transformation", "professional services"]
+category: Marketing & Media
+tags: ["Agency Landscape", "Digital Transformation"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/which-to-choose.png"
 seo_description: ""

@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Data Warehousing as a CDP: Can You Really Have It All?"
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
 date: 2025-06-13
 status: published
-category: Ideas
-tags: ["customer data platform", "data warehouse", "Digital Transformation", "marketing technology", "real-time personalization"]
+category: AI & Technology
+tags: ["Marketing Technology", "Enterprise AI", "Customer Experience"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/8ce687fde907bf855f9efe280b30fd523f92cf51b8e07f233ad077251c3f4bdc.jpg"
 seo_description: ""

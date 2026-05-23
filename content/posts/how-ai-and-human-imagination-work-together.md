@@ -1,10 +1,10 @@
-﻿---
+---
 title: "How AI and Human Imagination Work Together to Break Barriers"
 slug: how-ai-and-human-imagination-work-together
 date: 2025-01-22
 status: published
-category: Ideas
-tags: ["AI collaboration", "AI innovation", "Digital Transformation", "human creativity", "Nathan Petralia"]
+category: AI & Technology
+tags: ["Generative AI", "AI in Marketing"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/4298e0b8ba76d8a56de0b1aa18c749370d566d6453bd0874773635cdc58a07d4-e1737523847151.jpg"
 seo_description: ""

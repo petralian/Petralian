@@ -8,7 +8,12 @@ export const metadata: Metadata = {
     "Insights on AI, digital transformation, and the work that actually moves organisations forward.",
 };
 
-export default function PostsPage() {
+export default async function PostsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const { tag } = await searchParams;
   const posts = getAllPosts();
   const categories = getAllCategories();
   const tags = getAllTags();
@@ -43,7 +48,7 @@ export default function PostsPage() {
       </header>
 
       {/* ── Filters + grid ────────────────────────────────────── */}
-      <BlogFilters posts={posts} categories={categories} tags={tags} />
+      <BlogFilters posts={posts} categories={categories} tags={tags} initialTag={tag} />
     </div>
   );
 }

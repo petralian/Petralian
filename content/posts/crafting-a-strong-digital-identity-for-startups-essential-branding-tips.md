@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Crafting a Strong Digital Identity for Startups"
 slug: crafting-a-strong-digital-identity-for-startups-essential-branding-tips
 date: 2025-01-13
 status: published
-category: Case Studies
-tags: ["branding tips", "digital identity", "Glassesgallery", "startup strategies"]
+category: Marketing & Media
+tags: ["Brand Strategy", "Marketing Technology"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/glassesgallery-AR-glasses-e1736912333979.jpg"
 seo_description: ""

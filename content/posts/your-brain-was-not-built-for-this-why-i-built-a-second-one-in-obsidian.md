@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Your Brain Was Not Built for This: Why I Built a Second One in Obsidian"
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
 date: 2026-05-20
 status: published
-category: Ideas
-tags: ["AI", "obsidian", "personal-knowledge-management", "productivity", "second-brain"]
+category: AI & Technology
+tags: ["Generative AI", "Leadership", "Enterprise AI"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/obsidian-second-brain-graph-view.jpg"
 seo_description: ""

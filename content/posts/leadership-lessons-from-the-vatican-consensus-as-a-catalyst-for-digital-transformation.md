@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Leadership Lessons from the Vatican: Consensus as a Catalyst for Digital Transformation"
 slug: leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation
 date: 2025-05-08
 status: published
-category: Ideas
-tags: ["consensus", "Digital Transformation", "Leadership", "marketing strategy", "organizational culture"]
+category: Leadership
+tags: ["Leadership", "Digital Transformation"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/leader-e1746685352112.jpg"
 seo_description: ""

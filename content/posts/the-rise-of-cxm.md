@@ -1,10 +1,10 @@
-﻿---
+---
 title: "The Rise of Customer Experience Management: Why It Matters and How to Make the Most of It"
 slug: the-rise-of-cxm
 date: 2023-12-01
 status: published
-category: Ideas
-tags: ["CXM", "Loyalty", "Strategy"]
+category: Commerce & Growth
+tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/2024/12/CXM-post.png"
 seo_description: ""

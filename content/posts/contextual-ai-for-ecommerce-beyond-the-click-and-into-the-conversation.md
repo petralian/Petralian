@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Contextual AI for ecommerce: Beyond the Click and Into the Conversation"
 slug: contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation
 date: 2025-08-28
 status: published
-category: Ideas
-tags: ["contextual AI", "CRM strategy", "customer journey", "Digital Transformation", "e-commerce"]
+category: AI & Technology
+tags: ["Enterprise AI", "Ecommerce", "Customer Experience"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/73a77ea28fe9c7d23171050c2f4628be0027932d0b1064134c16f7578add9a36-1.png"
 seo_description: ""

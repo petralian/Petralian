@@ -1,10 +1,10 @@
-﻿---
+---
 title: "New Merkle MD"
 slug: new-merkle-md
 date: 2022-07-02
 status: published
-category: News
-tags: ["Campaign", "Dentsu", "Merkle", "Promotion"]
+category: Leadership
+tags: ["Leadership", "APAC"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/2025/01/d8f62647-d4e8-4c79-be6a-5f90e6d8246d.jpg"
 seo_description: ""

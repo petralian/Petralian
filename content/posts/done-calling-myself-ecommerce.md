@@ -1,10 +1,10 @@
-﻿---
+---
 title: "What 20 Years in Digital Commerce Actually Taught Me About Enterprise Transformation"
 slug: what-digital-commerce-taught-me-about-enterprise-transformation
 date: 2026-05-20
 status: draft
 category: Digital Transformation
-tags: [career, digital-transformation, enterprise, mid-career, ecommerce]
+tags: ["Digital Transformation", "Leadership", "Ecommerce"]
 excerpt: "The skills that made me effective in ecommerce aren't ecommerce skills. They're transformation skills. And they work anywhere."
 focus_keyword: enterprise digital transformation career
 featured_image:

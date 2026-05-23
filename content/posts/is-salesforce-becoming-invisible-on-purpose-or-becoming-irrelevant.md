@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?"
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 date: 2026-05-09
 status: published
-category: Ideas
-tags: ["Agentforce", "AI Agents", "CRM", "Enterprise Software", "Salesforce"]
+category: AI & Technology
+tags: ["Agentic AI", "Enterprise AI", "Marketing Technology"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/salesforce-ai-crm-future-agentforce-invisible-infrastructure-e1778326631628.jpg"
 seo_description: ""

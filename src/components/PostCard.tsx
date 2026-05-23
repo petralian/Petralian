@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { format, parseISO } from "date-fns";
+import TagPillLink from "@/components/TagPillLink";
 import type { PostMeta } from "@/lib/posts";
 
 interface PostCardProps {
@@ -60,7 +61,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           {post.tags.length > 0 && (
             <div className="post-card-tags">
               {post.tags.slice(0, 3).map((tag) => (
-                <span key={tag} className="post-card-tag">{tag}</span>
+                <TagPillLink key={tag} tag={tag} className="post-card-tag" />
               ))}
             </div>
           )}

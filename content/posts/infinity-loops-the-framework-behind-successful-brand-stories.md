@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Infinity Loops: The Framework Behind Successful Brand Stories"
 slug: infinity-loops-the-framework-behind-successful-brand-stories
 date: 2025-02-21
 status: published
-category: Case Studies
-tags: ["brand loyalty", "Customer Engagement", "Infinity loop", "omnichannel marketing", "personalization"]
+category: Commerce & Growth
+tags: ["Customer Experience", "Brand Strategy", "Ecommerce"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/2e0c55fd347660a0b864e10b8e10c0cc6f6ac34d77cbb042ff8ea95c378c4c11-e1740127762132.jpg"
 seo_description: ""

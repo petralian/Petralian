@@ -1,10 +1,10 @@
-﻿---
+---
 title: "The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO"
 slug: the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo
 date: 2025-04-09
 status: published
-category: Ideas
-tags: ["AI marketing", "content strategy", "Digital Transformation", "future of search", "LLMs"]
+category: AI & Technology
+tags: ["Future of Search", "Enterprise AI", "Generative AI"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/0_2-e1744184382153.jpg"
 seo_description: ""

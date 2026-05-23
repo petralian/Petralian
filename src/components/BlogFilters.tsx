@@ -8,16 +8,18 @@ interface BlogFiltersProps {
     posts: PostMeta[];
     categories: string[];
     tags: string[];
+    initialTag?: string;
 }
 
 export default function BlogFilters({
     posts,
     categories,
     tags,
+    initialTag,
 }: BlogFiltersProps) {
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
-    const [activeTag, setActiveTag] = useState("All");
+    const [activeTag, setActiveTag] = useState(initialTag ?? "All");
 
     const filtered = useMemo(() => {
         const q = search.toLowerCase();

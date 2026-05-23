@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Is SaaS Being Dismantled by AI?"
 slug: is-saas-being-dismantled-by-ai
 date: 2025-03-05
 status: published
-category: Ideas
-tags: ["AI disruption", "Digital innovation", "SaaS evolution", "Software transformation"]
+category: AI & Technology
+tags: ["Enterprise AI", "Marketing Technology", "Agentic AI"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/253d62aa1cf281c910778007a827dbb6d18a7b376ff6c1930d372085e7867e9b-e1741157048613.jpg"
 seo_description: ""

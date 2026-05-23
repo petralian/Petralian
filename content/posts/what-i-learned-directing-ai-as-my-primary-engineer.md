@@ -1,10 +1,10 @@
-﻿---
+---
 title: "What I Learned Directing AI as My Primary Engineer"
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-05-21
 status: draft
-category: Ideas
-tags: [AI-engineering, vibe-coding, software-development, leadership, Vouch, Gravio]
+category: AI & Technology
+tags: ["Enterprise AI", "Agentic AI", "Programme Delivery"]
 excerpt: "I built two software products with AI as the primary engineer. Not as an assistant to a team - as the team. Here's the leadership account of what I actually learned."
 focus_keyword: directing AI as primary engineer
 seo_title: "What I Learned Directing AI as My Primary Engineer"

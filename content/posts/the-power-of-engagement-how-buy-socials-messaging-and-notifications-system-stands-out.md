@@ -1,10 +1,10 @@
-﻿---
+---
 title: "The Power of Engagement: How Buy.social’s Messaging and Notifications System Stands Out"
 slug: the-power-of-engagement-how-buy-socials-messaging-and-notifications-system-stands-out
 date: 2025-01-06
 status: published
-category: Ideas
-tags: ["Buy.Social", "Community", "Customer Engagement"]
+category: Commerce & Growth
+tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/2025/01/buysocial-messages-e1736137779138.jpg"
 seo_description: ""

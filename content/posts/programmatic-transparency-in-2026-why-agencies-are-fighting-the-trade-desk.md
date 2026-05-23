@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk"
 slug: programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk
 date: 2026-04-17
 status: published
-category: Ideas
-tags: ["ad tech", "principal media buying", "programmatic transparency", "Publicis", "The Trade Desk"]
+category: Marketing & Media
+tags: ["Programmatic", "Agency Landscape", "Marketing Technology"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/programmatic-transparency-publicis-trade-desk-2026.jpg"
 seo_description: ""

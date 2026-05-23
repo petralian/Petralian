@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Shoppable media as an omnichannel strategy, a WARC exclusive article"
 slug: shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article
 date: 2022-05-03
 status: published
-category: Ideas
-tags: ["Omnichannel", "Social Commerce", "WARC"]
+category: Commerce & Growth
+tags: ["Ecommerce", "Social Commerce", "Marketing Technology"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/2025/01/DeckCoverMar21-e1626763680829.jpg"
 seo_description: ""

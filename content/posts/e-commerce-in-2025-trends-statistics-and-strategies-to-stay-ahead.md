@@ -1,10 +1,10 @@
-﻿---
+---
 title: "E-commerce in 2025: Trends, Statistics, and Strategies to Stay Ahead"
 slug: e-commerce-in-2025-trends-statistics-and-strategies-to-stay-ahead
 date: 2025-02-12
 status: published
-category: Ideas
-tags: ["AI personalization", "E-commerce trends", "mobile shopping", "Social Commerce", "sustainability"]
+category: Commerce & Growth
+tags: ["Ecommerce", "AI in Marketing", "Social Commerce"]
 excerpt: ""
 featured_image: "https://petralian.com/wp-content/uploads/e8d599da5355dc9920aa4b28177c4e3347a47702fa774a1a60107a1e59852348-e1739341410902.jpg"
 seo_description: ""

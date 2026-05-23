@@ -558,12 +558,20 @@ a {
 
 .post-card-tag {
   font-size: var(--text-2xs);
+  font-family: inherit;
   color: var(--color-ink-tertiary);
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-pill);
   line-height: var(--leading-snug);
+  cursor: pointer;
+  transition: color var(--dur-150) var(--ease-out), background var(--dur-150) var(--ease-out);
+}
+
+.post-card-tag:hover {
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface-alt));
 }
 
 .post-card-read-more {
@@ -808,6 +816,15 @@ a {
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-pill);
   line-height: var(--leading-snug);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--dur-150) var(--ease-out), background var(--dur-150) var(--ease-out), border-color var(--dur-150) var(--ease-out);
+}
+
+.post-hero-tag:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ══════════════════════════════════════════════════════════════════

@@ -131,7 +131,13 @@ export default async function PostPage({
             {post.tags.length > 0 && (
               <div className="post-hero-tags">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="post-hero-tag">{tag}</span>
+                  <Link
+                    key={tag}
+                    href={`/posts?tag=${encodeURIComponent(tag)}`}
+                    className="post-hero-tag"
+                  >
+                    {tag}
+                  </Link>
                 ))}
               </div>
             )}
