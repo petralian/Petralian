@@ -42,7 +42,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="site-logo" aria-label="Petralian — home">
           <Image
-            src="/images/posts/petralian_blue.png"
+            src="/images/petralian_blue.png"
             alt="Petralian"
             width={3450}
             height={503}
@@ -50,7 +50,7 @@ export default function Header() {
             className="site-logo-img site-logo-light"
           />
           <Image
-            src="/images/posts/petralian_white.png"
+            src="/images/petralian_white.png"
             alt="Petralian"
             width={1702}
             height={247}
