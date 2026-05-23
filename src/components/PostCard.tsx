@@ -28,6 +28,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
               src={post.featured_image!}
               alt={post.title}
               fill
+              quality={70}
               className="post-card-image"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
             />
