@@ -232,7 +232,7 @@ export type Post = Node & Document & {
   featured_image_alt?: Maybe<Scalars['String']['output']>;
   focus_keyword?: Maybe<Scalars['String']['output']>;
   seo_title?: Maybe<Scalars['String']['output']>;
-  meta_description?: Maybe<Scalars['String']['output']>;
+  seo_description?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -279,7 +279,7 @@ export type PostFilter = {
   featured_image_alt?: InputMaybe<StringFilter>;
   focus_keyword?: InputMaybe<StringFilter>;
   seo_title?: InputMaybe<StringFilter>;
-  meta_description?: InputMaybe<StringFilter>;
+  seo_description?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -534,7 +534,7 @@ export type PostMutation = {
   featured_image_alt?: InputMaybe<Scalars['String']['input']>;
   focus_keyword?: InputMaybe<Scalars['String']['input']>;
   seo_title?: InputMaybe<Scalars['String']['input']>;
-  meta_description?: InputMaybe<Scalars['String']['input']>;
+  seo_description?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -568,7 +568,7 @@ export type WritingPageMutation = {
   topic_cards?: InputMaybe<Array<InputMaybe<WritingPageTopic_CardsMutation>>>;
 };
 
-export type PostPartsFragment = { __typename: 'Post', title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, meta_description?: string | null, body?: any | null };
+export type PostPartsFragment = { __typename: 'Post', title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, seo_description?: string | null, body?: any | null };
 
 export type HomePagePartsFragment = { __typename: 'HomePage', hero_title?: string | null, hero_tagline?: string | null, intro_bio?: string | null };
 
@@ -581,7 +581,7 @@ export type PostQueryVariables = Exact<{
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename: 'Post', id: string, title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, meta_description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PostQuery = { __typename?: 'Query', post: { __typename: 'Post', id: string, title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, seo_description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PostConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -593,7 +593,7 @@ export type PostConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', cursor: string, node?: { __typename: 'Post', id: string, title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, meta_description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', cursor: string, node?: { __typename: 'Post', id: string, title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, seo_description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type HomePageQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -666,7 +666,7 @@ export const PostPartsFragmentDoc = gql`
   featured_image_alt
   focus_keyword
   seo_title
-  meta_description
+  seo_description
   body
 }
     `;

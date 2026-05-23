@@ -143,6 +143,8 @@ function Resolve-Images {
       param($m)
       $val = $m.Groups[1].Value.Trim().Trim('"').Trim("'")
       if ($val -eq '' -or $val.StartsWith('http') -or $val.StartsWith('/')) { return $m.Value }
+      # Strip Obsidian wiki-link brackets: [[filename.png]] → filename.png
+      $val = $val -replace '^\[\[', '' -replace '\]\]$', ''
       $filename = [System.IO.Path]::GetFileName($val)
       $ext = [System.IO.Path]::GetExtension($filename).ToLower()
       if ($ext -notin $script:imageExtensions) { return $m.Value }
@@ -206,6 +208,8 @@ function Test-ArticlePreflight {
     $warnings.Add('No featured_image set — article will render without a header image')
   }
   elseif (-not $fi.StartsWith('http') -and -not $fi.StartsWith('/')) {
+    # Strip Obsidian wiki-link brackets: [[filename.png]] → filename.png
+    $fi = $fi -replace '^\[\[', '' -replace '\]\]$', ''
     $fname = [System.IO.Path]::GetFileName($fi)
     if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
       $errors.Add("featured_image file not found in vault: $fname")

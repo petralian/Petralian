@@ -146,6 +146,8 @@ const BULLET_LIFE = 55;
 const SHOOT_COOLDOWN = 12;
 const INVINCIBLE_FRAMES = 180;
 const ASTEROIDS_START = 5;
+const VIRT_W = 800;
+const VIRT_H = 500;
 
 function wrap(v: number, max: number): number {
     if (v < 0) return v + max;
@@ -255,12 +257,10 @@ export default function AsteroidsGame() {
     const startGame = useCallback(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-        const w = canvas.width;
-        const h = canvas.height;
         const state = stateRef.current;
-        state.ship = makeShip(w, h);
+        state.ship = makeShip(VIRT_W, VIRT_H);
         state.asteroids = Array.from({ length: ASTEROIDS_START }, () =>
-            makeAsteroid(w, h, { x: w / 2, y: h / 2 }, 28 + Math.random() * 22)
+            makeAsteroid(VIRT_W, VIRT_H, { x: VIRT_W / 2, y: VIRT_H / 2 }, 28 + Math.random() * 22)
         );
         state.bullets = [];
         state.score = 0;
@@ -288,7 +288,7 @@ export default function AsteroidsGame() {
 
         // Seed idle asteroids
         state.asteroids = Array.from({ length: 6 }, () =>
-            makeAsteroid(canvas.width || 800, canvas.height || 500, { x: 400, y: 250 }, 28 + Math.random() * 22)
+            makeAsteroid(VIRT_W, VIRT_H, { x: VIRT_W / 2, y: VIRT_H / 2 }, 28 + Math.random() * 22)
         );
 
         const onKeyDown = (e: KeyboardEvent) => {
@@ -396,14 +396,19 @@ export default function AsteroidsGame() {
             ctx!.fillText('404', w / 2, h / 2);
             ctx!.restore();
 
+            // Scale all game objects from virtual (VIRT_W×VIRT_H) to canvas size
+            ctx!.save();
+            ctx!.scale(w / VIRT_W, h / VIRT_H);
+
             // ── Idle / showing-scores — drift asteroids, no ship ──
             if (state.phase === 'idle') {
                 for (const a of state.asteroids) {
-                    a.pos.x = wrap(a.pos.x + a.vel.x, w);
-                    a.pos.y = wrap(a.pos.y + a.vel.y, h);
+                    a.pos.x = wrap(a.pos.x + a.vel.x, VIRT_W);
+                    a.pos.y = wrap(a.pos.y + a.vel.y, VIRT_H);
                     a.angle += a.rotSpeed;
                 }
                 for (const a of state.asteroids) drawAsteroid(a);
+                ctx!.restore();
                 state.animId = requestAnimationFrame(loop);
                 return;
             }
@@ -415,11 +420,12 @@ export default function AsteroidsGame() {
                     onGameOverRef.current(state.score);
                 }
                 for (const a of state.asteroids) {
-                    a.pos.x = wrap(a.pos.x + a.vel.x, w);
-                    a.pos.y = wrap(a.pos.y + a.vel.y, h);
+                    a.pos.x = wrap(a.pos.x + a.vel.x, VIRT_W);
+                    a.pos.y = wrap(a.pos.y + a.vel.y, VIRT_H);
                     a.angle += a.rotSpeed;
                 }
                 for (const a of state.asteroids) drawAsteroid(a);
+                ctx!.restore();
                 state.animId = requestAnimationFrame(loop);
                 return;
             }
@@ -431,7 +437,7 @@ export default function AsteroidsGame() {
                 ship.respawnTimer--;
                 if (ship.respawnTimer <= 0) {
                     ship.dead = false;
-                    ship.pos = { x: w / 2, y: h / 2 };
+                    ship.pos = { x: VIRT_W / 2, y: VIRT_H / 2 };
                     ship.vel = { x: 0, y: 0 };
                     ship.angle = -Math.PI / 2;
                     ship.invincible = INVINCIBLE_FRAMES;
@@ -455,8 +461,8 @@ export default function AsteroidsGame() {
                 }
                 ship.vel.x *= FRICTION;
                 ship.vel.y *= FRICTION;
-                ship.pos.x = wrap(ship.pos.x + ship.vel.x, w);
-                ship.pos.y = wrap(ship.pos.y + ship.vel.y, h);
+                ship.pos.x = wrap(ship.pos.x + ship.vel.x, VIRT_W);
+                ship.pos.y = wrap(ship.pos.y + ship.vel.y, VIRT_H);
                 if (ship.invincible > 0) ship.invincible--;
             }
 
@@ -464,14 +470,14 @@ export default function AsteroidsGame() {
 
             state.bullets = state.bullets.filter(b => b.life > 0);
             for (const b of state.bullets) {
-                b.pos.x = wrap(b.pos.x + b.vel.x, w);
-                b.pos.y = wrap(b.pos.y + b.vel.y, h);
+                b.pos.x = wrap(b.pos.x + b.vel.x, VIRT_W);
+                b.pos.y = wrap(b.pos.y + b.vel.y, VIRT_H);
                 b.life--;
             }
 
             for (const a of state.asteroids) {
-                a.pos.x = wrap(a.pos.x + a.vel.x, w);
-                a.pos.y = wrap(a.pos.y + a.vel.y, h);
+                a.pos.x = wrap(a.pos.x + a.vel.x, VIRT_W);
+                a.pos.y = wrap(a.pos.y + a.vel.y, VIRT_H);
                 a.angle += a.rotSpeed;
             }
 
@@ -493,7 +499,7 @@ export default function AsteroidsGame() {
             if (state.asteroids.length === 0) {
                 const next = Math.min(ASTEROIDS_START + Math.floor(state.score / 400), 10);
                 state.asteroids = Array.from({ length: next }, () =>
-                    makeAsteroid(w, h, ship.pos, 28 + Math.random() * 22)
+                    makeAsteroid(VIRT_W, VIRT_H, ship.pos, 28 + Math.random() * 22)
                 );
             }
 
@@ -524,8 +530,9 @@ export default function AsteroidsGame() {
             }
             for (const a of state.asteroids) drawAsteroid(a);
             drawShip(ship);
+            ctx!.restore(); // end virtual transform
 
-            // HUD
+            // HUD (canvas space)
             ctx!.save();
             ctx!.font = '13px monospace';
             ctx!.fillStyle = '#9ce';

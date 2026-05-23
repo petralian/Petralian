@@ -108,7 +108,7 @@ type Post implements Node & Document {
   featured_image_alt: String
   focus_keyword: String
   seo_title: String
-  meta_description: String
+  seo_description: String
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -155,7 +155,7 @@ input PostFilter {
   featured_image_alt: StringFilter
   focus_keyword: StringFilter
   seo_title: StringFilter
-  meta_description: StringFilter
+  seo_description: StringFilter
   body: RichTextFilter
 }
 
@@ -315,7 +315,7 @@ input PostMutation {
   featured_image_alt: String
   focus_keyword: String
   seo_title: String
-  meta_description: String
+  seo_description: String
   body: JSON
 }
 

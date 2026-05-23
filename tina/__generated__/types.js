@@ -19,7 +19,7 @@ export const PostPartsFragmentDoc = gql`
   featured_image_alt
   focus_keyword
   seo_title
-  meta_description
+  seo_description
   body
 }
     `;
