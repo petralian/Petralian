@@ -1,23 +1,23 @@
 {
-    "hero_tagline": "Twenty years inside APAC's most demanding digital programs for Fortune 500 brands including Estée Lauder, Shiseido, Ralph Lauren, Fidelity, and Microsoft. ",
-    "bio_paragraphs": [
-        "I built and scaled Dentsu's CXM practice, leading Merkle Hong Kong and served as Country Head for Ogilvy One, (part of WPP Enterprise Solutions).\n\nA few years ago I started building software with AI as the primary engineer. I saw the gap between AI's promise and what organizations can operationalize is bigger than most leaders realize, and proving ROI is harder than most vendors will tell you.\n\nAI's real value is production gain: producing more, at higher quality and greater speed. Cost savings are a byproduct. When you lead with cost cutting, you underinvest, you under-scope, and you leave the real returns on the table."
-    ],
-    "pillars": [
-        {
-            "label": "",
-            "title": "Commercial & GTM",
-            "text": "Building bespoke propositions and taking them to market. Closing enterprise deals across retail, regulated, and professional services in APAC. The full cycle from pitch to managed care."
-        },
-        {
-            "label": "",
-            "title": "Teams & Delivery",
-            "text": "P&L accountability across WPP, Dentsu and beyond. Building and running high-performance teams. Delivering large, complex programs within margin and metrics."
-        },
-        {
-            "label": "",
-            "title": "Enterprise AI",
-            "text": "Technical depth to lead programs credibly — not just sponsor them. The governance, the change management, and the real gap between a funded pilot and production at scale."
-        }
-    ]
+  "hero_tagline": "Twenty years inside complex technology programs for Fortune 500 brands including Estée Lauder, Shiseido, Ralph Lauren, Fidelity, and Microsoft. ",
+  "bio_paragraphs": [
+    "I built and scaled Dentsu's CXM practice, leading Merkle Hong Kong and served as Country Head for Ogilvy One, (part of WPP Enterprise Solutions).\n\nA few years ago I started building software with AI. I saw the gap between AI's promise and what organizations can operationalize is bigger than most leaders realize, and proving ROI is harder than most vendors will tell you.\n\nAI's real value is production gain: producing more, at higher quality and greater speed. Cost savings are a byproduct. When you lead with cost cutting, you underinvest, you under-scope, and you leave the real returns on the table."
+  ],
+  "pillars": [
+    {
+      "label": "",
+      "title": "Commercial & GTM",
+      "text": "Building bespoke propositions and taking them to market. Closing enterprise deals across retail, regulated, and professional services in APAC. The full cycle from pitch to managed care."
+    },
+    {
+      "label": "",
+      "title": "Teams & Delivery",
+      "text": "P&L accountability across WPP, Dentsu and beyond. Building and running high-performance teams. Delivering large, complex programs within margin and metrics."
+    },
+    {
+      "label": "",
+      "title": "Enterprise AI",
+      "text": "Technical depth to lead programs credibly — not just sponsor them. The governance, the change management, and the real gap between a funded pilot and production at scale."
+    }
+  ]
 }
