@@ -21,7 +21,16 @@ export default function HomePage() {
         <div className="home-intro-inner">
           <div className="home-intro-text">
             <p className="home-intro-eyebrow">Nathan Petralia</p>
-            <p className="home-intro-bio">{homeContent.intro_bio}</p>
+            {homeContent.intro_bio.split("\n\n").map((block, i) => (
+              <p key={i} className="home-intro-bio">
+                {block.split("\n").map((line, k, arr) => (
+                  <span key={k}>
+                    {line}
+                    {k < arr.length - 1 && <br />}
+                  </span>
+                ))}
+              </p>
+            ))}
             <Link href="/about" className="home-intro-link">
               About Nathan &rarr;
             </Link>

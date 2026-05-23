@@ -24,13 +24,29 @@ export default async function PostsPage({
       {/* ── Blog header ───────────────────────────────────────── */}
       <header className="blog-header">
         <h1 className="blog-header-title">{writingContent.header_title}</h1>
-        <p className="blog-header-description">{writingContent.header_description}</p>
+        {writingContent.header_description.split("\n\n").map((block, i) => (
+          <p key={i} className="blog-header-description">
+            {block.split("\n").map((line, k, arr) => (
+              <span key={k}>
+                {line}
+                {k < arr.length - 1 && <br />}
+              </span>
+            ))}
+          </p>
+        ))}
 
         <div className="blog-topic-row">
           {writingContent.topic_cards.map((card) => (
             <div key={card.title} className={`blog-topic-card blog-topic-card--${card.style}`}>
               <p className="blog-topic-title">{card.title}</p>
-              <p className="blog-topic-desc">{card.description}</p>
+              <p className="blog-topic-desc">
+                {card.description.split("\n").map((line, k, arr) => (
+                  <span key={k}>
+                    {line}
+                    {k < arr.length - 1 && <br />}
+                  </span>
+                ))}
+              </p>
             </div>
           ))}
         </div>
