@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
-featured_image: "/images/posts/Generative-AI-e1736080910554.jpeg"
+featured_image: "/images/posts/generative-ai-marketing-industry-hero.jpeg"
 seo_description: ""
 ---
 

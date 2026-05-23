@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
 excerpt: ""
-featured_image: "/images/posts/CXM-post.png"
+featured_image: "/images/posts/cxm-customer-experience-management-hero.png"
 seo_description: ""
 ---
 

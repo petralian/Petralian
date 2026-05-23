@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Marketing Technology", "Leadership", "Agency Landscape"]
 excerpt: ""
-featured_image: "/images/posts/fractional-cmo-e1738764955900.jpeg"
+featured_image: "/images/posts/fractional-cmo-marketing-hero.jpeg"
 seo_description: ""
 ---
 

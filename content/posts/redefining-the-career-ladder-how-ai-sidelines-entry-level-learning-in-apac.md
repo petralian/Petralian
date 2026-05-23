@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC", "Enterprise AI"]
 excerpt: ""
-featured_image: "/images/posts/59fe562fdd5ed97ee66d729879f6a37dd35781695d188ae97d131a26dddda102.jpg"
+featured_image: "/images/posts/career-ladder-ai-apac-sidelines-hero.jpg"
 seo_description: ""
 ---
 

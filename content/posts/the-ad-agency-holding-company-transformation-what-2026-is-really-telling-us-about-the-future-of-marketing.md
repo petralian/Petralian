@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Agency Landscape", "Digital Transformation", "AI in Marketing"]
 excerpt: ""
-featured_image: "/images/posts/fa31d351bdaa223160484eb59818b8e7efb040c594156f552b1d4998dc7a754a.jpg"
+featured_image: "/images/posts/ad-agency-holding-company-2026-hero.jpg"
 seo_description: ""
 ---
 

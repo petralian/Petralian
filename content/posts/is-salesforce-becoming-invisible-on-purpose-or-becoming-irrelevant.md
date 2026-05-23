@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Agentic AI", "Enterprise AI", "Marketing Technology"]
 excerpt: ""
-featured_image: "/images/posts/salesforce-ai-crm-future-agentforce-invisible-infrastructure-e1778326631628.jpg"
+featured_image: "/images/posts/salesforce-agentforce-invisible-crm-hero.jpg"
 seo_description: ""
 ---
 

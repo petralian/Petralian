@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Ecommerce", "AI in Marketing", "Social Commerce"]
 excerpt: ""
-featured_image: "/images/posts/e8d599da5355dc9920aa4b28177c4e3347a47702fa774a1a60107a1e59852348-e1739341410902.jpg"
+featured_image: "/images/posts/ecommerce-2025-trends-statistics-hero.jpg"
 seo_description: ""
 ---
 

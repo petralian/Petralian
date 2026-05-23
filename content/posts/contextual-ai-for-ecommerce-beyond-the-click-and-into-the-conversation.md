@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Enterprise AI", "Ecommerce", "Customer Experience"]
 excerpt: ""
-featured_image: "/images/posts/73a77ea28fe9c7d23171050c2f4628be0027932d0b1064134c16f7578add9a36-1.png"
+featured_image: "/images/posts/contextual-ai-ecommerce-conversation-hero.png"
 seo_description: ""
 ---
 

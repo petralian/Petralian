@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Social Commerce", "Marketing Technology", "Ecommerce"]
 excerpt: ""
-featured_image: "/images/posts/buysocial-1.jpeg"
+featured_image: "/images/posts/buysocial-social-commerce-hero.jpeg"
 seo_description: ""
 ---
 

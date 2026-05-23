@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["AI in Marketing", "Generative AI", "Marketing Technology"]
 excerpt: ""
-featured_image: "/images/posts/61ade0a299577fe287e93e30e632ac4dd058cabbd3f313ab3a67cc7121fca7ba-e1742363187423.jpg"
+featured_image: "/images/posts/ai-prompting-frameworks-marketers-hero.jpg"
 seo_description: ""
 ---
 

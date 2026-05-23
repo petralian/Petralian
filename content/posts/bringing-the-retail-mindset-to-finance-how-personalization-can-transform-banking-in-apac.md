@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Digital Transformation", "APAC", "Customer Experience"]
 excerpt: ""
-featured_image: "/images/posts/Financial-advisor-engaging-with-a-customer-via-a-personalized-digital-banking-app-in-APAC-e1736950772132.jpg"
+featured_image: "/images/posts/personalized-banking-digital-app-apac-hero.jpg"
 seo_description: ""
 ---
 

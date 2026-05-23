@@ -6,7 +6,7 @@ status: published
 category: AI & Technology
 tags: ["Marketing Technology", "Enterprise AI", "Customer Experience"]
 excerpt: ""
-featured_image: "/images/posts/8ce687fde907bf855f9efe280b30fd523f92cf51b8e07f233ad077251c3f4bdc.jpg"
+featured_image: "/images/posts/data-warehouse-cdp-architecture-hero.jpg"
 seo_description: ""
 ---
 

@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Ecommerce", "Social Commerce", "Marketing Technology"]
 excerpt: ""
-featured_image: "/images/posts/DeckCoverMar21-e1626763680829.jpg"
+featured_image: "/images/posts/shoppable-media-warc-omnichannel-hero.jpg"
 seo_description: ""
 ---
 

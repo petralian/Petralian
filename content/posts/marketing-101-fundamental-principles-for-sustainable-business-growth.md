@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Marketing Technology", "Brand Strategy", "Customer Experience"]
 excerpt: ""
-featured_image: "/images/posts/a5ae8a1efc23f944b3c38d347c34360548baf8b1fd47eef6f2cc056cdae886c9-e1744168494724.jpg"
+featured_image: "/images/posts/marketing-101-fundamentals-principles-hero.jpg"
 seo_description: ""
 ---
 
@@ -37,7 +37,7 @@ My experiences reinforced that customer-centricity isn't just a buzzword-it's a 
 3.  **Implement Closed-Loop Feedback Systems**: Regularly collect, analyze, and act on customer feedback.
 4.  **Align Metrics with Customer Success**: Track indicators that reflect real customer value, not just marketing activities.
 
-![](/images/posts/marketing-101-figure-5-14.jpg)
+![Marketing 101 market size framework illustration](/images/posts/marketing-101-market-size-framework.jpg)
 _Rosenfeld Media from Brooklyn, USA, CC BY 2.0 [https://creativecommons.org/licenses/by/2.0](https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons_
 
 ## The Future of Marketing Fundamentals

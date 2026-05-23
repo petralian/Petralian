@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
-featured_image: "/images/posts/IMG_7630-scaled-e1736077900101.jpg"
+featured_image: "/images/posts/thank-you-merkle-team-hero.jpg"
 seo_description: ""
 ---
 

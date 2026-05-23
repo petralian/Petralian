@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Agency Landscape", "Digital Transformation"]
 excerpt: ""
-featured_image: "/images/posts/which-to-choose.png"
+featured_image: "/images/posts/boutique-agency-consultancy-choice-hero.png"
 seo_description: ""
 ---
 
@@ -55,7 +55,7 @@ This consolidation presents a unique opportunity for clients: by identifying the
 
 Each collaboration delivered precise recommendations, building trust in our capabilities while achieving faster and more cost-effective solutions improvements than what’s typically offered by larger consultancies. The real strength of agencies lies in having the expertise of many boutiques readily accessible under a collaborative structure, and leveraging them correctly.
 
-![](/images/posts/image-1.png)
+![Boutiques, agencies and consultancies positioned on the digital transformation spectrum](/images/posts/boutique-agency-consultancy-spectrum.png)
 
 ## ROI Considerations: Where Value Truly Lies
 

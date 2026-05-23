@@ -6,7 +6,7 @@ status: published
 category: Marketing & Media
 tags: ["Brand Strategy", "Marketing Technology"]
 excerpt: ""
-featured_image: "/images/posts/glassesgallery-AR-glasses-e1736912333979.jpg"
+featured_image: "/images/posts/ar-glasses-digital-brand-identity-hero.jpg"
 seo_description: ""
 ---
 

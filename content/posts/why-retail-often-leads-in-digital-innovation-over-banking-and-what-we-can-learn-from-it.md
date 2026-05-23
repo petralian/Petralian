@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Digital Transformation", "Ecommerce", "APAC"]
 excerpt: ""
-featured_image: "/images/posts/11553ff0aeb85ec5e80c911bca80c834a3b3fb0f83680398cc25e6175a5ca0ff-e1737371134564.jpg"
+featured_image: "/images/posts/retail-digital-innovation-banking-apac-hero.jpg"
 seo_description: ""
 ---
 

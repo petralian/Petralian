@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "Digital Transformation"]
 excerpt: ""
-featured_image: "/images/posts/leader-e1746685352112.jpg"
+featured_image: "/images/posts/digital-transformation-leadership-hero.jpg"
 seo_description: ""
 ---
 

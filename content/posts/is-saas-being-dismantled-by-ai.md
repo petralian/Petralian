@@ -6,13 +6,13 @@ status: published
 category: AI & Technology
 tags: ["Enterprise AI", "Marketing Technology", "Agentic AI"]
 excerpt: ""
-featured_image: "/images/posts/253d62aa1cf281c910778007a827dbb6d18a7b376ff6c1930d372085e7867e9b-e1741157048613.jpg"
+featured_image: "/images/posts/saas-ai-disruption-future-hero.jpg"
 seo_description: ""
 ---
 
 The idea that "SaaS is being dismantled" by artificial intelligence (AI) has gained traction in [recent conversations about the future of software](https://www.youtube.com/watch?v=9NtsnzRFJ_o). It’s a bold thesis, suggesting that AI advancements are fundamentally reshaping, if not outright replacing, the traditional [Software-as-a-Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) model. As someone deeply involved in AI integration and digital transformation projects, I find this argument both fascinating and polarizing. While the thesis raises valid points, it also oversimplifies and underestimates certain key aspects of SaaS. Let’s explore the strengths, weaknesses, and a more balanced perspective on this evolving narrative.
 
-![Diagram comparison of On-Premise, IaaS, PaaS and SaaS](/images/posts/image.png)
+![Diagram comparison of On-Premise, IaaS, PaaS and SaaS](/images/posts/saas-on-premise-iaas-paas-comparison.png)
 _Comparison of On-Premise, IaaS, PaaS and SaaS_
 
 ### **Strengths of the "SaaS is Being Dismantled" Argument**

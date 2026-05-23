@@ -6,7 +6,7 @@ status: published
 category: Commerce & Growth
 tags: ["Ecommerce", "Agentic AI", "AI in Marketing"]
 excerpt: ""
-featured_image: "/images/posts/0_1-e1745491049250.jpg"
+featured_image: "/images/posts/creative-ai-hero.jpg"
 seo_description: ""
 ---
 

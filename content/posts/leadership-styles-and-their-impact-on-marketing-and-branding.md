@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "Brand Strategy"]
 excerpt: ""
-featured_image: "/images/posts/a_leader_standing_image-e1740547276706.jpeg"
+featured_image: "/images/posts/leadership-styles-marketing-branding-hero.jpeg"
 seo_description: ""
 ---
 

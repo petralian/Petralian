@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
-featured_image: "/images/posts/d8f62647-d4e8-4c79-be6a-5f90e6d8246d.jpg"
+featured_image: "/images/posts/new-merkle-announcement-hero.jpg"
 seo_description: ""
 ---
 

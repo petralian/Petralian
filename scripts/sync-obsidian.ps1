@@ -1,15 +1,23 @@
 # ── Obsidian → Site Sync ─────────────────────────────────────────────────────
 # Bidirectional sync between Obsidian and content/posts:
 #   PUBLISH   — copies articles from "02 Ready to publish" into content/posts,
-#               sets status: published, resolves images from Attachments/.
+#               sets status: published, resolves images from vault.
 #   UNPUBLISH — removes any content/posts file whose slug does not exist in
 #               either "02 Ready to publish" OR "03 Published".
+#
+# Image lookup order:
+#   1. Blog/00 Attachments/          ← drop images here (primary)
+#   2. Article's own Attachments/ subfolder
+#   3. Same folder as article
+#   4. Other common subfolders (assets/, attachments/, images/)
+#   5. Vault-level Attachments/
+#   6. Recursive vault search (last resort)
 #
 # Usage:
 #   .\scripts\sync-obsidian.ps1              # sync + commit + push
 #   .\scripts\sync-obsidian.ps1 -DryRun      # preview only, no writes
 #   .\scripts\sync-obsidian.ps1 -Preflight   # check articles only, no sync
-#   .\scripts\sync-obsidian.ps1 -Force       # sync even if preflight has warnings
+#   .\scripts\sync-obsidian.ps1 -Force       # sync even if preflight has errors
 # ─────────────────────────────────────────────────────────────────────────────
 
 param(
@@ -22,6 +30,7 @@ $ErrorActionPreference = "Stop"
 
 $obsidianReady = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
 $obsidianPublished = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\03 Published"
+$obsidianAttachments = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\00 Attachments"
 $obsidianVault = "D:\Obsidian\Obsidian\40_VSCode\Petralian"
 $sitePosts = "$PSScriptRoot\..\content\posts"
 $siteImages = "$PSScriptRoot\..\public\images\posts"
@@ -53,23 +62,26 @@ function Get-FileSlug {
 # ── Locate an image file anywhere under the vault ────────────────────────────
 function Find-VaultImage {
   param([string]$filename, [string]$articleFolder)
-  # 1. Attachments subfolder (Obsidian default for "In subfolder under current folder")
+  # 1. Centralised attachments folder (Blog/00 Attachments) — primary location
+  $candidate = Join-Path $obsidianAttachments $filename
+  if (Test-Path $candidate) { return $candidate }
+  # 2. Attachments subfolder under the article's folder (Obsidian default per-folder setting)
   $candidate = Join-Path $articleFolder "Attachments" $filename
   if (Test-Path $candidate) { return $candidate }
-  # 2. Same folder as the article
+  # 3. Same folder as the article
   $candidate = Join-Path $articleFolder $filename
   if (Test-Path $candidate) { return $candidate }
-  # 3. Other common sibling subfolder names
+  # 4. Other common sibling subfolder names
   foreach ($sub in @('assets', 'attachments', 'images')) {
     $candidate = Join-Path $articleFolder $sub $filename
     if (Test-Path $candidate) { return $candidate }
   }
-  # 4. Vault-level Attachments / assets folder
+  # 5. Vault-level Attachments / assets folder
   foreach ($sub in @('Attachments', 'assets', 'attachments', 'images')) {
     $candidate = Join-Path $obsidianVault $sub $filename
     if (Test-Path $candidate) { return $candidate }
   }
-  # 5. Recursive vault search (slower, last resort)
+  # 6. Recursive vault search (slower, last resort)
   $found = Get-ChildItem -Path $obsidianVault -Recurse -Filter $filename -ErrorAction SilentlyContinue | Select-Object -First 1
   if ($found) { return $found.FullName }
   return $null

@@ -6,7 +6,7 @@ status: published
 category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
-featured_image: "/images/posts/IMG_4099-scaled.jpg"
+featured_image: "/images/posts/merkle-silk-commerce-launch-hero.jpg"
 seo_description: ""
 ---
 
