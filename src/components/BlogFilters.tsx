@@ -21,6 +21,24 @@ export default function BlogFilters({
     const [activeCategory, setActiveCategory] = useState("All");
     const [activeTag, setActiveTag] = useState(initialTag ?? "All");
 
+    const availableTags = useMemo(() => {
+        if (activeCategory === "All") return tags;
+        const tagSet = new Set<string>();
+        posts
+            .filter((p) => p.category === activeCategory)
+            .forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
+        return tags.filter((t) => tagSet.has(t));
+    }, [activeCategory, posts, tags]);
+
+    function handleCategoryChange(cat: string) {
+        setActiveCategory(cat);
+        if (cat !== "All" && activeTag !== "All") {
+            const tagSet = new Set<string>();
+            posts.filter((p) => p.category === cat).forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
+            if (!tagSet.has(activeTag)) setActiveTag("All");
+        }
+    }
+
     const filtered = useMemo(() => {
         const q = search.toLowerCase();
         return posts.filter((p) => {
@@ -71,7 +89,7 @@ export default function BlogFilters({
                         aria-label="Filter by tag"
                     >
                         <option value="All">All tags</option>
-                        {tags.map((t) => (
+                        {availableTags.map((t) => (
                             <option key={t} value={t}>
                                 {t}
                             </option>
@@ -83,7 +101,7 @@ export default function BlogFilters({
                     {["All", ...categories].map((cat) => (
                         <button
                             key={cat}
-                            onClick={() => setActiveCategory(cat)}
+                            onClick={() => handleCategoryChange(cat)}
                             className={`blog-category-pill${activeCategory === cat ? " blog-category-pill--active" : ""}`}
                         >
                             {cat}

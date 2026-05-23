@@ -507,8 +507,8 @@ a {
   font-weight: 700;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  background-color: var(--color-accent);
-  color: #fff;
+  background-color: color-mix(in srgb, var(--color-accent) 14%, var(--color-surface-alt));
+  color: color-mix(in srgb, var(--color-accent) 85%, var(--color-ink-heading));
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-sm);
   line-height: var(--leading-snug);
