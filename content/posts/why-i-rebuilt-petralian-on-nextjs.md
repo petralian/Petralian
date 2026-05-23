@@ -3,7 +3,7 @@ title: "Why I Rebuilt Petralian on Next.js (And Open Sourced It)"
 slug: why-i-rebuilt-petralian-on-nextjs
 date: 2026-05-23
 status: published
-category: Technology
+category: AI & Technology
 tags: ["Next.js", "Obsidian", "Developer Tools", "Writing"]
 excerpt: "WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com on Next.js, how Obsidian now sits at the centre of my publishing workflow, and why I decided to open source the whole thing."
 featured_image: /images/posts/obsidian-second-brain-graph-view.jpg

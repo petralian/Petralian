@@ -1,5 +1,5 @@
 ﻿---
-title: "AI Shopping Revolution: Will Shopify&#8217;s ChatGPT Integration Redefine Retail Strategy?"
+title: "AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail Strategy?"
 slug: ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
 date: 2025-04-24
 status: published

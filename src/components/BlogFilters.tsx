@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import PostCard from "@/components/PostCard";
 import type { PostMeta } from "@/lib/posts";
 
@@ -9,6 +9,20 @@ interface BlogFiltersProps {
     categories: string[];
     tags: string[];
     initialTag?: string;
+}
+
+/** Reorder array so CSS column-count fills produce left-to-right visual order */
+function reorderForMasonry<T>(items: T[], numCols: number): T[] {
+    if (numCols <= 1) return items;
+    const rows = Math.ceil(items.length / numCols);
+    const result: T[] = [];
+    for (let col = 0; col < numCols; col++) {
+        for (let row = 0; row < rows; row++) {
+            const idx = row * numCols + col;
+            if (idx < items.length) result.push(items[idx]);
+        }
+    }
+    return result;
 }
 
 export default function BlogFilters({
@@ -20,6 +34,24 @@ export default function BlogFilters({
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
     const [activeTag, setActiveTag] = useState(initialTag ?? "All");
+    const [cols, setCols] = useState(3);
+
+    useEffect(() => {
+        const mq1 = window.matchMedia("(max-width: 640px)");
+        const mq2 = window.matchMedia("(max-width: 1024px)");
+        const update = () => {
+            if (mq1.matches) setCols(1);
+            else if (mq2.matches) setCols(2);
+            else setCols(3);
+        };
+        update();
+        mq1.addEventListener("change", update);
+        mq2.addEventListener("change", update);
+        return () => {
+            mq1.removeEventListener("change", update);
+            mq2.removeEventListener("change", update);
+        };
+    }, []);
 
     const availableTags = useMemo(() => {
         if (activeCategory === "All") return tags;
@@ -53,6 +85,11 @@ export default function BlogFilters({
             return matchSearch && matchCategory && matchTag;
         });
     }, [posts, search, activeCategory, activeTag]);
+
+    const orderedPosts = useMemo(
+        () => reorderForMasonry(filtered, cols),
+        [filtered, cols]
+    );
 
     return (
         <>
@@ -114,7 +151,7 @@ export default function BlogFilters({
                 <p className="blog-empty">No articles match your search.</p>
             ) : (
                 <div className="masonry-grid">
-                    {filtered.map((post) => (
+                    {orderedPosts.map((post) => (
                         <PostCard key={post.slug} post={post} />
                     ))}
                 </div>

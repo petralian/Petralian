@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
-import { SITE_TAGLINE, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -16,7 +15,6 @@ export default function HomePage() {
         <h1 className="hero-title">
           Technology, Transformation, and the People Navigating Both
         </h1>
-        <p className="hero-tagline">{SITE_TAGLINE}</p>
       </section>
 
       {/* Intro strip */}
