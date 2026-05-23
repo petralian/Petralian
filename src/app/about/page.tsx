@@ -70,6 +70,7 @@ export default function AboutPage() {
               {aboutContent.bio_paragraphs.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
+            </div>
 
             <div className="about-hero-links">
               <a
