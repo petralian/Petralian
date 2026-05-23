@@ -47,6 +47,7 @@ export default function HomePage() {
               alt="Nathan Petralia at HKU"
               fill
               priority
+              fetchPriority="high"
               className="home-intro-photo"
               sizes="(max-width: 768px) 100vw, 420px"
             />

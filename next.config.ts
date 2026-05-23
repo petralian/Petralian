@@ -24,12 +24,16 @@ const nextConfig: NextConfig = {
     return config;
   },
   images: {
+    quality: 70,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "ghchart.rshah.org",
       },
     ],
+  },
+  experimental: {
+    browsersListForSwc: true,
   },
 };
 
