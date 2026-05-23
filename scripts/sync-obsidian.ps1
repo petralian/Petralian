@@ -130,7 +130,7 @@ function Resolve-Images {
   $content = [regex]::Replace($content, '(?m)^featured_image:\s*(.+)$', {
       param($m)
       $val = $m.Groups[1].Value.Trim().Trim('"').Trim("'")
-      if ($val -eq '' -or $val.StartsWith('http')) { return $m.Value }
+      if ($val -eq '' -or $val.StartsWith('http') -or $val.StartsWith('/')) { return $m.Value }
       $filename = [System.IO.Path]::GetFileName($val)
       $ext = [System.IO.Path]::GetExtension($filename).ToLower()
       if ($ext -notin $script:imageExtensions) { return $m.Value }
@@ -155,7 +155,7 @@ function Resolve-Images {
 function Test-ArticlePreflight {
   param([string]$filePath, [string]$articleFolder)
 
-  $errors   = [System.Collections.Generic.List[string]]::new()
+  $errors = [System.Collections.Generic.List[string]]::new()
   $warnings = [System.Collections.Generic.List[string]]::new()
 
   $raw = Get-Content $filePath -Raw -Encoding UTF8
@@ -193,7 +193,7 @@ function Test-ArticlePreflight {
   if (-not $fi -or $fi -eq '') {
     $warnings.Add('No featured_image set — article will render without a header image')
   }
-  elseif (-not $fi.StartsWith('http')) {
+  elseif (-not $fi.StartsWith('http') -and -not $fi.StartsWith('/')) {
     $fname = [System.IO.Path]::GetFileName($fi)
     if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
       $errors.Add("featured_image file not found in vault: $fname")
@@ -206,7 +206,7 @@ function Test-ArticlePreflight {
   # Body images — wiki-link syntax  ![[file.ext]]
   foreach ($m in [regex]::Matches($body, '!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]')) {
     $fname = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
-    $ext   = [System.IO.Path]::GetExtension($fname).ToLower()
+    $ext = [System.IO.Path]::GetExtension($fname).ToLower()
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
         $errors.Add("Body image not found in vault: $fname")
@@ -219,7 +219,7 @@ function Test-ArticlePreflight {
     $path = $m.Groups[2].Value.Trim()
     if ($path.StartsWith('/images/')) { continue }
     $fname = [System.IO.Path]::GetFileName($path)
-    $ext   = [System.IO.Path]::GetExtension($fname).ToLower()
+    $ext = [System.IO.Path]::GetExtension($fname).ToLower()
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
         $errors.Add("Body image not found in vault: $fname")
@@ -246,13 +246,13 @@ if ($readyForPreflight.Count -gt 0) {
 
   foreach ($file in $readyForPreflight) {
     $result = Test-ArticlePreflight -filePath $file.FullName -articleFolder $file.DirectoryName
-    $slug   = Get-FileSlug $file.FullName
+    $slug = Get-FileSlug $file.FullName
     $status = if ($result.Errors.Count -gt 0) { 'FAIL' } elseif ($result.Warnings.Count -gt 0) { 'WARN' } else { 'PASS' }
-    $color  = switch ($status) { 'FAIL' { 'Red' } 'WARN' { 'Yellow' } default { 'Green' } }
+    $color = switch ($status) { 'FAIL' { 'Red' } 'WARN' { 'Yellow' } default { 'Green' } }
 
     Write-Host "  [$status] $slug  ($($result.WordCount) words)" -ForegroundColor $color
 
-    foreach ($e in $result.Errors)   { Write-Host "        ERROR   $e" -ForegroundColor Red }
+    foreach ($e in $result.Errors) { Write-Host "        ERROR   $e" -ForegroundColor Red }
     foreach ($w in $result.Warnings) { Write-Host "        WARN    $w" -ForegroundColor Yellow }
 
     if ($result.Errors.Count -gt 0) { $preflightBlocking = $true }
@@ -265,7 +265,8 @@ if ($Preflight) {
   Write-Host ''
   if ($preflightBlocking) {
     Write-Host 'Preflight FAILED — fix errors before publishing.' -ForegroundColor Red
-  } else {
+  }
+  else {
     Write-Host 'Preflight passed. Run without -Preflight to publish.' -ForegroundColor Green
   }
   exit 0
