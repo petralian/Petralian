@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
+import type React from 'react';
 
 interface Vec2 { x: number; y: number }
 
@@ -38,6 +39,102 @@ interface GameState {
     keys: Set<string>;
     shootCooldown: number;
     animId: number;
+    gameOverFired: boolean;
+}
+
+interface HighScore { name: string; score: number }
+type UiPhase = 'idle' | 'playing' | 'entering-name' | 'showing-scores';
+
+// ── LocalStorage helpers ───────────────────────────────────────────────────────
+const LS_KEY = 'petralian_asteroids_hs';
+function loadScores(): HighScore[] {
+    try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch { return []; }
+}
+function saveScores(scores: HighScore[]) {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(scores)); } catch { /* noop */ }
+}
+function addScore(scores: HighScore[], entry: HighScore): HighScore[] {
+    return [...scores, entry].sort((a, b) => b.score - a.score).slice(0, 10);
+}
+function qualifiesForBoard(scores: HighScore[], score: number): boolean {
+    if (score <= 0) return false;
+    if (scores.length < 10) return true;
+    return score > scores[scores.length - 1].score;
+}
+
+// ── Leaderboard panel ──────────────────────────────────────────────────────────
+const panelStyle: React.CSSProperties = {
+    background: 'rgba(0,0,0,0.78)',
+    border: '1px solid rgba(68,170,255,0.35)',
+    borderRadius: 8,
+    padding: '14px 22px',
+    minWidth: 260,
+    backdropFilter: 'blur(6px)',
+};
+const inputStyle: React.CSSProperties = {
+    background: 'rgba(0,0,0,0.6)',
+    border: '1px solid #4af',
+    borderRadius: 4,
+    color: '#fff',
+    fontFamily: 'monospace',
+    fontSize: 14,
+    padding: '8px 12px',
+    width: '100%',
+    outline: 'none',
+    letterSpacing: '0.05em',
+    marginBottom: 8,
+    boxSizing: 'border-box',
+};
+const btnStyle: React.CSSProperties = {
+    background: 'transparent',
+    border: '1px solid #4af',
+    borderRadius: 4,
+    color: '#4af',
+    fontFamily: 'monospace',
+    fontSize: 12,
+    letterSpacing: '0.1em',
+    padding: '6px 16px',
+    cursor: 'pointer',
+    width: '100%',
+};
+
+function LeaderboardPanel({ scores, highlightScore }: { scores: HighScore[]; highlightScore?: number }) {
+    return (
+        <div style={panelStyle}>
+            <p style={{ color: '#4af', fontSize: 12, letterSpacing: '0.15em', margin: '0 0 10px', textAlign: 'center' }}>
+                ── HIGH SCORES ──
+            </p>
+            {scores.length === 0 ? (
+                <p style={{ color: '#556', fontSize: 11, margin: 0, textAlign: 'center', letterSpacing: '0.08em' }}>
+                    NO SCORES YET — BE FIRST
+                </p>
+            ) : (
+                scores.map((s, i) => {
+                    const isHighlight = highlightScore !== undefined && s.score === highlightScore;
+                    return (
+                        <div key={i} style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            gap: 24,
+                            fontSize: 12,
+                            color: isHighlight ? '#ff8' : (i === 0 ? '#4af' : '#9ce'),
+                            fontWeight: isHighlight ? 'bold' : 'normal',
+                            marginBottom: 3,
+                            letterSpacing: '0.04em',
+                        }}>
+                            <span>{i + 1}. {s.name}</span>
+                            <span>{s.score}</span>
+                        </div>
+                    );
+                })
+            )}
+        </div>
+    );
 }
 
 const SHIP_THRUST = 0.15;
@@ -115,7 +212,45 @@ export default function AsteroidsGame() {
         keys: new Set<string>(),
         shootCooldown: 0,
         animId: 0,
+        gameOverFired: false,
     });
+
+    const [highScores, setHighScores] = useState<HighScore[]>([]);
+    const [uiPhase, setUiPhase] = useState<UiPhase>('idle');
+    const [pendingScore, setPendingScore] = useState(0);
+    const [nameInput, setNameInput] = useState('');
+    const uiPhaseRef = useRef<UiPhase>('idle');
+
+    // Load scores on mount
+    useEffect(() => { setHighScores(loadScores()); }, []);
+
+    const setUiPhaseBoth = useCallback((p: UiPhase) => {
+        uiPhaseRef.current = p;
+        setUiPhase(p);
+    }, []);
+
+    const onGameOver = useCallback((score: number) => {
+        const scores = loadScores();
+        setPendingScore(score);
+        if (qualifiesForBoard(scores, score)) {
+            setUiPhaseBoth('entering-name');
+        } else {
+            setHighScores(scores);
+            setUiPhaseBoth('showing-scores');
+        }
+    }, [setUiPhaseBoth]);
+    const onGameOverRef = useRef(onGameOver);
+    useEffect(() => { onGameOverRef.current = onGameOver; }, [onGameOver]);
+
+    const submitName = useCallback(() => {
+        const name = nameInput.trim() || 'ANONYMOUS';
+        const scores = loadScores();
+        const updated = addScore(scores, { name, score: pendingScore });
+        saveScores(updated);
+        setHighScores(updated);
+        setNameInput('');
+        setUiPhaseBoth('showing-scores');
+    }, [nameInput, pendingScore, setUiPhaseBoth]);
 
     const startGame = useCallback(() => {
         const canvas = canvasRef.current;
@@ -132,7 +267,9 @@ export default function AsteroidsGame() {
         state.lives = 3;
         state.phase = 'playing';
         state.shootCooldown = 0;
-    }, []);
+        state.gameOverFired = false;
+        setUiPhaseBoth('playing');
+    }, [setUiPhaseBoth]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -149,16 +286,23 @@ export default function AsteroidsGame() {
         const ro = new ResizeObserver(resize);
         ro.observe(canvas);
 
+        // Seed idle asteroids
+        state.asteroids = Array.from({ length: 6 }, () =>
+            makeAsteroid(canvas.width || 800, canvas.height || 500, { x: 400, y: 250 }, 28 + Math.random() * 22)
+        );
+
         const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === ' ') e.preventDefault();
+            // Don't block space if focus is inside a form input
+            if (e.key === ' ' && !(e.target instanceof HTMLInputElement)) e.preventDefault();
             state.keys.add(e.key);
 
             if (e.key === ' ') {
-                if (state.phase === 'idle' || state.phase === 'over') {
+                const up = uiPhaseRef.current;
+                if (up === 'idle' || up === 'showing-scores') {
                     startGame();
                     return;
                 }
-                if (state.phase === 'playing' && !state.ship.dead && state.shootCooldown === 0) {
+                if (up === 'playing' && !state.ship.dead && state.shootCooldown === 0) {
                     const s = state.ship;
                     state.bullets.push({
                         pos: {
@@ -207,7 +351,6 @@ export default function AsteroidsGame() {
             ctx!.save();
             ctx!.translate(ship.pos.x, ship.pos.y);
             ctx!.rotate(ship.angle);
-            // Body
             ctx!.beginPath();
             ctx!.moveTo(16, 0);
             ctx!.lineTo(-10, -9);
@@ -219,7 +362,6 @@ export default function AsteroidsGame() {
             ctx!.shadowColor = '#4af';
             ctx!.shadowBlur = 14;
             ctx!.stroke();
-            // Flame
             const thrusting =
                 state.keys.has('ArrowUp') || state.keys.has('w') || state.keys.has('W');
             if (thrusting) {
@@ -241,11 +383,10 @@ export default function AsteroidsGame() {
             const w = canvas!.width;
             const h = canvas!.height;
 
-            // Trailing fade
-            ctx!.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx!.fillStyle = 'rgba(0,0,0,0.2)';
             ctx!.fillRect(0, 0, w, h);
 
-            // Ghost 404 text
+            // Ghost 404
             ctx!.save();
             ctx!.globalAlpha = 0.035;
             ctx!.fillStyle = '#ffffff';
@@ -255,36 +396,30 @@ export default function AsteroidsGame() {
             ctx!.fillText('404', w / 2, h / 2);
             ctx!.restore();
 
-            // ── Idle ──
+            // ── Idle / showing-scores — drift asteroids, no ship ──
             if (state.phase === 'idle') {
-                ctx!.save();
-                ctx!.textAlign = 'center';
-                ctx!.textBaseline = 'middle';
-                ctx!.fillStyle = '#4af';
-                ctx!.shadowColor = '#4af';
-                ctx!.shadowBlur = 18;
-                ctx!.font = 'bold 14px monospace';
-                ctx!.fillText('[ SPACE ] TO PLAY', w / 2, h / 2 + 56);
-                ctx!.restore();
+                for (const a of state.asteroids) {
+                    a.pos.x = wrap(a.pos.x + a.vel.x, w);
+                    a.pos.y = wrap(a.pos.y + a.vel.y, h);
+                    a.angle += a.rotSpeed;
+                }
+                for (const a of state.asteroids) drawAsteroid(a);
                 state.animId = requestAnimationFrame(loop);
                 return;
             }
 
-            // ── Game Over ──
+            // ── Over — animate asteroids, fire callback once ──
             if (state.phase === 'over') {
-                ctx!.save();
-                ctx!.textAlign = 'center';
-                ctx!.textBaseline = 'middle';
-                ctx!.fillStyle = '#f75';
-                ctx!.shadowColor = '#f75';
-                ctx!.shadowBlur = 20;
-                ctx!.font = 'bold 20px monospace';
-                ctx!.fillText('GAME OVER', w / 2, h / 2 + 28);
-                ctx!.fillStyle = '#8bc';
-                ctx!.shadowBlur = 0;
-                ctx!.font = '13px monospace';
-                ctx!.fillText(`SCORE  ${state.score}   ·   [ SPACE ] TO RETRY`, w / 2, h / 2 + 58);
-                ctx!.restore();
+                if (!state.gameOverFired) {
+                    state.gameOverFired = true;
+                    onGameOverRef.current(state.score);
+                }
+                for (const a of state.asteroids) {
+                    a.pos.x = wrap(a.pos.x + a.vel.x, w);
+                    a.pos.y = wrap(a.pos.y + a.vel.y, h);
+                    a.angle += a.rotSpeed;
+                }
+                for (const a of state.asteroids) drawAsteroid(a);
                 state.animId = requestAnimationFrame(loop);
                 return;
             }
@@ -292,7 +427,6 @@ export default function AsteroidsGame() {
             // ── Playing ──
             const { ship } = state;
 
-            // Respawn
             if (ship.dead) {
                 ship.respawnTimer--;
                 if (ship.respawnTimer <= 0) {
@@ -328,7 +462,6 @@ export default function AsteroidsGame() {
 
             if (state.shootCooldown > 0) state.shootCooldown--;
 
-            // Bullets
             state.bullets = state.bullets.filter(b => b.life > 0);
             for (const b of state.bullets) {
                 b.pos.x = wrap(b.pos.x + b.vel.x, w);
@@ -336,14 +469,12 @@ export default function AsteroidsGame() {
                 b.life--;
             }
 
-            // Asteroids
             for (const a of state.asteroids) {
                 a.pos.x = wrap(a.pos.x + a.vel.x, w);
                 a.pos.y = wrap(a.pos.y + a.vel.y, h);
                 a.angle += a.rotSpeed;
             }
 
-            // Bullet ↔ asteroid collisions
             const born: Asteroid[] = [];
             state.asteroids = state.asteroids.filter(a => {
                 for (let bi = state.bullets.length - 1; bi >= 0; bi--) {
@@ -359,7 +490,6 @@ export default function AsteroidsGame() {
             });
             state.asteroids.push(...born);
 
-            // Wave clear
             if (state.asteroids.length === 0) {
                 const next = Math.min(ASTEROIDS_START + Math.floor(state.score / 400), 10);
                 state.asteroids = Array.from({ length: next }, () =>
@@ -367,7 +497,6 @@ export default function AsteroidsGame() {
                 );
             }
 
-            // Ship ↔ asteroid collision
             if (!ship.dead && ship.invincible === 0) {
                 for (const a of state.asteroids) {
                     if (Math.hypot(ship.pos.x - a.pos.x, ship.pos.y - a.pos.y) < a.radius + 9) {
@@ -383,7 +512,6 @@ export default function AsteroidsGame() {
                 }
             }
 
-            // ── Render ──
             for (const b of state.bullets) {
                 ctx!.save();
                 ctx!.beginPath();
@@ -422,10 +550,94 @@ export default function AsteroidsGame() {
         };
     }, [startGame]);
 
+    const overlayBase: React.CSSProperties = {
+        position: 'absolute',
+        top: 0, left: 0, right: 0, bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 14,
+        fontFamily: 'monospace',
+    };
+
     return (
-        <canvas
-            ref={canvasRef}
-            style={{ display: 'block', width: '100%', height: '100%', background: '#000' }}
-        />
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <canvas
+                ref={canvasRef}
+                style={{ display: 'block', width: '100%', height: '100%', background: '#000' }}
+            />
+
+            {/* ── Idle: leaderboard + play prompt ── */}
+            {uiPhase === 'idle' && (
+                <div style={{ ...overlayBase, pointerEvents: 'none' }}>
+                    <LeaderboardPanel scores={highScores} />
+                    <p style={{
+                        color: '#4af', letterSpacing: '0.2em', fontSize: 13,
+                        margin: 0, opacity: 0.9,
+                    }}>
+                        [ SPACE ] TO PLAY
+                    </p>
+                </div>
+            )}
+
+            {/* ── Entering name ── */}
+            {uiPhase === 'entering-name' && (
+                <div style={{ ...overlayBase, pointerEvents: 'auto' }}>
+                    <div style={panelStyle}>
+                        <p style={{
+                            color: '#f75', fontSize: 17, fontWeight: 'bold',
+                            margin: '0 0 4px', letterSpacing: '0.1em', textAlign: 'center',
+                        }}>
+                            GAME OVER
+                        </p>
+                        <p style={{
+                            color: '#ff8', fontSize: 13, margin: '0 0 14px',
+                            letterSpacing: '0.05em', textAlign: 'center',
+                        }}>
+                            SCORE: {pendingScore} — NEW HIGH SCORE!
+                        </p>
+                        <p style={{
+                            color: '#9ce', fontSize: 11, margin: '0 0 7px',
+                            letterSpacing: '0.08em',
+                        }}>
+                            ENTER YOUR NAME OR HANDLE
+                        </p>
+                        <input
+                            autoFocus
+                            type="text"
+                            maxLength={20}
+                            value={nameInput}
+                            onChange={e => setNameInput(e.target.value)}
+                            onKeyDown={e => { if (e.key === 'Enter') submitName(); }}
+                            style={inputStyle}
+                            placeholder="@yourname"
+                        />
+                        <button onClick={submitName} style={btnStyle}>
+                            SAVE SCORE
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* ── Game over + leaderboard ── */}
+            {uiPhase === 'showing-scores' && (
+                <div style={{ ...overlayBase, pointerEvents: 'none' }}>
+                    <p style={{
+                        color: '#f75', fontSize: 17, fontWeight: 'bold',
+                        margin: 0, letterSpacing: '0.1em',
+                    }}>
+                        GAME OVER — SCORE: {pendingScore}
+                    </p>
+                    <LeaderboardPanel scores={highScores} highlightScore={pendingScore} />
+                    <p style={{
+                        color: '#4af', letterSpacing: '0.2em', fontSize: 13,
+                        margin: 0, opacity: 0.9,
+                    }}>
+                        [ SPACE ] TO RETRY
+                    </p>
+                </div>
+            )}
+        </div>
     );
 }
