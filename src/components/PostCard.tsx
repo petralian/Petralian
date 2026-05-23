@@ -17,12 +17,8 @@ function formatDate(dateStr: string): string {
   }
 }
 
-function isAbsoluteUrl(url: string): boolean {
-  return url.startsWith("http://") || url.startsWith("https://");
-}
-
 export default function PostCard({ post, featured = false }: PostCardProps) {
-  const hasImage = Boolean(post.featured_image) && isAbsoluteUrl(post.featured_image);
+  const hasImage = Boolean(post.featured_image);
   return (
     <Link href={`/posts/${post.slug}`} className="post-card">
       <article>
