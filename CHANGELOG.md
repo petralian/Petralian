@@ -6,6 +6,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- `public/images/nathan-petralia.jpg` — Nathan's homepage profile photo (migrated from dead WP URL)
+- `public/images/nathan-petralia-about.jpg` — Nathan's about page profile photo (migrated from dead WP URL)
 - `src/app/icon.png` — favicon from `public/images/posts/petralian_ico.png`
 - SEO metadata (`seo_title`, `seo_description`, `featured_image_alt`, `focus_keyword`) added to all 37 published posts
 - `image_prompt` frontmatter field documented in Writing Session Guide (Obsidian-only, stripped by sync script)
@@ -22,6 +24,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Next.js placeholder SVGs removed from `public/` root
 
 ### Fixed
+- `src/app/page.tsx`, `src/app/about/page.tsx`: replaced dead WordPress image URLs (`403 Forbidden`) with local assets — eliminates browser console errors and PageSpeed Best Practices penalty
+- `src/components/Header.tsx`: removed `priority` from dark logo (white logo) — eliminates "preloaded but unused resource" browser warning; added `sizes="247px"` to both logos to prevent oversized srcset generation
+- `next.config.ts`: removed stale WordPress `remotePattern` for `petralian.com/wp-content/uploads/**` (migration complete)
 - British → American English spelling corrected across 6 content files and `src/app/posts/[slug]/page.tsx`
 - `meta_description` field renamed to `seo_description` in 3 posts (getting-enterprise-ai-right, what-i-learned-directing-ai, what-the-next-generation-of-delivery-leadership)
 
