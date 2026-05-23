@@ -13,15 +13,6 @@ export default defineConfig({
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID ?? null,
     token: process.env.TINA_TOKEN ?? null,
 
-    search: {
-        tina: {
-            indexerToken: process.env.TINA_SEARCH,
-            stopwordLanguages: ["eng"],
-        },
-        indexBatchSize: 100,
-        maxSearchIndexFieldLength: 100,
-    },
-
     build: {
         outputFolder: "admin",
         publicFolder: "public",
