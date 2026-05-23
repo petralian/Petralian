@@ -56,10 +56,19 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   post(relativePath: String): Post!
   postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
+  homePage(relativePath: String): HomePage!
+  homePageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomePageFilter): HomePageConnection!
+  aboutPage(relativePath: String): AboutPage!
+  aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
+  writingPage(relativePath: String): WritingPage!
+  writingPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WritingPageFilter): WritingPageConnection!
 }
 
 input DocumentFilter {
   post: PostFilter
+  homePage: HomePageFilter
+  aboutPage: AboutPageFilter
+  writingPage: WritingPageFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,7 +94,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Post | Folder
+union DocumentNode = Post | HomePage | AboutPage | WritingPage | Folder
 
 type Post implements Node & Document {
   title: String!
@@ -161,6 +170,108 @@ type PostConnection implements Connection {
   edges: [PostConnectionEdges]
 }
 
+type HomePage implements Node & Document {
+  hero_title: String
+  hero_tagline: String
+  intro_bio: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input HomePageFilter {
+  hero_title: StringFilter
+  hero_tagline: StringFilter
+  intro_bio: StringFilter
+}
+
+type HomePageConnectionEdges {
+  cursor: String!
+  node: HomePage
+}
+
+type HomePageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [HomePageConnectionEdges]
+}
+
+type AboutPagePillars {
+  label: String
+  title: String
+  text: String
+}
+
+type AboutPage implements Node & Document {
+  hero_tagline: String
+  bio_paragraphs: [String]
+  pillars: [AboutPagePillars]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AboutPagePillarsFilter {
+  label: StringFilter
+  title: StringFilter
+  text: StringFilter
+}
+
+input AboutPageFilter {
+  hero_tagline: StringFilter
+  bio_paragraphs: StringFilter
+  pillars: AboutPagePillarsFilter
+}
+
+type AboutPageConnectionEdges {
+  cursor: String!
+  node: AboutPage
+}
+
+type AboutPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AboutPageConnectionEdges]
+}
+
+type WritingPageTopic_cards {
+  title: String
+  description: String
+  style: String
+}
+
+type WritingPage implements Node & Document {
+  header_title: String
+  header_description: String
+  topic_cards: [WritingPageTopic_cards]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input WritingPageTopic_cardsFilter {
+  title: StringFilter
+  description: StringFilter
+  style: StringFilter
+}
+
+input WritingPageFilter {
+  header_title: StringFilter
+  header_description: StringFilter
+  topic_cards: WritingPageTopic_cardsFilter
+}
+
+type WritingPageConnectionEdges {
+  cursor: String!
+  node: WritingPage
+}
+
+type WritingPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [WritingPageConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -169,15 +280,27 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updatePost(relativePath: String!, params: PostMutation!): Post!
   createPost(relativePath: String!, params: PostMutation!): Post!
+  updateHomePage(relativePath: String!, params: HomePageMutation!): HomePage!
+  createHomePage(relativePath: String!, params: HomePageMutation!): HomePage!
+  updateAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
+  createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
+  updateWritingPage(relativePath: String!, params: WritingPageMutation!): WritingPage!
+  createWritingPage(relativePath: String!, params: WritingPageMutation!): WritingPage!
 }
 
 input DocumentUpdateMutation {
   post: PostMutation
+  homePage: HomePageMutation
+  aboutPage: AboutPageMutation
+  writingPage: WritingPageMutation
   relativePath: String
 }
 
 input DocumentMutation {
   post: PostMutation
+  homePage: HomePageMutation
+  aboutPage: AboutPageMutation
+  writingPage: WritingPageMutation
 }
 
 input PostMutation {
@@ -194,6 +317,36 @@ input PostMutation {
   seo_title: String
   meta_description: String
   body: JSON
+}
+
+input HomePageMutation {
+  hero_title: String
+  hero_tagline: String
+  intro_bio: String
+}
+
+input AboutPagePillarsMutation {
+  label: String
+  title: String
+  text: String
+}
+
+input AboutPageMutation {
+  hero_tagline: String
+  bio_paragraphs: [String]
+  pillars: [AboutPagePillarsMutation]
+}
+
+input WritingPageTopic_cardsMutation {
+  title: String
+  description: String
+  style: String
+}
+
+input WritingPageMutation {
+  header_title: String
+  header_description: String
+  topic_cards: [WritingPageTopic_cardsMutation]
 }
 
 schema {

@@ -84,6 +84,12 @@ export type Query = {
   document: DocumentNode;
   post: Post;
   postConnection: PostConnection;
+  homePage: HomePage;
+  homePageConnection: HomePageConnection;
+  aboutPage: AboutPage;
+  aboutPageConnection: AboutPageConnection;
+  writingPage: WritingPage;
+  writingPageConnection: WritingPageConnection;
 };
 
 
@@ -122,8 +128,56 @@ export type QueryPostConnectionArgs = {
   filter?: InputMaybe<PostFilter>;
 };
 
+
+export type QueryHomePageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryHomePageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<HomePageFilter>;
+};
+
+
+export type QueryAboutPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAboutPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<AboutPageFilter>;
+};
+
+
+export type QueryWritingPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryWritingPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<WritingPageFilter>;
+};
+
 export type DocumentFilter = {
   post?: InputMaybe<PostFilter>;
+  homePage?: InputMaybe<HomePageFilter>;
+  aboutPage?: InputMaybe<AboutPageFilter>;
+  writingPage?: InputMaybe<WritingPageFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -163,7 +217,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Post | Folder;
+export type DocumentNode = Post | HomePage | AboutPage | WritingPage | Folder;
 
 export type Post = Node & Document & {
   __typename?: 'Post';
@@ -242,6 +296,119 @@ export type PostConnection = Connection & {
   edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
 };
 
+export type HomePage = Node & Document & {
+  __typename?: 'HomePage';
+  hero_title?: Maybe<Scalars['String']['output']>;
+  hero_tagline?: Maybe<Scalars['String']['output']>;
+  intro_bio?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type HomePageFilter = {
+  hero_title?: InputMaybe<StringFilter>;
+  hero_tagline?: InputMaybe<StringFilter>;
+  intro_bio?: InputMaybe<StringFilter>;
+};
+
+export type HomePageConnectionEdges = {
+  __typename?: 'HomePageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<HomePage>;
+};
+
+export type HomePageConnection = Connection & {
+  __typename?: 'HomePageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<HomePageConnectionEdges>>>;
+};
+
+export type AboutPagePillars = {
+  __typename?: 'AboutPagePillars';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type AboutPage = Node & Document & {
+  __typename?: 'AboutPage';
+  hero_tagline?: Maybe<Scalars['String']['output']>;
+  bio_paragraphs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  pillars?: Maybe<Array<Maybe<AboutPagePillars>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type AboutPagePillarsFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  text?: InputMaybe<StringFilter>;
+};
+
+export type AboutPageFilter = {
+  hero_tagline?: InputMaybe<StringFilter>;
+  bio_paragraphs?: InputMaybe<StringFilter>;
+  pillars?: InputMaybe<AboutPagePillarsFilter>;
+};
+
+export type AboutPageConnectionEdges = {
+  __typename?: 'AboutPageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<AboutPage>;
+};
+
+export type AboutPageConnection = Connection & {
+  __typename?: 'AboutPageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<AboutPageConnectionEdges>>>;
+};
+
+export type WritingPageTopic_Cards = {
+  __typename?: 'WritingPageTopic_cards';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  style?: Maybe<Scalars['String']['output']>;
+};
+
+export type WritingPage = Node & Document & {
+  __typename?: 'WritingPage';
+  header_title?: Maybe<Scalars['String']['output']>;
+  header_description?: Maybe<Scalars['String']['output']>;
+  topic_cards?: Maybe<Array<Maybe<WritingPageTopic_Cards>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type WritingPageTopic_CardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  style?: InputMaybe<StringFilter>;
+};
+
+export type WritingPageFilter = {
+  header_title?: InputMaybe<StringFilter>;
+  header_description?: InputMaybe<StringFilter>;
+  topic_cards?: InputMaybe<WritingPageTopic_CardsFilter>;
+};
+
+export type WritingPageConnectionEdges = {
+  __typename?: 'WritingPageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<WritingPage>;
+};
+
+export type WritingPageConnection = Connection & {
+  __typename?: 'WritingPageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<WritingPageConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -251,6 +418,12 @@ export type Mutation = {
   createFolder: DocumentNode;
   updatePost: Post;
   createPost: Post;
+  updateHomePage: HomePage;
+  createHomePage: HomePage;
+  updateAboutPage: AboutPage;
+  createAboutPage: AboutPage;
+  updateWritingPage: WritingPage;
+  createWritingPage: WritingPage;
 };
 
 
@@ -298,13 +471,55 @@ export type MutationCreatePostArgs = {
   params: PostMutation;
 };
 
+
+export type MutationUpdateHomePageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: HomePageMutation;
+};
+
+
+export type MutationCreateHomePageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: HomePageMutation;
+};
+
+
+export type MutationUpdateAboutPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AboutPageMutation;
+};
+
+
+export type MutationCreateAboutPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AboutPageMutation;
+};
+
+
+export type MutationUpdateWritingPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: WritingPageMutation;
+};
+
+
+export type MutationCreateWritingPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: WritingPageMutation;
+};
+
 export type DocumentUpdateMutation = {
   post?: InputMaybe<PostMutation>;
+  homePage?: InputMaybe<HomePageMutation>;
+  aboutPage?: InputMaybe<AboutPageMutation>;
+  writingPage?: InputMaybe<WritingPageMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   post?: InputMaybe<PostMutation>;
+  homePage?: InputMaybe<HomePageMutation>;
+  aboutPage?: InputMaybe<AboutPageMutation>;
+  writingPage?: InputMaybe<WritingPageMutation>;
 };
 
 export type PostMutation = {
@@ -323,7 +538,43 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type HomePageMutation = {
+  hero_title?: InputMaybe<Scalars['String']['input']>;
+  hero_tagline?: InputMaybe<Scalars['String']['input']>;
+  intro_bio?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPagePillarsMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutPageMutation = {
+  hero_tagline?: InputMaybe<Scalars['String']['input']>;
+  bio_paragraphs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  pillars?: InputMaybe<Array<InputMaybe<AboutPagePillarsMutation>>>;
+};
+
+export type WritingPageTopic_CardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  style?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type WritingPageMutation = {
+  header_title?: InputMaybe<Scalars['String']['input']>;
+  header_description?: InputMaybe<Scalars['String']['input']>;
+  topic_cards?: InputMaybe<Array<InputMaybe<WritingPageTopic_CardsMutation>>>;
+};
+
 export type PostPartsFragment = { __typename: 'Post', title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, meta_description?: string | null, body?: any | null };
+
+export type HomePagePartsFragment = { __typename: 'HomePage', hero_title?: string | null, hero_tagline?: string | null, intro_bio?: string | null };
+
+export type AboutPagePartsFragment = { __typename: 'AboutPage', hero_tagline?: string | null, bio_paragraphs?: Array<string | null> | null, pillars?: Array<{ __typename: 'AboutPagePillars', label?: string | null, title?: string | null, text?: string | null } | null> | null };
+
+export type WritingPagePartsFragment = { __typename: 'WritingPage', header_title?: string | null, header_description?: string | null, topic_cards?: Array<{ __typename: 'WritingPageTopic_cards', title?: string | null, description?: string | null, style?: string | null } | null> | null };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -344,6 +595,63 @@ export type PostConnectionQueryVariables = Exact<{
 
 export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', cursor: string, node?: { __typename: 'Post', id: string, title: string, slug?: string | null, date?: string | null, status?: string | null, category?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, featured_image?: string | null, featured_image_alt?: string | null, focus_keyword?: string | null, seo_title?: string | null, meta_description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export type HomePageQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type HomePageQuery = { __typename?: 'Query', homePage: { __typename: 'HomePage', id: string, hero_title?: string | null, hero_tagline?: string | null, intro_bio?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type HomePageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<HomePageFilter>;
+}>;
+
+
+export type HomePageConnectionQuery = { __typename?: 'Query', homePageConnection: { __typename?: 'HomePageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomePageConnectionEdges', cursor: string, node?: { __typename: 'HomePage', id: string, hero_title?: string | null, hero_tagline?: string | null, intro_bio?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type AboutPageQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type AboutPageQuery = { __typename?: 'Query', aboutPage: { __typename: 'AboutPage', id: string, hero_tagline?: string | null, bio_paragraphs?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, pillars?: Array<{ __typename: 'AboutPagePillars', label?: string | null, title?: string | null, text?: string | null } | null> | null } };
+
+export type AboutPageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<AboutPageFilter>;
+}>;
+
+
+export type AboutPageConnectionQuery = { __typename?: 'Query', aboutPageConnection: { __typename?: 'AboutPageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutPageConnectionEdges', cursor: string, node?: { __typename: 'AboutPage', id: string, hero_tagline?: string | null, bio_paragraphs?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, pillars?: Array<{ __typename: 'AboutPagePillars', label?: string | null, title?: string | null, text?: string | null } | null> | null } | null } | null> | null } };
+
+export type WritingPageQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type WritingPageQuery = { __typename?: 'Query', writingPage: { __typename: 'WritingPage', id: string, header_title?: string | null, header_description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, topic_cards?: Array<{ __typename: 'WritingPageTopic_cards', title?: string | null, description?: string | null, style?: string | null } | null> | null } };
+
+export type WritingPageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<WritingPageFilter>;
+}>;
+
+
+export type WritingPageConnectionQuery = { __typename?: 'Query', writingPageConnection: { __typename?: 'WritingPageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WritingPageConnectionEdges', cursor: string, node?: { __typename: 'WritingPage', id: string, header_title?: string | null, header_description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, topic_cards?: Array<{ __typename: 'WritingPageTopic_cards', title?: string | null, description?: string | null, style?: string | null } | null> | null } | null } | null> | null } };
+
 export const PostPartsFragmentDoc = gql`
     fragment PostParts on Post {
   __typename
@@ -360,6 +668,40 @@ export const PostPartsFragmentDoc = gql`
   seo_title
   meta_description
   body
+}
+    `;
+export const HomePagePartsFragmentDoc = gql`
+    fragment HomePageParts on HomePage {
+  __typename
+  hero_title
+  hero_tagline
+  intro_bio
+}
+    `;
+export const AboutPagePartsFragmentDoc = gql`
+    fragment AboutPageParts on AboutPage {
+  __typename
+  hero_tagline
+  bio_paragraphs
+  pillars {
+    __typename
+    label
+    title
+    text
+  }
+}
+    `;
+export const WritingPagePartsFragmentDoc = gql`
+    fragment WritingPageParts on WritingPage {
+  __typename
+  header_title
+  header_description
+  topic_cards {
+    __typename
+    title
+    description
+    style
+  }
 }
     `;
 export const PostDocument = gql`
@@ -419,6 +761,177 @@ export const PostConnectionDocument = gql`
   }
 }
     ${PostPartsFragmentDoc}`;
+export const HomePageDocument = gql`
+    query homePage($relativePath: String!) {
+  homePage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...HomePageParts
+  }
+}
+    ${HomePagePartsFragmentDoc}`;
+export const HomePageConnectionDocument = gql`
+    query homePageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: HomePageFilter) {
+  homePageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...HomePageParts
+      }
+    }
+  }
+}
+    ${HomePagePartsFragmentDoc}`;
+export const AboutPageDocument = gql`
+    query aboutPage($relativePath: String!) {
+  aboutPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AboutPageParts
+  }
+}
+    ${AboutPagePartsFragmentDoc}`;
+export const AboutPageConnectionDocument = gql`
+    query aboutPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AboutPageFilter) {
+  aboutPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AboutPageParts
+      }
+    }
+  }
+}
+    ${AboutPagePartsFragmentDoc}`;
+export const WritingPageDocument = gql`
+    query writingPage($relativePath: String!) {
+  writingPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...WritingPageParts
+  }
+}
+    ${WritingPagePartsFragmentDoc}`;
+export const WritingPageConnectionDocument = gql`
+    query writingPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: WritingPageFilter) {
+  writingPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...WritingPageParts
+      }
+    }
+  }
+}
+    ${WritingPagePartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -427,6 +940,24 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     postConnection(variables?: PostConnectionQueryVariables, options?: C): Promise<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}> {
         return requester<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}, PostConnectionQueryVariables>(PostConnectionDocument, variables, options);
+      },
+    homePage(variables: HomePageQueryVariables, options?: C): Promise<{data: HomePageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomePageQueryVariables, query: string}> {
+        return requester<{data: HomePageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomePageQueryVariables, query: string}, HomePageQueryVariables>(HomePageDocument, variables, options);
+      },
+    homePageConnection(variables?: HomePageConnectionQueryVariables, options?: C): Promise<{data: HomePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomePageConnectionQueryVariables, query: string}> {
+        return requester<{data: HomePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HomePageConnectionQueryVariables, query: string}, HomePageConnectionQueryVariables>(HomePageConnectionDocument, variables, options);
+      },
+    aboutPage(variables: AboutPageQueryVariables, options?: C): Promise<{data: AboutPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageQueryVariables, query: string}> {
+        return requester<{data: AboutPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageQueryVariables, query: string}, AboutPageQueryVariables>(AboutPageDocument, variables, options);
+      },
+    aboutPageConnection(variables?: AboutPageConnectionQueryVariables, options?: C): Promise<{data: AboutPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageConnectionQueryVariables, query: string}> {
+        return requester<{data: AboutPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageConnectionQueryVariables, query: string}, AboutPageConnectionQueryVariables>(AboutPageConnectionDocument, variables, options);
+      },
+    writingPage(variables: WritingPageQueryVariables, options?: C): Promise<{data: WritingPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WritingPageQueryVariables, query: string}> {
+        return requester<{data: WritingPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WritingPageQueryVariables, query: string}, WritingPageQueryVariables>(WritingPageDocument, variables, options);
+      },
+    writingPageConnection(variables?: WritingPageConnectionQueryVariables, options?: C): Promise<{data: WritingPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WritingPageConnectionQueryVariables, query: string}> {
+        return requester<{data: WritingPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WritingPageConnectionQueryVariables, query: string}, WritingPageConnectionQueryVariables>(WritingPageConnectionDocument, variables, options);
       }
     };
   }

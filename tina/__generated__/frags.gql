@@ -14,3 +14,34 @@ fragment PostParts on Post {
   meta_description
   body
 }
+
+fragment HomePageParts on HomePage {
+  __typename
+  hero_title
+  hero_tagline
+  intro_bio
+}
+
+fragment AboutPageParts on AboutPage {
+  __typename
+  hero_tagline
+  bio_paragraphs
+  pillars {
+    __typename
+    label
+    title
+    text
+  }
+}
+
+fragment WritingPageParts on WritingPage {
+  __typename
+  header_title
+  header_description
+  topic_cards {
+    __typename
+    title
+    description
+    style
+  }
+}
