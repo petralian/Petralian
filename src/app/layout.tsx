@@ -1,9 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Red_Hat_Text, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import ScrollProgress from "@/components/ScrollProgress";
+import ClientScrollProgress from "@/components/ClientScrollProgress";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, AUTHOR_NAME, AUTHOR_BIO, AUTHOR_TITLE } from "@/lib/constants";
+
 
 const redHatText = Red_Hat_Text({
   subsets: ["latin"],
@@ -140,7 +141,7 @@ export default function RootLayout({
             <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
           </div>
         </footer>
-        <ScrollProgress />
+        <ClientScrollProgress />
       </body>
     </html>
   );
