@@ -1,23 +1,20 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypePrettyCode from "rehype-pretty-code";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import type { Options as PrettyCodeOptions } from "rehype-pretty-code";
 import { format, parseISO } from "date-fns";
-import { getAllSlugs, getPost } from "@/lib/posts";
+import { getAllPosts, getPost } from "@/lib/posts";
 import { SITE_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
+import RelatedPosts from "@/components/RelatedPosts";
 
-// Static params for SSG
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
-// Per-page metadata
 export async function generateMetadata({
   params,
 }: {
@@ -43,11 +40,6 @@ export async function generateMetadata({
   }
 }
 
-const prettyCodeOptions: PrettyCodeOptions = {
-  theme: "github-dark",
-  keepBackground: true,
-};
-
 function formatDate(dateStr: string): string {
   try {
     return format(parseISO(dateStr), "MMMM d, yyyy");
@@ -72,88 +64,73 @@ export default async function PostPage({
 
   if (post.status !== "published") notFound();
 
+  const allPosts = getAllPosts();
+
   return (
-    <div className="prose-container">
-      <Link href="/posts" className="post-back">
-        ← All articles
-      </Link>
-
-      <header className="post-header">
-        <div className="post-meta">
-          {post.category && (
-            <>
-              <span className="post-meta-category">{post.category}</span>
-              <span className="post-meta-dot" aria-hidden>·</span>
-            </>
+    <>
+      <section className="post-hero">
+        <div className="post-hero-inner">
+          <div className="post-hero-left">
+            <Link href="/posts" className="post-hero-back">
+              &larr; All articles
+            </Link>
+            {post.category && (
+              <p className="post-hero-eyebrow">{post.category}</p>
+            )}
+            <h1 className="post-hero-title">{post.title}</h1>
+            {post.excerpt && (
+              <p className="post-hero-excerpt">{post.excerpt}</p>
+            )}
+            <div className="post-hero-meta">
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              <span className="post-hero-meta-sep">&middot;</span>
+              <span>{post.readingTime}</span>
+            </div>
+            {post.tags.length > 0 && (
+              <div className="post-hero-tags">
+                {post.tags.map((tag) => (
+                  <span key={tag} className="post-hero-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+          {post.featured_image && (
+            <div className="post-hero-right">
+              <Image
+                src={post.featured_image}
+                alt={post.title}
+                fill
+                priority
+                className="post-card-image"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           )}
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span className="post-meta-dot" aria-hidden>·</span>
-          <span>{post.readingTime}</span>
         </div>
+      </section>
 
-        <h1 className="post-title">{post.title}</h1>
+      <div className="article-body-wrap">
+        <article className="prose prose-lg max-w-none">
+          <MDXRemote
+            source={post.content}
+            options={{
+              mdxOptions: {
+                format: "md",
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [rehypeRaw],
+              },
+            }}
+          />
+        </article>
+        <SubscribeBox />
+      </div>
 
-        {post.excerpt && (
-          <p className="post-excerpt">{post.excerpt}</p>
-        )}
-      </header>
-
-      {post.featured_image && (
-        <Image
-          src={post.featured_image}
-          alt={post.title}
-          width={1200}
-          height={630}
-          className="post-featured-image"
-          priority
-        />
-      )}
-
-      <article className="prose prose-lg max-w-none">
-        <MDXRemote
-          source={post.content}
-          options={{
-            mdxOptions: {
-              format: "md",
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [
-                rehypeRaw,
-                [rehypePrettyCode, prettyCodeOptions],
-              ],
-            },
-          }}
-        />
-      </article>
-
-      <SubscribeBox />
-
-      {post.tags.length > 0 && (
-        <div
-          style={{
-            marginTop: "3rem",
-            paddingTop: "1.5rem",
-            borderTop: "1px solid var(--color-border)",
-            display: "flex",
-            gap: "0.5rem",
-            flexWrap: "wrap",
-          }}
-        >
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: "0.8125rem",
-                padding: "0.25rem 0.75rem",
-                borderRadius: "999px",
-                background: "color-mix(in srgb, var(--color-accent) 10%, transparent)",
-                color: "var(--color-accent)",
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-    </div>
+      <RelatedPosts
+        currentSlug={post.slug}
+        currentTags={post.tags}
+        currentCategory={post.category}
+        allPosts={allPosts}
+      />
+    </>
   );
 }

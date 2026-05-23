@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { format, parseISO } from "date-fns";
 import type { PostMeta } from "@/lib/posts";
 
@@ -15,25 +16,57 @@ function formatDate(dateStr: string): string {
   }
 }
 
-export default function PostCard({ post, featured = false }: PostCardProps) {
-  return (
-    <Link href={`/posts/${post.slug}`} className={`post-card ${featured ? "post-card--featured" : ""}`}>
-      <article>
-        <div className="post-card-meta">
-          {post.category && (
-            <span className="post-card-category">{post.category}</span>
-          )}
-          <span className="post-card-dot" aria-hidden>·</span>
-          <time dateTime={post.date} className="post-card-date">
-            {formatDate(post.date)}
-          </time>
-          <span className="post-card-dot" aria-hidden>·</span>
-          <span className="post-card-reading-time">{post.readingTime}</span>
-        </div>
+function isAbsoluteUrl(url: string): boolean {
+  return url.startsWith("http://") || url.startsWith("https://");
+}
 
-        <h2 className={featured ? "post-card-title--featured" : "post-card-title"}>
-          {post.title}
-        </h2>
+export default function PostCard({ post, featured = false }: PostCardProps) {
+  const hasImage = Boolean(post.featured_image) && isAbsoluteUrl(post.featured_image);
+  return (
+    <Link href={`/posts/${post.slug}`} className="post-card">
+      <article>
+        {hasImage ? (
+          <div className="post-card-image-wrap">
+            <Image
+              src={post.featured_image!}
+              alt={post.title}
+              fill
+              className="post-card-image"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+            />
+          </div>
+        ) : (
+          <div className="post-card-image-placeholder" />
+        )}
+
+        <div className="post-card-body">
+          <div className="post-card-meta">
+            {post.category && (
+              <span className="post-card-category">{post.category}</span>
+            )}
+            <time dateTime={post.date} className="post-card-date">
+              {formatDate(post.date)}
+            </time>
+          </div>
+
+          <h2 className={featured ? "post-card-title--featured" : "post-card-title"}>
+            {post.title}
+          </h2>
+
+          {post.excerpt && (
+            <p className="post-card-excerpt">{post.excerpt}</p>
+          )}
+
+          {post.tags.length > 0 && (
+            <div className="post-card-tags">
+              {post.tags.slice(0, 3).map((tag) => (
+                <span key={tag} className="post-card-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+
+          <span className="post-card-read-more">Read more →</span>
+        </div>
       </article>
     </Link>
   );

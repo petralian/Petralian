@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import { Red_Hat_Text, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import ScrollProgress from "@/components/ScrollProgress";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
+
+const redHatText = Red_Hat_Text({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const lexendDeca = Lexend_Deca({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,12 +42,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${redHatText.variable} ${lexendDeca.variable}`}
+      suppressHydrationWarning
+    >
       {/* Anti-FOUC: apply stored theme before first paint */}
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('petralian-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
+            __html: `(function(){try{var m=document.cookie.match(/(?:^|;\\s*)petralian-theme=([^;]+)/);var t=m?m[1]:null;if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
           }}
         />
       </head>
@@ -39,10 +59,11 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <footer className="site-footer">
-          <p>
-            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
-          </p>
+          <div className="footer-inner">
+            <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
+          </div>
         </footer>
+        <ScrollProgress />
       </body>
     </html>
   );

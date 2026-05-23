@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Mail } from "lucide-react";
-import { SITE_NAME, SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
 
 function LinkedInIcon() {
@@ -30,9 +31,16 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        {/* Wordmark */}
-        <Link href="/" className="wordmark">
-          {SITE_NAME}
+        {/* Logo */}
+        <Link href="/" className="site-logo" aria-label="Petralian — home">
+          <Image
+            src="https://petralian.com/wp-content/uploads/petralian-logo-v9-1.png"
+            alt="Petralian"
+            width={160}
+            height={40}
+            priority
+            className="site-logo-img"
+          />
         </Link>
 
         {/* Nav + social */}
