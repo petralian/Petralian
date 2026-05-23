@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
-import { SITE_TAGLINE } from "@/lib/constants";
+import { SITE_TAGLINE, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -13,10 +14,37 @@ export default function HomePage() {
       <section className="hero">
         <p className="hero-eyebrow">Petralian.com</p>
         <h1 className="hero-title">
-          Digital transformation,<br />
-          from the inside out.
+          Sell it. Build it.<br />
+          Deliver it.
         </h1>
         <p className="hero-tagline">{SITE_TAGLINE}</p>
+      </section>
+
+      {/* Intro strip */}
+      <section className="home-intro">
+        <div className="home-intro-inner">
+          <div className="home-intro-text">
+            <p className="home-intro-eyebrow">Nathan Petralia</p>
+            <p className="home-intro-bio">
+              Twenty years inside APAC&apos;s most demanding digital programs &mdash;
+              Est&eacute;e Lauder, Shiseido, Microsoft, Merkle. Managing Director,
+              Hong Kong. In 2024 I started building AI products from scratch.
+              The gap between what I expected and what I found is what I write about.
+            </p>
+            <Link href="/about" className="home-intro-link">
+              About Nathan &rarr;
+            </Link>
+          </div>
+          <div className="home-intro-photo-wrap">
+            <Image
+              src="https://petralian.com/wp-content/uploads/2025/01/IMG_9214-e1736070938203.jpg"
+              alt="Nathan Petralia at HKU"
+              fill
+              className="home-intro-photo"
+              sizes="(max-width: 768px) 100vw, 420px"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Posts grid */}

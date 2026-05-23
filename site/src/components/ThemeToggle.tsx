@@ -12,20 +12,26 @@ function setCookieTheme(theme: "light" | "dark") {
   document.cookie = `petralian-theme=${theme};path=/;max-age=31536000;SameSite=Lax`;
 }
 
-/** Batman bat silhouette */
-function BatIcon() {
+function SunIcon() {
   return (
-    <svg width="18" height="13" viewBox="0 0 18 13" fill="currentColor" aria-hidden>
-      <path d="M9 0.5C7.8 0.5 6 2 5 3.5C3.6 2.6 1.2 3 0.3 5C-0.3 7 1 8.5 2.8 8C3.8 7.7 4.9 8.8 5.4 10C6.3 11.6 7.5 12.5 9 12.5C10.5 12.5 11.7 11.6 12.6 10C13.1 8.8 14.2 7.7 15.2 8C17 8.5 18.3 7 17.7 5C16.8 3 14.4 2.6 13 3.5C12 2 10.2 0.5 9 0.5Z" />
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" aria-hidden>
+      <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none" />
+      <line x1="12" y1="2" x2="12" y2="4" />
+      <line x1="12" y1="20" x2="12" y2="22" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="2" y1="12" x2="4" y2="12" />
+      <line x1="20" y1="12" x2="22" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
     </svg>
   );
 }
 
-/** Superman pentagon shield */
-function ShieldIcon() {
+function MoonIcon() {
   return (
-    <svg width="13" height="15" viewBox="0 0 13 15" fill="currentColor" aria-hidden>
-      <path d="M6.5 0.5L12.5 3.5V10L6.5 14.5L0.5 10V3.5Z" />
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
 }
@@ -63,14 +69,14 @@ export default function ThemeToggle() {
       aria-checked={isDark}
       onClick={toggle}
       className={`theme-switch${isDark ? " theme-switch--dark" : ""}`}
-      title={isDark ? "Switch to light mode (Superman)" : "Switch to dark mode (Batman)"}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <span className="theme-switch-icon theme-switch-icon--light">
-        <ShieldIcon />
+        <SunIcon />
       </span>
       <span className="theme-switch-thumb" aria-hidden />
       <span className="theme-switch-icon theme-switch-icon--dark">
-        <BatIcon />
+        <MoonIcon />
       </span>
     </button>
   );

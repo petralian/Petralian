@@ -219,7 +219,7 @@ a {
   height: 22px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.22);
   left: 2px;
   top: 2px;
   transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -370,7 +370,7 @@ a {
   column-gap: 1.75rem;
 }
 
-.masonry-grid > * {
+.masonry-grid>* {
   break-inside: avoid;
   margin-bottom: 1.75rem;
 }
@@ -558,6 +558,92 @@ a {
   color: var(--color-ink-secondary);
   max-width: 520px;
   line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   HOME INTRO STRIP
+   ══════════════════════════════════════════════════════════════════ */
+.home-intro {
+  background-color: var(--color-surface-dark);
+  color: #fff;
+  margin-bottom: 3.5rem;
+}
+
+.home-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3rem;
+  align-items: center;
+  min-height: 280px;
+}
+
+@media (max-width: 860px) {
+  .home-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: unset;
+  }
+}
+
+.home-intro-text {
+  padding: 3rem 0;
+}
+
+.home-intro-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.875rem;
+}
+
+.home-intro-bio {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+}
+
+.home-intro-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.home-intro-link:hover {
+  color: #fff;
+}
+
+.home-intro-photo-wrap {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  align-self: flex-end;
+}
+
+@media (max-width: 860px) {
+  .home-intro-photo-wrap {
+    height: 260px;
+    border-radius: 0;
+    margin: 0 -1.5rem;
+  }
+
+  .home-intro-text {
+    padding-bottom: 2rem;
+  }
+}
+
+.home-intro-photo {
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .section-heading {
@@ -873,13 +959,13 @@ a {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 2;
   background-color: rgba(255, 255, 255, 0.06);
 }
 
 .about-hero-photo {
   object-fit: cover;
-  object-position: top center;
+  object-position: center 30%;
 }
 
 .about-body {

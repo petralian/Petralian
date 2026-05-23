@@ -38,4 +38,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# TinaCMS — generated at build/dev time
+tina/__generated__
+/public/admin
 next-env.d.ts

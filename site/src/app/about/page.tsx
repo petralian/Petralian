@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nathan Petralia — thinking at the intersection of technology, transformation, and how people and organisations actually navigate change.",
+    "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programmes across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
 };
 
 export default function AboutPage() {
@@ -19,8 +19,8 @@ export default function AboutPage() {
             <p className="about-hero-eyebrow">About</p>
             <h1 className="about-hero-name">Nathan Petralia</h1>
             <p className="about-hero-tagline">
-              Thinking at the intersection of technology, transformation,<br />
-              and how people and organisations actually navigate change.
+              Twenty years closing deals, building teams, and delivering<br />
+              complex programmes on time and on margin.
             </p>
 
             <div className="about-hero-bio">
@@ -31,11 +31,12 @@ export default function AboutPage() {
               </p>
               <p>
                 In 2024 I started building software with AI as the primary engineer.
-                What I learned changed how I think about enterprise AI programs, and most
-                of it isn&apos;t in the mainstream conversation.
+                What I learned is the gap between AI programs that get funded and ones
+                that actually deliver &mdash; and most of it isn&apos;t in the mainstream conversation.
               </p>
               <p>
-                I write about the level where strategy meets delivery. Not theory. The work.
+                I write about where strategy meets delivery: the sales motion, the GTM,
+                the team-build, the programme. Not theory. The work.
               </p>
             </div>
 
@@ -71,27 +72,30 @@ export default function AboutPage() {
       {/* ── Pillars ─────────────────────────────────────────────── */}
       <div className="about-body">
         <div className="about-pillar">
-          <p className="about-pillar-label">Focus area</p>
+          <p className="about-pillar-label">Capability</p>
+          <h2 className="about-pillar-title">Commercial &amp; GTM</h2>
+          <p className="about-pillar-text">
+            Building bespoke propositions and taking them to market. Closing
+            enterprise deals across retail, finance, and professional services
+            in APAC. The full cycle from pitch to contract.
+          </p>
+        </div>
+        <div className="about-pillar">
+          <p className="about-pillar-label">Capability</p>
+          <h2 className="about-pillar-title">Teams &amp; Delivery</h2>
+          <p className="about-pillar-text">
+            Building and running high-performance practitioner teams. Delivering
+            large, complex programmes within margin and metrics. Twenty years
+            of P&amp;L accountability across the Dentsu network and beyond.
+          </p>
+        </div>
+        <div className="about-pillar">
+          <p className="about-pillar-label">Capability</p>
           <h2 className="about-pillar-title">Enterprise AI</h2>
           <p className="about-pillar-text">
-            How large organisations deploy AI at scale — the governance, the change
-            management, the real gaps between pilot and production.
-          </p>
-        </div>
-        <div className="about-pillar">
-          <p className="about-pillar-label">Focus area</p>
-          <h2 className="about-pillar-title">Digital Transformation</h2>
-          <p className="about-pillar-text">
-            Two decades leading complex programmes across retail, finance, and
-            professional services in APAC. Pattern recognition is the asset.
-          </p>
-        </div>
-        <div className="about-pillar">
-          <p className="about-pillar-label">Writing</p>
-          <h2 className="about-pillar-title">Practitioner Perspective</h2>
-          <p className="about-pillar-text">
-            No punditry. Ideas that come from doing the work — from inside the
-            program, not from the conference stage.
+            Technical depth to lead AI programs credibly &mdash; not just sponsor
+            them. The governance, the change management, and the real gap
+            between a funded pilot and production at scale.
           </p>
         </div>
       </div>
