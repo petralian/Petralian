@@ -1,4 +1,4 @@
-﻿---
+---
 title: "My Time at Merkle Hong Kong"
 slug: thank-you-merkle
 date: 2023-12-17
@@ -7,7 +7,10 @@ category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
 featured_image: "/images/posts/thank-you-merkle-team-hero.jpg"
-seo_description: ""
+seo_description: "After six years as Managing Director of Merkle Hong Kong, Nathan Petralia reflects on what the team built and what the transition means for what comes next."
+seo_title: "Thank You, Merkle: Nathan Petralia Reflects on Six Years"
+featured_image_alt: "Nathan Petralia farewell moment at Merkle Hong Kong after six years as Managing Director"
+focus_keyword: "Merkle Hong Kong Managing Director farewell"
 ---
 
 After nearly six incredible years with **Merkle Hong Kong**, I’ve officially transitioned from my role as **Managing Director** to explore new opportunities that align with my passion for shaping organizational strategy and driving digital growth initiatives. This next chapter offers me the chance to build on my **regional leadership experience** and expertise in **customer experience management (CXM)** while continuing my professional development through mentoring, coaching, and collaboration.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Shoppable media as an omnichannel strategy, a WARC exclusive article"
 slug: shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article
 date: 2022-05-03
@@ -7,7 +7,10 @@ category: Commerce & Growth
 tags: ["Ecommerce", "Social Commerce", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/shoppable-media-warc-omnichannel-hero.jpg"
-seo_description: ""
+seo_description: "Published in WARC: Nathan Petralia on why shoppable media must be treated as an omnichannel strategy, not a channel feature, to deliver commercial results."
+seo_title: "Shoppable Media as an Omnichannel Strategy (WARC Article)"
+featured_image_alt: "A shoppable media interface bridging social media discovery and direct purchase across digital channels"
+focus_keyword: "shoppable media omnichannel strategy"
 ---
 
 (Cover photo of this article is copyright WARC, source: [https://www.warc.com/reports](https://www.warc.com/reports))

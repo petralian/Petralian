@@ -13,6 +13,8 @@ tags:
 excerpt: 'WordPress was slowing down the actual writing. Here''s why I rebuilt petralian.com on Next.js, how Obsidian now sits at the center of my publishing workflow, and why I decided to open source the whole thing.'
 featured_image: /images/posts/why-i-rebuilt-petralian-hero.png
 focus_keyword: rebuild petralian wordpress nextjs obsidian
+seo_title: "Why I Rebuilt Petralian on Next.js and Open Sourced It"
+featured_image_alt: "A code editor and browser side by side showing the rebuilt Petralian website on Next.js"
 ---
 
 There's a version of this article where I lead with the tech stack. I'm not going to do that, because the tech stack is not the point. The point was that I wanted to write more — and WordPress is making that harder than it needs to be for me.

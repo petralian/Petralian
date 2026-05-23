@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-05-21
@@ -8,7 +8,7 @@ tags: ["Enterprise AI", "Digital Transformation", "Program Delivery"]
 excerpt: "The organizations that get the most sustained value from enterprise AI share one pattern. They build the foundation before they build the model."
 focus_keyword: enterprise AI program
 seo_title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
-meta_description: "The organizations that get sustained value from enterprise AI share one pattern: they build the foundation layer before deployment. Here's what that looks like."
+seo_description: "The organizations that get sustained value from enterprise AI share one pattern: they build the foundation layer before deployment. Here's what that looks like."
 featured_image:
 featured_image_alt: "A blueprint and open notebook on a clean desk, representing the foundation work required before enterprise AI deployment"
 ---

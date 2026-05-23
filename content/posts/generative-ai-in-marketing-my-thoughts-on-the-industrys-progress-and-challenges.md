@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges"
 slug: generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
 date: 2024-05-25
@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
 featured_image: "/images/posts/generative-ai-marketing-industry-hero.jpeg"
-seo_description: ""
+seo_description: "An honest assessment of generative AI in marketing — where it's delivered, where it's fallen short, and what the industry still needs to get right."
+seo_title: "Generative AI in Marketing: Progress, Gaps, and What's Next"
+featured_image_alt: "A marketing team reviewing AI-generated campaign outputs and analytics on large screens"
+focus_keyword: "generative AI marketing challenges"
 ---
 
 Recently, I added my voice to the **[Marketing Interactive article](https://www.marketing-interactive.com/how-brands-can-yield-better-results-during-their-exploration-phase-of-ai)** on the state of generative AI in APAC marketing. The piece explored how businesses in the region are adopting AI, the challenges they’re facing, and what needs to change for companies to realize its full potential. As someone who has worked extensively with AI-driven marketing strategies, I wanted to share my perspective on the insights from the article and expand on the importance of a balanced, strategic approach to AI adoption.

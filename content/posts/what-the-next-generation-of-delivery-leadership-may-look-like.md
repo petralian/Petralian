@@ -1,4 +1,4 @@
-﻿---
+---
 title: "What the Next Generation of Delivery Leadership May Look Like"
 slug: what-the-next-generation-of-delivery-leadership-may-look-like
 date: 2026-05-21
@@ -8,7 +8,7 @@ tags: ["Leadership", "Program Delivery", "Enterprise AI"]
 excerpt: "Two forces are reshaping what it means to lead delivery programs. The transition is largely positive - for the people moving toward it."
 focus_keyword: delivery leadership AI era
 seo_title: "What the Next Generation of Delivery Leadership May Look Like"
-meta_description: "AI tooling and leaner operating models are reshaping delivery leadership. Here's what the emerging capability profile looks like, why a strong portable base matters, and why the transition is worth making."
+seo_description: "AI tooling and leaner operating models are reshaping delivery leadership. Here's what the emerging capability profile looks like, why a strong portable base matters, and why the transition is worth making."
 featured_image:
 featured_image_alt: "A senior professional reviewing a complex systems diagram on a whiteboard, representing integrated delivery leadership"
 ---

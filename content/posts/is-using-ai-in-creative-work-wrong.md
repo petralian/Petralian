@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
 featured_image: "/images/posts/creative-ai-hero.jpg"
-seo_description: ""
+seo_description: "Is using AI in creative work wrong? It's a question Nathan hears from clients regularly. Here's an honest answer that goes beyond the standard ethics debate."
+seo_title: "Is Using AI in Creative Work Wrong? An Honest Perspective"
+featured_image_alt: "A designer working alongside an AI creative tool, with both human and AI outputs side by side"
+focus_keyword: "AI creative work ethics"
 ---
 
 I recently had an interesting conversation with a client who voiced a concern I’m hearing more and more often: "How do I know if the creative work I’m buying comes from a human, or if it’s been heavily influenced-or even entirely produced-by AI?" Is using AI in creative work wrong? In today’s blurred digital landscape, where the boundaries between human and machine creativity are vanishing fast, I think it’s time we pause and ask this question.

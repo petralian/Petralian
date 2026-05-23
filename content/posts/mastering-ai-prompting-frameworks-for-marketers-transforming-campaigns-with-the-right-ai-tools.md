@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Precision and the Right AI Tools"
 slug: mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
 date: 2025-03-19
@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["AI in Marketing", "Generative AI", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/ai-prompting-frameworks-marketers-hero.jpg"
-seo_description: ""
+seo_description: "The right prompting framework changes how AI performs in campaigns. Nathan Petralia breaks down the frameworks and tools that actually get results for marketers."
+seo_title: "AI Prompting Frameworks for Marketers: A Practical Guide"
+featured_image_alt: "A marketer building an AI prompt framework on a whiteboard with campaign output examples"
+focus_keyword: "AI prompting frameworks marketers"
 ---
 
 AI is reshaping how marketers approach campaigns, enabling us to personalize, optimize, and streamline strategies across various channels. While AI prompting frameworks like RCFC, RAISE, CRISPE, SPARK, and ROLE give structure to our prompts, pairing these frameworks with the right AI technology is key to unlocking their full potential. Different AI solutions-from large language models to specialized marketing automation platforms-excel in different areas, depending on the task at hand.

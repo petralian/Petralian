@@ -27,7 +27,9 @@ export interface PostMeta {
   tags: string[];
   excerpt: string;
   featured_image: string;
+  seo_title: string;
   seo_description: string;
+  featured_image_alt: string;
   readingTime: string;
 }
 
@@ -70,7 +72,9 @@ export function getPostMeta(slug: string): PostMeta {
     tags: Array.isArray(data.tags) ? data.tags : [],
     excerpt: data.excerpt || generateExcerpt(content),
     featured_image: data.featured_image || "",
+    seo_title: data.seo_title || "",
     seo_description: data.seo_description || data.excerpt || "",
+    featured_image_alt: data.featured_image_alt || "",
     readingTime: readingTime(content).text,
   };
 }

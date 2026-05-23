@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Is SaaS Being Dismantled by AI?"
 slug: is-saas-being-dismantled-by-ai
 date: 2025-03-05
@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["Enterprise AI", "Marketing Technology", "Agentic AI"]
 excerpt: ""
 featured_image: "/images/posts/saas-ai-disruption-future-hero.jpg"
-seo_description: ""
+seo_description: "Is AI actually dismantling SaaS? Nathan Petralia examines where the argument holds, where it doesn't, and what this shift means for enterprise software buyers."
+seo_title: "Is SaaS Being Dismantled by AI? What the Shift Means"
+featured_image_alt: "A traditional SaaS software interface being replaced by an AI agent workflow diagram"
+focus_keyword: "AI dismantling SaaS enterprise software"
 ---
 
 The idea that "SaaS is being dismantled" by artificial intelligence (AI) has gained traction in [recent conversations about the future of software](https://www.youtube.com/watch?v=9NtsnzRFJ_o). It’s a bold thesis, suggesting that AI advancements are fundamentally reshaping, if not outright replacing, the traditional [Software-as-a-Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) model. As someone deeply involved in AI integration and digital transformation projects, I find this argument both fascinating and polarizing. While the thesis raises valid points, it also oversimplifies and underestimates certain key aspects of SaaS. Let’s explore the strengths, weaknesses, and a more balanced perspective on this evolving narrative.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC"
 slug: redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
 date: 2025-06-16
@@ -7,7 +7,10 @@ category: Leadership
 tags: ["Leadership", "APAC", "Enterprise AI"]
 excerpt: ""
 featured_image: "/images/posts/career-ladder-ai-apac-sidelines-hero.jpg"
-seo_description: ""
+seo_description: "AI is cutting the entry-level roles that once built careers. Nathan Petralia examines what this means for talent development and career pipelines across APAC."
+seo_title: "AI and Entry-Level Careers in APAC: What the Shift Means"
+featured_image_alt: "A young professional in APAC looking at a job market changed by AI automation of entry-level roles"
+focus_keyword: "AI entry-level jobs APAC careers"
 ---
 
 As artificial intelligence (AI) reshapes labor markets worldwide, the Asia-Pacific (APAC) region faces unique challenges and opportunities, with advanced economies like Hong Kong, Singapore, and South Korea experiencing significant shifts in employment patterns and workforce dynamics.

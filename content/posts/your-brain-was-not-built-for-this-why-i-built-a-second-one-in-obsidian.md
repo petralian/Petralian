@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Your Brain Was Not Built for This: Why I Built a Second One in Obsidian"
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
 date: 2026-05-20
@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "Leadership", "Enterprise AI"]
 excerpt: ""
 featured_image: "/images/posts/obsidian-second-brain-graph-view.jpg"
-seo_description: ""
+seo_description: "A moment before a meeting made it clear I was holding too much in my head. Nathan Petralia on why he built a second brain in Obsidian and what changed."
+seo_title: "Why I Built a Second Brain in Obsidian for Leadership Work"
+featured_image_alt: "A person at a desk with Obsidian knowledge management software open on a screen, building a personal second brain"
+focus_keyword: "second brain Obsidian personal knowledge management"
 ---
 
 I had a moment a few months ago that I suspect a lot of people in leadership positions will recognize. I was preparing for a client meeting, and I knew I had read something relevant, a framework, a case study, something, but I could not find it. Not in my email. Not in my browser history. Not in the OneNote notebook I was sure I saved it in. It was gone, swallowed by the same digital void that eats every good idea you do not capture immediately. That was the moment I realized I needed an Obsidian second brain, not just another note-taking app.

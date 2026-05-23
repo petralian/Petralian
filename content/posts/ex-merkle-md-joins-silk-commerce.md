@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Reflecting on My 5-Month Engagement with Silk Commerce"
 slug: ex-merkle-md-joins-silk-commerce
 date: 2024-07-23
@@ -7,7 +7,10 @@ category: Leadership
 tags: ["Leadership", "APAC"]
 excerpt: ""
 featured_image: "/images/posts/merkle-silk-commerce-launch-hero.jpg"
-seo_description: ""
+seo_description: "After five months as a fractional leader with Silk Commerce, Nathan Petralia reflects on what the engagement delivered, what he learned, and what comes next."
+seo_title: "Nathan Petralia: Reflecting on Five Months at Silk Commerce"
+featured_image_alt: "A consultant reflecting on a successful client engagement, reviewing project outcomes on a whiteboard"
+focus_keyword: "fractional executive Silk Commerce engagement"
 ---
 
 Over the past five months, I had the privilege of working with **[Silk Commerce](https://www.silkcommerce.com/)** as their **Vice President of International Markets**, focusing on expanding the agency’s reach in the fast-growing Asia-Pacific (APAC) region. This engagement was an exciting chapter in my professional journey, offering the opportunity to collaborate with a talented team and contribute to the agency’s efforts in delivering innovative eCommerce solutions.

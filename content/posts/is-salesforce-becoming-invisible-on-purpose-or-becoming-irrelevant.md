@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?"
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 date: 2026-05-09
@@ -7,7 +7,10 @@ category: AI & Technology
 tags: ["Agentic AI", "Enterprise AI", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/salesforce-agentforce-invisible-crm-hero.jpg"
-seo_description: ""
+seo_description: "Everyone talks about Salesforce, but no one demos it anymore. Nathan Petralia examines whether the CRM giant is fading by design or by default."
+seo_title: "Is Salesforce Becoming Invisible? A Candid Assessment"
+featured_image_alt: "A Salesforce cloud logo fading into the background behind newer AI-native CRM platform logos"
+focus_keyword: "Salesforce CRM relevance 2026"
 ---
 
 ## Salesforce and the AI CRM Future: Bold Land Grab or Last Stand?

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk"
 slug: programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk
 date: 2026-04-17
@@ -7,7 +7,10 @@ category: Marketing & Media
 tags: ["Programmatic", "Agency Landscape", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/programmatic-transparency-publicis-trade-desk-2026.jpg"
-seo_description: ""
+seo_description: "The Publicis-Trade Desk dispute reveals more than a transparency scandal. Nathan Petralia examines the structural issues in programmatic media buying it exposes."
+seo_title: "Programmatic Transparency 2026: The Trade Desk Agency Fight"
+featured_image_alt: "A programmatic advertising dashboard showing agency and DSP performance data with transparency metrics"
+focus_keyword: "programmatic transparency Trade Desk agencies"
 ---
 
 ### Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk (And Both Sides Have Questions to Answer)

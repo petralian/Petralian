@@ -98,8 +98,8 @@ export default defineConfig({
                     },
                     {
                         type: "string",
-                        name: "meta_description",
-                        label: "Meta Description",
+                        name: "seo_description",
+                        label: "SEO Description",
                         ui: {
                             component: "textarea",
                         },

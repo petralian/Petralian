@@ -25,13 +25,13 @@ export async function generateMetadata({
     const post = getPost(slug);
     const postUrl = `${SITE_URL}/posts/${slug}`;
     return {
-      title: post.title,
+      title: post.seo_title || post.title,
       description: post.seo_description || post.excerpt,
       authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}/about` }],
       keywords: post.tags.length > 0 ? post.tags : undefined,
       alternates: { canonical: postUrl },
       openGraph: {
-        title: post.title,
+        title: post.seo_title || post.title,
         description: post.seo_description || post.excerpt,
         type: "article",
         url: postUrl,
@@ -146,7 +146,7 @@ export default async function PostPage({
             <div className="post-hero-right">
               <Image
                 src={post.featured_image}
-                alt={post.title}
+                alt={post.featured_image_alt || post.title}
                 fill
                 priority
                 className="post-card-image"

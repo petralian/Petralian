@@ -1,4 +1,4 @@
-﻿---
+---
 title: "What I Learned Directing AI as My Primary Engineer"
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-05-21
@@ -8,7 +8,7 @@ tags: ["Enterprise AI", "Agentic AI", "Program Delivery"]
 excerpt: "I built two software products with AI as the primary engineer. Not as an assistant to a team - as the team. Here's the leadership account of what I actually learned."
 focus_keyword: directing AI as primary engineer
 seo_title: "What I Learned Directing AI as My Primary Engineer"
-meta_description: "I built two software products solo with AI as the primary engineer. Here's a first-person leadership account of context management, the efficiency curve, and what enterprise programs should expect."
+seo_description: "I built two software products solo with AI as the primary engineer. Here's a first-person leadership account of context management, the efficiency curve, and what enterprise programs should expect."
 featured_image:
 featured_image_alt: "A single person reviewing and directing AI-generated code builds on multiple monitors"
 ---
