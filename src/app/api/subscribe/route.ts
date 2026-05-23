@@ -1,4 +1,6 @@
+import crypto from "crypto";
 import { NextResponse } from "next/server";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 6;
@@ -23,6 +25,8 @@ class ProviderError extends Error {
     }
 }
 
+const CONFIRM_WINDOW_MS = 24 * 60 * 60 * 1000;
+
 function toDetails(text: string): string {
     const value = text.trim();
     if (!value) return "No response body";
@@ -31,6 +35,94 @@ function toDetails(text: string): string {
 
 function isDebugMode(): boolean {
     return process.env.NEWSLETTER_DEBUG === "1" || process.env.NODE_ENV !== "production";
+}
+
+function getSubscribeSecret(): string {
+    return process.env.SUBSCRIBE_CONFIRM_SECRET || process.env.UNSUBSCRIBE_SECRET || "";
+}
+
+function signSubscribeToken(email: string, name: string, ts: number): string {
+    const secret = getSubscribeSecret();
+    if (!secret) throw new Error("SUBSCRIBE_CONFIRM_SECRET is not configured");
+    return crypto
+        .createHmac("sha256", secret)
+        .update(`${email.toLowerCase()}|${name}|${ts}`)
+        .digest("hex");
+}
+
+function buildConfirmUrl(email: string, name: string): string {
+    const ts = Date.now();
+    const token = signSubscribeToken(email, name, ts);
+    const url = new URL(`${SITE_URL}/api/subscribe/confirm`);
+    url.searchParams.set("email", email);
+    if (name) url.searchParams.set("name", name);
+    url.searchParams.set("ts", String(ts));
+    url.searchParams.set("token", token);
+    return url.toString();
+}
+
+async function sendBrevoConfirmationEmail(name: string, email: string): Promise<void> {
+    const apiKey = process.env.BREVO_API_KEY;
+    const senderEmail = process.env.BREVO_SENDER_EMAIL || "noreply@petralian.com";
+    const senderName = process.env.BREVO_SENDER_NAME || SITE_NAME;
+
+    if (!apiKey) {
+        throw new Error("Brevo is not configured");
+    }
+
+    const confirmUrl = buildConfirmUrl(email, name);
+    const greeting = name ? `Hi ${name},` : "Hi,";
+    const expiryHours = Math.round(CONFIRM_WINDOW_MS / (60 * 60 * 1000));
+    const subject = `${SITE_NAME}: confirm your subscription`;
+
+    const htmlContent = `<!doctype html>
+<html>
+    <body style="margin:0;padding:0;background:#f6f7fb;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="padding:24px 0;">
+            <tr>
+                <td align="center">
+                    <table role="presentation" width="640" cellspacing="0" cellpadding="0" style="width:640px;max-width:92%;background:#ffffff;border-radius:12px;padding:28px;">
+                        <tr>
+                            <td style="font-size:22px;line-height:1.3;color:#111827;font-weight:700;">Confirm your subscription</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:14px;font-size:16px;line-height:1.6;color:#1f2937;">${greeting}<br/>Please confirm to receive the weekly digest.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:18px;">
+                                <a href="${confirmUrl}" style="display:inline-block;padding:12px 18px;background:#111827;color:#ffffff;text-decoration:none;border-radius:8px;font-weight:700;">Confirm subscription</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:12px;font-size:13px;line-height:1.6;color:#6b7280;">This link expires in ${expiryHours} hours. If you did not request this, you can ignore this email.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>`;
+
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+            "api-key": apiKey,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body: JSON.stringify({
+            sender: { email: senderEmail, name: senderName },
+            to: [{ email, name: name || undefined }],
+            subject,
+            htmlContent,
+        }),
+        cache: "no-store",
+    });
+
+    if (!response.ok) {
+        const details = toDetails(await response.text());
+        throw new ProviderError("brevo", response.status, details);
+    }
 }
 
 function getClientIp(req: Request): string {
@@ -196,14 +288,20 @@ export async function POST(req: Request): Promise<Response> {
 
     try {
         if (provider === "brevo") {
-            await subscribeWithBrevo(name, email);
+            await sendBrevoConfirmationEmail(name, email);
         } else if (provider === "buttondown") {
             await subscribeWithButtondown(name, email);
         } else {
             await subscribeWithKit(name, email);
         }
 
-        return NextResponse.json({ ok: true });
+        return NextResponse.json({
+            ok: true,
+            message:
+                provider === "brevo"
+                    ? "Please check your email to confirm your subscription."
+                    : "Subscription received.",
+        });
     } catch (error) {
         const ref = `sub_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 

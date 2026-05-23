@@ -54,7 +54,7 @@ export default function SubscribeBox() {
     return (
       <div className="subscribe-box">
         <p className="subscribe-confirm">
-          You&apos;re in. Weekly digest, only when there&apos;s something worth reading. Unsubscribe anytime.
+          One more step: check your inbox and confirm your subscription. Weekly digest, no fluff, unsubscribe anytime.
         </p>
       </div>
     );
