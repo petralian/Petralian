@@ -395,7 +395,6 @@ a {
    ══════════════════════════════════════════════════════════════════ */
 .blog-header {
   padding: var(--space-16) 0 var(--space-12);
-  border-bottom: 1px solid var(--color-border);
   margin-bottom: var(--space-14);
 }
 
