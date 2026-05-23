@@ -37,7 +37,7 @@ My experiences reinforced that customer-centricity isn't just a buzzword-it's a 
 3.  **Implement Closed-Loop Feedback Systems**: Regularly collect, analyze, and act on customer feedback.
 4.  **Align Metrics with Customer Success**: Track indicators that reflect real customer value, not just marketing activities.
 
-![](https://upload.wikimedia.org/wikipedia/commons/8/83/SD053-_Figure_5.14_%288462249080%29.jpg)
+![](/images/posts/marketing-101-figure-5-14.jpg)
 _Rosenfeld Media from Brooklyn, USA, CC BY 2.0 [https://creativecommons.org/licenses/by/2.0](https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons_
 
 ## The Future of Marketing Fundamentals
