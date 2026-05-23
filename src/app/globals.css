@@ -12,7 +12,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #8b8fa8;
+  --color-ink-tertiary: #696d84;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -20,6 +20,7 @@
   --color-border: #e1e1e9;
   --color-accent: #ff6a3d;
   --color-accent-hover: #e55a2d;
+  --color-accent-text: #c74a1a;
 
   /* ── Radius scale ──────────────────────────────────────── */
   --radius-xs: 3px;
@@ -102,7 +103,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #8b8fa8;
+  --color-ink-tertiary: #696d84;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -110,6 +111,7 @@
   --color-border: #e1e1e9;
   --color-accent: #ff6a3d;
   --color-accent-hover: #e55a2d;
+  --color-accent-text: #c74a1a;
   color-scheme: light;
 }
 
@@ -126,6 +128,7 @@
     --color-border: #333338;
     --color-accent: #ff7a50;
     --color-accent-hover: #ff9070;
+    --color-accent-text: #ff7a50;
     color-scheme: dark;
   }
 }
@@ -142,6 +145,7 @@
   --color-border: #333338;
   --color-accent: #ff7a50;
   --color-accent-hover: #ff9070;
+  --color-accent-text: #ff7a50;
   color-scheme: dark;
 }
 
@@ -180,7 +184,7 @@ h6 {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -566,7 +570,7 @@ a {
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   background-color: color-mix(in srgb, var(--color-accent) 14%, var(--color-surface-alt));
-  color: color-mix(in srgb, var(--color-accent) 85%, var(--color-ink-heading));
+  color: var(--color-ink-heading);
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-sm);
   line-height: var(--leading-snug);
@@ -635,7 +639,7 @@ a {
 .post-card-read-more {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   margin-top: var(--space-2);
   display: inline-block;
 }
