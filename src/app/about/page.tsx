@@ -1,16 +1,62 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, SITE_URL, AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programmes across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
+  alternates: { canonical: `${SITE_URL}/about` },
+  openGraph: {
+    title: `About ${AUTHOR_NAME}`,
+    description:
+      "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programmes across APAC.",
+    type: "profile",
+    url: `${SITE_URL}/about`,
+  },
 };
 
 export default function AboutPage() {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/#person`,
+    name: AUTHOR_NAME,
+    url: SITE_URL,
+    description: AUTHOR_BIO,
+    jobTitle: AUTHOR_TITLE,
+    worksFor: {
+      "@type": "Organization",
+      name: "Petralian",
+      url: SITE_URL,
+    },
+    sameAs: [
+      SOCIAL_LINKS.linkedin,
+      SOCIAL_LINKS.github,
+    ],
+    knowsAbout: [
+      "Enterprise AI Strategy",
+      "Digital Transformation",
+      "Commercial Growth",
+      "GTM Strategy",
+      "Programme Delivery",
+      "Generative AI in Marketing",
+      "APAC Markets",
+      "CXM",
+    ],
+    alumniOf: [
+      { "@type": "Organization", name: "Merkle" },
+      { "@type": "Organization", name: "Dentsu" },
+      { "@type": "Organization", name: "Microsoft" },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       {/* ── Dark hero split ─────────────────────────────────────── */}
       <section className="about-hero">
         <div className="about-hero-inner">

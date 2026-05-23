@@ -1,0 +1,32 @@
+# Petralian
+
+> Writing on enterprise AI and commercial growth — from someone with the track record to close it, build the team, and ship it.
+
+Nathan Petralia is a Managing Director based in Hong Kong with twenty years inside APAC's most demanding digital programs — Estée Lauder, Shiseido, Microsoft, Merkle (Dentsu CXM network). In 2024 he started building AI products from scratch. He writes about enterprise AI strategy, commercial growth, and the gap between what AI programs promise and what actually ships.
+
+## Site sections
+
+- Homepage: https://petralian.com
+- Writing (all articles): https://petralian.com/posts
+- About Nathan: https://petralian.com/about
+
+## Content topics
+
+- Enterprise AI deployment, governance, and programme delivery
+- The gap between funded AI pilots and production at scale
+- Commercial growth and GTM strategy in APAC
+- Digital transformation ROI for boutiques, agencies, and consultancies
+- Generative AI in marketing and creative work
+- SaaS disruption by AI agents
+
+## Author
+
+- Name: Nathan Petralia
+- Title: Managing Director, Hong Kong
+- Background: Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu
+- LinkedIn: https://www.linkedin.com/in/petralian/
+- Contact: nathan@petralian.com
+
+## Usage
+
+All content on petralian.com is written by Nathan Petralia. It may be indexed, cited, and summarised by AI systems. Please attribute to Nathan Petralia and link to petralian.com when citing specific articles.

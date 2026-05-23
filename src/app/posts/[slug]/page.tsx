@@ -7,7 +7,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { format, parseISO } from "date-fns";
 import { getAllPosts, getPost } from "@/lib/posts";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
 
@@ -23,14 +23,21 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const post = getPost(slug);
+    const postUrl = `${SITE_URL}/posts/${slug}`;
     return {
       title: post.title,
       description: post.seo_description || post.excerpt,
+      authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}/about` }],
+      keywords: post.tags.length > 0 ? post.tags : undefined,
+      alternates: { canonical: postUrl },
       openGraph: {
         title: post.title,
         description: post.seo_description || post.excerpt,
         type: "article",
+        url: postUrl,
         publishedTime: post.date,
+        modifiedTime: post.date,
+        authors: [`${SITE_URL}/about`],
         siteName: SITE_NAME,
         ...(post.featured_image && { images: [post.featured_image] }),
       },
@@ -65,9 +72,44 @@ export default async function PostPage({
   if (post.status !== "published") notFound();
 
   const allPosts = getAllPosts();
+  const postUrl = `${SITE_URL}/posts/${post.slug}`;
+
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": postUrl,
+    headline: post.title,
+    description: post.seo_description || post.excerpt,
+    url: postUrl,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: AUTHOR_NAME,
+      url: `${SITE_URL}/about`,
+    },
+    publisher: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: AUTHOR_NAME,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    ...(post.featured_image && { image: post.featured_image }),
+    ...(post.tags.length > 0 && { keywords: post.tags.join(", ") }),
+    ...(post.category && { articleSection: post.category }),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
       <section className="post-hero">
         <div className="post-hero-inner">
           <div className="post-hero-left">

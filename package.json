@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
+    "dev:local": "next dev",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=1024 next build",
     "start": "next start"
   },

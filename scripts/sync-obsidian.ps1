@@ -17,11 +17,11 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$obsidianReady  = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
-$obsidianVault  = "D:\Obsidian\Obsidian\40_VSCode\Petralian"
-$sitePosts      = "$PSScriptRoot\..\content\posts"
-$siteImages     = "$PSScriptRoot\..\public\images\posts"
-$repo           = "$PSScriptRoot\.."
+$obsidianReady = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
+$obsidianVault = "D:\Obsidian\Obsidian\40_VSCode\Petralian"
+$sitePosts = "$PSScriptRoot\..\content\posts"
+$siteImages = "$PSScriptRoot\..\public\images\posts"
+$repo = "$PSScriptRoot\.."
 
 $imageExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.avif')
 
@@ -65,70 +65,70 @@ function Resolve-Images {
 
   # Pattern 1: Obsidian wiki-link  ![[filename.ext]]  or  ![[filename.ext|alt]]
   $content = [regex]::Replace($content, '!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]', {
-    param($m)
-    $filename = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
-    $ext = [System.IO.Path]::GetExtension($filename).ToLower()
-    if ($ext -notin $script:imageExtensions) { return $m.Value }
+      param($m)
+      $filename = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
+      $ext = [System.IO.Path]::GetExtension($filename).ToLower()
+      if ($ext -notin $script:imageExtensions) { return $m.Value }
 
-    $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
-    if (-not $src) {
-      Write-Warning "  Image not found: $filename"
-      return $m.Value
-    }
-    if (-not $dryRun) {
-      Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
-    }
-    Write-Host "  Image: $filename" -ForegroundColor DarkGray
-    $script:copiedImages += $filename
-    return "![](/images/posts/$filename)"
-  })
+      $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
+      if (-not $src) {
+        Write-Warning "  Image not found: $filename"
+        return $m.Value
+      }
+      if (-not $dryRun) {
+        Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
+      }
+      Write-Host "  Image: $filename" -ForegroundColor DarkGray
+      $script:copiedImages += $filename
+      return "![](/images/posts/$filename)"
+    })
 
   # Pattern 2: Standard markdown  ![alt](relative/path.ext)  (not http/https)
   $content = [regex]::Replace($content, '!\[([^\]]*)\]\((?!https?://)([^)]+)\)', {
-    param($m)
-    $alt = $m.Groups[1].Value
-    $path = $m.Groups[2].Value.Trim()
-    $filename = [System.IO.Path]::GetFileName($path)
-    $ext = [System.IO.Path]::GetExtension($filename).ToLower()
-    if ($ext -notin $script:imageExtensions) { return $m.Value }
+      param($m)
+      $alt = $m.Groups[1].Value
+      $path = $m.Groups[2].Value.Trim()
+      $filename = [System.IO.Path]::GetFileName($path)
+      $ext = [System.IO.Path]::GetExtension($filename).ToLower()
+      if ($ext -notin $script:imageExtensions) { return $m.Value }
 
-    # Already an absolute /images/posts/ path — skip
-    if ($path.StartsWith('/images/')) { return $m.Value }
+      # Already an absolute /images/posts/ path — skip
+      if ($path.StartsWith('/images/')) { return $m.Value }
 
-    $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
-    if (-not $src) {
-      Write-Warning "  Image not found: $filename"
-      return $m.Value
-    }
-    if (-not $dryRun) {
-      Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
-    }
-    Write-Host "  Image: $filename" -ForegroundColor DarkGray
-    $script:copiedImages += $filename
-    return "![$alt](/images/posts/$filename)"
-  })
+      $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
+      if (-not $src) {
+        Write-Warning "  Image not found: $filename"
+        return $m.Value
+      }
+      if (-not $dryRun) {
+        Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
+      }
+      Write-Host "  Image: $filename" -ForegroundColor DarkGray
+      $script:copiedImages += $filename
+      return "![$alt](/images/posts/$filename)"
+    })
 
   # Pattern 3: featured_image frontmatter with local filename (not a URL)
   $content = [regex]::Replace($content, '(?m)^featured_image:\s*(.+)$', {
-    param($m)
-    $val = $m.Groups[1].Value.Trim().Trim('"').Trim("'")
-    if ($val -eq '' -or $val.StartsWith('http')) { return $m.Value }
-    $filename = [System.IO.Path]::GetFileName($val)
-    $ext = [System.IO.Path]::GetExtension($filename).ToLower()
-    if ($ext -notin $script:imageExtensions) { return $m.Value }
+      param($m)
+      $val = $m.Groups[1].Value.Trim().Trim('"').Trim("'")
+      if ($val -eq '' -or $val.StartsWith('http')) { return $m.Value }
+      $filename = [System.IO.Path]::GetFileName($val)
+      $ext = [System.IO.Path]::GetExtension($filename).ToLower()
+      if ($ext -notin $script:imageExtensions) { return $m.Value }
 
-    $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
-    if (-not $src) {
-      Write-Warning "  Featured image not found: $filename"
-      return $m.Value
-    }
-    if (-not $dryRun) {
-      Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
-    }
-    Write-Host "  Featured image: $filename" -ForegroundColor DarkGray
-    $script:copiedImages += $filename
-    return "featured_image: /images/posts/$filename"
-  })
+      $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
+      if (-not $src) {
+        Write-Warning "  Featured image not found: $filename"
+        return $m.Value
+      }
+      if (-not $dryRun) {
+        Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
+      }
+      Write-Host "  Featured image: $filename" -ForegroundColor DarkGray
+      $script:copiedImages += $filename
+      return "featured_image: /images/posts/$filename"
+    })
 
   return $content
 }
@@ -149,7 +149,8 @@ foreach ($file in $files) {
   # Extract slug from frontmatter
   if ($raw -match '(?m)^slug:\s*(.+)$') {
     $slug = $matches[1].Trim().Trim('"').Trim("'")
-  } else {
+  }
+  else {
     $slug = $file.BaseName -replace '[^a-zA-Z0-9]+', '-' -replace '^-|-$', '' | ForEach-Object { $_.ToLower() }
   }
 
@@ -163,7 +164,8 @@ foreach ($file in $files) {
 
   if ($DryRun) {
     Write-Host "[DryRun] Would copy: $($file.Name) -> posts/$slug.md" -ForegroundColor Cyan
-  } else {
+  }
+  else {
     Set-Content -Path $destFile -Value $content -Encoding UTF8 -NoNewline
     Write-Host "Copied: $($file.Name) -> posts/$slug.md" -ForegroundColor Green
     $copied += $slug
@@ -192,6 +194,7 @@ try {
   Write-Host ""
   Write-Host "Pushed. Vercel will deploy in ~30 seconds." -ForegroundColor Green
   Write-Host "  https://petralian.com" -ForegroundColor Blue
-} finally {
+}
+finally {
   Pop-Location
 }
