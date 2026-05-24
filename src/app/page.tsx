@@ -32,7 +32,7 @@ export default function HomePage() {
               </p>
             ))}
             <Link href="/about" className="home-intro-link">
-              About Nathan &rarr;
+              About me &rarr;
             </Link>
           </div>
           <div className="home-intro-photo-wrap">
@@ -53,7 +53,7 @@ export default function HomePage() {
       {/* Posts grid */}
       {recent.length > 0 && (
         <section>
-          <p className="section-heading">Latest Writing</p>
+          <p className="section-heading">Recent Posts</p>
           <ResponsiveMasonry posts={recent} />
         </section>
       )}
@@ -61,7 +61,7 @@ export default function HomePage() {
       {posts.length > 9 && (
         <div style={{ textAlign: "center", paddingTop: "2.5rem" }}>
           <Link href="/posts" className="post-card-read-more">
-            View all {posts.length} articles →
+            Browse all posts →
           </Link>
         </div>
       )}

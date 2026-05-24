@@ -75,7 +75,7 @@ export default function BlogFilters({
                         </span>
                         <input
                             type="search"
-                            placeholder="Search articles, ideas, and insights&hellip;"
+                            placeholder="Search posts by topic, use case, or keyword&hellip;"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             className="blog-search-input"
@@ -88,7 +88,7 @@ export default function BlogFilters({
                         className="blog-tag-select"
                         aria-label="Filter by tag"
                     >
-                        <option value="All">All tags</option>
+                        <option value="All">Filter by tag</option>
                         {availableTags.map((t) => (
                             <option key={t} value={t}>
                                 {t}
@@ -111,7 +111,7 @@ export default function BlogFilters({
             </div>
 
             {filtered.length === 0 ? (
-                <p className="blog-empty">No articles match your search.</p>
+                <p className="blog-empty">No posts match that filter.</p>
             ) : (
                 <ResponsiveMasonry posts={filtered} />
             )}

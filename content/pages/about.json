@@ -1,23 +1,23 @@
 {
-  "hero_tagline": "Twenty years inside complex technology programs for Fortune 500 brands including Estée Lauder, Shiseido, Ralph Lauren, Fidelity, and Microsoft. ",
+  "hero_tagline": "Twenty years leading complex digital and commercial programs across Asia, across B2C, B2B and regulated industries for fortune 500's.",
   "bio_paragraphs": [
-    "I built and scaled Dentsu's CXM practice, leading Merkle Hong Kong and served as Country Head for Ogilvy One, (part of WPP Enterprise Solutions).\n\nA few years ago I started building software with AI. I saw the gap between AI's promise and what organizations can operationalize is bigger than most leaders realize, and proving ROI is harder than most vendors will tell you.\n\nAI's real value is production gain: producing more, at higher quality and greater speed. Cost savings are a byproduct. When you lead with cost cutting, you underinvest, you under-scope, and you leave the real returns on the table."
+    "I have built and scaled consulting and delivery teams, started Merkle Hong Kong, and served as Country Head for Ogilvy One.\n\nA few years ago I started building software with AI. I saw the gap between AI's promise and what organizations can operationalize is bigger than most leaders realize, and proving ROI is harder than most vendors will tell you.\n\nThe biggest AI gains come from better throughput and better decisions. Cost savings matter, but they follow execution quality."
   ],
   "pillars": [
     {
       "label": "",
-      "title": "Commercial & GTM",
-      "text": "Building bespoke propositions and taking them to market. Closing enterprise deals across retail, regulated, and professional services in APAC. The full cycle from pitch to managed care."
+      "title": "Commercial Execution",
+      "text": "Designing offers, shaping deals, and owning outcomes from pre-sales through long-term delivery."
     },
     {
       "label": "",
-      "title": "Teams & Delivery",
-      "text": "P&L accountability across WPP, Dentsu and beyond. Building and running high-performance teams. Delivering large, complex programs within margin and metrics."
+      "title": "Team Building and Delivery",
+      "text": "Building accountable teams and delivering complex programs with clear operating metrics."
     },
     {
       "label": "",
-      "title": "Enterprise AI",
-      "text": "Technical depth to lead programs credibly — not just sponsor them. The governance, the change management, and the real gap between a funded pilot and production at scale."
+      "title": "Enterprise AI in Practice",
+      "text": "Hands-on understanding of governance, adoption, and operating model changes needed to move AI beyond pilots."
     }
   ]
 }

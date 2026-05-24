@@ -26,7 +26,7 @@ function htmlPage(message: string): Response {
   <div style="max-width:680px;margin:0 auto;background:#fff;padding:28px;border-radius:12px;">
     <h1 style="margin:0 0 12px;color:#111827;font-size:24px;">${SITE_NAME}</h1>
     <p style="margin:0;color:#374151;font-size:16px;line-height:1.7;">${message}</p>
-    <p style="margin:16px 0 0;"><a href="${SITE_URL}" style="color:#111827;">Return to site</a></p>
+        <p style="margin:16px 0 0;"><a href="${SITE_URL}" style="color:#111827;">Back to petralian.com</a></p>
   </div></body></html>`;
     return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8" } });
 }
@@ -104,7 +104,7 @@ export async function GET(req: Request): Promise<Response> {
 
     try {
         await subscribeWithBrevo(name, email);
-        return htmlPage("Subscription confirmed. You will receive the weekly digest.");
+        return htmlPage("You are confirmed and subscribed to the weekly digest.");
     } catch {
         return htmlPage("We could not confirm your subscription right now. Please try again later.");
     }

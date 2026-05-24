@@ -17,7 +17,7 @@
  */
 
 import { createInterface } from "node:readline";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "node:fs";
 import { dirname, join, resolve, normalize } from "node:path";
 
 // ── Vault root — only paths inside here are accessible ─────────────────────
@@ -73,6 +73,13 @@ function safePath(relPath) {
 function toolRead({ path: relPath }) {
   const target = safePath(relPath);
   if (!existsSync(target)) return `Note not found: ${relPath}`;
+
+  // Check if path is a directory
+  const stats = statSync(target);
+  if (stats.isDirectory()) {
+    return `Error: Path is a directory, not a file: ${relPath}\nPlease specify a file path (e.g., "${relPath}/filename.md")`;
+  }
+
   return readFileSync(target, "utf8");
 }
 

@@ -17,7 +17,7 @@ function htmlPage(message: string): Response {
   <div style="max-width:680px;margin:0 auto;background:#fff;padding:28px;border-radius:12px;">
     <h1 style="margin:0 0 12px;color:#111827;font-size:24px;">${SITE_NAME}</h1>
     <p style="margin:0;color:#374151;font-size:16px;line-height:1.7;">${message}</p>
-    <p style="margin:16px 0 0;"><a href="${SITE_URL}" style="color:#111827;">Return to site</a></p>
+        <p style="margin:16px 0 0;"><a href="${SITE_URL}" style="color:#111827;">Back to petralian.com</a></p>
   </div></body></html>`;
     return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8" } });
 }
@@ -33,7 +33,7 @@ function htmlConfirmPage(email: string, token: string): Response {
         <form method="POST" action="${action}" style="margin-top:18px;">
             <input type="hidden" name="email" value="${email}" />
             <input type="hidden" name="token" value="${token}" />
-            <button type="submit" style="display:inline-block;padding:12px 18px;background:#111827;color:#fff;border:none;border-radius:8px;font-weight:700;cursor:pointer;">Confirm unsubscribe</button>
+            <button type="submit" style="display:inline-block;padding:12px 18px;background:#111827;color:#fff;border:none;border-radius:8px;font-weight:700;cursor:pointer;">Yes, unsubscribe me</button>
         </form>
         <p style="margin:14px 0 0;"><a href="${SITE_URL}" style="color:#111827;">Cancel</a></p>
     </div></body></html>`;
@@ -116,5 +116,5 @@ export async function POST(req: Request): Promise<Response> {
         return htmlPage("We could not process your unsubscribe right now. Please try again later.");
     }
 
-    return htmlPage("You have been unsubscribed. You will not receive future digest emails.");
+    return htmlPage("You are unsubscribed and will not receive future digest emails.");
 }

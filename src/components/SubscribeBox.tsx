@@ -38,13 +38,13 @@ export default function SubscribeBox() {
       } else {
         setErrorMessage(
           data?.message ||
-          "Could not subscribe right now. Try again in a minute, or email me directly at nathan@petralian.com."
+          "Subscription failed. Please try again in a minute, or email nathan@petralian.com."
         );
         setState("error");
       }
     } catch {
       setErrorMessage(
-        "Could not subscribe right now. Try again in a minute, or email me directly at nathan@petralian.com."
+        "Subscription failed. Please try again in a minute, or email nathan@petralian.com."
       );
       setState("error");
     }
@@ -54,7 +54,7 @@ export default function SubscribeBox() {
     return (
       <div className="subscribe-box">
         <p className="subscribe-confirm">
-          One more step: check your inbox and confirm your subscription. Weekly digest, no fluff, unsubscribe anytime.
+          Please confirm your email to finish subscribing. After confirmation, you will receive the weekly digest.
         </p>
       </div>
     );
@@ -63,8 +63,7 @@ export default function SubscribeBox() {
   return (
     <div className="subscribe-box">
       <p className="subscribe-headline">
-        I write about enterprise AI and transformation from inside the work, not from the sidelines.
-        New posts in your inbox when they&apos;re worth saying.
+        Get practical posts on enterprise AI and transformation. Only useful updates, sent as a weekly digest.
       </p>
       <form onSubmit={handleSubmit} className="subscribe-form" noValidate>
         <input
@@ -104,7 +103,7 @@ export default function SubscribeBox() {
       {state === "error" && (
         <p className="subscribe-error">{errorMessage}</p>
       )}
-      <p className="subscribe-note">Weekly digest. No fluff. Unsubscribe anytime.</p>
+      <p className="subscribe-note">One practical digest each week. Unsubscribe anytime.</p>
     </div>
   );
 }

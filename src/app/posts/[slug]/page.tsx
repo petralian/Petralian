@@ -114,7 +114,7 @@ export default async function PostPage({
         <div className="post-hero-inner">
           <div className="post-hero-left">
             <Link href="/posts" className="post-hero-back">
-              &larr; All articles
+              &larr; Back to all posts
             </Link>
             {post.category && (
               <p className="post-hero-eyebrow">{post.category}</p>

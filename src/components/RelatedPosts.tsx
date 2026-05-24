@@ -48,7 +48,7 @@ export default function RelatedPosts({
   return (
     <section className="related-posts">
       <div className="related-posts-inner">
-        <p className="related-posts-heading">Keep Reading</p>
+        <p className="related-posts-heading">Related posts</p>
         <div className="related-grid">
           {related.map((post) => (
             <PostCard key={post.slug} post={post} />

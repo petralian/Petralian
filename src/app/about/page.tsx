@@ -91,7 +91,7 @@ export default function AboutPage() {
                 Connect on LinkedIn
               </a>
               <a href={SOCIAL_LINKS.email} className="about-link-secondary">
-                Send an email
+                Email me directly
               </a>
             </div>
           </div>

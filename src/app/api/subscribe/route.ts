@@ -330,7 +330,7 @@ export async function POST(req: Request): Promise<Response> {
         return NextResponse.json(
             {
                 ok: false,
-                message: `Could not subscribe right now. Please try again in a minute. (Ref: ${ref})`,
+                message: `Subscription failed. Please try again in a minute, or email nathan@petralian.com. (Ref: ${ref})`,
             },
             { status: 502 }
         );

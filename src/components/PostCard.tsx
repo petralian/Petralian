@@ -63,7 +63,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             </div>
           )}
 
-          <span className="post-card-read-more">Read more →</span>
+          <span className="post-card-read-more">Continue reading →</span>
         </div>
       </article>
     </Link>

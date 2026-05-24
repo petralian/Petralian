@@ -23,7 +23,7 @@ const lexendDeca = Lexend_Deca({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Enterprise AI & Commercial Growth`,
+    default: `${SITE_NAME} — Practical Notes on AI and Growth`,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_TAGLINE,
@@ -142,7 +142,7 @@ export default function RootLayout({
         <main>{children}</main>
         <footer className="site-footer">
           <div className="footer-inner">
-            <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} {SITE_NAME}. Built and written by Nathan Petralia. All rights reserved.</p>
           </div>
         </footer>
         <ClientScrollProgress />
