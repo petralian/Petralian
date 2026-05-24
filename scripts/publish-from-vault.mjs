@@ -28,11 +28,11 @@ if (!VAULT_PATH) {
 
 const FORCE = process.env.FORCE === 'true';
 
-const obsidianReady       = join(VAULT_PATH, 'Blog', '02 Ready to publish');
-const obsidianPublished   = join(VAULT_PATH, 'Blog', '03 Published');
+const obsidianReady = join(VAULT_PATH, 'Blog', '02 Ready to publish');
+const obsidianPublished = join(VAULT_PATH, 'Blog', '03 Published');
 const obsidianAttachments = join(VAULT_PATH, 'Blog', '00 Attachments');
 
-const sitePosts  = join(repoRoot, 'content', 'posts');
+const sitePosts = join(repoRoot, 'content', 'posts');
 const siteImages = join(repoRoot, 'public', 'images', 'posts');
 
 const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.avif']);
@@ -195,15 +195,14 @@ function preflight(filePath, content, articleFolder) {
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 
-if (!existsSync(obsidianReady)) {
-  console.error(`Obsidian publish folder not found: ${obsidianReady}`);
-  console.error('Check that VAULT_PATH is set correctly and obsidian-git has pushed the vault.');
-  process.exit(1);
-}
-
+// Ensure output directories exist
 mkdirSync(siteImages, { recursive: true });
-mkdirSync(sitePosts,  { recursive: true });
-
+mkdirSync(sitePosts, { recursive: true });
+// Check if publish folder exists; if not, nothing to do
+if (!existsSync(obsidianReady)) {
+  console.log(`No "02 Ready to publish" folder found. Nothing to sync.`);
+  process.exit(0);
+}
 const readyFiles = readdirSync(obsidianReady).filter(f => f.endsWith('.md'));
 
 if (readyFiles.length === 0) {
@@ -219,16 +218,16 @@ let preflightBlocking = false;
 
 for (const filename of readyFiles) {
   const filePath = join(obsidianReady, filename);
-  const content  = readFileSync(filePath, 'utf8');
-  const slug     = getSlug(filePath, content);
-  const result   = preflight(filePath, content, obsidianReady);
+  const content = readFileSync(filePath, 'utf8');
+  const slug = getSlug(filePath, content);
+  const result = preflight(filePath, content, obsidianReady);
 
-  const status = result.errors.length  > 0 ? 'FAIL'
-               : result.warnings.length > 0 ? 'WARN'
-               : 'PASS';
+  const status = result.errors.length > 0 ? 'FAIL'
+    : result.warnings.length > 0 ? 'WARN'
+      : 'PASS';
 
   console.log(`  [${status}] ${slug}  (${result.wordCount} words)`);
-  for (const e of result.errors)   console.log(`        ERROR   ${e}`);
+  for (const e of result.errors) console.log(`        ERROR   ${e}`);
   for (const w of result.warnings) console.log(`        WARN    ${w}`);
 
   if (result.errors.length > 0) preflightBlocking = true;
@@ -247,7 +246,7 @@ const authorisedSlugs = new Set();
 for (const folder of [obsidianReady, obsidianPublished]) {
   if (!existsSync(folder)) continue;
   for (const filename of readdirSync(folder).filter(f => f.endsWith('.md'))) {
-    const fp      = join(folder, filename);
+    const fp = join(folder, filename);
     const content = readFileSync(fp, 'utf8');
     authorisedSlugs.add(getSlug(fp, content));
   }
@@ -273,7 +272,7 @@ for (const filename of readyFiles) {
   console.log(`\nProcessing: ${filename}`);
 
   let content = readFileSync(filePath, 'utf8');
-  const slug  = getSlug(filePath, content);
+  const slug = getSlug(filePath, content);
 
   // Set status: published
   content = content.replace(/^status:\s*(ready|draft|published)\s*$/m, 'status: published');
@@ -306,7 +305,7 @@ if (copied.length === 0 && removed.length === 0) {
   console.log('\nNothing changed.');
 } else {
   const parts = [];
-  if (copied.length  > 0) parts.push(`Published: ${copied.join(', ')}`);
+  if (copied.length > 0) parts.push(`Published: ${copied.join(', ')}`);
   if (removed.length > 0) parts.push(`Unpublished: ${removed.join(', ')}`);
   console.log(`\n✓ ${parts.join(' | ')}`);
 }
