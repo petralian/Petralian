@@ -18,7 +18,6 @@ seo_title: CSS Masonry Reading Order Fix for column-count Grids
 seo_description: CSS column-count fills top-to-bottom, silently breaking masonry grid reading order. Learn the reliable split-column fix with full React/Next.js code and responsive breakpoints.
 image_prompt: "Create a 16:9 hero image for a technical article about CSS masonry reading order bugs. Show a clean desktop workspace with a widescreen monitor displaying a three-column blog card layout. Overlay subtle numbered markers 1-9 where column one stacks 1,4,7 and arrows illustrate why this breaks left-to-right reading order. Add a faint side-by-side contrast hint: left panel labeled 'column-count flow', right panel labeled 'split columns fix'. Use a modern engineering aesthetic, high clarity, neutral tones with orange annotation accents, no brand logos, no text-heavy UI, no watermarks."
 ---
-
 You build a masonry grid. Three columns, `column-count: 3` in your CSS — looks exactly right in the browser preview. Then you check which article is sitting top-center. It is your fourth-most-recent post. Your second and third are buried lower in column one. The grid looks fine. The reading order is completely wrong.
 
 This is not a styling bug. It is a DOM behavior that `column-count` produces by design, and if you do not know it is there, you can ship a broken grid without ever realizing it. I ran into it while building the article grid on petralian.com — [the full rebuild story is here](/posts/why-i-rebuilt-petralian-on-nextjs) — and it took longer than it should have to understand why.
@@ -26,6 +25,12 @@ This is not a styling bug. It is a DOM behavior that `column-count` produces by 
 What follows is an explanation of what is happening, two approaches to fix it, and the one that actually holds up under real content.
 
 ---
+
+## Responsive follow-up
+
+The first version of this fix focused on reading order. This follow-up keeps the same content order logic, but makes the layout responsive by sharing one masonry component that steps through 1 column on mobile, 2 on tablet, and 3 on desktop.
+
+That matters because the column count is now part of the behavior, not an afterthought. The layout stays readable on narrow screens without losing the left-to-right reading order that made the original fix useful.
 
 ## How CSS column-count Actually Fills the DOM
 

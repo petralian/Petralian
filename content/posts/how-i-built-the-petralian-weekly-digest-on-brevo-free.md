@@ -56,7 +56,7 @@ That became the strategy.
 
 ---
 
-## The Issues We Hit While Implementing
+## The Issues I Hit While Implementing
 
 ### 1. Feature-gating friction
 
@@ -68,15 +68,15 @@ The local API key call worked. Production calls returned 401. That looked like a
 
 ### 3. Weak observability in first pass
 
-The early subscribe flow returned a generic failure message. That is fine for UX and terrible for debugging. We added provider-aware error logging, response details, and reference IDs so live failures could be traced quickly.
+The early subscribe flow returned a generic failure message. That is fine for UX and terrible for debugging. I added provider-aware error logging, response details, and reference IDs so live failures could be traced quickly.
 
 ### 4. Architecture mismatch for compliance
 
-Immediate list insertion is convenient, but it is weak for consent quality. We moved to confirm-first subscription and confirm-before-unsubscribe action, which is better aligned with privacy expectations.
+Immediate list insertion is convenient, but it is weak for consent quality. I moved to confirm-first subscription and confirm-before-unsubscribe action, which is better aligned with privacy expectations.
 
 ---
 
-## The Final Architecture We Implemented
+## The Final Architecture I Implemented
 
 The working model is simple:
 
@@ -170,7 +170,7 @@ That runs weekly on Monday UTC. Manual trigger remains available for testing wit
 
 ---
 
-## Brevo Limitations and How We Worked Around Them
+## Brevo Limitations and How I Worked Around Them
 
 The important limitation was not that Brevo cannot send. It can. The limitation was that certain native automation pathways are plan-sensitive and can introduce avoidable dependency on UI-level features.
 
