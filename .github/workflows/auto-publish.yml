@@ -45,6 +45,15 @@ jobs:
           token: ${{ secrets.VAULT_REPO_PAT }}
           path: _vault
 
+      - name: Debug vault checkout
+        run: |
+          echo "=== Vault checkout contents ==="
+          ls -la _vault
+          echo "=== Blog folder ==="
+          ls -la _vault/Blog || echo "Blog folder not found"
+          echo "=== Ready to publish ==="
+          ls -la "_vault/Blog/02 Ready to publish" || echo "02 Ready to publish not found"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
