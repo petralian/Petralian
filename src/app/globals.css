@@ -550,6 +550,7 @@ a {
 }
 
 @media (max-width: 1024px) {
+
   .masonry-grid[data-cols="1"],
   .masonry-grid[data-cols="2"] {
     display: grid;
