@@ -74,8 +74,8 @@ jobs:
 
       - name: Commit and push if there are changes
         run: |
-          git config user.name "Petralian Auto-Publisher"
-          git config user.email "auto-publish@petralian.com"
+          git config user.name "petralian"
+          git config user.email "petralian@gmail.com"
           git add content/posts public/images/posts
           if ! git diff --cached --quiet; then
             git commit -m "content: auto-publish from vault [skip ci]"
