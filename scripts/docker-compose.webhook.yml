@@ -1,0 +1,48 @@
+# docker-compose.webhook.yml
+#
+# Runs the Petralian publish webhook server on your VPS.
+# Copy this file to your VPS and run:
+#   docker compose -f docker-compose.webhook.yml up -d
+#
+# Then configure nginx (via aaPanel) to proxy /publish → 127.0.0.1:9877
+# See the nginx config snippet at the bottom of this file.
+
+services:
+  petralian-webhook:
+    image: node:20-alpine
+    container_name: petralian-webhook
+    working_dir: /app
+    command: node vps-publish-webhook.mjs
+    volumes:
+      - ./vps-publish-webhook.mjs:/app/vps-publish-webhook.mjs:ro
+    ports:
+      - "127.0.0.1:9877:9877"   # localhost only — nginx proxies externally
+    environment:
+      PORT: 9877
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}   # set in .env
+      GH_TOKEN: ${GH_TOKEN}               # GitHub PAT, Actions:Write on Petralian repo
+      GH_REPO: ${GH_REPO}                 # e.g. yourusername/petralian
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:9877/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+# ── nginx config snippet (add to aaPanel → Website → petralian.com → Config) ──
+#
+# location /webhook/publish {
+#     proxy_pass         http://127.0.0.1:9877/publish;
+#     proxy_http_version 1.1;
+#     proxy_set_header   Host $host;
+#     proxy_set_header   X-Real-IP $remote_addr;
+#     proxy_read_timeout 10s;
+# }
+#
+# Then trigger with:
+#   curl -X POST https://petralian.com/webhook/publish \
+#     -H "X-Webhook-Secret: YOUR_SECRET"
+#
+# Or force-publish (skip preflight errors):
+#   curl -X POST "https://petralian.com/webhook/publish?force=true" \
+#     -H "X-Webhook-Secret: YOUR_SECRET"

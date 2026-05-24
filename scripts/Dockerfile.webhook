@@ -1,0 +1,9 @@
+# Dockerfile for the Petralian publish webhook server
+# Build: docker build -f scripts/Dockerfile.webhook -t petralian-webhook .
+# Or use via docker-compose (see scripts/docker-compose.webhook.yml)
+
+FROM node:20-alpine
+WORKDIR /app
+COPY scripts/vps-publish-webhook.mjs ./
+EXPOSE 9877
+CMD ["node", "vps-publish-webhook.mjs"]

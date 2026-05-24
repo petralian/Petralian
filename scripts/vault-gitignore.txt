@@ -1,0 +1,23 @@
+# .gitignore template for your obsidian-git vault repo
+#
+# Copy this file to your Obsidian vault root as ".gitignore"
+# before initialising the obsidian-git plugin.
+#
+# This ensures ONLY the Petralian Blog folder (articles + images) is
+# pushed to GitHub — your personal notes, Brain, and other projects stay local.
+
+# Ignore everything by default
+*
+*/
+
+# Allow the Petralian Blog subdirectory (the only thing we need for auto-publish)
+!40_VSCode/
+!40_VSCode/Petralian/
+!40_VSCode/Petralian/Blog/
+!40_VSCode/Petralian/Blog/**
+
+# Obsidian config — not needed in the repo
+40_VSCode/Petralian/.obsidian/
+
+# macOS noise
+.DS_Store

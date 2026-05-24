@@ -148,6 +148,26 @@ Shorthand aliases in `:root` for convenience:
 - **Header height:** `64px` (sticky, frosted glass)
 - **Grid:** masonry 3-col on ≥1024px, 2-col ≥640px, 1-col mobile
 
+### Mobile Header Style Kit (Phone-First)
+
+Use these rules for screens `<= 860px`:
+
+- Logo width cap: `<= 33%` of viewport width
+- Practical logo target width: `118px-138px` on 390-430px screens
+- Header height: `56px-60px` (do not go below 56px for touch comfort)
+- Hamburger hit area: at least `40px x 40px` (current target: 42px)
+- Keep desktop nav hidden; show nav/social/theme only inside hamburger panel
+- Mobile menu panel should stay anchored to header edge and never overflow viewport
+- Active/hover nav colors should stay in core text palette unless an explicit accent state is required
+
+General mobile UI guidance aligned with platform standards:
+
+- Prioritize touch targets over density
+- Avoid horizontal overflow at all costs (header is the first place it appears)
+- Keep one primary action row in header: brand + one menu trigger
+- Move secondary controls (social links, theme switch) into the menu panel
+- Preserve visual continuity between closed header and open menu state
+
 ---
 
 ## Key Component Classes

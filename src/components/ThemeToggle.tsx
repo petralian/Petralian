@@ -14,7 +14,7 @@ function setCookieTheme(theme: "light" | "dark") {
 
 function SunIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" aria-hidden>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
       <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none" />
       <line x1="12" y1="2" x2="12" y2="4" />
       <line x1="12" y1="20" x2="12" y2="22" />
@@ -30,7 +30,7 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
@@ -61,23 +61,17 @@ export default function ThemeToggle() {
     setCookieTheme(theme);
   }
 
-  if (!mounted) return <div className="theme-switch-placeholder" />;
+  if (!mounted) return <div className="theme-icon-button-placeholder" />;
 
   return (
     <button
-      role="switch"
-      aria-checked={isDark}
+      type="button"
       onClick={toggle}
-      className={`theme-switch${isDark ? " theme-switch--dark" : ""}`}
+      className="theme-icon-button"
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      <span className="theme-switch-icon theme-switch-icon--light">
-        <SunIcon />
-      </span>
-      <span className="theme-switch-thumb" aria-hidden />
-      <span className="theme-switch-icon theme-switch-icon--dark">
-        <MoonIcon />
-      </span>
+      {isDark ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 }

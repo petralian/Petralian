@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import PostCard from "@/components/PostCard";
+import { useState, useMemo } from "react";
+import ResponsiveMasonry from "@/components/ResponsiveMasonry";
 import type { PostMeta } from "@/lib/posts";
 
 interface BlogFiltersProps {
@@ -9,14 +9,6 @@ interface BlogFiltersProps {
     categories: string[];
     tags: string[];
     initialTag?: string;
-}
-
-/** Split items into N columns for left-to-right masonry reading order */
-function splitIntoColumns<T>(items: T[], numCols: number): T[][] {
-    if (numCols <= 1) return [items];
-    const cols: T[][] = Array.from({ length: numCols }, () => []);
-    items.forEach((item, i) => cols[i % numCols].push(item));
-    return cols;
 }
 
 export default function BlogFilters({
@@ -28,24 +20,6 @@ export default function BlogFilters({
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
     const [activeTag, setActiveTag] = useState(initialTag ?? "All");
-    const [cols, setCols] = useState(3);
-
-    useEffect(() => {
-        const mq1 = window.matchMedia("(max-width: 640px)");
-        const mq2 = window.matchMedia("(max-width: 1024px)");
-        const update = () => {
-            if (mq1.matches) setCols(1);
-            else if (mq2.matches) setCols(2);
-            else setCols(3);
-        };
-        update();
-        mq1.addEventListener("change", update);
-        mq2.addEventListener("change", update);
-        return () => {
-            mq1.removeEventListener("change", update);
-            mq2.removeEventListener("change", update);
-        };
-    }, []);
 
     const availableTags = useMemo(() => {
         if (activeCategory === "All") return tags;
@@ -79,11 +53,6 @@ export default function BlogFilters({
             return matchSearch && matchCategory && matchTag;
         });
     }, [posts, search, activeCategory, activeTag]);
-
-    const columns = useMemo(
-        () => splitIntoColumns(filtered, cols),
-        [filtered, cols]
-    );
 
     return (
         <>
@@ -144,15 +113,7 @@ export default function BlogFilters({
             {filtered.length === 0 ? (
                 <p className="blog-empty">No articles match your search.</p>
             ) : (
-                <div className="masonry-grid">
-                    {columns.map((col, ci) => (
-                        <div key={ci} className="masonry-col">
-                            {col.map((post) => (
-                                <PostCard key={post.slug} post={post} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
+                <ResponsiveMasonry posts={filtered} />
             )}
         </>
     );

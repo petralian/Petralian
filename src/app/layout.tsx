@@ -122,6 +122,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${redHatText.variable} ${lexendDeca.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       {/* Anti-FOUC: apply stored theme before first paint */}

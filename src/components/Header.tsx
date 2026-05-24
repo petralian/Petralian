@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Mail } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
 
@@ -29,6 +29,7 @@ function GitHubIcon() {
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,18 +37,29 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
       <div className="header-inner">
-        {/* Logo */}
-        <Link href="/" className="site-logo" aria-label="Petralian — home">
+        <Link href="/" className="site-logo" aria-label="Petralian — home" onClick={() => setMenuOpen(false)}>
           <Image
             src="/images/petralian_blue.png"
             alt="Petralian"
             width={3450}
             height={503}
             priority
-            sizes="247px"
+            sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-light"
           />
           <Image
@@ -55,13 +67,12 @@ export default function Header() {
             alt="Petralian"
             width={1702}
             height={247}
-            sizes="247px"
+            sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-dark"
           />
         </Link>
 
-        {/* Nav + social */}
-        <nav className="header-nav" aria-label="Main navigation">
+        <nav className="header-nav header-nav--desktop" aria-label="Main navigation">
           {NAV_LINKS.map(({ label, href }) => (
             <Link
               key={href}
@@ -97,7 +108,72 @@ export default function Header() {
           </div>
           <ThemeToggle />
         </nav>
+
+        <div className="mobile-header-actions">
+          <button
+            type="button"
+            className={`menu-toggle${menuOpen ? " menu-toggle--open" : ""}`}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu-panel"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            {menuOpen ? <X size={20} strokeWidth={2.2} /> : <Menu size={20} strokeWidth={2.2} />}
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <>
+          <button
+            type="button"
+            className="mobile-menu-backdrop"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          />
+
+          <div id="mobile-menu-panel" className="mobile-menu-panel" role="dialog" aria-label="Site menu">
+            <div className="mobile-menu-links">
+              {NAV_LINKS.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`mobile-nav-link ${pathname.startsWith(href) ? "mobile-nav-link--active" : ""}`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mobile-menu-bottom">
+              <div className="social-icons social-icons--mobile" aria-label="Social links">
+                <a href={SOCIAL_LINKS.email} aria-label="Email" className="social-icon">
+                  <Mail size={18} strokeWidth={1.5} />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="social-icon"
+                >
+                  <LinkedInIcon />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="social-icon"
+                >
+                  <GitHubIcon />
+                </a>
+              </div>
+              <ThemeToggle />
+            </div>
+          </div>
+        </>
+      )}
     </header>
   );
 }

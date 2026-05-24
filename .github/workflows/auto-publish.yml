@@ -1,0 +1,76 @@
+# Auto-Publish from Obsidian Vault
+#
+# Reads articles from the "02 Ready to publish" folder in your Obsidian vault
+# (pushed to GitHub via obsidian-git) and publishes them to the live site.
+#
+# Triggers:
+#   - Every 15 minutes (cron)
+#   - Manual via GitHub UI or API (workflow_dispatch) — use this as your publish button
+#
+# Required repository secrets (Settings → Secrets → Actions):
+#   VAULT_REPO      — e.g. "yourusername/petralian-vault"  (the private obsidian-git repo)
+#   VAULT_REPO_PAT  — GitHub PAT with "Contents: Read" on the vault repo
+#
+# See scripts/publish-from-vault.mjs for the publish logic.
+
+name: Auto-Publish from Obsidian Vault
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Skip preflight errors and publish anyway'
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit to master
+
+    steps:
+      - name: Checkout Petralian repo (master)
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout vault repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.VAULT_REPO }}
+          token: ${{ secrets.VAULT_REPO_PAT }}
+          path: _vault
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (sharp for image optimisation)
+        run: npm ci --ignore-scripts && npm install sharp --no-save
+
+      - name: Run publish script
+        run: node scripts/publish-from-vault.mjs
+        env:
+          VAULT_PATH: _vault/40_VSCode/Petralian
+          FORCE: ${{ inputs.force || 'false' }}
+
+      - name: Commit and push if there are changes
+        run: |
+          git config user.name "Petralian Auto-Publisher"
+          git config user.email "auto-publish@petralian.com"
+          git add content/posts public/images/posts
+          if ! git diff --cached --quiet; then
+            git commit -m "content: auto-publish from vault [skip ci]"
+            git push origin master
+            echo "PUBLISHED=true" >> "$GITHUB_ENV"
+            echo "✓ Published. Vercel will deploy in ~30 seconds."
+          else
+            echo "PUBLISHED=false" >> "$GITHUB_ENV"
+            echo "No new content to publish."
+          fi
