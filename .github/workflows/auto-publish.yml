@@ -57,7 +57,10 @@ jobs:
       - name: Run publish script
         run: node scripts/publish-from-vault.mjs
         env:
-          VAULT_PATH: _vault/40_VSCode/Petralian
+          # _vault is the checkout root of petralian-vault repo.
+          # With obsidian-git "Custom base path" = 40_VSCode/Petralian,
+          # the vault checkout root IS the Petralian folder — Blog/ is at the top level.
+          VAULT_PATH: _vault
           FORCE: ${{ inputs.force || 'false' }}
 
       - name: Commit and push if there are changes

@@ -1,23 +1,33 @@
-# .gitignore template for your obsidian-git vault repo
+# .gitignore for D:\Obsidian\obsidian\40_VSCode\Petralian\
 #
-# Copy this file to your Obsidian vault root as ".gitignore"
-# before initialising the obsidian-git plugin.
+# SETUP: In obsidian-git settings → Advanced → "Custom base path"
+#        set this to: 40_VSCode/Petralian
+# Then git init, add remote, and place this file at:
+#   D:\Obsidian\obsidian\40_VSCode\Petralian\.gitignore
 #
-# This ensures ONLY the Petralian Blog folder (articles + images) is
-# pushed to GitHub — your personal notes, Brain, and other projects stay local.
+# This keeps only your Petralian Blog content in GitHub.
+# Your Brain, other projects, and personal notes never leave this machine.
 
 # Ignore everything by default
 *
 */
 
-# Allow the Petralian Blog subdirectory (the only thing we need for auto-publish)
-!40_VSCode/
-!40_VSCode/Petralian/
-!40_VSCode/Petralian/Blog/
-!40_VSCode/Petralian/Blog/**
+# ── Un-ignore exactly what the publish script needs ──────────────────────────
+# IMPORTANT: with */ catching all dirs, each level must be explicitly allowed.
 
-# Obsidian config — not needed in the repo
-40_VSCode/Petralian/.obsidian/
+!Blog/
+
+# Articles to publish
+!Blog/02 Ready to publish/
+!Blog/02 Ready to publish/**
+
+# Already-published articles (used to calculate which posts to un-publish)
+!Blog/03 Published/
+!Blog/03 Published/**
+
+# Images referenced in articles (required for featured images + body images)
+!Blog/00 Attachments/
+!Blog/00 Attachments/**
 
 # macOS noise
 .DS_Store
