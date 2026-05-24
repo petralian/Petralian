@@ -4,8 +4,9 @@
 # (pushed to GitHub via obsidian-git) and publishes them to the live site.
 #
 # Triggers:
-#   - Every 15 minutes (cron)
-#   - Manual via GitHub UI or API (workflow_dispatch) — use this as your publish button
+#   - Manual only — via GitHub UI "Run workflow" or via the VPS webhook (workflow_dispatch).
+#   - The 15-min cron was removed to make the laptop `sync-obsidian.ps1` the single
+#     authoritative publisher and prevent races on the same content file.
 #
 # Required repository secrets (Settings → Secrets → Actions):
 #   VAULT_REPO      — e.g. "yourusername/petralian-vault"  (the private obsidian-git repo)
@@ -16,8 +17,6 @@
 name: Auto-Publish from Obsidian Vault
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       force:

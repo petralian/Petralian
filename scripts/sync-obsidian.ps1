@@ -377,6 +377,23 @@ if ($copied.Count -gt 0) {
 # ── Git: stage all changes (additions, updates, deletions), commit, push ────
 Push-Location $repo
 try {
+  # Sync with remote first so we don't push on top of a stale base.
+  # If the remote has new commits (e.g. a manual workflow_dispatch publish),
+  # rebase our local history on top of them before staging.
+  Write-Host ''
+  Write-Host '── Syncing with origin/master ───────────────────────────────────' -ForegroundColor Cyan
+  git fetch origin master 2>&1 | Out-Null
+  $behind = (git rev-list --count HEAD..origin/master 2>$null)
+  if ($behind -and [int]$behind -gt 0) {
+    Write-Host "  Local is $behind commit(s) behind origin/master — rebasing..." -ForegroundColor Yellow
+    git pull --rebase origin master
+    if ($LASTEXITCODE -ne 0) {
+      git rebase --abort 2>$null | Out-Null
+      Write-Error "Rebase against origin/master failed. Resolve manually, then re-run."
+      exit 1
+    }
+  }
+
   # -A stages new files, modifications, AND deletions
   git add -A content/posts public/images/posts
 
@@ -392,7 +409,39 @@ try {
   $msg = "content: $($parts -join '; ')"
 
   git commit -m $msg
+
+  # Push with one retry. If the remote moved between our fetch and our push
+  # (rare narrow race), reset onto origin, overlay our just-synced files,
+  # commit, and push. Local sync is always treated as the latest truth.
   git push origin master
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host '  Push rejected — remote moved during sync. Auto-recovering...' -ForegroundColor Yellow
+    $localSha = (git rev-parse HEAD).Trim()
+    git fetch origin master 2>&1 | Out-Null
+    git reset --hard origin/master
+    if ($LASTEXITCODE -ne 0) {
+      Write-Error "reset --hard origin/master failed during auto-recovery."
+      exit 1
+    }
+    git checkout $localSha -- content/posts public/images/posts
+    if ($LASTEXITCODE -ne 0) {
+      Write-Error "Could not restore local files from $localSha during auto-recovery."
+      exit 1
+    }
+    git add -A content/posts public/images/posts
+    git diff --cached --quiet
+    if ($LASTEXITCODE -eq 0) {
+      Write-Host '  Auto-recovery: no diff vs origin/master after overlay. Nothing to push.' -ForegroundColor Yellow
+    }
+    else {
+      git commit -m "$msg (auto-recovered after race)"
+      git push origin master
+      if ($LASTEXITCODE -ne 0) {
+        Write-Error "Push still failing after auto-recovery. Investigate manually."
+        exit 1
+      }
+    }
+  }
   Write-Host ""
   Write-Host "Pushed. Vercel will deploy in ~30 seconds." -ForegroundColor Green
   Write-Host "  https://petralian.com" -ForegroundColor Blue
