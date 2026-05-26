@@ -18,6 +18,7 @@ image_prompt_variant_1: Tiny factory assembly line where code snippets move thro
 image_prompt_variant_2: "Side-by-side maze comparison: left side shows tangled paths with '$39/month' and '1500 requests' signs leading to a 'usage exceeded' wall; right side shows clean, direct pipeline with clear token cost labels ($3/1M, $15/1M) flowing smoothly. Editorial illustration style, professional but playful."
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 ## The Problem: Copilot's Pricing Model Just Changed
 
 GitHub Copilot is moving from request-based billing to token-based billing on June 1, 2026. If you're a heavy coder on Copilot Pro+ at $39/month, you may have already hit your 1,500 premium request allowance by mid-month. The question isn't whether Copilot is useful — it's whether the new pricing model still makes sense once you compare it against direct API access through OpenRouter, or against the much cheaper (and riskier) third-party relays that have appeared on the market.

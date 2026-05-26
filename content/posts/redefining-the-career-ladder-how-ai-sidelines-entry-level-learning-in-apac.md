@@ -7,12 +7,10 @@ category: Leadership
 tags: ["Leadership", "APAC", "Enterprise AI"]
 excerpt: ""
 featured_image: "/images/posts/career-ladder-ai-apac-sidelines-hero.jpg"
-seo_description: "AI is cutting the entry-level roles that once built careers. Nathan Petralia examines what this means for talent development and career pipelines across APAC."
-seo_title: "AI and Entry-Level Careers in APAC: What the Shift Means"
-featured_image_alt: "A young professional in APAC looking at a job market changed by AI automation of entry-level roles"
-focus_keyword: "AI entry-level jobs APAC careers"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 As artificial intelligence (AI) reshapes labor markets worldwide, the Asia-Pacific (APAC) region faces unique challenges and opportunities, with advanced economies like Hong Kong, Singapore, and South Korea experiencing significant shifts in employment patterns and workforce dynamics.
 
 **AI’s Impact on Entry-Level Jobs and Learning Opportunities in APAC**

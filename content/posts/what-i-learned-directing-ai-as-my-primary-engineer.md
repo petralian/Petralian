@@ -2,17 +2,18 @@
 title: "What I Learned Directing AI as My Primary Engineer"
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-05-21
-status: draft
+status: published
 category: AI & Technology
 tags: ["Enterprise AI", "Agentic AI", "Program Delivery"]
 excerpt: "I built two software products with AI as the primary engineer. Not as an assistant to a team - as the team. Here's the leadership account of what I actually learned."
 focus_keyword: directing AI as primary engineer
 seo_title: "What I Learned Directing AI as My Primary Engineer"
-seo_description: "I built two software products solo with AI as the primary engineer. Here's a first-person leadership account of context management, the efficiency curve, and what enterprise programs should expect."
+meta_description: "I built two software products solo with AI as the primary engineer. Here's a first-person leadership account of context management, the efficiency curve, and what enterprise programs should expect."
 featured_image:
 featured_image_alt: "A single person reviewing and directing AI-generated code builds on multiple monitors"
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 Over the last year, I built two software products - Vouch and Gravio - without a development team. AI wrote the code. I directed the build, made the product decisions, and approved or rejected the output. I went into this as a delivery director, not an engineer - I wanted to understand firsthand what it actually means to run a complex software build with AI as the primary engineer. What I found has changed how I think about enterprise AI programs, and most of it is not in the conversations I see about AI tooling.
 
 ---
@@ -95,6 +96,15 @@ If you are directing AI through a build program and want to compare approaches, 
 
 **File name:** directing-ai-as-primary-engineer.jpg
 **Alt text:** A person directing AI-generated code builds on multiple monitors, representing the leadership role in AI-assisted software development
+
+---
+
+## Related reading
+
+- [Three Layers of External Memory for AI-First Development](/posts/three-layer-external-brain-for-ai-first-development) — the implementation of the context layer this article describes (series part 1)
+- [The AI Memory Problem](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) — tool landscape (OpenClaw, Hermes, Obsidian files)
+- [Why File Memory Beats the Three-Layer AI Diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) — why files beat in-chat memory (series part 3)
+- [Why AI Agent Output Quality Drifts](/posts/ai-agent-quality-drift-detection) — drift without external anchors
 
 ---
 

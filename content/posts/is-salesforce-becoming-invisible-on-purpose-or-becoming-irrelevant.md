@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["Agentic AI", "Enterprise AI", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/salesforce-agentforce-invisible-crm-hero.jpg"
-seo_description: "Everyone talks about Salesforce, but no one demos it anymore. Nathan Petralia examines whether the CRM giant is fading by design or by default."
-seo_title: "Is Salesforce Becoming Invisible? A Candid Assessment"
-featured_image_alt: "A Salesforce cloud logo fading into the background behind newer AI-native CRM platform logos"
-focus_keyword: "Salesforce CRM relevance 2026"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 ## Salesforce and the AI CRM Future: Bold Land Grab or Last Stand?
 
 I came across a LinkedIn post this week that made me stop scrolling. The argument was simple but provocative: everyone thinks AI will enhance Salesforce, but it might actually make Salesforce invisible. And not in a bad way for Salesforce, at least not on the surface. The post described a "Headless 360" model where the UI disappears, workflows move to APIs and agents, and Salesforce quietly becomes the infrastructure no one sees but everyone depends on.

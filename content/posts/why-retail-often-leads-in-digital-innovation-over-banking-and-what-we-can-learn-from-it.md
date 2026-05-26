@@ -7,10 +7,7 @@ category: Commerce & Growth
 tags: ["Digital Transformation", "Ecommerce", "APAC"]
 excerpt: ""
 featured_image: "/images/posts/retail-digital-innovation-banking-apac-hero.jpg"
-seo_description: "Retail outpaces banking in digital innovation. Nathan Petralia explains why, using programs from both sectors — and what financial services can actually apply."
-seo_title: "Why Retail Leads Digital Innovation Over Banking in APAC"
-featured_image_alt: "A retail flagship store with digital screens next to a traditional bank branch, contrasting innovation speeds"
-focus_keyword: "retail digital innovation banking APAC"
+seo_description: ""
 ---
 
 As someone who has championed digital transformation projects across retail and finance sectors, I’ve had the privilege of seeing firsthand how these industries evolve in their approach to innovation. My experience working with global brands like Microsoft, Pandora, and Shiseido, as well as leading omnichannel commerce solutions and CX transformation strategies, has given me unique insights into why retail often pioneers innovation and how banking can adapt these lessons.

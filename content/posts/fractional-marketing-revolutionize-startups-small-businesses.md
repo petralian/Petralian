@@ -7,10 +7,7 @@ category: Marketing & Media
 tags: ["Marketing Technology", "Leadership", "Agency Landscape"]
 excerpt: ""
 featured_image: "/images/posts/fractional-cmo-marketing-hero.jpeg"
-seo_description: "Fractional marketing gives startups access to senior-level expertise without the full-time cost. Here's how to structure it and what most founders get wrong."
-seo_title: "Fractional Marketing: How It Transforms Startups and SMBs"
-featured_image_alt: "A fractional marketing director collaborating with a startup team in a modern co-working space"
-focus_keyword: "fractional marketing startups"
+seo_description: ""
 ---
 
 Having spent over 15 years helping businesses across industries like retail, finance, and e-commerce scale their operations, I’ve seen how access to the right expertise at the right time can make or break a company’s growth trajectory. One of the most exciting solutions I’ve encountered and worked on is **fractional marketing.**

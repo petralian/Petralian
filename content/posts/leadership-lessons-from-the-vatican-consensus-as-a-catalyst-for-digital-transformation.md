@@ -7,10 +7,7 @@ category: Leadership
 tags: ["Leadership", "Digital Transformation"]
 excerpt: ""
 featured_image: "/images/posts/digital-transformation-leadership-hero.jpg"
-seo_description: "How the papal conclave reveals a leadership truth most digital transformation programs get wrong: consensus is not a slow-down, it's the driver."
-seo_title: "Consensus as a Leadership Tool: Lessons from the Vatican"
-featured_image_alt: "Cardinals gathered in the Vatican for a conclave, symbolizing consensus-based leadership decision-making"
-focus_keyword: "consensus leadership digital transformation"
+seo_description: ""
 ---
 
 The recent news that the 133 cardinals have not yet elected a new Pope reminds us that transformative decisions require broad support. In the Vatican’s centuries-old process, a two-thirds majority is needed, ensuring that the chosen leader represents a collective vision-an approach that resonates well beyond religious institutions and into modern business and marketing.

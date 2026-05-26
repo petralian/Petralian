@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "AI in Marketing", "Agency Landscape"]
 excerpt: ""
 featured_image: "/images/posts/generative-ai-marketing-industry-hero.jpeg"
-seo_description: "An honest assessment of generative AI in marketing — where it's delivered, where it's fallen short, and what the industry still needs to get right."
-seo_title: "Generative AI in Marketing: Progress, Gaps, and What's Next"
-featured_image_alt: "A marketing team reviewing AI-generated campaign outputs and analytics on large screens"
-focus_keyword: "generative AI marketing challenges"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 Recently, I added my voice to the **[Marketing Interactive article](https://www.marketing-interactive.com/how-brands-can-yield-better-results-during-their-exploration-phase-of-ai)** on the state of generative AI in APAC marketing. The piece explored how businesses in the region are adopting AI, the challenges they’re facing, and what needs to change for companies to realize its full potential. As someone who has worked extensively with AI-driven marketing strategies, I wanted to share my perspective on the insights from the article and expand on the importance of a balanced, strategic approach to AI adoption.
 
 ### A Snapshot of AI in APAC Marketing

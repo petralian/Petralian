@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["Marketing Technology", "Enterprise AI", "Customer Experience"]
 excerpt: ""
 featured_image: "/images/posts/data-warehouse-cdp-architecture-hero.jpg"
-seo_description: "Clients keep asking whether their data warehouse can replace the CDP. It's a fair question with a complicated answer — and the gaps matter more than the overlap."
-seo_title: "Data Warehouse as a CDP: Can You Really Have It All?"
-featured_image_alt: "A data warehouse architecture diagram next to a customer data platform comparison chart"
-focus_keyword: "data warehouse CDP replacement"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 In almost every conversation I have with clients about data and marketing technology, the question comes up: “Can’t we just use our [data warehouse](https://en.wikipedia.org/wiki/Data_warehouse) as a customer data platform (CDP)?” It’s easy to see why this is so appealing-organizations want to maximize existing investments, minimize redundancies, and give both IT and marketing teams flexibility. But the real answer is more nuanced, especially as expectations for personalization and real-time engagement grow.
 
 ## Why the Data Warehouse Looks Like an Easy Win

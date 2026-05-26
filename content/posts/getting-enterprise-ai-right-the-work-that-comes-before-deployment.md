@@ -2,17 +2,18 @@
 title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-05-21
-status: draft
+status: published
 category: AI & Technology
 tags: ["Enterprise AI", "Digital Transformation", "Program Delivery"]
 excerpt: "The organizations that get the most sustained value from enterprise AI share one pattern. They build the foundation before they build the model."
 focus_keyword: enterprise AI program
 seo_title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
-seo_description: "The organizations that get sustained value from enterprise AI share one pattern: they build the foundation layer before deployment. Here's what that looks like."
+meta_description: "The organizations that get sustained value from enterprise AI share one pattern: they build the foundation layer before deployment. Here's what that looks like."
 featured_image:
 featured_image_alt: "A blueprint and open notebook on a clean desk, representing the foundation work required before enterprise AI deployment"
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I had a conversation earlier this year with a CTO who was more than a year into their enterprise AI program. The use cases were well developed. The models were performing well during testing. The vendor had delivered what they committed to. And yet the program was being scoped back - reassigned to a new sponsor, stakeholders reduced and given six months to find something else to present.
 
 When I asked why this happened, she said something I have read variations of across many similar conversations: "We could not roll it out, we were not ready for it."

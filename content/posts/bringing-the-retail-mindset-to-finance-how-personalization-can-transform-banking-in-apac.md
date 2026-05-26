@@ -7,10 +7,7 @@ category: Commerce & Growth
 tags: ["Digital Transformation", "APAC", "Customer Experience"]
 excerpt: ""
 featured_image: "/images/posts/personalized-banking-digital-app-apac-hero.jpg"
-seo_description: "Retail has mastered personalization at scale. APAC banks haven't caught up. Here's what the financial services industry can learn from retail's customer experience playbook."
-seo_title: "How Retail Personalization Can Transform APAC Banking"
-featured_image_alt: "A split image showing a personalized retail experience and a bank branch in an APAC city"
-focus_keyword: "retail personalization banking APAC"
+seo_description: ""
 ---
 
 The financial industry in the Asia-Pacific (APAC) region faces unique challenges as it seeks to modernize its marketing strategies and better serve a diverse customer base. With fragmented regulatory frameworks, cultural nuances, and varying levels of technological adoption, financial institutions must tread carefully to adopt innovative practices. However, by borrowing customer-centric strategies from the retail sector and adapting them to the financial industry's context, banks and financial institutions can deliver personalized, meaningful, and compliant experiences to their customers.

@@ -17,6 +17,7 @@ seo_description: A practical build log for implementing a weekly digest on Brevo
 image_prompt: "Create a 16:9 hero image for a technical build-log article. Show a laptop with a minimal dashboard representing petralian.com newsletter flow: subscribe, confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red warning icon replaced by green checks, dark modern UI aesthetic, no brand logos, no text overlays, no watermarks."
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I was not trying to build a newsletter startup. I was trying to solve a very specific operational problem on petralian.com.
 
 The site had a working subscribe box. Contacts were getting into a list. What was missing was a reliable weekly digest workflow that respected privacy and did not force an expensive plan jump just to unlock one automation feature.

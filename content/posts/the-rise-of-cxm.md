@@ -7,10 +7,7 @@ category: Commerce & Growth
 tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
 excerpt: ""
 featured_image: "/images/posts/cxm-customer-experience-management-hero.png"
-seo_description: "Customer experience management is now a top priority for enterprise. Nathan Petralia explains what CXM actually means, why it matters, and how to build for it."
-seo_title: "The Rise of CXM: Why Customer Experience Management Matters"
-featured_image_alt: "A CXM platform dashboard showing customer journey mapping, engagement data, and experience metrics"
-focus_keyword: "customer experience management CXM"
+seo_description: ""
 ---
 
 Customer experience management (CXM) has emerged as a top priority for companies in today’s digital landscape. It refers to the strategic practice of intentionally designing frictionless, personalized customer interactions across all touchpoints and channels. The goal is to consistently meet and exceed rising consumer expectations to turn customers into enthusiastic brand advocates.

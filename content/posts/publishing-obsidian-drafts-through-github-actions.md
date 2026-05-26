@@ -18,6 +18,7 @@ image_prompt_variant_1: "Tiny System Factory: a compact workshop where an Obsidi
 image_prompt_variant_2: "Maze vs Clear Workflow: split scene showing a confusing publishing maze on one side and a clean code-owned Obsidian-to-GitHub workflow on the other, with the article moving smoothly from draft to live site. Editorial, polished, professional but playful."
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 # Publishing Obsidian Drafts Through GitHub Actions
 
 The problem is not writing inside Obsidian. The problem is everything that happens after the draft feels ready: copy-pasting text into a CMS, resizing images by hand, hunting for the latest filename, and wondering whether the live site will match the note you just finished.

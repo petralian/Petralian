@@ -20,6 +20,7 @@ image_prompt_variant_1: Isometric illustration of a tiny workshop where web perf
 image_prompt_variant_2: "Split editorial composition: left side shows a tangled maze of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline diagram with green checkmarks — professional, polished, editorial illustration style, muted tones"
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I started with a simple task. The footer text on this site was failing a Lighthouse contrast check. I opened DevTools, ran a full audit, and discovered the footer was the smallest problem on the list.
 
 **Total Blocking Time: 3,020 milliseconds.** Largest Contentful Paint: 3.0 seconds. Legacy JavaScript polyfills adding 14 KiB of dead weight. Mobile performance score: 74.

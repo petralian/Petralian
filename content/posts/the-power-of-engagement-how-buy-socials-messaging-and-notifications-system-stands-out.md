@@ -7,10 +7,7 @@ category: Commerce & Growth
 tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
 excerpt: ""
 featured_image: "/images/posts/buysocial-messaging-notifications-hero.jpg"
-seo_description: "Buy.social designed its messaging system around engagement, not volume. Here's how the platform's notification architecture drives conversion differently."
-seo_title: "How Buy.social's Messaging System Drives Brand Engagement"
-featured_image_alt: "A mobile notification and messaging interface showing the Buy.social engagement platform for brands"
-focus_keyword: "Buy.social messaging engagement platform"
+seo_description: ""
 ---
 
 When building a platform designed to empower brands, one of the most important questions we kept coming back to was this: **How do we help brands not just attract customers but keep them coming back?** The solution we arrived at is one of the simplest yet most impactful features of [Buy.social](http://Buy.social)-our **messaging and notifications system**. It’s more than just a communication tool; it’s a driver of engagement, a feedback loop, and an advertising channel all rolled into one.

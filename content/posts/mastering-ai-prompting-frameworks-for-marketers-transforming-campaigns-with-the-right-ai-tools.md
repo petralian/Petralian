@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["AI in Marketing", "Generative AI", "Marketing Technology"]
 excerpt: ""
 featured_image: "/images/posts/ai-prompting-frameworks-marketers-hero.jpg"
-seo_description: "The right prompting framework changes how AI performs in campaigns. Nathan Petralia breaks down the frameworks and tools that actually get results for marketers."
-seo_title: "AI Prompting Frameworks for Marketers: A Practical Guide"
-featured_image_alt: "A marketer building an AI prompt framework on a whiteboard with campaign output examples"
-focus_keyword: "AI prompting frameworks marketers"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 AI is reshaping how marketers approach campaigns, enabling us to personalize, optimize, and streamline strategies across various channels. While AI prompting frameworks like RCFC, RAISE, CRISPE, SPARK, and ROLE give structure to our prompts, pairing these frameworks with the right AI technology is key to unlocking their full potential. Different AI solutions-from large language models to specialized marketing automation platforms-excel in different areas, depending on the task at hand.
 
 This article explores how marketers can combine AI prompting frameworks with the best AI technologies for specific use cases, delivering impactful, data-driven campaigns.

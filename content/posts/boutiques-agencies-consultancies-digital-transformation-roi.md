@@ -7,10 +7,7 @@ category: Marketing & Media
 tags: ["Agency Landscape", "Digital Transformation"]
 excerpt: ""
 featured_image: "/images/posts/boutique-agency-consultancy-choice-hero.png"
-seo_description: "Drawing on 20 years of APAC programs, Nathan Petralia compares boutiques, agencies, and consultancies to help you pick the right digital transformation partner."
-seo_title: "Boutiques, Agencies or Consultancies: Which Delivers ROI?"
-featured_image_alt: "Three consulting firm types compared — boutique studio, agency office, and consultancy building"
-focus_keyword: "digital transformation agency boutique consultancy"
+seo_description: ""
 ---
 
 Having led digital transformation initiatives across Asia Pacific for global brands ranging from luxury retail to financial services, I've experienced the professional services landscape from multiple angles. I've started my own boutique, worked client-side dealing with agencies and consultancies, and served within agency networks. This diverse perspective has shown me that choosing between boutique firms, agencies, and consultancies isn't merely about company size-it's about understanding the unique value propositions, team dynamics, and return on investment each model offers.

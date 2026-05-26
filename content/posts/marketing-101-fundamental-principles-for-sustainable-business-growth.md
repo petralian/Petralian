@@ -7,10 +7,7 @@ category: Marketing & Media
 tags: ["Marketing Technology", "Brand Strategy", "Customer Experience"]
 excerpt: ""
 featured_image: "/images/posts/marketing-101-fundamentals-principles-hero.jpg"
-seo_description: "Core marketing principles that drive sustainable business growth — distilled from 20 years of programs across retail, finance, and technology sectors."
-seo_title: "Marketing 101: Fundamental Principles for Sustainable Growth"
-featured_image_alt: "A whiteboard showing fundamental marketing principles including brand, channel, and customer strategy"
-focus_keyword: "marketing fundamentals business growth"
+seo_description: ""
 ---
 
 As a digital transformation strategist who has worked with global brands across multiple sectors, I've consistently observed that strong marketing fundamentals serve as the backbone of successful business growth. Whether working with luxury brands like Estée Lauder and Lanvin or financial institutions like Standard Chartered and Livi Bank, I've seen firsthand how these principles transcend industries and market conditions.

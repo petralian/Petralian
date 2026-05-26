@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "AI in Marketing"]
 excerpt: ""
 featured_image: "/images/posts/ai-human-imagination-collaboration-hero.jpg"
-seo_description: "AI and human imagination are not competing forces. Here's how pairing creative instinct with AI tools produces work that neither could achieve alone."
-seo_title: "AI and Human Imagination: How They Combine to Break Barriers"
-featured_image_alt: "A human hand and a robotic AI arm collaborating on a creative design project"
-focus_keyword: "AI human creativity collaboration"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 AI and human imagination are often seen as opposing forces, but in reality, they are deeply complementary. As someone who has worked extensively with AI-driven solutions in industries like retail, e-commerce, and finance, I’ve witnessed firsthand how the synergy of AI and human creativity can unlock transformative potential. AI is not here to replace us, it’s here to expand our thinking, challenge our assumptions, and help us see possibilities we might have missed.
 
 ## AI: The Collective Mind

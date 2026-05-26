@@ -165,6 +165,19 @@ That is the version that survives what comes next.
 
 ---
 
+## Follow-on: External Memory Series
+
+Start at the **[series hub](/posts/external-memory-series-guide)** (overview + reading order), then:
+
+1. [Three Layers of External Memory for AI-First Development](/posts/three-layer-external-brain-for-ai-first-development) — hooks, handoffs, Feature notes  
+2. [Beyond Chat History: Layered Obsidian for Personal Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat)  
+3. [Why File Memory Beats the Three-Layer AI Diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders)  
+4. [Why Deliberate File Memory Beats Hoping Agents Remember](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
+
+Related on this site: [Your Brain Was Not Built for This](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian) · [What I Learned Directing AI as My Primary Engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Publishing Obsidian Drafts Through GitHub Actions](/posts/publishing-obsidian-drafts-through-github-actions).
+
+---
+
 ## Sources and Further Reading
 
 1. [OpenClaw - official site and documentation](https://openclaw.ai/)

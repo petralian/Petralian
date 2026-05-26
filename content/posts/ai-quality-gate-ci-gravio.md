@@ -17,6 +17,7 @@ seo_description: Implement AI quality thresholds in CI/CD with Gravio-style scor
 image_prompt: A CI pipeline diagram where one stage is AI Quality Gate with pass/fail badges, code and model icons connected, clean enterprise infographic style, blue and orange contrast
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 # The New CI Gate: Failing Builds on Agent Quality, Not Just Unit Tests
 
 Most teams already gate releases on tests, lint, and security checks. That is necessary, but no longer sufficient when AI agents contribute to product behavior.

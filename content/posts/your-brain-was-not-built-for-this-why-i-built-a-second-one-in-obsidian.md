@@ -7,12 +7,10 @@ category: AI & Technology
 tags: ["Generative AI", "Leadership", "Enterprise AI"]
 excerpt: ""
 featured_image: "/images/posts/obsidian-second-brain-graph-view.jpg"
-seo_description: "A moment before a meeting made it clear I was holding too much in my head. Nathan Petralia on why he built a second brain in Obsidian and what changed."
-seo_title: "Why I Built a Second Brain in Obsidian for Leadership Work"
-featured_image_alt: "A person at a desk with Obsidian knowledge management software open on a screen, building a personal second brain"
-focus_keyword: "second brain Obsidian personal knowledge management"
+seo_description: ""
 ---
 
+> **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I had a moment a few months ago that I suspect a lot of people in leadership positions will recognize. I was preparing for a client meeting, and I knew I had read something relevant, a framework, a case study, something, but I could not find it. Not in my email. Not in my browser history. Not in the OneNote notebook I was sure I saved it in. It was gone, swallowed by the same digital void that eats every good idea you do not capture immediately. That was the moment I realized I needed an Obsidian second brain, not just another note-taking app.
 
 That frustration is what pushed me to take the second brain concept seriously, and specifically to build my own using Obsidian. Not as a productivity hack, but as an operating model for how I actually work. After months of using Obsidian as the backbone of that system, I think it is worth sharing what I have learned, where it works, and where it does not.
@@ -127,7 +125,14 @@ If you want to compare notes on how I set up my vault, or discuss whether a seco
 8.  Pot, Justin. "Obsidian Review." PCMag, December 7, 2025. [https://www.pcmag.com/reviews/obsidian](https://www.pcmag.com/reviews/obsidian)
 9.  Newton, Casey. "Obsidian's CEO on why productivity tools need community more than AI." The Verge, August 18, 2025. [https://www.theverge.com/decoder-podcast-with-nilay-patel/760522/obsidian-ceo-steph-ango-kepano-productivity-software-notes-app](https://www.theverge.com/decoder-podcast-with-nilay-patel/760522/obsidian-ceo-steph-ango-kepano-productivity-software-notes-app)
 
-**Further Reading:**
+**Further Reading (Petralian):**
+
+-   [The AI Memory Problem: tools vs files that survive](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives)
+-   [External Memory series](/posts/three-layer-external-brain-for-ai-first-development) — layered handoffs for AI-assisted development (drafts; slugs live on publish)
+-   [What I Learned Directing AI as My Primary Engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer)
+-   [Publishing Obsidian Drafts Through GitHub Actions](/posts/publishing-obsidian-drafts-through-github-actions)
+
+**Further Reading (external):**
 
 -   Obsidian Help Documentation: [https://help.obsidian.md/](https://help.obsidian.md/)
 -   Tiago Forte, The PARA Method: The Simple System for Organizing Your Digital Life in Seconds (Atria Books, 2023)
