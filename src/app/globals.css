@@ -1084,6 +1084,67 @@ a {
   font-family: var(--font-mono);
 }
 
+/* Mermaid diagrams (client-rendered in posts) */
+.prose .mermaid-diagram {
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--color-ink-heading) 6%, transparent);
+  overflow-x: auto;
+}
+
+.prose .mermaid-diagram__canvas {
+  display: flex;
+  justify-content: center;
+  min-height: 12rem;
+}
+
+.prose .mermaid-diagram__canvas--loading {
+  background: linear-gradient(90deg,
+      var(--color-surface-alt) 0%,
+      color-mix(in srgb, var(--color-border) 40%, var(--color-surface-alt)) 50%,
+      var(--color-surface-alt) 100%);
+  background-size: 200% 100%;
+  animation: mermaid-shimmer 1.2s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+.prose .mermaid-diagram__canvas svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.prose .mermaid-diagram--error {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+}
+
+.prose .mermaid-diagram--error figcaption {
+  font-size: var(--text-sm);
+  color: var(--color-ink-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.prose .mermaid-diagram__fallback {
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  overflow-x: auto;
+}
+
+@keyframes mermaid-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 /* ══════════════════════════════════════════════════════════════════
    RELATED POSTS
    ══════════════════════════════════════════════════════════════════ */
