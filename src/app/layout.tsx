@@ -142,7 +142,7 @@ export default function RootLayout({
         <main>{children}</main>
         <footer className="site-footer">
           <div className="footer-inner">
-            <p>© {new Date().getFullYear()} {SITE_NAME}. Built and written by Nathan Petralia. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} {SITE_NAME} - Built and written by Nathan Petralia & AI - All rights reserved</p>
           </div>
         </footer>
         <ClientScrollProgress />

@@ -1,13 +1,13 @@
 import { Children, isValidElement, type ComponentProps, type ReactNode } from "react";
-import MermaidChart from "@/components/mermaid/MermaidChart";
+import D2Diagram from "@/components/d2/D2Diagram";
 
-function getMermaidSource(children: ReactNode): string | null {
+function getD2Source(children: ReactNode): string | null {
   const child = Children.toArray(children)[0];
   if (!isValidElement<{ className?: string; children?: ReactNode }>(child)) {
     return null;
   }
   const className = child.props.className ?? "";
-  if (!className.split(/\s+/).includes("language-mermaid")) {
+  if (!className.split(/\s+/).includes("language-d2")) {
     return null;
   }
   const text = child.props.children;
@@ -21,11 +21,11 @@ function getMermaidSource(children: ReactNode): string | null {
   return null;
 }
 
-export const postMdxComponents = {
+export const postDiagramComponents = {
   pre(props: ComponentProps<"pre">) {
-    const chart = getMermaidSource(props.children);
+    const chart = getD2Source(props.children);
     if (chart !== null) {
-      return <MermaidChart chart={chart} />;
+      return <D2Diagram chart={chart} />;
     }
     return <pre {...props} />;
   },

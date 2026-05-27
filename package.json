@@ -15,18 +15,20 @@
     "build": "tinacms build --skip-cloud-checks && cross-env NODE_OPTIONS=--max-old-space-size=1024 next build",
     "start": "next start",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "optimize-images:dry": "node scripts/optimize-images.mjs --dry-run"
+    "optimize-images:dry": "node scripts/optimize-images.mjs --dry-run",
+    "diagram-compare": "node scripts/render-diagram-compare.mjs"
   },
   "dependencies": {
+    "@panzoom/panzoom": "^4.6.2",
     "@tailwindcss/typography": "^0.5.19",
     "date-fns": "^4.3.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.16.0",
-    "mermaid": "^11.15.0",
     "next": "16.2.6",
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
+    "react-zoom-pan-pinch": "^4.0.3",
     "reading-time": "^1.5.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",

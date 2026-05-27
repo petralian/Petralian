@@ -1,0 +1,36 @@
+direction: right
+
+info: "Infographic model" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  STM: STM
+  LTM: LTM
+  Feedback: Feedback
+  STM -> LTM
+  Feedback -> STM
+  Feedback -> LTM
+}
+
+mine: "This system" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  Chat: Chat
+  Ops: "Operational files"
+  Evergreen: "Evergreen notes"
+  Rules: "Rules + hooks"
+  Chat -> Ops
+  Ops -> Evergreen
+  Chat -> Rules
+  Rules -> Chat: {
+    style.stroke: "#696d84"
+    style.stroke-dash: 8
+  }
+  Evergreen -> Chat: {
+    style.stroke: "#696d84"
+    style.stroke-dash: 8
+  }
+}

@@ -1,0 +1,13 @@
+USER: User
+STM: "Short-term context"
+LTM: "Long-term store"
+FB: Feedback
+
+USER -> STM
+STM -> LTM: "attention /\nsummarization"
+FB -> STM
+FB -> LTM
+LTM -> STM: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}

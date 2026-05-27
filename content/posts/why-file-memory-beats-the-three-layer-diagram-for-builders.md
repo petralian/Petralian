@@ -74,28 +74,51 @@ The trade is real: more setup, more discipline. The return is memory you own, di
 
 ### Architecture A — In-model (diagram-default)
 
-```mermaid
-flowchart TB
-  USER[User] --> STM[Short-term context]
-  STM -->|"attention / summarization"| LTM[Long-term store]
-  FB[Feedback] --> STM
-  FB --> LTM
-  LTM --> STM
+```d2
+USER: User
+STM: "Short-term context"
+LTM: "Long-term store"
+FB: Feedback
+
+USER -> STM
+STM -> LTM: "attention /\nsummarization"
+FB -> STM
+FB -> LTM
+LTM -> STM: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
 ```
 
 Memory is opaque to you. Audit means scrolling threads. Tool change often means reset.
 
 ### Architecture B — External files (what I built)
 
-```mermaid
-flowchart TB
-  USER[User] --> CHAT[Chat / session]
-  CHAT --> OPS[Operational files]
-  OPS --> EVG[Evergreen notes]
-  CHAT --> RULES[Rules + hooks]
-  RULES --> CHAT
-  EVG --> CHAT
-  OPS --> CHAT
+```d2
+USER: User
+CHAT: "Chat / session"
+OPS: "Operational files"
+EVG: "Evergreen notes"
+RULES: "Rules + hooks"
+
+USER -> CHAT
+CHAT -> OPS
+OPS -> EVG: "promote durable\nfacts" {
+  style.stroke: "#ff6a3d"
+}
+CHAT -> RULES
+RULES -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+EVG -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+OPS -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
 ```
 
 Memory is Markdown, git, and scripts. Audit means files and hashes. Tool change means the same bootstrap paths.

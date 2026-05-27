@@ -32,3 +32,20 @@ focus_keyword: "primary 2-4 word keyword phrase"
 - `content/posts/*.md` is the live publishing pipeline. Never write here during a writing session.
 - Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
 - `status: published` in frontmatter = live on Vercel after next push
+
+## Session protocol (mandatory)
+
+Before non-trivial work, execute `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md`:
+
+1. Read vault `D:\Obsidian\Obsidian\40_VSCode\Petralian\_Home.md`, `Operations/AI Session Bridge.md`, `Operations/Session Summaries.md`, relevant `Features/*`
+2. Read repo `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`
+3. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` in the vault **before coding**
+4. Update Feature notes and `Operations/Session Summaries.md` when scope changes
+
+Do not skip Obsidian updates because the user asked for code only. See `.cursor/rules/session-protocol.mdc`.
+
+## Diagrams (D2)
+
+- Bright theme: Kroki/D2 default colors (no `theme-overrides` in `wrapD2Chart`)
+- Dark theme: same SVG with `filter: invert(1)` on `.diagram-figure__svg--dark`
+- Render SVG on the server (`DiagramFigure`), not via client component props

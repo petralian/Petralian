@@ -1,0 +1,45 @@
+﻿direction: down
+vars: { d2-config: { sketch: false } }
+
+L1: "Layer 1 — Short term" {
+  direction: down
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  CHAT: "Agent chat + todos"
+  LIVE: "Live workspace / git state"
+}
+L2: "Layer 2 — Operational" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  SNAP: "last-session-bootstrap snapshot"
+  HAND: ".claude/NEXT_SESSION.md"
+  MEM: "memories/repo/open-loops.md"
+  OPS: "Obsidian Operations/*"
+}
+L3: "Layer 3 — Evergreen" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  FEAT: "Features/*.md"
+  ARCH: "Architecture/*.md"
+  BRAIN: "00_Brain/Conventions/*"
+}
+L4: "Layer 4 — Feedback hardened" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  RULES: "Agent instructions + rules"
+  AGENTS: "Custom agents + skills"
+  HOOKS: "Git + IDE session hooks"
+}
+
+L1 -> L2: "session end protocol" { style.stroke: "#ff6a3d" }
+L2 -> L3: "promote durable facts" { style.stroke: "#ff6a3d" }
+L3 -> L4: {
+  style.opacity: 0
+  style.stroke-width: 0
+}
+L1 -> L4: "lessons → rules" { style.stroke: "#ff6a3d" }
+L4 -> L1: "feedback" { style.stroke: "#696d84"; style.stroke-dash: 8 }
+L3 -> L1: "feedback" { style.stroke: "#696d84"; style.stroke-dash: 8 }

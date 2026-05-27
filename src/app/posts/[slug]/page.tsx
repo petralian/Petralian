@@ -10,7 +10,7 @@ import { getAllPosts, getPost } from "@/lib/posts";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
-import { postMdxComponents } from "@/components/mermaid/post-mdx-components";
+import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -162,7 +162,7 @@ export default async function PostPage({
         <article className="prose prose-lg max-w-none">
           <MDXRemote
             source={post.content}
-            components={postMdxComponents}
+            components={postDiagramComponents}
             options={{
               mdxOptions: {
                 format: "md",

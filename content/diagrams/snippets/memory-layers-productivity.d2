@@ -1,0 +1,42 @@
+tools: "AI tools" {
+  grid-columns: 1
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  style.border-radius: 8
+  CHAT: "Claude / ChatGPT\n/ IDE agent"
+}
+
+L2: "Layer 2 — Operational" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  DAILY: "Daily note"
+  PROJ: "Projects index"
+  BRIDGE: "Session Bridge\nper initiative"
+}
+
+L3: "Layer 3 — Evergreen" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  PROFILE: "System/Profile/*"
+  HOME: "Project _Home.md"
+}
+
+action: "Execution" {
+  grid-columns: 1
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  TASKS: "Task app"
+}
+
+tools.CHAT -> L2
+L2 -> L3
+L3 -> tools.CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+L2 -> TASKS

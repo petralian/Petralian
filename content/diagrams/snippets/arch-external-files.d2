@@ -1,0 +1,24 @@
+USER: User
+CHAT: "Chat / session"
+OPS: "Operational files"
+EVG: "Evergreen notes"
+RULES: "Rules + hooks"
+
+USER -> CHAT
+CHAT -> OPS
+OPS -> EVG: "promote durable\nfacts" {
+  style.stroke: "#ff6a3d"
+}
+CHAT -> RULES
+RULES -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+EVG -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+OPS -> CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}

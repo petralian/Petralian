@@ -67,37 +67,72 @@ If you skip it, you still ship—until complexity crosses the threshold where ev
 
 I describe the system as three layers for clarity. In practice there are **four tiers**, which is intentional.
 
-```mermaid
-flowchart TB
-  subgraph L1["Layer 1 — Short term"]
-    CHAT["Agent chat + todos"]
-    LIVE["Live workspace / git state"]
-  end
+```d2
+L1: "Layer 1 — Short term" {
+  grid-columns: 2
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  style.border-radius: 8
 
-  subgraph L2["Layer 2 — Operational"]
-    SNAP["last-session-bootstrap snapshot"]
-    HAND[".claude/NEXT_SESSION.md"]
-    MEM["memories/repo/open-loops.md"]
-    OPS["Obsidian Operations/*"]
-  end
+  CHAT: "Agent chat\n+ todos"
+  LIVE: "Live workspace\n/ git state"
+}
 
-  subgraph L3["Layer 3 — Evergreen"]
-    FEAT["Features/*.md"]
-    ARCH["Architecture/*.md"]
-    BRAIN["00_Brain/Conventions/*"]
-  end
+L2: "Layer 2 — Operational" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
 
-  subgraph L4["Layer 4 — Feedback hardened"]
-    RULES["Agent instructions + rules"]
-    AGENTS["Custom agents + skills"]
-    HOOKS["Git + IDE session hooks"]
-  end
+  SNAP: "last-session-bootstrap\nsnapshot"
+  HAND: ".claude/NEXT_SESSION.md"
+  MEM: "memories/repo/\nopen-loops.md"
+  OPS: "Obsidian\nOperations/*"
+}
 
-  L1 -->|"session end protocol"| L2
-  L2 -->|"promote durable facts"| L3
-  L1 -->|"lessons → rules"| L4
-  L4 --> L1
-  L3 --> L1
+L3: "Layer 3 — Evergreen" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+
+  FEAT: "Features/*.md"
+  ARCH: "Architecture/*.md"
+  BRAIN: "00_Brain/\nConventions/*"
+}
+
+L4: "Layer 4 — Feedback hardened" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+
+  RULES: "Agent instructions\n+ rules"
+  AGENTS: "Custom agents\n+ skills"
+  HOOKS: "Git + IDE\nsession hooks"
+}
+
+L1 -> L2: "session end\nprotocol" {
+  style.stroke: "#ff6a3d"
+}
+L2 -> L3: "promote durable\nfacts" {
+  style.stroke: "#ff6a3d"
+}
+L3 -> L4: {
+  style.opacity: 0
+  style.stroke-width: 0
+}
+L1 -> L4: "lessons → rules" {
+  style.stroke: "#ff6a3d"
+}
+L4 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+L3 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
 ```
 
 ### Layer 1 — Short term (in tool and session)
@@ -248,21 +283,43 @@ The popular diagram stacks **Short-Term Memory → Long-Term Memory → Feedback
 
 **Overall resemblance:** ~70% on concepts, ~40% on structure—because you added an **operational layer** and **file-based LTM** the diagram does not show.
 
-```mermaid
-flowchart LR
-  subgraph INFO["Infographic model"]
-    A[STM] --> B[LTM]
-    C[Feedback] --> A
-    C --> B
-  end
+```d2
+direction: right
 
-  subgraph MINE["This system"]
-    D[Chat] --> E[Operational files]
-    E --> F[Evergreen notes]
-    D --> G[Rules + hooks]
-    G --> D
-    F --> D
-  end
+info: "Infographic model" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  STM: STM
+  LTM: LTM
+  Feedback: Feedback
+  STM -> LTM
+  Feedback -> STM
+  Feedback -> LTM
+}
+
+mine: "This system" {
+  direction: down
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  Chat: Chat
+  Ops: "Operational files"
+  Evergreen: "Evergreen notes"
+  Rules: "Rules + hooks"
+  Chat -> Ops
+  Ops -> Evergreen
+  Chat -> Rules
+  Rules -> Chat: {
+    style.stroke: "#696d84"
+    style.stroke-dash: 8
+  }
+  Evergreen -> Chat: {
+    style.stroke: "#696d84"
+    style.stroke-dash: 8
+  }
+}
 ```
 
 **What I did differently (on purpose):**

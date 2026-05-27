@@ -48,17 +48,29 @@ When people say the AI forgot, they usually mean one of three things: no **sessi
 
 ## The four layers (map of the series)
 
-```mermaid
-flowchart TB
-  L1[Layer 1 — Chat and session]
-  L2[Layer 2 — Operational handoffs]
-  L3[Layer 3 — Evergreen product and life notes]
-  L4[Layer 4 — Rules hooks and feedback]
-  L1 --> L2
-  L2 --> L3
-  L1 --> L4
-  L4 --> L1
-  L3 --> L1
+```d2
+L1: "Layer 1 — Chat and session"
+L2: "Layer 2 — Operational handoffs"
+L3: "Layer 3 — Evergreen product\nand life notes"
+L4: "Layer 4 — Rules hooks and feedback"
+
+L1 -> L2
+L2 -> L3
+L3 -> L4: {
+  style.opacity: 0
+  style.stroke-width: 0
+}
+L1 -> L4: "lessons → rules" {
+  style.stroke: "#ff6a3d"
+}
+L4 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+L3 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
 ```
 
 | Layer | What it holds | Where it lives |

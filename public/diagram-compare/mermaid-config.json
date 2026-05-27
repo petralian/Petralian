@@ -1,0 +1,11 @@
+{
+  "theme": "neo",
+  "look": "neo",
+  "fontSize": 15,
+  "flowchart": {
+    "curve": "basis",
+    "padding": 28,
+    "nodeSpacing": 56,
+    "rankSpacing": 72
+  }
+}

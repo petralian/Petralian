@@ -1,0 +1,35 @@
+---
+description: Mandatory Start/End of Session protocol for Petralian work
+globs:
+alwaysApply: true
+---
+
+# Petralian session protocol
+
+Before non-trivial work on this repo, follow the vault protocol:
+
+## Start of Session (required)
+Read and execute: `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md`
+
+Minimum outputs before coding:
+1. Read `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md` and execute it
+2. Read vault `_Home.md`, `Operations/AI Session Bridge.md`, `Operations/Session Summaries.md`, relevant `Features/*`
+3. Read repo `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`
+4. Create or update `D:\Obsidian\Obsidian\40_VSCode\Petralian\Operations\Sessions\YYYY-MM-DD <topic>.md` with goal, git status, pre-scan table, roadmap (✅/⚠️/🔲)
+5. Update `Operations/AI Session Bridge.md` if priority changed
+
+## During work
+- Append to today's session note after major changes
+- Update Feature notes when touching a feature area
+
+## End of Session (when user closes or asks)
+Read: `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\End of Session.md`
+
+Minimum outputs:
+1. Append one entry to `Operations/Session Summaries.md`
+2. Update `Operations/Open Loops.md`, `Operations/Copilot Shared Memory.md` if needed
+3. Sync `memories/repo/open-loops.md` with vault open loops
+4. Session footer with self-improvements, next priority, deploy status
+5. Update `.claude/NOTES.md` and Feature notes with durable lessons
+
+Do not skip Obsidian updates because the user asked for code only — protocol and code ship together.

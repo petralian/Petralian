@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph L1["Layer 1 — Short term"]
+    CHAT["Agent chat + todos"]
+    LIVE["Live workspace / git state"]
+  end
+
+  subgraph L2["Layer 2 — Operational"]
+    SNAP["last-session-bootstrap snapshot"]
+    HAND[".claude/NEXT_SESSION.md"]
+    MEM["memories/repo/open-loops.md"]
+    OPS["Obsidian Operations/*"]
+  end
+
+  subgraph L3["Layer 3 — Evergreen"]
+    FEAT["Features/*.md"]
+    ARCH["Architecture/*.md"]
+    BRAIN["00_Brain/Conventions/*"]
+  end
+
+  subgraph L4["Layer 4 — Feedback hardened"]
+    RULES["Agent instructions + rules"]
+    AGENTS["Custom agents + skills"]
+    HOOKS["Git + IDE session hooks"]
+  end
+
+  L1 -->|"session end protocol"| L2
+  L2 -->|"promote durable facts"| L3
+  L1 -->|"lessons → rules"| L4
+  L4 --> L1
+  L3 --> L1

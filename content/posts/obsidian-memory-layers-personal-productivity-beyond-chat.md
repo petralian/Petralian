@@ -121,31 +121,49 @@ Personal productivity feedback is not "thumbs down on a chat." It is:
 
 Claude on the web, ChatGPT, and IDE agents can all read the same brain files via MCP or paste. The **files are the contract**, not each tool's proprietary memory.
 
-```mermaid
-flowchart TB
-  subgraph tools ["AI tools"]
-    CHAT[Claude / ChatGPT / IDE agent]
-  end
+```d2
+tools: "AI tools" {
+  grid-columns: 1
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  style.border-radius: 8
+  CHAT: "Claude / ChatGPT\n/ IDE agent"
+}
 
-  subgraph L2 ["Layer 2 — Operational"]
-    DAILY[Daily note]
-    PROJ[Projects index]
-    BRIDGE[Session Bridge per initiative]
-  end
+L2: "Layer 2 — Operational" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  DAILY: "Daily note"
+  PROJ: "Projects index"
+  BRIDGE: "Session Bridge\nper initiative"
+}
 
-  subgraph L3 ["Layer 3 — Evergreen"]
-    PROFILE[System/Profile/*]
-    HOME[Project _Home.md]
-  end
+L3: "Layer 3 — Evergreen" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  PROFILE: "System/Profile/*"
+  HOME: "Project _Home.md"
+}
 
-  subgraph action ["Execution"]
-    TASKS[Task app]
-  end
+action: "Execution" {
+  grid-columns: 1
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+  TASKS: "Task app"
+}
 
-  CHAT --> L2
-  L2 --> L3
-  L3 --> tools
-  L2 --> TASKS
+tools.CHAT -> L2
+L2 -> L3
+L3 -> tools.CHAT: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+L2 -> TASKS
 ```
 
 ---

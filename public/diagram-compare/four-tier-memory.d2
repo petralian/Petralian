@@ -1,0 +1,75 @@
+# Four-tier external memory — mobile-friendly (2-col grids in wide layers)
+# L3→L4: invisible layout edge keeps vertical spine.
+direction: down
+
+vars: {
+  d2-config: {
+    sketch: false
+  }
+}
+
+L1: "Layer 1 — Short term" {
+  grid-columns: 2
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  style.border-radius: 8
+
+  CHAT: "Agent chat\n+ todos"
+  LIVE: "Live workspace\n/ git state"
+}
+
+L2: "Layer 2 — Operational" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+
+  SNAP: "last-session-bootstrap\nsnapshot"
+  HAND: ".claude/NEXT_SESSION.md"
+  MEM: "memories/repo/\nopen-loops.md"
+  OPS: "Obsidian\nOperations/*"
+}
+
+L3: "Layer 3 — Evergreen" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+
+  FEAT: "Features/*.md"
+  ARCH: "Architecture/*.md"
+  BRAIN: "00_Brain/\nConventions/*"
+}
+
+L4: "Layer 4 — Feedback hardened" {
+  grid-columns: 2
+  style.fill: "#f5f7fa"
+  style.stroke: "#d8dce6"
+  style.border-radius: 8
+
+  RULES: "Agent instructions\n+ rules"
+  AGENTS: "Custom agents\n+ skills"
+  HOOKS: "Git + IDE\nsession hooks"
+}
+
+L1 -> L2: "session end\nprotocol" {
+  style.stroke: "#ff6a3d"
+}
+L2 -> L3: "promote durable\nfacts" {
+  style.stroke: "#ff6a3d"
+}
+L3 -> L4: {
+  style.opacity: 0
+  style.stroke-width: 0
+}
+L1 -> L4: "lessons → rules" {
+  style.stroke: "#ff6a3d"
+}
+L4 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
+L3 -> L1: {
+  style.stroke: "#696d84"
+  style.stroke-dash: 8
+}
