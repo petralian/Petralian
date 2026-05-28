@@ -1,12 +1,13 @@
 # Petralian — open loops (sync with vault)
 
 **Mirror of:** `Operations/Open Loops.md`  
-**Updated:** 2026-05-26 (session closed)
+**Updated:** 2026-05-26 (mobile viewport)
 
 | Loop | Status | Notes |
 |------|--------|-------|
-| D2 diagrams commit + deploy | Open | Large uncommitted diff; user has not requested commit |
-| D2 visual QA (light/dark) | Open — **first task tomorrow** | `/diagram-compare`, external-memory post |
+| Mobile fullscreen viewport fix | Open — **device QA then commit** | Uncommitted atop `ac8fb3e`; plan in vault `Operations/Plans/` |
+| D2 diagrams commit + deploy | Closed | Deployed `ac8fb3e` |
+| D2 visual QA (light/dark) | Open | `/diagram-compare`, external-memory post |
 | Publish external-memory series | Open | `Blog/02 Ready to publish/` |
 | Vault D2 design doc vs invert strategy | Open | Update `Blog/00 D2 Diagram Design System.md` |
 | `/memories/repo/` created | Closed | 2026-05-26 |

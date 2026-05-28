@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import {
   TransformComponent,
   TransformWrapper,
@@ -8,6 +8,7 @@ import {
 } from "react-zoom-pan-pinch";
 import { useDiagramUi } from "@/components/diagram/DiagramUiContext";
 import { computeContainFit, readLockDimensions } from "@/components/diagram/diagram-metrics";
+import { DIAGRAM_VV_RESIZE_EVENT } from "@/components/diagram/diagram-visual-viewport";
 
 type DiagramExpandedViewportProps = {
   children: ReactNode;
@@ -28,35 +29,53 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
   const { toggleExpanded } = useDiagramUi();
   const viewportRef = useRef<HTMLDivElement>(null);
   const rzpRef = useRef<ReactZoomPanPinchRef | null>(null);
+  const fitRef = useRef<FitState | null>(null);
+  const userAdjustedRef = useRef(false);
   const [fit, setFit] = useState<FitState | null>(null);
   const pointerStartRef = useRef<{ x: number; y: number } | null>(null);
   const pinchActiveRef = useRef(false);
   const activePointersRef = useRef(new Set<number>());
   const lastToggleRef = useRef(0);
-  const centeredRef = useRef(false);
 
-  const measureAndFit = useCallback(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const { w: contentW, h: contentH } = readLockDimensions(viewport);
-    const containerW = viewport.clientWidth;
-    const containerH = viewport.clientHeight;
-    const next = computeContainFit(containerW, containerH, contentW, contentH);
-
-    if (!next) return;
-
-    setFit({
-      scale: next.scale,
-      x: next.x,
-      y: next.y,
-      contentW,
-      contentH,
-    });
+  const applyFitToRzp = useCallback((ref: ReactZoomPanPinchRef, state: FitState) => {
+    ref.setTransform(state.x, state.y, state.scale, 0);
   }, []);
 
+  const runFit = useCallback(
+    (force = false) => {
+      if (!force && userAdjustedRef.current) return;
+
+      const viewport = viewportRef.current;
+      if (!viewport) return;
+
+      const { w: contentW, h: contentH } = readLockDimensions(viewport);
+      const containerW = viewport.clientWidth;
+      const containerH = viewport.clientHeight;
+      const next = computeContainFit(containerW, containerH, contentW, contentH);
+
+      if (!next) return;
+
+      const state: FitState = {
+        scale: next.scale,
+        x: next.x,
+        y: next.y,
+        contentW,
+        contentH,
+      };
+
+      fitRef.current = state;
+      setFit(state);
+
+      if (rzpRef.current) {
+        applyFitToRzp(rzpRef.current, state);
+      }
+    },
+    [applyFitToRzp],
+  );
+
   useLayoutEffect(() => {
-    centeredRef.current = false;
+    userAdjustedRef.current = false;
+    fitRef.current = null;
     let attempts = 0;
 
     const tick = () => {
@@ -71,7 +90,7 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
         w > 0 &&
         h > 0
       ) {
-        measureAndFit();
+        runFit(true);
         return;
       }
 
@@ -79,28 +98,31 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
     };
 
     requestAnimationFrame(tick);
-  }, [measureAndFit]);
+  }, [runFit]);
 
-  const applyCenteredFit = useCallback((ref: ReactZoomPanPinchRef, state: FitState) => {
-    ref.setTransform(state.x, state.y, state.scale, 0);
-    centeredRef.current = true;
-  }, []);
+  useEffect(() => {
+    const onVvResize = () => runFit(false);
+    window.addEventListener(DIAGRAM_VV_RESIZE_EVENT, onVvResize);
+    return () => window.removeEventListener(DIAGRAM_VV_RESIZE_EVENT, onVvResize);
+  }, [runFit]);
 
   const onInit = useCallback(
     (ref: ReactZoomPanPinchRef) => {
       rzpRef.current = ref;
-      if (fit && !centeredRef.current) {
-        applyCenteredFit(ref, fit);
+      if (fitRef.current) {
+        applyFitToRzp(ref, fitRef.current);
       }
     },
-    [applyCenteredFit, fit],
+    [applyFitToRzp],
   );
 
-  useLayoutEffect(() => {
-    if (fit && rzpRef.current && !centeredRef.current) {
-      applyCenteredFit(rzpRef.current, fit);
+  const onZoom = useCallback((ref: ReactZoomPanPinchRef) => {
+    const base = fitRef.current?.scale;
+    if (base === undefined) return;
+    if (Math.abs(ref.state.scale - base) > 0.04) {
+      userAdjustedRef.current = true;
     }
-  }, [applyCenteredFit, fit]);
+  }, []);
 
   const onPointerDown = (event: React.PointerEvent) => {
     activePointersRef.current.add(event.pointerId);
@@ -156,7 +178,6 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
     >
       {fit ? (
         <TransformWrapper
-          key={`${fit.contentW}x${fit.contentH}`}
           initialScale={fit.scale}
           initialPositionX={fit.x}
           initialPositionY={fit.y}
@@ -173,6 +194,7 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
           pinch={{ step: 5 }}
           panning={{ velocityDisabled: true }}
           onInit={onInit}
+          onZoom={onZoom}
         >
           <TransformComponent
             wrapperClass="diagram-figure__rzp-wrapper"

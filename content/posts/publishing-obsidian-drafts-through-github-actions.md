@@ -10,7 +10,7 @@ tags:
   - Publishing
   - Workflow
 excerpt: A practical way to move from writing in Obsidian to publishing on a live site without copy-paste, manual uploads, or brittle one-off scripts.
-featured_image: /images/posts/publishing-obsidian-drafts-through-github-actions.png
+featured_image: /images/posts/publishing-obsidian-drafts-through-github-actions.jpg
 focus_keyword: Obsidian GitHub Actions publishing workflow
 seo_description: Learn how to publish Obsidian drafts with a GitHub Actions workflow, from draft note to live site, with fewer handoffs and less friction.
 image_prompt: A clean editorial illustration of a writer's Obsidian note entering a tiny publishing factory, moving through a GitHub Actions conveyor, image checks, and a final website output gate. Warm, technical, practical, and realistic.

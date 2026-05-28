@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ResponsiveMasonry from "@/components/ResponsiveMasonry";
+import PostGrid from "@/components/PostGrid";
 import { getAllPosts } from "@/lib/posts";
 import homeContent from "../../content/pages/home.json";
 
@@ -19,6 +19,19 @@ export default function HomePage() {
       {/* Intro strip */}
       <section className="home-intro">
         <div className="home-intro-inner">
+          {/* Photo first in DOM so mobile discovers LCP image before bio copy */}
+          <div className="home-intro-photo-wrap">
+            <Image
+              src="/images/nathan-petralia.jpg"
+              alt="Nathan Petralia at HKU"
+              fill
+              priority
+              fetchPriority="high"
+              quality={65}
+              className="home-intro-photo"
+              sizes="(max-width: 860px) 100vw, 420px"
+            />
+          </div>
           <div className="home-intro-text">
             <p className="home-intro-eyebrow">Nathan Petralia</p>
             {homeContent.intro_bio.split("\n\n").map((block, i) => (
@@ -35,26 +48,14 @@ export default function HomePage() {
               About me &rarr;
             </Link>
           </div>
-          <div className="home-intro-photo-wrap">
-            <Image
-              src="/images/nathan-petralia.jpg"
-              alt="Nathan Petralia at HKU"
-              fill
-              priority
-              fetchPriority="high"
-              quality={70}
-              className="home-intro-photo"
-              sizes="(max-width: 860px) 100vw, 420px"
-            />
-          </div>
         </div>
       </section>
 
       {/* Posts grid */}
       {recent.length > 0 && (
-        <section>
+        <section className="home-recent-posts">
           <p className="section-heading">Recent Posts</p>
-          <ResponsiveMasonry posts={recent} />
+          <PostGrid posts={recent} />
         </section>
       )}
 

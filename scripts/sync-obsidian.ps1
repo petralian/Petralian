@@ -1,7 +1,8 @@
 # ── Obsidian → Site Sync ─────────────────────────────────────────────────────
 # Bidirectional sync between Obsidian and content/posts:
-#   PUBLISH   — copies articles from "02 Ready to publish" into content/posts,
-#               sets status: published, resolves images from vault.
+#   PUBLISH   — copies articles from "02 Ready to publish" AND "03 Published"
+#               into content/posts, sets status: published, resolves images.
+#               (03 Published = live posts you edit in Obsidian; re-syncs minor edits.)
 #   UNPUBLISH — removes any content/posts file whose slug does not exist in
 #               either "02 Ready to publish" OR "03 Published".
 #
@@ -202,6 +203,13 @@ function Test-ArticlePreflight {
     }
   }
 
+  if ($raw -match '```mermaid') {
+    $errors.Add('Found ```mermaid blocks — convert to ```d2 (see Blog/00 Writing Session Guide.md)')
+  }
+  if ($raw -notmatch '```d2' -and $raw -notmatch '!\[.*\]\(/images/') {
+    $warnings.Add('No ```d2 diagram in article — consider adding one (mobile-first layout)')
+  }
+
   # Featured image
   $fi = $fm['featured_image']
   if (-not $fi -or $fi -eq '') {
@@ -328,29 +336,52 @@ Get-ChildItem -Path $sitePosts -Filter "*.md" | ForEach-Object {
   }
 }
 
-# ── Publish: copy new/updated articles from 02 Ready to publish ─────────────
-$readyFiles = Get-ChildItem -Path $obsidianReady -Filter "*.md"
-$copied = @()
-
-foreach ($file in $readyFiles) {
-  Write-Host "Processing: $($file.Name)" -ForegroundColor White
-  $raw = Get-Content $file.FullName -Raw -Encoding UTF8
+# ── Publish: copy/update from 02 Ready (new) and 03 Published (live edits) ───
+function Publish-ObsidianFile {
+  param(
+    [System.IO.FileInfo]$file,
+    [string]$sourceLabel
+  )
   $slug = Get-FileSlug $file.FullName
+  Write-Host "Processing [$sourceLabel]: $($file.Name)" -ForegroundColor White
+  $raw = Get-Content $file.FullName -Raw -Encoding UTF8
   $destFile = Join-Path $sitePosts "$slug.md"
 
-  # Set status: published
   $content = $raw -replace '(?m)^status:\s*(ready|draft|published)\s*$', 'status: published'
-
-  # Resolve images (copy files + rewrite paths)
   $content = Resolve-Images -content $content -articleFolder $file.DirectoryName -dryRun $DryRun.IsPresent
 
   if ($DryRun) {
-    Write-Host "[DryRun] Would copy: $($file.Name) -> posts/$slug.md" -ForegroundColor Cyan
+    Write-Host "[DryRun] Would sync: $($file.Name) -> posts/$slug.md" -ForegroundColor Cyan
+    return $slug
   }
-  else {
-    Set-Content -Path $destFile -Value $content -Encoding UTF8 -NoNewline
-    Write-Host "Copied: $($file.Name) -> posts/$slug.md" -ForegroundColor Green
-    $copied += $slug
+
+  Set-Content -Path $destFile -Value $content -Encoding UTF8 -NoNewline
+  Write-Host "Synced: $($file.Name) -> posts/$slug.md" -ForegroundColor Green
+  return $slug
+}
+
+$synced = @()
+$processedSlugs = @{}
+
+# 02 Ready first (new publishes)
+Get-ChildItem -Path $obsidianReady -Filter "*.md" | ForEach-Object {
+  $slug = Publish-ObsidianFile -file $_ -sourceLabel '02 Ready'
+  if ($slug) {
+    $synced += $slug
+    $processedSlugs[$slug] = $true
+  }
+}
+
+# 03 Published (updates to live posts — skip slug already synced from 02)
+if (Test-Path $obsidianPublished) {
+  Get-ChildItem -Path $obsidianPublished -Filter "*.md" | ForEach-Object {
+    $slug = Get-FileSlug $_.FullName
+    if ($processedSlugs.ContainsKey($slug)) {
+      Write-Host "Skipping duplicate slug in 03 Published (already synced from 02 Ready): $slug" -ForegroundColor DarkGray
+      return
+    }
+    $s = Publish-ObsidianFile -file $_ -sourceLabel '03 Published'
+    if ($s) { $synced += $s }
   }
 }
 
@@ -360,13 +391,13 @@ if ($DryRun) {
   exit 0
 }
 
-if ($copied.Count -eq 0 -and $removed.Count -eq 0) {
+if ($synced.Count -eq 0 -and $removed.Count -eq 0) {
   Write-Host "Nothing to sync." -ForegroundColor Yellow
   exit 0
 }
 
 # ── Compress newly copied images ─────────────────────────────────────────────
-if ($copied.Count -gt 0) {
+if ($synced.Count -gt 0) {
   Write-Host ''
   Write-Host '── Image compression ────────────────────────────────────────────' -ForegroundColor Cyan
   $nodeOutput = node "$PSScriptRoot\optimize-images.mjs" 2>&1
@@ -398,9 +429,9 @@ try {
   git add -A content/posts public/images/posts
 
   $parts = @()
-  if ($copied.Count -gt 0) {
-    $label = if ($copied.Count -le 3) { $copied -join ', ' } else { "$($copied.Count) articles" }
-    $parts += "publish $label"
+  if ($synced.Count -gt 0) {
+    $label = if ($synced.Count -le 3) { $synced -join ', ' } else { "$($synced.Count) articles" }
+    $parts += "sync $label"
   }
   if ($removed.Count -gt 0) {
     $label = if ($removed.Count -le 3) { $removed -join ', ' } else { "$($removed.Count) articles" }

@@ -6,7 +6,9 @@ alwaysApply: true
 
 # Response format (mandatory — never skip)
 
-Every assistant reply in this project MUST include **both** blocks below. No exceptions for code-only requests.
+> Canonical spec: `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
+
+Every assistant reply that involved code changes, file edits, or deploys MUST include **both** blocks below. No exceptions for code-only requests.
 
 ## 1. Session context (top of reply)
 
@@ -31,11 +33,11 @@ Append this block at the **end** of every reply (use `skipped: <reason>` only fo
 **Changes made:** <one-line summary or "None — Q&A only">
 **Files changed:** <comma-separated list or None>
 **Deploy needed:** <Yes/No> — <why> — <pending/done/N/A>
-**Rollback tag:** <tag or None>
+**Rollback tag:** <`vX.Y.Z` if tagged, else `None`>
 **Notes updated:** <Yes / No / N/A>
 **Obsidian:** <read ✓ / written ✓ / path — OR skipped: reason>
 **Git commit:** <hash + message, or N/A>
-**Self-improvements:** <None OR file path + what was added>
+**Self-improvements:** <`None` OR exact file path + line(s) where the rule was written>
 **Next session priority:** <from bridge or new item>
 **Test plan:** <how verified or N/A>
 ```

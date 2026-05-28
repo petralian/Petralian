@@ -19,7 +19,7 @@ seo_description: "How a three-layer Obsidian + repo memory system keeps AI codin
 image_prompt: Editorial overhead photograph of a developer desk with three labeled stacks of notebooks beside a laptop showing code—short-term sticky notes, dated session log, and a thick reference binder—warm natural light, no faces, no logos.
 image_prompt_variant_1: "Tiny system factory diorama: sticky notes enter a conveyor, get stamped into a session ledger, then filed into labeled vault drawers marked Code and Rules—clever workshop aesthetic, warm lighting, technical not cartoonish."
 image_prompt_variant_2: "Split scene: left side chaotic chat bubbles fading to blank; right side clean filing cabinets with linked index cards and a single straight workflow arrow—editorial contrast, professional playful tone."
-featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
+featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.jpg
 ---
 
 > **External Memory Series (1 of 4)** — [Series hub](/posts/external-memory-series-guide) · **Start here for builders.** Then [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  

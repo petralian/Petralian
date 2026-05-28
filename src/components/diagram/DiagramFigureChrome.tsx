@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useState, type ReactNode } from "react";
 import Image from "next/image";
 import { DiagramUiContext } from "@/components/diagram/DiagramUiContext";
+import { subscribeDiagramVisualViewport } from "@/components/diagram/diagram-visual-viewport";
 
 type DiagramFigureChromeProps = {
   children: ReactNode;
@@ -76,6 +77,11 @@ export default function DiagramFigureChrome({ children }: DiagramFigureChromePro
       html.style.overscrollBehavior = prevHtmlOverscroll;
       document.body.style.overscrollBehavior = prevBodyOverscroll;
     };
+  }, [expanded]);
+
+  useEffect(() => {
+    if (!expanded) return;
+    return subscribeDiagramVisualViewport();
   }, [expanded]);
 
   useEffect(() => {

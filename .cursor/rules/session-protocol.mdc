@@ -6,6 +6,8 @@ alwaysApply: true
 
 # Petralian session protocol
 
+> Footer contract: `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
+
 Before non-trivial work on this repo, follow the vault protocol:
 
 ## Start of Session (required)
@@ -27,9 +29,9 @@ Read: `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\End of Session.md`
 
 Minimum outputs:
 1. Append one entry to `Operations/Session Summaries.md`
-2. Update `Operations/Open Loops.md`, `Operations/Copilot Shared Memory.md` if needed
+2. Update `Operations/Open Loops.md`; update `Operations/Copilot Shared Memory.md` only if that note exists
 3. Sync `memories/repo/open-loops.md` with vault open loops
-4. Session footer with self-improvements, next priority, deploy status
+4. Session footer per Response Footer Contract (self-improvements, next priority, deploy status)
 5. Update `.claude/NOTES.md` and Feature notes with durable lessons
 
 Do not skip Obsidian updates because the user asked for code only — protocol and code ship together.

@@ -533,42 +533,24 @@ a {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   MASONRY GRID
+   POST GRID (CSS-only — no client masonry hydration)
    ══════════════════════════════════════════════════════════════════ */
-.masonry-grid {
-  display: flex;
-  gap: var(--space-8);
-  align-items: flex-start;
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
 }
 
-.masonry-col {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
+@media (min-width: 641px) {
+  .post-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
 }
 
-@media (max-width: 1024px) {
-
-  .masonry-grid[data-cols="1"],
-  .masonry-grid[data-cols="2"] {
-    display: grid;
-    grid-template-columns: repeat(var(--masonry-cols, 2), minmax(0, 1fr));
-    gap: var(--space-6);
-  }
-
-  .masonry-grid[data-cols="1"] {
-    --masonry-cols: 1;
-  }
-
-  .masonry-grid[data-cols="2"] {
-    --masonry-cols: 2;
-  }
-
-  .masonry-grid[data-cols="1"] .masonry-col,
-  .masonry-grid[data-cols="2"] .masonry-col {
-    gap: var(--space-6);
+@media (min-width: 1025px) {
+  .post-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -624,10 +606,6 @@ a {
 }
 
 @media (max-width: 640px) {
-  .masonry-grid {
-    flex-direction: column;
-  }
-
   .hero-title {
     line-height: 1.2;
     margin-bottom: var(--space-4);
@@ -845,16 +823,38 @@ a {
   min-height: 280px;
 }
 
+.home-intro-text {
+  grid-column: 1;
+  grid-row: 1;
+  padding: var(--space-12) 0;
+}
+
+.home-intro-photo-wrap {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  align-self: flex-end;
+}
+
+.home-recent-posts {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 3200px;
+}
+
 @media (max-width: 860px) {
   .home-intro-inner {
     grid-template-columns: 1fr;
     gap: 0;
     min-height: unset;
   }
-}
 
-.home-intro-text {
-  padding: var(--space-12) 0;
+  .home-intro-text,
+  .home-intro-photo-wrap {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 .home-intro-eyebrow {
@@ -885,13 +885,6 @@ a {
 
 .home-intro-link:hover {
   color: #fff;
-}
-
-.home-intro-photo-wrap {
-  position: relative;
-  height: 340px;
-  overflow: hidden;
-  align-self: flex-end;
 }
 
 @media (max-width: 860px) {
@@ -1128,11 +1121,12 @@ a {
 
 .prose .diagram-figure--expanded {
   position: fixed;
-  inset: 0;
+  top: var(--diagram-vv-top, 0);
+  left: 0;
+  right: 0;
   z-index: 200;
-  width: 100vw;
-  height: 100dvh;
-  height: 100svh;
+  width: 100%;
+  height: var(--diagram-vv-height, 100dvh);
   max-width: none;
   margin: 0;
   padding: 0;

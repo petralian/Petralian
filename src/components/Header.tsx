@@ -58,7 +58,6 @@ export default function Header() {
             alt="Petralian"
             width={3450}
             height={503}
-            priority
             sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-light"
           />

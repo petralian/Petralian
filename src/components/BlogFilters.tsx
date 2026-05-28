@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import ResponsiveMasonry from "@/components/ResponsiveMasonry";
+import PostGrid from "@/components/PostGrid";
 import type { PostMeta } from "@/lib/posts";
 
 interface BlogFiltersProps {
@@ -113,7 +113,7 @@ export default function BlogFilters({
             {filtered.length === 0 ? (
                 <p className="blog-empty">No posts match that filter.</p>
             ) : (
-                <ResponsiveMasonry posts={filtered} />
+                <PostGrid posts={filtered} />
             )}
         </>
     );

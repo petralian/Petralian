@@ -14,7 +14,8 @@ At the start of every non-trivial session, read universal rules **before** proje
 
 1. **Brain first** — read via the `obsidian-brain` MCP server:
    - `00_Brain/AI Agent Methodology.md` — note taxonomy, session loop, anti-patterns
-   - `00_Brain/Conventions/Deploy Playbook.md` — session-end footer template
+   - `00_Brain/Conventions/Response Footer Contract.md` — session context + footer (canonical)
+   - `00_Brain/Conventions/Deploy Playbook.md` — deploy gate (Vercel)
    - **Path safety (mandatory):** for `mcp_obsidian-brai_*` reads, always pass absolute paths rooted at `C:\Obsidian\obsidian\00_Brain\...`
    - Never pass relative `00_Brain/...` paths to `mcp_obsidian-brai_*`.
 2. Then follow the Session Memory Loop below.
@@ -127,23 +128,11 @@ Vercel auto-deploys on every push to `master`. Root directory: repo root (no sub
 
 ## Session End Protocol
 
-At the end of **every** response that involved code changes, file edits, or deploys, append:
+**Canonical spec:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
 
-```
----
-**Changes made:** <one-line summary>
-**Files changed:** <comma-separated list>
-**Deploy needed:** <Yes/No> — <why> — <done ✓ / pending>
-**Rollback tag:** <`vX.Y.Z` if tagged, else `None`>
-**Notes updated:** <Yes / No / N/A>
-**Obsidian:** <read ✓ / written ✓ / path — OR "skipped: <reason>"> — proof the memory loop ran
-**Git commit:** <short hash + message, or `N/A`>
-**Self-improvements:** <`None` OR exact file path + line(s) where the rule was written>
-**Next session priority:** <highest open item or `None`>
-**Test plan:** <how the change was verified, or `N/A`>
-```
+At the end of every work reply: **Session context** (top) + **10-line footer** (bottom) per that note. Enforced in Cursor via `.cursor/rules/response-footer.mdc` (`alwaysApply: true`).
 
-The `Obsidian` line is **mandatory** on every footer — never `N/A`. Skip this block only for purely conversational answers.
+Do not duplicate the template here. The `Obsidian` line is mandatory — never `N/A`.
 
 ## Self-Improvement Protocol
 
@@ -175,11 +164,11 @@ Before writing a single line of code:
 ## Post-Implementation Checklist
 
 Before declaring done:
-- [ ] PHP lint passes (no syntax errors).
-- [ ] Manual verify at localhost:8082.
-- [ ] Update `CHANGELOG.md` under `[Unreleased]`.
-- [ ] If deployed: verify live site loads.
-- [ ] Append the Session End Protocol footer.
+- [ ] `npx next build` passes (zero TypeScript/Next.js errors).
+- [ ] Manual verify at http://localhost:3000 (or project dev URL).
+- [ ] Update `CHANGELOG.md` under `[Unreleased]` when shipping user-visible changes.
+- [ ] If deployed: verify https://petralian.com loads.
+- [ ] Append Session context + footer per Response Footer Contract.
 
 ## Visual Consistency — UI/CSS
 

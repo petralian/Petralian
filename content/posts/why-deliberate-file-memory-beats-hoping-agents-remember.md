@@ -18,7 +18,7 @@ image_prompt_variant_1: "Tiny system factory quality stamp station: each card ge
 image_prompt_variant_2: Crossed-out software logos on the left; one sturdy filing cabinet labeled Runbook on the right—tool churn vs one source of truth.
 series: External Memory Series
 series_order: 4
-featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.png
+featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.jpg
 ---
 
 > **External Memory Series (4 of 4)** — [Series hub](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · **4 Governance (this article)**  

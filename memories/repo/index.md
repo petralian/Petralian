@@ -1,6 +1,6 @@
 # Petralian — repo memory (machine-readable)
 
-**Updated:** 2026-05-26
+**Updated:** 2026-05-28
 
 ## Identity
 - **Site:** https://petralian.com — Next.js 16 blog + newsletter
@@ -12,8 +12,10 @@
 2. `.claude/NOTES.md` + `.claude/NEXT_SESSION.md`
 3. This folder: `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`
 4. `00_Brain/AI Agent Methodology.md`
-5. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`
-6. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` **before coding**
+5. `00_Brain/Conventions/Response Footer Contract.md` — session context + footer on every work reply
+6. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`
+7. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` **before coding**
+8. Confirm `.cursor/rules/response-footer.mdc` (`alwaysApply: true`)
 
 ## Key paths
 | Area | Path |
@@ -30,5 +32,5 @@
 - **Build:** `tinacms build --skip-cloud-checks && cross-env NODE_OPTIONS=--max-old-space-size=1024 next build`
 - **TS-only check:** `npx next build` if Tina dev on :9000
 
-## Current priority (2026-05-26)
-D2 diagrams — uncommitted on master. User QA light/dark. Commit when asked.
+## Current priority (2026-05-28)
+Deploy batch: Lighthouse homepage fix + mobile diagram viewport + image JPEGs. Re-run PageSpeed mobile after deploy. Footer/memory loop: brain RFC + Cursor rules synced.

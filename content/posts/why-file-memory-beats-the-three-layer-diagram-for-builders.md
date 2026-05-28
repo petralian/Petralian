@@ -19,7 +19,7 @@ seo_description: Is external file memory better than the three-layer AI memory d
 image_prompt: Editorial desk with two diagrams side by side on paper—one a simple three-circle stack labeled in-model memory, the other a filing system with linked index cards and a laptop—overhead soft light, no faces, no logos.
 image_prompt_variant_1: "Tiny system factory: fluffy cloud labeled Chat enters a stamping press and exits as dated index cards slotted into labeled drawers—warm workshop, technical clever tone."
 image_prompt_variant_2: "Left: tangled speech bubbles fading to gray; right: one straight shelf of labeled binders with a single arrow from inbox to archive—maze vs clear workflow, editorial playful."
-featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.png
+featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.jpg
 ---
 
 > **External Memory Series (3 of 4)** — [Series hub](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · **3 vs the diagram (this article)** · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  

@@ -11,6 +11,8 @@ desktop.ini
 # Temp files
 .tmp_*
 *.tmp
+lh*.json
+lighthouse-*.json
 
 # Editor
 *.swp

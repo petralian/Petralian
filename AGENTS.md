@@ -33,6 +33,10 @@ focus_keyword: "primary 2-4 word keyword phrase"
 - Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
 - `status: published` in frontmatter = live on Vercel after next push
 
+## Response footer (mandatory)
+
+Every work reply: **Session context** (top) + **10-line footer** (bottom) per `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`. Cursor: `.cursor/rules/response-footer.mdc`.
+
 ## Session protocol (mandatory)
 
 Before non-trivial work, execute `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md`:
