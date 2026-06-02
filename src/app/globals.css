@@ -1107,7 +1107,7 @@ a {
   position: relative;
   margin: var(--space-8) 0;
   padding: var(--diagram-canvas-pad);
-  background: var(--diagram-canvas-dark);
+  background: var(--diagram-canvas-light);
   border: none;
   border-radius: var(--radius-card);
   box-shadow: none;
@@ -1140,6 +1140,10 @@ a {
   overscroll-behavior: none;
 }
 
+[data-theme="light"] .prose .diagram-figure--expanded {
+  background: var(--diagram-canvas-light);
+}
+
 [data-theme="dark"] .prose .diagram-figure--expanded,
 :root:not([data-theme="light"]) .prose .diagram-figure--expanded {
   background: var(--diagram-canvas-dark);
@@ -1149,6 +1153,11 @@ a {
   :root:not([data-theme="light"]) .prose .diagram-figure--expanded {
     background: var(--diagram-canvas-dark);
   }
+}
+
+[data-theme="light"] .prose .diagram-figure--expanded .diagram-figure__viewport,
+[data-theme="light"] .prose .diagram-figure__viewport.diagram-figure__viewport--expanded {
+  background-color: var(--diagram-canvas-light);
 }
 
 .prose .diagram-figure__canvas-wrap {
@@ -1180,7 +1189,7 @@ a {
   width: 100%;
   border-radius: 0;
   cursor: pointer;
-  background-color: var(--diagram-canvas-dark);
+  background-color: var(--diagram-canvas-light);
   touch-action: none;
 }
 
@@ -1236,14 +1245,14 @@ a {
   height: auto;
 }
 
-/* Diagrams always render on dark canvas (#101011) via invert pipeline */
+/* Light site theme: Kroki defaults on light canvas */
 .prose .diagram-figure__svg--light {
-  display: none;
+  display: block;
+  background-color: var(--diagram-canvas-light);
 }
 
 .prose .diagram-figure__svg--dark {
-  display: block;
-  background-color: var(--diagram-canvas-dark);
+  display: none;
 }
 
 .prose .diagram-figure__svg-invert {
@@ -1251,6 +1260,40 @@ a {
   width: 100%;
   overflow: hidden;
   background-color: var(--diagram-canvas-dark);
+}
+
+/* Dark site theme: invert pipeline on #101011 canvas */
+[data-theme="dark"] .prose .diagram-figure,
+[data-theme="dark"] .prose .diagram-figure__viewport {
+  background: var(--diagram-canvas-dark);
+  background-color: var(--diagram-canvas-dark);
+}
+
+[data-theme="dark"] .prose .diagram-figure__svg--light {
+  display: none;
+}
+
+[data-theme="dark"] .prose .diagram-figure__svg--dark {
+  display: block;
+  background-color: var(--diagram-canvas-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root:not([data-theme="light"]) .prose .diagram-figure,
+  :root:not([data-theme="light"]) .prose .diagram-figure__viewport {
+    background: var(--diagram-canvas-dark);
+    background-color: var(--diagram-canvas-dark);
+  }
+
+  :root:not([data-theme="light"]) .prose .diagram-figure__svg--light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .prose .diagram-figure__svg--dark {
+    display: block;
+    background-color: var(--diagram-canvas-dark);
+  }
 }
 
 .prose .diagram-figure__svg-invert svg {
@@ -1274,8 +1317,8 @@ a {
   padding: 10px 15px;
   pointer-events: none;
   border-radius: var(--radius-lg);
-  background: #101011;
-  border: none;
+  background: color-mix(in srgb, var(--diagram-canvas-light) 92%, #fff);
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   line-height: 1.35;
 }
 
@@ -1286,7 +1329,7 @@ a {
   font-size: var(--text-2xs);
   line-height: 1.35;
   text-align: left;
-  color: color-mix(in srgb, #e8e8ed 90%, transparent);
+  color: var(--color-ink-secondary);
 }
 
 .prose .diagram-figure__footer-chrome .diagram-figure__watermark {
@@ -1298,18 +1341,54 @@ a {
   line-height: 0;
 }
 
-/* Diagram canvas is always dark — use white logo in footer */
 .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--light {
-  display: none;
+  display: block;
 }
 
 .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--dark {
-  display: block;
+  display: none;
 }
 
 .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img {
-  display: block;
   max-height: 24px;
+  width: auto;
+  height: auto;
+}
+
+[data-theme="dark"] .prose .diagram-figure__footer-chrome {
+  background: #101011;
+  border: none;
+}
+
+[data-theme="dark"] .prose .diagram-figure__footer-chrome .diagram-figure__hint--chrome {
+  color: color-mix(in srgb, #e8e8ed 90%, transparent);
+}
+
+[data-theme="dark"] .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--light {
+  display: none;
+}
+
+[data-theme="dark"] .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--dark {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .prose .diagram-figure__footer-chrome {
+    background: #101011;
+    border: none;
+  }
+
+  :root:not([data-theme="light"]) .prose .diagram-figure__footer-chrome .diagram-figure__hint--chrome {
+    color: color-mix(in srgb, #e8e8ed 90%, transparent);
+  }
+
+  :root:not([data-theme="light"]) .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .prose .diagram-figure__footer-chrome .diagram-figure__watermark-img--dark {
+    display: block;
+  }
 }
 
 .prose .diagram-figure__footer-chrome.diagram-figure__floating-chrome--visible {

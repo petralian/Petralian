@@ -14,6 +14,8 @@
 - **Inline:** `@panzoom/panzoom` (`contain: outside`). **Fullscreen:** `react-zoom-pan-pinch` — panzoom has no reliable auto-fit/center on init.
 - **Never** put `border`/`outline` on nodes with `filter: invert(1)` — inverts to a visible white ring. Use `overflow: hidden` on parents instead.
 - Lock size for fullscreen: `--diagram-lock-w/h` on `.diagram-figure__canvas-wrap` (survives viewport swap), set in `lockDiagramMetrics` before expand.
+- **Diagram theme:** Light site theme → show `.diagram-figure__svg--light` on `--diagram-canvas-light`; dark theme → `.diagram-figure__svg--dark` + `invert(1)`. Do not force dark canvas in light mode.
+- **Diagram footer logo:** Never set `display: block` on `.diagram-figure__watermark-img` without `--light`/`--dark` — it overrides `display: none` and shows both logos.
 - **Mobile fullscreen:** Do not use `height: 100svh` on `.diagram-figure--expanded` — locks to small viewport; article bleeds when Chrome hides toolbar. Use `--diagram-vv-height` / `--diagram-vv-top` from `visualViewport` via `diagram-visual-viewport.ts` + `subscribeDiagramVisualViewport()` while expanded.
 
 ## Performance (Lighthouse)
