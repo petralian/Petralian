@@ -6,6 +6,10 @@ export const SITE_TAGLINE =
   "Practical writing on enterprise AI, execution, and commercial outcomes.";
 export const SITE_URL = "https://petralian.com";
 
+/** Google Analytics 4 measurement ID (override via NEXT_PUBLIC_GA_MEASUREMENT_ID). */
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-EWJYJZ0QN6";
+
 export const AUTHOR_NAME = "Nathan Petralia";
 export const AUTHOR_TITLE = "Managing Director, Hong Kong";
 export const AUTHOR_BIO =
