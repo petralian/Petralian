@@ -28,7 +28,7 @@ image_prompt_variant_1: 'Tiny system factory diorama: sticky notes enter a conve
 image_prompt_variant_2: 'Split scene: left side chaotic chat bubbles fading to blank;
   right side clean filing cabinets with linked index cards and a single straight workflow
   arrow—editorial contrast, professional playful tone.'
-featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.jpg
+featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
 ---
 
 > **External Memory Series (1 of 4)** — [Series hub](/posts/external-memory-series-guide) · **Start here for builders.** Then [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  

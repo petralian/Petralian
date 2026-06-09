@@ -26,7 +26,7 @@ image_prompt_variant_1: 'Tiny system factory: inbox tray of raw notes, sorting b
 image_prompt_variant_2: Maze of sticky notes and notification badges on the left versus
   a single clear kanban column and one notebook on the right—editorial split, professional
   playful contrast.
-featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.jpg
+featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.png
 ---
 
 > **External Memory Series (2 of 4)** — [Series hub](/posts/external-memory-series-guide) · [1 Implementation (builders)](/posts/three-layer-external-brain-for-ai-first-development) · **2 Productivity (this article)** · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  

@@ -9,7 +9,7 @@ tags:
 excerpt: I wanted a clean weekly digest for petralian.com without paying for RSS automations.
   This is the exact architecture we implemented, the issues we hit, and the code patterns
   that made it reliable.
-featured_image: /images/posts/how-i-built-the-petralian-weekly-digest-on-brevo-free.jpg
+featured_image: /images/posts/how-i-built-the-petralian-weekly-digest-on-brevo-free.png
 focus_keyword: petralian weekly digest brevo free
 seo_description: A practical build log for implementing a weekly digest on Brevo free
   tier with Next.js and Vercel cron, including double opt-in, confirm unsubscribe,

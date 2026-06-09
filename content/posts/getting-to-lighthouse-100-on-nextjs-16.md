@@ -9,7 +9,7 @@ tags:
 excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
   site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options
   that don't exist in Next.js 16 and will silently break your build.
-featured_image: /images/posts/getting-to-lighthouse-100-on-nextjs-16.jpg
+featured_image: /images/posts/getting-to-lighthouse-100-on-nextjs-16.png
 focus_keyword: lighthouse 100 next.js 16
 seo_description: How I fixed TBT, LCP, contrast failures, and image weight on a Next.js
   16 Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
