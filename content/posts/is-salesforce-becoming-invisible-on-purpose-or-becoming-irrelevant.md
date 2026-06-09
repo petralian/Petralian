@@ -1,13 +1,16 @@
 ---
-title: "Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?"
+title: Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 date: 2026-05-09
 status: published
-category: AI & Technology
-tags: ["Agentic AI", "Enterprise AI", "Marketing Technology"]
-excerpt: ""
-featured_image: "/images/posts/salesforce-agentforce-invisible-crm-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- AI in Marketing
+- Marketing Technology
+- Digital Transformation
+excerpt: ''
+featured_image: /images/posts/salesforce-agentforce-invisible-crm-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

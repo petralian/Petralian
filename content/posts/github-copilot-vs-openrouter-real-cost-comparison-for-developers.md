@@ -1,21 +1,31 @@
 ---
-title: "GitHub Copilot vs OpenRouter: The Real Cost of AI Coding in 2026"
+title: 'GitHub Copilot vs OpenRouter: The Real Cost of AI Coding in 2026'
 slug: github-copilot-vs-openrouter-real-cost-comparison-for-developers
 date: 2026-05-24
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - AI Development
-  - Developer Tools
-  - Cost Analysis
-  - GitHub Copilot
-excerpt: GitHub Copilot's new token-based pricing changes everything. Here's what it actually costs compared to OpenRouter and third-party relays when you code extensively.
+- Agentic AI
+- Developer Tools
+excerpt: GitHub Copilot's new token-based pricing changes everything. Here's what
+  it actually costs compared to OpenRouter and third-party relays when you code extensively.
 featured_image: /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.jpg
 focus_keyword: github copilot pricing comparison
-seo_description: Real cost comparison of GitHub Copilot Pro+ vs OpenRouter for heavy coding use. Verified token pricing, model costs, and when each option makes sense.
-image_prompt: Split-screen comparison showing a developer's VS Code editor on one side with GitHub Copilot interface, and on the other side a cost calculator dashboard displaying token usage metrics and pricing tiers. Clean, technical aesthetic with blue and green accent colors. Professional software development environment.
-image_prompt_variant_1: Tiny factory assembly line where code snippets move through different pricing checkpoints - one path labeled 'Copilot Bundle' with flat monthly gate, another path labeled 'Pay-per-token' with individual token meters. Small workers (representing developers) choosing between the two paths. Warm, technical illustration style.
-image_prompt_variant_2: "Side-by-side maze comparison: left side shows tangled paths with '$39/month' and '1500 requests' signs leading to a 'usage exceeded' wall; right side shows clean, direct pipeline with clear token cost labels ($3/1M, $15/1M) flowing smoothly. Editorial illustration style, professional but playful."
+seo_description: Real cost comparison of GitHub Copilot Pro+ vs OpenRouter for heavy
+  coding use. Verified token pricing, model costs, and when each option makes sense.
+image_prompt: Split-screen comparison showing a developer's VS Code editor on one
+  side with GitHub Copilot interface, and on the other side a cost calculator dashboard
+  displaying token usage metrics and pricing tiers. Clean, technical aesthetic with
+  blue and green accent colors. Professional software development environment.
+image_prompt_variant_1: Tiny factory assembly line where code snippets move through
+  different pricing checkpoints - one path labeled 'Copilot Bundle' with flat monthly
+  gate, another path labeled 'Pay-per-token' with individual token meters. Small workers
+  (representing developers) choosing between the two paths. Warm, technical illustration
+  style.
+image_prompt_variant_2: 'Side-by-side maze comparison: left side shows tangled paths
+  with ''$39/month'' and ''1500 requests'' signs leading to a ''usage exceeded'' wall;
+  right side shows clean, direct pipeline with clear token cost labels ($3/1M, $15/1M)
+  flowing smoothly. Editorial illustration style, professional but playful.'
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

@@ -1,13 +1,16 @@
 ---
-title: "Is SaaS Being Dismantled by AI?"
+title: Is SaaS Being Dismantled by AI?
 slug: is-saas-being-dismantled-by-ai
 date: 2025-03-05
 status: published
-category: AI & Technology
-tags: ["Enterprise AI", "Marketing Technology", "Agentic AI"]
-excerpt: ""
-featured_image: "/images/posts/saas-ai-disruption-future-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- AI in Marketing
+- Digital Transformation
+- Marketing Technology
+excerpt: ''
+featured_image: /images/posts/saas-ai-disruption-future-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

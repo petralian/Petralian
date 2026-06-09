@@ -1,16 +1,21 @@
 {
     "header_title": "Perspectives on Technology and Change",
-    "header_description": "My ideas, thoughts and notes on AI and tech, commerce, growth, delivery, leadership and change management.",
+    "header_description": "Practical writing on enterprise AI, execution, and commercial outcomes — from builders shipping with agents to career notes from the field.",
     "topic_cards": [
         {
-            "title": "AI Delivery",
-            "description": "What it takes to deploy AI in organizations: tooling, workflows, and trade-offs.",
+            "title": "AI & Building",
+            "description": "Shipping with agents: memory systems, dev tooling, site builds, and quality gates.",
             "style": "dark"
         },
         {
-            "title": "Transformation Operations",
-            "description": "Governance, organizational change, and execution patterns that help programs survive.",
+            "title": "Career",
+            "description": "Roles, teams, and lessons from leading programs — including when agents are in the toolchain.",
             "style": "light"
+        },
+        {
+            "title": "Commerce & Marketing",
+            "description": "Ecommerce, CX, agencies, and growth systems — commercial outcomes in practice.",
+            "style": "dark"
         }
     ]
 }

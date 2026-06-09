@@ -1,23 +1,30 @@
 ---
-title: "Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered"
+title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered'
 slug: getting-to-lighthouse-100-on-nextjs-16
 date: 2026-05-24
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - Next.js
-  - Performance
-  - Web Vitals
-  - Lighthouse
-  - Vercel
-  - Developer Tools
-excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options that don't exist in Next.js 16 and will silently break your build.
+- Developer Tools
+excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
+  site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options
+  that don't exist in Next.js 16 and will silently break your build.
 featured_image: /images/posts/getting-to-lighthouse-100-on-nextjs-16.jpg
 focus_keyword: lighthouse 100 next.js 16
-seo_description: How I fixed TBT, LCP, contrast failures, and image weight on a Next.js 16 Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact code.
-image_prompt: Cinematic editorial photograph of a lighthouse standing at the edge of a rocky coast at dusk, light beam sweeping across calm dark water, minimalist composition, deep blues and warm amber, photorealistic, professional photography
-image_prompt_variant_1: Isometric illustration of a tiny workshop where web performance metrics move through inspection checkpoints on a conveyor belt — a small engineer adjusting dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming, no cartoonish elements
-image_prompt_variant_2: "Split editorial composition: left side shows a tangled maze of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline diagram with green checkmarks — professional, polished, editorial illustration style, muted tones"
+seo_description: How I fixed TBT, LCP, contrast failures, and image weight on a Next.js
+  16 Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
+  code.
+image_prompt: Cinematic editorial photograph of a lighthouse standing at the edge
+  of a rocky coast at dusk, light beam sweeping across calm dark water, minimalist
+  composition, deep blues and warm amber, photorealistic, professional photography
+image_prompt_variant_1: Isometric illustration of a tiny workshop where web performance
+  metrics move through inspection checkpoints on a conveyor belt — a small engineer
+  adjusting dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
+  no cartoonish elements
+image_prompt_variant_2: 'Split editorial composition: left side shows a tangled maze
+  of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline
+  diagram with green checkmarks — professional, polished, editorial illustration style,
+  muted tones'
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

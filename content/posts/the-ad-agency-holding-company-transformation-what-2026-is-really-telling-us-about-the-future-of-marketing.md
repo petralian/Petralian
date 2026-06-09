@@ -1,13 +1,17 @@
 ---
-title: "The Ad Agency Holding Company Transformation: What 2026 Is Really Telling Us About the Future of Marketing"
+title: 'The Ad Agency Holding Company Transformation: What 2026 Is Really Telling
+  Us About the Future of Marketing'
 slug: the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
 date: 2026-04-16
 status: published
-category: Marketing & Media
-tags: ["Agency Landscape", "Digital Transformation", "AI in Marketing"]
-excerpt: ""
-featured_image: "/images/posts/ad-agency-holding-company-2026-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- Agency Landscape
+- Digital Transformation
+- AI in Marketing
+excerpt: ''
+featured_image: /images/posts/ad-agency-holding-company-2026-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

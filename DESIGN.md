@@ -248,40 +248,27 @@ General mobile UI guidance aligned with platform standards:
 
 ---
 
-## Tag Taxonomy (16 canonical tags)
+## Category Taxonomy (3 categories — June 2026)
 
-All tags are Title Case. Every post has 2–3 tags from this list.
-
-| Tag | Pillar |
-|---|---|
-| `Enterprise AI` | AI & Technology |
-| `Agentic AI` | AI & Technology |
-| `Generative AI` | AI & Technology |
-| `AI in Marketing` | AI & Technology / Marketing |
-| `Future of Search` | AI & Technology |
-| `Digital Transformation` | Digital Transformation |
-| `Program Delivery` | Digital Transformation |
-| `Ecommerce` | Commerce & Growth |
-| `Social Commerce` | Commerce & Growth |
-| `Customer Experience` | Commerce & Growth |
-| `Marketing Technology` | Marketing & Media |
-| `Programmatic` | Marketing & Media |
-| `Agency Landscape` | Marketing & Media |
-| `Leadership` | Leadership |
-| `APAC` | Leadership / Geography |
-| `Brand Strategy` | Marketing & Media |
-
----
-
-## Category Taxonomy (5 categories)
+Canonical source: Obsidian `Blog/00 Writing Session Guide.md`. Enforced by `scripts/normalize-tags.py` and `scripts/audit-taxonomy.py`.
 
 | Category | Description |
 |---|---|
-| `AI & Technology` | AI deployment, LLMs, SaaS disruption, agentic platforms |
-| `Digital Transformation` | Enterprise change programs, governance, delivery |
-| `Commerce & Growth` | Ecommerce, social commerce, CX, GTM |
-| `Marketing & Media` | Martech, programmatic, agencies, brand |
-| `Leadership` | Management, culture, career, program delivery |
+| `AI & Building` | Builders shipping with agents: memory systems, dev tooling, site builds, quality gates |
+| `Career` | Roles, teams, program field notes, enterprise rollout lessons |
+| `Commerce & Marketing` | Ecommerce, CX, agencies, GenAI in marketing, industry essays |
+
+---
+
+## Tag Taxonomy (max 10 tags per category)
+
+All tags are Title Case with spaces. Every post has **3–5 tags** (hard cap 6) from the **category's** allowed list.
+
+**AI & Building:** Agentic AI · Developer Tools · Obsidian · Gravio · AI Quality · AI Memory · External Memory Series · Generative AI · Enterprise AI
+
+**Career:** Leadership · APAC · Enterprise AI · Brand Strategy · Digital Transformation · Program Delivery · Generative AI · Agentic AI
+
+**Commerce & Marketing:** Ecommerce · Customer Experience · Marketing Technology · AI in Marketing · Agency Landscape · Digital Transformation · Generative AI · Social Commerce · Brand Strategy · APAC
 
 ---
 

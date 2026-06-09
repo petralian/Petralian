@@ -1,13 +1,17 @@
 ---
-title: "Why Retail Often Leads in Digital Innovation Over Banking (and What We Can Learn From It)"
+title: Why Retail Often Leads in Digital Innovation Over Banking (and What We Can
+  Learn From It)
 slug: why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
 date: 2025-01-20
 status: published
-category: Commerce & Growth
-tags: ["Digital Transformation", "Ecommerce", "APAC"]
-excerpt: ""
-featured_image: "/images/posts/retail-digital-innovation-banking-apac-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- Digital Transformation
+- Ecommerce
+- APAC
+excerpt: ''
+featured_image: /images/posts/retail-digital-innovation-banking-apac-hero.jpg
+seo_description: ''
 ---
 
 As someone who has championed digital transformation projects across retail and finance sectors, I’ve had the privilege of seeing firsthand how these industries evolve in their approach to innovation. My experience working with global brands like Microsoft, Pandora, and Shiseido, as well as leading omnichannel commerce solutions and CX transformation strategies, has given me unique insights into why retail often pioneers innovation and how banking can adapt these lessons.

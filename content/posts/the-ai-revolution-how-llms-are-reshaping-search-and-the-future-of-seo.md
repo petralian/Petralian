@@ -1,13 +1,16 @@
 ---
-title: "The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO"
+title: 'The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO'
 slug: the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo
 date: 2025-04-09
 status: published
-category: AI & Technology
-tags: ["Future of Search", "Enterprise AI", "Generative AI"]
-excerpt: ""
-featured_image: "/images/posts/ai-llms-search-seo-revolution-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- AI in Marketing
+- Generative AI
+- Marketing Technology
+excerpt: ''
+featured_image: /images/posts/ai-llms-search-seo-revolution-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

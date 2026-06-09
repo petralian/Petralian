@@ -3,22 +3,31 @@ title: Three Layers of External Memory for AI-First Development (What Actually S
 slug: three-layer-external-brain-for-ai-first-development
 date: 2026-05-26
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - AI memory
-  - agentic development
-  - Obsidian
-  - developer-tools
-  - context engineering
-  - External Memory Series
+- AI Memory
+- Agentic AI
+- Obsidian
+- Developer Tools
+- External Memory Series
 series: External Memory Series
 series_order: 1
-excerpt: Chat context is not memory. A three-layer file system—session, operational, evergreen—plus hooks and git automation is how I keep production codebases coherent across hundreds of agent sessions.
+excerpt: Chat context is not memory. A three-layer file system—session, operational,
+  evergreen—plus hooks and git automation is how I keep production codebases coherent
+  across hundreds of agent sessions.
 focus_keyword: external memory AI first development
-seo_description: "How a three-layer Obsidian + repo memory system keeps AI coding sessions coherent: bootstrap hooks, handoff files, feature notes, and why it beats hoping the model remembers."
-image_prompt: Editorial overhead photograph of a developer desk with three labeled stacks of notebooks beside a laptop showing code—short-term sticky notes, dated session log, and a thick reference binder—warm natural light, no faces, no logos.
-image_prompt_variant_1: "Tiny system factory diorama: sticky notes enter a conveyor, get stamped into a session ledger, then filed into labeled vault drawers marked Code and Rules—clever workshop aesthetic, warm lighting, technical not cartoonish."
-image_prompt_variant_2: "Split scene: left side chaotic chat bubbles fading to blank; right side clean filing cabinets with linked index cards and a single straight workflow arrow—editorial contrast, professional playful tone."
+seo_description: 'How a three-layer Obsidian + repo memory system keeps AI coding
+  sessions coherent: bootstrap hooks, handoff files, feature notes, and why it beats
+  hoping the model remembers.'
+image_prompt: Editorial overhead photograph of a developer desk with three labeled
+  stacks of notebooks beside a laptop showing code—short-term sticky notes, dated
+  session log, and a thick reference binder—warm natural light, no faces, no logos.
+image_prompt_variant_1: 'Tiny system factory diorama: sticky notes enter a conveyor,
+  get stamped into a session ledger, then filed into labeled vault drawers marked
+  Code and Rules—clever workshop aesthetic, warm lighting, technical not cartoonish.'
+image_prompt_variant_2: 'Split scene: left side chaotic chat bubbles fading to blank;
+  right side clean filing cabinets with linked index cards and a single straight workflow
+  arrow—editorial contrast, professional playful tone.'
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.jpg
 ---
 

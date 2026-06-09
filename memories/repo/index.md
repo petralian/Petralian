@@ -16,6 +16,7 @@
 6. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`
 7. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` **before coding**
 8. Confirm `.cursor/rules/response-footer.mdc` (`alwaysApply: true`)
+9. Vault writes: `petralian-obsidian` MCP or `node scripts/obsidian-mcp-cli.mjs` (see `.cursor/rules/obsidian-mcp.mdc`)
 
 ## Key paths
 | Area | Path |

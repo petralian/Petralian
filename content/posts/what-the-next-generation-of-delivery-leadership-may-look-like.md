@@ -1,16 +1,23 @@
 ---
-title: "What the Next Generation of Delivery Leadership May Look Like"
+title: What the Next Generation of Delivery Leadership May Look Like
 slug: what-the-next-generation-of-delivery-leadership-may-look-like
 date: 2026-05-21
 status: published
-category: Leadership
-tags: ["Leadership", "Program Delivery", "Enterprise AI"]
-excerpt: "Two forces are reshaping what it means to lead delivery programs. The transition is largely positive - for the people moving toward it."
+category: Career
+tags:
+- Leadership
+- Program Delivery
+- Enterprise AI
+excerpt: Two forces are reshaping what it means to lead delivery programs. The transition
+  is largely positive - for the people moving toward it.
 focus_keyword: delivery leadership AI era
-seo_title: "What the Next Generation of Delivery Leadership May Look Like"
-meta_description: "AI tooling and leaner operating models are reshaping delivery leadership. Here's what the emerging capability profile looks like, why a strong portable base matters, and why the transition is worth making."
-featured_image:
-featured_image_alt: "A senior professional reviewing a complex systems diagram on a whiteboard, representing integrated delivery leadership"
+seo_title: What the Next Generation of Delivery Leadership May Look Like
+meta_description: AI tooling and leaner operating models are reshaping delivery leadership.
+  Here's what the emerging capability profile looks like, why a strong portable base
+  matters, and why the transition is worth making.
+featured_image: null
+featured_image_alt: A senior professional reviewing a complex systems diagram on a
+  whiteboard, representing integrated delivery leadership
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

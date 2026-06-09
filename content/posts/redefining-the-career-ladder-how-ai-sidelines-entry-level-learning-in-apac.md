@@ -1,13 +1,16 @@
 ---
-title: "Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC"
+title: 'Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC'
 slug: redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
 date: 2025-06-16
 status: published
-category: Leadership
-tags: ["Leadership", "APAC", "Enterprise AI"]
-excerpt: ""
-featured_image: "/images/posts/career-ladder-ai-apac-sidelines-hero.jpg"
-seo_description: ""
+category: Career
+tags:
+- Leadership
+- APAC
+- Enterprise AI
+excerpt: ''
+featured_image: /images/posts/career-ladder-ai-apac-sidelines-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

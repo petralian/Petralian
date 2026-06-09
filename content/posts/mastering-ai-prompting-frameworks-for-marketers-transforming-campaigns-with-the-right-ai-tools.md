@@ -1,13 +1,17 @@
 ---
-title: "Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Precision and the Right AI Tools"
+title: 'Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with
+  Precision and the Right AI Tools'
 slug: mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
 date: 2025-03-19
 status: published
-category: AI & Technology
-tags: ["AI in Marketing", "Generative AI", "Marketing Technology"]
-excerpt: ""
-featured_image: "/images/posts/ai-prompting-frameworks-marketers-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- AI in Marketing
+- Generative AI
+- Marketing Technology
+excerpt: ''
+featured_image: /images/posts/ai-prompting-frameworks-marketers-hero.jpg
+seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

@@ -1,13 +1,16 @@
 ---
-title: "Shoppable media as an omnichannel strategy, a WARC exclusive article"
+title: Shoppable media as an omnichannel strategy, a WARC exclusive article
 slug: shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article
 date: 2022-05-03
 status: published
-category: Commerce & Growth
-tags: ["Ecommerce", "Social Commerce", "Marketing Technology"]
-excerpt: ""
-featured_image: "/images/posts/shoppable-media-warc-omnichannel-hero.jpg"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- Ecommerce
+- Social Commerce
+- Marketing Technology
+excerpt: ''
+featured_image: /images/posts/shoppable-media-warc-omnichannel-hero.jpg
+seo_description: ''
 ---
 
 (Cover photo of this article is copyright WARC, source: [https://www.warc.com/reports](https://www.warc.com/reports))

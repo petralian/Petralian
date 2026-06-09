@@ -1,23 +1,29 @@
 ---
-title: "External Memory Series: A Practical Guide to AI Session Continuity"
+title: 'External Memory Series: A Practical Guide to AI Session Continuity'
 slug: external-memory-series-guide
 date: 2026-05-26
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - AI memory
-  - agentic development
-  - Obsidian
-  - knowledge management
-  - External Memory Series
+- AI Memory
+- Agentic AI
+- Obsidian
+- External Memory Series
 series: External Memory Series
 series_order: 0
-excerpt: Chat is not memory. This series explains a file-based external brain for builders and leaders—four layers, hooks, and why it beats hoping the model remembers.
+excerpt: Chat is not memory. This series explains a file-based external brain for
+  builders and leaders—four layers, hooks, and why it beats hoping the model remembers.
 focus_keyword: external memory AI session continuity
-seo_description: "Hub for the External Memory series: layered Obsidian + repo memory for AI-first development, productivity, governance, and why files beat in-chat memory."
-image_prompt: Editorial photograph of a desk with four labeled notebooks stacked beside an open laptop showing a linked note graph—session log, handoff, evergreen reference, rules—warm natural light, no faces.
-image_prompt_variant_1: "Tiny system factory tour: four conveyor stations labeled Session, Operations, Evergreen, Rules with a visitor guide card at the entrance—warm workshop, clever technical tone."
-image_prompt_variant_2: "Split view: left a fading chat window, right a clear four-step filing workflow with arrows—editorial contrast, professional playful."
+seo_description: 'Hub for the External Memory series: layered Obsidian + repo memory
+  for AI-first development, productivity, governance, and why files beat in-chat memory.'
+image_prompt: Editorial photograph of a desk with four labeled notebooks stacked beside
+  an open laptop showing a linked note graph—session log, handoff, evergreen reference,
+  rules—warm natural light, no faces.
+image_prompt_variant_1: 'Tiny system factory tour: four conveyor stations labeled
+  Session, Operations, Evergreen, Rules with a visitor guide card at the entrance—warm
+  workshop, clever technical tone.'
+image_prompt_variant_2: 'Split view: left a fading chat window, right a clear four-step
+  filing workflow with arrows—editorial contrast, professional playful.'
 featured_image: /images/posts/external-memory-series-guide.jpg
 ---
 

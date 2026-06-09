@@ -3,19 +3,24 @@ title: Why Deliberate File Memory Beats Hoping Agents Remember
 slug: why-deliberate-file-memory-beats-hoping-agents-remember
 date: 2026-05-26
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - AI memory
-  - AI governance
-  - Obsidian
-  - agentic development
-  - External Memory Series
-excerpt: Chat memory is opaque and ephemeral. Deliberate files give audit trails, solo-shipping continuity, team handoffs, and survival when models or tools change.
+- AI Memory
+- Agentic AI
+- Obsidian
+- External Memory Series
+excerpt: Chat memory is opaque and ephemeral. Deliberate files give audit trails,
+  solo-shipping continuity, team handoffs, and survival when models or tools change.
 focus_keyword: deliberate AI agent memory documentation
-seo_description: Why file-based agent memory beats chat memory for audit, team continuity, solo shipping, and resilience when AI tools change.
-image_prompt: Editorial photograph of a printed runbook and decision log on a conference table next to a closed laptop—documented continuity over screen-only chat, soft office light, no faces.
-image_prompt_variant_1: "Tiny system factory quality stamp station: each card gets a dated audit mark before entering a vault—warm technical workshop."
-image_prompt_variant_2: Crossed-out software logos on the left; one sturdy filing cabinet labeled Runbook on the right—tool churn vs one source of truth.
+seo_description: Why file-based agent memory beats chat memory for audit, team continuity,
+  solo shipping, and resilience when AI tools change.
+image_prompt: Editorial photograph of a printed runbook and decision log on a conference
+  table next to a closed laptop—documented continuity over screen-only chat, soft
+  office light, no faces.
+image_prompt_variant_1: 'Tiny system factory quality stamp station: each card gets
+  a dated audit mark before entering a vault—warm technical workshop.'
+image_prompt_variant_2: Crossed-out software logos on the left; one sturdy filing
+  cabinet labeled Runbook on the right—tool churn vs one source of truth.
 series: External Memory Series
 series_order: 4
 featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.jpg

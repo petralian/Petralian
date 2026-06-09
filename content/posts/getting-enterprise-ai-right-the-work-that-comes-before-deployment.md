@@ -1,16 +1,23 @@
 ---
-title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
+title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-05-21
 status: published
-category: AI & Technology
-tags: ["Enterprise AI", "Digital Transformation", "Program Delivery"]
-excerpt: "The organizations that get the most sustained value from enterprise AI share one pattern. They build the foundation before they build the model."
+category: Career
+tags:
+- Enterprise AI
+- Digital Transformation
+- Program Delivery
+excerpt: The organizations that get the most sustained value from enterprise AI share
+  one pattern. They build the foundation before they build the model.
 focus_keyword: enterprise AI program
-seo_title: "Getting Enterprise AI Right: The Work That Comes Before Deployment"
-meta_description: "The organizations that get sustained value from enterprise AI share one pattern: they build the foundation layer before deployment. Here's what that looks like."
-featured_image:
-featured_image_alt: "A blueprint and open notebook on a clean desk, representing the foundation work required before enterprise AI deployment"
+seo_title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
+meta_description: 'The organizations that get sustained value from enterprise AI share
+  one pattern: they build the foundation layer before deployment. Here''s what that
+  looks like.'
+featured_image: null
+featured_image_alt: A blueprint and open notebook on a clean desk, representing the
+  foundation work required before enterprise AI deployment
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

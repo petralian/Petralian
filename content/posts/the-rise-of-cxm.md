@@ -1,13 +1,17 @@
 ---
-title: "The Rise of Customer Experience Management: Why It Matters and How to Make the Most of It"
+title: 'The Rise of Customer Experience Management: Why It Matters and How to Make
+  the Most of It'
 slug: the-rise-of-cxm
 date: 2023-12-01
 status: published
-category: Commerce & Growth
-tags: ["Customer Experience", "Marketing Technology", "Ecommerce"]
-excerpt: ""
-featured_image: "/images/posts/cxm-customer-experience-management-hero.png"
-seo_description: ""
+category: Commerce & Marketing
+tags:
+- Customer Experience
+- Marketing Technology
+- Ecommerce
+excerpt: ''
+featured_image: /images/posts/cxm-customer-experience-management-hero.png
+seo_description: ''
 ---
 
 Customer experience management (CXM) has emerged as a top priority for companies in today’s digital landscape. It refers to the strategic practice of intentionally designing frictionless, personalized customer interactions across all touchpoints and channels. The goal is to consistently meet and exceed rising consumer expectations to turn customers into enthusiastic brand advocates.

@@ -1,22 +1,28 @@
 ---
-title: "Building petralian.com: The Technical Reality"
+title: 'Building petralian.com: The Technical Reality'
 slug: building-petralian-the-technical-reality
 date: 2026-05-23
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - Next.js
-  - TinaCMS
-  - Developer Tools
-  - Obsidian
-  - Writing
-excerpt: The why was clean. The how had corners. A ground-level account of building petralian.com — the masonry layout that fought back, a 404 page with a working Asteroids game, the TinaCMS newline problem nobody warns you about, and how AI wrote most of it.
+- Developer Tools
+- Obsidian
+excerpt: The why was clean. The how had corners. A ground-level account of building
+  petralian.com — the masonry layout that fought back, a 404 page with a working Asteroids
+  game, the TinaCMS newline problem nobody warns you about, and how AI wrote most
+  of it.
 featured_image: /images/posts/building-petralian-the-technical-reality.png
-featured_image_alt: "Wireframe grid of a website being built, with code and markdown files in the background"
-seo_title: "Building petralian.com: What Actually Happened"
-seo_description: "The technical account of building petralian.com on Next.js 16, Tailwind v4, and TinaCMS — masonry reading order, the Asteroids 404, and using AI as primary engineer."
+featured_image_alt: Wireframe grid of a website being built, with code and markdown
+  files in the background
+seo_title: 'Building petralian.com: What Actually Happened'
+seo_description: The technical account of building petralian.com on Next.js 16, Tailwind
+  v4, and TinaCMS — masonry reading order, the Asteroids 404, and using AI as primary
+  engineer.
 focus_keyword: building petralian nextjs technical decisions
-image_prompt: "A developer's workspace with multiple monitors showing code and a website preview; clean, minimal aesthetic with dark background and orange accent tones; Next.js site scaffold visible on one screen, Obsidian vault on another; abstract sense of building and architecture"
+image_prompt: A developer's workspace with multiple monitors showing code and a website
+  preview; clean, minimal aesthetic with dark background and orange accent tones;
+  Next.js site scaffold visible on one screen, Obsidian vault on another; abstract
+  sense of building and architecture
 ---
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 The [previous article](/posts/why-i-rebuilt-petralian-on-nextjs) covers why I moved off WordPress. The short version: writing in [Obsidian](https://obsidian.md/) and publishing through WordPress were two separate workflows with too much manual friction in between. This article is about what happened when I fixed that — specifically, the build itself.

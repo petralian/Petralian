@@ -1,24 +1,31 @@
 ---
-title: "Beyond Chat History: Using Layered Obsidian Memory for Personal Productivity"
+title: 'Beyond Chat History: Using Layered Obsidian Memory for Personal Productivity'
 slug: obsidian-memory-layers-personal-productivity-beyond-chat
 date: 2026-05-26
 status: published
-category: AI & Technology
+category: AI & Building
 tags:
-  - Obsidian
-  - personal productivity
-  - second brain
-  - AI assistants
-  - knowledge management
-  - External Memory Series
+- Obsidian
+- Agentic AI
+- External Memory Series
 series: External Memory Series
 series_order: 2
-excerpt: The same three-layer memory stack used for shipping code works for strategic work, client engagements, and cross-tool AI—short chat, operational handoffs, evergreen notes, and explicit feedback.
+excerpt: The same three-layer memory stack used for shipping code works for strategic
+  work, client engagements, and cross-tool AI—short chat, operational handoffs, evergreen
+  notes, and explicit feedback.
 focus_keyword: Obsidian layered memory personal productivity
-seo_description: How layered Obsidian memory—session, operational, evergreen—improves personal productivity with Claude, ChatGPT, and IDE agents without relying on chat history.
-image_prompt: Calm home office desk with an open Obsidian-style linked note graph on a laptop, paper daily log, and phone showing a messaging app—editorial lifestyle, soft morning light, no faces or logos.
-image_prompt_variant_1: "Tiny system factory: inbox tray of raw notes, sorting belt into daily log folders, finished cards slotted into a wall of labeled personal domains—warm workshop, clever not childish."
-image_prompt_variant_2: Maze of sticky notes and notification badges on the left versus a single clear kanban column and one notebook on the right—editorial split, professional playful contrast.
+seo_description: How layered Obsidian memory—session, operational, evergreen—improves
+  personal productivity with Claude, ChatGPT, and IDE agents without relying on chat
+  history.
+image_prompt: Calm home office desk with an open Obsidian-style linked note graph
+  on a laptop, paper daily log, and phone showing a messaging app—editorial lifestyle,
+  soft morning light, no faces or logos.
+image_prompt_variant_1: 'Tiny system factory: inbox tray of raw notes, sorting belt
+  into daily log folders, finished cards slotted into a wall of labeled personal domains—warm
+  workshop, clever not childish.'
+image_prompt_variant_2: Maze of sticky notes and notification badges on the left versus
+  a single clear kanban column and one notebook on the right—editorial split, professional
+  playful contrast.
 featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.jpg
 ---
 

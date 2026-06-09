@@ -29,5 +29,6 @@
 - Brand logos: `public/images/` — never under `public/images/posts/`.
 
 ## MCP
-- Project vault MCP: `scripts/obsidian-mcp-server.mjs` (Petralian vault only).
-- Brain: `obsidian-brain` server in `.vscode/mcp.json` — paths under `D:\Obsidian\Obsidian\00_Brain`.
+- **Petralian vault:** `petralian-obsidian` in `.cursor/mcp.json` → `scripts/obsidian-mcp-server.mjs` (`obsidian_read` / `obsidian_write` / `obsidian_append`). Fallback CLI: `node scripts/obsidian-mcp-cli.mjs`.
+- **Brain:** `obsidian-brain` in `.vscode/mcp.json` — paths under `D:\Obsidian\Obsidian\00_Brain`.
+- Reload Cursor after MCP config changes; agent chat only sees servers registered in `.cursor/mcp.json`.

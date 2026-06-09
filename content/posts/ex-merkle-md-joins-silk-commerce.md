@@ -1,13 +1,15 @@
 ---
-title: "Reflecting on My 5-Month Engagement with Silk Commerce"
+title: Reflecting on My 5-Month Engagement with Silk Commerce
 slug: ex-merkle-md-joins-silk-commerce
 date: 2024-07-23
 status: published
-category: Leadership
-tags: ["Leadership", "APAC"]
-excerpt: ""
-featured_image: "/images/posts/merkle-silk-commerce-launch-hero.jpg"
-seo_description: ""
+category: Career
+tags:
+- Leadership
+- APAC
+excerpt: ''
+featured_image: /images/posts/merkle-silk-commerce-launch-hero.jpg
+seo_description: ''
 ---
 
 Over the past five months, I had the privilege of working with **[Silk Commerce](https://www.silkcommerce.com/)** as their **Vice President of International Markets**, focusing on expanding the agency’s reach in the fast-growing Asia-Pacific (APAC) region. This engagement was an exciting chapter in my professional journey, offering the opportunity to collaborate with a talented team and contribute to the agency’s efforts in delivering innovative eCommerce solutions.
