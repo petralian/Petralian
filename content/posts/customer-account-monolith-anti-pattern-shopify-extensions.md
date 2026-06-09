@@ -3,11 +3,11 @@ title: The Customer Account Monolith Is an Anti-Pattern for Shopify Extensions
 slug: customer-account-monolith-anti-pattern-shopify-extensions
 date: 2026-06-07
 status: published
-category: Career
+category: AI & Building
 tags:
-  - Program Delivery
-  - Digital Transformation
-  - Leadership
+  - Shopify
+  - Extension
+  - UX
 excerpt: A thousand-line profile block in one extension fights merchant menu IA. Split full-page extensions by job and align with how customers navigate account tasks.
 featured_image: /images/posts/customer-account-monolith-anti-pattern-shopify-extensions.png
 focus_keyword: shopify customer account extension architecture
