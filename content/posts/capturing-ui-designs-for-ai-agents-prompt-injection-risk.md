@@ -9,7 +9,7 @@ tags:
   - AI Quality
   - Developer Tools
 excerpt: Design capture CLIs that dump outerHTML into SKILL.md files can smuggle instructions. Sanitize at the trust boundary before agents read the DOM.
-featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.png
+featured_image: /images/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk.png
 focus_keyword: ai agent ui capture prompt injection
 seo_description: CLI tools that capture live UI into agent skills risk prompt injection via hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted input boundary.
 image_prompt: "Editorial 16:9 illustration: browser DOM tree with a hidden instruction note sneaking into a skill document, warm technical desk, no logos, no readable text."

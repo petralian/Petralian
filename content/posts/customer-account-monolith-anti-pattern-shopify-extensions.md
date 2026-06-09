@@ -1,14 +1,17 @@
 ---
-title: "The Customer Account Monolith Is an Anti-Pattern for Shopify Extensions"
+title: The Customer Account Monolith Is an Anti-Pattern for Shopify Extensions
 slug: customer-account-monolith-anti-pattern-shopify-extensions
 date: 2026-06-07
 status: published
 category: Career
-tags: ["Program Delivery", "Digital Transformation", "Leadership"]
-excerpt: "A thousand-line profile block in one extension fights merchant menu IA. Split full-page extensions by job and align with how customers navigate account tasks."
-featured_image:
+tags:
+  - Program Delivery
+  - Digital Transformation
+  - Leadership
+excerpt: A thousand-line profile block in one extension fights merchant menu IA. Split full-page extensions by job and align with how customers navigate account tasks.
+featured_image: /images/posts/customer-account-monolith-anti-pattern-shopify-extensions.png
 focus_keyword: shopify customer account extension architecture
-seo_description: "Why stuffing every loyalty and referral feature into one Shopify Customer Account extension hurts merchant IA, and how full-page extensions should map to customer jobs."
+seo_description: Why stuffing every loyalty and referral feature into one Shopify Customer Account extension hurts merchant IA, and how full-page extensions should map to customer jobs.
 image_prompt: "Editorial 16:9 whiteboard: one oversized account page blob vs three labeled full-page extension cards, warm office light, no logos, no readable text, no faces."
 image_prompt_variant_1: "Tiny restaurant menu: one page with 40 items vs four focused menus, clever workshop tone, 16:9."
 image_prompt_variant_2: "Split scene: left scrolling monolith profile, right clean merchant menu with distinct extension links, editorial playful, 16:9."
