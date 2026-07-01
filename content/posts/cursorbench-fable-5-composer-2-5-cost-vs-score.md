@@ -84,30 +84,30 @@ Composer 2.5 is an extreme outlier on cost efficiency. Nothing else in the top t
 
 ### Score per 1K tokens (higher is better)
 
-| Model | Score / 1K tokens |
-|-------|------------------:|
-| **GPT-5.5 Medium** | **6.53** |
-| GPT-5.5 High | 4.70 |
-| Composer 2.5 | 4.17 |
-| GPT-5.5 Extra High | 3.59 |
-| Fable 5 Medium | 2.45 |
-| GLM 5.2 Max | 1.06 |
-| Sonnet 5 Max | 0.65 |
+| Model              | Score / 1K tokens |
+| ------------------ | ----------------: |
+| **GPT-5.5 Medium** |          **6.53** |
+| GPT-5.5 High       |              4.70 |
+| Composer 2.5       |              4.17 |
+| GPT-5.5 Extra High |              3.59 |
+| Fable 5 Medium     |              2.45 |
+| GLM 5.2 Max        |              1.06 |
+| Sonnet 5 Max       |              0.65 |
 
 GPT-5.5 Medium uses only **9,065 tokens per task** at **59.2%** score. Sonnet 5 Max burns **93,485 tokens** for **61.2%**. That is a brutal token tax for a modest score bump.
 
 ### Score per step (higher is better)
 
-| Model | Score / step |
-|-------|-------------:|
-| **Fable 5 Low** | **1.78** |
-| Composer 2.5 | 1.71 |
-| GPT-5.5 Medium | 1.69 |
-| Fable 5 Medium | 1.49 |
-| Kimi K2.7 Code | 0.75 |
-| GLM 5.2 Max | 0.66 |
-| Opus 4.7 Max | 0.68 |
-| Sonnet 5 Max | 0.66 |
+| Model           | Score / step |
+| --------------- | -----------: |
+| **Fable 5 Low** |     **1.78** |
+| Composer 2.5    |         1.71 |
+| GPT-5.5 Medium  |         1.69 |
+| Fable 5 Medium  |         1.49 |
+| Kimi K2.7 Code  |         0.75 |
+| GLM 5.2 Max     |         0.66 |
+| Opus 4.7 Max    |         0.68 |
+| Sonnet 5 Max    |         0.66 |
 
 Composer 2.5 and the lighter Fable / GPT-5.5 tiers finish in fewer steps. Heavy Max tiers and several Opus / Sonnet Max configs look expensive per step.
 
@@ -126,20 +126,13 @@ budget: "Daily shipping\nComposer 2.5" {
   style.border-radius: 8
 }
 
-balance: "Balance\nFable 5 Medium" {
-  style.fill: "#f5f7fa"
-  style.stroke: "#d8dce6"
-  style.border-radius: 8
-}
-
-max: "Must not fail\nFable 5 Max" {
+max: "Must not fail\nFable 5 Medium or High" {
   style.fill: "#f5f7fa"
   style.stroke: "#d8dce6"
   style.border-radius: 8
 }
 
 need -> budget: "cost cap" { style.stroke-dash: 8 }
-need -> balance: "~70% score" { style.stroke-dash: 8 }
 need -> max: "highest score" { style.stroke-dash: 8 }
 ```
 
