@@ -447,6 +447,20 @@ export class OrbitGame {
   private readonly boundUpdate = () => this.update();
 
   // Use getter for dynamic calculation based on world size
+  private getSpriteScale(): number {
+    if (this.playDevice === "mobile") return 0.7;
+    if (this.playDevice === "tablet") return 0.85;
+    return 1;
+  }
+
+  private getScaledEnemySize(): number {
+    return this.ENEMY_SIZE * this.getSpriteScale();
+  }
+
+  private getScaledPowerUpRadius(): number {
+    return 15 * this.getSpriteScale();
+  }
+
   private getViewportScale(): number {
     const w = this.world.width || this.DEFAULT_WIDTH;
     const h = this.world.height || this.DEFAULT_HEIGHT;
@@ -1524,7 +1538,7 @@ export class OrbitGame {
       this.logicalCenterX + startRadius,
       this.logicalCenterY,
       startRadius,
-      this.PLAYER_COLLISION_RADIUS
+      this.PLAYER_COLLISION_RADIUS * this.getSpriteScale()
     );
     this.player.angle = 0;
 
@@ -1971,7 +1985,7 @@ export class OrbitGame {
             // Use a slightly larger buffer than just collision radius to prevent visual overlap
             // Assuming new enemy collision radius is ENEMY_SIZE for this check
             const requiredDist =
-              (this.ENEMY_SIZE + existingEnemy.collisionRadius) * 1.2; // Add 20% buffer
+              (this.getScaledEnemySize() + existingEnemy.collisionRadius) * 1.2; // Add 20% buffer
             const requiredDistSq = requiredDist * requiredDist;
 
             if (distSqEnemy < requiredDistSq) {
@@ -1999,7 +2013,7 @@ export class OrbitGame {
         }
 
         if (validPosition) {
-          enemy.collisionRadius = this.ENEMY_SIZE;
+          enemy.collisionRadius = this.getScaledEnemySize();
           // Apply speed factor based on type/difficulty
           enemy.speedMultiplier =
             (type === EnemyType.FAST ? 1.5 : 1.0) *
@@ -2087,7 +2101,10 @@ export class OrbitGame {
         Math.round(this.player.y)
       );
       // Apply the PLAYER_SPRITE_SCALE to control visual size
-      this.context.scale(this.PLAYER_SPRITE_SCALE, this.PLAYER_SPRITE_SCALE);
+      this.context.scale(
+        this.PLAYER_SPRITE_SCALE * this.getSpriteScale(),
+        this.PLAYER_SPRITE_SCALE * this.getSpriteScale()
+      );
       this.context.rotate(this.player.spriteAngle);
 
       const expiringDebuff = Array.from(this.activePowerUps.keys()).some(
@@ -2226,7 +2243,11 @@ export class OrbitGame {
       this.context.save();
       this.context.globalAlpha = currentAlpha;
       this.context.translate(Math.round(enemy.x), Math.round(enemy.y));
-      this.context.scale(currentScale, currentScale); // Apply enemy scale
+      const spriteScale = this.getSpriteScale();
+      this.context.scale(
+        currentScale * spriteScale,
+        currentScale * spriteScale
+      ); // Apply enemy scale + device sprite scale
 
       const offsetX = sprite.width / 2;
       const offsetY = sprite.height / 2;
@@ -2608,6 +2629,7 @@ export class OrbitGame {
       this.logicalCenterY + Math.sin(angle) * radius,
       randomType
     );
+    powerUp.collisionRadius = this.getScaledPowerUpRadius();
 
     this.powerUps.push(powerUp);
     this.lastPowerUpSpawn = now;
@@ -3261,6 +3283,10 @@ export class OrbitGame {
   }
 
   private renderGameInfo(): void {
+    if (this.gameState === GameState.WELCOME) {
+      return;
+    }
+
     this.context.save();
     this.context.font = "bold 16px Rajdhani, Arial";
     this.context.fillStyle = "rgba(140, 240, 255, 0.9)";
@@ -3298,15 +3324,6 @@ export class OrbitGame {
       this.context.fillText(
         `×${speedMult.toFixed(2)}`,
         rightEdge,
-        this.world.height - bottomMargin
-      );
-    } else if (this.gameState === GameState.WELCOME) {
-      this.context.textAlign = "center";
-      this.context.font = "14px Rajdhani, Arial";
-      this.context.fillStyle = "rgba(140, 240, 255, 0.7)";
-      this.context.fillText(
-        "ENDLESS ORBIT",
-        this.world.width / 2,
         this.world.height - bottomMargin
       );
     }
@@ -3458,7 +3475,11 @@ export class OrbitGame {
 
     // Center instructions on the full screen
     const midX = this.world.width / 2;
-    let yPos = this.world.height * 0.65; // Adjust starting Y position relative to full height
+    const compact = this.isLikelyMobile || this.playDevice === "tablet";
+    let yPos = this.world.height * (compact ? 0.6 : 0.65);
+    if (compact) {
+      this.context.font = "14px Rajdhani, Arial";
+    }
 
     if (this.isLikelyMobile) {
       // Mobile/Touch Instructions
@@ -3652,13 +3673,14 @@ export class OrbitGame {
       return;
     }
 
+    const spriteScale = this.getSpriteScale();
     projectile.init(
       startX, // Use offset start position
       startY, // Use offset start position
       angle,
       this.PROJECTILE_SPEED,
-      this.PROJECTILE_SIZE,
-      this.PROJECTILE_COLLISION_RADIUS,
+      this.PROJECTILE_SIZE * spriteScale,
+      this.PROJECTILE_COLLISION_RADIUS * spriteScale,
       this.PROJECTILE_LIFETIME_MS
     );
     this.projectiles.push(projectile);

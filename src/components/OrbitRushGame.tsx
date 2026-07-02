@@ -367,26 +367,9 @@ export default function OrbitRushGame() {
       {overlay === "idle" && (
         <button
           type="button"
+          className="orbit-high-scores-btn"
           data-orbit-ui
           onClick={openBrowseScores}
-          style={{
-            position: "fixed",
-            left: "50%",
-            bottom: "10%",
-            transform: "translateX(-50%)",
-            zIndex: 120,
-            pointerEvents: "auto",
-            touchAction: "manipulation",
-            background: "rgba(0,10,20,0.75)",
-            border: "1px solid rgba(68,170,255,0.45)",
-            color: "#9ce",
-            fontFamily: "monospace",
-            fontSize: 12,
-            letterSpacing: "0.14em",
-            padding: "10px 20px",
-            minHeight: 44,
-            cursor: "pointer",
-          }}
         >
           HIGH SCORES
         </button>
