@@ -13,9 +13,9 @@ excerpt: Copilot had the same footer spec but dropped it on long chats. Cursor k
 featured_image: /images/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow.png
 focus_keyword: VS Code Copilot vs Cursor migration
 seo_description: "Why VS Code Copilot forgets session footers but Cursor follows them: alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian file memory for agent mode."
-image_prompt: Split editorial desk scene—left laptop showing classic VS Code sidebar with inline suggestions, right laptop showing an agent chat panel with linked vault notes beside it—warm natural light, no logos, no faces.
-image_prompt_variant_1: "Tiny moving-day diorama: two desks labeled VS Code and Cursor with labeled boxes being carried—Rules, Hooks, Vault, Footer—into a shared filing cabinet marked 00_Brain; warm workshop lighting, technical not cartoonish."
-image_prompt_variant_2: "Before/after workflow map on a whiteboard: left tangled chat-only arrows, right four labeled layers with straight promotion arrows—editorial office tone, professional playful."
+image_prompt: "Cinematic 16:9 low-angle shot: two translucent IDE panes floating in a dim machine room, one pane showing inline code completions and the other an agent chat thread, both fed by copper cables into a single glowing archive cabinet silhouette, amber and cyan rim light, shallow depth of field, no logos, no faces, no readable text."
+image_prompt_variant_1: "Surreal 16:9 underwater observatory diorama: portholes reveal VS Code on one side and Cursor agent mode on the other, paper-note fish swim into a coral filing structure, bioluminescent teal accents, whimsical technical tone, no readable text, no logos."
+image_prompt_variant_2: "Bold isometric 16:9 poster illustration: exploded schematic of Rules, Hooks, Vault, and Footer components launching from a VS Code block into a Cursor frame, risograph grain texture, orange and slate palette, graphic not photographic, no logos, no readable text."
 ---
 
 > **Memory stack background:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [External Memory series hub](/posts/external-memory-series-guide) · [Your brain was not built for this](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian)  

@@ -246,6 +246,8 @@ General mobile UI guidance aligned with platform standards:
 | `.related-posts` | Section with heading + card row |
 | `.related-posts-grid` | 3-col card grid |
 
+**Selection logic** (`src/lib/related-posts.ts`): manual `related_posts` slugs first (up to 3), then tag overlap with rarity weight (+1 common / +2 medium / +3 rare per shared tag), +1 same category, +4 same `series`, minimum score 5 for algorithmic picks, newest date tiebreaker. Hide section if no picks qualify.
+
 ---
 
 ## Category Taxonomy (3 categories — June 2026)

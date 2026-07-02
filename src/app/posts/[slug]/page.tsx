@@ -179,6 +179,8 @@ export default async function PostPage({
         currentSlug={post.slug}
         currentTags={post.tags}
         currentCategory={post.category}
+        currentSeries={post.series}
+        relatedPostSlugs={post.related_posts}
         allPosts={allPosts}
       />
     </>

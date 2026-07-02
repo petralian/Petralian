@@ -25,6 +25,8 @@ export interface PostMeta {
   status: string;
   category: string;
   tags: string[];
+  series: string;
+  related_posts: string[];
   excerpt: string;
   featured_image: string;
   seo_title: string;
@@ -70,6 +72,10 @@ export function getPostMeta(slug: string): PostMeta {
     status: data.status || "published",
     category: data.category || "",
     tags: Array.isArray(data.tags) ? data.tags : [],
+    series: typeof data.series === "string" ? data.series : "",
+    related_posts: Array.isArray(data.related_posts)
+      ? data.related_posts.filter((s): s is string => typeof s === "string")
+      : [],
     excerpt: data.excerpt || generateExcerpt(content),
     featured_image: data.featured_image || "",
     seo_title: data.seo_title || "",
