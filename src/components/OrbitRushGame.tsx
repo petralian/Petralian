@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type React from "react";
 import { usePathname } from "next/navigation";
 import { Smartphone, Tablet, Monitor } from "lucide-react";
@@ -14,7 +15,7 @@ import {
 } from "@/lib/orbit-rush-leaderboard";
 import { OrbitGame, POWERUP_REFERENCE, drawPowerUpIcon, PowerUpType } from "@/orbit-game/orbit";
 
-type OverlayPhase = "idle" | "entering-name" | "showing-scores";
+type OverlayPhase = "idle" | "browse-scores" | "entering-name" | "showing-scores";
 
 const SHARE_PATH = "/lost-in-space";
 const LEADERBOARD_API = "/api/orbit-rush/leaderboard";
@@ -44,7 +45,7 @@ const overlayShellStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   gap: 12,
-  zIndex: 200,
+  zIndex: 9999,
   pointerEvents: "auto",
   touchAction: "manipulation",
   padding: "16px",
@@ -62,6 +63,9 @@ const inputStyle: React.CSSProperties = {
   padding: "12px 10px",
   marginBottom: 8,
   WebkitAppearance: "none",
+  touchAction: "auto",
+  WebkitUserSelect: "text",
+  userSelect: "text",
 };
 
 const actionButtonStyle: React.CSSProperties = {
@@ -201,6 +205,12 @@ export default function OrbitRushGame() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const overlayRef = useRef<OverlayPhase>("idle");
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const [portalReady, setPortalReady] = useState(false);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   useEffect(() => {
     overlayRef.current = overlay;
@@ -221,6 +231,23 @@ export default function OrbitRushGame() {
       document.body.classList.remove("orbit-game-active");
     };
   }, [refreshScores]);
+
+  useEffect(() => {
+    if (overlay !== "entering-name") return;
+    const timer = window.setTimeout(() => {
+      nameInputRef.current?.focus({ preventScroll: true });
+    }, 50);
+    return () => window.clearTimeout(timer);
+  }, [overlay]);
+
+  const openBrowseScores = useCallback(() => {
+    void refreshScores();
+    setOverlay("browse-scores");
+  }, [refreshScores]);
+
+  const closeBrowseScores = useCallback(() => {
+    setOverlay("idle");
+  }, []);
 
   useEffect(() => {
     const open = overlay !== "idle";
@@ -335,6 +362,161 @@ export default function OrbitRushGame() {
     gameRef.current?.restartFromOverlay();
   }, []);
 
+  const overlayContent = (
+    <>
+      {overlay === "idle" && (
+        <button
+          type="button"
+          data-orbit-ui
+          onClick={openBrowseScores}
+          style={{
+            position: "fixed",
+            left: "50%",
+            bottom: "10%",
+            transform: "translateX(-50%)",
+            zIndex: 120,
+            pointerEvents: "auto",
+            touchAction: "manipulation",
+            background: "rgba(0,10,20,0.75)",
+            border: "1px solid rgba(68,170,255,0.45)",
+            color: "#9ce",
+            fontFamily: "monospace",
+            fontSize: 12,
+            letterSpacing: "0.14em",
+            padding: "10px 20px",
+            minHeight: 44,
+            cursor: "pointer",
+          }}
+        >
+          HIGH SCORES
+        </button>
+      )}
+
+      {overlay === "browse-scores" && (
+        <div
+          style={overlayShellStyle}
+          data-orbit-ui
+          role="dialog"
+          aria-label="High scores"
+        >
+          <Leaderboard scores={highScores} />
+          <button
+            type="button"
+            onClick={closeBrowseScores}
+            style={{
+              ...panelStyle,
+              cursor: "pointer",
+              color: "#4af",
+              fontWeight: "bold",
+              minHeight: 44,
+              touchAction: "manipulation",
+            }}
+          >
+            CLOSE
+          </button>
+        </div>
+      )}
+
+      {overlay === "entering-name" && (
+        <div
+          style={overlayShellStyle}
+          data-orbit-ui
+          role="dialog"
+          aria-label="Enter your name"
+        >
+          <div style={panelStyle}>
+            <p style={{ color: "#f75", textAlign: "center", margin: "0 0 6px" }}>
+              GAME OVER
+            </p>
+            <p style={{ color: "#ff8", textAlign: "center", margin: "0 0 12px" }}>
+              SCORE {formatLeaderboardScore(pendingScore)} — NEW HIGH SCORE
+            </p>
+            <input
+              ref={nameInputRef}
+              maxLength={20}
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") void submitName();
+              }}
+              placeholder="Your name"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              enterKeyHint="done"
+              inputMode="text"
+              aria-label="Your name for the leaderboard"
+              style={inputStyle}
+            />
+            <button
+              type="button"
+              onClick={() => void submitName()}
+              disabled={isSubmitting}
+              style={{ ...actionButtonStyle, color: "#4af", fontWeight: "bold" }}
+            >
+              {isSubmitting ? "SAVING…" : "SAVE SCORE"}
+            </button>
+            <button
+              type="button"
+              onClick={handleShareLink}
+              style={{ ...actionButtonStyle, color: "#6ef" }}
+            >
+              SHARE
+            </button>
+            {submitError && (
+              <p style={{ color: "#f88", fontSize: 11, textAlign: "center", margin: "4px 0 0" }}>
+                {submitError}
+              </p>
+            )}
+            {shareMsg && (
+              <p style={{ color: "#6ef", fontSize: 11, textAlign: "center", margin: 0 }}>
+                {shareMsg}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {overlay === "showing-scores" && (
+        <div style={overlayShellStyle} data-orbit-ui role="dialog" aria-label="Game over">
+          <p style={{ color: "#f75", margin: 0, fontFamily: "monospace", letterSpacing: "0.1em" }}>
+            GAME OVER — SCORE {formatLeaderboardScore(pendingScore)}
+          </p>
+          <Leaderboard scores={highScores} highlight={pendingScore} />
+          <button
+            type="button"
+            onClick={retry}
+            style={{
+              ...panelStyle,
+              cursor: "pointer",
+              color: "#4af",
+              fontWeight: "bold",
+              minHeight: 44,
+              touchAction: "manipulation",
+            }}
+          >
+            RETRY
+          </button>
+          <button
+            type="button"
+            onClick={handleShare}
+            style={{
+              ...panelStyle,
+              cursor: "pointer",
+              color: "#6ef",
+              fontSize: 11,
+              minHeight: 44,
+              touchAction: "manipulation",
+            }}
+          >
+            SHARE
+          </button>
+          {shareMsg && <p style={{ color: "#6ef", fontSize: 11, margin: 0 }}>{shareMsg}</p>}
+        </div>
+      )}
+    </>
+  );
+
   return (
     <div ref={shellRef} className="orbit-game-shell" tabIndex={-1}>
       <div id="orbit-game-root">
@@ -434,98 +616,11 @@ export default function OrbitRushGame() {
         </div>
       </div>
 
-      {overlay === "entering-name" && (
-        <div style={overlayShellStyle} role="dialog" aria-label="Enter your name">
-          <div style={panelStyle}>
-            <p style={{ color: "#f75", textAlign: "center", margin: "0 0 6px" }}>
-              GAME OVER
-            </p>
-            <p style={{ color: "#ff8", textAlign: "center", margin: "0 0 12px" }}>
-              SCORE {formatLeaderboardScore(pendingScore)} — NEW HIGH SCORE
-            </p>
-            <input
-              autoFocus
-              maxLength={20}
-              value={nameInput}
-              onChange={(e) => setNameInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") void submitName();
-              }}
-              placeholder="Your name"
-              autoCapitalize="off"
-              autoCorrect="off"
-              spellCheck={false}
-              enterKeyHint="done"
-              inputMode="text"
-              aria-label="Your name for the leaderboard"
-              style={inputStyle}
-            />
-            <button
-              type="button"
-              onClick={() => void submitName()}
-              disabled={isSubmitting}
-              style={{ ...actionButtonStyle, color: "#4af", fontWeight: "bold" }}
-            >
-              {isSubmitting ? "SAVING…" : "SAVE SCORE"}
-            </button>
-            <button
-              type="button"
-              onClick={handleShareLink}
-              style={{ ...actionButtonStyle, color: "#6ef" }}
-            >
-              SHARE
-            </button>
-            {submitError && (
-              <p style={{ color: "#f88", fontSize: 11, textAlign: "center", margin: "4px 0 0" }}>
-                {submitError}
-              </p>
-            )}
-            {shareMsg && (
-              <p style={{ color: "#6ef", fontSize: 11, textAlign: "center", margin: 0 }}>
-                {shareMsg}
-              </p>
-            )}
-          </div>
-        </div>
-      )}
-
-      {overlay === "showing-scores" && (
-        <div style={overlayShellStyle} role="dialog" aria-label="Game over">
-          <p style={{ color: "#f75", margin: 0, fontFamily: "monospace", letterSpacing: "0.1em" }}>
-            GAME OVER — SCORE {formatLeaderboardScore(pendingScore)}
-          </p>
-          <Leaderboard scores={highScores} highlight={pendingScore} />
-          <button
-            type="button"
-            onClick={retry}
-            style={{
-              ...panelStyle,
-              cursor: "pointer",
-              color: "#4af",
-              fontWeight: "bold",
-              minHeight: 44,
-              touchAction: "manipulation",
-            }}
-          >
-            RETRY
-          </button>
-          <button
-            type="button"
-            onClick={handleShare}
-            style={{
-              ...panelStyle,
-              cursor: "pointer",
-              color: "#6ef",
-              fontSize: 11,
-              minHeight: 44,
-              touchAction: "manipulation",
-            }}
-          >
-            SHARE
-          </button>
-          {shareMsg && <p style={{ color: "#6ef", fontSize: 11, margin: 0 }}>{shareMsg}</p>}
-        </div>
-      )}
+      {portalReady && overlay !== "idle"
+        ? createPortal(overlayContent, document.body)
+        : overlay === "idle"
+          ? overlayContent
+          : null}
     </div>
   );
 }

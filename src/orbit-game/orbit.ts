@@ -1697,38 +1697,46 @@ export class OrbitGame {
     if (this.mouse.down) this.dampThrustOnRelease();
     this.mouse.down = false;
   }
-  private onTouchStartHandler(event: TouchEvent): void {
-    // Prevent activating thrust if touching inside the menu or on any button
+  private isExternalUiTouch(event: TouchEvent): boolean {
     const targetElement = event.target as HTMLElement;
-    // Check if the target or any parent is the link
-    if (targetElement.closest("a")) {
-      return; // Do nothing, allow default link behavior
-    }
     if (
-      !targetElement.closest("button") &&
-      !targetElement.closest(".settings-menu") &&
-      !targetElement.closest(".credits-section")
+      typeof document !== "undefined" &&
+      document.documentElement.classList.contains("orbit-game-overlay-open")
     ) {
-      event.preventDefault();
-      this.mouse.down = true;
+      return true;
     }
+    return Boolean(
+      targetElement.closest(
+        "a, button, input, textarea, select, [data-orbit-ui], .settings-menu, .credits-section"
+      )
+    );
+  }
+
+  private onTouchStartHandler(event: TouchEvent): void {
+    if (this.isExternalUiTouch(event)) {
+      return;
+    }
+    event.preventDefault();
+    this.mouse.down = true;
   }
   private onTouchMoveHandler(event: TouchEvent): void {
+    if (this.isExternalUiTouch(event)) {
+      return;
+    }
     if (this.playing) event.preventDefault();
     if (event.touches.length > 0) this.mouse.down = true;
   }
   private onTouchEndHandler(event: TouchEvent): void {
-    const targetElement = event.target as HTMLElement;
-    // Allow link taps
-    if (targetElement.closest("a")) {
+    if (this.isExternalUiTouch(event)) {
       return;
     }
     if (event.touches.length === 0) {
       if (
         event.target === this.canvas ||
         this.container.contains(event.target as Node)
-      )
+      ) {
         event.preventDefault();
+      }
       if (this.mouse.down) this.dampThrustOnRelease();
       this.mouse.down = false;
     }

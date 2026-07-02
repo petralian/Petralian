@@ -1834,6 +1834,23 @@ html.orbit-game-overlay-open .settings-button {
   opacity: 0.25;
 }
 
+html.orbit-game-overlay-open #world,
+html.orbit-game-overlay-open #orbit-game-root {
+  pointer-events: none !important;
+}
+
+html.orbit-game-overlay-open [data-orbit-ui] {
+  pointer-events: auto !important;
+  touch-action: manipulation;
+}
+
+html.orbit-game-overlay-open [data-orbit-ui] input,
+html.orbit-game-overlay-open [data-orbit-ui] textarea {
+  touch-action: auto !important;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 .orbit-game-page--loading {
   background-color: #050a0f;
 }
