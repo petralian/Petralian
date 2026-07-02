@@ -10,7 +10,7 @@ tags:
   - Program Delivery
   - Generative AI
 excerpt: "Five management habits that transfer directly to directing AI agents: show examples, write context down, guide in steps, define outcomes, and close the loop with review."
-featured_image:
+featured_image: /images/posts/training-an-ai-is-like-managing-an-employee.png
 focus_keyword: managing ai like an employee
 seo_description: "A practical framework for directing AI like a strong employee: show examples, document context, guide step by step, define outcomes, and close the loop."
 image_prompt: "Create a 16:9 conceptual hero image for an article comparing AI direction to employee management. Show a manager at a desk reviewing a task board with clear instructions flowing to both a human teammate and an AI assistant interface. Include visual cues for process clarity: checklist, arrows, milestones, and feedback loops. Professional, modern look, neutral palette with warm highlights, no logos, no text overlays, no watermarks."
