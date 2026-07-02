@@ -6,48 +6,18 @@ import { usePathname } from "next/navigation";
 import { Smartphone, Tablet, Monitor } from "lucide-react";
 import { SITE_URL } from "@/lib/constants";
 import { detectPlayDevice, type PlayDevice } from "@/lib/play-device";
+import {
+  formatLeaderboardScore,
+  qualifiesForLeaderboard,
+  sanitizeLeaderboardName,
+  type LeaderboardEntry,
+} from "@/lib/orbit-rush-leaderboard";
 import { OrbitGame, POWERUP_REFERENCE, drawPowerUpIcon, PowerUpType } from "@/orbit-game/orbit";
-
-interface HighScore {
-  name: string;
-  score: number;
-  device?: PlayDevice;
-}
 
 type OverlayPhase = "idle" | "entering-name" | "showing-scores";
 
-const LS_KEY = "petralian_orbit_rush_hs_v2";
 const SHARE_PATH = "/lost-in-space";
-
-function formatScore(score: number): number {
-  return Math.round(score);
-}
-
-function loadScores(): HighScore[] {
-  try {
-    const raw = localStorage.getItem(LS_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as HighScore[];
-    if (!Array.isArray(parsed)) return [];
-    return parsed.map((s) => ({ ...s, score: formatScore(s.score) }));
-  } catch {
-    return [];
-  }
-}
-
-function saveScores(scores: HighScore[]) {
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(scores));
-  } catch {
-    /* noop */
-  }
-}
-
-function qualifies(scores: HighScore[], score: number): boolean {
-  if (score <= 0) return false;
-  if (scores.length < 10) return true;
-  return score > scores[scores.length - 1].score;
-}
+const LEADERBOARD_API = "/api/orbit-rush/leaderboard";
 
 function copyGameLink() {
   const url = `${SITE_URL}${SHARE_PATH}`;
@@ -56,13 +26,53 @@ function copyGameLink() {
 }
 
 const panelStyle: React.CSSProperties = {
-  background: "rgba(0,0,0,0.82)",
+  background: "rgba(0,0,0,0.88)",
   border: "1px solid rgba(68,170,255,0.35)",
   borderRadius: 8,
   padding: "14px 22px",
   minWidth: 260,
+  maxWidth: "min(92vw, 360px)",
   backdropFilter: "blur(6px)",
   fontFamily: "monospace",
+};
+
+const overlayShellStyle: React.CSSProperties = {
+  position: "fixed",
+  inset: 0,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 12,
+  zIndex: 200,
+  pointerEvents: "auto",
+  touchAction: "manipulation",
+  padding: "16px",
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  boxSizing: "border-box",
+  background: "rgba(0,0,0,0.6)",
+  border: "1px solid #4af",
+  borderRadius: 4,
+  color: "#fff",
+  fontFamily: "monospace",
+  fontSize: 16,
+  padding: "12px 10px",
+  marginBottom: 8,
+  WebkitAppearance: "none",
+};
+
+const actionButtonStyle: React.CSSProperties = {
+  width: "100%",
+  marginBottom: 8,
+  padding: "12px 10px",
+  minHeight: 44,
+  cursor: "pointer",
+  fontFamily: "monospace",
+  fontSize: 14,
+  touchAction: "manipulation",
 };
 
 function DeviceIcon({ device }: { device?: PlayDevice }) {
@@ -82,7 +92,7 @@ function Leaderboard({
   scores,
   highlight,
 }: {
-  scores: HighScore[];
+  scores: LeaderboardEntry[];
   highlight?: number;
 }) {
   return (
@@ -96,23 +106,24 @@ function Leaderboard({
           textAlign: "center",
         }}
       >
-        ── HIGH SCORES ──
+        ── GLOBAL HIGH SCORES ──
       </p>
       {scores.length === 0 ? (
         <p style={{ color: "#556", fontSize: 11, margin: 0, textAlign: "center" }}>
-          NO SCORES YET
+          NO SCORES YET — BE FIRST
         </p>
       ) : (
         scores.map((s, i) => (
           <div
-            key={`${s.name}-${s.score}-${i}`}
+            key={`${s.name}-${s.score}-${s.createdAt}-${i}`}
             style={{
               display: "flex",
               justifyContent: "space-between",
               gap: 16,
               fontSize: 12,
               color:
-                highlight !== undefined && formatScore(s.score) === formatScore(highlight)
+                highlight !== undefined &&
+                  formatLeaderboardScore(s.score) === formatLeaderboardScore(highlight)
                   ? "#ff8"
                   : i === 0
                     ? "#4af"
@@ -123,8 +134,16 @@ function Leaderboard({
             <span>
               {i + 1}. {s.name}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 52, justifyContent: "flex-end" }}>
-              {formatScore(s.score)}
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                minWidth: 52,
+                justifyContent: "flex-end",
+              }}
+            >
+              {formatLeaderboardScore(s.score)}
               <DeviceIcon device={s.device} />
             </span>
           </div>
@@ -158,6 +177,17 @@ function PowerUpReferenceIcon({ type }: { type: PowerUpType }) {
   );
 }
 
+async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
+  try {
+    const res = await fetch(LEADERBOARD_API, { cache: "no-store" });
+    if (!res.ok) return [];
+    const data = (await res.json()) as { scores?: LeaderboardEntry[] };
+    return Array.isArray(data.scores) ? data.scores : [];
+  } catch {
+    return [];
+  }
+}
+
 export default function OrbitRushGame() {
   const shellRef = useRef<HTMLDivElement>(null);
   const gameRef = useRef<OrbitGame | null>(null);
@@ -166,35 +196,60 @@ export default function OrbitRushGame() {
   const [overlay, setOverlay] = useState<OverlayPhase>("idle");
   const [pendingScore, setPendingScore] = useState(0);
   const [nameInput, setNameInput] = useState("");
-  const [highScores, setHighScores] = useState<HighScore[]>([]);
+  const [highScores, setHighScores] = useState<LeaderboardEntry[]>([]);
   const [shareMsg, setShareMsg] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const overlayRef = useRef<OverlayPhase>("idle");
 
   useEffect(() => {
-    setHighScores(loadScores());
+    overlayRef.current = overlay;
+  }, [overlay]);
+
+  const refreshScores = useCallback(async () => {
+    const scores = await fetchLeaderboard();
+    setHighScores(scores);
+    return scores;
+  }, []);
+
+  useEffect(() => {
+    void refreshScores();
     document.documentElement.classList.add("orbit-game-active");
     document.body.classList.add("orbit-game-active");
     return () => {
       document.documentElement.classList.remove("orbit-game-active");
       document.body.classList.remove("orbit-game-active");
     };
-  }, []);
+  }, [refreshScores]);
 
-  const handleGameOver = useCallback((score: number) => {
-    setPendingScore(score);
-    const scores = loadScores();
-    if (qualifies(scores, score)) {
-      setOverlay("entering-name");
-    } else {
-      setHighScores(scores);
-      setOverlay("showing-scores");
-    }
-  }, []);
+  useEffect(() => {
+    const open = overlay !== "idle";
+    document.documentElement.classList.toggle("orbit-game-overlay-open", open);
+    return () => {
+      document.documentElement.classList.remove("orbit-game-overlay-open");
+    };
+  }, [overlay]);
+
+  const handleGameOver = useCallback(
+    async (score: number) => {
+      setPendingScore(score);
+      setSubmitError("");
+      const scores = await refreshScores();
+      if (qualifiesForLeaderboard(scores, score)) {
+        setOverlay("entering-name");
+      } else {
+        setOverlay("showing-scores");
+      }
+    },
+    [refreshScores]
+  );
 
   useEffect(() => {
     const shell = shellRef.current;
     if (!shell) return;
 
     const blockSpaceScroll = (e: KeyboardEvent) => {
+      if (overlayRef.current !== "idle") return;
       if (e.key === " " || e.code === "Space") {
         const t = e.target;
         if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement) return;
@@ -205,7 +260,9 @@ export default function OrbitRushGame() {
     document.addEventListener("keydown", blockSpaceScroll, true);
 
     const game = new OrbitGame({
-      onGameOver: handleGameOver,
+      onGameOver: (score) => {
+        void handleGameOver(score);
+      },
       shareUrl: `${SITE_URL}${SHARE_PATH}`,
     });
     gameRef.current = game;
@@ -225,33 +282,46 @@ export default function OrbitRushGame() {
     };
   }, [pathname]);
 
-  const submitName = useCallback(() => {
-    const name = nameInput.trim() || "PILOT";
+  const submitName = useCallback(async () => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitError("");
+    const name = sanitizeLeaderboardName(nameInput);
     const device = gameRef.current?.playDevice ?? playDeviceRef.current;
-    const updated = [...loadScores(), { name, score: formatScore(pendingScore), device }]
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 10);
-    saveScores(updated);
-    setHighScores(updated);
-    setNameInput("");
-    setOverlay("showing-scores");
-  }, [nameInput, pendingScore]);
+    try {
+      const res = await fetch(LEADERBOARD_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          score: formatLeaderboardScore(pendingScore),
+          device,
+        }),
+      });
+      const data = (await res.json()) as {
+        scores?: LeaderboardEntry[];
+        error?: string;
+      };
+      if (!res.ok) {
+        setSubmitError(data.error ?? "Could not save score");
+        setIsSubmitting(false);
+        return;
+      }
+      setHighScores(data.scores ?? []);
+      setNameInput("");
+      setOverlay("showing-scores");
+    } catch {
+      setSubmitError("Could not save score — check connection");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [isSubmitting, nameInput, pendingScore]);
 
   const handleShareLink = useCallback(() => {
     copyGameLink();
-    if (nameInput.trim()) {
-      submitName();
-    } else {
-      const updated = [...loadScores(), { name: "PILOT", score: formatScore(pendingScore), device: gameRef.current?.playDevice ?? playDeviceRef.current }]
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 10);
-      saveScores(updated);
-      setHighScores(updated);
-      setOverlay("showing-scores");
-    }
     setShareMsg("Link copied!");
     setTimeout(() => setShareMsg(""), 2500);
-  }, [nameInput, pendingScore, submitName]);
+  }, []);
 
   const handleShare = useCallback(() => {
     copyGameLink();
@@ -261,20 +331,9 @@ export default function OrbitRushGame() {
 
   const retry = useCallback(() => {
     setOverlay("idle");
+    setSubmitError("");
     gameRef.current?.restartFromOverlay();
   }, []);
-
-  const overlayStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 12,
-    zIndex: 50,
-    pointerEvents: overlay === "entering-name" ? "auto" : "none",
-  };
 
   return (
     <div ref={shellRef} className="orbit-game-shell" tabIndex={-1}>
@@ -376,62 +435,95 @@ export default function OrbitRushGame() {
       </div>
 
       {overlay === "entering-name" && (
-        <div style={{ ...overlayStyle, pointerEvents: "auto" }}>
+        <div style={overlayShellStyle} role="dialog" aria-label="Enter your name">
           <div style={panelStyle}>
             <p style={{ color: "#f75", textAlign: "center", margin: "0 0 6px" }}>
               GAME OVER
             </p>
             <p style={{ color: "#ff8", textAlign: "center", margin: "0 0 12px" }}>
-              SCORE {formatScore(pendingScore)} — NEW HIGH SCORE
+              SCORE {formatLeaderboardScore(pendingScore)} — NEW HIGH SCORE
             </p>
             <input
               autoFocus
               maxLength={20}
               value={nameInput}
               onChange={(e) => setNameInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && submitName()}
-              placeholder="@yourname"
-              style={{
-                width: "100%",
-                boxSizing: "border-box",
-                background: "rgba(0,0,0,0.6)",
-                border: "1px solid #4af",
-                borderRadius: 4,
-                color: "#fff",
-                fontFamily: "monospace",
-                padding: "8px 10px",
-                marginBottom: 8,
+              onKeyDown={(e) => {
+                if (e.key === "Enter") void submitName();
               }}
+              placeholder="Your name"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              enterKeyHint="done"
+              inputMode="text"
+              aria-label="Your name for the leaderboard"
+              style={inputStyle}
             />
-            <button type="button" onClick={handleShareLink} style={{ width: "100%", marginBottom: 8, padding: 8, cursor: "pointer" }}>
+            <button
+              type="button"
+              onClick={() => void submitName()}
+              disabled={isSubmitting}
+              style={{ ...actionButtonStyle, color: "#4af", fontWeight: "bold" }}
+            >
+              {isSubmitting ? "SAVING…" : "SAVE SCORE"}
+            </button>
+            <button
+              type="button"
+              onClick={handleShareLink}
+              style={{ ...actionButtonStyle, color: "#6ef" }}
+            >
               SHARE
             </button>
-            {shareMsg && <p style={{ color: "#6ef", fontSize: 11, textAlign: "center", margin: 0 }}>{shareMsg}</p>}
+            {submitError && (
+              <p style={{ color: "#f88", fontSize: 11, textAlign: "center", margin: "4px 0 0" }}>
+                {submitError}
+              </p>
+            )}
+            {shareMsg && (
+              <p style={{ color: "#6ef", fontSize: 11, textAlign: "center", margin: 0 }}>
+                {shareMsg}
+              </p>
+            )}
           </div>
         </div>
       )}
 
       {overlay === "showing-scores" && (
-        <div style={overlayStyle}>
+        <div style={overlayShellStyle} role="dialog" aria-label="Game over">
           <p style={{ color: "#f75", margin: 0, fontFamily: "monospace", letterSpacing: "0.1em" }}>
-            GAME OVER — SCORE {formatScore(pendingScore)}
+            GAME OVER — SCORE {formatLeaderboardScore(pendingScore)}
           </p>
           <Leaderboard scores={highScores} highlight={pendingScore} />
           <button
             type="button"
             onClick={retry}
-            style={{ ...panelStyle, pointerEvents: "auto", cursor: "pointer", color: "#4af" }}
+            style={{
+              ...panelStyle,
+              cursor: "pointer",
+              color: "#4af",
+              fontWeight: "bold",
+              minHeight: 44,
+              touchAction: "manipulation",
+            }}
           >
-            TAP / SPACE TO RETRY
+            RETRY
           </button>
           <button
             type="button"
             onClick={handleShare}
-            style={{ ...panelStyle, pointerEvents: "auto", cursor: "pointer", color: "#6ef", fontSize: 11 }}
+            style={{
+              ...panelStyle,
+              cursor: "pointer",
+              color: "#6ef",
+              fontSize: 11,
+              minHeight: 44,
+              touchAction: "manipulation",
+            }}
           >
             SHARE
           </button>
-          {shareMsg && <p style={{ color: "#6ef", fontSize: 11 }}>{shareMsg}</p>}
+          {shareMsg && <p style={{ color: "#6ef", fontSize: 11, margin: 0 }}>{shareMsg}</p>}
         </div>
       )}
     </div>

@@ -1825,6 +1825,15 @@ html.orbit-game-playing .orbit-game-title-overlay {
   z-index: 1;
 }
 
+html.orbit-game-playing .orbit-game-page-chrome {
+  display: none !important;
+}
+
+html.orbit-game-overlay-open .settings-button {
+  pointer-events: none !important;
+  opacity: 0.25;
+}
+
 .orbit-game-page--loading {
   background-color: #050a0f;
 }

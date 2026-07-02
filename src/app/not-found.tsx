@@ -70,15 +70,14 @@ export default function NotFound() {
             </div>
 
             {/* Bottom overlay */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "7%",
-                    left: 0,
-                    right: 0,
-                    textAlign: "center",
-                    zIndex: 10,
-                }}
+            <div className="orbit-game-page-chrome" style={{
+                position: "absolute",
+                bottom: "7%",
+                left: 0,
+                right: 0,
+                textAlign: "center",
+                zIndex: 10,
+            }}
             >
                 <Link
                     href="/"

@@ -3276,22 +3276,6 @@ export class OrbitGame {
       this.playDevice
     );
 
-    // High Score - Bottom Center (only when not playing/paused)
-    if (
-      this.gameState !== GameState.PLAYING &&
-      this.gameState !== GameState.PAUSED
-    ) {
-      this.context.fillStyle = "rgba(140, 240, 255, 0.9)";
-      this.context.textAlign = "center";
-      this.context.font = "14px Rajdhani, Arial";
-      const highScoreY = this.world.height - bottomMargin - 20; // Position above mode text
-      this.context.fillText(
-        `HI: ${this.highScore}`,
-        this.world.width / 2, // Center of full screen
-        highScoreY
-      );
-    }
-
     // Mode/Time Info - Bottom Right (or Mode info in Welcome)
     this.context.textAlign = "right";
     this.context.font = "bold 16px Rajdhani, Arial";

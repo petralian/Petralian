@@ -63,16 +63,15 @@ export default function LostInSpacePage() {
         </h1>
       </div>
 
-      <div
-        style={{
-          position: "absolute",
-          bottom: "5%",
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          zIndex: 10,
-          pointerEvents: "none",
-        }}
+      <div className="orbit-game-page-chrome" style={{
+        position: "absolute",
+        bottom: "5%",
+        left: 0,
+        right: 0,
+        textAlign: "center",
+        zIndex: 10,
+        pointerEvents: "none",
+      }}
       >
         <Link
           href="/"

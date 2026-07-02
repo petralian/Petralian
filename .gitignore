@@ -38,6 +38,7 @@ wp-config-local.php
 *.sql
 *.sql.gz
 db-backups/
+data/orbit-rush-leaderboard.json
 
 # ── Logs ─────────────────────────────────────────────────────────────────────
 *.log
