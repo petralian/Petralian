@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AsteroidsGame from "@/components/AsteroidsGame";
+import OrbitRushGame from "@/components/OrbitRushGame";
+import NotFoundAnalytics from "@/components/NotFoundAnalytics";
 
 export const metadata: Metadata = {
     title: "404 — Page Not Found",
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 export default function NotFound() {
     return (
         <div style={{ position: "relative", width: "100%", height: "calc(100dvh - 64px)", overflow: "hidden" }}>
-            <AsteroidsGame />
+            <NotFoundAnalytics />
+            <OrbitRushGame />
 
             {/* Top overlay */}
             <div
@@ -57,7 +59,7 @@ export default function NotFound() {
                         marginTop: "12px",
                     }}
                 >
-                    Page not found. Shoot some asteroids while you&apos;re here.
+                    Page not found. Hold to widen orbit — release to survive.
                 </p>
             </div>
 
@@ -95,7 +97,7 @@ export default function NotFound() {
                         marginTop: "14px",
                     }}
                 >
-                    ARROWS / WASD: move &nbsp;·&nbsp; SPACE: shoot
+                    HOLD SPACE / TAP — widen orbit &nbsp;·&nbsp; Release — fall inward
                 </p>
             </div>
         </div>

@@ -1,6 +1,24 @@
 import type { NextConfig } from "next";
+import { buildLegacyPostRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // WordPress / bookmark paths (GA4 404 top hits)
+      { source: "/blog", destination: "/posts", permanent: true },
+      { source: "/blog/:slug", destination: "/posts/:slug", permanent: true },
+      { source: "/contact", destination: "/about", permanent: true },
+      { source: "/services", destination: "/about", permanent: true },
+      { source: "/writing", destination: "/posts", permanent: true },
+      {
+        source: "/posts/why-your-ai-program-is-failing-before-it-starts",
+        destination: "/posts/why-your-ai-program-may-fail-before-it-starts",
+        permanent: true,
+      },
+      // petralian.com/{slug} → /posts/{slug} for every live post
+      ...buildLegacyPostRedirects(),
+    ];
+  },
   // Serve tinacms admin SPA at /admin (generated into public/admin/index.html by tinacms build)
   async rewrites() {
     return [{ source: "/admin", destination: "/admin/index.html" }];
