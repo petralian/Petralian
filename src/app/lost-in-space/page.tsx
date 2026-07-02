@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import OrbitRushGame from "@/components/OrbitRushGame";
 import { SITE_URL } from "@/lib/constants";
+import "@/orbit-game/orbit.css";
 
 export const metadata: Metadata = {
   title: "Lost in Space — Orbit Rush",
@@ -16,17 +17,16 @@ export const metadata: Metadata = {
 
 export default function LostInSpacePage() {
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "calc(100dvh - 64px)",
-        overflow: "hidden",
-      }}
-    >
+    <div className="orbit-game-page">
+      <script
+        dangerouslySetInnerHTML={{
+          __html: "document.documentElement.classList.add('orbit-game-active');",
+        }}
+      />
       <OrbitRushGame />
 
       <div
+        className="orbit-game-title-overlay"
         style={{
           position: "absolute",
           top: "6%",
@@ -34,7 +34,6 @@ export default function LostInSpacePage() {
           right: 0,
           textAlign: "center",
           pointerEvents: "none",
-          zIndex: 10,
         }}
       >
         <p

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import OrbitRushGame from "@/components/OrbitRushGame";
 import NotFoundAnalytics from "@/components/NotFoundAnalytics";
+import "@/orbit-game/orbit.css";
 
 export const metadata: Metadata = {
     title: "404 — Page Not Found",
@@ -10,12 +11,18 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
     return (
-        <div style={{ position: "relative", width: "100%", height: "calc(100dvh - 64px)", overflow: "hidden" }}>
+        <div className="orbit-game-page">
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: "document.documentElement.classList.add('orbit-game-active');",
+                }}
+            />
             <NotFoundAnalytics />
             <OrbitRushGame />
 
             {/* Top overlay */}
             <div
+                className="orbit-game-title-overlay"
                 style={{
                     position: "absolute",
                     top: "8%",
@@ -23,7 +30,6 @@ export default function NotFound() {
                     right: 0,
                     textAlign: "center",
                     pointerEvents: "none",
-                    zIndex: 10,
                 }}
             >
                 <p

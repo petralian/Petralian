@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Mail, Menu, X } from "lucide-react";
+import { Mail, Menu, X, FileX } from "lucide-react";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
 
@@ -104,11 +104,20 @@ export default function Header() {
             >
               <GitHubIcon />
             </a>
+            <Link
+              href="/lost-in-space"
+              aria-label="Lost in Space game"
+              className="social-icon"
+              title="Lost in Space — 404 game"
+            >
+              <FileX size={18} strokeWidth={1.5} />
+            </Link>
           </div>
           <ThemeToggle />
         </nav>
 
         <div className="mobile-header-actions">
+          <ThemeToggle />
           <button
             type="button"
             className={`menu-toggle${menuOpen ? " menu-toggle--open" : ""}`}
@@ -167,8 +176,15 @@ export default function Header() {
                 >
                   <GitHubIcon />
                 </a>
+                <Link
+                  href="/lost-in-space"
+                  aria-label="Lost in Space game"
+                  className="social-icon"
+                  title="Lost in Space — 404 game"
+                >
+                  <FileX size={18} strokeWidth={1.5} />
+                </Link>
               </div>
-              <ThemeToggle />
             </div>
           </div>
         </>

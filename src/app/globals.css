@@ -170,6 +170,13 @@ body {
   color: var(--color-ink);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 h1,
@@ -342,15 +349,39 @@ a {
   transform: translateY(-1px);
 }
 
-.theme-icon-button-placeholder {
-  width: 36px;
-  height: 36px;
-  margin-left: 0.25rem;
+.theme-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon visibility follows data-theme (set by inline script before paint) — no hydration needed */
+[data-theme="dark"] .theme-icon--sun {
+  display: flex;
+}
+
+[data-theme="light"] .theme-icon--moon {
+  display: flex;
+}
+
+html:not([data-theme]) .theme-icon--moon {
+  display: flex;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .theme-icon--moon {
+    display: none;
+  }
+
+  html:not([data-theme]) .theme-icon--sun {
+    display: flex;
+  }
 }
 
 .mobile-header-actions {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   margin-left: auto;
 }
 
@@ -1766,6 +1797,97 @@ a {
   font-size: var(--text-sm);
   color: #e5534b;
   margin-bottom: 0.5rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ORBIT GAME PAGES
+   ══════════════════════════════════════════════════════════════════ */
+.orbit-game-page {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.orbit-game-shell {
+  position: relative;
+  z-index: 5;
+}
+
+.orbit-game-title-overlay {
+  z-index: 10;
+  transition: opacity 0.55s ease;
+}
+
+html.orbit-game-playing .orbit-game-title-overlay {
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.orbit-game-page--loading {
+  background-color: #050a0f;
+}
+
+html.orbit-game-active,
+body.orbit-game-active {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+html.orbit-game-active .site-footer,
+body.orbit-game-active .site-footer {
+  display: none !important;
+}
+
+body.orbit-game-active main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body.orbit-game-active .header-inner {
+  height: 32px;
+}
+
+body.orbit-game-active .site-header--scrolled .header-inner {
+  height: 32px;
+}
+
+body.orbit-game-active .site-logo {
+  width: 124px;
+}
+
+body.orbit-game-active .site-logo-img {
+  max-height: 18px;
+}
+
+body.orbit-game-active .site-header--scrolled .site-logo-img {
+  max-height: 18px;
+}
+
+@media (max-width: 860px) {
+  body.orbit-game-active .header-inner {
+    height: 32px;
+  }
+
+  body.orbit-game-active .site-header--scrolled .header-inner {
+    height: 32px;
+  }
+
+  body.orbit-game-active .site-logo {
+    width: clamp(100px, 28vw, 124px);
+    min-width: 100px;
+  }
+
+  body.orbit-game-active .site-logo-img {
+    max-height: 18px;
+  }
+
+  body.orbit-game-active .site-header--scrolled .site-logo-img {
+    max-height: 18px;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════════════

@@ -1,0 +1,716 @@
+/*********************************************
+ * GLOBAL (scoped — do not override site body)
+ *********************************************/
+
+.orbit-game-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Rajdhani, Helvetica, Arial, sans-serif;
+  color: #b0f0ff;
+  font-size: 11px;
+  background-color: #050a0f;
+}
+
+/* Fullscreen game routes — hide site footer, fill main below header */
+body.orbit-game-active .site-footer {
+  display: none !important;
+}
+
+body.orbit-game-active main {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Legacy orbit header/about styles removed — Petralian uses its own site header */
+
+.no-canvas {
+  color: #999999;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+#orbit-game-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#game {
+  position: absolute;
+  /* Take full viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Ensure no scrollbars on the container */
+}
+
+#world {
+  display: block;
+  /* Remove extra space below canvas */
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Game States --- */
+#orbit-game-root .start-button,
+#orbit-game-root.state-welcome .start-button,
+#orbit-game-root.state-loser .start-button,
+#orbit-game-root.state-winner .start-button {
+  display: flex;
+  z-index: 20;
+}
+
+#orbit-game-root.state-playing .start-button {
+  display: none;
+}
+
+/* Optionally hide settings button when game not active */
+/* body.state-welcome .settings-button,
+body.state-loser .settings-button,
+body.state-winner .settings-button { */
+/* display: none; */
+/* } */
+
+
+/* --- Start Button --- */
+.start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 40px;
+  font-size: 22px;
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  background-color: rgba(0, 10, 20, 0.7);
+  color: rgba(140, 240, 255, 1);
+  border: 1px solid rgba(80, 220, 255, 0.8);
+  border-radius: 0;
+  /* Sharp edges */
+  box-shadow: 0 0 15px rgba(80, 220, 255, 0.5), inset 0 0 8px rgba(80, 220, 255, 0.2);
+  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.0);
+  min-width: 220px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  /* Use flex to center text vertically/horizontally if needed */
+  align-items: center;
+  justify-content: center;
+
+  /* Add pseudo-elements for corners and grid overlay here */
+  /* Example: */
+  /* &::before, &::after { content: ''; position: absolute; ... } */
+}
+
+/* Start Button Pulsing Animation */
+@keyframes pulse-glow-start {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(80, 220, 255, 0.5), inset 0 0 8px rgba(80, 220, 255, 0.2);
+    text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+    border-color: rgba(80, 220, 255, 0.8);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(80, 220, 255, 0.7), inset 0 0 12px rgba(80, 220, 255, 0.3);
+    text-shadow: 0 0 12px rgba(140, 240, 255, 1);
+    border-color: rgba(100, 230, 255, 1);
+  }
+}
+
+
+/* --- Settings Menu --- */
+.settings-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88%;
+  max-width: 460px;
+  padding: 16px 18px;
+  background-color: rgba(0, 10, 20, 0.9);
+  /* Slightly more opaque */
+  border: 1px solid rgba(80, 220, 255, 0.8);
+  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
+  color: rgba(140, 240, 255, 1);
+  z-index: 150;
+  /* Above game, below maybe modals? */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+  /* Keep transition */
+}
+
+.settings-menu.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  pointer-events: none;
+  /* Prevent interaction when hidden */
+}
+
+.settings-menu h2 {
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 18px;
+  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+}
+
+.settings-powerup-reference {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(80, 220, 255, 0.35);
+}
+
+.settings-powerup-reference h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(140, 240, 255, 0.9);
+  text-align: center;
+}
+
+.settings-powerup-reference ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 6px;
+}
+
+.settings-powerup-reference__item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 5px;
+  align-items: center;
+  font-size: 10px;
+  line-height: 1.25;
+  padding: 3px 4px;
+  border-radius: 3px;
+  background: rgba(0, 20, 40, 0.45);
+}
+
+.settings-powerup-reference__icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.settings-powerup-reference__desc {
+  color: rgba(160, 210, 230, 0.85);
+}
+
+.settings-powerup-reference__item--up .settings-powerup-reference__desc {
+  color: rgba(160, 230, 210, 0.9);
+}
+
+.settings-powerup-reference__item--down .settings-powerup-reference__desc {
+  color: rgba(230, 170, 170, 0.9);
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.menu-item label {
+  margin-right: 15px;
+  white-space: nowrap;
+}
+
+.menu-item--slider {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.menu-item--slider label {
+  margin-right: 0;
+}
+
+.orbit-opacity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.orbit-opacity-slider {
+  flex: 1;
+  height: 4px;
+  margin: 0;
+  accent-color: rgba(80, 220, 255, 0.95);
+  cursor: pointer;
+}
+
+.orbit-opacity-value {
+  min-width: 38px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(140, 240, 255, 0.95);
+  text-align: right;
+}
+
+/* Basic Toggle Button Style */
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  /* Make toggle 25% smaller */
+  width: 52px;
+  /* 70 * 0.75 */
+  height: 22px;
+  /* 30 * 0.75 */
+  background-color: rgba(255, 100, 100, 0.6);
+  /* Default OFF color base */
+  border: 1px solid rgba(255, 100, 100, 0.8);
+  border-radius: 15px;
+  /* Rounded ends */
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+  /* Remove default button padding */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-handle {
+  position: absolute;
+  /* Adjust handle size and position */
+  top: 1px;
+  left: 2px;
+  /* Start position for OFF */
+  width: 18px;
+  /* 24 * 0.75 */
+  height: 18px;
+  /* 24 * 0.75 */
+  background-color: rgba(220, 220, 220, 0.9);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-button[aria-pressed="true"] {
+  background-color: rgba(80, 220, 255, 0.6);
+  /* ON color base */
+  border-color: rgba(80, 220, 255, 0.8);
+}
+
+.toggle-button[aria-pressed="true"] .toggle-handle {
+  /* Adjust translation distance: width - handle_width - left_offset - right_offset */
+  /* 52 - 18 - 2 - 2 = 30 */
+  transform: translateX(30px);
+  /* Move handle to the right for ON */
+}
+
+/* Hide text labels visually but keep for accessibility */
+.toggle-label-on,
+.toggle-label-off {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Close Button Style (similar to start button but smaller) */
+.menu-button {
+  min-width: 152px;
+  margin-top: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background-color: rgba(0, 10, 20, 0.7);
+  color: rgba(140, 240, 255, 1);
+  border: 1px solid rgba(80, 220, 255, 0.8);
+  box-shadow: 0 0 10px rgba(80, 220, 255, 0.4), inset 0 0 5px rgba(80, 220, 255, 0.1);
+  text-shadow: 0 0 5px rgba(140, 240, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.menu-item .menu-button {
+  min-width: 162px;
+  margin: 0;
+}
+
+.menu-button:hover {
+  background-color: rgba(10, 30, 50, 0.8);
+  color: rgba(180, 255, 255, 1);
+  box-shadow: 0 0 15px rgba(80, 220, 255, 0.6), inset 0 0 8px rgba(80, 220, 255, 0.3);
+  border-color: rgba(140, 240, 255, 1);
+}
+
+.menu-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(80, 220, 255, 0.8), inset 0 0 6px rgba(80, 220, 255, 0.5);
+}
+
+/* Style for the mode toggle button (can reuse menu-button or customize) */
+.mode-toggle-button {
+  min-width: 150px;
+  /* Ensure enough space for text */
+  text-align: center;
+}
+
+/* Disabled state for the mode toggle button */
+.mode-toggle-button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+  border-color: rgba(100, 100, 100, 0.5);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.start-button--pulsing {
+  animation: pulse-glow-start 2s infinite ease-in-out;
+}
+
+.start-button:hover {
+  background-color: rgba(10, 30, 50, 0.8);
+  color: rgba(180, 255, 255, 1);
+  box-shadow: 0 0 30px rgba(80, 220, 255, 0.7), inset 0 0 15px rgba(80, 220, 255, 0.4);
+  border-color: rgba(140, 240, 255, 1);
+  animation-play-state: paused;
+  /* Pause pulsing on hover */
+}
+
+.start-button:active {
+  transform: translate(-50%, -48%);
+  /* Press down effect */
+  box-shadow: 0 0 20px rgba(80, 220, 255, 0.9), inset 0 0 12px rgba(80, 220, 255, 0.6);
+  background-color: rgba(20, 40, 60, 0.9);
+}
+
+
+/* --- Credits Section --- */
+.credits-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 450px;
+  /* Slightly wider than settings */
+  max-height: 80vh;
+  /* Limit height and allow scrolling */
+  overflow-y: auto;
+  /* Enable vertical scroll if content overflows */
+  padding: 25px 30px;
+  background-color: rgba(0, 10, 20, 0.92);
+  /* Slightly more opaque */
+  border: 1px solid rgba(80, 220, 255, 0.8);
+  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
+  color: rgba(140, 240, 255, 1);
+  z-index: 160;
+  /* Above settings menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.credits-section.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  pointer-events: none;
+}
+
+.credits-section h2 {
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 20px;
+  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+}
+
+.credits-content {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 14px;
+  /* Slightly larger font for readability */
+  line-height: 1.6;
+}
+
+.credits-content p {
+  margin-bottom: 15px;
+}
+
+.credits-content strong {
+  color: #fff;
+  /* Make titles stand out */
+  font-weight: 600;
+}
+
+.credits-content a {
+  color: #80e0ff;
+  /* Lighter blue for links */
+  transition: color 0.2s ease-out;
+}
+
+.credits-content a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Ensure menu buttons inside credits section behave correctly */
+.credits-section .menu-button {
+  margin-top: 15px;
+  /* Add some space above the close button */
+}
+
+
+/* --- Game Over Dialog --- */
+.game-over-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  /* Similar to settings */
+  padding: 25px 30px;
+  background-color: rgba(0, 10, 20, 0.9);
+  /* Dark background - Same as settings */
+  border: 1px solid rgba(80, 220, 255, 0.8);
+  /* Blue border - Same as settings */
+  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
+  /* Blue shadow - Same as settings */
+  color: rgba(140, 240, 255, 1);
+  /* Blue text - Same as settings */
+  z-index: 170;
+  /* Above other menus */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.game-over-dialog.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  pointer-events: none;
+}
+
+.game-over-dialog h2 {
+  font-family: 'Rajdhani', 'Arial', sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: rgba(140, 240, 255, 1);
+  /* Blue title - Same as settings */
+  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+  /* Blue shadow - Same as settings */
+}
+
+/* Remove victory-specific styles as the base style is now the blue theme */
+
+
+.game-over-dialog p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.game-over-dialog .score-display {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: rgba(140, 240, 255, 1);
+  /* Score color */
+}
+
+.game-over-dialog .score-display span {
+  color: #fff;
+  /* White for the actual number */
+}
+
+
+/* Container for game over buttons */
+.game-over-buttons {
+  display: flex;
+  justify-content: center;
+  /* Center buttons horizontally */
+  gap: 15px;
+  /* Space between buttons */
+  margin-top: 25px;
+  /* Space above the button container */
+  width: 100%;
+  /* Ensure container takes width */
+}
+
+.game-over-dialog .menu-button {
+  margin-top: 0;
+  /* Remove individual top margin */
+  /* Adjust width or flex properties if needed */
+  /* Example: flex: 1; to make buttons equal width */
+}
+
+
+/* --- Settings Button --- */
+.settings-button {
+  position: absolute;
+  top: 16px;
+  /* Use consistent spacing */
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(0, 10, 20, 0.7);
+  border: 2px solid rgba(255, 100, 100, 0.8);
+  /* Default: Debug OFF color */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 100, 100, 0.5);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.0);
+  z-index: 100;
+
+  /* Add nested divs or pseudo-elements for inner ring and dot here */
+  /* Style them based on .settings-button vs .settings-button--debugging */
+}
+
+/* Settings Button Pulsing Animation */
+@keyframes pulse-glow-settings-off {
+
+  /* Similar to start button, but use OFF colors */
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 100, 100, 0.5), inset 0 0 0 transparent;
+    /* Added transparent inset */
+    text-shadow: 0 0 8px rgba(255, 100, 100, 0.8);
+    border-color: rgba(255, 100, 100, 0.8);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(255, 100, 100, 0.7), inset 0 0 0 transparent;
+    /* Added transparent inset */
+    border-color: rgba(255, 120, 120, 1);
+    text-shadow: 0 0 12px rgba(255, 100, 100, 1);
+  }
+}
+
+@keyframes pulse-glow-settings-on {
+
+  /* Similar to start button, but use ON colors */
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(80, 220, 255, 0.5), inset 0 0 0 transparent;
+    /* Added transparent inset */
+    text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+    border-color: rgba(80, 220, 255, 0.8);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(80, 220, 255, 0.7), inset 0 0 0 transparent;
+    /* Added transparent inset */
+    border-color: rgba(100, 230, 255, 1);
+    text-shadow: 0 0 12px rgba(140, 240, 255, 1);
+  }
+}
+
+.settings-button {
+  animation: pulse-glow-settings-off 2s infinite ease-in-out;
+}
+
+.settings-button--debugging {
+  border-color: rgba(80, 220, 255, 0.8);
+  /* Debug ON color */
+  box-shadow: 0 0 15px rgba(80, 220, 255, 0.5);
+  animation-name: pulse-glow-settings-on;
+  /* Switch animation */
+
+  /* Style inner elements for ON state here */
+}
+
+
+.settings-button:hover {
+  background-color: rgba(10, 30, 50, 0.8);
+  box-shadow: 0 0 25px rgba(255, 100, 100, 0.7);
+  /* Add hover styles for inner elements */
+  animation-play-state: paused;
+}
+
+.settings-button--debugging:hover {
+  box-shadow: 0 0 25px rgba(80, 220, 255, 0.7);
+  /* Add hover styles for inner elements in ON state */
+}
+
+.settings-button:active {
+  transform: scale(0.92);
+  box-shadow: 0 0 15px rgba(255, 100, 100, 0.9);
+  /* Add active styles for inner elements */
+}
+
+.settings-button--debugging:active {
+  box-shadow: 0 0 15px rgba(80, 220, 255, 0.9);
+  /* Add active styles for inner elements in ON state */
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 450px) {
+  .start-button {
+    font-size: 18px;
+    padding: 12px 30px;
+    letter-spacing: 4px;
+  }
+
+  .settings-button {
+    width: 40px;
+    /* Slightly smaller on mobile */
+    height: 40px;
+    top: 12px;
+    right: 12px;
+  }
+}

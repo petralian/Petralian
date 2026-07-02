@@ -2,6 +2,13 @@ import type { NextConfig } from "next";
 import { buildLegacyPostRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
+  // Allow LAN / WSL / Hyper-V IPs to load dev chunks (Next.js 16 blocks cross-origin dev assets by default)
+  allowedDevOrigins: [
+    "172.24.208.1",
+    "192.168.*",
+    "10.*",
+    "172.*",
+  ],
   async redirects() {
     return [
       // WordPress / bookmark paths (GA4 404 top hits)
@@ -10,6 +17,7 @@ const nextConfig: NextConfig = {
       { source: "/contact", destination: "/about", permanent: true },
       { source: "/services", destination: "/about", permanent: true },
       { source: "/writing", destination: "/posts", permanent: true },
+      { source: "/posts/lost-in-space", destination: "/lost-in-space", permanent: true },
       {
         source: "/posts/why-your-ai-program-is-failing-before-it-starts",
         destination: "/posts/why-your-ai-program-may-fail-before-it-starts",

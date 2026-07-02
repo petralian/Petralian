@@ -38,19 +38,14 @@ function MoonIcon() {
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const cookie = getCookieTheme();
     if (cookie) {
       setIsDark(cookie === "dark");
-      document.documentElement.setAttribute("data-theme", cookie);
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDark(prefersDark);
-      // No cookie yet — follow system, don't lock it in
+      setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
     }
-    setMounted(true);
   }, []);
 
   function toggle() {
@@ -61,8 +56,6 @@ export default function ThemeToggle() {
     setCookieTheme(theme);
   }
 
-  if (!mounted) return <div className="theme-icon-button-placeholder" />;
-
   return (
     <button
       type="button"
@@ -71,8 +64,12 @@ export default function ThemeToggle() {
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDark ? <SunIcon /> : <MoonIcon />}
+      <span className="theme-icon theme-icon--sun" aria-hidden>
+        <SunIcon />
+      </span>
+      <span className="theme-icon theme-icon--moon" aria-hidden>
+        <MoonIcon />
+      </span>
     </button>
   );
 }
-
