@@ -18,7 +18,7 @@ image_prompt_variant_1: "A playful editorial hero image for an article about man
 image_prompt_variant_2: "A witty split-scene hero image contrasting poor and strong AI management. Left side: vague requests, tangled notes, and confused outputs. Right side: structured prompts, explicit milestones, review gates, and reliable delivery from both human and AI collaborators. Professional editorial illustration with subtle humor, cinematic 16:9 framing, no logos, no readable text, no watermarks."
 ---
 
-> **Leadership angle:** [What I learned directing AI as my primary engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Why AI programs fail before they start](/posts/why-your-ai-program-may-fail-before-it-starts)  
+> **Leadership angle:** [What I learned directing AI as my primary engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Why AI programs fail before they start](/posts/why-your-ai-program-is-failing-before-it-starts)  
 > **Memory stack:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [Why deliberate file memory beats hoping agents remember](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  
 > **Tooling context:** [VS Code Copilot to Cursor migration](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow) · [Composer 2.5 as my baseline model](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)
 
