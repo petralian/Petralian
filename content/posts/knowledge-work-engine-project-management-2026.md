@@ -1,5 +1,5 @@
 ---
-title: "Project Management With a File-Based Agent Engine (Not Another PM Tool)"
+title: Project Management With a File-Based Agent Engine (Not Another PM Tool)
 slug: knowledge-work-engine-project-management-2026
 date: 2026-07-06
 status: published
@@ -19,7 +19,7 @@ related_posts:
   - knowledge-work-agent-engine-guide-2026
   - knowledge-work-engine-leadership-decisions-2026
   - getting-enterprise-ai-right-the-work-that-comes-before-deployment
-image_prompt: "Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete desk, three columns only, single brass pen, cool morning light, no readable text, no faces."
+image_prompt: Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete desk, three columns only, single brass pen, cool morning light, no readable text, no faces.
 image_prompt_variant_1: "Surreal 16:9 subway control room: three glowing lines on a map merge into one departure board, teal and amber lights, miniature scale, no readable text."
 image_prompt_variant_2: "Isometric 16:9 cutaway: inbox tray, bridge folder, milestone flag, task-app icon as three connected rooms, risograph orange and gray, no logos."
 ---

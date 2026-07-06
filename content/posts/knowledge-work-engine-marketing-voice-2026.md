@@ -1,5 +1,5 @@
 ---
-title: "Marketing and Voice at Scale With a File-Based Agent Engine (Systems, Not Style PDFs)"
+title: Marketing and Voice at Scale With a File-Based Agent Engine (Systems, Not Style PDFs)
 slug: knowledge-work-engine-marketing-voice-2026
 date: 2026-07-06
 status: published
