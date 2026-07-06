@@ -29,6 +29,16 @@ image_prompt_variant_2: "Bold isometric 16:9 poster: horizontal gate chain Direc
 > **Memory stack:** [Four tiers of external memory](/posts/three-layer-external-brain-for-ai-first-development) (Layer 4 = feedback loop)  
 > **Next:** Part 2 memory loop · Part 3 measurement
 
+## What is a Cursor agent harness?
+
+A **Cursor agent harness** is a **lightweight operating system** for AI-assisted coding inside your repo: routing rules, optional subagents, test gates, and CI checks—not a second HTTP orchestrator or LangChain service.
+
+**Who it is for:** developers and tech leads using Cursor Agent who want fewer bad deploys and retry threads without installing Harbor, Redis, or a token proxy.
+
+**What you will learn:** how to name what you already have (policy table, context-budget rule, eval gate), what the harness supports versus what you still control (model, Plan vs Agent, ship approval), and what to defer until measurement proves a gap ([Part 3](/posts/cursor-harness-measurement-2026)).
+
+---
+
 ## The problem: benchmark harnesses are not your repo harness
 
 Terminal-Bench ranks agents like LemonHarness and Harbor on hard CLI tasks in Docker. The leaderboard rewards multi-step tool loops and verification. That is useful research. It is also easy to misread as a shopping list: install another orchestrator, add Redis, route every Composer call through a microservice.
@@ -211,6 +221,53 @@ I also skipped a LangChain microservice after the proxy post-mortem: complexity 
 6. Add `docs/HARNESS-DEFER.md` so future-you does not install Redis out of FOMO.
 
 Policy files live in **git** so they diff in PRs. Session narrative stays in Obsidian (Part 2).
+
+## Quick reference: harness artifacts (example implementation)
+
+| Artifact | Example path | Job |
+|----------|--------------|-----|
+| Routing policy | `docs/HARNESS-POLICY.md` | When to use direct Composer vs batch vs test |
+| Context budget | `.cursor/rules/context-budget.mdc` | Mode A skip; link to policy |
+| Batch worker | `.github/agents/<project>-batch.agent.md` | 3+ independent tasks |
+| Test gate | `npm test` or `<project>-test` agent | Pass/fail before deploy claim |
+| CI verifier | `npm run eval:gate` | Static regression on push |
+| Defer list | `docs/HARNESS-DEFER.md` | Block orchestration until CSV proves gap |
+| Session log | `docs/harness-session-log.csv` | Weekly review ([Part 3](/posts/cursor-harness-measurement-2026)) |
+
+Swap `<project>` for your repo name. Paths are illustrative; the **pattern** is what travels.
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Installing LangChain/Harbor before naming what you have | Duplicates Agent mode; adds token rounds | Write `HARNESS-POLICY.md` first; list existing subagents and CI |
+| Treating harness as model router | You lose control of Composer vs GLM | Harness shapes **procedure** only; model stays in Cursor dropdown |
+| Batch subagent on 1–2 file fixes | Wastes tokens and context | Policy table: direct Composer for small scope |
+| Loading brain-pack on every question | 14k tokens on Mode A Q&A | `context-budget.mdc`: skip bootstrap for simple Q&A |
+| Trusting agent "tests passed" without output | Wrong-fix deploys | `tests_before_deploy=yes` in CSV; run `npm test` yourself |
+| Building from Terminal-Bench shopping lists | Benchmark tasks ≠ your repo failures | Measure your failure modes ([Part 3](/posts/cursor-harness-measurement-2026)) |
+
+## FAQ
+
+### Is a harness the same as LangChain or Harbor?
+
+**No.** Those are **research-grade orchestrators** for sandbox benchmarks. A repo harness is **rules + optional subagents + CI** inside git—no second HTTP service in front of Cursor.
+
+### Does the harness change my model or Plan vs Agent?
+
+**No.** You keep the Cursor dropdown and mode. The harness suggests routing (direct vs batch), memory gates, and test-before-ship—it does not auto-swap models.
+
+### How many subagents do I need on day one?
+
+**Zero to two.** One batch worker and one test agent are enough. Add more only when the policy table and CSV show repeated gaps.
+
+### Where do policy files live—Obsidian or git?
+
+**Git** for `HARNESS-POLICY.md`, eval JSON, and CSV schema (diff in PRs). **Obsidian** for session narrative and open loops ([Part 2](/posts/cursor-harness-memory-loop-2026)).
+
+### When should I build Phase 2 orchestration?
+
+When **all** defer gates pass: repeated `wrong-fix` with tests run, subagent overuse on small tasks, and engineering time budget—see `HARNESS-DEFER.md` and [Part 3](/posts/cursor-harness-measurement-2026).
 
 ## Reader action
 

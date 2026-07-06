@@ -32,6 +32,14 @@ This is the problem the AI tools market has been quietly racing to solve for the
 
 Here is what they are, how they differ, why Karpathy's wiki pattern went viral for reasons that don't fully justify the hype, and - most importantly - which approaches are likely to still matter when the tooling landscape looks completely different eighteen months from now.
 
+## What is the AI memory problem?
+
+The **AI memory problem** is that every assistant session starts **stateless**: you re-establish context, knowledge, and operational handoffs unless you build **external, tool-agnostic memory** the runtime loads on purpose.
+
+**Who it is for:** builders evaluating OpenClaw, Hermes, Karpathy's LLM wiki, or plain Obsidian—and anyone tired of re-uploading the same docs every week.
+
+**What you will learn:** three distinct memory failures (contextual, knowledge, operational), how four 2026 approaches map to them, and why **portable markdown** outlasts agent-native memory when tools churn.
+
 ---
 
 ## The Problem Is Not What Most People Think It Is
@@ -165,6 +173,55 @@ What I have found - through building a system that has now survived twelve month
 The specific tools you pick matter less than the principle. Context travels with you, compiled once, readable by anything.
 
 That is the version that survives what comes next.
+
+## Quick reference: four approaches vs three memory failures
+
+| Approach | Best at | Weak at | Portability |
+|----------|---------|---------|-------------|
+| **OpenClaw** | Contextual + operational (persistent agent on your machine) | Structured knowledge compilation | Agent-bound; export is your job |
+| **Hermes** | Server-deployed autonomous agent + isolation | Same knowledge-depth gap as personal agents | Infrastructure-coupled |
+| **OpenHuman / digital twin** | Portable context file any model reads | Stale twin misleads worse than none | High if you maintain it |
+| **Karpathy LLM wiki** | Knowledge compilation (&lt;~100K tokens) | Scale, multi-user, real-time data | Files in `raw/` + `wiki/` |
+| **Obsidian + MCP (example stack)** | All three via layered files | Discipline to write session end | Plain markdown survives tool churn |
+
+| Memory failure | Symptom | Example fix layer |
+|----------------|---------|-------------------|
+| Contextual | Cold start every chat | `00_Brain/` bootstrap files |
+| Knowledge | Research not compounded | Evergreen / compiled notes |
+| Operational | Broken handoffs | Session summaries + open loops |
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Treating one tool as "solved memory" | Three failures need three mechanisms | Map contextual / knowledge / operational separately |
+| Coupling compiled knowledge to one agent platform | Schema changes = migration tax | Plain markdown + simple MCP/file I/O |
+| Karpathy wiki above ~100K tokens without RAG | Reinventing retrieval badly | Scope wiki to compilation economics; RAG for corpora |
+| OpenClaw/Hermes as knowledge base | Conversational memory ≠ domain synthesis | Build evergreen notes yourself |
+| Digital twin without update habit | Outdated context misleads | Session-end promotion rule into canonical files |
+| Skipping operational memory | Monday amnesia on "what we decided" | Dated session notes + Bridge file |
+
+## FAQ
+
+### Is OpenClaw "better" than Obsidian for memory?
+
+**Different layer.** OpenClaw excels at **ambient agent delivery**; Obsidian (or any markdown vault) excels at **portable compiled knowledge**. Many builders use both with a thin integration.
+
+### Does Karpathy's wiki replace RAG?
+
+**Only narrowly**—personal research bases under ~100K tokens where you pay synthesis once. Large or dynamic corpora still need RAG.
+
+### What is operational memory in practice?
+
+**Session handoffs:** what shipped, open loops, deploy state—written to files the **next** session reads instead of re-parsing chat.
+
+### Why tool-agnostic files?
+
+Agent platforms churn; **markdown on disk** does not. Your knowledge layer should survive IDE and vendor changes ([External Memory series](/posts/external-memory-series-guide)).
+
+### Where do I start without installing OpenClaw?
+
+**Three files:** Bridge (priority), session summary line, one evergreen note for your active project—then add MCP or native Read when ready.
 
 ---
 

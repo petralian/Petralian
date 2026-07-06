@@ -15,6 +15,15 @@ seo_description: ''
 ---
 
 When building a platform designed to empower brands, one of the most important questions we kept coming back to was this: **How do we help brands not just attract customers but keep them coming back?** The solution we arrived at is one of the simplest yet most impactful features of [Buy.social](http://Buy.social)-our **messaging and notifications system**. It’s more than just a communication tool; it’s a driver of engagement, a feedback loop, and an advertising channel all rolled into one.
+## What is social commerce engagement infrastructure?
+
+**Social commerce engagement infrastructure** connects messaging, notifications, and community touchpoints so brands sustain conversation beyond the transaction—turning social audiences into repeat buyers.
+
+**Who it is for:** social commerce founders, DTC marketers, and platform builders evaluating engagement stacks.
+
+**What you will learn:** why messaging plus notifications matter; how buy.social approaches the problem; and design principles for durable engagement.
+
+---
 
 ### **The Problem: Engagement That Ends at the Sale**
 
@@ -120,3 +129,39 @@ The messaging and notifications system may be one of the simplest features of [B
 For brands, it’s a tool that bridges the gap between transactions and relationships. For customers, it’s a way to feel seen, valued, and connected. And for us, it’s a feature that embodies everything Buy.social stands for: **empowerment, engagement, and authenticity.**
 
 If you’re ready to take your customer relationships to the next level, [Buy.social](http://Buy.social)’s messaging and notifications system is the key to unlocking deeper connections and lasting loyalty.
+
+---
+
+## Common mistakes (social commerce engagement)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Broadcast-only social | Low reply rates and churn | Design two-way conversation flows |
+| Notification spam | Uninstalls and mutes | Preference centers and value-per-message |
+| No post-purchase thread | One-and-done customers | Trigger care and replenishment messages |
+| Platform dependency without owned IDs | Audience trapped in rent | Capture email/phone with consent |
+| Generic blast templates | Weak conversion | Segment by behavior and purchase history |
+
+---
+
+## FAQ
+
+### Why combine messaging and notifications?
+
+Messaging handles dialogue; notifications re-engage at the right moment—together they close the loop.
+
+### How is this different from email marketing?
+
+Social-native channels meet customers where they already spend attention—with faster feedback loops.
+
+### What metrics define engagement quality?
+
+Reply rate, opt-in retention, repeat purchase from engaged cohorts—not raw send volume.
+
+### How do brands avoid feeling intrusive?
+
+Explicit consent, easy opt-down, and clear value per touch.
+
+### When should startups build vs buy engagement tooling?
+
+Buy/core platform early; build differentiation where your UX is the product.

@@ -29,6 +29,18 @@ image_prompt_variant_2: 'Side-by-side maze comparison: left side shows tangled p
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
+
+
+## What is the real cost of AI coding assistants?
+
+**Real cost of AI coding assistants** compares subscription tools like GitHub Copilot against API routers like OpenRouter—including model choice, usage caps, IDE integration, and hidden token burn beyond sticker price.
+
+**Who it is for:** developers choosing personal or team AI coding budgets.
+
+**What you will learn:** how to compare Copilot vs OpenRouter fairly; cost drivers; and when each model makes financial sense.
+
+---
+
 ## The Problem: Copilot's Pricing Model Just Changed
 
 GitHub Copilot is moving from request-based billing to token-based billing on June 1, 2026. If you're a heavy coder on Copilot Pro+ at $39/month, you may have already hit your 1,500 premium request allowance by mid-month. The question isn't whether Copilot is useful — it's whether the new pricing model still makes sense once you compare it against direct API access through OpenRouter, or against the much cheaper (and riskier) third-party relays that have appeared on the market.
@@ -247,3 +259,39 @@ The decision isn't "which is cheaper?" It's "which cost structure matches how I 
 - [GitHub Copilot Plans](https://github.com/features/copilot/plans)
 - [Anthropic Claude Sonnet 4.6 Announcement](https://www.itpro.com/technology/artificial-intelligence/anthropic-promises-opus-level-reasoning-claude-sonnet-4-6-model-at-lower-cost)
 - Third-party relay (OpenAI-Hub) public pricing screenshots, May 2026
+
+---
+
+## Common mistakes (AI dev tool costing)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Comparing subscription only to raw API list price | Apples to oranges | Normalize per active dev per month with usage |
+| Ignoring premium model surcharges | Bill shock on OpenRouter | Cap models and monitor dashboards |
+| No logging of token-heavy tasks | Cannot optimize spend | Track agent vs chat usage separately |
+| Paying twice for overlapping tools | Copilot + Cursor + API | Pick primary IDE integration first |
+| Benchmarking on toy prompts | Misestimate production spend | Use real repo tasks for test week |
+
+---
+
+## FAQ
+
+### Is Copilot cheaper than OpenRouter?
+
+For **heavy IDE autocomplete**, often yes—all-you-can-eat feel. For **flexible models**, OpenRouter can win or lose by model mix.
+
+### What hidden costs matter?
+
+Premium models, agent loops, failed retries, and duplicate subscriptions across tools.
+
+### Can teams mix both?
+
+Yes—Copilot for daily completion, OpenRouter for specific models or agents.
+
+### How do I run a fair 30-day comparison?
+
+Same projects, log tokens/requests, include IDE time saved subjectively.
+
+### When is OpenRouter clearly better?
+
+When you need model choice, routing, or non-GitHub IDEs at scale.

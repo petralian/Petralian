@@ -30,6 +30,17 @@ That was the issue: close the gap between "subscribe works" and "the full system
 
 ---
 
+
+## What is a Brevo-free newsletter pipeline?
+
+A **Brevo-free newsletter pipeline** delivers a weekly digest using Brevo's free tier—automating subscriber capture, template sends, and content assembly without paid ESP cost at low volume.
+
+**Who it is for:** indie publishers and founders starting email from zero.
+
+**What you will learn:** how the Petralian weekly digest is built; Brevo limits and workarounds; and automation hooks from site to inbox.
+
+---
+
 ## The Problem I Needed to Solve
 
 The publishing side of petralian.com was already in good shape. The site architecture is documented in [/posts/why-i-rebuilt-petralian-on-nextjs](/posts/why-i-rebuilt-petralian-on-nextjs): file-based posts, Next.js, Vercel deployment, and an Obsidian-first writing workflow.
@@ -235,3 +246,39 @@ For petralian.com, the right choice was not "find the perfect dashboard." The ri
 That made the setup simpler, not more complex.
 
 The result is exactly what I needed: a weekly digest pipeline that is cheap to run, explicit to debug, privacy-aware by design, and straightforward to fork.
+
+---
+
+## Common mistakes (free-tier email)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| No double opt-in where required | Compliance issues | Follow GDPR/local consent rules |
+| Sending from unverified domain | Spam folder destiny | Verify SPF/DKIM early |
+| Manual copy-paste each week | Missed sends | Template + automated content snippet |
+| Ignoring Brevo contact limits | Sudden block at growth | Plan upgrade path before ceiling |
+| No archive on site | SEO and trust loss | Mirror issues as blog posts |
+
+---
+
+## FAQ
+
+### Is Brevo free tier enough to start?
+
+Yes for early lists—watch contact and send limits.
+
+### How does the digest get content?
+
+Typically automated from latest posts or curated markdown assembled before send.
+
+### What domain setup is required?
+
+Verified sender domain with SPF, DKIM, and branded from-address.
+
+### When should I upgrade from free?
+
+When contacts, automation complexity, or deliverability support outgrow tier caps.
+
+### Can I migrate subscribers later?
+
+Yes—export contacts and import to another ESP with consent records.

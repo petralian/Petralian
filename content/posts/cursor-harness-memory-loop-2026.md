@@ -28,6 +28,16 @@ image_prompt_variant_2: "Bold isometric 16:9: stacked memory layers with one arr
 > **Part 1:** [Lightweight harness without a microservice](/posts/cursor-lightweight-harness-without-microservice-2026) — you keep model and mode control  
 > **Memory foundation:** [Four tiers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [External Memory series hub](/posts/external-memory-series-guide) · [Governance layer](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
 
+## What is the harness memory loop?
+
+The **harness memory loop** is how a Cursor agent harness **gates when each memory tier loads**—short-term chat, operational handoffs, evergreen docs, and feedback hardened into rules—so you keep control without pasting 14k tokens on every question.
+
+**Who it is for:** builders who already use Obsidian, `memories/repo/`, or session summaries and want those files to load **once** on code work, **skip** on quick Q&A, and **write back** at session end.
+
+**What you will learn:** the four-tier map (including Layer 4 feedback), which tier lives in git vs vault, and how session summary lines feed the CSV in [Part 3](/posts/cursor-harness-measurement-2026).
+
+---
+
 ## The problem: memory everywhere means tokens everywhere
 
 External memory works when agents read the same files in the same order every session. It fails when every tier loads on every turn: vault Session Summaries, brain-pack gotchas, MCP Obsidian reads, and subagents each re-embedding 14k tokens for a question that needed one paragraph.
@@ -196,6 +206,54 @@ GATE.CODE -> L2 -> WORK -> L4
 2. Point `sessionStart` at your `session-prep` script; generate brain-pack from `memories/repo/`.
 3. One Obsidian vault root per project in MCP or native Read.
 4. Teach agents: Mode A skips bootstrap; ship sessions write one Summary line.
+
+## Quick reference: memory tiers and gates
+
+| Tier | Name | Example content | Harness gate |
+|------|------|-----------------|--------------|
+| L1 | Short-term | Chat, open files, git diff | Always in context—do not duplicate in brain-pack |
+| L2 | Operational | Session Summaries, `memories/repo/*`, brain-pack | **Once** at code session start; **skip** Mode A |
+| L3 | Evergreen | `Features/*`, architecture notes | On demand for task area |
+| L4 | Feedback | Rules, hooks, footer, `eval:gate` | Write at session end; read via `alwaysApply` rules |
+
+| Session type | L2 | L3 | L4 | Subagents |
+|--------------|----|----|-----|-----------|
+| Mode A Q&A | Skip | Skip unless one Feature needed | Rules only | No |
+| Code work | brain-pack once | Relevant Features | Footer Mode C–D at ship | Per policy table |
+| Plan-only | Lighter bootstrap | IDN if 3+ files | No deploy fields | No batch for single scope |
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Treating brain-pack as "load everything" | Token bloat every turn | brain-pack = warm L2 embed + L3 pointers, not full vault |
+| MCP + native Read on same vault file | Double context in one turn | Pick one path per file per turn |
+| Skipping Layer 4 writes at session end | Lessons stay in chat only | Footer **Self-improvements** with `path:Lnn` |
+| Loading vault sweep for one-line questions | Mode A becomes expensive | Harness gate: skip L2 bootstrap |
+| Confusing L2 narrative with L4 instrumentation | Weekly math gets muddy | Summaries in Obsidian; CSV rows in git ([Part 3](/posts/cursor-harness-measurement-2026)) |
+| Expecting agents to "remember" without files | Amnesia every new chat | Four tiers with explicit load gates |
+
+## FAQ
+
+### Is Layer 4 a folder I grep?
+
+**No.** Layer 4 is **feedback hardened**: rules, hooks, footer contract, and CI gates—not another directory to paste into every turn.
+
+### How is this different from the three-layer External Memory diagram?
+
+The series uses **three layers for clarity**; in practice there are **four tiers**—the fourth is the feedback loop (rules + footer + eval). See [External Memory hub](/posts/external-memory-series-guide).
+
+### Can I override a memory gate?
+
+**Yes.** Plain language works: "skip vault," "read Features/Referrals only," "inline this, no batch." Gates are defaults, not locks.
+
+### What goes in git vs Obsidian?
+
+**Git:** `HARNESS-POLICY`, eval JSON, CSV schema. **Obsidian:** session narrative, Bridge, open loops. **Both:** `memories/repo/` mirror where you use it.
+
+### Do I need MCP for vault reads?
+
+**No.** Native `Read`/`Grep` on local vault paths is often faster. MCP is for writes or when the agent cannot see the disk path.
 
 ## Reader action
 

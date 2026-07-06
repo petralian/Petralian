@@ -36,6 +36,17 @@ What follows is an explanation of what is happening, two approaches to fix it, a
 
 ---
 
+
+## What is the CSS column-count reading order bug?
+
+The **CSS column-count reading order bug** happens when multi-column layouts fill **top-to-bottom per column** instead of left-to-right across rows—breaking expected masonry reading order for blog cards and galleries.
+
+**Who it is for:** front-end developers building masonry grids in CSS or React/Next.js.
+
+**What you will learn:** why `column-count` silently reorders content; DOM flow vs visual expectation; and the split-column fix with responsive breakpoints.
+
+---
+
 ## Responsive follow-up
 
 The first version of this fix focused on reading order. This follow-up keeps the same content order logic, but makes the layout responsive by sharing one masonry component that steps through 1 column on mobile, 2 on tablet, and 3 on desktop.
@@ -214,3 +225,39 @@ The split-columns approach requires more code upfront: a utility function, a `us
 ---
 
 *This is one of several problems I documented in [building petralian.com on Next.js](/posts/building-petralian-the-technical-reality). The `splitIntoColumns` function and the full responsive implementation are in the `BlogFilters` component on the site's writing index.*
+
+---
+
+## Common mistakes (CSS masonry)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Using column-count for semantic reading order | Screen readers and keyboard follow wrong sequence | Split items into explicit columns in DOM |
+| Assuming flex/grid fixes masonry + order | Variable heights still need column strategy | Use calculated column split or masonry library |
+| Ignoring mobile single-column fallback | Horizontal scroll or clipped cards | Collapse to one column under breakpoint |
+| Equal-height cards to fake masonry | Cropped content or empty space | Accept variable height with proper column flow |
+| No visual QA with 9+ items | Bug appears only at scale | Test numbered card sequence in devtools |
+
+---
+
+## FAQ
+
+### Why does column-count break reading order?
+
+CSS columns stack items vertically in column 1, then column 2—like newspaper layout—not row-major grid order.
+
+### What is the reliable fix?
+
+Programmatically distribute items into separate column containers so DOM order matches visual left-to-right flow.
+
+### Does CSS Grid masonry solve this natively?
+
+Browser support and behavior vary; explicit column split remains the most predictable cross-browser approach.
+
+### Does this affect accessibility?
+
+Yes—assistive tech follows DOM order, which may not match what sighted users see with column-count.
+
+### Should I use a JavaScript masonry library instead?
+
+For complex dynamic layouts, yes; for static card grids, split-column CSS/JS is often enough.

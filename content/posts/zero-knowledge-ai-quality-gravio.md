@@ -100,6 +100,59 @@ Whether you use Gravio or another platform, ask these questions:
 
 If those answers are unclear, your quality pipeline has hidden risk.
 
+## What is zero-knowledge AI quality scoring?
+
+Zero-knowledge AI quality scoring measures agent and repository quality **without requiring plaintext prompts, outputs, or source on the server path**. The local workflow scans where code lives; data intended for cloud storage is encrypted before publish. The goal is deep quality insight without turning the scoring platform into a new data-risk surface.
+
+---
+
+## Quick reference: evaluating privacy claims
+
+| Question | Strong answer |
+|----------|---------------|
+| Does the server need plaintext to function? | No—encrypted path is structural |
+| Is encryption optional or default? | Structural, not a toggle |
+| Are there bypass endpoints? | Documented and auditable |
+| Worst-case breach exposure? | Ciphertext, not full repo context |
+
+---
+
+## Common mistakes (privacy-first quality tooling)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| "Add privacy later" | Retrofit never completes | Design encrypted path up front |
+| Assuming privacy means fewer insights | Teams avoid tooling entirely | Trends and scores without central plaintext |
+| Trusting marketing labels | Security review blocks rollout | Verify data path in docs and contracts |
+| Using quality tools only on "safe" repos | Uneven signal, silent risk | Clear trust boundaries enable broader adoption |
+| Centralizing everything for convenience | Accidental data lake | Least-privilege publish workflow |
+
+---
+
+## FAQ
+
+### Does privacy-first scoring reduce actionable insights?
+
+**Not necessarily.** You can still capture score trends, category movement, and regression signals without storing plaintext run JSON centrally.
+
+### Who benefits besides enterprise security teams?
+
+Startups with customer logic, agencies under NDAs, and small teams who want safe defaults before migration pain compounds.
+
+### How does Gravio's zero-knowledge path work in practice?
+
+Local scan and quality generation at the repo; encrypted publish before cloud storage; server path should not require plaintext run content.
+
+### When should I pair this with CI gates?
+
+After onboarding and baseline scans—see [first score in 10 minutes](/blog/first-gravio-score-in-10-minutes/) then [drift monitoring](/blog/ai-agent-quality-drift-detection/) before hard gates.
+
+### What should security reviewers ask first?
+
+"Where does sensitive data exist in plaintext?" If the answer is local-only with encrypted publish, approvals become more realistic.
+
+---
+
 ## A Better Quality Posture
 
 AI quality should feel like a reliability improvement, not a compliance exception waiting to happen. Privacy-first scoring gives teams room to measure what matters while protecting what cannot leak.

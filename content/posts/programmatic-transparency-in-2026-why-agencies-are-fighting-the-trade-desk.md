@@ -20,6 +20,16 @@ So let me give you the version the trade press is mostly missing.
 
 ---
 
+## What is programmatic transparency in 2026?
+
+**Programmatic transparency in 2026** is the industry push for auditable media supply paths, fee clarity, and advertiser control—as agencies challenge walled gardens like The Trade Desk over data access and hidden margin.
+
+**Who it is for:** media agency leaders, procurement, and brand-side media directors.
+
+**What you will learn:** why transparency fights intensified; what agencies want from DSPs; and how brands should contract for clarity.
+
+---
+
 ### How the Agency USP Got Quietly Dismantled
 
 Not long ago, an agency's core value was built on relationships. They knew the publishers, they could get your brand in front of the right audience because they had access and influence that advertisers simply could not replicate on their own. The deal was straightforward: hand over a budget, trust the agency's network, and hopefully see the return.
@@ -84,3 +94,39 @@ The agencies that lean into that evolution openly and build their value proposit
 -   [ANA Q1 2025 Programmatic Transparency Benchmark - HUMAN Security Analysis](https://www.humansecurity.com/learn/blog/which-supply-paths-work-unlocking-the-hidden-map-of-programmatic-spend/)
 -   [eMarketer: FAQ on Ad Agencies - Consolidation, AI, and What's Changing in 2026](https://www.emarketer.com/content/faq-on-ad-agencies--consolidation--ai-disruption--what-s-changing-2026)
 -   [AI Digital: How Programmatic Platforms Absorb Budget Through Supply Chain Inefficiency](https://www.aidigital.com/blog/supply-side-optimization-with-ai)
+
+---
+
+## Common mistakes (programmatic governance)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Optimizing CPM only | Cheap inventory, poor outcomes | Balance cost with quality and attention |
+| Accepting opaque supply paths | Fraud and rebate risk | Demand ads.txt/sellers.json hygiene |
+| No independent verification | Reported vs verified gap | Use third-party measurement |
+| Agency incentives misaligned | Volume over value | Contract on outcomes and disclosed fees |
+| Ignoring retail media complexity | Double counting attribution | Separate retail vs open web KPIs |
+
+---
+
+## FAQ
+
+### Why are agencies fighting The Trade Desk now?
+
+Concentrated power over data, fees, and inventory access threatens agency and advertiser leverage.
+
+### What should brands ask DSP partners?
+
+Fee disclosure, log-level data access, supply path transparency, and retail media reporting standards.
+
+### Is programmatic still worth it in 2026?
+
+Yes—with governance; blind programmatic without verification is not.
+
+### How does retail media change transparency?
+
+New walled gardens require separate audit standards from open web.
+
+### What is the buyer's first move?
+
+Revisit contracts for data portability, verification rights, and rebate disclosure.

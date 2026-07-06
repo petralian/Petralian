@@ -163,6 +163,60 @@ None of this requires a frontier model. It requires the same discipline I would 
 
 ---
 
+## What is managing AI like managing an employee?
+
+Managing AI like an employee means applying delegation habits—show examples, document context, guide in steps, define outcomes, close the loop—to a worker that **resets every session**. The metaphor holds when you externalize memory into files, rules, and handoff notes. It breaks when you rely on rapport or implied norms: if it is not written, the next session did not happen.
+
+---
+
+## Quick reference: five management principles
+
+| Principle | Management habit | Agent equivalent |
+|-----------|------------------|------------------|
+| **1. Show + write** | Worked examples + playbook | File paths, `AGENTS.md`, session notes |
+| **2. Step by step** | Milestones and check-ins | Sequenced tasks with review gates |
+| **3. Clear ask** | Scope, constraints, references | Explicit bounds and exemplars in prompt |
+| **4. Expected outcomes** | Definition of done | Verifiable artifacts (tests, notes, footers) |
+| **5. Close the loop** | Performance feedback | Correct output; promote lessons to rules |
+
+---
+
+## Common mistakes (directing AI agents)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Explaining constraints only in chat | Same error every session | Write decisions to rules or `open-loops.md` |
+| Single-message "build the feature" | Skipped bootstrap and architecture | Decompose into milestones with review gates |
+| Vague asks | Confident wrong answers | Name scope, constraints, and references |
+| No definition of done | Output sounds complete but handoff missing | State verifiable outcomes before work starts |
+| Skipping the close loop | Next session starts with chat archaeology | Summary, open loops, self-improvements to rules |
+
+---
+
+## FAQ
+
+### Does this require a frontier model?
+
+**No.** Discipline and file memory matter more than model tier. GitHub's Copilot study found large speed gains—but only with quality context supplied [1].
+
+### How does this relate to enterprise AI readiness?
+
+Individual **define done first** discipline parallels organizational gates in [getting enterprise AI right](/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment). Session footers are micro-governance for builders.
+
+### Where should context live?
+
+Durable context belongs in files the agent reads at session start—vault notes, `AGENTS.md`, `.cursor/rules`—not chat scrollback. See the [external brain stack](/posts/three-layer-external-brain-for-ai-first-development).
+
+### What breaks the employee metaphor?
+
+Agents do not accumulate institutional memory unless you write it down. Rapport, implied norms, and "they should remember" do not transfer.
+
+### How do I know the loop is working?
+
+Shorter prompts (you link instead of re-paste), less architectural drift, and auditable handoffs with priority and open loops at session start.
+
+---
+
 ## What you can do next
 
 1. Pick one active task and rewrite the ask with scope, constraints, references, and definition of done.

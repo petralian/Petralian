@@ -14,6 +14,18 @@ seo_description: ''
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
+
+
+## What is Salesforce's platform strategy shift?
+
+**Salesforce's platform strategy** increasingly embeds CRM, data, and AI behind customer workflows—risking brand visibility while aiming to become indispensable infrastructure rather than a standalone app users open daily.
+
+**Who it is for:** CRM buyers, martech architects, and partners evaluating Salesforce's long-term role.
+
+**What you will learn:** invisible-by-design vs irrelevant; how Agentforce and Data Cloud change the story; and implications for enterprises.
+
+---
+
 ## Salesforce and the AI CRM Future: Bold Land Grab or Last Stand?
 
 I came across a LinkedIn post this week that made me stop scrolling. The argument was simple but provocative: everyone thinks AI will enhance Salesforce, but it might actually make Salesforce invisible. And not in a bad way for Salesforce, at least not on the surface. The post described a "Headless 360" model where the UI disappears, workflows move to APIs and agents, and Salesforce quietly becomes the infrastructure no one sees but everyone depends on.
@@ -89,3 +101,39 @@ Learn more:
 18.  [AI Disruption Fears Pressured Salesforce (CRM) in Q1 - Insider Monkey](https://www.insidermonkey.com/blog/ai-disruption-fears-pressured-salesforce-crm-in-q1-1743759/)
 19.  [Salesforce Stock Jumps as Agentforce AI Revenue Scorecard Gets a Reset](https://ts2.tech/en/salesforce-stock-jumps-as-agentforce-ai-revenue-scorecard-gets-a-reset/)
 20.  [Marketing Statistics: 100+ Insights for 2026 | Salesforce](https://www.salesforce.com/marketing/marketing-statistics/)
+
+---
+
+## Common mistakes (CRM platform bets)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Buying licenses without adoption plan | Shelfware CRM | Invest in change management and data hygiene |
+| Assuming platform ubiquity equals fit | Overpaying for unused modules | Map use cases before expansion |
+| Ignoring integration tax | Fragmented customer view | Budget iPaaS and master data work |
+| Treating Salesforce as only sales tool | Miss service and marketing unification | Align clouds to journey ownership |
+| Switching costs as sole moat | Competitors catch on UX | Measure workflow value, not lock-in |
+
+---
+
+## FAQ
+
+### Is Salesforce becoming irrelevant?
+
+Not broadly—but **point solutions and AI layers** pressure undifferentiated deployments.
+
+### What does invisible CRM mean?
+
+CRM capabilities embedded in workflows users already inhabit—less standalone UI time.
+
+### How should buyers respond?
+
+Demand clear adoption metrics and integration roadmaps, not feature checklists.
+
+### Does Agentforce change the calculus?
+
+It raises the bar for AI-native workflow—if data foundation is ready.
+
+### When is Salesforce the wrong choice?
+
+When requirements are narrow, team is small, and simpler stacks suffice with less ops overhead.

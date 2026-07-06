@@ -106,6 +106,60 @@ Maintain a fixture file of malicious and noisy HTML snippets. Your capture CLI t
 
 Run the fixture in CI on every change to the capture tool, not only on agent prompt changes.
 
+## What is the UI capture prompt injection risk?
+
+The UI capture prompt injection risk is the chance that **untrusted DOM content**—hidden nodes, data attributes, third-party widgets—gets serialized into SKILL.md or agent context and interpreted as instructions. Design capture tools that paste outerHTML verbatim create a new trust boundary: the DOM becomes prompt payload unless sanitized at capture time.
+
+---
+
+## Quick reference: sanitization rules
+
+| Rule | Action |
+|------|--------|
+| **Strip risky tags** | Remove script, iframe, template, foreignObject unless needed |
+| **Drop hidden nodes** | `hidden`, `aria-hidden`, `display:none` |
+| **Allowlist attrs** | class, role, href, src, alt, data-testid |
+| **Truncate text** | Cap characters per element; structure over marketing copy |
+| **Hash output** | Log sanitized hash in skill header for git diff visibility |
+
+---
+
+## Common mistakes (design capture for agents)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Pasting production outerHTML raw | Agent follows hidden instructions | Sanitize at capture boundary |
+| Page-level capture | Bloated context + injection surface | Section-level or component-level capture |
+| Mixing narrative with tokens | Marketing copy becomes commands | Separate tokens JSON from HTML dumps |
+| No fixture tests for sanitizer | Regression on CLI changes | CI fixtures with malicious HTML snippets |
+| Skipping human review on high-risk repos | Autonomous mode with polluted skills | `reviewed_by` footer before agent use |
+
+---
+
+## FAQ
+
+### Why is hidden DOM text dangerous for agents?
+
+Models treat skill file content as **authoritative context**. `display:none` blocks or CMS editorial attributes can smuggle "ignore previous instructions" into otherwise legitimate design references.
+
+### What should I capture instead of full pages?
+
+CSS variables, token JSON, component prop interfaces, and **redacted screenshots**—not entire marketing pages.
+
+### How do I test the capture CLI?
+
+Maintain malicious HTML fixtures; assert injection strings never appear, allowed structure preserved, and output size stays under a ceiling.
+
+### Is staging safer than production for capture?
+
+Not automatically—staging CMS notes and widgets can carry the same injection paths. Treat **every** source as untrusted.
+
+### Where does this connect to quality governance?
+
+Pair bounded capture with [agent quality monitoring](/blog/ai-agent-quality-drift-detection/) and CI gates when capture tools feed autonomous workflows.
+
+---
+
 ## What you can do next
 
 1. Audit existing SKILL.md files for raw HTML pasted from production pages.

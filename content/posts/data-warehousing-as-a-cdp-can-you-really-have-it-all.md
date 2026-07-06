@@ -16,6 +16,17 @@ seo_description: ''
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 In almost every conversation I have with clients about data and marketing technology, the question comes up: “Can’t we just use our [data warehouse](https://en.wikipedia.org/wiki/Data_warehouse) as a customer data platform (CDP)?” It’s easy to see why this is so appealing-organizations want to maximize existing investments, minimize redundancies, and give both IT and marketing teams flexibility. But the real answer is more nuanced, especially as expectations for personalization and real-time engagement grow.
 
+
+## What is a composable CDP on a data warehouse?
+
+A **composable CDP** layers identity resolution, audience building, and activation on top of an existing **data warehouse** instead of buying a standalone customer data platform—trading packaged speed for stack flexibility.
+
+**Who it is for:** martech leads, data platform owners, and marketing ops teams evaluating warehouse-native personalization.
+
+**What you will learn:** when warehouse-as-CDP works; where real-time activation and identity stitching break down; and how to decide between composable, hybrid, and packaged CDPs.
+
+---
+
 ## Why the Data Warehouse Looks Like an Easy Win
 
 Data warehouses are foundational for any modern, data-driven organization. They house rich first-party data, including everything from transactional histories to customer engagement records. IT teams run queries for insights, and data scientists use these datasets for modeling and business intelligence. It makes sense to ask: if all your customer data already lives here, why add another tool?
@@ -51,3 +62,39 @@ While the idea of using your data warehouse as a CDP is tempting-and, for some b
 If you’re considering whether to repurpose your warehouse or invest in a purpose-built CDP, ask yourself: Is your goal just to reduce tech spend, or to drive real-time, personalized experiences that set your brand apart? The answer will shape the architecture-and the results-you achieve.
 
 If you’d like to discuss the right data strategy for your business or how to get started with a federated approach, reach out. I’m always happy to share what I’m seeing in the market and what’s working for leading brands.
+
+---
+
+## Common mistakes (warehouse as CDP)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Assuming SQL equals marketer self-serve | IT becomes the activation bottleneck | Add reverse ETL + audience UI or packaged activation |
+| Skipping identity resolution design | Duplicate profiles and broken journeys | Invest in ID graph rules before scale |
+| No real-time use-case inventory | Batch-only stack for onsite triggers | Map latency requirements per channel first |
+| Duplicating warehouse and CDP silos | Two truths, conflicting segments | Pick system of record per data type |
+| Buying composable for cost alone | Hidden integration and ops tax | Model TCO including data engineering |
+
+---
+
+## FAQ
+
+### Can a data warehouse fully replace a CDP?
+
+For **analytics and batch activation**, often yes. For **real-time onsite personalization** and marketer-friendly audience design, usually not without additional layers.
+
+### What is the composable CDP stack minimally?
+
+Warehouse + identity model + reverse ETL/activation + consent governance + audience tooling marketers can run.
+
+### When does a packaged CDP still win?
+
+When speed to market, built-in identity, and native channel connectors matter more than owning every pipe in-house.
+
+### Who should own the architecture decision?
+
+Jointly: data platform (integrity, cost), marketing (use cases, latency), and legal (consent).
+
+### How do I test the approach without a rip-and-replace?
+
+Pilot one journey—e.g., abandoned browse—with warehouse-sourced segments and measure time-to-activate vs your current CDP.

@@ -41,6 +41,16 @@ This article answers four questions plainly: Is the file-based design better? Di
 
 ---
 
+## What is file-based AI memory vs the three-layer diagram?
+
+**The three-layer diagram** (short-term memory, long-term memory, feedback) describes memory *inside* an agent runtime—attention, retrieval, and product-side learning. **File-based external memory** stores operational handoffs, evergreen product notes, and enforceable rules in Markdown and git that you own, diff, and port across tools.
+
+**Who it is for:** Builders comparing in-chat or in-product memory to a deliberate external brain before committing to a stack.
+
+**What you will learn:** When each architecture wins, five reasons files win for production work, honest tradeoffs, and a one-table decision guide. Implementation detail is in [Part 1](/posts/three-layer-external-brain-for-ai-first-development); the [series hub](/posts/external-memory-series-guide) maps the full series.
+
+---
+
 ## The problem the diagram solves vs the problem I had
 
 The diagram describes memory **inside an agent runtime**:
@@ -330,6 +340,56 @@ As of May 2026 the reference implementation gained:
 - Consistent vault roots across MCP templates and docs (project vault + `00_Brain`)
 
 That does not change the philosophy. It **lowers the cost** of the file-based design—closer to automatic transfer at session open and commit time, without pretending the model has a hippocampus.
+
+---
+
+## Quick reference
+
+| Question | In-model / diagram default | File-based external brain |
+|----------|----------------------------|---------------------------|
+| Where does memory live? | Inside agent runtime | Markdown, git, Obsidian, hooks |
+| Resume after days away | Product-dependent | Bridge, Summaries, `NEXT_SESSION.md` |
+| Audit ("why did we ship?") | Weak (thread scroll) | Feature notes + commit hooks + footers |
+| Tool / model churn | Often resets | Same bootstrap paths on disk |
+| Best fit | Quick prototypes, single vendor | Long-lived products, multi-tool workflows |
+
+**Verdict shorthand:** Better for durable AI-first development; different by design; worse only when scope is small or files won't be maintained.
+
+---
+
+## Common mistakes
+
+| Mistake | Symptom / risk | Fix |
+|---------|----------------|-----|
+| Low structural match → "failing grade" | Optimizing for diagram similarity instead of handoff | Invest in operational layer + evergreen notes, not chat summarization alone |
+| Adopting full four-tier stack for a weekend script | Complexity without payoff | Use diagram-style chat for exploratory work; files when sessions span months |
+| Collapsing operational and evergreen into one "LTM" | Noisy bootstrap or shallow product truth | Split: Bridge for Monday, `Features/*.md` for invariants |
+| File memory without session-end discipline | Rotting notes; worse than long-context chat | One promotion rule and footer before adding more tiers |
+| Treating chat feedback as governance | Same bug class returns | Require file-path citations in session footer; write rules to agent instructions |
+
+---
+
+## FAQ
+
+### Is file memory always better than the diagram?
+
+**No—for 20-minute exploration or single-vendor personal chat, in-product memory is often enough.** Files win for production apps, multi-tool workflows, audit, and resume-after-weeks.
+
+### What does "~70% overlap, ~40% structural match" mean?
+
+**Same concepts (session context, durable store, feedback), different implementation plane.** You added an operational tier and file-based LTM the diagram does not show—that is intentional, not a gap.
+
+### Can I combine both approaches?
+
+**Yes—hybrid is common.** Use product memory for convenience inside one tool; use files for product truth, handoffs, and rules that must survive churn.
+
+### When is file memory worse?
+
+**Small scope, no maintenance habit, or desire for effortless memory without writing.** Honest tradeoffs are in the "Is it worse?" section above.
+
+### Where do I implement file memory?
+
+**Start with [Part 1](/posts/three-layer-external-brain-for-ai-first-development)** for bootstrap order and hooks; [Part 4](/posts/why-deliberate-file-memory-beats-hoping-agents-remember) for audit and governance patterns.
 
 ---
 

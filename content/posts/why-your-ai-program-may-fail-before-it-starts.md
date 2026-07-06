@@ -145,6 +145,58 @@ If two or more answers are no, the program is not failing because AI is immature
 
 ---
 
+## What is enterprise AI program readiness?
+
+Enterprise AI program readiness means the organization can absorb AI in production workflows—not only demo a model. Readiness is evidenced by three gates with named owners: a **present-state data audit** with remediation plan, **governance owners** accountable for outputs and errors before go-live, and a **change runway** measured in months so users build judgment in real workflows. Programs that skip these gates often blame the model when the foundation was never chartered as critical path.
+
+---
+
+## Quick reference: three readiness gates
+
+| Gate | Pre-flight test | Skip signal |
+|------|-----------------|-------------|
+| **Data** | Current-state audit with named gaps and remediation owners | "Clean data after go-live" |
+| **Governance** | Named people own outputs, errors, retraining, escalation | Policy in review, no operational owner |
+| **Change** | Early access and real workflows before launch | Two-week training sprint post-deploy |
+
+---
+
+## Common mistakes (enterprise AI programs)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Treating readiness as parallel work | Pilot succeeds; scale stalls | Sequence data → governance → change as gates |
+| Leading with cost-efficiency narrative | Domain experts resist adoption | Reframe as productivity and judgment augmentation |
+| Empty RACI templates | Incident triggers meeting series | Name owners before production traffic |
+| Compressed change runway | Users distrust tool in consequential workflows | Start fluency building months before go-live |
+| No senior gate-holder | Every skip looks reasonable under deadline | Charter transformation lead to protect gates |
+
+---
+
+## FAQ
+
+### What is the difference between a successful pilot and program readiness?
+
+A pilot proves the model can perform in controlled conditions. Readiness proves the **organization** can operate, govern, and adopt at scale—with data, owners, and change time already in place.
+
+### Who should own the governance gate?
+
+Name **operational** owners for outputs, errors, corrections, and retraining—not only legal or compliance reviewers. Policy without named operators fails at first incident.
+
+### How long should change runway be before go-live?
+
+Measure in **months**, not weeks. Prosci finds excellent change management correlates with six times higher objective attainment [3]. AI adds fluency in when to trust outputs in real workflows.
+
+### Can we fix data quality after deployment?
+
+You can remediate after launch, but production will surface every gap the audit would have caught. Attach owners and dates to the audit **before** the next funding gate.
+
+### How does incentive framing affect adoption?
+
+Programs framed as **productivity gain** turn domain experts into assets who train and catch errors. Replacement framing makes those same experts rational resistors—even when the technology works.
+
+---
+
 ## What you can do next
 
 1. Run the four diagnostic questions with your sponsor **before** the next model or vendor decision.

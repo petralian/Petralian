@@ -16,6 +16,17 @@ seo_description: ''
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 In the midst of digital transformation, we're witnessing a seismic shift in how users discover content online. As someone who has led Marketing, Ecom, SEO and AI implementation strategies for global brands like Shiseido and worked extensively with emerging technologies, I've observed firsthand how large language models (LLMs) are fundamentally changing the search landscape-and with it, traditional SEO practices that have dominated digital marketing for decades.
 
+
+## What is AI-era SEO?
+
+**AI-era SEO** is optimizing for large language models and answer engines—entity clarity, authoritative structure, and helpful content—alongside classic search rankings as discovery fragments across chat, snippets, and links.
+
+**Who it is for:** SEO leads, content strategists, and founders relying on organic discovery.
+
+**What you will learn:** how LLMs change query behavior; what still matters in technical SEO; and how to future-proof content for answer surfaces.
+
+---
+
 ## The New Paradigm of Content Discovery
 
 The traditional model of search-typing a query and clicking through "blue links"-is rapidly being replaced by AI-powered tools that aggregate and synthesize information directly. Instead of users navigating to various websites, AI assistants like DeepSeek, ChatGPT, Claude, Perplexity to name a few do the heavy lifting, delivering comprehensive answers in seconds.
@@ -67,3 +78,51 @@ The businesses that will thrive are those that adapt quickly, developing paralle
 Having led teams through multiple technological transitions, I believe this AI revolution offers tremendous opportunities for those willing to embrace change and rethink their content strategies for an AI-first world.
 
 If you're navigating this transition in your organization and want to discuss specific AI optimization strategies tailored to your industry, I'd be happy to share more detailed insights from my experience implementing these solutions.
+
+---
+
+## Myth vs reality (AI marketing)
+
+| Myth | Reality |
+|------|---------|
+| "SEO is dead because of ChatGPT" | Discovery is **fragmented**, not eliminated—authority still wins |
+| "LLMs replace Google entirely" | Hybrid search + chat behavior persists for years |
+| "AI content farms win at scale" | Thin volume without trust gets filtered out |
+| "Technical SEO no longer matters" | Crawlability and performance still gate visibility |
+| "One blog post can rank for everything" | Topic clusters and entity depth matter more |
+
+---
+
+## Common mistakes (AI-era SEO)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Keyword stuffing for bots | Penalties and poor AI citations | Write clear entities, definitions, and evidence |
+| Ignoring E-E-A-T and sources | AI skips low-trust pages | Show expertise with citations and author depth |
+| Chasing only featured snippets | Single-surface dependency | Diversify for chat, video, and community answers |
+| Deleting legacy content blindly | Lost long-tail authority | Refresh or consolidate with redirects |
+| No brand entity strategy | AI cites competitors by default | Build recognizable brand-topic associations |
+
+---
+
+## FAQ
+
+### How do LLMs change keyword strategy?
+
+Focus on **questions, entities, and intent clusters**—not single exact-match phrases.
+
+### Should I block AI crawlers?
+
+Usually no for discovery; use robots guidance and monitor citation quality instead.
+
+### What content format wins in answer engines?
+
+Clear headings, direct answers, tables, FAQs, and sourced claims.
+
+### How fast will SEO shift?
+
+Incrementally channel-by-channel; start adapting now without abandoning proven fundamentals.
+
+### Does AI-generated content rank?
+
+Only when edited, accurate, distinctive, and aligned to demonstrated expertise.

@@ -23,6 +23,16 @@ image_prompt_variant_2: "Split chart scene: left side spinning model roulette wh
 > **Memory stack:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [Why deliberate file memory beats hoping agents remember](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  
 > **Direction habits:** [Training an AI is like managing an employee](/posts/training-an-ai-is-like-managing-an-employee)
 
+## What is a Composer 2.5 baseline model policy?
+
+A **baseline model policy** means picking **one implementation model** (here: Cursor Composer 2.5) for weeks—not chasing every frontier release—so rules, footers, and vault handoffs stay **predictable**.
+
+**Who it is for:** solo builders and small teams with an external memory stack (Obsidian, `memories/repo/`, session footers) who lose continuity when the model picker changes every sprint.
+
+**What you will learn:** why instruction-following variance hurts file memory, a tightened bootstrap order, tradeoffs accepted, and when manual escalation still makes sense.
+
+---
+
 Every few weeks a new frontier model appears in the model picker. The marketing promise is the same: fewer mistakes, longer context, better reasoning. For a solo builder running multiple production repos with agents as the primary implementer, model roulette has a hidden cost—not just dollars per token, but **inconsistent obedience** to the operating system you spent weeks writing into Obsidian and Cursor rules.
 
 I standardized on **Cursor Composer 2.5 only** for implementation work (for now). Not because it wins every benchmark, but because it is a cost-effective model inside the workflow I control: fixed rules, fixed bootstrap, fixed footer contract, and file memory that does not change when the vendor ships a new badge.
@@ -196,7 +206,52 @@ Optional extras help but are not required to get most of the benefit:
 
 The limiting factor was never "the model cannot code." It was **sessions that skipped session start** because rules lived in five places. Tightening session start on one model beat upgrading to a frontier model on a loose bootstrap.
 
----
+## Quick reference: bootstrap order (example)
+
+| Step | Artifact | Purpose |
+|------|----------|---------|
+| 1 | `00_Brain` Start of Session prompt | Methodology gate |
+| 2 | `.claude/NOTES.md`, `NEXT_SESSION.md` | Repo handoff |
+| 3 | `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md` | Operational memory |
+| 4 | Response Footer Contract (Brain) | v3.1 modes A–G |
+| 5 | Vault: Summaries → Bridge → Features | Project truth |
+| 6 | Session note **before** code | Inspectable narrative |
+| 7 | `.cursor/rules/response-footer.mdc` (`alwaysApply`) | Per-turn enforcement |
+
+**Model policy (example):** Agent implementation = Composer 2.5 only; human escalates for one-off security/architecture **review**, not inline implementation swaps.
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Switching models mid-session for "smarter" fixes | Breaks footer and vault habit | Narrow task; document gap in gotchas |
+| Footer rules buried in 3k-token copilot-instructions | Format rules drop first | Dedicated `response-footer.mdc` alwaysApply |
+| Skipping session start on "small" tasks | Re-explaining burns more than bootstrap | Mode B minimum; skip only true Mode A Q&A |
+| Expecting frontier model to replace file memory | Good code, no handoff | Mandatory Obsidian proof line in footer |
+| Auto model routing in harness | You lose auditability | Human picks model; harness shapes procedure |
+| Benchmark chasing without compliance metrics | Vanity wins, drift continues | Measure footer + vault writes for two weeks |
+
+## FAQ
+
+### Is Composer 2.5 the best coding model?
+
+**Not on every benchmark.** It is the best **controlled** model for my stack: cost ceiling, rule compliance, and comparable session handoffs.
+
+### When should I escalate to another model?
+
+**Rare, intentional review:** unfamiliar dependency trees, one-off architecture critique—as **reviewer**, not default implementer.
+
+### Does one model save money by itself?
+
+**Indirectly.** Tighter bootstrap and fewer rework tokens often beat a pricier "smarter" model on a loose OS ([cost context](/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers)).
+
+### How does this relate to CursorBench?
+
+Composer 2.5 scores well on **score per dollar** on CursorBench 3.1 ([analysis](/posts/cursorbench-fable-5-composer-2-5-cost-vs-score))—one line item, not the whole argument.
+
+### What if Composer 2.5 cannot do a task?
+
+Document in `known-gotchas.md`, split scope, or escalate for review—**do not** rotate models every turn.
 
 ## What you can do next
 

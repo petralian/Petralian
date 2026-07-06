@@ -16,8 +16,17 @@ seo_description: ''
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 AI is reshaping how marketers approach campaigns, enabling us to personalize, optimize, and streamline strategies across various channels. While AI prompting frameworks like RCFC, RAISE, CRISPE, SPARK, and ROLE give structure to our prompts, pairing these frameworks with the right AI technology is key to unlocking their full potential. Different AI solutions-from large language models to specialized marketing automation platforms-excel in different areas, depending on the task at hand.
-
 This article explores how marketers can combine AI prompting frameworks with the best AI technologies for specific use cases, delivering impactful, data-driven campaigns.
+
+---
+
+## What are AI prompting frameworks for marketers?
+
+**AI prompting frameworks** (RCFC, RAISE, CRISPE, SPARK, ROLE, and others) give marketers repeatable structures for briefs—pairing role, context, constraints, and output format with the right model or automation tool per task.
+
+**Who it is for:** marketing operators, campaign managers, and content leads scaling AI-assisted production.
+
+**What you will learn:** which framework fits which use case; how to match prompts to tools; and governance habits that prevent off-brand output.
 
 ---
 
@@ -209,3 +218,51 @@ The RCFC framework is particularly versatile, adding value across campaign perso
 Different combinations of frameworks and AI technologies excel at different marketing challenges. By selecting the right pairing for each specific task, marketers can achieve personalization at scale, optimize campaign performance, automate workflows, and gain deeper insights into customer behavior.
 
 Want to explore how these frameworks and AI technologies can transform your campaigns? Feel free to contact me-I'd love to collaborate and help you maximize the power of AI in your marketing efforts!
+
+---
+
+## Myth vs reality (AI marketing)
+
+| Myth | Reality |
+|------|---------|
+| "Better prompts alone fix marketing AI" | Frameworks help; **brand systems and review** prevent drift |
+| "One model does everything" | Different tasks need different tools and context windows |
+| "Prompting is only for copywriters" | Performance, CRM, and analytics teams benefit too |
+| "Longer prompts always win" | Structured brevity beats verbose noise |
+| "AI replaces campaign strategy" | Frameworks execute strategy—they do not invent it |
+
+---
+
+## Common mistakes (AI prompting for marketing)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| One generic prompt for all channels | Tone drift and weak CTAs | Use framework + channel-specific constraints |
+| Skipping audience and objective | Generic copy that does not convert | Lead with ROLE and context blocks |
+| Wrong tool for the task | Slow or low-quality outputs | Match LLM vs automation platform to use case |
+| No human edit gate | Slop ships to market | Enforce review before publish |
+| Prompt library in chat history only | Team reinvents wheels | Store governed templates in shared files |
+
+---
+
+## FAQ
+
+### Which prompting framework should marketers start with?
+
+Start with **ROLE + context + output format**; add RCFC or CRISPE when campaigns need tighter constraints.
+
+### How do I choose the right AI tool per task?
+
+LLMs for language-heavy work; automation platforms for triggered, data-driven journeys; specialized tools for creative assets.
+
+### Should every marketer learn prompting?
+
+Yes—at least enough to brief, review, and govern outputs responsibly.
+
+### How do I prevent off-brand AI copy?
+
+Combine frameworks with voice guides, exemplars, and mandatory human edit gates.
+
+### Where should teams store prompts?
+
+In a shared, versioned library—not scattered across individual chat threads.

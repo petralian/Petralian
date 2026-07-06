@@ -105,6 +105,58 @@ To understand why recurring scans matter, read [Why AI Agent Output Quality Drif
 
 To operationalize thresholds in pipelines, read [The New CI Gate: Failing Builds on Agent Quality](/blog/ai-quality-gate-ci-gravio/).
 
+## What is Gravio onboarding?
+
+Gravio onboarding is a three-step local setup: download the CLI and run setup once, authorize the folder once with your user API key, then run a scan. First scan creates the project automatically if needed. Authorization is folder-level—not repeated every scan—so teams can establish a recurring quality cadence without auth friction.
+
+---
+
+## Quick reference: first-run command flow
+
+| Step | Command | Notes |
+|------|---------|-------|
+| **Setup** | `node gravio.mjs --setup --target .` | Once per folder |
+| **Authorize** | `node gravio.mjs --authorize --target . --project <name> --api-key <key>` | User-bound key; one-time per folder |
+| **Scan** | `node gravio.mjs --once --target .` | Creates project or appends run |
+
+---
+
+## Common mistakes (Gravio setup)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Treating project naming as separate phase | Onboarding confusion | First scan handles project creation |
+| Re-authorizing every scan | Noise and friction | Authorization is folder-level setup |
+| Debugging CLI when token placeholder appears | Wrong root cause | Hard-refresh browser while signed in |
+| Expecting local plaintext scorecard in encrypted mode | "Missing" output | Cloud-only encrypted path by design |
+| Skipping recurring cadence after first score | Drift goes unnoticed | Schedule scans; read [drift detection](/blog/ai-agent-quality-drift-detection/) |
+
+---
+
+## FAQ
+
+### How long does first score take?
+
+About **10 minutes** with a clean folder if API key and session state are ready—mostly download, authorize, and one scan.
+
+### Is the API key project-specific?
+
+**No.** The key is user-bound. Project identity comes from folder authorization and scan context.
+
+### What happens on the first scan of a new project?
+
+Gravio **creates the project automatically** and records the first run.
+
+### What should I do immediately after the first score?
+
+Establish a **recurring scan cadence** and decide how thresholds affect release confidence—then read [CI quality gates](/blog/ai-quality-gate-ci-gravio/).
+
+### Does setup work the same on Windows and macOS?
+
+Yes—download `gravio.mjs`, run setup, authorize, scan. Platform-specific fetch commands differ; flow is identical.
+
+---
+
 ## Why Fast Onboarding Is Strategic
 
 Teams adopt what feels reliable and low-friction. A clear first-run experience turns quality tooling from "nice to have" into team habit.

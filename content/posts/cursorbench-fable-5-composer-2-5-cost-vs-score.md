@@ -24,6 +24,16 @@ image_prompt_variant_2: "Bold 16:9 isometric cutaway poster: a skyscraper stairc
 
 Anthropic brought Fable 5 back to public Cursor model pickers. Cursor published fresh numbers on [CursorBench 3.1](https://cursor.com/evals): ambiguous, multi-file tasks drawn from real agent sessions. Fable 5 Max sits at the top of the score column.
 
+## What is CursorBench 3.1?
+
+**CursorBench 3.1** is Cursor's **agent-task benchmark**: success rate, cost per task, tokens per task, and steps per task on ambiguous, multi-file work drawn from real sessions—not a single leaderboard column.
+
+**Who it is for:** builders choosing default models in Cursor who want **unit economics** (score per dollar, score per step), not vendor launch headlines.
+
+**What you will learn:** why Fable 5 Max and Composer 2.5 answer different questions, three derived efficiency lenses, and how open models (GLM 5.2, Kimi K2.7, LongCat) compare on vendor benches vs Cursor rows.
+
+---
+
 I read the table the way I read infra bills: not who wins one column, but what you pay per accepted outcome.
 
 On this benchmark, the highest score and the best buy are not the same model.
@@ -279,6 +289,52 @@ Max tiers can still make sense for one-shot critical work. They are poor default
 | **Open Kimi stack** | Kimi K2.7 Code | Cheap on CursorBench; validate in Kimi Code CLI |
 
 Model choice is one lever. **Context bootstrap** is the other. I benchmark file memory separately because a $0.55 model with a 3K-token gotchas pack can beat a $18 model that reads the wrong layer first. Stack both levers.
+
+## Quick reference: CursorBench 3.1 pick matrix
+
+| Need | Model to try first | CursorBench signal |
+|------|-------------------|-------------------|
+| Best value on Cursor tasks | Composer 2.5 | 63.2% · $0.55 · 37 steps · ~115 score/$ |
+| Tight token budget | GPT-5.5 Medium | 59.2% · 9K tokens/task |
+| Highest score, budget open | Fable 5 Medium | 69.8% · $8.27 (not Max) |
+| Must maximize pass rate | Fable 5 Max | 72.9% · $18.02 · 76 steps |
+| Open weights + 1M context | GLM 5.2 | Cursor row today; validate long-horizon separately |
+| Open Kimi stack | Kimi K2.7 Code | ~$1.92/task; 70 steps on CursorBench |
+
+**Derived ratios (not official Cursor metrics):** score ÷ $ · score ÷ 1K tokens · score ÷ step—compute for the two models you actually use.
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Defaulting to Fable 5 Max from rank alone | ~33× cost vs Composer 2.5 for ~10 pts | Sort by **cost** and **steps**, not score only |
+| Ignoring steps per task | Latency + context churn + review fatigue | Compare score per step |
+| Trusting vendor SWE-bench for Cursor economics | Different harness and loop | Wait for CursorBench row (e.g. LongCat) |
+| Switching models every sprint | Breaks rule compliance and memory | Pin baseline; escalate manually for review |
+| Skipping context bootstrap | Cheap model + wrong memory layer loses | Stack model choice + file memory |
+| Treating small score gaps as gospel | Cursor notes variance | Directional tradeoffs, not verdicts |
+
+## FAQ
+
+### Did Fable 5 "win" CursorBench?
+
+**On score:** Fable 5 Max leads at 72.9%. **On budget:** Composer 2.5 leads score per dollar (~115 vs ~4 for Max).
+
+### Is Composer 2.5 "worse" than frontier Max tiers?
+
+**On this task mix:** 63.2% at $0.55 beats most of the table on economics. Max tiers buy peak pass rate when failure cost exceeds ~$17/task headroom.
+
+### How do I use the three efficiency lenses?
+
+Compute **score ÷ $**, **score ÷ 1K tokens**, and **score ÷ step** for your two daily models from [cursor.com/evals](https://cursor.com/evals)—unofficial but useful for side-by-side.
+
+### Why compare LongCat vendor tables to CursorBench?
+
+**Different batteries.** SWE-bench Pro rows do not predict Cursor steps/cost until a CursorBench row exists.
+
+### Does benchmark choice replace harness policy?
+
+**No.** Routing, tests, and memory gates still dominate rework tokens ([harness Part 1](/posts/cursor-lightweight-harness-without-microservice-2026)).
 
 ## What you can do next
 

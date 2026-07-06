@@ -17,6 +17,16 @@ The marketing world has recently embraced the infinity loop as an evolution of t
 
 Let’s explore why infinity loops have always been part of iconic brand journeys and how companies have harnessed this framework to build enduring relationships.
 
+## What is the Infinity Loop brand framework?
+
+The **Infinity Loop brand framework** maps recurring customer journeys—discover, consider, buy, use, advocate—as a continuous story loop where each touchpoint feeds the next, rather than a one-way funnel.
+
+**Who it is for:** brand strategists, CX leaders, and marketers designing narrative-led growth.
+
+**What you will learn:** how loop thinking beats linear funnels; story beats that drive advocacy; and operationalizing loops across channels.
+
+---
+
 ### **Why Infinity Loops Have Always Existed**
 
 The essence of the infinity loop lies in the continuous cycle of engagement. This means that rather than ending after a purchase, the customer journey flows back into awareness, consideration, loyalty, and advocacy. Successful brands have always understood that the relationship with the customer doesn’t stop at the point of sale. Instead, they continuously nurture this relationship, ensuring that every interaction-whether through a product experience, marketing campaign, or customer service-is an opportunity to build trust and foster deeper connections.
@@ -56,3 +66,39 @@ For brands looking to operate successfully within an infinity loop framework, th
 **The infinity loop isn’t a new concept, it’s always been a part of the most successful brand stories.** What has changed is the technology and tools available to brands, allowing them to execute this framework at scale. From Apple’s seamless ecosystem to Lululemon’s community-driven approach, these brands prove that continuous engagement is the key to building lasting relationships with customers.
 
 So, how can your brand operate within an infinity loop? By focusing on personalization, omnichannel consistency, and community building, you can create a cycle of engagement that drives loyalty and advocacy. Let’s connect to discuss how we can integrate these strategies into your business and take your customer engagement to the next level.
+
+---
+
+## Common mistakes (brand story loops)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Funnel-only measurement | Ignoring advocacy and repeat | Track loop completion and referral |
+| Disconnected campaign chapters | No narrative continuity | Define spine story across channels |
+| Post-purchase neglect | Broken loop after sale | Invest in onboarding and community |
+| Generic hero journey | Forgettable positioning | Anchor loop on customer tension you own |
+| Story without operational owners | Pretty deck, no execution | Assign loop stages to teams |
+
+---
+
+## FAQ
+
+### How is an infinity loop different from a funnel?
+
+Funnels end at conversion; **loops** treat advocacy and repeat as fuel for discovery.
+
+### What is the core of a strong brand story?
+
+A clear tension, transformation promise, and proof repeated at every loop stage.
+
+### Can B2B brands use infinity loops?
+
+Yes—consideration cycles are longer but advocacy and expansion still close the loop.
+
+### What metric shows loop health?
+
+Referral rate, repeat purchase, NPS trend, and content sharing from existing customers.
+
+### Where do most brands break the loop?
+
+Between **use** and **advocate**—missing onboarding and community.

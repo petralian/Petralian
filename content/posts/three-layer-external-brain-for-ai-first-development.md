@@ -42,6 +42,46 @@ This article is the development-focused view: what the layers are, how they map 
 
 ---
 
+## What is external memory for AI-first development?
+
+**External memory for AI-first development** is a layered file stack—session handoffs in the repo, evergreen Feature and Architecture notes in Obsidian, and rules plus hooks at session boundaries—that lets agents implement most code while humans own direction and durable truth. Chat context is a short-term buffer; production continuity lives in Markdown and git.
+
+**Who it is for:** Solo builders and small teams shipping production software with IDE agents or chat assistants as the primary implementer.
+
+**What you will learn:** The four tiers in practice, bootstrap and session-end promotion rules, May 2026 automation patterns (session hooks, post-commit Feature updates), and what breaks when you skip a layer. See the [series hub](/posts/external-memory-series-guide) for the full map.
+
+---
+
+## How I start a new codebase
+
+> **Example implementation** — my builder workflow. Knowledge-work (PM, marketing, leadership) uses the same folder pattern without shipping code: [Knowledge Work Engine Part 0](/posts/knowledge-work-agent-engine-guide-2026#example-implementation--how-i-run-it).
+
+**1. One repo / vault folder per product** — open as a **Cursor workspace**.
+
+**2. Scaffold once** — paste a bootstrap prompt (or use project template) to create `memories/repo/`, `AGENTS.md`, `Operations/AI Session Bridge.md`, `Features/` stubs, and `.cursor/rules` for session protocol.
+
+**3. Dual vault via MCP**
+
+| Vault | Role |
+|-------|------|
+| **Project vault** (`VSCode/<Project>/`) | Product truth: Features, Architecture, repo handoffs |
+| **Brain vault** (`Brain/`) | Cross-project conventions, deploy playbook, footer contract |
+
+Without brain access, every repo reinvents session loops.
+
+**4. Layer 4 wiring**
+
+- `.cursor/rules` — bootstrap order, footer modes, when to skip brain-pack ([memory loop](/posts/cursor-harness-memory-loop-2026))
+- `sessionStart` hook → `session-start.ps1` → bootstrap snapshot on disk
+- `post-commit` hook → append commit hash to matching `Features/*.md`
+- MCP filesystem — agent reads both vaults by path
+
+**5. Session loop** — Start: rules + snapshot + Layer 2 reads. Work: agent edits code and curated notes. End: Session Summaries line, Bridge update, footer, promote durable facts to `Features/` or brain conventions.
+
+**Not required on day one:** hooks, MCP, dual vault. Start with `NEXT_SESSION.md` + `Session Summaries` ([series hub Path A](/posts/external-memory-series-guide#how-to-get-started)).
+
+---
+
 ## The problem: three different failures, one word "memory"
 
 When developers say "the AI forgot," they usually mean one of these:
@@ -382,6 +422,56 @@ mine: "This system" {
 9. IDE `sessionStart` hook (Cursor and others support this pattern).
 
 The goal is not perfection on day one. The goal is **never starting a session cold** on a codebase that already hurt you once.
+
+---
+
+## Quick reference
+
+| Artifact | Layer | Purpose |
+|----------|-------|---------|
+| Agent chat + open files | 1 — Short term | Active work only |
+| `NEXT_SESSION.md`, `AI Session Bridge`, `Session Summaries.md` | 2 — Operational | Resume next session |
+| `Features/*.md`, `Architecture/*.md`, `00_Brain/Conventions/*` | 3 — Evergreen | Durable product and workflow truth |
+| `AGENTS.md`, session footer, `session-start` / post-commit hooks | 4 — Feedback hardened | Lessons become rules and automation |
+| `memories/repo/open-loops.md` | 2 (mirror) | Machine-readable handoff for agents |
+
+**Bootstrap order (summary):** repo handoff → repo memories → brain conventions → Operations bridge → relevant Feature notes. Full protocol in body above.
+
+---
+
+## Common mistakes
+
+| Mistake | Symptom / risk | Fix |
+|---------|----------------|-----|
+| Relying on IDE context injection alone | Agent opens cold when hook timing fails | Always write a bootstrap snapshot file on disk; keep a project rule pointing at it |
+| Promoting session noise to Feature notes | Evergreen docs rot; agents get wrong invariants | Session end rule: only durable facts → `Features/`; week-scale → Bridge |
+| Skipping Layer 2 entirely | Repeated re-implementation; concurrent deploy confusion | Add `NEXT_SESSION.md` with priority, open loops, next three steps |
+| Duplicating truth across `NOTES.md`, Obsidian, and `memories/repo/` without sync | Conflicting instructions mid-session | Pick a canonical home per fact type; update mirrors at session end only |
+| Automating before discipline | Hooks run but files stay empty | Manual session footer for two weeks; automate session start and commit after |
+
+---
+
+## FAQ
+
+### What does "AI-first development" mean here?
+
+**Agents write most code; humans set direction, review risk, and own decisions.** That model needs written continuity because tacit knowledge does not survive session resets.
+
+### Why four tiers if the series title says three layers?
+
+**Three layers are the teaching model; operational handoffs are the shipping layer** most diagrams omit. Layer 2 (Bridge, summaries, `NEXT_SESSION`) is what makes Monday productive.
+
+### Do I need dual Obsidian vaults?
+
+**Recommended for multi-project work:** a shared brain vault (methodology, conventions) plus per-project vaults (product truth). Single vault works for one codebase; see [Part 2](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) for lighter personal setups.
+
+### What is the minimum viable stack?
+
+**Three files:** `NEXT_SESSION.md`, `Operations/Session Summaries.md`, and one `Features/*.md` for the module you are changing. Run one agent session with explicit read order before adding hooks.
+
+### How does this compare to the STM/LTM diagram?
+
+**~70% conceptual overlap, different structure.** [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) scores file memory vs in-model memory for production builders.
 
 ---
 

@@ -170,6 +170,58 @@ Each model carries distinct risks that I've encountered during implementations:
 
 When implementing omnichannel commerce solutions for Shiseido across multiple APAC brands and markets and working with [Sapient](https://www.publicissapient.com/), [Accenture](https://www.accenture.com/hk-en/about/accenture-song-index) and [Isobar UK](https://x.com/isobar_uk?lang=en) on the same project, we mitigated risks by creating very clear accountability structures and ensuring knowledge transfer was built into the engagement model from day one.
 
+## What is boutique vs agency vs consultancy ROI?
+
+Boutique, agency, and consultancy ROI differ by **investment structure, speed, and return horizon**. Boutiques deliver faster impact on targeted problems with senior practitioners direct on the work. Agencies blend mid-range rates with integrated omnichannel execution. Consultancies emphasize long-horizon strategic change at premium cost—with ROI often realized over years, not quarters.
+
+---
+
+## Quick reference: partner model comparison
+
+| Model | Rate pattern | ROI horizon | Best fit |
+|-------|--------------|-------------|----------|
+| **Boutique** | Higher daily; lower overhead | Fast, targeted outcomes | Specialized expertise, speed |
+| **Agency** | Mid-range blended | Omnichannel and experience initiatives | Multi-discipline, regional scale |
+| **Consultancy** | Premium; heavy discovery | Long-term organizational change | C-suite alignment, transformation |
+
+---
+
+## Common mistakes (choosing transformation partners)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Choosing by size alone | Wrong team dynamics for problem | Match model to scope and internal capability |
+| Ignoring hybrid "boutiques within agencies" | Miss specialized depth at scale | Identify acquired specialists in networks |
+| Expecting consultancy speed | Slow discovery, delayed value | Use consultancies for strategy; boutiques for execution slices |
+| Under-budgeting knowledge transfer | Dependency after engagement | Build transfer into day-one accountability |
+| Single-model dependency | Key-person or B-team risk | Blend models strategically per workstream |
+
+---
+
+## FAQ
+
+### When should I choose a boutique?
+
+When you need **deep specialized expertise**, speed, direct senior access, and focused investment on a clear outcome—with strong internal project management.
+
+### When does an agency make sense?
+
+When needs span **multiple disciplines**, require regional consistency, integrated services, and scalable execution resources.
+
+### When is a consultancy the right call?
+
+When the initiative requires **organizational change**, C-suite alignment, industry benchmarking, and long-term strategic impact over immediate returns.
+
+### What is the hybrid model opportunity?
+
+Agencies absorbing boutiques let clients combine **consultancy-level strategy**, boutique agility, and agency-scale resources—if you identify and leverage the right specialists.
+
+### How do I mitigate partner-model risks?
+
+Clear accountability structures, knowledge transfer built into the engagement, and explicit staffing commitments after the sales process—for any model.
+
+---
+
 ## Conclusion: Finding Your Optimal Partner Mix
 
 In my experience leading digital transformation initiatives across diverse sectors, the most successful organizations often leverage a strategic combination of these service models.

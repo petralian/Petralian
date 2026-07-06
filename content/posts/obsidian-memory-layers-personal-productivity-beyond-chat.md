@@ -40,6 +40,30 @@ This article is the productivity angle: how the layers work when you are running
 
 ---
 
+## What is layered Obsidian memory for personal productivity?
+
+**Layered Obsidian memory** applies the same external-memory architecture used for code—short chat, operational handoffs, evergreen notes, explicit feedback—to strategic work, client engagements, and life admin. Chat history is scrollback; files are the contract every assistant reads via MCP or paste.
+
+**Who it is for:** People using Claude, ChatGPT, and IDE agents for non-code work who already use (or want) Obsidian as a second brain.
+
+**What you will learn:** How each layer maps to personal workflows, promotion rules that stop capture rot, lighter automation than a code repo, and a one-week adoption path. Builder mechanics live in [Part 1](/posts/three-layer-external-brain-for-ai-first-development); the [series hub](/posts/external-memory-series-guide) ties the curriculum together.
+
+---
+
+## How to start (no Cursor required)
+
+> **Example — my vault:** PARA-style layout (Projects, Areas, Resources, Archive) in one Obsidian vault; per-client or per-initiative folders hold `Operations/` and `Bridge` files. See [Your Brain Was Not Built for This](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian) for the full second-brain narrative.
+
+**Path A (30 min, any chat):**
+
+1. Create `Operations/Session Summaries.md` and `Operations/AI Session Bridge.md`.
+2. Paste: *"Read AI Session Bridge and last 5 lines of Session Summaries; what should I focus on today?"*
+3. Close with one summary line.
+
+**When paste gets old:** open the initiative folder in Cursor + MCP, or use the full stack in [Part 0 — Example implementation](/posts/knowledge-work-agent-engine-guide-2026#example-implementation--how-i-run-it).
+
+---
+
 ## The problem: your work does not fit in one thread
 
 Personal productivity with AI usually fails in predictable ways:
@@ -236,6 +260,55 @@ You do not need hooks to get 80% of the value. You need **one trusted "start her
 3. End today's work by one line in a daily note: **Objective / Done / Next.**
 
 4. Next time you open Claude or ChatGPT, paste the bootstrap block from `_session_startup.md` once—or point your IDE agent at those paths via MCP.
+
+---
+
+## Quick reference
+
+| Layer | Personal use | Example artifacts |
+|-------|--------------|-------------------|
+| 1 — Short term | Today's chat, captures, tasks due now | Chat thread, Inbox, task app |
+| 2 — Operational | Resume this week; per-initiative priority | Daily note, `Projects/index.md`, initiative `Bridge.md` |
+| 3 — Evergreen | Stable truth for months | `System/Profile/*`, project `_Home.md`, decision logs |
+| 4 — Feedback | System learns how you work | `preferences.md`, `Lessons Learned.md`, agent instructions |
+
+**Promotion rule:** next assistant open → Bridge; weeks → session summary; all domains → brain vault; due date → task app (link back to note).
+
+---
+
+## Common mistakes
+
+| Mistake | Symptom / risk | Fix |
+|---------|----------------|-----|
+| Using chat as the system of record | Re-explaining initiative status every Monday | One `Bridge.md` per active initiative with priority + open loops |
+| Evergreen vault with no Layer 2 | Beautiful notes, no "start here" for this week | Add `Projects/index.md` and a daily note line: Objective / Done / Next |
+| Capturing without processing Inbox | Graveyard of orphans; search fails | Weekly inbox pass with the promotion table in this article |
+| Different bootstrap per AI tool | Silos return across Claude vs ChatGPT vs IDE | Same brain paths in agent instructions or MCP for every tool |
+| Documenting every thought as evergreen | Maintenance tax; signal buried in noise | Promote only facts you have explained twice |
+
+---
+
+## FAQ
+
+### Can I use this without a code repo?
+
+**Yes.** Personal productivity often stays manual: daily template, weekly inbox review, and one Bridge file deliver most of the value without git hooks.
+
+### How is this different from "just use Obsidian"?
+
+**Promotion rules and a session loop.** Many vaults have evergreen notes but lack operational handoffs—the layer chat cannot provide. This article adds that discipline.
+
+### Do I need MCP for every assistant?
+
+**No, but paths must be consistent.** Paste a bootstrap block at session start, or point IDE agents at vault roots via MCP; the files are the contract either way.
+
+### What belongs in the task app vs Obsidian?
+
+**Due dates and execution → task app; thinking and context → Obsidian.** Link tasks back to the note that holds rationale.
+
+### Where does this fit in the External Memory series?
+
+**Part 2 of 4.** [Part 1](/posts/three-layer-external-brain-for-ai-first-development) covers repo automation; [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) compares file memory to the popular diagram; [Part 4](/posts/why-deliberate-file-memory-beats-hoping-agents-remember) covers audit and governance.
 
 ---
 

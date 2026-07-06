@@ -33,6 +33,18 @@ The problem is not writing inside Obsidian. The problem is everything that happe
 
 A GitHub Actions publish workflow solves that by turning the handoff into a repeatable path. The draft stays in Obsidian, the repository becomes the transport layer, and the workflow becomes the only place where publishing logic lives.
 
+
+
+## What is Obsidian-to-site CI publishing?
+
+**Obsidian-to-site CI publishing** automates moving vault drafts through GitHub Actions into a build pipeline—so writing stays in Obsidian while deploys stay reproducible and hands-off.
+
+**Who it is for:** Obsidian users, technical bloggers, and teams using markdown git workflows.
+
+**What you will learn:** pipeline architecture; secrets and path triggers; and pitfalls when syncing vault folders to a site repo.
+
+---
+
 ## Why This Matters
 
 Manual publishing looks harmless until it starts to multiply small mistakes. One missing image path, one broken frontmatter field, or one forgotten status flag can waste the time you saved by writing quickly in the first place.
@@ -118,3 +130,39 @@ In Petralian, that means drafts can stay in Obsidian, the publish logic can live
 If you want to build the same thing elsewhere, start with the smallest version possible: a draft folder, a publish script, and one GitHub workflow that only ships content after it passes the checks you actually care about.
 
 That is enough to turn Obsidian from a note-taking app into a reliable publishing surface.
+
+---
+
+## Common mistakes (Obsidian CI publishing)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Committing vault plugins and cache | Bloated repo and failed builds | Curate .gitignore for publish folder only |
+| No frontmatter validation in CI | Broken builds on publish day | Lint required fields in Action |
+| Absolute image wikilinks | Missing assets on site | Normalize paths in transform step |
+| Manual copy step before push | Defeats automation purpose | Single repo or scheduled sync job |
+| Skipping preview deploys | Typos hit production | PR preview per branch |
+
+---
+
+## FAQ
+
+### Do I need two repos or one?
+
+One repo is simpler; two works if vault must stay private—sync subset only.
+
+### What triggers the GitHub Action?
+
+Push to publish folder, workflow_dispatch, or schedule—match your editing cadence.
+
+### How are Obsidian wikilinks handled?
+
+Transform to site-relative links in CI or use compatible markdown processor.
+
+### Can non-technical editors use this?
+
+Yes in Obsidian if frontmatter template and folder rules are documented.
+
+### What should CI validate?
+
+Frontmatter, image existence, link targets, and build success before merge to main.

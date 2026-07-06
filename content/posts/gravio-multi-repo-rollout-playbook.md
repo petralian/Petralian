@@ -112,6 +112,60 @@ At leadership level, monitor:
 
 These outcomes prove the rollout is improving engineering reliability, not just adding dashboards.
 
+## What is a multi-repo Gravio rollout?
+
+A multi-repo Gravio rollout is an **operating model upgrade**—shared onboarding, scoring vocabulary, drift baselines, CI gates, and governance—so quality signal stays comparable across many repositories without process fatigue or noisy metrics.
+
+---
+
+## Quick reference: five rollout phases
+
+| Phase | Focus |
+|-------|-------|
+| **1. Align** | Why scoring now; which release risks to reduce |
+| **2. Standardize** | Same first-run flow and ownership per repo |
+| **3. Vocabulary** | Healthy range, warning vs critical, remediation SLAs |
+| **4. Drift first** | Trend visibility before hard CI gates |
+| **5. Governance** | Org thresholds, bounded overrides, monthly review |
+
+---
+
+## Common mistakes (multi-repo quality rollouts)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| One policy fits all contexts | Wrong thresholds per risk profile | Shared baseline + bounded overrides |
+| Hard gates before stable data | Backlash, waived failures | Drift monitoring first, then CI gates |
+| Score as vanity metric | Dashboards without behavior change | Tie scores to release and remediation |
+| Uneven onboarding | Noisy cross-repo comparisons | Minimal checklist: CLI, auth, scan, owner |
+| No exception process | Informal waivers undermine trust | Documented exceptions with expiration |
+
+---
+
+## FAQ
+
+### When should we enforce CI gates across all repos?
+
+After **baselines stabilize** and teams trust the signal—typically phase 4 drift visibility, then [CI gate policy](/blog/ai-quality-gate-ci-gravio/).
+
+### How do we handle different repo risk profiles?
+
+Start with an **org-level baseline**, then allow bounded per-repo threshold overrides documented in governance artifacts.
+
+### What should leadership track?
+
+Regression incidents avoided, time from drift detection to remediation, percentage of repos meeting baseline, and release-readiness confidence trend.
+
+### How does privacy affect multi-repo adoption?
+
+Address architecture early with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) so security review does not block each repo.
+
+### What is the minimum onboarding checklist per repo?
+
+CLI setup complete, folder authorization complete, first scan complete, **owner assigned** for ongoing cadence.
+
+---
+
 ## Final Thought
 
 A successful Gravio rollout is not a tooling project. It is an operating model upgrade.

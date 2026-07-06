@@ -29,7 +29,6 @@ image_prompt_variant_2: 'Split editorial composition: left side shows a tangled 
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I started with a simple task. The footer text on this site was failing a Lighthouse contrast check. I opened DevTools, ran a full audit, and discovered the footer was the smallest problem on the list.
-
 **Total Blocking Time: 3,020 milliseconds.** Largest Contentful Paint: 3.0 seconds. Legacy JavaScript polyfills adding 14 KiB of dead weight. Mobile performance score: 74.
 
 Two working sessions later: 100/100 on both mobile and desktop. LCP down to 1.7 seconds. TBT at 20ms. CLS: 0.
@@ -39,6 +38,18 @@ Two working sessions later: 100/100 on both mobile and desktop. LCP down to 1.7 
 ![](/images/posts/2.jpg)
 
 This is the complete account — what the problems actually were, what I tried that did not work, what fixed each one, and the code you can apply directly to a Next.js 16 and Vercel setup.
+
+---
+
+
+
+## What does Lighthouse 100 on Next.js 16 require?
+
+**Lighthouse 100 on Next.js 16** means eliminating measurable bottlenecks in Total Blocking Time, LCP, CLS, contrast, and image weight—using framework-correct patterns because some legacy Next config options no longer exist in v16.
+
+**Who it is for:** developers shipping production sites on Next.js 16 and Vercel.
+
+**What you will learn:** which fixes actually moved the score; TBT and LCP tactics that worked; and config traps that silently break builds.
 
 ---
 
@@ -314,3 +325,39 @@ The code above is the complete working set. No additional packages required beyo
 ---
 
 */humblebrag https://pagespeed.web.dev/analysis/https-petralian-com/00q8wzza2k?form_factor=mobile*
+
+---
+
+## Common mistakes (Next.js performance)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Using deprecated Next 15 config in v16 | Build warnings or silent regressions | Verify options against Next 16 docs |
+| Huge unoptimized hero images | LCP stuck above 2.5s | Priority load, correct sizes, modern formats |
+| Client JS on static content | TBT spikes on mobile | Server components and defer third parties |
+| Ignoring contrast in design tokens | Accessibility audit failures | Fix token pairs, not one-off patches |
+| Optimizing only desktop Lighthouse | Mobile fails in field | Test mobile throttling first |
+
+---
+
+## FAQ
+
+### Is Lighthouse 100 realistic on content-heavy sites?
+
+Yes on marketing sites with disciplined images, fonts, and JS—but harder on app-heavy dashboards.
+
+### What moved TBT the most in this build?
+
+Reducing client-side JS and deferring non-critical third-party scripts.
+
+### What broke when upgrading to Next.js 16?
+
+Some image and config options changed—verify before copying older tutorials.
+
+### Should I chase 100 if Core Web Vitals field data is green?
+
+Lab 100 helps catch regressions; field data is the business metric.
+
+### Where do I start if scores are in the 70s?
+
+Fix LCP image, then TBT from JS, then contrast and CLS.

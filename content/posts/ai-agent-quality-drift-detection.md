@@ -98,6 +98,60 @@ Trend and regression monitoring should not force a privacy compromise. You can m
 
 For architecture context, read [Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code](/blog/zero-knowledge-ai-quality-gravio/).
 
+## What is AI agent quality drift?
+
+AI agent quality drift is the gradual erosion of output usefulness and consistency while builds still pass and nothing crashes. It is a **system behavior** driven by prompt edits, model updates, dependency changes, retrieval differences, and relaxed review discipline—not a one-time certification failure. Drift is inevitable; blindness to trend signals is optional.
+
+---
+
+## Quick reference: drift detection loop
+
+| Step | Action |
+|------|--------|
+| **1. Cadence** | Run quality scans on a fixed schedule |
+| **2. Baseline** | Compare current score to rolling baseline |
+| **3. Flag** | Auto-alert on significant deviations |
+| **4. Release** | Attach drift context to release decisions |
+| **5. Adjust** | Feed findings into prompt and process fixes |
+
+---
+
+## Common mistakes (drift monitoring)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Relying on unit tests alone | Green CI, worse outputs | Add score trends and category signals |
+| Treating one dip as noise | Miss slow decline | Watch slope over several scans |
+| Ignoring volatility spikes | Average stable, trust erodes | Track variance, not only mean |
+| Prompt churn without review | Sudden quality collapse | Guardrail high-impact prompt edits |
+| Dashboard-only scores | Teams ship under pressure anyway | Wire drift into [CI quality gates](/blog/ai-quality-gate-ci-gravio/) |
+
+---
+
+## FAQ
+
+### How is drift different from a hard quality gate failure?
+
+Drift is **gradual** degradation across runs. A gate failure is a **policy violation** at release time (threshold, regression delta, critical workflow). You need both: trends for early warning, gates for enforcement.
+
+### What early warning signals matter most?
+
+Slow score decline over several scans, volatility spikes, repeat failures in one dimension, and high prompt churn without review guardrails.
+
+### How often should teams scan?
+
+Match your release cadence at minimum—weekly for active agent repos, daily if prompts change frequently. Consistency beats perfection.
+
+### Does drift monitoring require storing plaintext prompts in the cloud?
+
+Not necessarily. Pair monitoring with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) when sensitive code is in scope.
+
+### When should drift feed CI?
+
+After baselines stabilize. Establish trend visibility first; enforce thresholds once teams trust the signal—see the [multi-repo rollout playbook](/blog/gravio-multi-repo-rollout-playbook/).
+
+---
+
 ## Bottom Line
 
 Drift is inevitable. Blindness is optional.

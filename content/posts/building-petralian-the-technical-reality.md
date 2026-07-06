@@ -26,8 +26,19 @@ image_prompt: A developer's workspace with multiple monitors showing code and a 
 ---
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 The [previous article](/posts/why-i-rebuilt-petralian-on-nextjs) covers why I moved off WordPress. The short version: writing in [Obsidian](https://obsidian.md/) and publishing through WordPress were two separate workflows with too much manual friction in between. This article is about what happened when I fixed that — specifically, the build itself.
-
 This is not a tutorial. I'm not going to walk through project setup. I'm going to tell you what caught me out, what I'd tell someone starting from scratch, and which decisions I'd make the same way again.
+
+---
+
+
+
+## What is building Petralian technically?
+
+**Building Petralian** is the practical story of shipping a content site and publishing pipeline—Obsidian drafts, Next.js front end, automation, and the trade-offs behind what looks simple in the browser.
+
+**Who it is for:** indie builders, technical bloggers, and developers evaluating similar stacks.
+
+**What you will learn:** real architecture choices; what was harder than expected; and lessons for solo technical publishing.
 
 ---
 
@@ -149,3 +160,39 @@ The things most worth taking: the Obsidian frontmatter convention and sync appro
 The things most worth skipping on your own build: CSS `column-count` for grids where reading order matters, and Tina textarea fields without the split-render pattern.
 
 The architecture is simpler than WordPress at the cost of needing to understand static site generation. For a personal site where writing is the point and operating infrastructure is not, that's a trade worth making every time.
+
+---
+
+## Common mistakes (indie publishing stacks)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Over-engineering CMS early | Months before first post | Ship markdown + git first |
+| No image pipeline | Slow LCP and manual toil | Automate resize and alt text workflow |
+| Syncing Obsidian manually | Publish friction kills cadence | Automate via GitHub Actions |
+| Skipping analytics and search console | Flying blind on discovery | Wire minimal analytics day one |
+| Perfect design before content | Empty beautiful site | Publish ugly, iterate publicly |
+
+---
+
+## FAQ
+
+### What stack powers Petralian?
+
+Next.js front end, Obsidian-authored markdown, git-based publishing, and supporting automation scripts.
+
+### What was the hardest unexpected problem?
+
+Usually glue work—images, draft workflow, and performance—not the framework itself.
+
+### Should I copy this stack exactly?
+
+Copy the **workflow principles**; adapt tools to your OS and hosting constraints.
+
+### How do solo builders save time?
+
+Automate draft → preview → deploy; keep one source of truth in markdown.
+
+### When is a headless CMS worth it?
+
+When non-technical editors need WYSIWYG at volume—you may not need it on day one.

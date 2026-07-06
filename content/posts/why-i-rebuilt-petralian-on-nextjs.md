@@ -25,6 +25,14 @@ There's a version of this article where I lead with the tech stack. I'm not goin
 
 The point was that I wanted to write more — and WordPress was making that harder than it needed to be.
 
+## Why rebuild a site on Next.js?
+
+**Rebuilding on Next.js** trades familiar static-site simplicity for React ecosystem depth, server components, image optimization, and deployment integration when a publishing project outgrows its first generator.
+
+**Who it is for:** developers outgrowing Hugo, Jekyll, or plain static generators.
+
+**What you will learn:** triggers that justified a rebuild; migration costs; and what Next.js specifically unlocked for Petralian.
+
 ---
 
 ## The Real Problem Was the Workflow
@@ -122,3 +130,39 @@ If you're comfortable with Markdown and Obsidian already, the friction delta is 
 The architecture is genuinely simpler than WordPress at the cost of needing to understand how static site generation works. For a personal site where you want to write, not operate, I'd take that trade every time.
 
 The code is there if you want to start from something that already works.
+
+---
+
+## Common mistakes (site rebuilds)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Rewriting for framework hype | Months lost, same traffic | List concrete blockers first |
+| Big-bang cutover without redirects | SEO cliff | Map URLs and 301 everything |
+| Recreating every plugin | Scope creep | Prioritize must-have features only |
+| Ignoring content migration edge cases | Broken shortcodes and images | Script transforms and spot-check |
+| No rollback plan | Stressful launch | Keep old site deployable briefly |
+
+---
+
+## FAQ
+
+### When is rebuilding on Next.js worth it?
+
+When you need React components, integrated image/CDN optimization, or app-like features beyond static markdown.
+
+### What did Petralian gain from Next.js?
+
+Performance tooling, flexible rendering, and smoother path to interactive features.
+
+### What are the costs?
+
+Migration time, JS complexity, and hosting assumptions vs pure static.
+
+### Can I migrate incrementally?
+
+Often yes—route-by-route or section-by-section with reverse proxy.
+
+### Should new blogs start on Next.js?
+
+Only if you already want React skills and ecosystem; static generators remain valid for markdown-only sites.

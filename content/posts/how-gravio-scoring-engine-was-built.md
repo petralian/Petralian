@@ -158,6 +158,63 @@ The final Gravio scoring engine is a layered, explainable quality system:
 
 That architecture keeps the system practical. It works across stacks, resists vanity scoring, and gives teams a usable bridge from measurement to remediation.
 
+## What is the Gravio scoring engine?
+
+The Gravio scoring engine is a **layered quality pipeline** that turns repository signals into six dimension scores (safety, reliability, evaluation, observability, governance, agentic), a weighted overall score, hard release gates, and remediation recommendations. It asks what evidence is truly present in the repo—not whether you adopted a preferred stack.
+
+---
+
+## Quick reference: six dimensions and weights
+
+| Dimension | Weight | Examples of evidence |
+|-----------|--------|---------------------|
+| **Safety** | 25% | Secret scanning, adversarial tests |
+| **Reliability** | 20% | Tests, CI, lockfiles |
+| **Evaluation** | 15% | Eval corpus, baselines, golden sets |
+| **Observability** | 10% | Monitoring, trace capture |
+| **Governance** | 15% | Policy files, review discipline |
+| **Agentic** | 15% | Agent instruction files, guardrails |
+
+**Overall** = weighted average. **Gates** can fail independently (e.g. critical adversarial failures, regression limits).
+
+---
+
+## Common mistakes (interpreting Gravio scores)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Optimizing average score only | Critical blockers hidden | Check gate failures separately |
+| Treating score as vanity metric | No remediation action | Use recommendation layer per failure |
+| Ignoring dimension regressions | Overall looks fine | Review category deltas and workflows |
+| Expecting stack-specific precision everywhere | Edge-case ambiguity | Tune policy for local risk profile |
+| Skipping baselines | No regression detection | Store runs; enforce delta limits |
+
+---
+
+## FAQ
+
+### Why both scorecard math and workflow gates?
+
+Pure scores are **gameable**; pure gates are **too binary** for improvement. Combined: scores prioritize work; gates enforce non-negotiable release constraints.
+
+### What are baseline gate values?
+
+Examples include minimum overall **87**, workflow pass rate **90%**, safety **90**, **zero** critical adversarial failures, max **2-point** regression from previous run—tunable per org.
+
+### How are recommendations generated?
+
+From **exact workflow failures**—priority, rationale, suggested commands, and done conditions—not generic tips.
+
+### Can unusual repo layouts affect detection?
+
+Yes—signal-based detection trades perfect stack precision for **portability** across ecosystems. Tune policy where business risk differs.
+
+### What should I build if rolling my own engine?
+
+Define risk-tied dimensions, separate evidence from scoring math, add critical gates independent of average, store baselines, attach action paths to every failure.
+
+---
+
 ## What you can apply next
 
 If you are building your own quality engine, start with this sequence:

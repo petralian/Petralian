@@ -28,6 +28,16 @@ image_prompt_variant_2: "Bold isometric 16:9: before stack Proxy Tunnel RTK cros
 > **Workflow context:** [Copilot → Cursor migration](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow)  
 > **What replaced the proxy:** [Lightweight agent harness (Part 1)](/posts/cursor-lightweight-harness-without-microservice-2026) · [Four-tier memory](/posts/three-layer-external-brain-for-ai-first-development)
 
+## What is Cursor token saving beyond proxies?
+
+**Cursor token saving** on OpenRouter-heavy workloads is mostly **input discipline, cache shape, harness gates, and model choice**—not a local HTTP proxy compressing an already-cached prompt stream.
+
+**Who it is for:** developers paying for Cursor Agent volume (multi-turn loops, subagents, long context) who tried Headroom, tunnel, or RTK and want an honest post-mortem before installing more middleware.
+
+**What you will learn:** which savings layers stack orthogonally, measured numbers from one production experiment (proxy retired July 2026), and what to run instead (direct OpenRouter, Context7, Serena, harness policy).
+
+---
+
 ## The problem: I wanted cheaper Cursor chats without changing how I work
 
 Cursor bills through token volume. Compression proxies, shell filters, and cache tricks all promise 30% to 95% savings without touching your prompts. I tried that stack for real production work on a Shopify-style web app (React Router 7, hosted API, OpenRouter, and an OpenRouter model in a region where several frontier APIs are region-blocked).
@@ -188,7 +198,51 @@ TRIED -> MEASURED -> RETIRED -> NOW
 5. **Shell aliases** (1 hour) if agents run noisy commands daily.
 6. **Proxy/tunnel last** — only if measurement shows tool-output or exact-repeat dominates and direct cache is already maxed.
 
----
+## Quick reference: token-saving layers
+
+| Layer | What it shrinks | Example tools | Worth it on chat-heavy Agent? |
+|-------|-----------------|---------------|-------------------------------|
+| Source | What the agent reads | Context7, Serena, ripgrep | **Yes** |
+| Path | Bytes on the wire | Proxy, RTK, Tamp | **Often no** if OpenRouter already caches |
+| Cache | Repeated prefixes | OpenRouter native cache | **Yes — default direct** |
+| Model | Price per token | Composer 2.5 baseline | **Yes** |
+| Session | Context bloat | Rules, harness gates, footer | **Yes** |
+| Tooling | Shell output noise | RTK, `jq`/`rg` | **Maybe** if shell-heavy |
+
+**Example stack (July 2026):** Cursor → direct OpenRouter · MCP Context7 + Serena · `context-budget.mdc` + `HARNESS-POLICY` · four-tier memory · OpenRouter Activity dashboard.
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Installing proxy before metering direct | Cannot see cache hit % baseline | One week OpenRouter Activity on direct routing |
+| Trusting README compression % on different workload | Headroom 60–95% ≠ chat-heavy Cursor | A/B on **your** traffic; retire if cache hit drops |
+| RTK for chat-heavy sessions | Shell output is tiny slice of bill | Match layer to dominant token source |
+| Proxy injecting `cache_control` upstream | May disturb OpenRouter cache keys | Compare hit % direct vs proxied |
+| Skipping harness while chasing compression | Subagents paste 42k history | Policy table + memory gates ([harness series](/posts/cursor-lightweight-harness-without-microservice-2026)) |
+| Keeping tunnel infra after proxy retired | Reboots, ACLs, DNS with no dollar payoff | Decommission hostname; point Cursor at direct API |
+
+## FAQ
+
+### Did the proxy save any money?
+
+**Not meaningfully** on my workload: ~$8 on ~75M tokens dominated by OpenRouter's own prompt cache; proxy lowered cache hit ~10 percentage points.
+
+### When is a local proxy still rational?
+
+When **tool-output or byte-identical repeats** dominate the bill **and** direct cache is already maxed—rare for chat-heavy Agent loops.
+
+### What fixed SSRF without fixing savings?
+
+A **public HTTPS tunnel** lets Cursor reach localhost; it solves routing, not unit economics ([tunnel draft](/posts/cursor-local-proxy-cloudflare-tunnel-windows) — retired in my stack).
+
+### What should I install first?
+
+**Meter direct OpenRouter** → Context7/Serena input discipline → harness policy → four-tier memory. Proxy/tunnel **last**.
+
+### Is Headroom wrong for everyone?
+
+**No.** It targets large repeated boilerplate in huge contexts. My Cursor + OpenRouter chats peaked ~8–12K tokens with varying turns—workload mismatch, not necessarily a bad product.
 
 ## Reader action
 

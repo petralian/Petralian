@@ -33,6 +33,33 @@ This page is the **hub** for the External Memory series: a file-based approach I
 
 ---
 
+## What is external memory for AI sessions?
+
+**External memory** is a deliberate file system—Obsidian notes, repo handoff files, agent rules, and hooks—that carries context between AI sessions instead of relying on chat history or product-side memory. It separates short-term conversation from operational handoffs, evergreen product truth, and feedback that hardens into rules you can inspect and version.
+
+**Who it is for:** Developers, leaders, and knowledge workers who use AI across multiple tools and need continuity that survives session resets and vendor changes.
+
+**What you will learn:** How the four layers fit together, which series part matches your role, and the smallest afternoon setup that proves the model before you automate.
+
+---
+
+## How to get started
+
+**Two entry points** — same file pattern, different depth:
+
+| You are… | Start here |
+|----------|------------|
+| **Shipping code with IDE agents** | [How I start a new codebase](/posts/three-layer-external-brain-for-ai-first-development#how-i-start-a-new-codebase) — Cursor workspace, dual vault MCP, hooks |
+| **PM, leadership, or marketing** | [Knowledge Work Engine Part 0 — Example + Path A](/posts/knowledge-work-agent-engine-guide-2026#how-to-get-started) |
+
+**Path A (any AI tool, ~30 min)** — no Cursor required:
+
+1. Create `Operations/Session Summaries.md` and `Operations/AI Session Bridge.md` (priority + open loops).
+2. Paste at session start: *"Read AI Session Bridge and last 5 lines of Session Summaries; summarize objective and next action."*
+3. At session end: append one summary line.
+
+---
+
 ## Who this series is for
 
 | Reader | Start with |
@@ -111,6 +138,63 @@ Without the full stack:
 3. Paste a session-end footer into your agent instructions (deploy state, files changed, next priority).
 
 If session four needs less re-explanation, add Part 1 automation next—not more notes.
+
+---
+
+## Quick reference
+
+| Layer | Holds | Typical location | Read when |
+|-------|-------|------------------|-----------|
+| 1 — Short term | Current chat, todos, live repo state | In the AI tool | Active session only |
+| 2 — Operational | Resume next session: priority, open loops | `Operations/`, `NEXT_SESSION.md`, repo handoff files | Every session start |
+| 3 — Evergreen | What the product or domain *is* | `Features/`, `Architecture/`, shared brain vault | Planning, refactors, onboarding |
+| 4 — Feedback hardened | Lessons that must not repeat | Agent instructions, hooks, session footer | After incidents, session end |
+
+**Series order:** [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) → [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) → [3 vs diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) → [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
+
+---
+
+## Common mistakes
+
+| Mistake | Symptom / risk | Fix |
+|---------|----------------|-----|
+| Treating a larger context window as memory | Same mistakes return every week; no audit trail | Add Layer 2 handoff files and a session-end promotion habit |
+| Skipping the operational layer | Twenty minutes re-explaining state each Monday | One `NEXT_SESSION.md` or Bridge note with priority + open loops |
+| Dumping everything into evergreen notes | Vault becomes unsearchable; nothing is "current" | Use the promotion rule: next session → bridge; forever → Feature note |
+| Building Layer 4 before Layer 2 | Hooks and rules with nothing fresh to read | Start with summaries + bridge; automate boundaries after discipline sticks |
+| Reading all four parts before acting | Analysis paralysis; no proof on your stack | Pick one role from the table above; implement one afternoon checklist item |
+
+---
+
+## FAQ
+
+### What is external memory in AI-assisted work?
+
+**A file-based continuity system**—not chat scrollback—that stores session handoffs, product truth, and rules on disk so any agent can bootstrap from the same sources.
+
+### How is this different from product memory features?
+
+**You own and inspect the files.** Vendor memory helps inside one product; external memory survives tool changes and supports audit, git, and team handoff.
+
+### Do I need all four layers on day one?
+
+**No.** Start with Layer 2 (one handoff file + one-line session summaries). Add evergreen notes and hooks when session four still needs less re-explanation.
+
+### Which series part should I read first?
+
+**Match your role:** builders → [Part 1](/posts/three-layer-external-brain-for-ai-first-development); cross-tool productivity → [Part 2](/posts/obsidian-memory-layers-personal-productivity-beyond-chat); comparing approaches → [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders); audit and governance → [Part 4](/posts/why-deliberate-file-memory-beats-hoping-agents-remember).
+
+### Does this replace Obsidian or a second brain?
+
+**It extends one.** [Your Brain Was Not Built for This](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian) explains why plain Markdown vaults pair well with agents; this series shows how to layer memory for AI sessions specifically.
+
+### Should the AI read my entire project folder?
+
+**No.** Curate handoff files at session start. Link to tickets and wikis; do not duplicate whole backlogs. See [How to get started](#how-to-get-started).
+
+### Do I need Cursor or MCP?
+
+**No to begin.** Paste a bootstrap into any chat. MCP and IDE rules automate file reads for developers ([Part 1](/posts/three-layer-external-brain-for-ai-first-development)).
 
 ---
 

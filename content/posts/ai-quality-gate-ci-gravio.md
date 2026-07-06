@@ -90,6 +90,59 @@ The best sequence is:
 
 If security concerns are slowing adoption, frame the rollout with [Zero-Knowledge AI Quality](/blog/zero-knowledge-ai-quality-gravio/).
 
+## What is an AI quality CI gate?
+
+An AI quality CI gate is a **blocking release check** that fails the pipeline when agent output quality drops below policy—minimum score, regression delta, or critical dimension floors—not merely when unit tests pass. It turns quality from a dashboard suggestion into an enforced decision at merge or deploy time.
+
+---
+
+## Quick reference: gate policy components
+
+| Component | Purpose |
+|-----------|---------|
+| **Minimum total score** | Floor for acceptable overall quality |
+| **Regression delta** | Max drop vs rolling baseline |
+| **Dimension floors** | Critical categories cannot slip alone |
+| **Pass/fail CI output** | Predictable, actionable log context |
+
+---
+
+## Common mistakes (AI quality gates)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Gates before stable baselines | Backlash, waived failures | Establish drift visibility first |
+| Subjective override culture | Every failure waived informally | Version policy like code; limit exceptions |
+| Perfection thresholds on day one | Noise blocks shipping | Start with guardrails; tighten over time |
+| Non-blocking scores | Silent regressions in production | Exit non-zero on policy violation |
+| No dimension-level floors | High average hides critical misses | Add floors for safety and eval categories |
+
+---
+
+## FAQ
+
+### Why don't unit tests catch AI regressions?
+
+Unit tests answer **deterministic** behavior. AI quality is partly probabilistic and contextual—scores, trends, and category regressions need separate signals.
+
+### What is a sensible first threshold policy?
+
+Prevent **obvious** regressions first: minimum score, max regression delta, optional critical dimension floor. Tighten as baselines mature.
+
+### Should gate policy live in repo or centrally?
+
+**Version it like code**—reviewed, traceable changes. Org baseline with bounded per-repo overrides for multi-repo rollouts.
+
+### How does this fit the Gravio adoption sequence?
+
+Onboard → monitor [drift](/blog/ai-agent-quality-drift-detection/) → enforce CI gates → scale via [multi-repo playbook](/blog/gravio-multi-repo-rollout-playbook/).
+
+### What if security slows adoption?
+
+Frame rollout with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) so quality gates do not require plaintext centralization.
+
+---
+
 ## The Payoff
 
 When AI quality is an explicit gate, release decisions improve:

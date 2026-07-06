@@ -86,6 +86,59 @@ When splitting a monolith, sequence by customer visibility and support load:
 
 This reduces dual-maintenance time while avoiding a big-bang cutover before a peak sale.
 
+## What is the customer account monolith anti-pattern?
+
+The customer account monolith anti-pattern is stuffing **every loyalty, referral, and social feature** into one Shopify Customer Account profile extension—often a thousand-line block behind generic "Profile" menu labels. Customers cannot find programs; merchants cannot describe value in navigation; QA and releases touch every feature at once.
+
+---
+
+## Quick reference: extension shape by customer job
+
+| Customer job | Extension shape | Merchant menu label |
+|--------------|-----------------|---------------------|
+| Referrals | Full page | Invite friends |
+| Rewards | Full page or dashboard block | Points and tiers |
+| Social linking | Full page | Linked accounts |
+| Order adjacency | Contextual block | Near orders only |
+
+---
+
+## Common mistakes (Shopify account extensions)
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| One block for every job | Long load, hidden programs | Full-page route per primary job |
+| Default "Profile" menu label | Low discovery and adoption | Merchant-facing labels in workshops pre-sprint |
+| Monolith feature flags | One flag deploys everything | Flags per extension surface |
+| Skipping menu wireframes | Demo passes; production fails IA | Menu IA as deliverable, not launch-week afterthought |
+| QA only on happy-path tab | Regressions in unused tabs | Test per route; per menu entry metrics |
+
+---
+
+## FAQ
+
+### Why do merchants care about menu labels?
+
+Navigation entries are **discovery design**. "Profile" undersells referrals and rewards; customers never find the program despite a successful install.
+
+### When should I use full-page vs compact blocks?
+
+**Full pages** for multi-step flows (referrals, social linking). **Compact blocks** for at-a-glance widgets (points balance on dashboard).
+
+### How should delivery teams split a monolith?
+
+Sequence new routes behind flags, migrate menu links one program at a time, deprecate old tabs after traffic moves—avoid big-bang cutover before peak sales.
+
+### What belongs in vendor RFP scoring?
+
+Ask how many **Customer Account entry points** register by default. One mega-profile means budget IA work in implementation, not post-launch support.
+
+### How does this affect program delivery?
+
+Independent release notes per surface, packages per extension when teams parallelize, and definition of done includes **merchant menu screenshot** in onboarding docs.
+
+---
+
 ## What you can do next
 
 1. Inventory account features and assign one primary job each.

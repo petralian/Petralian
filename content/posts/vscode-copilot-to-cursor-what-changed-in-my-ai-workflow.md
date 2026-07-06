@@ -20,6 +20,16 @@ image_prompt_variant_2: "Bold isometric 16:9 poster illustration: exploded schem
 
 > **Memory stack background:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [External Memory series hub](/posts/external-memory-series-guide) · [Your brain was not built for this](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian)  
 
+## What changes when you move from Copilot to Cursor?
+
+**The shift is enforcement, not vault content:** Copilot loads one large `copilot-instructions.md` at chat scope; Cursor re-injects small `.cursor/rules/*.mdc` files with `alwaysApply: true` on **every agent turn**, plus optional hooks.
+
+**Who it is for:** developers with Obsidian or repo file memory who saw footers disappear on long Copilot threads and want the same spec to survive Cursor Agent loops.
+
+**What you will learn:** mechanical reasons footers drop on Copilot, a retrofit checklist (canonical footer v3.1, Cursor templates), and what still requires human habit.
+
+---
+
 I spent months tuning a VS Code + GitHub Copilot workflow (and still use Copilot for some repos): `.github/copilot-instructions.md`, dual Obsidian vaults, MCP filesystem access to `00_Brain` and per-project notes, session summaries, and a mandatory end-of-reply footer. The vault files and MCP paths were solid. What was not solid was **footer compliance**. Copilot would follow the footer on a fresh chat, then drop it after a few tool-heavy turns. When I moved daily implementation to **Cursor**, the same footer spec started showing up **every work reply** without me nagging.
 
 The problem was not "Copilot vs Cursor features." The problem was **two different enforcement surfaces**. Copilot loads workspace instructions from one file at session scope. Cursor re-injects `.cursor/rules/*.mdc` with `alwaysApply: true` on every agent turn, plus optional hooks that warn when the footer shape is wrong. My Obsidian brain was built for the first model. I had to retrofit it for the second.
@@ -248,7 +258,49 @@ Practical order for your own migration:
 - Long agent runs can still ignore vault updates if the human does not enforce "code + memory ship together."
 - Projects without retrofit still depend on user-level Cursor rules as a safety net.
 
----
+## Quick reference: enforcement surfaces
+
+| Concern | VS Code + Copilot (example) | Cursor Agent (example) |
+|---------|----------------------------|-------------------------|
+| Primary instructions | `.github/copilot-instructions.md` | `.cursor/rules/*.mdc` + `AGENTS.md` |
+| Footer enforcement | Paragraph inside big instructions file | `response-footer.mdc` `alwaysApply: true` |
+| Re-injection | Chat scope; dilutes on long threads | Every agent turn |
+| Session start | Manual vault reads | `sessionStart` hook → snapshot (optional) |
+| Output validation | Model self-polices | Optional `afterAgentResponse` hook |
+| Canonical spec | Link to Brain Response Footer Contract v3.1 | Mirror contract in rules |
+
+## Common mistakes
+
+| Mistake | Why it fails | Fix |
+|---------|--------------|-----|
+| Pasting full footer template into copilot-instructions | Competes with deploy gates; drops first | One canonical contract; link only in Copilot repos |
+| Expecting hooks to append footers | Hooks inject context, not model output | Rules + habit; optional validator warns |
+| Migrating IDE without Cursor rules copy | Same vault, zero enforcement | Copy `Templates/cursor/*.mdc` per repo |
+| Four footer specs in different docs | Contradictory field names | v3.1 modes A–G in one Brain note |
+| "Code only" sessions skipping vault | Memory rots; next session amnesiac | Enforce code + memory ship together |
+| Treating Cursor as Copilot + chat | Miss agent-first session shape | Session context top + mode footer bottom |
+
+## FAQ
+
+### Did my Obsidian files need to change on day one?
+
+**No.** What changed was **how the IDE enforces reading and writing them**—rules, hooks, and canonical footer.
+
+### Can Copilot match Cursor footer compliance?
+
+**Possible with short chats** or future always-on equivalent. Today: footer rules dilute in long Copilot threads without a dedicated per-turn rule surface.
+
+### What is v3.1 footer modes A–G?
+
+Seven reply shapes with fixed fields—Mode A for pure Q&A (lighter), Mode C–D for code work with Obsidian proof. Spec lives in Brain `Response Footer Contract.md`.
+
+### Do I need the validate-footer hook?
+
+**Optional.** Always-on `response-footer.mdc` alone moved compliance from "usually missing" to "almost always present" in my migration.
+
+### Should I abandon Copilot entirely?
+
+**Not necessarily.** Use Copilot for completions; use Cursor Agent where **session handoffs must stick** ([baseline model companion](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)).
 
 ## What you can do next
 

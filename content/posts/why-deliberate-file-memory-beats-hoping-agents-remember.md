@@ -37,6 +37,16 @@ Default AI memory lives inside the product: threads, profiles, retrieved chunks 
 
 ---
 
+## What is deliberate file memory for AI agents?
+
+**Deliberate file memory** is the practice of storing agent context, decisions, and lessons in human-owned files—Feature notes, bridge handoffs, gotchas, decision logs—with promotion rules and footers that require proof (file paths), not hope that the model "remembered." It turns feedback into governance artifacts you can audit, diff, and hand to a teammate or future you.
+
+**Who it is for:** Solo shippers at production depth, program owners, and anyone who must explain a deploy, onboard a collaborator, or survive switching models and IDEs.
+
+**What you will learn:** Five outcomes files beat chat on, how feedback becomes enforceable rules, boundary automation from the reference stack, and the smallest artifact to add this quarter. Mechanics: [Part 1](/posts/three-layer-external-brain-for-ai-first-development); philosophy: [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders); [series hub](/posts/external-memory-series-guide).
+
+---
+
 ## Why it matters: five outcomes files win
 
 | Outcome | Chat-only | Deliberate files |
@@ -80,6 +90,56 @@ Details in [part 1 of this series](/posts/three-layer-external-brain-for-ai-firs
 ## Enterprise programs
 
 [Getting enterprise AI right](/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment) argues deployment is not the hard part—operating model is. Deliberate file memory is an operating model artifact: inspectable, linkable, versioned.
+
+---
+
+## Quick reference
+
+| Outcome | Chat-only | Deliberate files | Starter artifact |
+|---------|-----------|------------------|------------------|
+| Audit | Poor | Commits → Feature notes, session footers | `Features/*.md` with `## Commits` |
+| Solo ship continuity | Fragile | Bridge, gotchas, rules | `NEXT_SESSION.md` |
+| Team / future-you handoff | Weak | Hub notes, Summaries | `AI Session Bridge.md` |
+| Tool churn | Reset | Portable vault + repo | Shared brain vault + bootstrap order |
+| Compounding lessons | Retry prompts | Rules with file citations | Session footer + `known-gotchas.md` |
+
+**Feedback rule:** Session End **Self-improvements** must cite an exact file path—or the lesson did not land.
+
+---
+
+## Common mistakes
+
+| Mistake | Symptom / risk | Fix |
+|---------|----------------|-----|
+| Trusting opaque product memory for compliance | Cannot explain what the agent "knew" at ship time | Decision notes + Feature commits linked to git |
+| Chat corrections without file promotion | Same class of error repeats | Bug → `known-gotchas.md` + agent instructions; cite path in footer |
+| No handoff surface for solo work | You become the only continuity layer | One Bridge or `NEXT_SESSION.md` updated every session end |
+| Skipping automation at boundaries | Agents forget to update notes | Session-start snapshot + post-commit Feature updater ([Part 1](/posts/three-layer-external-brain-for-ai-first-development)) |
+| Enterprise rollout without operating-model artifacts | Deployment succeeds; drift is invisible | Treat vault + repo memory as governance, not optional docs |
+
+---
+
+## FAQ
+
+### What is the difference between chat memory and deliberate file memory?
+
+**Chat memory is opaque and ephemeral inside the product; file memory is inspectable, versioned, and portable** across Claude, ChatGPT, IDE agents, and future tools.
+
+### Do solo builders need governance-grade memory?
+
+**Yes, if you ship at production depth without a team to carry tacit knowledge.** Bridge notes and gotchas replace the colleague who would otherwise remember deploy state.
+
+### How strict should session footers be?
+
+**Require file-path proof for self-improvements.** Vague "lesson recorded" in chat is fiction; a cited path in `known-gotchas.md` or agent instructions is verifiable.
+
+### What is the minimum artifact to test this quarter?
+
+**One durable file**—Decision note, `NEXT_SESSION.md`, or a single Feature note with hard rules—and an instruction: read it first, cite it in the plan.
+
+### How does this close the External Memory series?
+
+**Part 4 of 4 (capstone).** Revisit [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) for the philosophy comparison; [Part 1](/posts/three-layer-external-brain-for-ai-first-development) for full implementation.
 
 ---
 
