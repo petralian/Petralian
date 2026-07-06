@@ -457,6 +457,51 @@ Before calling a phase "shipped":
 
 ---
 
+## Complex requirements, documentation drift, and review gates
+
+Delivery leads often hit the same cluster of pains: AI feels **unreliable** as specs grow, **documentation falls behind** execution, and **peer review** is a manual side process. The engine does not fix model quality. It **bounds what the assistant sees** and **when a draft becomes official**.
+
+### Complex requirements (without dumping the spec into chat)
+
+| Failure mode | Why it happens | Engine response |
+|--------------|----------------|-----------------|
+| Invented scope or priority | No stable Sprint Goal / Bridge | `Bridge.md` + Jira sprint goal synced at boundary |
+| Wrong-era requirements | Full wiki or ticket export in context | **context-pack**: Bridge + `_Home` + RAID pointers only |
+| Confident but wrong status | Agent sets RAG without evidence | Agent proposes; human **Accountable** sets RAG with links |
+| Parallel tracks collide | One chat for pilot + policy + training | Batch orchestrator with named **A** per track ([above](#batch-orchestrator-3-workstreams)) |
+
+**Rule:** For large requirement sets, the AI reads **curated handoff files**, not the entire backlog. Detailed specs stay in your tracker or wiki; the engine holds **intent, tradeoffs, risks, and links**.
+
+This is **not** requirements management software. It is **session continuity** so complexity does not get re-explained—or hallucinated—every Monday.
+
+### Documentation drift (what updates when)
+
+Dual maintenance is real. Reduce drift with **fixed promotion moments**, not hope:
+
+| Moment | Update |
+|--------|--------|
+| **Sprint / phase boundary** | Copy sprint goal into `Bridge.md`; one line in `Session Summaries` |
+| **Decision commit** | `Decisions/` file → human **A** approves → publish summary to wiki → link in `_Home.md` |
+| **Milestone gate (Mode D)** | [Checklist](#milestone-gate-mode-d): RAG, RAID, Jira release, Confluence if stakeholders expect it |
+| **Retrospective** | Lessons → `Lessons-Learned.md`; promote to `WORK-ROUTING` if repeated twice |
+
+**Optional automation:** Jira REST or MCP can pull sprint name, goal, and blocker keys into `context-pack` generation. The curated file remains the **read surface** for agents—not a live mirror of every ticket comment.
+
+### Review before publish (peer input without a new tool)
+
+Formal peer review is not built in. You **attach** it with RACI and modes from [Part 2](/posts/knowledge-work-engine-leadership-decisions-2026):
+
+1. **Agent (R)** drafts status memo, RAID update, or SteerCo outline from Bridge + RAID.
+2. **Consulted (C)** reviewers comment on the file or in your existing review channel (email, wiki comment, PR on a git-backed vault)—before commit.
+3. **Accountable (A)** runs a **commit** session: record decision or approve publish.
+4. **Informed (I)** receive Confluence or distro after publish.
+
+For high-stakes artifacts, add a **reviewer pass**: second prompt that checks only against `voice-guide` + milestone checklist—not a rewrite ([Part 0 hub — reviewer pass](/posts/knowledge-work-agent-engine-guide-2026#advanced-harness-patterns-without-code)).
+
+**Honest tradeoff:** You trade endless chat re-explaining for **five-minute session close** and **sync at ceremony boundaries**. Less magic; more inspectable structure.
+
+---
+
 ## Real constraints
 
 - **Dual maintenance** — Bridge and Jira sprint goal can drift; assign one owner to sync at sprint boundary.
@@ -487,6 +532,8 @@ Before calling a phase "shipped":
 | Letting AI set RAG color | False SteerCo confidence | Agent proposes evidence; human **A** sets color |
 | Skipping Sprint Goal in Bridge | AI invents weekly priority | Copy sprint goal at planning |
 | Batch workers without RACI | Orphan workstreams | Orchestrator + named Accountable per track |
+| Expecting auto-sync from Jira/wiki | Stale or duplicated docs | Curated files + boundary promotion; automation optional |
+| Skipping Consulted before SteerCo publish | Single-author AI narrative | RACI **C** review before **A** commits ([Part 2](/posts/knowledge-work-engine-leadership-decisions-2026#peer-review-with-raci-not-a-separate-product)) |
 
 ---
 
@@ -511,6 +558,18 @@ Product Goal and roadmap fit `_Home.md`. Backlog ordering stays in your PM tool.
 ### What is the minimum setup for one team?
 
 `_Home.md`, `Bridge.md`, `WORK-ROUTING.md`, and Jira sprint goal synced at sprint boundary. Add `RAID.md` when SteerCo asks for risks.
+
+### Does this fix unreliable AI on complex requirements?
+
+**Partially.** It does not improve the model. It reduces **invented scope** by curating what the assistant reads (Bridge, RAID, links—not full backlog dumps) and keeping humans **Accountable** for RAG and publish. See [complex requirements](#complex-requirements-documentation-drift-and-review-gates).
+
+### How do I keep documentation up to date without duplicating Jira?
+
+**Promotion at boundaries**, not continuous mirror: update `Bridge` at sprint start, `Decisions/` on commit, wiki on publish. Link ticket keys; do not copy the backlog into markdown.
+
+### How do I add peer review?
+
+Use RACI **Consulted** before **Accountable** commit, then publish to Confluence for **Informed**. Details in [Part 2 — peer review with RACI](/posts/knowledge-work-engine-leadership-decisions-2026#peer-review-with-raci-not-a-separate-product).
 
 ---
 

@@ -247,6 +247,27 @@ review -> consult: "if C required" {
 review -> publish
 ```
 
+### Peer review with RACI (not a separate product)
+
+Program and solution leads often ask for **peer review** on AI-assisted memos, specs, and SteerCo packs. The engine does not ship a review queue or approval SaaS. It gives a **repeatable hook** you can map to email, wiki comments, or git-backed vault PRs if your files live in a repo.
+
+| Step | Role | What happens |
+|------|------|----------------|
+| 1. Draft | **R** (agent or human) | Output in `Sessions/` or draft section—**advisory** mode, no "we decided" |
+| 2. Peer input | **C** Consulted | Named SMEs review; comments captured in file header or linked thread |
+| 3. Revise | **R** | Agent or author incorporates **C** feedback |
+| 4. Commit | **A** Accountable | **Commit** session writes `Decisions/` or approves publish checklist |
+| 5. Publish | **I** Informed | Confluence / distro after **A** sign-off |
+
+**WORK-ROUTING row:**
+
+| Situation | Route | Gate |
+|-----------|-------|------|
+| SteerCo pack or external memo | Advisory → **C review** → commit | No publish until **A** + checklist |
+| Internal status only | Direct + Bridge | Human **A** sets RAG |
+
+**Part 1 tie-in:** RAID and RAG drafts follow the same path—agent proposes evidence, **C** may challenge assumptions, **A** sets color ([Part 1 — review gates](/posts/knowledge-work-engine-project-management-2026#complex-requirements-documentation-drift-and-review-gates)).
+
 ---
 
 ## Two modes: advisory vs commit
@@ -432,6 +453,7 @@ Human sends sensitive email. Engine prepares.
 | Agent signs email | Trust / compliance | Human send; agent drafts |
 | Skipping **Why** read | Polished **What**, hollow purpose | Bootstrap Why file first |
 | Recording only the winning option | Lost dissent | Options table before decision paragraph |
+| Publishing before Consulted review | Single-author AI pack | **C** comments before **A** commit ([peer review with RACI](#peer-review-with-raci-not-a-separate-product)) |
 
 ---
 
@@ -460,6 +482,10 @@ AI should **surface multiple options**, not perform fake conflict. Humans supply
 ### How does this connect to [Part 1](/posts/knowledge-work-engine-project-management-2026)?
 
 PM owns RAG, RAID, and Jira links. Leadership owns escalation decisions when RAG turns Red and RACI **A** commits.
+
+### How do I run peer review on AI-generated delivery docs?
+
+Name **Consulted** reviewers in `RACI.md`. Run **advisory** draft → **C** feedback → **commit** with **A** sign-off → publish for **Informed**. See [peer review with RACI](#peer-review-with-raci-not-a-separate-product).
 
 ---
 

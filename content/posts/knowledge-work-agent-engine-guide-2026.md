@@ -37,6 +37,17 @@ A **knowledge work agent engine** is a **file-based operating system** for AI-as
 
 **What you will learn:** how the engine complements Agile and Confluence; **how to set it up in one folder with any AI tool**; and where [Part 1](/posts/knowledge-work-engine-project-management-2026), [Part 2](/posts/knowledge-work-engine-leadership-decisions-2026), and [Part 3](/posts/knowledge-work-engine-marketing-voice-2026) go deeper.
 
+### Who this is for — and what it does not replace
+
+| **Good fit** | **Not a substitute for** |
+|--------------|---------------------------|
+| PMs, solution leads, and delivery folks using AI beside Jira, ADO, or a wiki | Running the backlog or replacing your task tracker |
+| Teams that lose context between chat sessions and need **structured handoffs** | Fully automated doc sync (Confluence/Jira stay authoritative; you curate links) |
+| Programs that want **human sign-off** before AI drafts become official narrative | Hands-off AI on large, changing requirement sets without review |
+| Marketers and leaders sharing the same file-based continuity model | A built-in **peer review product** (you wire Consulted reviewers via RACI + gates — [Part 2](/posts/knowledge-work-engine-leadership-decisions-2026)) |
+
+[Part 1](/posts/knowledge-work-engine-project-management-2026#complex-requirements-documentation-drift-and-review-gates) goes deeper on complex scope, documentation drift, and review before publish.
+
 ---
 
 ## How to get started
@@ -670,6 +681,7 @@ Same four tiers. This series applies that model to **PM, leadership, and marketi
 - Over-documentation kills adoption. Use the promotion rule.
 - Voice guides do not replace human review for sensitive leadership comms.
 - Tool behavior changes; re-verify bootstrap paths after IDE upgrades.
+- **Does not** auto-sync Jira/Confluence or replace formal peer-review tools — it gives **structure, gates, and RACI hooks** you can attach to existing review habits ([Part 1](/posts/knowledge-work-engine-project-management-2026#complex-requirements-documentation-drift-and-review-gates)).
 
 ---
 
