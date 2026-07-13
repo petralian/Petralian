@@ -1,9 +1,13 @@
 # Petralian — passive spam / link-farm domains (not purchased)
-# Generated: 2026-07-13
-# Source: petralian.com-refdomains-subdomains_2026-07-13_11-14-07.csv
-# Spam domains: 289
-# Upload to GSC only if Manual Action exists or indexation fails after 4-6 weeks
+# Updated: 2026-07-13
+# Sources:
+#   - disavow-2026-07-13.txt (289 domains)
+#   - backlink_audit_domains_30396432_2026-07-13.csv (79 domains)
+# Total unique domains: 352
+# Upload to GSC only if Manual Action exists or indexation stalls after 4-6 weeks
+# See docs/seo/backlink-audit-2026-07-13.md
 
+domain:000+ sites for 90dr+ backlinks
 domain:123webshop.shop
 domain:acquire.co.in
 domain:activeshop.shop
@@ -14,6 +18,7 @@ domain:advanced-saas-seo-directory-outrank-hq.store
 domain:advanced-search-seoexpress-pros.store
 domain:advanced-seo-firm-seoexpress.store
 domain:agile-footer-link-system-link-baron.store
+domain:all-aged-domains.com
 domain:allinone.co.in
 domain:alljobs.info
 domain:allwebsitesdirectory.com
@@ -74,6 +79,7 @@ domain:factmags.com
 domain:first-class-seoexpress-keyword-exchange.store
 domain:forum-provider-link-baron.store
 domain:getonline.co.in
+domain:getwebsiteworth.com
 domain:global-authority-seoexpress-group.store
 domain:global-digital-seoexpress-portal.store
 domain:global-guest-post-seoexpress-group.store
@@ -82,6 +88,7 @@ domain:global-seo-group-seoexpress.store
 domain:globalecommerce.org
 domain:golden-link-building-rank-forge.store
 domain:goooogla.com
+domain:hebagh.cv
 domain:high-crew-link-baron-intent.store
 domain:high-domain-seoexpress-center.store
 domain:high-outrank-hq-dofollow-platform.store
@@ -91,6 +98,7 @@ domain:highseoranking.shop
 domain:indexaward.com
 domain:indians.cc
 domain:instant-webpage-seoexpress-consultants.store
+domain:jobsapp.info
 domain:kawaiishop.shop
 domain:kmoshops.shop
 domain:leading-partners-for-domain-rating-and-do-follow.store
@@ -114,6 +122,7 @@ domain:linkrankboost.shop
 domain:linkrankpro.shop
 domain:linkrankseo.shop
 domain:linkseopro.shop
+domain:linksnatcher.com
 domain:linkstash.shop
 domain:linkstock.shop
 domain:linkstockly.shop
@@ -124,6 +133,20 @@ domain:lixil-reformshop.shop
 domain:luxury-niche-edit-seoexpress-services.store
 domain:luxury-outrank-hq-crew.store
 domain:luxury-seoexpress-tier-1-house.store
+domain:mail.allwebsitesdirectory.com
+domain:mail.australianwebdirectory.shop
+domain:mail.bestwebstats.com
+domain:mail.domain.com.lc
+domain:mail.domainanalysis.org
+domain:mail.domainsc.com
+domain:mail.getwebsiteworth.com
+domain:mail.globalecommerce.org
+domain:mail.indians.cc
+domain:mail.linksnatcher.com
+domain:mail.musweb.org
+domain:mail.tunca.org
+domain:mail.wallpapers.pro
+domain:mail.way2check.cv
 domain:master-digital-studio-seoexpress.store
 domain:master-rank-forge-pbn-league.store
 domain:master-seoexpress-content-consultants.store
@@ -132,6 +155,7 @@ domain:master-seoexpress-search-agency.store
 domain:modern-authority-seoexpress.store
 domain:modern-guest-post-consultants-seoexpress.store
 domain:modern-organic-group-seoexpress.store
+domain:musweb.org
 domain:mysky-shop.shop
 domain:nettools.guru
 domain:nexabacklinks.shop
@@ -152,6 +176,7 @@ domain:outrank-hq-spam-score-dynamic-firm.store
 domain:outrank-hq-ultimate-ranking.store
 domain:pagesearch.net
 domain:pbnseolinks.shop
+domain:portailorange.net
 domain:powerful-link-building-hub-seoexpress.store
 domain:premium-contextual-link-and-guest-posting-marketplace.store
 domain:premium-seoexpress-digital-solutions.store
@@ -161,8 +186,11 @@ domain:premiumseolinks.shop
 domain:prime-high-da-seoexpress.store
 domain:prime-white-hat-seoexpress-network.store
 domain:primebacklinks.shop
+domain:procycling.org
 domain:professional-seoexpress-high-da-partners.store
 domain:professional-seoexpress-marketing-studio.store
+domain:pudhe.com
+domain:qwenterprise.com
 domain:rank-top.click
 domain:rank-your-website.shop
 domain:rankbasket.shop
@@ -178,6 +206,7 @@ domain:rankgear.shop
 domain:rankgoods.shop
 domain:ranking-signal-link-velocity-and-do-follow-partners.store
 domain:rankinghighseo.shop
+domain:rankings & authority with 100% premium backlinks 🎖️ – give your competitors a tough time! 💪 | rankvance.com – backlink agency"
 domain:rankingseohigh.shop
 domain:rankkit.shop
 domain:ranklinkerpro.shop
@@ -193,9 +222,11 @@ domain:ranktrove.shop
 domain:rankwagon.shop
 domain:rankxlinks.shop
 domain:rankyour.website
+domain:rdxextremez.com
 domain:read.org.in
 domain:ready.pro
 domain:rent-a-shop.shop
+domain:sapphirevpn.net
 domain:seo-high-ranking.shop
 domain:seobits.shop
 domain:seobundle.shop
@@ -254,6 +285,7 @@ domain:seotrove.shop
 domain:seowagon.shop
 domain:seowares.shop
 domain:seowarez.shop
+domain:sergechel.info
 domain:shop-inframe.shop
 domain:shopbetreiber-blog.shop
 domain:simplywebshop.shop
@@ -276,20 +308,54 @@ domain:theseohighranking.shop
 domain:theseomasterhigh.shop
 domain:theseorankinghigh.shop
 domain:thetoprankingseo.shop
+domain:thirty.co.in
 domain:tier-one-and-domain-rating-trusted-exchange.store
 domain:toplinkranker.shop
 domain:traffic-surge-and-keyword-rank-premium-alliance.store
+domain:trendyhealthtimes.com
 domain:trusted-dofollow-team-seoexpress.store
 domain:trusted-off-page-pros-seoexpress.store
 domain:trusted-organic-seoexpress-house.store
 domain:trusted-seoexpress-backlink-experts.store
 domain:tunca.org
+domain:uaewebdirectory.info
 domain:ultimate-seoexpress-niche-edit-experts.store
 domain:verified-digital-firm-seoexpress.store
 domain:verified-seoexpress-search-directory.store
 domain:wallpapers.pro
+domain:way2check.art
 domain:way2check.cv
 domain:websiterace.com
 domain:wonvision.com
+domain:www.alljobs.info
+domain:www.allwebsitesdirectory.com
+domain:www.backlinkshouse.com
+domain:www.bestwebstats.com
+domain:www.blacksonwhites.com
+domain:www.carplz.com
+domain:www.domain.com.lc
+domain:www.domainanalysis.org
+domain:www.domainsc.com
+domain:www.findinfo.in
+domain:www.getwebsiteworth.com
+domain:www.globalecommerce.org
+domain:www.hebagh.cv
+domain:www.homefinance.co.in
+domain:www.indexaward.com
+domain:www.indians.cc
+domain:www.linksnatcher.com
+domain:www.pagesearch.net
+domain:www.pudhe.com
+domain:www.taxies.biz
+domain:www.thirty.co.in
+domain:www.tunca.org
+domain:www.uaewebdirectory.info
+domain:www.wallpapers.pro
+domain:www.way2check.art
+domain:www.way2check.cv
+domain:www.websiterace.com
+domain:www.websitescrawl.art
+domain:www.wonvision.com
+domain:www.ycm.info
 domain:ycm.info
 domain:yhype.me

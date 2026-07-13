@@ -29,9 +29,28 @@ GSC → **Security issues** — also **empty** (2026-07-13).
 
 See [`crm-noindex.md`](crm-noindex.md) — `crm.petralian.com` must be noindex on the Perfex server + optional GSC prefix removal.
 
+## Step 2c — CRM noindex + verify (backlink audit follow-up)
+
+Semrush toxic audit (2026-07-13): **42 of 81** toxic links target `crm.petralian.com`. Full runbook: [`backlink-audit-2026-07-13.md`](backlink-audit-2026-07-13.md).
+
+- [ ] Upload [`crm-deploy/robots.txt`](crm-deploy/robots.txt) + [`.htaccess`](crm-deploy/.htaccess) to Perfex web root on `46.224.49.175`
+- [ ] Verify `https://crm.petralian.com/robots.txt` shows `Disallow: /`
+- [ ] Verify response header includes `X-Robots-Tag: noindex` (browser devtools or `curl -sI`)
+- [ ] GSC → **Indexing** → **Removals** → prefix `https://crm.petralian.com/`
+- [ ] URL Inspection → `https://crm.petralian.com/` → confirm “Excluded by noindex” after deploy
+
+**Do not upload disavow** until Manual Action exists or indexation stalls (~re-check 2026-07-27). Break-glass file: [`disavow-2026-07-13.txt`](disavow-2026-07-13.txt) (352 domains).
+
 ## Step 3 — Request indexing (URL Inspection) ✅
 
 - [x] All 10 pillar URLs requested (2026-07-13)
+
+### Step 3b — New pillar posts (after 2026-07-13 deploy)
+
+GSC → **URL Inspection** → **Request indexing** for each:
+
+- [ ] `https://petralian.com/posts/what-i-learned-directing-ai-as-my-primary-engineer`
+- [ ] `https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment`
 
 ## Step 4 — Baseline snapshot
 

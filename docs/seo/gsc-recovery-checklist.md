@@ -49,6 +49,8 @@ Priority URLs:
 - `https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs`
 - `https://petralian.com/posts/building-petralian-the-technical-reality`
 - `https://petralian.com/posts/the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo`
+- `https://petralian.com/posts/what-i-learned-directing-ai-as-my-primary-engineer`
+- `https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment`
 
 ## 5. Read the Pages report (what screenshots mean)
 
@@ -109,3 +111,18 @@ Then GSC → **Page indexing** → **Not found (404)** → **Validate fix**.
 - GSC **Pages** → indexed count rising
 - Ahrefs **Organic keywords** (may lag GSC by weeks)
 - Only upload disavow if Manual Action exists or indexation stalls with spam anchors growing in GSC **Links**
+
+## 9. Backlink audit (Semrush toxicity)
+
+**Runbook:** [`backlink-audit-2026-07-13.md`](backlink-audit-2026-07-13.md)  
+**Vault:** `Operations/SEO Backlink Audit 2026-07-13.md`
+
+| Finding (2026-07-13) | Action |
+|----------------------|--------|
+| 81 toxic links, 61.8% toxicity | Expected spam-farm noise — not purchased links |
+| 42 links → `crm.petralian.com` | **Upload CRM noindex** — [`crm-noindex.md`](crm-noindex.md) |
+| 35 links → `petralian.com` | Monitor; no disavow while Manual actions empty |
+| Disavow file ready (352 domains) | [`disavow-2026-07-13.txt`](disavow-2026-07-13.txt) — **do not upload** yet |
+| Re-merge after new exports | `node scripts/merge-disavow-domains.mjs` |
+
+Re-check Semrush + GSC Links ~**2026-07-27** alongside §8 Pages export.
