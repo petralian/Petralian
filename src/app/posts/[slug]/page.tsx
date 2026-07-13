@@ -120,15 +120,17 @@ export default async function PostPage({
               items={[
                 { label: "Home", href: "/" },
                 { label: "Writing", href: "/posts" },
-                ...(post.category
-                  ? [{ label: post.category }]
+                ...(post.tags[0]
+                  ? [
+                    {
+                      label: post.tags[0],
+                      href: `/posts?tag=${encodeURIComponent(post.tags[0])}`,
+                    },
+                  ]
                   : []),
                 { label: post.title },
               ]}
             />
-            {post.category && (
-              <p className="post-hero-eyebrow">{post.category}</p>
-            )}
             <h1 className="post-hero-title">{post.title}</h1>
             {post.excerpt && (
               <p className="post-hero-excerpt">{post.excerpt}</p>

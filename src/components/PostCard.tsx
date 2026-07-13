@@ -41,8 +41,10 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
 
         <div className="post-card-body">
           <div className="post-card-meta">
-            {post.category && (
-              <span className="post-card-category">{post.category}</span>
+            {post.tags[0] ? (
+              <TagPillLink tag={post.tags[0]} className="post-card-topic" />
+            ) : (
+              <span />
             )}
             <time dateTime={post.date} className="post-card-date">
               {formatDate(post.date)}

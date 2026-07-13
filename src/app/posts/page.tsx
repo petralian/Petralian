@@ -1,8 +1,11 @@
-﻿import type { Metadata } from "next";
+﻿import { Suspense } from "react";
+import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
+import TopicBrowser from "@/components/TopicBrowser";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL } from "@/lib/constants";
-import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
+import { getAllPosts } from "@/lib/posts";
+import { getTagStats } from "@/lib/tag-stats";
 import writingContent from "../../../content/pages/writing.json";
 
 export const metadata: Metadata = {
@@ -19,8 +22,7 @@ export default async function PostsPage({
 }) {
   const { tag } = await searchParams;
   const posts = getAllPosts();
-  const categories = getAllCategories();
-  const tags = getAllTags();
+  const tagStats = getTagStats(posts);
 
   return (
     <div className="page-container">
@@ -44,25 +46,21 @@ export default async function PostsPage({
           </p>
         ))}
 
-        <div className="blog-topic-row">
-          {writingContent.topic_cards.map((card) => (
-            <div key={card.title} className={`blog-topic-card blog-topic-card--${card.style}`}>
-              <p className="blog-topic-title">{card.title}</p>
-              <p className="blog-topic-desc">
-                {card.description.split("\n").map((line, k, arr) => (
-                  <span key={k}>
-                    {line}
-                    {k < arr.length - 1 && <br />}
-                  </span>
-                ))}
-              </p>
-            </div>
-          ))}
-        </div>
+        <Suspense fallback={null}>
+          <TopicBrowser tagStats={tagStats} postCount={posts.length} initialTag={tag} />
+        </Suspense>
       </header>
 
       {/* ── Filters + grid ────────────────────────────────────── */}
-      <BlogFilters posts={posts} categories={categories} tags={tags} initialTag={tag} />
+      <Suspense
+        fallback={
+          <p className="blog-results-count" style={{ marginBottom: "2rem" }}>
+            Loading articles…
+          </p>
+        }
+      >
+        <BlogFilters posts={posts} initialTag={tag} />
+      </Suspense>
     </div>
   );
 }
