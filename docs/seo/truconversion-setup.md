@@ -2,15 +2,27 @@
 
 Component: [`src/components/TruConversion.tsx`](../../src/components/TruConversion.tsx) (production-only, like GA4).
 
+## Embedded scripts
+
+Both snippets from TruConversion → **Code** are wired in `TruConversion.tsx`:
+
+| Script | Source |
+|--------|--------|
+| Heatmaps / experiments | `app.truconversion.com/ti-js/35198/d46f0.js` |
+| Visitor tracking (Reveal) | `rest.revealid.xyz/v3/script?clientId=bYWmatUgWapY699k1o1sgm` |
+
+Defaults live in [`src/lib/constants.ts`](../../src/lib/constants.ts). Override via Vercel env if the dashboard rotates IDs:
+
+- `NEXT_PUBLIC_TRUCONVERSION_SCRIPT_PATH` = `35198/d46f0`
+- `NEXT_PUBLIC_TRUCONVERSION_REVEAL_CLIENT_ID` = `bYWmatUgWapY699k1o1sgm`
+
 ## Enable
 
-1. TruConversion dashboard → **Code** → copy site ID from tracking snippet
-2. Vercel → Project → Environment Variables:
-   - `NEXT_PUBLIC_TRUCONVERSION_SITE_ID` = your site ID
-3. Redeploy production
-4. Dashboard → **Verify installation**
+1. Commit + push (or redeploy) so production serves the updated component
+2. TruConversion dashboard → **Verify installation**
+3. Confirm recordings appear on `/`, `/posts`, and a sample `/posts/*` URL
 
-If your dashboard snippet differs from the default embed, paste the full script into `TruConversion.tsx` (replace the `tc.js` loader).
+No Vercel env vars required unless you change IDs in the dashboard.
 
 ## Campaigns to create
 

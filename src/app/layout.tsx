@@ -59,6 +59,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
     types: {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
+      "text/plain": `${SITE_URL}/llms.txt`,
     },
   },
   openGraph: {

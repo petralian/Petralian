@@ -63,11 +63,30 @@ GSC → **Pages** → **Not indexed** — common reasons:
 
 ## 6. Verify live crawl assets
 
+**In Google Search Console**
+
+| Where | What it tells you |
+|-------|-------------------|
+| **URL Inspection** (top search bar) | Paste any URL → *Live test* / *Test live URL* → crawl result, indexing status, canonical |
+| **Indexing → Pages** | Indexed vs not indexed counts and reasons (your coverage export) |
+| **Indexing → Sitemaps** | Discovered URLs from `sitemap.xml` (71) |
+| **Settings → Crawl stats** | Crawl volume over time (if enabled for property) |
+
+**From your machine (repo)**
+
+```bash
+node scripts/audit-live-sitemap.mjs    # HEAD every sitemap URL (71/71 should be 2xx/3xx)
+npm run audit:site                     # sitemap + internal links + meta
+```
+
+Last run 2026-07-13: **71/71 sitemap URLs OK**.
+
 | URL | Expected |
 |-----|----------|
-| `https://petralian.com/sitemap.xml` | 200, ~57+ URLs |
+| `https://petralian.com/sitemap.xml` | 200, ~71 URLs |
 | `https://petralian.com/robots.txt` | 200, `Sitemap:` line present |
-| `https://petralian.com/llms.txt` | 301 → `/llms.txt` |
+| `https://petralian.com/llm.txt` | 308 → `/llms.txt` |
+| `https://petralian.com/ai.txt` | 308 → `/llms.txt` |
 | `https://petralian.com/llms.txt` | 200, post URL list |
 | `https://petralian.com/feed.xml` | 200, all published posts |
 

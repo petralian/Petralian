@@ -11,6 +11,7 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - Sitemap: https://petralian.com/sitemap.xml
 - RSS feed: https://petralian.com/feed.xml
 - All articles index: https://petralian.com/posts
+- Breadcrumb navigation on posts, writing index, and about pages
 
 ## Site sections
 

@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
 import writingContent from "../../../content/pages/writing.json";
 
@@ -21,6 +22,12 @@ export default async function PostsPage({
 
   return (
     <div className="page-container">
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Writing" },
+        ]}
+      />
       {/* ── Blog header ───────────────────────────────────────── */}
       <header className="blog-header">
         <h1 className="blog-header-title">{writingContent.header_title}</h1>

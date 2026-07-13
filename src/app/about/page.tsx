@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { SOCIAL_LINKS, SITE_URL, AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from "@/lib/constants";
 import aboutContent from "../../../content/pages/about.json";
 
@@ -63,6 +64,13 @@ export default function AboutPage() {
         <div className="about-hero-inner">
           {/* Left: text */}
           <div>
+            <Breadcrumbs
+              variant="dark"
+              items={[
+                { label: "Home", href: "/" },
+                { label: "About" },
+              ]}
+            />
             <h1 className="about-hero-name">Nathan Petralia</h1>
             <p className="about-hero-tagline">{aboutContent.hero_tagline}</p>
 

@@ -10,6 +10,7 @@ import { getAllPosts, getPost } from "@/lib/posts";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
 
 export async function generateStaticParams() {
@@ -114,9 +115,17 @@ export default async function PostPage({
       <section className="post-hero">
         <div className="post-hero-inner">
           <div className="post-hero-left">
-            <Link href="/posts" className="post-hero-back">
-              &larr; Back to all posts
-            </Link>
+            <Breadcrumbs
+              variant="dark"
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Writing", href: "/posts" },
+                ...(post.category
+                  ? [{ label: post.category }]
+                  : []),
+                { label: post.title },
+              ]}
+            />
             {post.category && (
               <p className="post-hero-eyebrow">{post.category}</p>
             )}

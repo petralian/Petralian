@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       { source: "/services", destination: "/about", permanent: true },
       { source: "/writing", destination: "/posts", permanent: true },
       { source: "/llm.txt", destination: "/llms.txt", permanent: true },
+      { source: "/ai.txt", destination: "/llms.txt", permanent: true },
       { source: "/posts/lost-in-space", destination: "/lost-in-space", permanent: true },
       {
         source: "/posts/why-your-ai-program-is-failing-before-it-starts",

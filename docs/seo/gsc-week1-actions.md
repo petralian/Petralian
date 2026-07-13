@@ -2,44 +2,57 @@
 
 Property: **Domain `petralian.com`** (single property — do not maintain www/https duplicates).
 
-## Step 1 — Delete stale sitemaps
+**Status:** Week 1 complete (2026-07-13). Re-check Pages + Links ~2026-07-27.
+
+## Step 1 — Delete stale sitemaps ✅
 
 GSC → **Indexing** → **Sitemaps** → three-dot menu → **Remove sitemap** for each:
 
-- [ ] `https://www.petralian.com/sitemap.rss`
-- [ ] `https://www.petralian.com/sitemap.xml`
-- [ ] `http://frankfurt.petralian.com/sitemap-index.xml`
-- [ ] `http://www.petralian.com/sitemap_index.xml`
+- [x] `https://www.petralian.com/sitemap.rss`
+- [x] `https://www.petralian.com/sitemap.xml`
+- [x] `http://frankfurt.petralian.com/sitemap-index.xml`
+- [x] `http://www.petralian.com/sitemap_index.xml`
 
 **Keep:** `https://petralian.com/sitemap.xml` (Status: Success, 71 pages).
 
-## Step 2 — Manual actions
+## Step 2 — Manual actions ✅
 
 GSC → **Security & Manual Actions** → **Manual actions**
 
-- [ ] Confirmed **empty** (no unnatural-links penalty → do not upload disavow yet)
+- [x] Confirmed **empty** (2026-07-13) — no unnatural-links penalty → **do not upload disavow**
 
-## Step 3 — Request indexing (URL Inspection)
+GSC → **Security issues** — also **empty** (2026-07-13).
 
-Paste each URL → **Request indexing** (daily limit ~10–20):
+> **Not the same as Links report.** [Links](https://search.google.com/search-console/links?resource_id=sc-domain%3Apetralian.com) shows who links to you. As of 2026-07-13: 142 external links, mostly `curiosithee.be` (125) → homepage only. **No disavow** needed.
 
-- [ ] `https://petralian.com/`
-- [ ] `https://petralian.com/posts`
-- [ ] `https://petralian.com/about`
-- [ ] `https://petralian.com/posts/knowledge-work-agent-engine-guide-2026`
-- [ ] `https://petralian.com/posts/external-memory-series-guide`
-- [ ] `https://petralian.com/posts/knowledge-work-engine-project-management-2026`
-- [ ] `https://petralian.com/posts/obsidian-memory-layers-personal-productivity-beyond-chat`
-- [ ] `https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs`
-- [ ] `https://petralian.com/posts/building-petralian-the-technical-reality`
-- [ ] `https://petralian.com/posts/the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo`
+## Step 2b — Block internal CRM from index
 
-## Step 4 — Baseline snapshot (optional)
+See [`crm-noindex.md`](crm-noindex.md) — `crm.petralian.com` must be noindex on the Perfex server + optional GSC prefix removal.
 
-GSC → **Indexing** → **Pages** — note counts:
+## Step 3 — Request indexing (URL Inspection) ✅
 
-| Date | Indexed | Not indexed |
-|------|---------|-------------|
-| 2026-07-13 | | |
+- [x] All 10 pillar URLs requested (2026-07-13)
 
-Re-check in 2–4 weeks.
+## Step 4 — Baseline snapshot
+
+GSC → **Indexing** → **Pages** (export `petralian.com-Coverage-2026-07-13.xlsx`):
+
+| Date | Indexed | Not indexed | Notes |
+|------|---------|-------------|-------|
+| 2026-06-30 | 80 | 200 | Latest row in export; migration dip from ~110 (May) |
+| 2026-07-13 | — | — | Re-export after 2–4 weeks |
+
+**Not indexed breakdown (2026-07-13 export):**
+
+| Reason | Pages | Action |
+|--------|-------|--------|
+| Crawled – currently not indexed | 110 | Wait + internal links; post-migration normal |
+| Not found (404) | 63 | Legacy WP URLs — expected |
+| Alternate page with proper canonical | 17 | www/duplicate — expected |
+| Page with redirect | 4 | Legacy redirects — expected |
+| Blocked (403) | 2 | Investigate if count rises |
+| Duplicate without user-selected canonical | 2 | Minor |
+| Server error (5xx) | 1 | Spot-check in URL Inspection |
+| Excluded by noindex | 1 | Intentional page |
+
+Re-check in 2–4 weeks (target **~2026-07-27**).

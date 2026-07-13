@@ -1,23 +1,51 @@
 import Script from "next/script";
-import { TRUCONVERSION_SITE_ID } from "@/lib/constants";
+import {
+  TRUCONVERSION_REVEAL_CLIENT_ID,
+  TRUCONVERSION_SCRIPT_PATH,
+} from "@/lib/constants";
 
 /**
- * TruConversion heatmaps / session replay. Production only — set NEXT_PUBLIC_TRUCONVERSION_SITE_ID.
+ * TruConversion heatmaps / session replay + visitor tracking (Reveal).
+ * Production only — IDs from TruConversion dashboard → Code.
  */
 export default function TruConversion() {
-  if (process.env.NODE_ENV !== "production" || !TRUCONVERSION_SITE_ID) {
+  if (
+    process.env.NODE_ENV !== "production" ||
+    !TRUCONVERSION_SCRIPT_PATH ||
+    !TRUCONVERSION_REVEAL_CLIENT_ID
+  ) {
     return null;
   }
 
   return (
-    <Script id="truconversion" strategy="afterInteractive">
-      {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'tc.start':new Date().getTime(),event:'tc.js'});
-        var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
-        j.src='https://cdn.truconversion.com/tc.js?id='+i;
-        f.parentNode.insertBefore(j,f);
-        })(window,document,'script','_tcq','${TRUCONVERSION_SITE_ID}');
-      `}
-    </Script>
+    <>
+      <Script id="truconversion" strategy="afterInteractive">
+        {`
+          var _tip = _tip || [];
+          (function(d,s,id){
+            var js, tjs = d.getElementsByTagName(s)[0];
+            if(d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.async = true;
+            js.src = d.location.protocol + '//app.truconversion.com/ti-js/${TRUCONVERSION_SCRIPT_PATH}.js';
+            tjs.parentNode.insertBefore(js, tjs);
+          }(document, 'script', 'ti-js'));
+        `}
+      </Script>
+      <Script id="truconversion-reveal" strategy="afterInteractive">
+        {`
+          !function(){
+            var e="rest.revealid.xyz/v3/script?clientId=${TRUCONVERSION_REVEAL_CLIENT_ID}&version=4.0.0",
+            t=document.createElement("script");
+            window.location.protocol.split(":")[0];
+            t.src="https://"+e;
+            var c=document.getElementsByTagName("script")[0];
+            t.async = true;
+            t.onload = function(){ new Reveal.default };
+            c.parentNode.insertBefore(t,c);
+          }();
+        `}
+      </Script>
+    </>
   );
 }
