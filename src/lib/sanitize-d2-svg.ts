@@ -121,7 +121,7 @@ function clipSvgEdgeBleed(html: string): string {
   });
 }
 
-/** Dark theme copy: tune light canvas fills so `invert(1)` yields `#101011`. */
+/** Dark theme copy: tune light canvas fills + edge strokes so `invert(1)` matches light-theme look. */
 export function prepareDarkSvgForInvert(svg: string): string {
   const html = sanitizeD2SvgForHtml(svg);
   return clipSvgEdgeBleed(remapLightStrokes(remapLightCanvasFills(html)));

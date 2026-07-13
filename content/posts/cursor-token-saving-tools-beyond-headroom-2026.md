@@ -1,41 +1,54 @@
 ---
-title: 'Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What
-  I Use Now'
+title: >-
+  Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What I
+  Use Now
 slug: cursor-token-saving-tools-beyond-headroom-2026
-date: 2026-07-01
+date: 2026-07-01T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- Developer Tools
-- AI Memory
-excerpt: I ran Headroom, built a 300-line proxy, wired a Cloudflare tunnel, and added
-  RTK. On my Cursor + OpenRouter workload the dollars did not move. Here is what is
-  worth doing instead.
+  - Agentic AI
+  - Developer Tools
+  - AI Memory
+  - Playbook
+excerpt: >-
+  I ran Headroom, built a 300-line proxy, wired a Cloudflare tunnel, and added
+  RTK. On my Cursor + OpenRouter workload the dollars did not move. Here is what
+  is worth doing instead.
 featured_image: /images/posts/cursor-token-saving-tools-beyond-headroom-2026.png
 focus_keyword: Cursor token saving OpenRouter what works
-seo_description: 'Honest post-mortem: Headroom, local proxy, Cloudflare tunnel, and
-  RTK on Cursor + OpenRouter. What savings are real, why the experiment failed, and
-  what I use now (Context7, Serena, harness).'
+seo_description: >-
+  Honest post-mortem: Headroom, local proxy, Cloudflare tunnel, and RTK on
+  Cursor + OpenRouter. What savings are real, why the experiment failed, and
+  what I use now (Context7, Serena, harness).
 series: ''
 related_posts:
-- github-copilot-vs-openrouter-real-cost-comparison-for-developers
-- vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-- composer-2-5-baseline-model-tighter-bootstrap-better-results
-- three-layer-external-brain-for-ai-first-development
-- cursor-lightweight-harness-without-microservice-2026
-image_prompt: 'Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter
-  receipt, and small labeled cards Context7 Serena Rules, warm side light, no logos,
-  no readable text, no faces.'
-image_prompt_variant_1: 'Surreal 16:9: leaky pipe labeled Proxy dripping tokens into
-  a bucket labeled OpenRouter Cache already full, telescope and ledger on desk, indigo
-  and amber, no text.'
-image_prompt_variant_2: 'Bold isometric 16:9: before stack Proxy Tunnel RTK crossed
-  out, after stack Direct MCP Harness as three blocks, risograph teal and slate, no
-  logos.'
+  - github-copilot-vs-openrouter-real-cost-comparison-for-developers
+  - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+  - composer-2-5-baseline-model-tighter-bootstrap-better-results
+  - three-layer-external-brain-for-ai-first-development
+  - cursor-lightweight-harness-without-microservice-2026
+image_prompt: >-
+  Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter
+  receipt, and small labeled cards Context7 Serena Rules, warm side light, no
+  logos, no readable text, no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9: leaky pipe labeled Proxy dripping tokens into a bucket labeled
+  OpenRouter Cache already full, telescope and ledger on desk, indigo and amber,
+  no text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9: before stack Proxy Tunnel RTK crossed out, after stack
+  Direct MCP Harness as three blocks, risograph teal and slate, no logos.
 format: hands-on
 best_for: Power users optimizing token spend and context windows in Cursor
 ---
+**TL;DR**
+
+- I ran Headroom, built a 300-line proxy, wired a Cloudflare tunnel, and added RTK.
+- On my Cursor + OpenRouter workload the dollars did not move.
+- Here is what is worth doing instead.
+
+
 
 > **Cost context:** [GitHub Copilot vs OpenRouter pricing](/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers)  
 > **Workflow context:** [Copilot → Cursor migration](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow)  
@@ -109,7 +122,9 @@ Benchmark claims from tool READMEs (Headroom 60–95%, LeanCTX 88% sessions, RTK
 
 ---
 
-## Why the experiment failed (for my workload)
+## Additional detail
+
+### Why the experiment failed (for my workload)
 
 1. **OpenRouter already caches.** My proxy injected `cache_control` and headers. That may have disturbed cache keys. Net: lower hit rate, not higher savings.
 2. **RTK volume was tiny.** Chat sessions burn tokens on prompts and completions, not `git status` output.
@@ -122,7 +137,7 @@ The tunnel pattern is still useful if you **must** expose localhost to Cursor (S
 
 ---
 
-## What savings are actually realizable (what I believe now)
+### What savings are actually realizable (what I believe now)
 
 | Approach                                                   | Worth it on my stack?    | Notes                                                                                                         |
 | ---------------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -141,7 +156,7 @@ The tunnel pattern is still useful if you **must** expose localhost to Cursor (S
 
 ---
 
-## What I run now (July 2026)
+### What I run now (July 2026)
 
 ```text
 Cursor → direct OpenRouter (no base URL override)
@@ -202,7 +217,9 @@ TRIED -> MEASURED -> RETIRED -> NOW
 
 ---
 
-## What I would do from zero today
+### Additional detail
+
+### What I would do from zero today
 
 1. **Meter first.** OpenRouter Activity for one week on direct routing. Know cache hit % and completion share before adding middleware.
 2. **Input discipline.** Context7 before framework guesses; Serena before full-file reads.
@@ -211,7 +228,9 @@ TRIED -> MEASURED -> RETIRED -> NOW
 5. **Shell aliases** (1 hour) if agents run noisy commands daily.
 6. **Proxy/tunnel last** — only if measurement shows tool-output or exact-repeat dominates and direct cache is already maxed.
 
-## Quick reference: token-saving layers
+### Reference
+
+### Quick reference: token-saving layers
 
 | Layer | What it shrinks | Example tools | Worth it on chat-heavy Agent? |
 |-------|-----------------|---------------|-------------------------------|
@@ -257,7 +276,7 @@ A **public HTTPS tunnel** lets Cursor reach localhost; it solves routing, not un
 
 **No.** It targets large repeated boilerplate in huge contexts. My Cursor + OpenRouter chats peaked ~8–12K tokens with varying turns—workload mismatch, not necessarily a bad product.
 
-## Reader action
+### Reader action
 
 - If you run a **local proxy today:** compare OpenRouter cache hit % **direct vs through proxy**. If hit rate drops, the proxy is costing money.
 - If you see **`Access to private networks is forbidden`:** that is Cursor SSRF, not OpenRouter. A public HTTPS tunnel fixes routing; it does not fix savings by itself.

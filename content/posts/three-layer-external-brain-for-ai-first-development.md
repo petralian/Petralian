@@ -1,38 +1,49 @@
 ---
 title: Three Layers of External Memory for AI-First Development (What Actually Ships)
 slug: three-layer-external-brain-for-ai-first-development
-date: 2026-05-26
+date: 2026-05-26T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- AI Memory
-- Agentic AI
-- Obsidian
-- Developer Tools
-- External Memory Series
+  - AI Memory
+  - Agentic AI
+  - Obsidian
+  - Developer Tools
+  - External Memory Series
+  - Playbook
 series: External Memory Series
 series_order: 1
-excerpt: Chat context is not memory. A three-layer file system—session, operational,
-  evergreen—plus hooks and git automation is how I keep production codebases coherent
-  across hundreds of agent sessions.
+excerpt: >-
+  Chat context is not memory. A three-layer file system—session, operational,
+  evergreen—plus hooks and git automation is how I keep production codebases
+  coherent across hundreds of agent sessions.
 focus_keyword: external memory AI first development
-seo_description: 'How a three-layer Obsidian + repo memory system keeps AI coding
-  sessions coherent: bootstrap hooks, handoff files, feature notes, and why it beats
-  hoping the model remembers.'
-image_prompt: Editorial overhead photograph of a developer desk with three labeled
-  stacks of notebooks beside a laptop showing code—short-term sticky notes, dated
-  session log, and a thick reference binder—warm natural light, no faces, no logos.
-image_prompt_variant_1: 'Tiny system factory diorama: sticky notes enter a conveyor,
-  get stamped into a session ledger, then filed into labeled vault drawers marked
-  Code and Rules—clever workshop aesthetic, warm lighting, technical not cartoonish.'
-image_prompt_variant_2: 'Split scene: left side chaotic chat bubbles fading to blank;
-  right side clean filing cabinets with linked index cards and a single straight workflow
-  arrow—editorial contrast, professional playful tone.'
+seo_description: >-
+  How a three-layer Obsidian + repo memory system keeps AI coding sessions
+  coherent: bootstrap hooks, handoff files, feature notes, and why it beats
+  hoping the model remembers.
+image_prompt: >-
+  Editorial overhead photograph of a developer desk with three labeled stacks of
+  notebooks beside a laptop showing code—short-term sticky notes, dated session
+  log, and a thick reference binder—warm natural light, no faces, no logos.
+image_prompt_variant_1: >-
+  Tiny system factory diorama: sticky notes enter a conveyor, get stamped into a
+  session ledger, then filed into labeled vault drawers marked Code and
+  Rules—clever workshop aesthetic, warm lighting, technical not cartoonish.
+image_prompt_variant_2: >-
+  Split scene: left side chaotic chat bubbles fading to blank; right side clean
+  filing cabinets with linked index cards and a single straight workflow
+  arrow—editorial contrast, professional playful tone.
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
 format: hands-on
-best_for: Builders implementing the three-layer external memory model for AI-first
-  dev
+best_for: Builders implementing the three-layer external memory model for AI-first dev
 ---
+**TL;DR**
+
+- Chat context is not memory.
+- A three-layer file system—session, operational, evergreen—plus hooks and git automation is how I keep production codebases coherent across hundreds of agent sessions.
+
+
 
 > **External Memory Series (1 of 4)** — [Series hub](/posts/external-memory-series-guide) · **Start here for builders.** Then [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  
 > **Background on [petralian.com](https://petralian.com/posts):** [The AI Memory Problem](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) · [Your Brain Was Not Built for This](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian) · [Directing AI as Primary Engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Publishing Obsidian Drafts](/posts/publishing-obsidian-drafts-through-github-actions)
@@ -245,7 +256,9 @@ This is the infographic's **Feedback Loop**, implemented more strictly than "use
 
 ---
 
-## How the solution works (May 2026 implementation)
+## Additional detail
+
+### How the solution works (May 2026 implementation)
 
 ### Bootstrap order (start of session)
 
@@ -302,7 +315,7 @@ npm run hooks:install   # once per clone: core.hooksPath = githooks/
 After each commit, `scripts/update-feature-notes.ps1` maps changed paths to feature names and appends:
 
 ```markdown
-## Commits
+### Commits
 - `abc1234` (2026-05-26) — fix(feed): description from git subject
 ```
 
@@ -321,7 +334,7 @@ Without brain access, every project reinvents deploy footers and session loops. 
 
 ---
 
-## Comparison: my system vs the three-layer infographic
+### Comparison: my system vs the three-layer infographic
 
 The popular diagram stacks **Short-Term Memory → Long-Term Memory → Feedback Loops**. Here is an honest scorecard.
 
@@ -384,7 +397,9 @@ mine: "This system" {
 
 ---
 
-## What breaks if you skip a layer
+### Additional detail
+
+### What breaks if you skip a layer
 
 | Skip | Symptom |
 |------|---------|
@@ -395,7 +410,9 @@ mine: "This system" {
 
 ---
 
-## Limitations (honest)
+### Reference
+
+### Limitations (honest)
 
 - **Duplication risk** — `NOTES.md`, `memories/repo/`, and Obsidian can drift unless session end updates all relevant stores.
 - **Agent discipline** — Hooks reduce but do not eliminate skipped session notes.
@@ -404,7 +421,7 @@ mine: "This system" {
 
 ---
 
-## What you can do next
+### What you can do next
 
 **Minimal (one afternoon):**
 
@@ -428,7 +445,7 @@ The goal is not perfection on day one. The goal is **never starting a session co
 
 ---
 
-## Quick reference
+### Quick reference
 
 | Artifact | Layer | Purpose |
 |----------|-------|---------|
@@ -478,7 +495,7 @@ The goal is not perfection on day one. The goal is **never starting a session co
 
 ---
 
-## Reader action
+### Reader action
 
 Pick one production codebase you touch weekly. Before the next agent session, write a 10-line `NEXT_SESSION.md` and one Feature note for the module you are about to change. Run the agent once with an explicit instruction: "Read NEXT_SESSION first, then the Feature note, then propose a plan."
 
@@ -486,7 +503,7 @@ If that session feels faster than the last, the external brain is working. Autom
 
 ---
 
-## Related reading
+### Related reading
 
 **This series:** [2 — Personal productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 — Why files beat the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 — Audit and governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
 

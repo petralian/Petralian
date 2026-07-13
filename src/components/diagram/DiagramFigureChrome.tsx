@@ -13,36 +13,46 @@ function DiagramFooterChrome({
   hintId,
   hintText,
   expanded,
+  inline,
 }: {
   hintId: string;
   hintText: string;
   expanded: boolean;
+  inline?: boolean;
 }) {
   return (
     <div
-      className={`diagram-figure__footer-chrome${expanded ? " diagram-figure__floating-chrome--visible" : ""}`}
+      className={[
+        "diagram-figure__footer-chrome",
+        expanded ? "diagram-figure__floating-chrome--visible" : "",
+        inline ? "diagram-figure__footer-chrome--inline" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       <p id={hintId} className="diagram-figure__hint diagram-figure__hint--chrome">
         {hintText}
       </p>
-      <div className="diagram-figure__watermark" aria-hidden>
-        <Image
-          src="/images/petralian_blue.png"
-          alt=""
-          width={88}
-          height={24}
-          style={{ width: "auto", height: "auto" }}
-          className="diagram-figure__watermark-img diagram-figure__watermark-img--light"
-        />
-        <Image
-          src="/images/petralian_white.png"
-          alt=""
-          width={88}
-          height={24}
-          style={{ width: "auto", height: "auto" }}
-          className="diagram-figure__watermark-img diagram-figure__watermark-img--dark"
-        />
-      </div>
+      {!inline ? (
+        <div className="diagram-figure__watermark" aria-hidden>
+          <Image
+            src="/images/petralian_blue.png"
+            alt=""
+            width={88}
+            height={24}
+            style={{ width: "auto", height: "auto" }}
+            className="diagram-figure__watermark-img diagram-figure__watermark-img--light"
+          />
+          <Image
+            src="/images/petralian_white.png"
+            alt=""
+            width={88}
+            height={24}
+            style={{ width: "auto", height: "auto" }}
+            className="diagram-figure__watermark-img diagram-figure__watermark-img--dark"
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -95,7 +105,7 @@ export default function DiagramFigureChrome({ children }: DiagramFigureChromePro
 
   const hintText = expanded
     ? "Pinch or ⌘/Ctrl+scroll to zoom · drag to pan · tap to exit · Esc"
-    : "Pinch or ⌘/Ctrl+scroll to zoom · drag when zoomed · tap image for full screen";
+    : "Tap diagram for full screen · pinch or ⌘/Ctrl+scroll to zoom when expanded";
 
   return (
     <DiagramUiContext.Provider value={{ expanded, toggleExpanded }}>
@@ -105,8 +115,13 @@ export default function DiagramFigureChrome({ children }: DiagramFigureChromePro
       >
         <div className="diagram-figure__canvas-wrap">
           {children}
-          <DiagramFooterChrome hintId={hintId} hintText={hintText} expanded={expanded} />
+          {expanded ? (
+            <DiagramFooterChrome hintId={hintId} hintText={hintText} expanded />
+          ) : null}
         </div>
+        {!expanded ? (
+          <DiagramFooterChrome hintId={hintId} hintText={hintText} expanded={false} inline />
+        ) : null}
       </figure>
     </DiagramUiContext.Provider>
   );

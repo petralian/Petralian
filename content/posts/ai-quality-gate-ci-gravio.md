@@ -1,23 +1,27 @@
 ---
 title: 'The New CI Gate: Failing Builds on Agent Quality, Not Just Unit Tests'
 slug: ai-quality-gate-ci-gravio
-date: 2026-05-15
+date: 2026-05-15T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Developer Tools
-- AI Quality
-- Agentic AI
-- Gravio
-excerpt: Unit tests catch code failures. They do not always catch AI quality regressions.
-  Here is how to add quality thresholds as a first-class release gate.
+  - Developer Tools
+  - AI Quality
+  - Agentic AI
+  - Gravio
+excerpt: >-
+  Unit tests catch code failures. They do not always catch AI quality
+  regressions. Here is how to add quality thresholds as a first-class release
+  gate.
 featured_image: /images/posts/ai-quality-gate-ci-gravio.png
 focus_keyword: ai quality gate ci
-seo_description: Implement AI quality thresholds in CI/CD with Gravio-style scoring
-  so releases fail on meaningful regression signals, not only traditional test failures.
-image_prompt: A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
-  badges, code and model icons connected, clean enterprise infographic style, blue
-  and orange contrast
+seo_description: >-
+  Implement AI quality thresholds in CI/CD with Gravio-style scoring so releases
+  fail on meaningful regression signals, not only traditional test failures.
+image_prompt: >-
+  A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
+  badges, code and model icons connected, clean enterprise infographic style,
+  blue and orange contrast
 format: hands-on
 best_for: Builders wiring AI quality checks into CI and release pipelines
 ---
@@ -92,13 +96,22 @@ The best sequence is:
 
 If security concerns are slowing adoption, frame the rollout with [Zero-Knowledge AI Quality](/posts/zero-knowledge-ai-quality-gravio).
 
-## What is an AI quality CI gate?
+## Additional detail
+
+### What is an AI quality CI gate?
 
 An AI quality CI gate is a **blocking release check** that fails the pipeline when agent output quality drops below policy—minimum score, regression delta, or critical dimension floors—not merely when unit tests pass. It turns quality from a dashboard suggestion into an enforced decision at merge or deploy time.
 
 ---
+**TL;DR**
 
-## Quick reference: gate policy components
+- Unit tests catch code failures.
+- They do not always catch AI quality regressions.
+- Here is how to add quality thresholds as a first-class release gate.
+
+### Reference
+
+### Quick reference: gate policy components
 
 | Component | Purpose |
 |-----------|---------|
@@ -109,7 +122,7 @@ An AI quality CI gate is a **blocking release check** that fails the pipeline wh
 
 ---
 
-## Common mistakes (AI quality gates)
+### Common mistakes (AI quality gates)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -145,7 +158,9 @@ Frame rollout with [zero-knowledge scoring](/posts/zero-knowledge-ai-quality-gra
 
 ---
 
-## The Payoff
+### Additional detail
+
+### The Payoff
 
 When AI quality is an explicit gate, release decisions improve:
 

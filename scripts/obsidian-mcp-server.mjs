@@ -21,7 +21,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "no
 import { dirname, join, resolve, normalize } from "node:path";
 
 // ── Vault root — only paths inside here are accessible ─────────────────────
-const EXPECTED_VAULT_ROOT = normalize(resolve("D:\\Obsidian\\obsidian\\40_VSCode\\Petralian"));
+const EXPECTED_VAULT_ROOT = normalize(resolve("D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian"));
 const requestedVaultRoot = process.env.PETRALIAN_OBSIDIAN_VAULT_ROOT || EXPECTED_VAULT_ROOT;
 const VAULT_ROOT = normalize(resolve(requestedVaultRoot));
 

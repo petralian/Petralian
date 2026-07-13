@@ -1,35 +1,48 @@
 ---
-title: 'Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
-  Bootstrap'
+title: >-
+  Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
+  Bootstrap
 slug: composer-2-5-baseline-model-tighter-bootstrap-better-results
-date: 2026-05-27
+date: 2026-05-27T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- Developer Tools
-- AI Memory
-- Enterprise AI
-excerpt: I run Cursor on Composer 2.5 only—not to save money alone, but to get predictable
-  rule compliance. A tighter session bootstrap beat chasing frontier models for my
-  workflow.
+  - Agentic AI
+  - Developer Tools
+  - AI Memory
+  - Enterprise AI
+excerpt: >-
+  I run Cursor on Composer 2.5 only—not to save money alone, but to get
+  predictable rule compliance. A tighter session bootstrap beat chasing frontier
+  models for my workflow.
 featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.png
 focus_keyword: Cursor Composer 2.5 baseline model
-seo_description: 'Why I use Cursor Composer 2.5 as my only coding model: lower cost,
-  predictable footer and rule compliance, and better results from a tighter session
-  bootstrap—not frontier roulette.'
-image_prompt: Minimal developer workspace with a single model selector pinned to one
-  option, beside a neat stack of labeled rule cards and an Obsidian vault notebook—calm
+seo_description: >-
+  Why I use Cursor Composer 2.5 as my only coding model: lower cost, predictable
+  footer and rule compliance, and better results from a tighter session
+  bootstrap—not frontier roulette.
+image_prompt: >-
+  Minimal developer workspace with a single model selector pinned to one option,
+  beside a neat stack of labeled rule cards and an Obsidian vault notebook—calm
   editorial lighting, no logos, no faces.
-image_prompt_variant_1: Tiny control room with one steady gauge labeled Composer 2.5
-  and a wall of filing drawers for Rules and Vault—one operator chair, warm technical
-  diorama, clever not cartoonish.
-image_prompt_variant_2: 'Split chart scene: left side spinning model roulette wheel
-  with price tags flying off; right side straight assembly line with checklist gates—editorial
-  contrast, professional playful tone.'
+image_prompt_variant_1: >-
+  Tiny control room with one steady gauge labeled Composer 2.5 and a wall of
+  filing drawers for Rules and Vault—one operator chair, warm technical diorama,
+  clever not cartoonish.
+image_prompt_variant_2: >-
+  Split chart scene: left side spinning model roulette wheel with price tags
+  flying off; right side straight assembly line with checklist gates—editorial
+  contrast, professional playful tone.
 format: hands-on
 best_for: Developers standardizing on a single coding model and tighter agent bootstrap
 ---
+**TL;DR**
+
+- I run Cursor on Composer 2.
+- 5 only—not to save money alone, but to get predictable rule compliance.
+- A tighter session bootstrap beat chasing frontier models for my workflow.
+
+
 
 > **Companion piece:** [From VS Code Copilot to Cursor: what changed in my workflow](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow)  
 > **Cost context:** [GitHub Copilot vs OpenRouter pricing](/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers)  
@@ -177,7 +190,9 @@ Where Composer 2.5 still struggles, I document the gap in a gotchas file and nar
 
 ---
 
-## Tradeoffs I accept
+## Additional detail
+
+### Tradeoffs I accept
 
 **What I give up**
 
@@ -200,7 +215,7 @@ That escalation is intentional and rare. Implementation stays on Composer 2.5.
 
 ---
 
-## What improved after a better session start
+### What improved after a better session start
 
 The win was not a secret feature in Composer 2.5. It was **starting every session the same way**—and staying on one model long enough for that habit to stick. After I fixed session start:
 
@@ -219,7 +234,9 @@ Optional extras help but are not required to get most of the benefit:
 
 The limiting factor was never "the model cannot code." It was **sessions that skipped session start** because rules lived in five places. Tightening session start on one model beat upgrading to a frontier model on a loose bootstrap.
 
-## Quick reference: bootstrap order (example)
+### Reference
+
+### Quick reference: bootstrap order (example)
 
 | Step | Artifact | Purpose |
 |------|----------|---------|
@@ -266,7 +283,7 @@ Composer 2.5 scores well on **score per dollar** on CursorBench 3.1 ([analysis](
 
 Document in `known-gotchas.md`, split scope, or escalate for review—**do not** rotate models every turn.
 
-## What you can do next
+### What you can do next
 
 1. **Pick one implementation model** for two weeks. Measure footer compliance and vault writes, not vibe.
 2. **Centralize your footer** in one brain note; link from Cursor rules and copilot-instructions.

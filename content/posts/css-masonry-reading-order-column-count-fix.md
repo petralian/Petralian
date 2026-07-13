@@ -1,35 +1,47 @@
 ---
-title: 'CSS Masonry Grids and Reading Order: What column-count Gets Wrong, and How
-  to Fix It'
+title: >-
+  CSS Masonry Grids and Reading Order: What column-count Gets Wrong, and How to
+  Fix It
 slug: css-masonry-reading-order-column-count-fix
-date: 2026-05-23
+date: 2026-05-23T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Developer Tools
-- SEO
-excerpt: CSS column-count creates a masonry layout in one line. It also silently breaks
-  left-to-right reading order. Here is what is actually happening in the DOM, and
-  a reliable fix that holds up under variable card heights.
+  - Developer Tools
+  - SEO
+excerpt: >-
+  CSS column-count creates a masonry layout in one line. It also silently breaks
+  left-to-right reading order. Here is what is actually happening in the DOM,
+  and a reliable fix that holds up under variable card heights.
 featured_image: /images/posts/css-masonry-reading-order-column-count-fix.png
-featured_image_alt: Diagram-style hero image showing CSS masonry cards rendered in
-  top-to-bottom column order versus expected left-to-right reading order
+featured_image_alt: >-
+  Diagram-style hero image showing CSS masonry cards rendered in top-to-bottom
+  column order versus expected left-to-right reading order
 focus_keyword: css masonry reading order fix
 seo_title: CSS Masonry Reading Order Fix for column-count Grids
-seo_description: CSS column-count fills top-to-bottom, silently breaking masonry grid
-  reading order. Learn the reliable split-column fix with full React/Next.js code
-  and responsive breakpoints.
-image_prompt: 'Create a 16:9 hero image for a technical article about CSS masonry
-  reading order bugs. Show a clean desktop workspace with a widescreen monitor displaying
-  a three-column blog card layout. Overlay subtle numbered markers 1-9 where column
-  one stacks 1,4,7 and arrows illustrate why this breaks left-to-right reading order.
-  Add a faint side-by-side contrast hint: left panel labeled ''column-count flow'',
-  right panel labeled ''split columns fix''. Use a modern engineering aesthetic, high
-  clarity, neutral tones with orange annotation accents, no brand logos, no text-heavy
-  UI, no watermarks.'
+seo_description: >-
+  CSS column-count fills top-to-bottom, silently breaking masonry grid reading
+  order. Learn the reliable split-column fix with full React/Next.js code and
+  responsive breakpoints.
+image_prompt: >-
+  Create a 16:9 hero image for a technical article about CSS masonry reading
+  order bugs. Show a clean desktop workspace with a widescreen monitor
+  displaying a three-column blog card layout. Overlay subtle numbered markers
+  1-9 where column one stacks 1,4,7 and arrows illustrate why this breaks
+  left-to-right reading order. Add a faint side-by-side contrast hint: left
+  panel labeled 'column-count flow', right panel labeled 'split columns fix'.
+  Use a modern engineering aesthetic, high clarity, neutral tones with orange
+  annotation accents, no brand logos, no text-heavy UI, no watermarks.
 format: hands-on
 best_for: Front-end developers fixing masonry layout and screen-reader reading order
 ---
+**TL;DR**
+
+- CSS column-count creates a masonry layout in one line.
+- It also silently breaks left-to-right reading order.
+- Here is what is actually happening in the DOM, and a reliable fix that holds up under variable card heights.
+
+
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 You build a masonry grid. Three columns, `column-count: 3` in your CSS — looks exactly right in the browser preview. Then you check which article is sitting top-center. It is your fourth-most-recent post. Your second and third are buried lower in column one. The grid looks fine. The reading order is completely wrong.
 
@@ -136,7 +148,9 @@ Each column renders independently. Cards in a column can be any height, and the 
 
 ---
 
-## Making It Responsive
+## Additional detail
+
+### Making It Responsive
 
 A static three-column split breaks on smaller screens. On tablet you probably want two columns, on mobile one. Because `splitIntoColumns` is a pure function, calling it with a different `numCols` value at each breakpoint is all you need.
 
@@ -181,7 +195,7 @@ One note on the `useState(3)` initial value: on a mobile device, the component w
 
 ---
 
-## The CSS
+### The CSS
 
 The CSS here is deliberately minimal. No `column-count`. No `column-gap`. A flex container with equally flexible children:
 
@@ -215,7 +229,7 @@ The media query at 640px stacks columns vertically for mobile. At that breakpoin
 
 ---
 
-## My Read
+### My Read
 
 The `column-count` reading order bug is easy to miss because the layout looks correct. Cards render, columns fill, nothing appears broken. You only notice when you trace the reading order and find that items 4 through 6 are somewhere in the middle of the columns that should show items 2 and 3.
 
@@ -231,7 +245,9 @@ The split-columns approach requires more code upfront: a utility function, a `us
 
 ---
 
-## Common mistakes (CSS masonry)
+### Additional detail
+
+### Common mistakes (CSS masonry)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|

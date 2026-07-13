@@ -7,7 +7,7 @@ import {
   type ReactZoomPanPinchRef,
 } from "react-zoom-pan-pinch";
 import { useDiagramUi } from "@/components/diagram/DiagramUiContext";
-import { computeContainFit, readLockDimensions } from "@/components/diagram/diagram-metrics";
+import { computeContainFit, readDiagramRenderedSize, readLockDimensions } from "@/components/diagram/diagram-metrics";
 import { DIAGRAM_VV_RESIZE_EVENT } from "@/components/diagram/diagram-visual-viewport";
 
 type DiagramExpandedViewportProps = {
@@ -48,7 +48,20 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
       const viewport = viewportRef.current;
       if (!viewport) return;
 
-      const { w: contentW, h: contentH } = readLockDimensions(viewport);
+      const layer = viewport.querySelector<HTMLElement>(".diagram-figure__zoom-layer");
+      let contentW = 0;
+      let contentH = 0;
+
+      const locked = readLockDimensions(viewport);
+      if (locked.w > 0 && locked.h > 0) {
+        contentW = locked.w;
+        contentH = locked.h;
+      } else if (layer) {
+        const measured = readDiagramRenderedSize(viewport, layer);
+        contentW = measured.width;
+        contentH = measured.height;
+      }
+
       const containerW = viewport.clientWidth;
       const containerH = viewport.clientHeight;
       const next = computeContainFit(containerW, containerH, contentW, contentH);
@@ -84,11 +97,19 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
       if (!viewport) return;
 
       const { w, h } = readLockDimensions(viewport);
+      const layer = viewport.querySelector<HTMLElement>(".diagram-figure__zoom-layer");
+      const measured =
+        w > 0 && h > 0
+          ? { width: w, height: h }
+          : layer
+            ? readDiagramRenderedSize(viewport, layer)
+            : { width: 0, height: 0 };
+
       if (
         viewport.clientWidth > 0 &&
         viewport.clientHeight > 0 &&
-        w > 0 &&
-        h > 0
+        measured.width > 0 &&
+        measured.height > 0
       ) {
         runFit(true);
         return;
@@ -181,7 +202,7 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
           initialScale={fit.scale}
           initialPositionX={fit.x}
           initialPositionY={fit.y}
-          minScale={fit.scale}
+          minScale={Math.min(fit.scale, 0.25)}
           maxScale={4}
           limitToBounds
           centerOnInit={false}
@@ -205,7 +226,11 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
             </div>
           </TransformComponent>
         </TransformWrapper>
-      ) : null}
+      ) : (
+        <div className="diagram-figure__zoom-layer diagram-figure__zoom-layer--loading">
+          {children}
+        </div>
+      )}
     </div>
   );
 }

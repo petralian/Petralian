@@ -1,39 +1,47 @@
 ---
-title: Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit
-  Trails)
+title: >-
+  Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and
+  Audit Trails)
 slug: knowledge-work-engine-leadership-decisions-2026
-date: 2026-07-06
+date: 2026-07-06T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Leadership
-- Enterprise AI
-- Program Delivery
-- Agentic AI
-excerpt: Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet
-  applied AI. Leaders keep accountability; the file-based engine holds purpose, dissent,
-  and decision records agents need at session start.
+  - Leadership
+  - Enterprise AI
+  - Program Delivery
+  - Agentic AI
+  - Playbook
+excerpt: >-
+  Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet
+  applied AI. Leaders keep accountability; the file-based engine holds purpose,
+  dissent, and decision records agents need at session start.
 featured_image: /images/posts/knowledge-work-engine-leadership-decisions-2026.png
 focus_keyword: AI leadership Golden Circle decision governance
-seo_description: 'Lead with AI using Sinek''s Why-How-What and Drucker decision steps:
-  RACI, advisory vs commit, stakeholder maps, memory loops, and governance footers
-  for program leaders.'
+seo_description: >-
+  Lead with AI using Sinek's Why-How-What and Drucker decision steps: RACI,
+  advisory vs commit, stakeholder maps, memory loops, and governance footers for
+  program leaders.
 series: Knowledge Work Engine Series
 series_order: 2
 related_posts:
-- knowledge-work-agent-engine-guide-2026
-- knowledge-work-engine-project-management-2026
-- why-deliberate-file-memory-beats-hoping-agents-remember
-image_prompt: Cinematic 16:9 low-angle of a single chair at a round table, three empty
-  chairs, one open ledger with blank pages, warm side light, wood and concrete, no
-  faces, no readable text.
-image_prompt_variant_1: 'Surreal 16:9 courtroom diorama: tiny gavel, witness stand
-  as a file folder, scales balance a chat bubble vs a stamped document, amber spotlight,
-  no readable text.'
-image_prompt_variant_2: 'Graphic 16:9 poster: two panels Advisory vs Committed decision
-  with arrow gate between, bold navy and coral flat shapes, no logos.'
+  - knowledge-work-agent-engine-guide-2026
+  - knowledge-work-engine-project-management-2026
+  - why-deliberate-file-memory-beats-hoping-agents-remember
+image_prompt: >-
+  Cinematic 16:9 low-angle of a single chair at a round table, three empty
+  chairs, one open ledger with blank pages, warm side light, wood and concrete,
+  no faces, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 courtroom diorama: tiny gavel, witness stand as a file folder,
+  scales balance a chat bubble vs a stamped document, amber spotlight, no
+  readable text.
+image_prompt_variant_2: >-
+  Graphic 16:9 poster: two panels Advisory vs Committed decision with arrow gate
+  between, bold navy and coral flat shapes, no logos.
 format: strategic
-best_for: Executives making the leadership calls that determine whether agent programs
+best_for: >-
+  Executives making the leadership calls that determine whether agent programs
   scale
 ---
 
@@ -49,8 +57,14 @@ best_for: Executives making the leadership calls that determine whether agent pr
 **What you will learn:** how [Sinek's Golden Circle](https://simonsinek.com/golden-circle/) and [Drucker's decision steps](https://www.shortform.com/blog/executive-decision-making/) map to memory tiers; how RACI assigns agents to **R** only; and how the memory loop hardens lessons into routing rules.
 
 ---
+**TL;DR**
 
-## How to start with this playbook
+- Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet applied AI.
+- Leaders keep accountability; the file-based engine holds purpose, dissent, and decision records agents need at session start.
+
+## Getting oriented
+
+### How to start with this playbook
 
 > **Example — how I use this for leadership:** `Decisions/` folder plus Why-first bootstrap (`_Home.md` or charter) before any SteerCo draft. **Advisory** sessions explore options tables only; **commit** sessions write `Decisions/YYYY-MM-DD topic.md` with owner and date. Agent never in the Accountable column.
 
@@ -66,7 +80,7 @@ best_for: Executives making the leadership calls that determine whether agent pr
 
 ---
 
-## The problem: leadership AI without a record is rehearsal
+### The problem: leadership AI without a record is rehearsal
 
 Leaders are told to **start with why**, **make clear decisions**, and **communicate with consistency**. Then they open a chat tab, draft a SteerCo memo, and lose the dissent, the boundary conditions, and the name of who was accountable.
 
@@ -78,7 +92,7 @@ This article maps classic leadership ideas ([Simon Sinek's Golden Circle](https:
 
 ---
 
-## Who this is for
+### Who this is for
 
 | Reader | Situation |
 |--------|-----------|
@@ -90,7 +104,7 @@ You do not need a custom agent product. You need **purpose and decision files** 
 
 ---
 
-## Where this sits (leadership stack)
+### Where this sits (leadership stack)
 
 | Layer | Typical tool | Leadership job |
 |-------|--------------|------------------|
@@ -102,7 +116,9 @@ The engine does not replace town halls or sign-off chains. It stops the 7am AI s
 
 ---
 
-## Golden Circle → memory tiers (Sinek + applied AI)
+## Frameworks for purpose and decisions
+
+### Golden Circle → memory tiers (Sinek + applied AI)
 
 [Simon Sinek](https://simonsinek.com/golden-circle/) argues most organizations communicate outside-in (**What** → **How** → **Why**). Inspiring leaders work inside-out: **Why** (purpose, belief) → **How** (values, process) → **What** (products, deliverables).
 
@@ -119,7 +135,7 @@ Generative AI defaults to **What**—slides, emails, bullet lists. Without files
 *Golden Circle mapped to engine (diagram in any tool; D2 below for petralian.com).*
 
 ```d2
-direction: down
+direction: right
 
 why: "WHY\nLayer 3" {
   style.fill: "#fff8f5"
@@ -158,7 +174,7 @@ what -> why: "lessons\nfeedback" {
 
 ---
 
-## Drucker's decision discipline → advisory and commit
+### Drucker's decision discipline → advisory and commit
 
 [Peter Drucker](https://www.shortform.com/blog/executive-decision-making/) described effective decisions as a system, not charisma. Common elements:
 
@@ -193,7 +209,7 @@ Do not write "we decided."
 
 ---
 
-## RACI in the age of agents
+### RACI in the age of agents
 
 [RACI](https://www.projectmanagement.com/wikis/278207/RACI-Matrix) separates **who decides** from **who does**. Generative AI blurs that line because the model produces work in seconds.
 
@@ -227,7 +243,7 @@ Do not write "we decided."
 *RACI + agent gate (flowchart in any tool).*
 
 ```d2
-direction: down
+direction: right
 
 draft: "Agent drafts\n(Responsible)" {
   style.fill: "#f5f7fa"
@@ -283,7 +299,9 @@ Program and solution leads often ask for **peer review** on AI-assisted memos, s
 
 ---
 
-## Two modes: advisory vs commit
+## Advisory vs commit in practice
+
+### Two modes: advisory vs commit
 
 Add to `WORK-ROUTING.md`:
 
@@ -322,7 +340,7 @@ advisory.explore -> gate -> commit.record
 
 ---
 
-## Decision note template
+### Decision note template
 
 `Decisions/_template-decision.md` (full copy in [Part 0](/posts/knowledge-work-agent-engine-guide-2026)):
 
@@ -338,7 +356,7 @@ Link from `_Home.md` and `Session Summaries`.
 
 ---
 
-## Stakeholder map (Layer 3)
+### Stakeholder map (Layer 3)
 
 `Initiatives/<name>/Stakeholders.md`:
 
@@ -349,7 +367,7 @@ Link from `_Home.md` and `Session Summaries`.
 
 ---
 
-## Escalation and RAG (leadership lens)
+### Escalation and RAG (leadership lens)
 
 When [Part 1](/posts/knowledge-work-engine-project-management-2026) marks an initiative **Red**, leadership is escalation.
 
@@ -365,7 +383,9 @@ Agents assist 1–3. **Accountable** human owns 4–5.
 
 ---
 
-## Meeting prep and follow-up
+## Day-to-day leadership workflows
+
+### Meeting prep and follow-up
 
 **Before (Mode B):** Read `Stakeholders.md`, `Bridge.md`, **Why** from `_Home.md`. Output agenda, objections, asks. No decision file.
 
@@ -373,7 +393,7 @@ Agents assist 1–3. **Accountable** human owns 4–5.
 
 ---
 
-## Harness + memory loop for leaders
+### Harness + memory loop for leaders
 
 | Harness piece | Leadership use |
 |---------------|----------------|
@@ -386,7 +406,7 @@ Leaders do not need IDE subagents. They need **Why-first bootstrap** and **commi
 
 ---
 
-## Voice for leadership comms
+### Voice for leadership comms
 
 Extend `voice-guide.md`:
 
@@ -401,7 +421,7 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Governance footer (Mode D)
+### Governance footer (Mode D)
 
 1. **What shipped:** Decision title + path
 2. **Verified:** Human A confirmed (yes/no)
@@ -410,7 +430,7 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Applied AI thought leadership (five principles)
+### Applied AI thought leadership (five principles)
 
 1. **Purpose is a file, not a vibe.** Sinek's Why lives in `_Home.md`, not in model weights.
 2. **Dissent before commit.** Drucker's rule maps to advisory mode; one-option "decisions" are failures.
@@ -420,7 +440,11 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Beginner: one decision this week
+## Additional detail
+
+### Getting started
+
+### Beginner: one decision this week
 
 1. Write **Why** in three sentences in `_Home.md`.
 2. Run **advisory** session with three options.
@@ -429,13 +453,15 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Advanced: decision index
+### Advanced: decision index
 
 `Decisions/index.md` with review dates. Bootstrap surfaces decisions due in 14 days.
 
 ---
 
-## Limitations
+### Reference
+
+### Limitations
 
 - Not legal sign-off for regulated industries.
 - Not every hallway chat needs a decision note.
@@ -443,7 +469,7 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Quick reference: leadership frameworks → files
+### Quick reference: leadership frameworks → files
 
 | Framework | Core idea | Engine mapping |
 |-----------|-----------|----------------|
@@ -457,7 +483,7 @@ Human sends sensitive email. Engine prepares.
 
 ---
 
-## Common mistakes (AI + leadership)
+### Common mistakes (AI + leadership)
 
 | Mistake | Risk | Fix |
 |---------|------|-----|
@@ -502,13 +528,13 @@ Name **Consulted** reviewers in `RACI.md`. Run **advisory** draft → **C** feed
 
 ---
 
-## Reader action
+### Reader action
 
 Pick one pending decision. Write the **Why** link from `_Home.md`. Run advisory once. Commit only in a second session with Accountable named.
 
 ---
 
-## Sources
+### Sources
 
 - [Simon Sinek — Golden Circle](https://simonsinek.com/golden-circle/)
 - [Peter Drucker — executive decision-making (summary)](https://www.shortform.com/blog/executive-decision-making/)

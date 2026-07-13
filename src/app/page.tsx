@@ -60,7 +60,7 @@ export default function HomePage() {
       )}
 
       {posts.length > 9 && (
-        <div style={{ textAlign: "center", paddingTop: "2.5rem" }}>
+        <div className="home-view-all">
           <Link href="/posts" className="post-card-read-more">
             Browse all posts →
           </Link>

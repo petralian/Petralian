@@ -1,20 +1,31 @@
 ---
-title: 'Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges'
-slug: generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
-date: 2024-05-25
+title: >-
+  Generative AI in Marketing: My Thoughts on the Industry’s Progress and
+  Challenges
+slug: >-
+  generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
+date: 2024-05-25T00:00:00.000Z
 status: published
 category: Commerce & Marketing
 tags:
-- Generative AI
-- AI in Marketing
-- Agency Landscape
+  - Generative AI
+  - AI in Marketing
+  - Agency Landscape
 excerpt: ''
 featured_image: /images/posts/generative-ai-marketing-industry-hero.jpeg
 seo_description: ''
 format: hybrid
-best_for: Marketing leaders who want an honest read on generative AI maturity in the
+best_for: >-
+  Marketing leaders who want an honest read on generative AI maturity in the
   industry
 ---
+**TL;DR**
+
+- What Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenge covers.
+- Who it is for and when to use it.
+- Practical next steps after reading.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 Recently, I added my voice to the **[Marketing Interactive article](https://www.marketing-interactive.com/how-brands-can-yield-better-results-during-their-exploration-phase-of-ai)** on the state of generative AI in APAC marketing. The piece explored how businesses in the region are adopting AI, the challenges they’re facing, and what needs to change for companies to realize its full potential. As someone who has worked extensively with AI-driven marketing strategies, I wanted to share my perspective on the insights from the article and expand on the importance of a balanced, strategic approach to AI adoption.

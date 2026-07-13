@@ -1,4 +1,5 @@
 import { Children, isValidElement, type ComponentProps, type ReactNode } from "react";
+import CodeBlock from "@/components/CodeBlock";
 import D2Diagram from "@/components/d2/D2Diagram";
 
 function getD2Source(children: ReactNode): string | null {
@@ -27,6 +28,6 @@ export const postDiagramComponents = {
     if (chart !== null) {
       return <D2Diagram chart={chart} />;
     }
-    return <pre {...props} />;
+    return <CodeBlock className={props.className}>{props.children}</CodeBlock>;
   },
 };

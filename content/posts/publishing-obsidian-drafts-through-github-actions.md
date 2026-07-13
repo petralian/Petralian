@@ -1,33 +1,43 @@
 ---
 title: Publishing Obsidian Drafts Through GitHub Actions
 slug: publishing-obsidian-drafts-through-github-actions
-date: 2026-05-24
+date: 2026-05-24T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Obsidian
-- Developer Tools
-- Agentic AI
-excerpt: A practical way to move from writing in Obsidian to publishing on a live
-  site without copy-paste, manual uploads, or brittle one-off scripts.
+  - Obsidian
+  - Developer Tools
+  - Agentic AI
+excerpt: >-
+  A practical way to move from writing in Obsidian to publishing on a live site
+  without copy-paste, manual uploads, or brittle one-off scripts.
 featured_image: /images/posts/publishing-obsidian-drafts-through-github-actions.png
 focus_keyword: Obsidian GitHub Actions publishing workflow
-seo_description: Learn how to publish Obsidian drafts with a GitHub Actions workflow,
-  from draft note to live site, with fewer handoffs and less friction.
-image_prompt: A clean editorial illustration of a writer's Obsidian note entering
-  a tiny publishing factory, moving through a GitHub Actions conveyor, image checks,
+seo_description: >-
+  Learn how to publish Obsidian drafts with a GitHub Actions workflow, from
+  draft note to live site, with fewer handoffs and less friction.
+image_prompt: >-
+  A clean editorial illustration of a writer's Obsidian note entering a tiny
+  publishing factory, moving through a GitHub Actions conveyor, image checks,
   and a final website output gate. Warm, technical, practical, and realistic.
-image_prompt_variant_1: 'Tiny System Factory: a compact workshop where an Obsidian
-  note becomes a published article through labeled checkpoints, with a GitHub Actions
-  conveyor, image validation, and a live site output. Clever, warm, technical, not
-  cartoonish.'
-image_prompt_variant_2: 'Maze vs Clear Workflow: split scene showing a confusing publishing
-  maze on one side and a clean code-owned Obsidian-to-GitHub workflow on the other,
-  with the article moving smoothly from draft to live site. Editorial, polished, professional
-  but playful.'
+image_prompt_variant_1: >-
+  Tiny System Factory: a compact workshop where an Obsidian note becomes a
+  published article through labeled checkpoints, with a GitHub Actions conveyor,
+  image validation, and a live site output. Clever, warm, technical, not
+  cartoonish.
+image_prompt_variant_2: >-
+  Maze vs Clear Workflow: split scene showing a confusing publishing maze on one
+  side and a clean code-owned Obsidian-to-GitHub workflow on the other, with the
+  article moving smoothly from draft to live site. Editorial, polished,
+  professional but playful.
 format: hands-on
 best_for: Builders publishing from Obsidian with GitHub Actions and minimal friction
 ---
+**TL;DR**
+
+- A practical way to move from writing in Obsidian to publishing on a live site without copy-paste, manual uploads, or brittle one-off scripts.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 # Publishing Obsidian Drafts Through GitHub Actions
@@ -116,7 +126,9 @@ The difference shows up in small ways. The writer can keep moving inside Obsidia
 
 That also makes the process easier to reuse elsewhere. If another site has the same basic shape, you do not need the same script. You only need the same idea: draft somewhere private, publish through a checked workflow, and let the repository handle the transition.
 
-## The Practical Tradeoff
+## Additional detail
+
+### The Practical Tradeoff
 
 This setup is not free.
 
@@ -124,7 +136,7 @@ You are taking on a small amount of automation work up front so you can avoid re
 
 That balance is why the best version of this system is usually narrow and opinionated. It should do a few things very well rather than trying to become a full CMS.
 
-## Final Result
+### Final Result
 
 The useful version of an Obsidian-to-GitHub publish workflow is not just "sync notes to a repo." It is a content pipeline with a clear boundary between writing and publishing.
 
@@ -136,7 +148,7 @@ That is enough to turn Obsidian from a note-taking app into a reliable publishin
 
 ---
 
-## Common mistakes (Obsidian CI publishing)
+### Common mistakes (Obsidian CI publishing)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|

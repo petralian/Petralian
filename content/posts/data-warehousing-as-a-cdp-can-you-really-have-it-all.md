@@ -1,21 +1,29 @@
 ---
 title: 'Data Warehousing as a CDP: Can You Really Have It All?'
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
-date: 2025-06-13
+date: 2025-06-13T00:00:00.000Z
 status: published
 category: Commerce & Marketing
 tags:
-- CDP
-- Marketing Technology
-- AI in Marketing
-- Customer Experience
+  - CDP
+  - Marketing Technology
+  - AI in Marketing
+  - Customer Experience
 excerpt: ''
 featured_image: /images/posts/data-warehouse-cdp-architecture-hero.jpg
 seo_description: ''
 format: hybrid
-best_for: Martech and data leaders deciding between warehouse-native CDP and packaged
+best_for: >-
+  Martech and data leaders deciding between warehouse-native CDP and packaged
   platforms
 ---
+**TL;DR**
+
+- What Data Warehousing as a CDP: Can You Really Have It All? covers.
+- Who it is for and when to use it.
+- Practical next steps after reading.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 In almost every conversation I have with clients about data and marketing technology, the question comes up: “Can’t we just use our [data warehouse](https://en.wikipedia.org/wiki/Data_warehouse) as a customer data platform (CDP)?” It’s easy to see why this is so appealing-organizations want to maximize existing investments, minimize redundancies, and give both IT and marketing teams flexibility. But the real answer is more nuanced, especially as expectations for personalization and real-time engagement grow.

@@ -1,23 +1,26 @@
 ---
 title: From Empty Folder to First Quality Score in 10 Minutes
 slug: first-gravio-score-in-10-minutes
-date: 2026-05-11
+date: 2026-05-11T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Gravio
-- Agentic AI
-- Developer Tools
-excerpt: A practical, no-fluff walkthrough for getting Gravio running from a clean
-  folder to your first quality score, including the exact command flow and common
-  mistakes.
+  - Gravio
+  - Agentic AI
+  - Developer Tools
+excerpt: >-
+  A practical, no-fluff walkthrough for getting Gravio running from a clean
+  folder to your first quality score, including the exact command flow and
+  common mistakes.
 featured_image: /images/posts/first-gravio-score-in-10-minutes.png
 focus_keyword: gravio setup guide
-seo_description: Follow a step-by-step Gravio onboarding guide from zero setup to
-  first AI quality score in about 10 minutes, with troubleshooting tips for common
+seo_description: >-
+  Follow a step-by-step Gravio onboarding guide from zero setup to first AI
+  quality score in about 10 minutes, with troubleshooting tips for common
   friction points.
-image_prompt: A clean developer desktop with terminal commands and checklist steps
-  floating as UI cards, bright neutral lighting, modern technical illustration, subtle
+image_prompt: >-
+  A clean developer desktop with terminal commands and checklist steps floating
+  as UI cards, bright neutral lighting, modern technical illustration, subtle
   green success accents, no text
 format: hands-on
 best_for: Builders trying Gravio scoring on a real repo in one sitting
@@ -96,7 +99,9 @@ Authorization is folder-level setup. Repeating it adds noise and confusion.
 
 Usually the fix is session state in browser, not CLI syntax.
 
-## What to Do After the First Score
+## Additional detail
+
+### What to Do After the First Score
 
 Once you have your first run, do two things:
 
@@ -107,13 +112,18 @@ To understand why recurring scans matter, read [Why AI Agent Output Quality Drif
 
 To operationalize thresholds in pipelines, read [The New CI Gate: Failing Builds on Agent Quality](/posts/ai-quality-gate-ci-gravio).
 
-## What is Gravio onboarding?
+### What is Gravio onboarding?
 
 Gravio onboarding is a three-step local setup: download the CLI and run setup once, authorize the folder once with your user API key, then run a scan. First scan creates the project automatically if needed. Authorization is folder-level—not repeated every scan—so teams can establish a recurring quality cadence without auth friction.
 
 ---
+**TL;DR**
 
-## Quick reference: first-run command flow
+- A practical, no-fluff walkthrough for getting Gravio running from a clean folder to your first quality score, including the exact command flow and common mistakes.
+
+### Reference
+
+### Quick reference: first-run command flow
 
 | Step | Command | Notes |
 |------|---------|-------|
@@ -123,7 +133,9 @@ Gravio onboarding is a three-step local setup: download the CLI and run setup on
 
 ---
 
-## Common mistakes (Gravio setup)
+### Additional detail
+
+### Common mistakes (Gravio setup)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -159,7 +171,7 @@ Yes—download `gravio.mjs`, run setup, authorize, scan. Platform-specific fetch
 
 ---
 
-## Why Fast Onboarding Is Strategic
+### Why Fast Onboarding Is Strategic
 
 Teams adopt what feels reliable and low-friction. A clear first-run experience turns quality tooling from "nice to have" into team habit.
 

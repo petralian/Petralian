@@ -1,40 +1,53 @@
 ---
 title: 'CursorBench 3.1: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget'
 slug: cursorbench-fable-5-composer-2-5-cost-vs-score
-date: 2026-07-02
+date: 2026-07-02T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- Developer Tools
-- AI Quality
-- Generative AI
-excerpt: Anthropic's Fable 5 leads CursorBench 3.1 at 72.9%, but at $18 per task and
-  76 steps. I read the table for score per dollar, tokens, and steps, and where open
-  models land.
+  - Agentic AI
+  - Developer Tools
+  - AI Quality
+  - Generative AI
+excerpt: >-
+  Anthropic's Fable 5 leads CursorBench 3.1 at 72.9%, but at $18 per task and 76
+  steps. I read the table for score per dollar, tokens, and steps, and where
+  open models land.
 featured_image: /images/posts/cursorbench-fable-5-composer-2-5-cost-vs-score.png
 focus_keyword: CursorBench Fable 5 Composer 2.5 cost
-seo_description: 'CursorBench 3.1 analysis: Fable 5 Max scores 72.9% but costs $18/task.
-  Composer 2.5 hits 63.2% at $0.55. Compare GLM 5.2, Kimi K2.7 Code, LongCat 2.0.'
+seo_description: >-
+  CursorBench 3.1 analysis: Fable 5 Max scores 72.9% but costs $18/task.
+  Composer 2.5 hits 63.2% at $0.55. Compare GLM 5.2, Kimi K2.7 Code, LongCat
+  2.0.
 related_posts:
-- composer-2-5-baseline-model-tighter-bootstrap-better-results
-- github-copilot-vs-openrouter-real-cost-comparison-for-developers
-- vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-image_prompt: 'Cinematic 16:9 macro photograph: scatter-plot points carved as glowing
-  marbles on a dark slate surface, one small green marble isolated in the efficient
-  corner while a tall gold marble towers over a stack of coins, dramatic side lighting,
-  shallow depth of field, no logos, no readable text.'
-image_prompt_variant_1: 'Surreal 16:9 flea-market scene: a jeweled trophy on a velvet
-  pedestal priced with towering coin stacks while a modest wrench set sits on a folding
-  table with a single coin, warm tungsten bulbs overhead, witty editorial tone, no
-  readable text, no logos.'
-image_prompt_variant_2: 'Bold 16:9 isometric cutaway poster: a skyscraper staircase
-  of agent steps on the left versus a compact stepladder with three checkmarks on
-  the right, flat graphic shapes, violet and amber accents, risograph texture, no
-  logos, no readable text.'
+  - composer-2-5-baseline-model-tighter-bootstrap-better-results
+  - github-copilot-vs-openrouter-real-cost-comparison-for-developers
+  - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+image_prompt: >-
+  Cinematic 16:9 macro photograph: scatter-plot points carved as glowing marbles
+  on a dark slate surface, one small green marble isolated in the efficient
+  corner while a tall gold marble towers over a stack of coins, dramatic side
+  lighting, shallow depth of field, no logos, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 flea-market scene: a jeweled trophy on a velvet pedestal priced
+  with towering coin stacks while a modest wrench set sits on a folding table
+  with a single coin, warm tungsten bulbs overhead, witty editorial tone, no
+  readable text, no logos.
+image_prompt_variant_2: >-
+  Bold 16:9 isometric cutaway poster: a skyscraper staircase of agent steps on
+  the left versus a compact stepladder with three checkmarks on the right, flat
+  graphic shapes, violet and amber accents, risograph texture, no logos, no
+  readable text.
 format: hands-on
 best_for: Builders comparing model cost versus quality with reproducible benchmarks
 ---
+**TL;DR**
+
+- Anthropic's Fable 5 leads CursorBench 3.
+- 9%, but at $18 per task and 76 steps.
+- I read the table for score per dollar, tokens, and steps, and where open models land.
+
+
 
 Anthropic brought Fable 5 back to public Cursor model pickers. Cursor published fresh numbers on [CursorBench 3.1](https://cursor.com/evals): ambiguous, multi-file tasks drawn from real agent sessions. Fable 5 Max sits at the top of the score column.
 
@@ -164,7 +177,9 @@ need -> budget: "cost cap" { style.stroke-dash: 8 }
 need -> max: "highest score" { style.stroke-dash: 8 }
 ```
 
-## Composer 2.5: the Pareto surprise
+## Additional detail
+
+### Composer 2.5: the Pareto surprise
 
 Cursor's chart plots score against average cost. Composer 2.5 sits in the corner you want: **63.2%** score, **$0.55** per task, **15,152 tokens**, **37 steps**.
 
@@ -172,13 +187,13 @@ That is not a perfect score. It beats **27 of 36** listed models on the public t
 
 I run Composer 2.5 as my default coding model in Cursor for a related reason: predictable rule compliance and a tighter session bootstrap beat frontier roulette on the work I ship daily. CursorBench gives that habit a cost line item. The model is not just cheaper. It is **efficient** on this task mix.
 
-## GPT-5.5: the token miser
+### GPT-5.5: the token miser
 
 GPT-5.5 Medium (**59.2%**, **$2.22**, **9,065 tokens**, **35 steps**) is the best token budget story in the table. Extra High reaches **64.3%** at **$4.37** with still-reasonable tokens.
 
 If your constraint is context window pressure or API token caps, GPT-5.5 Medium deserves a look. You give up peak score versus Fable Max. You buy back tokens and steps.
 
-## Open models on CursorBench: GLM 5.2 and Kimi K2.7 Code
+### Open models on CursorBench: GLM 5.2 and Kimi K2.7 Code
 
 CursorBench includes two open-weight families I watch closely.
 
@@ -211,7 +226,9 @@ K2.7 is **inexpensive** and lands mid-table on score. Score per dollar is strong
 
 Practical read: K2.7 Code is compelling for **open-source agent coding** and terminal/IDE workflows Kimi controls end to end. On CursorBench it reads as a budget exploratory model, not a drop-in replacement for Composer 2.5 on score.
 
-## LongCat 2.0: strong vendor benches, no CursorBench row yet
+### Additional detail
+
+### LongCat 2.0: strong vendor benches, no CursorBench row yet
 
 [LongCat 2.0](https://longcat.chat/blog/longcat-2.0/) is Meituan's **1.6T-parameter MoE** agentic coding model (MIT license, **1M context**, ~48B active parameters per token). It ran on OpenRouter for months as **Owl Alpha** before the official launch.
 
@@ -278,7 +295,7 @@ Practical read:
 
 Early builder commentary outside Meituan's tables is mixed: strong infra story (large domestic training cluster), but some preview users report rough agent edges. Hands-on beats bar charts.
 
-## Models I would not default to (on this table)
+### Models I would not default to (on this table)
 
 These are benchmark-specific callouts, not permanent verdicts:
 
@@ -291,7 +308,7 @@ These are benchmark-specific callouts, not permanent verdicts:
 
 Max tiers can still make sense for one-shot critical work. They are poor defaults for high-volume agent loops.
 
-## How I pick models after reading the table
+### How I pick models after reading the table
 
 | Need | Model to try first | Why |
 |------|-------------------|-----|
@@ -304,7 +321,9 @@ Max tiers can still make sense for one-shot critical work. They are poor default
 
 Model choice is one lever. **Context bootstrap** is the other. I benchmark file memory separately because a $0.55 model with a 3K-token gotchas pack can beat a $18 model that reads the wrong layer first. Stack both levers.
 
-## Quick reference: CursorBench 3.1 pick matrix
+### Reference
+
+### Quick reference: CursorBench 3.1 pick matrix
 
 | Need | Model to try first | CursorBench signal |
 |------|-------------------|-------------------|
@@ -350,7 +369,7 @@ Compute **score ÷ $**, **score ÷ 1K tokens**, and **score ÷ step** for your t
 
 **No.** Routing, tests, and memory gates still dominate rework tokens ([harness Part 1](/posts/cursor-lightweight-harness-without-microservice-2026)).
 
-## What you can do next
+### What you can do next
 
 1. Open [CursorBench 3.1](https://cursor.com/evals) and sort by **cost**, not just score.
 2. Compute **score per dollar** and **score per step** for the two models you actually use.

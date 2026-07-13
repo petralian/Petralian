@@ -1,24 +1,27 @@
 ---
 title: 'Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code'
 slug: zero-knowledge-ai-quality-gravio
-date: 2026-05-09
+date: 2026-05-09T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Gravio
-- Agentic AI
-- Developer Tools
-- AI Quality
-excerpt: 'Most AI quality platforms ask you to trust them with your source code. Gravio
-  takes a different path: encrypted scoring designed to keep plaintext out of the
-  server path.'
+  - Gravio
+  - Agentic AI
+  - Developer Tools
+  - AI Quality
+excerpt: >-
+  Most AI quality platforms ask you to trust them with your source code. Gravio
+  takes a different path: encrypted scoring designed to keep plaintext out of
+  the server path.
 featured_image: /images/posts/zero-knowledge-ai-quality-gravio.png
 focus_keyword: zero knowledge ai code quality
-seo_description: Learn how Gravio approaches privacy-first AI agent scoring with encrypted
-  run data and why zero-knowledge architecture matters for teams handling sensitive
+seo_description: >-
+  Learn how Gravio approaches privacy-first AI agent scoring with encrypted run
+  data and why zero-knowledge architecture matters for teams handling sensitive
   code.
-image_prompt: A cinematic workstation scene with encrypted data streams flowing from
-  local code editor into a secure cloud lock icon, neon blue and graphite palette,
+image_prompt: >-
+  A cinematic workstation scene with encrypted data streams flowing from local
+  code editor into a secure cloud lock icon, neon blue and graphite palette,
   modern SaaS illustration style, high detail, no text overlay
 format: hands-on
 best_for: Builders exploring privacy-preserving AI quality scoring with Gravio
@@ -102,13 +105,21 @@ Whether you use Gravio or another platform, ask these questions:
 
 If those answers are unclear, your quality pipeline has hidden risk.
 
-## What is zero-knowledge AI quality scoring?
+## Additional detail
+
+### What is zero-knowledge AI quality scoring?
 
 Zero-knowledge AI quality scoring measures agent and repository quality **without requiring plaintext prompts, outputs, or source on the server path**. The local workflow scans where code lives; data intended for cloud storage is encrypted before publish. The goal is deep quality insight without turning the scoring platform into a new data-risk surface.
 
 ---
+**TL;DR**
 
-## Quick reference: evaluating privacy claims
+- Most AI quality platforms ask you to trust them with your source code.
+- Gravio takes a different path: encrypted scoring designed to keep plaintext out of the server path.
+
+### Reference
+
+### Quick reference: evaluating privacy claims
 
 | Question | Strong answer |
 |----------|---------------|
@@ -119,7 +130,7 @@ Zero-knowledge AI quality scoring measures agent and repository quality **withou
 
 ---
 
-## Common mistakes (privacy-first quality tooling)
+### Common mistakes (privacy-first quality tooling)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -155,7 +166,9 @@ After onboarding and baseline scans—see [first score in 10 minutes](/posts/fir
 
 ---
 
-## A Better Quality Posture
+### Additional detail
+
+### A Better Quality Posture
 
 AI quality should feel like a reliability improvement, not a compliance exception waiting to happen. Privacy-first scoring gives teams room to measure what matters while protecting what cannot leak.
 

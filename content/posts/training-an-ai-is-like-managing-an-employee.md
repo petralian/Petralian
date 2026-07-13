@@ -1,41 +1,54 @@
 ---
 title: Training an AI Is Like Managing an Employee
 slug: training-an-ai-is-like-managing-an-employee
-date: 2026-06-14
+date: 2026-06-14T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Leadership
-- Agentic AI
-- Program Delivery
-- Generative AI
-excerpt: 'Five management habits that transfer directly to directing AI agents: show
-  examples, write context down, guide in steps, define outcomes, and close the loop
-  with review.'
+  - Leadership
+  - Agentic AI
+  - Program Delivery
+  - Generative AI
+excerpt: >-
+  Five management habits that transfer directly to directing AI agents: show
+  examples, write context down, guide in steps, define outcomes, and close the
+  loop with review.
 featured_image: /images/posts/training-an-ai-is-like-managing-an-employee.png
 focus_keyword: managing ai like an employee
-seo_description: 'A practical framework for directing AI like a strong employee: show
-  examples, document context, guide step by step, define outcomes, and close the loop.'
-image_prompt: 'Create a 16:9 conceptual hero image for an article comparing AI direction
-  to employee management. Show a manager at a desk reviewing a task board with clear
-  instructions flowing to both a human teammate and an AI assistant interface. Include
-  visual cues for process clarity: checklist, arrows, milestones, and feedback loops.
-  Professional, modern look, neutral palette with warm highlights, no logos, no text
-  overlays, no watermarks.'
-image_prompt_variant_1: 'A playful editorial hero image for an article about managing
-  AI like a high-performing employee. Show a tiny operations studio where tasks move
-  through clear stages: context briefing, examples, step-by-step execution, and feedback
-  loops. Include a calm manager coordinating both human and AI contributors with visible
-  checkpoints. Friendly technical style, soft shadows, warm highlights, 16:9, no logos,
-  no readable text, no watermarks.'
-image_prompt_variant_2: 'A witty split-scene hero image contrasting poor and strong
-  AI management. Left side: vague requests, tangled notes, and confused outputs. Right
-  side: structured prompts, explicit milestones, review gates, and reliable delivery
-  from both human and AI collaborators. Professional editorial illustration with subtle
-  humor, cinematic 16:9 framing, no logos, no readable text, no watermarks.'
+seo_description: >-
+  A practical framework for directing AI like a strong employee: show examples,
+  document context, guide step by step, define outcomes, and close the loop.
+image_prompt: >-
+  Create a 16:9 conceptual hero image for an article comparing AI direction to
+  employee management. Show a manager at a desk reviewing a task board with
+  clear instructions flowing to both a human teammate and an AI assistant
+  interface. Include visual cues for process clarity: checklist, arrows,
+  milestones, and feedback loops. Professional, modern look, neutral palette
+  with warm highlights, no logos, no text overlays, no watermarks.
+image_prompt_variant_1: >-
+  A playful editorial hero image for an article about managing AI like a
+  high-performing employee. Show a tiny operations studio where tasks move
+  through clear stages: context briefing, examples, step-by-step execution, and
+  feedback loops. Include a calm manager coordinating both human and AI
+  contributors with visible checkpoints. Friendly technical style, soft shadows,
+  warm highlights, 16:9, no logos, no readable text, no watermarks.
+image_prompt_variant_2: >-
+  A witty split-scene hero image contrasting poor and strong AI management. Left
+  side: vague requests, tangled notes, and confused outputs. Right side:
+  structured prompts, explicit milestones, review gates, and reliable delivery
+  from both human and AI collaborators. Professional editorial illustration with
+  subtle humor, cinematic 16:9 framing, no logos, no readable text, no
+  watermarks.
 format: hybrid
-best_for: Managers and team leads translating people-management instincts to AI workflows
+best_for: >-
+  Managers and team leads translating people-management instincts to AI
+  workflows
 ---
+**TL;DR**
+
+- Five management habits that transfer directly to directing AI agents: show examples, write context down, guide in steps, define outcomes, and close the loop with review.
+
+
 
 > **Leadership angle:** [What I learned directing AI as my primary engineer](/posts/training-an-ai-is-like-managing-an-employee) · [Why AI programs fail before they start](/posts/why-your-ai-program-may-fail-before-it-starts)  
 > **Memory stack:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [Why deliberate file memory beats hoping agents remember](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  
@@ -127,7 +140,7 @@ Management does not end at handoff. I require:
 On Cursor, that loop is enforced with always-on rules and a canonical footer spec—see the [Copilot → Cursor retrofit](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow) for how I centralized it.
 
 ```d2
-direction: down
+direction: right
 
 BRIEF: "1. Show +\nwrite context" {
   style.fill: "#fff8f5"
@@ -188,7 +201,9 @@ Managing AI like an employee means applying delegation habits—show examples, d
 
 ---
 
-## Quick reference: five management principles
+## Reference
+
+### Quick reference: five management principles
 
 | Principle | Management habit | Agent equivalent |
 |-----------|------------------|------------------|
@@ -236,7 +251,7 @@ Shorter prompts (you link instead of re-paste), less architectural drift, and au
 
 ---
 
-## What you can do next
+### What you can do next
 
 1. Pick one active task and rewrite the ask with scope, constraints, references, and definition of done.
 2. Add one **show** reference (file path or doc link) and one **write** destination (session note or `open-loops.md`).

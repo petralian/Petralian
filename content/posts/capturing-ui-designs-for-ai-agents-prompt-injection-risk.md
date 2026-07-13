@@ -1,30 +1,36 @@
 ---
 title: Capturing UI Designs for AI Agents Creates a Prompt Injection Surface
 slug: capturing-ui-designs-for-ai-agents-prompt-injection-risk
-date: 2026-05-29
+date: 2026-05-29T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- AI Quality
-- Developer Tools
-- Generative AI
-excerpt: Design capture CLIs that dump outerHTML into SKILL.md files can smuggle instructions.
-  Sanitize at the trust boundary before agents read the DOM.
+  - Agentic AI
+  - AI Quality
+  - Developer Tools
+  - Generative AI
+excerpt: >-
+  Design capture CLIs that dump outerHTML into SKILL.md files can smuggle
+  instructions. Sanitize at the trust boundary before agents read the DOM.
 featured_image: /images/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk.png
 focus_keyword: ai agent ui capture prompt injection
-seo_description: CLI tools that capture live UI into agent skills risk prompt injection
-  via hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted
+seo_description: >-
+  CLI tools that capture live UI into agent skills risk prompt injection via
+  hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted
   input boundary.
-image_prompt: 'Editorial 16:9 illustration: browser DOM tree with a hidden instruction
-  note sneaking into a skill document, warm technical desk, no logos, no readable
-  text.'
-image_prompt_variant_1: 'Tiny factory: HTML snippets on conveyor pass through sanitizer
-  gate before entering robot skill shelf, clever workshop, 16:9.'
-image_prompt_variant_2: 'Split view: left raw outerHTML with stray script text, right
-  cleaned capture with allowlist badge, editorial playful, 16:9.'
+image_prompt: >-
+  Editorial 16:9 illustration: browser DOM tree with a hidden instruction note
+  sneaking into a skill document, warm technical desk, no logos, no readable
+  text.
+image_prompt_variant_1: >-
+  Tiny factory: HTML snippets on conveyor pass through sanitizer gate before
+  entering robot skill shelf, clever workshop, 16:9.
+image_prompt_variant_2: >-
+  Split view: left raw outerHTML with stray script text, right cleaned capture
+  with allowlist badge, editorial playful, 16:9.
 format: hands-on
-best_for: Builders feeding UI context to agents who want to understand prompt-injection
+best_for: >-
+  Builders feeding UI context to agents who want to understand prompt-injection
   risk
 ---
 
@@ -107,7 +113,9 @@ Avoid dumping entire marketing pages into skills. Section-level capture beats pa
 
 For high-risk repos, require a human ack line in the skill file footer: `reviewed_by: human, date: ...` before agents use it in autonomous mode.
 
-## Testing the sanitizer
+## Additional detail
+
+### Testing the sanitizer
 
 Maintain a fixture file of malicious and noisy HTML snippets. Your capture CLI tests should assert:
 
@@ -117,13 +125,20 @@ Maintain a fixture file of malicious and noisy HTML snippets. Your capture CLI t
 
 Run the fixture in CI on every change to the capture tool, not only on agent prompt changes.
 
-## What is the UI capture prompt injection risk?
+### What is the UI capture prompt injection risk?
 
 The UI capture prompt injection risk is the chance that **untrusted DOM content**—hidden nodes, data attributes, third-party widgets—gets serialized into SKILL.md or agent context and interpreted as instructions. Design capture tools that paste outerHTML verbatim create a new trust boundary: the DOM becomes prompt payload unless sanitized at capture time.
 
 ---
+**TL;DR**
 
-## Quick reference: sanitization rules
+- Design capture CLIs that dump outerHTML into SKILL.
+- md files can smuggle instructions.
+- Sanitize at the trust boundary before agents read the DOM.
+
+### Reference
+
+### Quick reference: sanitization rules
 
 | Rule | Action |
 |------|--------|
@@ -135,7 +150,9 @@ The UI capture prompt injection risk is the chance that **untrusted DOM content*
 
 ---
 
-## Common mistakes (design capture for agents)
+### Additional detail
+
+### Common mistakes (design capture for agents)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -171,7 +188,7 @@ Pair bounded capture with [agent quality monitoring](/posts/ai-agent-quality-dri
 
 ---
 
-## What you can do next
+### What you can do next
 
 1. Audit existing SKILL.md files for raw HTML pasted from production pages.
 2. Add a sanitizer step to your capture CLI with tests for injection strings.

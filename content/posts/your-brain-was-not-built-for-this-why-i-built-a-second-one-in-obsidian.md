@@ -1,24 +1,30 @@
 ---
 title: 'Your Brain Was Not Built for This: Why I Built a Second One in Obsidian'
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
-date: 2026-05-20
+date: 2026-05-20T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Leadership
-- Enterprise AI
-- Generative AI
+  - Leadership
+  - Enterprise AI
+  - Generative AI
 excerpt: ''
 featured_image: /images/posts/obsidian-second-brain-graph-view.jpg
-seo_description: Why leadership and knowledge work need an Obsidian second brain—plain
-  Markdown, linking, and AI-ready files—not another app that traps what you already
-  know.
+seo_description: >-
+  Why leadership and knowledge work need an Obsidian second brain—plain
+  Markdown, linking, and AI-ready files—not another app that traps what you
+  already know.
 format: hybrid
-best_for: Knowledge workers overwhelmed by context who want a second brain without
-  hype
+best_for: Knowledge workers overwhelmed by context who want a second brain without hype
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
+
+**TL;DR**
+
+- What Your Brain Was Not Built for This: Why I Built a Second One in Obsidian covers.
+- Who it is for and when to use it.
+- Practical next steps after reading.
 
 ## What is an Obsidian second brain?
 
@@ -102,7 +108,9 @@ I think it is important to be honest about the limitations, because it does take
 
 **Collaboration is not its strength.** If your primary need is real-time team editing, Notion or Google Docs is still the better choice. Obsidian Sync supports shared vaults, but it is designed for individual use, not enterprise collaboration at scale.
 
-## The AI Question Is Not a Weakness, It Is the Whole Point
+## Additional detail
+
+### The AI Question Is Not a Weakness, It Is the Whole Point
 
 One of the most common critiques of Obsidian is that it has no built-in AI. As of 2026, Obsidian's CEO Steph Ango has been explicit that the product prioritizes community and user ownership over AI integration. Most reviewers treat this as a gap.
 
@@ -116,7 +124,7 @@ That openness matters beyond note-taking. It is the same reason I have been skep
 
 That is not a missing feature. That is an architectural decision, and I think it is the right one.
 
-## What I Think
+### What I Think
 
 A second brain is not a productivity hack. It is an infrastructure decision. Just like enterprises need data governance before they can extract value from AI, individuals need knowledge governance before they can extract value from their own thinking. Obsidian is the best tool I have found for that purpose, and the reason comes down to one thing: it gets out of the way.
 

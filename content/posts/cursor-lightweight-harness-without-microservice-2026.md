@@ -1,41 +1,56 @@
 ---
 title: You Already Have an AI Harness in Cursor (Without LangChain)
 slug: cursor-lightweight-harness-without-microservice-2026
-date: 2026-07-04
+date: 2026-07-04T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- Developer Tools
-- AI Quality
-excerpt: Terminal-Bench harnesses look like separate products. On a production Shopify
-  app I already had subagents, CI gates, and session rules. You keep model and mode
-  control — the harness supports routing, tests, and memory gates, not autopilot.
+  - Agentic AI
+  - Developer Tools
+  - AI Quality
+  - Playbook
+excerpt: >-
+  Terminal-Bench harnesses look like separate products. On a production Shopify
+  app I already had subagents, CI gates, and session rules. You keep model and
+  mode control — the harness supports routing, tests, and memory gates, not
+  autopilot.
 featured_image: /images/posts/cursor-lightweight-harness-without-microservice-2026.png
 focus_keyword: Cursor agent harness without microservice
-seo_description: How to run a lightweight AI harness in Cursor using rules, subagents,
-  and CI checks instead of LangChain or Harbor. Policy table, starter kit, and what
-  not to build.
+seo_description: >-
+  How to run a lightweight AI harness in Cursor using rules, subagents, and CI
+  checks instead of LangChain or Harbor. Policy table, starter kit, and what not
+  to build.
 series: Cursor Agent Harness Series
 series_order: 1
 related_posts:
-- cursor-token-saving-tools-beyond-headroom-2026
-- composer-2-5-baseline-model-tighter-bootstrap-better-results
-- vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-- three-layer-external-brain-for-ai-first-development
-image_prompt: 'Cinematic 16:9: a single Composer pane on a workbench surrounded by
-  labeled gate cards (Policy, Tests, CI) not a second server rack, copper rim light
-  on concrete wall, no logos, no readable text, no faces.'
-image_prompt_variant_1: 'Surreal 16:9 planetarium dome: constellations are subagent
-  icons but one bright path labeled Direct Composer, telescope on a rolling cart,
-  deep violet and amber accents, no readable text.'
-image_prompt_variant_2: 'Bold isometric 16:9 poster: horizontal gate chain Direct
-  to Batch to Test to Ship as flat blocks with checkmarks, risograph texture teal
-  and slate, no logos.'
+  - cursor-token-saving-tools-beyond-headroom-2026
+  - composer-2-5-baseline-model-tighter-bootstrap-better-results
+  - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+  - three-layer-external-brain-for-ai-first-development
+image_prompt: >-
+  Cinematic 16:9: a single Composer pane on a workbench surrounded by labeled
+  gate cards (Policy, Tests, CI) not a second server rack, copper rim light on
+  concrete wall, no logos, no readable text, no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 planetarium dome: constellations are subagent icons but one
+  bright path labeled Direct Composer, telescope on a rolling cart, deep violet
+  and amber accents, no readable text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9 poster: horizontal gate chain Direct to Batch to Test to
+  Ship as flat blocks with checkmarks, risograph texture teal and slate, no
+  logos.
 format: hands-on
-best_for: Solo builders and small teams who want harness discipline without microservice
+best_for: >-
+  Solo builders and small teams who want harness discipline without microservice
   overhead
 ---
+**TL;DR**
+
+- Terminal-Bench harnesses look like separate products.
+- On a production Shopify app I already had subagents, CI gates, and session rules.
+- You keep model and mode control — the harness supports routing, tests, and memory gates, not autopilot.
+
+
 
 > **Series:** Cursor Agent Harness (Part 1 of 3)  
 > **Companion:** [Token saving post-mortem](/posts/cursor-token-saving-tools-beyond-headroom-2026) (proxy retired; direct OpenRouter + MCP)  
@@ -90,7 +105,7 @@ A harness is easy to misread as something that takes over: auto-routing your mod
 If you pick **Plan + GLM 5.2**, Cursor runs Plan with GLM 5.2. The harness shapes **procedure** (footer Mode B, skip heavy vault sweep for a one-line question, no batch agent on a single file). It does not silently revert you to Composer 2.5 or Agent mode.
 
 ```d2
-direction: down
+direction: right
 
 YOU: "You\nmodel + mode dropdown" {
   style.fill: "#fff8f5"
@@ -148,7 +163,9 @@ Before I wrote `docs/HARNESS-POLICY.md`, my main app repo already had:
 
 Composer 2.5 direct is the default path. Subagents are the heavy path when the table says so.
 
-## How the lightweight harness works
+## Additional detail
+
+### How the lightweight harness works
 
 ### 1. One policy page (git, not Obsidian)
 
@@ -218,13 +235,13 @@ GATE.B -> HEAVY
 HEAVY -> CI
 ```
 
-## What I measured (and what I skipped)
+### What I measured (and what I skipped)
 
 Benchmarked claims from Terminal-Bench agents optimize leaderboard score, often with more tokens. I skipped plugging those agents into Cursor; they expect Harbor plus Docker task layouts, not a monolith Shopify repo.
 
 I also skipped a LangChain microservice after the proxy post-mortem: complexity without ROI on chat-heavy sessions.
 
-## What you can copy in one afternoon
+### What you can copy in one afternoon
 
 1. Add `docs/HARNESS-POLICY.md` (one table).
 2. Add `.cursor/rules/context-budget.mdc` (link to policy).
@@ -235,7 +252,11 @@ I also skipped a LangChain microservice after the proxy post-mortem: complexity 
 
 Policy files live in **git** so they diff in PRs. Session narrative stays in Obsidian (Part 2).
 
-## Quick reference: harness artifacts (example implementation)
+### Additional detail
+
+### Reference
+
+### Quick reference: harness artifacts (example implementation)
 
 | Artifact | Example path | Job |
 |----------|--------------|-----|
@@ -282,7 +303,7 @@ Swap `<project>` for your repo name. Paths are illustrative; the **pattern** is 
 
 When **all** defer gates pass: repeated `wrong-fix` with tests run, subagent overuse on small tasks, and engineering time budget—see `HARNESS-DEFER.md` and [Part 3](/posts/cursor-harness-measurement-2026).
 
-## Reader action
+### Reader action
 
 Open your main repo. List what you already have: subagents, test script, deploy gate, CI check, session rules. If the list has three or more rows, you likely have a harness. Write the policy page before you write another service.
 

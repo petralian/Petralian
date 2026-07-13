@@ -1,29 +1,39 @@
 ---
 title: How I Built the Petralian Weekly Digest on Brevo Free
 slug: how-i-built-the-petralian-weekly-digest-on-brevo-free
-date: 2026-05-24
+date: 2026-05-24T00:00:00.000Z
 status: published
 category: Commerce & Marketing
 tags:
-- Developer Tools
-- Marketing Technology
-- Brand Strategy
-excerpt: I wanted a clean weekly digest for petralian.com without paying for RSS automations.
-  This is the exact architecture we implemented, the issues we hit, and the code patterns
-  that made it reliable.
+  - Developer Tools
+  - Marketing Technology
+  - Brand Strategy
+excerpt: >-
+  I wanted a clean weekly digest for petralian.com without paying for RSS
+  automations. This is the exact architecture we implemented, the issues we hit,
+  and the code patterns that made it reliable.
 featured_image: /images/posts/how-i-built-the-petralian-weekly-digest-on-brevo-free.png
 focus_keyword: petralian weekly digest brevo free
-seo_description: A practical build log for implementing a weekly digest on Brevo free
-  tier with Next.js and Vercel cron, including double opt-in, confirm unsubscribe,
-  privacy safeguards, and fork-ready code.
-image_prompt: 'Create a 16:9 hero image for a technical build-log article. Show a
-  laptop with a minimal dashboard representing petralian.com newsletter flow: subscribe,
-  confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red warning
-  icon replaced by green checks, dark modern UI aesthetic, no brand logos, no text
-  overlays, no watermarks.'
+seo_description: >-
+  A practical build log for implementing a weekly digest on Brevo free tier with
+  Next.js and Vercel cron, including double opt-in, confirm unsubscribe, privacy
+  safeguards, and fork-ready code.
+image_prompt: >-
+  Create a 16:9 hero image for a technical build-log article. Show a laptop with
+  a minimal dashboard representing petralian.com newsletter flow: subscribe,
+  confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red
+  warning icon replaced by green checks, dark modern UI aesthetic, no brand
+  logos, no text overlays, no watermarks.
 format: hands-on
 best_for: Solo publishers automating a weekly digest without paid RSS tooling
 ---
+**TL;DR**
+
+- I wanted a clean weekly digest for petralian.
+- com without paying for RSS automations.
+- This is the exact architecture we implemented, the issues we hit, and the code patterns that made it reliable.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I was not trying to build a newsletter startup. I was trying to solve a very specific operational problem on petralian.com.
@@ -190,7 +200,9 @@ That runs weekly on Monday UTC. Manual trigger remains available for testing wit
 
 ---
 
-## Brevo Limitations and How I Worked Around Them
+## Additional detail
+
+### Brevo Limitations and How I Worked Around Them
 
 The important limitation was not that Brevo cannot send. It can. The limitation was that certain native automation pathways are plan-sensitive and can introduce avoidable dependency on UI-level features.
 
@@ -208,7 +220,7 @@ This is the part that matters: privacy is not a paragraph in a settings screen. 
 
 ---
 
-## Best Practices That Made This Stable
+### Best Practices That Made This Stable
 
 If someone wants to fork this pattern, these are the practices worth keeping:
 
@@ -224,7 +236,7 @@ Also rotate secrets whenever keys appear in logs, screenshots, or terminal histo
 
 ---
 
-## What This Means for Forking
+### What This Means for Forking
 
 This setup is intentionally easy to fork because it is file-based and route-based.
 
@@ -241,7 +253,9 @@ This is the same design principle as the broader site architecture: keep complex
 
 ---
 
-## My Read
+### Additional detail
+
+### My Read
 
 The core mistake in newsletter discussions is treating delivery as a platform toggle. Delivery is a system.
 
@@ -253,7 +267,7 @@ The result is exactly what I needed: a weekly digest pipeline that is cheap to r
 
 ---
 
-## Common mistakes (free-tier email)
+### Common mistakes (free-tier email)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|

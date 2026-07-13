@@ -1,38 +1,43 @@
 ---
 title: Project Management With a File-Based Agent Engine (Not Another PM Tool)
 slug: knowledge-work-engine-project-management-2026
-date: 2026-07-06
+date: 2026-07-06T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Program Delivery
-- Digital Transformation
-- Agentic AI
-- Enterprise AI
-excerpt: Agile, Scrum, Jira, and Confluence already own execution and narrative. This
-  playbook shows where a file-based agent engine fits—iron triangle tradeoffs, RAG,
-  RACI, RAID, and applied AI without pretending chat is a program office.
+  - Program Delivery
+  - Digital Transformation
+  - Agentic AI
+  - Enterprise AI
+  - Playbook
+excerpt: >-
+  Agile, Scrum, Jira, and Confluence already own execution and narrative. This
+  playbook shows where a file-based agent engine fits—iron triangle tradeoffs,
+  RAG, RACI, RAID, and applied AI without pretending chat is a program office.
 featured_image: /images/posts/knowledge-work-engine-project-management-2026.png
 focus_keyword: AI project management agile scrum jira
-seo_description: 'How a file-based AI engine complements Agile, Scrum, Jira, and Confluence:
-  iron triangle, RAG, RACI, RAID, sprint goals, and agent routing for program delivery.'
+seo_description: >-
+  How a file-based AI engine complements Agile, Scrum, Jira, and Confluence:
+  iron triangle, RAG, RACI, RAID, sprint goals, and agent routing for program
+  delivery.
 series: Knowledge Work Engine Series
 series_order: 1
 related_posts:
-- knowledge-work-agent-engine-guide-2026
-- knowledge-work-engine-leadership-decisions-2026
-- getting-enterprise-ai-right-the-work-that-comes-before-deployment
-image_prompt: Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete
-  desk, three columns only, single brass pen, cool morning light, no readable text,
-  no faces.
-image_prompt_variant_1: 'Surreal 16:9 subway control room: three glowing lines on
-  a map merge into one departure board, teal and amber lights, miniature scale, no
-  readable text.'
-image_prompt_variant_2: 'Isometric 16:9 cutaway: inbox tray, bridge folder, milestone
-  flag, task-app icon as three connected rooms, risograph orange and gray, no logos.'
+  - knowledge-work-agent-engine-guide-2026
+  - knowledge-work-engine-leadership-decisions-2026
+  - getting-enterprise-ai-right-the-work-that-comes-before-deployment
+image_prompt: >-
+  Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete
+  desk, three columns only, single brass pen, cool morning light, no readable
+  text, no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 subway control room: three glowing lines on a map merge into one
+  departure board, teal and amber lights, miniature scale, no readable text.
+image_prompt_variant_2: >-
+  Isometric 16:9 cutaway: inbox tray, bridge folder, milestone flag, task-app
+  icon as three connected rooms, risograph orange and gray, no logos.
 format: hybrid
-best_for: Program and delivery leads running projects where agents are part of the
-  team
+best_for: Program and delivery leads running projects where agents are part of the team
 ---
 
 > **Knowledge Work Engine Series (Part 1)**  
@@ -47,8 +52,14 @@ best_for: Program and delivery leads running projects where agents are part of t
 **What you will learn:** where the engine sits vs Agile ceremonies; how RAG, RAID, RACI, and the iron triangle map to files; and applied AI rules that keep agents out of the Accountable column.
 
 ---
+**TL;DR**
 
-## How to start with this playbook
+- Agile, Scrum, Jira, and Confluence already own execution and narrative.
+- This playbook shows where a file-based agent engine fits—iron triangle tradeoffs, RAG, RACI, RAID, and applied AI without pretending chat is a program office.
+
+## Getting oriented
+
+### How to start with this playbook
 
 > **Example — how I use this for PM:** One folder per client initiative under my vault (`Initiatives/<name>/`). I open it in Cursor, scaffold with the [Part 0 replication kit](/posts/knowledge-work-agent-engine-guide-2026#replication-kit-give-this-to-an-ai), sync `Bridge.md` to the Jira sprint goal at sprint boundary, and link ticket keys—never mirror the backlog in markdown.
 
@@ -65,7 +76,9 @@ best_for: Program and delivery leads running projects where agents are part of t
 
 ---
 
-## The problem: initiatives die in chat threads
+## Getting oriented
+
+### The problem: initiatives die in chat threads
 
 Enterprise delivery already runs on **frameworks and systems**: Scrum teams in Jira, status decks in PowerPoint, decisions buried in Confluence, and an AI tab open on the side.
 
@@ -81,7 +94,7 @@ This article is thought leadership on **where a file-based agent engine plugs in
 
 ---
 
-## Not a fourth PM tool: a complement layer
+### Not a fourth PM tool: a complement layer
 
 | System | Primary job | Source of truth for |
 |--------|-------------|---------------------|
@@ -94,7 +107,7 @@ The engine is the **glue** between your official PM stack and the explosion of A
 *Three-system model (diagram below is D2; draw as a Venn or stack in any tool).*
 
 ```d2
-direction: down
+direction: right
 
 jira: "Execution\nJira / ADO" {
   style.fill: "#f5f7fa"
@@ -134,7 +147,9 @@ human -> engine: "promote\nlessons"
 
 ---
 
-## How classic frameworks map to engine files
+## Frameworks and delivery controls
+
+### How classic frameworks map to engine files
 
 Frameworks were designed for **human teams with institutional memory**. Agents have none. The engine gives agents the same artifacts good PMs already maintain—just in a shape optimized for **bootstrap reads** and **session footers**.
 
@@ -174,7 +189,7 @@ At program level, add a **program Bridge** linking multiple team Bridges. PI obj
 
 ---
 
-## Iron triangle: record tradeoffs, not math
+### Iron triangle: record tradeoffs, not math
 
 Scope, time, and cost are constrained together. When one moves, the others move. Frameworks teach this; chat ignores it.
 
@@ -182,13 +197,13 @@ The engine's job is not to calculate EVM. It is to **record the decision when yo
 
 ```markdown
 # Decision: Accept slip on training rollout (scope hold, time +2 weeks)
-## Triangle before
+### Triangle before
 Scope: 12 sites | Time: 30 Jun | Cost: fixed cap
 
-## Triangle after  
+### Triangle after
 Scope: 10 sites (2 deferred) | Time: 14 Jul | Cost: fixed cap
 
-## Owner
+### Owner
 Program director | SteerCo informed YYYY-MM-DD
 ```
 
@@ -196,7 +211,7 @@ Link from `RAID.md` if the slip was risk-driven. Link Jira fixVersion or milesto
 
 ---
 
-## RAG status: define the scale once
+### RAG status: define the scale once
 
 **RAG** (Red / Amber / Green) fails when every leader uses a different definition. Put the scale in `_Home.md` or program standards (Layer 3):
 
@@ -216,7 +231,7 @@ Portfolio `System/Projects/index.md`:
 
 ---
 
-## RAID: risks, assumptions, issues, dependencies
+### RAID: risks, assumptions, issues, dependencies
 
 `Initiatives/<name>/RAID.md` complements Jira risk issue types:
 
@@ -237,7 +252,7 @@ List: (1) top 3 risks by impact, (2) assumptions past validation date,
 
 ---
 
-## RACI: humans accountable, AI responsible only for drafts
+### RACI: humans accountable, AI responsible only for drafts
 
 [RACI](https://www.projectmanagement.com/wikis/278207/RACI-Matrix) (Responsible, Accountable, Consulted, Informed) clarifies who decides versus who does. **Applied AI:** the assistant is never **Accountable**. It may be **Responsible** for draft artifacts (status memo, RAID table, slide outline) under human review.
 
@@ -252,7 +267,9 @@ Maintain `Initiatives/<name>/RACI.md` for recurring workstreams. [Part 2](/posts
 
 ---
 
-## WORK-ROUTING for program delivery
+## Reference
+
+### WORK-ROUTING for program delivery
 
 `Operations/WORK-ROUTING.md` is your **agent analog of a PMO routing table**:
 
@@ -298,7 +315,9 @@ question.large -> routes.batch
 
 ---
 
-## Initiative file layout
+## Running initiatives
+
+### Initiative file layout
 
 ```
 Initiatives/<name>/
@@ -316,7 +335,7 @@ Initiatives/<name>/
 
 ---
 
-## Jira: execution truth stays in Jira
+### Jira: execution truth stays in Jira
 
 **Do not mirror the backlog in markdown.** Mirror **intent and pointers**.
 
@@ -336,7 +355,7 @@ Initiatives/<name>/
 
 ---
 
-## Confluence: publish for humans, files for agents
+### Confluence: publish for humans, files for agents
 
 Confluence is optimized for **reading and compliance**, not for **agent bootstrap at 9am Monday**.
 
@@ -351,7 +370,7 @@ Workflow: decide in `Decisions/` → human Accountable approves → publish summ
 
 ---
 
-## Applied AI in delivery (thought leadership)
+### Applied AI in delivery (thought leadership)
 
 Five principles for program leaders rolling out agents alongside Jira:
 
@@ -403,7 +422,7 @@ input -> route -> artifacts -> gate -> output
 
 ---
 
-## Task tracker vs thinking layer
+### Task tracker vs thinking layer
 
 | Layer | Tool | Holds |
 |-------|------|-------|
@@ -419,7 +438,7 @@ input -> route -> artifacts -> gate -> output
 
 ---
 
-## Batch orchestrator (3+ workstreams)
+### Batch orchestrator (3+ workstreams)
 
 When one initiative has parallel tracks (pilot + policy + training), parent prompt:
 
@@ -438,7 +457,7 @@ Parent outputs SteerCo-ready table. Human Accountable sets RAG.
 
 ---
 
-## Milestone gate (Mode D)
+### Milestone gate (Mode D)
 
 Before calling a phase "shipped":
 
@@ -452,7 +471,7 @@ Before calling a phase "shipped":
 
 ---
 
-## Beginner: one initiative in 30 minutes
+### Beginner: one initiative in 30 minutes
 
 1. Copy templates from [Part 0 hub](/posts/knowledge-work-agent-engine-guide-2026).
 2. Fill `_Home.md`: goal, metric, out of scope, RAG definitions.
@@ -462,13 +481,15 @@ Before calling a phase "shipped":
 
 ---
 
-## Advanced: portfolio index
+### Advanced: portfolio index
 
 `System/Projects/index.md` with RAG, last touched, Jira link, Bridge path. SteerCo prep becomes reading the index plus Amber/Red Bridges only.
 
 ---
 
-## Complex requirements, documentation drift, and review gates
+### Complex requirements and review gates
+
+### Complex requirements, documentation drift, and review gates
 
 Delivery leads often hit the same cluster of pains: AI feels **unreliable** as specs grow, **documentation falls behind** execution, and **peer review** is a manual side process. The engine does not fix model quality. It **bounds what the assistant sees** and **when a draft becomes official**.
 
@@ -513,7 +534,7 @@ For high-stakes artifacts, add a **reviewer pass**: second prompt that checks on
 
 ---
 
-## Real constraints
+### Real constraints
 
 - **Dual maintenance** — Bridge and Jira sprint goal can drift; assign one owner to sync at sprint boundary.
 - **Confluence lag** — Official narrative may trail files; mark publish date on decisions.
@@ -521,7 +542,7 @@ For high-stakes artifacts, add a **reviewer pass**: second prompt that checks on
 
 ---
 
-## Quick reference: PM terms in this series
+### Quick reference: PM terms in this series
 
 | Term | One-line meaning | Engine file |
 |------|------------------|-------------|
@@ -584,7 +605,7 @@ Use RACI **Consulted** before **Accountable** commit, then publish to Confluence
 
 ---
 
-## Reader action
+### Reader action
 
 Pick one live initiative with a Jira board. Create `_Home.md`, `Bridge.md`, and `RAID.md`. For the next sprint boundary, make Jira sprint goal and Bridge text match.
 
@@ -592,7 +613,7 @@ If session four needs less re-explanation, add `WORK-ROUTING.md` and `RACI.md`�
 
 ---
 
-## Sources
+### Sources
 
 - [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) — Product Goal, Sprint Goal, Definition of Done
 - [Scrum.org — Sprint Goal](https://www.scrum.org/resources/what-sprint-goal) — commitment and focus

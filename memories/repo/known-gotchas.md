@@ -1,6 +1,17 @@
 # Petralian — known gotchas
 
-**Updated:** 2026-05-26
+**Updated:** 2026-07-13
+
+## UI / content
+- **Format labels are canonical** — `POST_FORMATS[].label` only: **Strategic**, **Hands-on**, **Hybrid**. Same strings on filter pills, post cards, and post hero. No `shortLabel` aliases (Strategy / Build / Both).
+- **Format badge colors** — use `--format-*` tokens on hero and cards; no hero-specific color overrides.
+- **Site layout tokens** — horizontal gutters and vertical rhythm use `--site-gutter-x`, `--site-pad-bottom`, `--site-block-gap`, `--site-dark-hero-pad-y`, `--header-offset` in `globals.css`.
+- **Post outline nav** — H2 only via `buildOutlineNav()`; sticky on `.post-outline-root`; IntersectionObserver scroll spy; exclude Reference/Additional detail/Sources prefixes (FAQ + Common mistakes stay in nav).
+- **D2 collapsed** — No client viewBox trim, rect strip, or panzoom; pinch/zoom in fullscreen only.
+- **Playbook** — topic tag `Playbook` on long-form posts (filter at `/topics/playbook`); not a separate badge.
+- **GEO** — topic tag on generative-engine / answer-surface posts; filter at `/topics/geo`.
+- **Inline D2 diagrams** — `trimDiagramSvgs()` via getBBox before sizing; no CSS squash on capped viewports; viewport background transparent.
+- **Vault hero images** — updating `03 Published/Attachments/*.png` does not sync to `public/images/posts/` until copied or publish script runs; stale repo image = wrong hero on site.
 
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
@@ -14,7 +25,7 @@
 - **Inline:** `@panzoom/panzoom` (`contain: outside`). **Fullscreen:** `react-zoom-pan-pinch` — panzoom has no reliable auto-fit/center on init.
 - **Never** put `border`/`outline` on nodes with `filter: invert(1)` — inverts to a visible white ring. Use `overflow: hidden` on parents instead.
 - Lock size for fullscreen: `--diagram-lock-w/h` on `.diagram-figure__canvas-wrap` (survives viewport swap), set in `lockDiagramMetrics` before expand.
-- **Diagram theme:** Light site theme → show `.diagram-figure__svg--light` on `--diagram-canvas-light`; dark theme → `.diagram-figure__svg--dark` + `invert(1)`. Do not force dark canvas in light mode.
+- **Diagram theme:** Light → `.diagram-figure__svg--light`; dark → `.diagram-figure__svg--dark` + `.diagram-figure__svg-invert { filter: invert(1) }` with `prepareDarkSvgForInvert` (canvas fill + edge stroke remap). Do not client-strip rects on the dark copy. Never set `display` on bare `.diagram-figure__svg` — it overrides `--dark { display: none }` and stacks both copies in fullscreen.
 - **Diagram footer logo:** Never set `display: block` on `.diagram-figure__watermark-img` without `--light`/`--dark` — it overrides `display: none` and shows both logos.
 - **Mobile fullscreen:** Do not use `height: 100svh` on `.diagram-figure--expanded` — locks to small viewport; article bleeds when Chrome hides toolbar. Use `--diagram-vv-height` / `--diagram-vv-top` from `visualViewport` via `diagram-visual-viewport.ts` + `subscribeDiagramVisualViewport()` while expanded.
 

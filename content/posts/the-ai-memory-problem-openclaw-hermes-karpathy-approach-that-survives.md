@@ -1,26 +1,37 @@
 ---
-title: 'The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That Actually
-  Survives'
+title: >-
+  The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That
+  Actually Survives
 slug: the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
-date: 2026-05-18
+date: 2026-05-18T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- AI Memory
-- Agentic AI
-- Obsidian
-excerpt: Every AI session starts from scratch. Four tools are racing to solve the
-  AI memory problem - OpenClaw, Hermes, Karpathy's LLM wiki, and a plain Obsidian
+  - AI Memory
+  - Agentic AI
+  - Obsidian
+excerpt: >-
+  Every AI session starts from scratch. Four tools are racing to solve the AI
+  memory problem - OpenClaw, Hermes, Karpathy's LLM wiki, and a plain Obsidian
   vault. Here's how they differ and which approach actually survives tool churn.
 focus_keyword: AI memory persistent knowledge management
-featured_image: /images/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives.png
-seo_description: 'The AI memory problem explained: how OpenClaw, Hermes, Karpathy''s
-  LLM wiki, and Obsidian each solve it differently - and which approach survives when
-  the tooling landscape shifts.'
+featured_image: >-
+  /images/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives.png
+seo_description: >-
+  The AI memory problem explained: how OpenClaw, Hermes, Karpathy's LLM wiki,
+  and Obsidian each solve it differently - and which approach survives when the
+  tooling landscape shifts.
 image: null
 format: hybrid
 best_for: Builders and product leads comparing durable memory approaches for agents
 ---
+**TL;DR**
+
+- Every AI session starts from scratch.
+- Four tools are racing to solve the AI memory problem - OpenClaw, Hermes, Karpathy's LLM wiki, and a plain Obsidian vault.
+- Here's how they differ and which approach actually survives tool churn.
+
+
 
 # The AI Memory Problem - OpenClaw, Hermes, Karpathy, and the Approach That Actually Survives
 
@@ -102,7 +113,9 @@ The limitation is that this approach requires discipline to maintain. A digital 
 
 ---
 
-## Karpathy's LLM Wiki: The Knowledge Compilation Pattern
+## Additional detail
+
+### Karpathy's LLM Wiki: The Knowledge Compilation Pattern
 
 In April 2026, Andrej Karpathy published a GitHub gist that collected thousands of stars in its first week. The idea: stop using RAG as your default pattern for giving AI access to documents, and instead have the AI maintain a structured, cross-referenced wiki for you.
 
@@ -118,7 +131,7 @@ My honest read is that the viral moment was proportionate to the elegance of the
 
 ---
 
-## What I Actually Built (And Why It Works Differently)
+### What I Actually Built (And Why It Works Differently)
 
 Having spent the better part of a year building my own AI workflow infrastructure, I arrived at something that borrows from all of these patterns without being identical to any of them.
 
@@ -136,7 +149,7 @@ The MCP server - a small Node.js script that exposes read, write, and append ope
 
 ---
 
-## Why Tool-Agnosticism Is the Only Criterion That Matters
+### Why Tool-Agnosticism Is the Only Criterion That Matters
 
 Here is the part most coverage of AI memory tools skips entirely.
 
@@ -152,7 +165,9 @@ I am not arguing against OpenClaw or Hermes. I use both. What I am arguing is th
 
 ---
 
-## The Business Applications Are More Immediate Than They Appear
+### Additional detail
+
+### The Business Applications Are More Immediate Than They Appear
 
 Most coverage of these tools focuses on personal productivity use cases: the calendar manager, the inbox cleaner, the morning briefing bot. These are real and useful. But the business applications are substantially more valuable and somewhat underexplored.
 
@@ -164,7 +179,7 @@ Most coverage of these tools focuses on personal productivity use cases: the cal
 
 ---
 
-## My Take
+### My Take
 
 The AI memory problem is real, and in 2026 we have better tools for addressing it than we did twelve months ago. But I would push back on the framing that any single tool or pattern has solved it.
 
@@ -176,7 +191,9 @@ The specific tools you pick matter less than the principle. Context travels with
 
 That is the version that survives what comes next.
 
-## Quick reference: four approaches vs three memory failures
+### Reference
+
+### Quick reference: four approaches vs three memory failures
 
 | Approach | Best at | Weak at | Portability |
 |----------|---------|---------|-------------|
@@ -227,7 +244,7 @@ Agent platforms churn; **markdown on disk** does not. Your knowledge layer shoul
 
 ---
 
-## Follow-on: External Memory Series
+### Follow-on: External Memory Series
 
 Start at the **[series hub](/posts/external-memory-series-guide)** (overview + reading order), then:
 
@@ -240,7 +257,7 @@ Related on this site: [Your Brain Was Not Built for This](/posts/your-brain-was-
 
 ---
 
-## Sources and Further Reading
+### Sources and Further Reading
 
 1. [OpenClaw - official site and documentation](https://openclaw.ai/)
 2. [Hermes Agent - Nous Research](https://hermes-agent.nousresearch.com/)

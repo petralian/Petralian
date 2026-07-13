@@ -1,34 +1,47 @@
 ---
 title: 'How We Built Gravio’s Scoring Engine: From Repo Signals to Release Gates'
 slug: how-gravio-scoring-engine-was-built
-date: 2026-05-17
+date: 2026-05-17T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- AI Quality
-- Developer Tools
-- Gravio
-excerpt: A practical breakdown of how Gravio turns repository signals into six-dimension
-  scores, hard quality gates, and actionable remediation plans.
+  - Agentic AI
+  - AI Quality
+  - Developer Tools
+  - Gravio
+  - Playbook
+excerpt: >-
+  A practical breakdown of how Gravio turns repository signals into
+  six-dimension scores, hard quality gates, and actionable remediation plans.
 featured_image: /images/posts/how-gravio-scoring-engine-was-built.png
 focus_keyword: how gravio scoring engine works
-seo_description: 'Learn how Gravio’s scoring engine was built: signal detection, weighted
-  dimensions, gate policy, and practical quality remediation for AI-assisted codebases.'
-image_prompt: A transparent engineering control room with six illuminated quality
-  dials (safety, reliability, evaluation, observability, governance, agentic) fed
-  by live repository signals, realistic UI overlays, cinematic but grounded, no generic
-  corporate stock look.
-image_prompt_variant_1: 'Tiny System Factory scene: miniature engineers route code
-  artifacts through labeled stations (tests, eval corpus, security scan, observability),
-  with a final scorecard conveyor output, warm practical lighting, witty but professional.'
-image_prompt_variant_2: 'Maze vs Clear Workflow split-screen: left side shows tangled
-  dashboards and noisy alerts, right side shows a clean scored pipeline with release
-  gate checks and traceable evidence, editorial style, sharp contrast, modern product
-  illustration.'
+seo_description: >-
+  Learn how Gravio’s scoring engine was built: signal detection, weighted
+  dimensions, gate policy, and practical quality remediation for AI-assisted
+  codebases.
+image_prompt: >-
+  A transparent engineering control room with six illuminated quality dials
+  (safety, reliability, evaluation, observability, governance, agentic) fed by
+  live repository signals, realistic UI overlays, cinematic but grounded, no
+  generic corporate stock look.
+image_prompt_variant_1: >-
+  Tiny System Factory scene: miniature engineers route code artifacts through
+  labeled stations (tests, eval corpus, security scan, observability), with a
+  final scorecard conveyor output, warm practical lighting, witty but
+  professional.
+image_prompt_variant_2: >-
+  Maze vs Clear Workflow split-screen: left side shows tangled dashboards and
+  noisy alerts, right side shows a clean scored pipeline with release gate
+  checks and traceable evidence, editorial style, sharp contrast, modern product
+  illustration.
 format: hands-on
 best_for: Builders who want the architecture behind an AI quality scoring engine
 ---
+**TL;DR**
+
+- A practical breakdown of how Gravio turns repository signals into six-dimension scores, hard quality gates, and actionable remediation plans.
+
+
 
 Gravio’s scoring engine was built to solve one hard problem: teams using AI-assisted development needed a repeatable way to tell whether code quality was improving or quietly drifting.
 
@@ -79,7 +92,9 @@ Critical workflows are treated differently from advisory workflows. A non-critic
 
 This layer gave us a major implementation benefit: new policy checks can be added without rewriting score math.
 
-## Stage 3: Six-dimension scoring
+## Additional detail
+
+### Stage 3: Six-dimension scoring
 
 Gravio computes six scores from 0 to 100:
 
@@ -98,7 +113,7 @@ overall = safety×0.25 + reliability×0.20 + evaluation×0.15 + observability×0
 
 These weights were chosen to prioritize failure impact. Safety and reliability carry more weight because their regressions usually have higher blast radius than presentation or convenience concerns.
 
-## Stage 4: Gate policy and release decision
+### Stage 4: Gate policy and release decision
 
 Scoring alone is not enough; teams need pass/fail policy that matches shipping risk. Gravio applies threshold gates against each run.
 
@@ -112,7 +127,7 @@ Baseline gate values include:
 
 The gate can fail even when overall score looks acceptable if critical workflow conditions are violated. That was intentional: high-level averages should never hide hard safety or adversarial failures.
 
-## Why we built both scorecard math and workflow gates
+### Why we built both scorecard math and workflow gates
 
 A pure score system is easy to game. Teams can optimize dimensions with many easy wins while ignoring critical blockers.
 
@@ -120,13 +135,15 @@ A pure gate system is too binary for continuous improvement. Teams need to see t
 
 Combining both solved this. The scorecard supports prioritization and trend analysis, while gate checks enforce non-negotiable release constraints.
 
-## How recommendations are generated
+### Additional detail
+
+### How recommendations are generated
 
 When workflows fail or dimension gaps are large, Gravio builds action plans tied to those exact failures. Recommendations are not generic tips; they carry priority, rationale, suggested commands, and completion conditions.
 
 This made the system much more useful in real teams. A score without an action path creates reporting overhead. A score with concrete remediation becomes an execution tool.
 
-## What changed after implementation
+### What changed after implementation
 
 The engine created three immediate improvements in workflow quality:
 
@@ -139,7 +156,7 @@ The baseline comparison and gate thresholds exposed drift before release rather 
 3. AI-assisted development got safer defaults.
 Agentic and governance checks ensured that AI usage quality was measured as an operational discipline, not a side note.
 
-## Real tradeoffs and limitations
+### Real tradeoffs and limitations
 
 No scoring engine is neutral. Ours reflects deliberate policy choices.
 
@@ -149,7 +166,7 @@ Second, weights and thresholds are opinionated. They are calibrated for broad en
 
 Third, some advanced quality properties still need human judgment. The engine can detect structure and guardrails reliably, but architecture quality and product correctness still require review.
 
-## Final solution
+### Final solution
 
 The final Gravio scoring engine is a layered, explainable quality system:
 
@@ -161,13 +178,15 @@ The final Gravio scoring engine is a layered, explainable quality system:
 
 That architecture keeps the system practical. It works across stacks, resists vanity scoring, and gives teams a usable bridge from measurement to remediation.
 
-## What is the Gravio scoring engine?
+### What is the Gravio scoring engine?
 
 The Gravio scoring engine is a **layered quality pipeline** that turns repository signals into six dimension scores (safety, reliability, evaluation, observability, governance, agentic), a weighted overall score, hard release gates, and remediation recommendations. It asks what evidence is truly present in the repo—not whether you adopted a preferred stack.
 
 ---
 
-## Quick reference: six dimensions and weights
+### Reference
+
+### Quick reference: six dimensions and weights
 
 | Dimension | Weight | Examples of evidence |
 |-----------|--------|---------------------|
@@ -182,7 +201,7 @@ The Gravio scoring engine is a **layered quality pipeline** that turns repositor
 
 ---
 
-## Common mistakes (interpreting Gravio scores)
+### Common mistakes (interpreting Gravio scores)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -218,7 +237,7 @@ Define risk-tied dimensions, separate evidence from scoring math, add critical g
 
 ---
 
-## What you can apply next
+### What you can apply next
 
 If you are building your own quality engine, start with this sequence:
 

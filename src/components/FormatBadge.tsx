@@ -3,8 +3,6 @@ import { getFormatMeta } from "@/lib/post-format";
 
 interface FormatBadgeProps {
   format: PostFormat;
-  /** Show full label ("Strategic") vs short ("Strategy") */
-  variant?: "full" | "short";
   className?: string;
 }
 
@@ -45,11 +43,7 @@ function FormatIcon({ format }: { format: PostFormat }) {
   );
 }
 
-export default function FormatBadge({
-  format,
-  variant = "short",
-  className = "",
-}: FormatBadgeProps) {
+export default function FormatBadge({ format, className = "" }: FormatBadgeProps) {
   const meta = getFormatMeta(format);
   if (!meta) return null;
 
@@ -59,7 +53,7 @@ export default function FormatBadge({
       title={meta.description}
     >
       <FormatIcon format={format} />
-      <span>{variant === "full" ? meta.label : meta.shortLabel}</span>
+      <span>{meta.label}</span>
     </span>
   );
 }

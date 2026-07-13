@@ -1,35 +1,41 @@
 ---
-title: Measure Your Cursor Harness — CSV, CI, and OpenRouter Dollars
+title: 'Measure Your Cursor Harness — CSV, CI, and OpenRouter Dollars'
 slug: cursor-harness-measurement-2026
-date: 2026-07-04
+date: 2026-07-04T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- Developer Tools
-- AI Quality
-excerpt: Do not build Phase 2 orchestration until Phase 0 data says so. Layer 4 feedback
-  — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks beat benchmark
-  leaderboard anxiety.
+  - Agentic AI
+  - Developer Tools
+  - AI Quality
+  - Playbook
+excerpt: >-
+  Do not build Phase 2 orchestration until Phase 0 data says so. Layer 4
+  feedback — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks
+  beat benchmark leaderboard anxiety.
 featured_image: /images/posts/cursor-harness-measurement-2026.png
 focus_keyword: measure Cursor agent harness ROI
-seo_description: How to measure a Cursor agent harness with session CSV logs, CI eval
-  gates, and OpenRouter spend. When to defer LangChain or Harbor based on real failure
+seo_description: >-
+  How to measure a Cursor agent harness with session CSV logs, CI eval gates,
+  and OpenRouter spend. When to defer LangChain or Harbor based on real failure
   modes.
 series: Cursor Agent Harness Series
 series_order: 3
 related_posts:
-- cursor-lightweight-harness-without-microservice-2026
-- cursor-harness-memory-loop-2026
-- github-copilot-vs-openrouter-real-cost-comparison-for-developers
-- three-layer-external-brain-for-ai-first-development
-image_prompt: 'Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and
-  a single OpenRouter receipt on a drafting table, warm desk lamp, no readable numbers,
-  no faces.'
-image_prompt_variant_1: 'Surreal 16:9 observatory: CSV rows as star trails, eval gate
-  as a shutter before a telescope, deep blue and amber, no text.'
-image_prompt_variant_2: 'Bold isometric 16:9: three panels Log CI Dollars connected
-  by arrows, risograph slate and mint, no logos.'
+  - cursor-lightweight-harness-without-microservice-2026
+  - cursor-harness-memory-loop-2026
+  - github-copilot-vs-openrouter-real-cost-comparison-for-developers
+  - three-layer-external-brain-for-ai-first-development
+image_prompt: >-
+  Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and a single
+  OpenRouter receipt on a drafting table, warm desk lamp, no readable numbers,
+  no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 observatory: CSV rows as star trails, eval gate as a shutter
+  before a telescope, deep blue and amber, no text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9: three panels Log CI Dollars connected by arrows,
+  risograph slate and mint, no logos.
 format: hands-on
 best_for: Builders measuring whether their Cursor harness actually improves output
 ---
@@ -47,6 +53,10 @@ best_for: Builders measuring whether their Cursor harness actually improves outp
 **What you will learn:** what to log in week 1, how `eval:gate` costs zero chat tokens, an honest ROI formula, and when `HARNESS-DEFER.md` should block Phase 2 work.
 
 ---
+**TL;DR**
+
+- Do not build Phase 2 orchestration until Phase 0 data says so.
+- Layer 4 feedback — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks beat benchmark leaderboard anxiety.
 
 
 ## The problem: you cannot optimize what you do not log
@@ -125,7 +135,9 @@ CI -> REVIEW
 REVIEW -> DEFER
 ```
 
-## ROI formula (honest, not leaderboard)
+## Additional detail
+
+### ROI formula (honest, not leaderboard)
 
 ```
 net_benefit = (failed_sessions_avoided × avg_session_cost)
@@ -136,7 +148,7 @@ net_benefit = (failed_sessions_avoided × avg_session_cost)
 
 If `net_benefit` is negative after four weeks and failure modes are `none`, the harness is already enough. Stop shopping for Harbor.
 
-## Footer and summaries (Layer 4 — no new contract lines)
+### Footer and summaries (Layer 4 — no new contract lines)
 
 Use existing v3.1 footer fields from the [Session Continuity System](/posts/why-deliberate-file-memory-beats-hoping-agents-remember):
 
@@ -145,7 +157,9 @@ Use existing v3.1 footer fields from the [Session Continuity System](/posts/why-
 
 Session Summaries prefix (Part 2) is Layer 2. Footer + CSV + `eval:gate` are Layer 4. Together they close the feedback loop: session → evidence → weekly review → defer or promote to rules.
 
-## Quick reference: measurement fields
+### Reference
+
+### Quick reference: measurement fields
 
 | Field / command | Purpose |
 |-----------------|---------|
@@ -192,6 +206,6 @@ Repeated **`wrong-fix`** rows **with tests already run**, subagent overuse on sm
 
 When four weeks show `failure_mode` mostly `none`, subagents only on `batch` rows, and `net_benefit` negative for more orchestration—**stop shopping for Harbor**.
 
-## Reader action
+### Reader action
 
 Create `docs/harness-session-log.csv` today. Log this week's sessions. Run `eval:gate` once. If you have three or more `wrong-fix` rows with tests run, re-read `HARNESS-DEFER.md`. Otherwise ship the policy and stop building orchestrators.

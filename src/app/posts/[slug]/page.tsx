@@ -13,7 +13,11 @@ import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PostOutline from "@/components/PostOutline";
+import TaskListEnhancer from "@/components/TaskListEnhancer";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
+import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
+import { rehypeHeadingIds } from "@/lib/rehype-heading-ids";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -77,6 +81,9 @@ export default async function PostPage({
 
   const allPosts = getAllPosts();
   const postUrl = `${SITE_URL}/posts/${post.slug}`;
+  const headings = extractHeadings(post.content);
+  const navHeadings = buildOutlineNav(headings);
+  const showOutline = shouldShowOutline(navHeadings);
 
   const blogPostingSchema = {
     "@context": "https://schema.org",
@@ -124,11 +131,11 @@ export default async function PostPage({
                 { label: "Writing", href: "/posts" },
                 ...(post.tags[0]
                   ? [
-                      {
-                        label: post.tags[0],
-                        href: getTopicUrl(post.tags[0]),
-                      },
-                    ]
+                    {
+                      label: post.tags[0],
+                      href: getTopicUrl(post.tags[0]),
+                    },
+                  ]
                   : []),
                 { label: post.title },
               ]}
@@ -136,7 +143,7 @@ export default async function PostPage({
             <h1 className="post-hero-title">{post.title}</h1>
             {post.format && (
               <div className="post-hero-format">
-                <FormatBadge format={post.format} variant="full" />
+                <FormatBadge format={post.format} />
               </div>
             )}
             {post.best_for && (
@@ -182,21 +189,27 @@ export default async function PostPage({
         </div>
       </section>
 
-      <div className="article-body-wrap">
-        <article className="prose prose-lg max-w-none">
-          <MDXRemote
-            source={post.content}
-            components={postDiagramComponents}
-            options={{
-              mdxOptions: {
-                format: "md",
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [rehypeRaw],
-              },
-            }}
-          />
-        </article>
-        <SubscribeBox />
+      <div
+        className={`article-body-wrap${showOutline ? " article-body-wrap--has-outline" : ""}`}
+      >
+        {showOutline && <PostOutline headings={navHeadings} />}
+        <div className="article-body-main">
+          <article className="prose prose-lg max-w-none">
+            <MDXRemote
+              source={post.content}
+              components={postDiagramComponents}
+              options={{
+                mdxOptions: {
+                  format: "md",
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [rehypeRaw, rehypeHeadingIds],
+                },
+              }}
+            />
+          </article>
+          <TaskListEnhancer slug={slug} />
+          <SubscribeBox />
+        </div>
       </div>
 
       <RelatedPosts

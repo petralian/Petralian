@@ -1,43 +1,55 @@
 ---
 title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
-date: 2026-06-16
+date: 2026-06-16T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Enterprise AI
-- Program Delivery
-- Digital Transformation
-- Leadership
-excerpt: 'Enterprise AI programs that last share one pattern: data readiness, named
-  governance owners, and change runway are gates before go-live—not parallel work
-  you finish after the demo.'
-featured_image: /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.png
-featured_image_alt: Isometric cutaway of three enterprise AI foundation layers—data,
-  governance, and change—with a deploy capsule waiting above a hold line
+  - Enterprise AI
+  - Program Delivery
+  - Digital Transformation
+  - Leadership
+  - Playbook
+excerpt: >-
+  Enterprise AI programs that last share one pattern: data readiness, named
+  governance owners, and change runway are gates before go-live—not parallel
+  work you finish after the demo.
+featured_image: >-
+  /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.png
+featured_image_alt: >-
+  Isometric cutaway of three enterprise AI foundation layers—data, governance,
+  and change—with a deploy capsule waiting above a hold line
 focus_keyword: enterprise AI program readiness
 seo_title: 'Getting Enterprise AI Right: Foundation Before Deploy'
-seo_description: 'Why enterprise AI programs stall after successful pilots: compressed
-  foundation work on data, governance owners, and change runway—and how to get the
-  order right.'
+seo_description: >-
+  Why enterprise AI programs stall after successful pilots: compressed
+  foundation work on data, governance owners, and change runway—and how to get
+  the order right.
 related_posts:
-- why-your-ai-program-may-fail-before-it-starts
-- what-i-learned-directing-ai-as-my-primary-engineer
-- training-an-ai-is-like-managing-an-employee
-image_prompt: Cinematic 16:9 wide shot of a concrete foundation pour at dusk, three
-  wooden formwork sections labeled only by shape not text, crane bokeh in background,
+  - why-your-ai-program-may-fail-before-it-starts
+  - what-i-learned-directing-ai-as-my-primary-engineer
+  - training-an-ai-is-like-managing-an-employee
+image_prompt: >-
+  Cinematic 16:9 wide shot of a concrete foundation pour at dusk, three wooden
+  formwork sections labeled only by shape not text, crane bokeh in background,
   amber floodlights, no people, no logos, no readable text.
-image_prompt_variant_1: 'Surreal 16:9 planetarium scene: a model rocket on a launch
-  pad held by three visible support pillars made of stacked books and binders, starfield
-  dome above, violet and copper accents, no readable text, no logos.'
-image_prompt_variant_2: 'Bold 16:9 isometric cutaway: three-layer building foundation
-  (data, governance, change) with a small deploy capsule waiting at a hold line above,
-  flat graphic style, risograph grain, teal and slate palette, no logos, no readable
-  text.'
+image_prompt_variant_1: >-
+  Surreal 16:9 planetarium scene: a model rocket on a launch pad held by three
+  visible support pillars made of stacked books and binders, starfield dome
+  above, violet and copper accents, no readable text, no logos.
+image_prompt_variant_2: >-
+  Bold 16:9 isometric cutaway: three-layer building foundation (data,
+  governance, change) with a small deploy capsule waiting at a hold line above,
+  flat graphic style, risograph grain, teal and slate palette, no logos, no
+  readable text.
 format: strategic
-best_for: Leaders and program owners steering enterprise AI before go-live pressure
-  wins
+best_for: Leaders and program owners steering enterprise AI before go-live pressure wins
 ---
+**TL;DR**
+
+- Enterprise AI programs that last share one pattern: data readiness, named governance owners, and change runway are gates before go-live—not parallel work you finish after the demo.
+
+
 
 > **Diagnostic checklist:** [Why your AI program may fail before it starts](/posts/why-your-ai-program-may-fail-before-it-starts)  
 > **Builder parallel:** [What I learned directing AI as my primary engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Training an AI is like managing an employee](/posts/training-an-ai-is-like-managing-an-employee)
@@ -115,7 +127,7 @@ A useful gate is early access, real workflows, feedback loops, and fluency build
 **Fail signal:** Launch and training scheduled in the same week.
 
 ```d2
-direction: down
+direction: right
 
 DATA: "1. Data audit +\nremediation owners" {
   style.fill: "#f5f7fa"
@@ -160,7 +172,9 @@ Programs that avoid the pattern tend to give a senior transformation lead an exp
 
 ---
 
-## What getting the order right looks like in practice
+## Additional detail
+
+### What getting the order right looks like in practice
 
 Before production traffic, three artifacts should exist:
 
@@ -174,13 +188,15 @@ For individual builders, the same discipline appears at smaller scale: [file mem
 
 ---
 
-## What is enterprise AI program readiness?
+### What is enterprise AI program readiness?
 
 Enterprise AI program readiness means the organization can absorb AI in production workflows—not only demo a model. Readiness is evidenced by three gates with named owners: a **present-state data audit** with remediation plan, **governance owners** accountable for outputs and errors before go-live, and a **change runway** measured in months so users build judgment in real workflows. Programs that skip these gates often blame the model when the foundation was never chartered as critical path.
 
 ---
 
-## Quick reference: three foundation layers
+### Reference
+
+### Quick reference: three foundation layers
 
 | Layer | Gate artifact | Fail signal |
 |-------|---------------|-------------|
@@ -190,7 +206,9 @@ Enterprise AI program readiness means the organization can absorb AI in producti
 
 ---
 
-## Common mistakes (enterprise AI programs)
+### Additional detail
+
+### Common mistakes (enterprise AI programs)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -227,7 +245,7 @@ Production will surface every gap a present-state audit would have caught. Attac
 
 ---
 
-## What you can do next
+### What you can do next
 
 1. Run the [three-gate diagnostic](/posts/why-your-ai-program-may-fail-before-it-starts) against your current program plan before the next steering meeting.
 2. Rewrite the steering narrative from **cost efficiency** to **productivity gain** if domain experts are disengaged.

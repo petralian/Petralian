@@ -45,10 +45,20 @@ const overlayShellStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   gap: 12,
-  zIndex: 9999,
-  pointerEvents: "auto",
+  zIndex: 40,
+  pointerEvents: "none",
   touchAction: "manipulation",
   padding: "16px",
+};
+
+const overlayContentStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 12,
+  pointerEvents: "auto",
+  maxWidth: "min(92vw, 360px)",
+  width: "100%",
 };
 
 const inputStyle: React.CSSProperties = {
@@ -376,14 +386,10 @@ export default function OrbitRushGame() {
       )}
 
       {overlay === "browse-scores" && (
-        <div
-          style={overlayShellStyle}
-          data-orbit-ui
-          role="dialog"
-          aria-label="High scores"
-        >
-          <Leaderboard scores={highScores} />
-          <button
+        <div style={overlayShellStyle} role="presentation">
+          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="High scores">
+            <Leaderboard scores={highScores} />
+            <button
             type="button"
             onClick={closeBrowseScores}
             style={{
@@ -397,16 +403,13 @@ export default function OrbitRushGame() {
           >
             CLOSE
           </button>
+          </div>
         </div>
       )}
 
       {overlay === "entering-name" && (
-        <div
-          style={overlayShellStyle}
-          data-orbit-ui
-          role="dialog"
-          aria-label="Enter your name"
-        >
+        <div style={overlayShellStyle} role="presentation">
+          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="Enter your name">
           <div style={panelStyle}>
             <p style={{ color: "#f75", textAlign: "center", margin: "0 0 6px" }}>
               GAME OVER
@@ -457,11 +460,13 @@ export default function OrbitRushGame() {
               </p>
             )}
           </div>
+          </div>
         </div>
       )}
 
       {overlay === "showing-scores" && (
-        <div style={overlayShellStyle} data-orbit-ui role="dialog" aria-label="Game over">
+        <div style={overlayShellStyle} role="presentation">
+          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="Game over">
           <p style={{ color: "#f75", margin: 0, fontFamily: "monospace", letterSpacing: "0.1em" }}>
             GAME OVER — SCORE {formatLeaderboardScore(pendingScore)}
           </p>
@@ -495,6 +500,7 @@ export default function OrbitRushGame() {
             SHARE
           </button>
           {shareMsg && <p style={{ color: "#6ef", fontSize: 11, margin: 0 }}>{shareMsg}</p>}
+          </div>
         </div>
       )}
     </>

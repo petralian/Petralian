@@ -1,38 +1,51 @@
 ---
 title: 'From VS Code Copilot to Cursor: What Changed in My AI Workflow'
 slug: vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-date: 2026-06-27
+date: 2026-06-27T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Developer Tools
-- Agentic AI
-- Obsidian
-- AI Memory
-excerpt: Copilot had the same footer spec but dropped it on long chats. Cursor keeps
-  it with alwaysApply rules, optional hooks, and a v3.1 mode-based Response Footer
+  - Developer Tools
+  - Agentic AI
+  - Obsidian
+  - AI Memory
+  - Playbook
+excerpt: >-
+  Copilot had the same footer spec but dropped it on long chats. Cursor keeps it
+  with alwaysApply rules, optional hooks, and a v3.1 mode-based Response Footer
   Contract.
 featured_image: /images/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow.png
 focus_keyword: VS Code Copilot vs Cursor migration
-seo_description: 'Why VS Code Copilot forgets session footers but Cursor follows them:
-  alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian file
-  memory for agent mode.'
-image_prompt: 'Cinematic 16:9 low-angle shot: two translucent IDE panes floating in
-  a dim machine room, one pane showing inline code completions and the other an agent
-  chat thread, both fed by copper cables into a single glowing archive cabinet silhouette,
-  amber and cyan rim light, shallow depth of field, no logos, no faces, no readable
-  text.'
-image_prompt_variant_1: 'Surreal 16:9 underwater observatory diorama: portholes reveal
-  VS Code on one side and Cursor agent mode on the other, paper-note fish swim into
-  a coral filing structure, bioluminescent teal accents, whimsical technical tone,
-  no readable text, no logos.'
-image_prompt_variant_2: 'Bold isometric 16:9 poster illustration: exploded schematic
-  of Rules, Hooks, Vault, and Footer components launching from a VS Code block into
-  a Cursor frame, risograph grain texture, orange and slate palette, graphic not photographic,
-  no logos, no readable text.'
+seo_description: >-
+  Why VS Code Copilot forgets session footers but Cursor follows them:
+  alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian
+  file memory for agent mode.
+image_prompt: >-
+  Cinematic 16:9 low-angle shot: two translucent IDE panes floating in a dim
+  machine room, one pane showing inline code completions and the other an agent
+  chat thread, both fed by copper cables into a single glowing archive cabinet
+  silhouette, amber and cyan rim light, shallow depth of field, no logos, no
+  faces, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 underwater observatory diorama: portholes reveal VS Code on one
+  side and Cursor agent mode on the other, paper-note fish swim into a coral
+  filing structure, bioluminescent teal accents, whimsical technical tone, no
+  readable text, no logos.
+image_prompt_variant_2: >-
+  Bold isometric 16:9 poster illustration: exploded schematic of Rules, Hooks,
+  Vault, and Footer components launching from a VS Code block into a Cursor
+  frame, risograph grain texture, orange and slate palette, graphic not
+  photographic, no logos, no readable text.
 format: hands-on
 best_for: Developers comparing Copilot and Cursor in a real daily workflow
 ---
+**TL;DR**
+
+- Copilot had the same footer spec but dropped it on long chats.
+- Cursor keeps it with alwaysApply rules, optional hooks, and a v3.
+- 1 mode-based Response Footer Contract.
+
+
 
 > **Memory stack background:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [External Memory series hub](/posts/external-memory-series-guide) · [Your brain was not built for this](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian)  
 
@@ -115,7 +128,7 @@ I also carry footer and session-protocol expectations in **Cursor user rules** (
 None of this means Copilot cannot do footers. It means **I had to stop treating copilot-instructions as sufficient** and copy the enforcement pattern Cursor gives you for free: small rule, always apply, link to one canonical contract.
 
 ```d2
-direction: down
+direction: right
 
 COPILOT: "Copilot thread" {
   grid-columns: 2
@@ -143,7 +156,7 @@ COPILOT -> CURSOR: "same footer spec\ndifferent injection" {
 ```
 
 ```d2
-direction: down
+direction: right
 
 OLD: "VS Code + Copilot" {
   grid-columns: 2
@@ -194,7 +207,7 @@ What failed on the Copilot side was **spec fragmentation plus weak footer inject
 5. **Per-project sync** — Each active repo got `response-footer.mdc` with `alwaysApply: true`, `AGENTS.md` pointing at the contract, and copilot-instructions reduced to **links only** (no pasted footer template). Optional: `petralian-obsidian` MCP on Petralian for vault writes without leaving the agent.
 
 ```d2
-direction: down
+direction: right
 
 BRAIN: "00_Brain" {
   grid-columns: 2
@@ -238,7 +251,9 @@ This matches the [four-layer memory model](/posts/three-layer-external-brain-for
 
 ---
 
-## Migration playbook (what I did, in order)
+## Additional detail
+
+### Migration playbook (what I did, in order)
 
 On each repo I touched, the pattern was the same even when the details differed:
 
@@ -259,7 +274,7 @@ Practical order for your own migration:
 
 ---
 
-## What improved, and what did not
+### What improved, and what did not
 
 **Improved**
 
@@ -274,7 +289,9 @@ Practical order for your own migration:
 - Long agent runs can still ignore vault updates if the human does not enforce "code + memory ship together."
 - Projects without retrofit still depend on user-level Cursor rules as a safety net.
 
-## Quick reference: enforcement surfaces
+### Reference
+
+### Quick reference: enforcement surfaces
 
 | Concern | VS Code + Copilot (example) | Cursor Agent (example) |
 |---------|----------------------------|-------------------------|
@@ -318,7 +335,7 @@ Seven reply shapes with fixed fields—Mode A for pure Q&A (lighter), Mode C–D
 
 **Not necessarily.** Use Copilot for completions; use Cursor Agent where **session handoffs must stick** ([baseline model companion](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)).
 
-## What you can do next
+### What you can do next
 
 If you are on Copilot today and evaluating Cursor:
 

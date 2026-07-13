@@ -3,8 +3,8 @@ export type PostFormat = "strategic" | "hands-on" | "hybrid";
 
 export interface FormatMeta {
   id: PostFormat;
+  /** Canonical UI label — use everywhere (filters, cards, post hero). */
   label: string;
-  shortLabel: string;
   description: string;
   /** CSS custom property token for accent color */
   colorVar: string;
@@ -15,7 +15,6 @@ export const POST_FORMATS: Record<PostFormat, FormatMeta> = {
   strategic: {
     id: "strategic",
     label: "Strategic",
-    shortLabel: "Strategy",
     description: "Decisions, org design, and commercial tradeoffs",
     colorVar: "--format-strategic",
     hex: "#2563eb",
@@ -23,7 +22,6 @@ export const POST_FORMATS: Record<PostFormat, FormatMeta> = {
   "hands-on": {
     id: "hands-on",
     label: "Hands-on",
-    shortLabel: "Build",
     description: "Implementation, code, and tooling",
     colorVar: "--format-hands-on",
     hex: "#059669",
@@ -31,7 +29,6 @@ export const POST_FORMATS: Record<PostFormat, FormatMeta> = {
   hybrid: {
     id: "hybrid",
     label: "Hybrid",
-    shortLabel: "Both",
     description: "Strategy plus practical depth",
     colorVar: "--format-hybrid",
     hex: "#d97706",

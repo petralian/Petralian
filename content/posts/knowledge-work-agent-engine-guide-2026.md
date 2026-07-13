@@ -1,38 +1,45 @@
 ---
-title: 'The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
-  Marketing (Not Just Code)'
+title: >-
+  The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
+  Marketing (Not Just Code)
 slug: knowledge-work-agent-engine-guide-2026
-date: 2026-07-06
+date: 2026-07-06T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Program Delivery
-- Leadership
-- Agentic AI
-- Digital Transformation
-excerpt: The same session-continuity engine that ships software can run initiatives,
-  decisions, and content. Maps memory, voice, and routing to Agile, Jira, Confluence,
-  RACI, and RAG—with a replication kit an AI can execute.
+  - Program Delivery
+  - Leadership
+  - Agentic AI
+  - Digital Transformation
+  - Playbook
+  - GEO
+excerpt: >-
+  The same session-continuity engine that ships software can run initiatives,
+  decisions, and content. Maps memory, voice, and routing to Agile, Jira,
+  Confluence, RACI, and RAG—with a replication kit an AI can execute.
 featured_image: /images/posts/knowledge-work-agent-engine-guide-2026.png
 focus_keyword: knowledge work AI agent engine project management
-seo_description: 'Start a file-based AI engine: my Cursor + dual-vault setup, Path
-  A chat-only start, replication kit for PM, leadership, and marketing.'
+seo_description: >-
+  Start a file-based AI engine: my Cursor + dual-vault setup, Path A chat-only
+  start, replication kit for PM, leadership, and marketing.
 series: Knowledge Work Engine Series
 series_order: 0
 related_posts:
-- external-memory-series-guide
-- obsidian-memory-layers-personal-productivity-beyond-chat
-- cursor-harness-memory-loop-2026
-- cursor-lightweight-harness-without-microservice-2026
-image_prompt: Cinematic 16:9 wide shot of a conference table with four labeled trays
-  (Initiatives, Decisions, Brand, Session Log) feeding one open notebook, copper desk
-  lamp, shallow depth, no faces, no readable text.
-image_prompt_variant_1: 'Surreal 16:9 planetarium dome: constellations connect sticky
-  notes into a single orbit path labeled Engine, deep violet sky, amber instrument
-  glow, no readable text.'
-image_prompt_variant_2: 'Bold isometric 16:9 poster: six hex blocks (Memory, Routing,
-  Footer, Voice, Gates, Tools) snap into one hub, risograph teal and slate texture,
-  no logos.'
+  - external-memory-series-guide
+  - obsidian-memory-layers-personal-productivity-beyond-chat
+  - cursor-harness-memory-loop-2026
+  - cursor-lightweight-harness-without-microservice-2026
+image_prompt: >-
+  Cinematic 16:9 wide shot of a conference table with four labeled trays
+  (Initiatives, Decisions, Brand, Session Log) feeding one open notebook, copper
+  desk lamp, shallow depth, no faces, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 planetarium dome: constellations connect sticky notes into a
+  single orbit path labeled Engine, deep violet sky, amber instrument glow, no
+  readable text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9 poster: six hex blocks (Memory, Routing, Footer, Voice,
+  Gates, Tools) snap into one hub, risograph teal and slate texture, no logos.
 format: hybrid
 best_for: Leaders and operators designing a knowledge-work engine around agents
 ---
@@ -61,6 +68,10 @@ A **knowledge work agent engine** is a **file-based operating system** for AI-as
 [Part 1](/posts/knowledge-work-engine-project-management-2026#complex-requirements-documentation-drift-and-review-gates) goes deeper on complex scope, documentation drift, and review before publish.
 
 ---
+**TL;DR**
+
+- The same session-continuity engine that ships software can run initiatives, decisions, and content.
+- Maps memory, voice, and routing to Agile, Jira, Confluence, RACI, and RAG—with a replication kit an AI can execute.
 
 ## How to get started
 
@@ -269,7 +280,9 @@ My path above: open project folder in Cursor, scaffold with replication kit, add
 
 ---
 
-## The problem: chat is not a program office
+## Getting oriented
+
+### The problem: chat is not a program office
 
 Project management, leadership, and marketing all produce **durable artifacts**: decisions, briefs, stakeholder updates, brand copy, editorial calendars. Chat produces scrollback.
 
@@ -281,7 +294,7 @@ This page is the map and the **replication kit**. Structured so you—or an AI p
 
 ---
 
-## Why it matters (four outcomes)
+### Why it matters (four outcomes)
 
 | Outcome | What breaks without it | What the engine provides |
 |---------|------------------------|---------------------------|
@@ -294,7 +307,7 @@ The engine does not replace judgment. It **records** judgment in files the next 
 
 ---
 
-## Where this sits among PM frameworks
+### Where this sits among PM frameworks
 
 Agile, Scrum, Kanban, and phase-gate programs already define **execution** (Jira), **narrative** (Confluence), and **ceremony**. None of them define **what an AI assistant must read at session start**.
 
@@ -322,7 +335,9 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) feeds lessons from **W
 
 ---
 
-## What the engine is (six components)
+## Engine components
+
+### What the engine is (six components)
 
 Think of six modules. Software teams often implement them with files like `routing-policy.md` and `context-pack.md` (names vary). Knowledge work uses the same logic with different filenames.
 
@@ -444,7 +459,7 @@ Files are the contract—not Claude memory, not ChatGPT threads. Connect via:
 
 ---
 
-## Coding → knowledge work translation
+### Coding → knowledge work translation
 
 | Coding (example names) | Project management | Leadership | Marketing |
 |--------|-------------------|------------|-----------|
@@ -457,7 +472,11 @@ Files are the contract—not Claude memory, not ChatGPT threads. Connect via:
 
 ---
 
-## Replication kit (give this to an AI)
+## Reference
+
+### Replication kit
+
+### Replication kit (give this to an AI)
 
 Copy the block below into any assistant with write access to your knowledge base (Obsidian vault, git repo, SharePoint library, etc.). **I use this prompt in Cursor to scaffold a new project folder in one pass.** It creates a **minimum viable engine**—not chat advice.
 
@@ -466,7 +485,7 @@ Copy the block below into any assistant with write access to your knowledge base
 ```markdown
 You are building a file-based knowledge work engine. Create the following structure and fill each file with the template content provided. Use my knowledge-base root: <ROOT> (folder path or vault URI).
 
-## Folder scaffold
+### Folder scaffold
 
 <ROOT>/
   System/
@@ -489,7 +508,7 @@ You are building a file-based knowledge work engine. Create the following struct
   Editorial/              # skip if not doing content
     00-writing-guide.md   # or link to existing guide
 
-## WORK-ROUTING.md template
+### WORK-ROUTING.md template
 
 | Situation | Route | Memory to load | Footer mode |
 |-----------|-------|----------------|-------------|
@@ -504,7 +523,7 @@ Rules:
 - End every work session with Session Summaries one-liner + footer.
 - Promote facts explained twice from L2 to L3.
 
-## voice-guide.md minimum (10 bullets)
+### voice-guide.md minimum (10 bullets)
 
 1. First person for my actions and setup (I/my, not my name in third person).
 2. No hedge words: actually, honestly, basically, clearly.
@@ -517,7 +536,7 @@ Rules:
 9. Session end: offer to update Bridge and Open Loops.
 10. Link related notes; no orphan captures.
 
-## Bootstrap block (_session_startup.md)
+### Bootstrap block (_session_startup.md)
 
 At session start, read in order:
 1. System/Profile/context.md
@@ -539,13 +558,13 @@ After creating files, confirm paths and suggest one 15-minute test task.
 ```markdown
 # AI Session Bridge
 
-## Current priority
+### Current priority
 <one line>
 
-## Open loops
+### Open loops
 - [ ] ...
 
-## Next physical action
+### Next physical action
 <one line>
 ```
 
@@ -554,19 +573,19 @@ After creating files, confirm paths and suggest one 15-minute test task.
 ```markdown
 # <Initiative name> — Bridge
 
-## Status
+### Status
 <green / amber / red + one line>
 
-## This week
+### This week
 1. ...
 
-## Blockers
+### Blockers
 - ...
 
-## Decisions pending
+### Decisions pending
 - ...
 
-## Links
+### Links
 - Evergreen: [[_Home]]
 ```
 
@@ -578,26 +597,26 @@ Date: YYYY-MM-DD
 Owner: <name>
 Status: proposed | decided | superseded
 
-## Context
+### Context
 <2-4 sentences>
 
-## Options considered
+### Options considered
 | Option | Upside | Downside |
 |--------|--------|----------|
 
-## Decision
+### Decision
 <one paragraph>
 
-## Who was informed
+### Who was informed
 - ...
 
-## Review date
+### Review date
 YYYY-MM-DD
 ```
 
 ---
 
-## Advanced: harness patterns without code
+### Advanced: harness patterns without code
 
 You do not need custom IDE agents for knowledge work. Optional patterns when volume grows:
 
@@ -612,7 +631,7 @@ Subagents do not inherit your rules. Paste worker directives into every dispatch
 
 ---
 
-## How the series continues
+### How the series continues
 
 | Part | Focus | Read if you… |
 |------|-------|--------------|
@@ -622,7 +641,7 @@ Subagents do not inherit your rules. Paste worker directives into every dispatch
 
 ---
 
-## Myth vs reality (knowledge work AI)
+### Myth vs reality (knowledge work AI)
 
 | Myth | Reality |
 |------|---------|
@@ -687,7 +706,7 @@ Same four tiers. This series applies that model to **PM, leadership, and marketi
 
 ---
 
-## Limitations
+### Limitations
 
 - File memory needs a **five-minute session close** habit or an agent following End of Session protocol.
 - Over-documentation kills adoption. Use the promotion rule.
@@ -697,7 +716,7 @@ Same four tiers. This series applies that model to **PM, leadership, and marketi
 
 ---
 
-## Reader action
+### Reader action
 
 **If you are starting from zero:** [Path A — chat only](#path-a--chat-only-30-minutes) or run the replication kit once. Do not add tools first.
 
@@ -709,7 +728,7 @@ Same four tiers. This series applies that model to **PM, leadership, and marketi
 
 ---
 
-## Sources
+### Sources
 
 - [External Memory Series hub](/posts/external-memory-series-guide)
 - [Obsidian memory for personal productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat)

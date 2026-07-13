@@ -1,38 +1,50 @@
 ---
-title: Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates
+title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates'
 slug: cursor-harness-memory-loop-2026
-date: 2026-07-04
+date: 2026-07-04T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Agentic AI
-- AI Memory
-- Obsidian
-excerpt: External memory is four tiers in practice — short-term, operational, evergreen,
-  and a feedback loop hardened into rules and footers. The harness gates when each
-  tier loads so you keep control without token bloat.
+  - Agentic AI
+  - AI Memory
+  - Obsidian
+  - Playbook
+excerpt: >-
+  External memory is four tiers in practice — short-term, operational,
+  evergreen, and a feedback loop hardened into rules and footers. The harness
+  gates when each tier loads so you keep control without token bloat.
 featured_image: /images/posts/cursor-harness-memory-loop-2026.png
 focus_keyword: Cursor agent harness memory loop
-seo_description: How to gate four tiers of external memory in Cursor — operational,
-  evergreen, and feedback loop layers — without loading brain-pack on every question.
+seo_description: >-
+  How to gate four tiers of external memory in Cursor — operational, evergreen,
+  and feedback loop layers — without loading brain-pack on every question.
   Aligns with the External Memory Series.
 series: Cursor Agent Harness Series
 series_order: 2
 related_posts:
-- cursor-lightweight-harness-without-microservice-2026
-- three-layer-external-brain-for-ai-first-development
-- why-deliberate-file-memory-beats-hoping-agents-remember
-- external-memory-series-guide
-image_prompt: 'Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,
-  Vault on a steel desk with one gate lever in front, cool side light, no readable
-  text, no faces.'
-image_prompt_variant_1: 'Surreal 16:9 library: hot warm cold shelves as colored bands,
-  a single turnstile before the reading desk, indigo and copper, no logos.'
-image_prompt_variant_2: 'Bold isometric 16:9: stacked memory layers with one arrow
-  through a gate card Mode A Skip, risograph teal and cream, no text.'
+  - cursor-lightweight-harness-without-microservice-2026
+  - three-layer-external-brain-for-ai-first-development
+  - why-deliberate-file-memory-beats-hoping-agents-remember
+  - external-memory-series-guide
+image_prompt: >-
+  Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack, Vault on a
+  steel desk with one gate lever in front, cool side light, no readable text, no
+  faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 library: hot warm cold shelves as colored bands, a single
+  turnstile before the reading desk, indigo and copper, no logos.
+image_prompt_variant_2: >-
+  Bold isometric 16:9: stacked memory layers with one arrow through a gate card
+  Mode A Skip, risograph teal and cream, no text.
 format: hands-on
-best_for: Builders connecting file memory, Obsidian, and agent loops in daily work
+best_for: 'Builders connecting file memory, Obsidian, and agent loops in daily work'
 ---
+**TL;DR**
+
+- External memory is four tiers in practice — short-term, operational, evergreen, and a feedback loop hardened into rules and footers.
+- The harness gates when each tier loads so you keep control without token bloat.
+
+
 
 > **Series:** Cursor Agent Harness (Part 2 of 3)  
 > **Part 1:** [Lightweight harness without a microservice](/posts/cursor-lightweight-harness-without-microservice-2026) — you keep model and mode control  
@@ -70,7 +82,7 @@ Layer 4 is not another folder to grep. It is the [Session Continuity System](/po
 **brain-pack** is a **warm embed** — mostly Layer 2 facts plus pointers into Layer 3. It is not a substitute for Layer 4. The harness prevents treating brain-pack as "load everything always."
 
 ```d2
-direction: down
+direction: right
 
 L1: "Layer 1 — Short term" {
   grid-columns: 2
@@ -158,7 +170,9 @@ L4 -> L1: "rules +\nagents" {
 
 Harness policy in git versions with the app. Session handoff in Obsidian stays human-readable. **Feedback loop** = lessons that graduate into rules (footer **Self-improvements** must cite `path:Lnn` or the write did not happen).
 
-## Session summary line (Layer 2 → Layer 4 bridge)
+## Additional detail
+
+### Session summary line (Layer 2 → Layer 4 bridge)
 
 Append to `Operations/Session Summaries.md`:
 
@@ -210,14 +224,16 @@ GATE.QA -> WORK
 GATE.CODE -> L2 -> WORK -> L4
 ```
 
-## Enable this on another repo
+### Enable this on another repo
 
 1. Copy `context-budget.mdc` and `HARNESS-POLICY.md` from your reference repo.
 2. Point `sessionStart` at your `session-prep` script; generate brain-pack from `memories/repo/`.
 3. One Obsidian vault root per project in MCP or native Read.
 4. Teach agents: Mode A skips bootstrap; ship sessions write one Summary line.
 
-## Quick reference: memory tiers and gates
+### Reference
+
+### Quick reference: memory tiers and gates
 
 | Tier | Name | Example content | Harness gate |
 |------|------|-----------------|--------------|
@@ -265,6 +281,6 @@ The series uses **three layers for clarity**; in practice there are **four tiers
 
 **No.** Native `Read`/`Grep` on local vault paths is often faster. MCP is for writes or when the agent cannot see the disk path.
 
-## Reader action
+### Reader action
 
 Audit your last five agent sessions. Count how many loaded brain-pack or vault files for questions that needed no code. Map your stack to four tiers — if Layer 4 is only "hope the model remembers," add footer + one rule file before adding another memory product. Part 3 shows how to log and review that discipline weekly.

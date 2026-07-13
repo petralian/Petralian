@@ -50,8 +50,10 @@ export default function FormatFilter({
   onChange,
 }: FormatFilterProps) {
   return (
-    <div className="format-filter" role="group" aria-label="Filter by article type">
-      <span className="format-filter-label">Browse by</span>
+    <div className="format-filter" role="group" aria-label="Filter by article format">
+      <div className="blog-filter-section-header">
+        <p className="blog-filter-section-label">Browse by format</p>
+      </div>
       <div className="format-filter-pills">
         <button
           type="button"

@@ -1,34 +1,47 @@
 ---
 title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered'
 slug: getting-to-lighthouse-100-on-nextjs-16
-date: 2026-05-24
+date: 2026-05-24T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Developer Tools
-- SEO
-excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
-  site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options
-  that don't exist in Next.js 16 and will silently break your build.
+  - Developer Tools
+  - SEO
+excerpt: >-
+  A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
+  site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config
+  options that don't exist in Next.js 16 and will silently break your build.
 featured_image: /images/posts/getting-to-lighthouse-100-on-nextjs-16.png
 focus_keyword: lighthouse 100 next.js 16
-seo_description: How I fixed TBT, LCP, contrast failures, and image weight on a Next.js
-  16 Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
+seo_description: >-
+  How I fixed TBT, LCP, contrast failures, and image weight on a Next.js 16
+  Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
   code.
-image_prompt: Cinematic editorial photograph of a lighthouse standing at the edge
-  of a rocky coast at dusk, light beam sweeping across calm dark water, minimalist
-  composition, deep blues and warm amber, photorealistic, professional photography
-image_prompt_variant_1: Isometric illustration of a tiny workshop where web performance
-  metrics move through inspection checkpoints on a conveyor belt — a small engineer
-  adjusting dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
+image_prompt: >-
+  Cinematic editorial photograph of a lighthouse standing at the edge of a rocky
+  coast at dusk, light beam sweeping across calm dark water, minimalist
+  composition, deep blues and warm amber, photorealistic, professional
+  photography
+image_prompt_variant_1: >-
+  Isometric illustration of a tiny workshop where web performance metrics move
+  through inspection checkpoints on a conveyor belt — a small engineer adjusting
+  dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
   no cartoonish elements
-image_prompt_variant_2: 'Split editorial composition: left side shows a tangled maze
-  of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline
-  diagram with green checkmarks — professional, polished, editorial illustration style,
-  muted tones'
+image_prompt_variant_2: >-
+  Split editorial composition: left side shows a tangled maze of dashboard
+  warnings and red audit flags; right side shows a clean, minimal pipeline
+  diagram with green checkmarks — professional, polished, editorial illustration
+  style, muted tones
 format: hands-on
 best_for: Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site
 ---
+**TL;DR**
+
+- A complete walkthrough of every Lighthouse bottleneck on a Next.
+- js 16 Vercel site — TBT from 3,020ms to 20ms, LCP from 3.
+- 7s — including the config options that don't exist in Next.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 I started with a simple task. The footer text on this site was failing a Lighthouse contrast check. I opened DevTools, ran a full audit, and discovered the footer was the smallest problem on the list.
@@ -154,7 +167,9 @@ Both of these appear in older documentation and Stack Overflow answers. Both wil
 
 ---
 
-## Problem 4: LCP at 3.0s — The One That Blocked 100
+## Additional detail
+
+### Problem 4: LCP at 3.0s — The One That Blocked 100
 
 LCP was the sole metric keeping the score at 93. The green threshold is 2.5 seconds. At Slow 4G (1.5 Mbps), a 189 KB JPEG image takes approximately one second to download. That one second was the problem.
 
@@ -195,7 +210,7 @@ At Slow 4G, 65 KB downloads in approximately 350ms. The image was no longer the 
 
 ---
 
-## The Image Optimizer Script
+### The Image Optimizer Script
 
 For the post images (40 files, 6.5 MB total before), I wrote a reusable optimizer script using sharp. It runs as part of the project:
 
@@ -280,7 +295,7 @@ One note: this script processes `public/images/posts/` by default. Add `"public/
 
 ---
 
-## What Did Not Change
+### What Did Not Change
 
 Not every Lighthouse diagnostic needs a fix. Three items remain in the audit that I left alone:
 
@@ -292,7 +307,9 @@ Not every Lighthouse diagnostic needs a fix. Three items remain in the audit tha
 
 ---
 
-## Final Metrics
+### Additional detail
+
+### Final Metrics
 
 Tested on Lighthouse 13.0.1, emulated Moto G Power, Slow 4G:
 
@@ -309,7 +326,7 @@ Desktop is also 100. The same changes that fixed mobile performance propagated u
 
 ---
 
-## What to Take from This
+### What to Take from This
 
 If you are running Next.js 16 on Vercel and your Lighthouse score is not where you want it, the most likely culprits in order of impact are:
 
@@ -331,7 +348,7 @@ The code above is the complete working set. No additional packages required beyo
 
 ---
 
-## Common mistakes (Next.js performance)
+### Common mistakes (Next.js performance)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|

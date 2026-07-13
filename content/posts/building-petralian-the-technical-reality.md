@@ -1,34 +1,46 @@
 ---
 title: 'Building petralian.com: The Technical Reality'
 slug: building-petralian-the-technical-reality
-date: 2026-05-23
+date: 2026-05-23T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Developer Tools
-- Obsidian
-- Agentic AI
-- SEO
-excerpt: The why was clean. The how had corners. A ground-level account of building
-  petralian.com — the masonry layout that fought back, a 404 page with a working Asteroids
-  game, the TinaCMS newline problem nobody warns you about, and how AI wrote most
-  of it.
+  - Developer Tools
+  - Obsidian
+  - Agentic AI
+  - SEO
+  - GEO
+excerpt: >-
+  The why was clean. The how had corners. A ground-level account of building
+  petralian.com — the masonry layout that fought back, a 404 page with a working
+  Asteroids game, the TinaCMS newline problem nobody warns you about, and how AI
+  wrote most of it.
 featured_image: /images/posts/building-petralian-the-technical-reality.png
-featured_image_alt: Wireframe grid of a website being built, with code and markdown
-  files in the background
+featured_image_alt: >-
+  Wireframe grid of a website being built, with code and markdown files in the
+  background
 seo_title: 'Building petralian.com: What Actually Happened'
-seo_description: The technical account of building petralian.com on Next.js 16, Tailwind
-  v4, and TinaCMS — masonry reading order, the Asteroids 404, and using AI as primary
-  engineer.
+seo_description: >-
+  The technical account of building petralian.com on Next.js 16, Tailwind v4,
+  and TinaCMS — masonry reading order, the Asteroids 404, and using AI as
+  primary engineer.
 focus_keyword: building petralian nextjs technical decisions
-image_prompt: A developer's workspace with multiple monitors showing code and a website
-  preview; clean, minimal aesthetic with dark background and orange accent tones;
-  Next.js site scaffold visible on one screen, Obsidian vault on another; abstract
-  sense of building and architecture
+image_prompt: >-
+  A developer's workspace with multiple monitors showing code and a website
+  preview; clean, minimal aesthetic with dark background and orange accent
+  tones; Next.js site scaffold visible on one screen, Obsidian vault on another;
+  abstract sense of building and architecture
 format: hands-on
-best_for: Builders curious how this site is wired — Obsidian, sync, and Next.js in
+best_for: >-
+  Builders curious how this site is wired — Obsidian, sync, and Next.js in
   practice
 ---
+**TL;DR**
+
+- A ground-level account of building petralian.
+- com — the masonry layout that fought back, a 404 page with a working Asteroids game, the TinaCMS newline problem nobody warns you about, and how AI wrote most of it.
+
+
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 The [previous article](/posts/why-i-rebuilt-petralian-on-nextjs) covers why I moved off WordPress. The short version: writing in [Obsidian](https://obsidian.md/) and publishing through WordPress were two separate workflows with too much manual friction in between. This article is about what happened when I fixed that — specifically, the build itself.
 This is not a tutorial. I'm not going to walk through project setup. I'm going to tell you what caught me out, what I'd tell someone starting from scratch, and which decisions I'd make the same way again.
@@ -115,7 +127,9 @@ The blog index is a client component (it has search and tag filters), so it also
 
 ---
 
-## The 404 Page with a Working Asteroids Game
+## Additional detail
+
+### The 404 Page with a Working Asteroids Game
 
 I wanted the 404 page to be something other than an apology. A canvas-based Asteroids game running in the background with a "Lost in Space" overlay felt right — low stakes, slightly absurd, and relevant enough to not feel forced.
 
@@ -132,7 +146,7 @@ Scores persist in `localStorage`. Top ten entries, each stored as `{name, score}
 
 ---
 
-## The Obsidian Publish Workflow
+### The Obsidian Publish Workflow
 
 The sync script (`scripts/sync-obsidian.ps1`) is the part of this build I'm most satisfied with.
 
@@ -144,7 +158,7 @@ The gap between "done in Obsidian" and "live on the internet" is now two command
 
 ---
 
-## What I'd Do Differently
+### What I'd Do Differently
 
 **Lock the TinaCMS content schema before you start writing content.** I changed the schema mid-build and had to migrate JSON files manually. It's not catastrophic but it's completely avoidable if you think it through upfront.
 
@@ -156,7 +170,9 @@ The gap between "done in Obsidian" and "live on the internet" is now two command
 
 ---
 
-## If You're Building Something Similar
+### Additional detail
+
+### If You're Building Something Similar
 
 The [repository is open source on GitHub](https://github.com/petralian/). The sync script, the Tina schema, the `splitIntoColumns` helper, the Asteroids game, the design system — all there to fork.
 
@@ -168,7 +184,7 @@ The architecture is simpler than WordPress at the cost of needing to understand 
 
 ---
 
-## Common mistakes (indie publishing stacks)
+### Common mistakes (indie publishing stacks)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|

@@ -1,45 +1,23 @@
 ---
-description: Mandatory session context + footer on every assistant response (Petralian)
-globs:
+description: Mandatory session context + footer v3.1 — link to canonical
 alwaysApply: true
 ---
 
-# Response format (mandatory — never skip)
+# Response format (mandatory) — v3.1
 
-> Canonical spec: `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
+> **Canonical:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
 
-Every assistant reply that involved code changes, file edits, or deploys MUST include **both** blocks below. No exceptions for code-only requests.
+## Session context
 
-## 1. Session context (top of reply)
+| Mode | Session context? |
+|------|------------------|
+| A | Skip |
+| B–G | 3–6 lines — `Operations/Session Summaries.md`, `AI Session Bridge.md` |
 
-Read before replying (if not already read this turn):
+## Modes
 
-- Vault: `D:\Obsidian\Obsidian\40_VSCode\Petralian\Operations\Session Summaries.md`
-- Vault: `D:\Obsidian\Obsidian\40_VSCode\Petralian\Operations\AI Session Bridge.md`
-- Repo: `memories/repo/open-loops.md` when relevant
+**G > F > E > D > C > B > A** · A=1, B=4, C=6, D=8, E=8, F=6, G=9 fields
 
-Open with a short **Session context** section (3–6 lines) summarizing:
+## Hard rules
 
-- Latest session summary line(s) from `Session Summaries.md`
-- Current priority from `AI Session Bridge.md`
-- What this reply does against that priority
-
-## 2. Session footer (end of reply)
-
-Append this block at the **end** of every reply (use `skipped: <reason>` only for purely conversational answers with zero file/tool work):
-
-```
----
-**Changes made:** <one-line summary or "None — Q&A only">
-**Files changed:** <comma-separated list or None>
-**Deploy needed:** <Yes/No> — <why> — <pending/done/N/A>
-**Rollback tag:** <`vX.Y.Z` if tagged, else `None`>
-**Notes updated:** <Yes / No / N/A>
-**Obsidian:** <read ✓ / written ✓ / path — OR skipped: reason>
-**Git commit:** <hash + message, or N/A>
-**Self-improvements:** <`None` OR exact file path + line(s) where the rule was written>
-**Next session priority:** <from bridge or new item>
-**Test plan:** <how verified or N/A>
-```
-
-Do not drop the footer to save space. The user uses this as the feedback loop.
+Numbered fields · bold labels · ≤20 words/value · C–G need Self-improvements + Agents · no per-tool lines in footer.

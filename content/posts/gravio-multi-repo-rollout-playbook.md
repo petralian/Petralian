@@ -1,25 +1,30 @@
 ---
 title: 'Team Playbook: Rolling Out Gravio Across Multiple Repositories'
 slug: gravio-multi-repo-rollout-playbook
-date: 2026-05-15
+date: 2026-05-15T00:00:00.000Z
 status: published
 category: AI & Building
 tags:
-- Gravio
-- Enterprise AI
-- Agentic AI
-- AI Quality
-excerpt: A practical rollout framework for introducing Gravio across many repos without
+  - Gravio
+  - Enterprise AI
+  - Agentic AI
+  - AI Quality
+  - Playbook
+excerpt: >-
+  A practical rollout framework for introducing Gravio across many repos without
   creating process fatigue, policy confusion, or noisy quality signals.
 featured_image: /images/posts/gravio-multi-repo-rollout-playbook.png
 focus_keyword: gravio rollout across repositories
-seo_description: Use this team playbook to roll out Gravio across multiple repositories
-  with clear policy, phased adoption, and governance that scales.
-image_prompt: A network map of many software repositories connected to one quality
-  dashboard hub, team avatars collaborating, clean product strategy illustration,
-  balanced neutral and green tones
+seo_description: >-
+  Use this team playbook to roll out Gravio across multiple repositories with
+  clear policy, phased adoption, and governance that scales.
+image_prompt: >-
+  A network map of many software repositories connected to one quality dashboard
+  hub, team avatars collaborating, clean product strategy illustration, balanced
+  neutral and green tones
 format: hybrid
-best_for: Platform and engineering leads rolling AI quality scoring across multiple
+best_for: >-
+  Platform and engineering leads rolling AI quality scoring across multiple
   repos
 ---
 
@@ -90,7 +95,9 @@ Recommended governance artifacts:
 
 Keep documentation lightweight and decision-focused.
 
-## Common Multi-Repo Failure Modes
+## Additional detail
+
+### Common Multi-Repo Failure Modes
 
 ### Failure mode 1: "One policy fits all" without context
 
@@ -104,7 +111,7 @@ Premature hard enforcement creates backlash. Sequence matters.
 
 Scores are only useful when connected to release and remediation decisions.
 
-## Executive-Level Outcomes to Track
+### Executive-Level Outcomes to Track
 
 At leadership level, monitor:
 
@@ -115,13 +122,20 @@ At leadership level, monitor:
 
 These outcomes prove the rollout is improving engineering reliability, not just adding dashboards.
 
-## What is a multi-repo Gravio rollout?
+### What is a multi-repo Gravio rollout?
 
 A multi-repo Gravio rollout is an **operating model upgrade**—shared onboarding, scoring vocabulary, drift baselines, CI gates, and governance—so quality signal stays comparable across many repositories without process fatigue or noisy metrics.
 
 ---
+**TL;DR**
 
-## Quick reference: five rollout phases
+- A practical rollout framework for introducing Gravio across many repos without creating process fatigue, policy confusion, or noisy quality signals.
+
+### Additional detail
+
+### Reference
+
+### Quick reference: five rollout phases
 
 | Phase | Focus |
 |-------|-------|
@@ -133,7 +147,7 @@ A multi-repo Gravio rollout is an **operating model upgrade**—shared onboardin
 
 ---
 
-## Common mistakes (multi-repo quality rollouts)
+### Common mistakes (multi-repo quality rollouts)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -169,7 +183,7 @@ CLI setup complete, folder authorization complete, first scan complete, **owner 
 
 ---
 
-## Final Thought
+### Final Thought
 
 A successful Gravio rollout is not a tooling project. It is an operating model upgrade.
 

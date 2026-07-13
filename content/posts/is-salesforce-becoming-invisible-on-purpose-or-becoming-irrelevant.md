@@ -1,21 +1,28 @@
 ---
-title: Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?
+title: 'Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?'
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
-date: 2026-05-09
+date: 2026-05-09T00:00:00.000Z
 status: published
 category: Commerce & Marketing
 tags:
-- Salesforce
-- AI in Marketing
-- Marketing Technology
-- CDP
-- Digital Transformation
+  - Salesforce
+  - AI in Marketing
+  - Marketing Technology
+  - CDP
+  - Digital Transformation
 excerpt: ''
 featured_image: /images/posts/salesforce-agentforce-invisible-crm-hero.jpg
 seo_description: ''
 format: strategic
-best_for: Martech leaders tracking Salesforce, CDP strategy, and platform consolidation
+best_for: 'Martech leaders tracking Salesforce, CDP strategy, and platform consolidation'
 ---
+**TL;DR**
+
+- What Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant? covers.
+- Who it is for and when to use it.
+- Practical next steps after reading.
+
+
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 

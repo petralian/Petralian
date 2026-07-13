@@ -1,34 +1,48 @@
 ---
 title: Why Your AI Program May Fail Before It Starts
 slug: why-your-ai-program-may-fail-before-it-starts
-date: 2026-06-15
+date: 2026-06-15T00:00:00.000Z
 status: published
 category: Career
 tags:
-- Enterprise AI
-- Program Delivery
-- Digital Transformation
-- Leadership
-excerpt: Most enterprise AI programs struggle before the model fails. Data, governance
-  owners, and change runway get compressed. A pre-flight diagnostic before the next
-  funding gate.
+  - Enterprise AI
+  - Program Delivery
+  - Digital Transformation
+  - Leadership
+excerpt: >-
+  Most enterprise AI programs struggle before the model fails. Data, governance
+  owners, and change runway get compressed. A pre-flight diagnostic before the
+  next funding gate.
 featured_image: /images/posts/why-your-ai-program-may-fail-before-it-starts.png
 focus_keyword: enterprise AI program readiness
-seo_description: 'Enterprise AI programs often fail before deployment: skipped data
-  readiness, unnamed governance owners, and short change runway. A pre-flight diagnostic.'
-image_prompt: 'Editorial 16:9 hero for enterprise AI readiness: architectural blueprint
-  on a desk with three labeled foundation blocks (data, governance, change) beneath
-  a folded deployment plan, warm neutral light, no logos, no readable text, no faces.'
-image_prompt_variant_1: 'Tiny airport pre-flight diorama: three inspection stations
-  labeled Data, Owners, and Runway with a plane marked Deploy waiting at a hold line,
-  clever warm technical style, 16:9, no logos, no text.'
-image_prompt_variant_2: 'Split editorial scene: left side fast-forward deploy button
-  with cracked foundation; right side same building with three solid labeled layers
-  and calm stakeholders, professional playful contrast, 16:9, no logos.'
+seo_description: >-
+  Enterprise AI programs often fail before deployment: skipped data readiness,
+  unnamed governance owners, and short change runway. A pre-flight diagnostic.
+image_prompt: >-
+  Editorial 16:9 hero for enterprise AI readiness: architectural blueprint on a
+  desk with three labeled foundation blocks (data, governance, change) beneath a
+  folded deployment plan, warm neutral light, no logos, no readable text, no
+  faces.
+image_prompt_variant_1: >-
+  Tiny airport pre-flight diorama: three inspection stations labeled Data,
+  Owners, and Runway with a plane marked Deploy waiting at a hold line, clever
+  warm technical style, 16:9, no logos, no text.
+image_prompt_variant_2: >-
+  Split editorial scene: left side fast-forward deploy button with cracked
+  foundation; right side same building with three solid labeled layers and calm
+  stakeholders, professional playful contrast, 16:9, no logos.
 format: strategic
-best_for: Leaders running a fast pre-flight check before an enterprise AI program
+best_for: >-
+  Leaders running a fast pre-flight check before an enterprise AI program
   launches
 ---
+**TL;DR**
+
+- Most enterprise AI programs struggle before the model fails.
+- Data, governance owners, and change runway get compressed.
+- A pre-flight diagnostic before the next funding gate.
+
+
 
 > **Full treatment:** [Getting enterprise AI right: the work before deployment](/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment)  
 > **Builder parallel:** [What I learned directing AI as my primary engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer)
@@ -91,7 +105,7 @@ These mirror the foundation work in [getting enterprise AI right](/posts/getting
 **Skip signal:** A two-week "AI training sprint" after deployment.
 
 ```d2
-direction: down
+direction: right
 
 PRESSURE: "Steering\npressure" {
   style.fill: "#f5f7fa"
@@ -157,13 +171,17 @@ If two or more answers are no, the program is not failing because AI is immature
 
 ---
 
-## What is enterprise AI program readiness?
+## Additional detail
+
+### What is enterprise AI program readiness?
 
 Enterprise AI program readiness means the organization can absorb AI in production workflows—not only demo a model. Readiness is evidenced by three gates with named owners: a **present-state data audit** with remediation plan, **governance owners** accountable for outputs and errors before go-live, and a **change runway** measured in months so users build judgment in real workflows. Programs that skip these gates often blame the model when the foundation was never chartered as critical path.
 
 ---
 
-## Quick reference: three readiness gates
+### Reference
+
+### Quick reference: three readiness gates
 
 | Gate | Pre-flight test | Skip signal |
 |------|-----------------|-------------|
@@ -173,7 +191,7 @@ Enterprise AI program readiness means the organization can absorb AI in producti
 
 ---
 
-## Common mistakes (enterprise AI programs)
+### Common mistakes (enterprise AI programs)
 
 | Mistake | Symptom | Fix |
 |---------|---------|-----|
@@ -209,7 +227,7 @@ Programs framed as **productivity gain** turn domain experts into assets who tra
 
 ---
 
-## What you can do next
+### What you can do next
 
 1. Run the four diagnostic questions with your sponsor **before** the next model or vendor decision.
 2. Attach a remediation plan to the data audit. A thin one with owners beats a slide that says "data is a journey."
