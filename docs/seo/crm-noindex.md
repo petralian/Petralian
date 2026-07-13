@@ -2,22 +2,45 @@
 
 Internal Perfex CRM on `46.224.49.175` (Cloudflare **dns-only**). The main Next.js site cannot control this subdomain via `petralian.com/robots.txt`.
 
+**Server:** nginx (verified 2026-07-13) — `.htaccess` does **not** apply.
+
 ## 1. On the CRM server (permanent)
 
-Ready-to-upload files in the repo: [`docs/seo/crm-deploy/`](crm-deploy/) (`robots.txt` + `.htaccess`).
+### A. robots.txt (done on live site)
 
-Upload both to the **Perfex web root** on `46.224.49.175` (same folder as `index.php`).
+Upload [`crm-deploy/robots.txt`](crm-deploy/robots.txt) to Perfex web root.
+
+Live check (2026-07-13): `https://crm.petralian.com/robots.txt` → `Disallow: /` ✓
+
+### B. X-Robots-Tag header (still needed)
+
+CRM runs **nginx**, not Apache. Add to the `server { }` block for `crm.petralian.com`:
+
+```nginx
+add_header X-Robots-Tag "noindex, nofollow, noarchive" always;
+```
+
+Snippet file: [`crm-deploy/nginx-noindex.conf`](crm-deploy/nginx-noindex.conf)
+
+Then on the server:
+
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+**Alternative:** add to Perfex login layout `<head>`:
 
 ```html
 <meta name="robots" content="noindex, nofollow, noarchive" />
 ```
 
-Verify after deploy:
+### Verify
 
 ```bash
-curl -sI https://crm.petralian.com/ | grep -i robots
-curl -s https://crm.petralian.com/robots.txt
+node scripts/audit-crm-noindex.mjs
 ```
+
+Expect: robots.txt pass; X-Robots-Tag pass after nginx reload.
 
 ## 2. Google Search Console (speed up de-index)
 
@@ -28,12 +51,12 @@ Domain property `petralian.com` includes subdomains.
 3. Prefix: `https://crm.petralian.com/`
 4. Temporary (~6 months) — pair with server noindex for permanent effect
 
-Also: **URL Inspection** → `https://crm.petralian.com/` → confirm “Excluded by noindex” after server fix.
+Also: **URL Inspection** → `https://crm.petralian.com/` → confirm “Excluded by noindex” after header fix.
 
 ## 3. Main site
 
 - No links to `crm.petralian.com` in the Next.js repo (confirmed).
-- GSC **Links** showed 2 internal links — likely legacy; they should drop after CRM is noindex + de-indexed.
+- Semrush toxic audit: 42/81 spam links target CRM login URLs.
 
 ## Optional: Cloudflare proxy + header
 

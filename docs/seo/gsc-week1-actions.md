@@ -33,9 +33,9 @@ See [`crm-noindex.md`](crm-noindex.md) — `crm.petralian.com` must be noindex o
 
 Semrush toxic audit (2026-07-13): **42 of 81** toxic links target `crm.petralian.com`. Full runbook: [`backlink-audit-2026-07-13.md`](backlink-audit-2026-07-13.md).
 
-- [ ] Upload [`crm-deploy/robots.txt`](crm-deploy/robots.txt) + [`.htaccess`](crm-deploy/.htaccess) to Perfex web root on `46.224.49.175`
-- [ ] Verify `https://crm.petralian.com/robots.txt` shows `Disallow: /`
-- [ ] Verify response header includes `X-Robots-Tag: noindex` (browser devtools or `curl -sI`)
+- [x] Upload [`crm-deploy/robots.txt`](crm-deploy/robots.txt) to Perfex web root — **live** `Disallow: /` (2026-07-13)
+- [ ] Add nginx `X-Robots-Tag` — see [`crm-deploy/nginx-noindex.conf`](crm-deploy/nginx-noindex.conf) (CRM is **nginx**; `.htaccess` ignored)
+- [ ] Run `node scripts/audit-crm-noindex.mjs` → all checks pass
 - [ ] GSC → **Indexing** → **Removals** → prefix `https://crm.petralian.com/`
 - [ ] URL Inspection → `https://crm.petralian.com/` → confirm “Excluded by noindex” after deploy
 
@@ -45,12 +45,14 @@ Semrush toxic audit (2026-07-13): **42 of 81** toxic links target `crm.petralian
 
 - [x] All 10 pillar URLs requested (2026-07-13)
 
-### Step 3b — New pillar posts (after 2026-07-13 deploy)
+### 3. Request indexing — new pillar posts (after 2026-07-13 deploy)
 
 GSC → **URL Inspection** → **Request indexing** for each:
 
 - [ ] `https://petralian.com/posts/what-i-learned-directing-ai-as-my-primary-engineer`
 - [ ] `https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment`
+
+Direct links: [GSC URL Inspection](https://search.google.com/search-console/inspect?resource_id=sc-domain%3Apetralian.com)
 
 ## Step 4 — Baseline snapshot
 
