@@ -596,7 +596,7 @@ You do not need custom IDE agents for knowledge work. Optional patterns when vol
 | **context-pack** | Same initiative daily | Auto-generated embed: Bridge + last 5 summaries + links to L3 (not full archive) |
 | **Footer validation** | Team compliance | Optional script or rule that checks footer shape (see [memory loop patterns](/posts/cursor-harness-memory-loop-2026)) |
 
-Subagents do not inherit your rules. Paste worker directives into every dispatch—keep sub-prompts short and never paste full session history ([dispatch hygiene](/posts/cursor-stack-cherry-picking-honey-superpowers-headroom-2026)).
+Subagents do not inherit your rules. Paste worker directives into every dispatch—keep sub-prompts short and never paste full session history ([dispatch hygiene](/posts/training-an-ai-is-like-managing-an-employee)).
 
 ---
 

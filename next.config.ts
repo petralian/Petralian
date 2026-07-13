@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
-import { buildLegacyPostRedirects } from "./src/lib/legacy-redirects";
+import {
+  buildLegacyPostRedirects,
+  buildWordPressLegacyRedirects,
+} from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   // Allow LAN / WSL / Hyper-V IPs to load dev chunks (Next.js 16 blocks cross-origin dev assets by default)
@@ -11,6 +14,8 @@ const nextConfig: NextConfig = {
   ],
   async redirects() {
     return [
+      // WordPress legacy paths (301 → closest live page; before root-slug post redirects)
+      ...buildWordPressLegacyRedirects(),
       // WordPress / bookmark paths (GA4 404 top hits)
       { source: "/blog", destination: "/posts", permanent: true },
       { source: "/blog/:slug", destination: "/posts/:slug", permanent: true },

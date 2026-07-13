@@ -23,6 +23,8 @@ image_prompt_variant_2: "Split editorial scene: left side fast-forward deploy bu
 
 Enterprise AI programs rarely die because the model was the wrong brand. They die because the organization tried to **deploy before it was ready**. "Not ready" almost always means one of three foundation checks was skipped or compressed: data, named governance owners, or change runway.
 
+McKinsey's **State of AI 2025** global survey (published November 2025; fieldwork June–July 2025) finds **88%** of organizations use AI in at least one business function, yet only about **one-third** report scaling AI across the enterprise, and **39%** attribute any EBIT impact to AI [1]. Those figures describe **usage without scaling**, not sustained production absorption. When pilots stall at scale, the post-mortem often blames the model. The underlying issue is usually that readiness work was treated as optional parallel work instead of a gate.
+
 That pattern is a readiness problem, not a capability problem. This article is a **pre-flight diagnostic**: what to check before you fund the next deployment milestone.
 
 ---
@@ -30,8 +32,6 @@ That pattern is a readiness problem, not a capability problem. This article is a
 ## The problem: deployment speed wins the budget conversation
 
 Program structures reward visible motion. Steering committees ask for go-live dates. Vendors are contracted on delivery milestones. Data cleanup and change management are line items everyone agrees matter until they compete with a demo on a fixed date.
-
-IBM's Global AI Adoption Index (2024) reports 42% of enterprise-scale companies actively deploying AI, with another 40% exploring [1]. Those numbers describe **attempts**, not sustained adoption. When pilots stall at scale, the post-mortem often blames the model. The underlying issue is usually that readiness work was treated as optional parallel work instead of a gate.
 
 ---
 
@@ -44,7 +44,7 @@ Before anyone writes a requirements doc, the program picks a story:
 | **Cost efficiency** | Headcount removed, FTE avoided | Domain experts may rationally resist |
 | **Productivity gain** | Capacity unlocked, quality improved | Experts become assets; their judgment trains the system |
 
-McKinsey's 2024 state of AI research finds the programs generating durable value tend to augment high-skill workers rather than replace them in the narrative [2]. The frame is not branding. It shapes whether the people who catch model errors **want** the program to succeed.
+McKinsey's 2025 survey finds **high performers** disproportionately **redesign workflows** rather than bolt AI onto unchanged processes [1]. The frame is not branding. It shapes whether the people who catch model errors **want** the program to succeed.
 
 If your steering deck leads with replacement math, expect slow adoption even when the technology works.
 
@@ -58,7 +58,7 @@ These mirror the foundation work in [getting enterprise AI right](/posts/getting
 
 **Symptom:** The model works in the lab and embarrasses you in production because real records are incomplete, inconsistent, or trapped in systems nobody mapped.
 
-**Pre-flight test:** Can you produce a **current-state** data audit (not a future-state wish list) with named gaps and owners for remediation? IBM cites data complexity and quality among the top barriers when deployment underperforms expectations [1].
+**Pre-flight test:** Can you produce a **current-state** data audit (not a future-state wish list) with named gaps and owners for remediation? When deployment underperforms, post-mortems routinely cite **data complexity and integration**, not only model accuracy [1].
 
 **Skip signal:** "We will clean data after go-live."
 
@@ -74,7 +74,7 @@ These mirror the foundation work in [getting enterprise AI right](/posts/getting
 
 **Symptom:** Training is scheduled the week of launch. Users are expected to trust a tool in consequential workflows before they have fluency to catch what it misses.
 
-**Pre-flight test:** Does your change plan include early access, real workflows, feedback loops, and time to build judgment **starting before** go-live? Prosci's research finds initiatives with excellent change management were six times more likely to meet objectives than those with poor or absent change management [3].
+**Pre-flight test:** Does your change plan include early access, real workflows, feedback loops, and time to build judgment **starting before** go-live? Prosci's research finds initiatives with excellent change management were six times more likely to meet objectives than those with poor or absent change management [2].
 
 **Skip signal:** A two-week "AI training sprint" after deployment.
 
@@ -185,7 +185,7 @@ Name **operational** owners for outputs, errors, corrections, and retraining—n
 
 ### How long should change runway be before go-live?
 
-Measure in **months**, not weeks. Prosci finds excellent change management correlates with six times higher objective attainment [3]. AI adds fluency in when to trust outputs in real workflows.
+Measure in **months**, not weeks. Prosci finds excellent change management correlates with six times higher objective attainment [2]. AI adds fluency in when to trust outputs in real workflows.
 
 ### Can we fix data quality after deployment?
 
@@ -211,6 +211,5 @@ The organizations that compound value from AI are not the ones that moved fastes
 
 **Sources**
 
-1. IBM Institute for Business Value, "Global AI Adoption Index 2024." https://www.ibm.com/thought-leadership/institute-business-value/report/ai-adoption-index
-2. McKinsey & Company, "The state of AI in 2024: Generative AI adoption spikes and starts to generate value." May 2024. https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
-3. Prosci, "The value of effective change management." https://www.prosci.com/resources/articles/value-effective-change-management (six times more likely to meet objectives with excellent change management vs poor/none; methodology and sample described on source page).
+1. McKinsey & Company, "The state of AI in 2025: Agents, innovation, and transformation." Global survey published November 2025 (fieldwork June 25–July 29, 2025). https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+2. Prosci, "The value of effective change management." https://www.prosci.com/resources/articles/value-effective-change-management (six times more likely to meet objectives with excellent change management vs poor/none; methodology and sample described on source page).

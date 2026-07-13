@@ -234,7 +234,7 @@ When **tool-output or byte-identical repeats** dominate the bill **and** direct 
 
 ### What fixed SSRF without fixing savings?
 
-A **public HTTPS tunnel** lets Cursor reach localhost; it solves routing, not unit economics ([tunnel draft](/posts/cursor-local-proxy-cloudflare-tunnel-windows) — retired in my stack).
+A **public HTTPS tunnel** lets Cursor reach localhost; it solves routing, not unit economics. I retired that tunnel stack; see the SSRF note above.
 
 ### What should I install first?
 

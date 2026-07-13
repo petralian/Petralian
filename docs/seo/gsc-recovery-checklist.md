@@ -90,7 +90,21 @@ Last run 2026-07-13: **71/71 sitemap URLs OK**.
 | `https://petralian.com/llms.txt` | 200, post URL list |
 | `https://petralian.com/feed.xml` | 200, all published posts |
 
-## 7. Re-check in 2–4 weeks
+## 7. WordPress legacy 404s
+
+GSC may show ~63 **Not found (404)** URLs from the old WordPress site (`/tag/*`, `/services/*`, `/nl/*`, numeric IDs).
+
+**Fix (deployed in app):** [`wp-legacy-redirects.md`](wp-legacy-redirects.md) — 301 rules in `src/lib/legacy-redirects.ts`.
+
+After deploy:
+
+```bash
+node scripts/audit-wp-redirects.mjs
+```
+
+Then GSC → **Page indexing** → **Not found (404)** → **Validate fix**.
+
+## 8. Re-check in 2–4 weeks
 
 - GSC **Pages** → indexed count rising
 - Ahrefs **Organic keywords** (may lag GSC by weeks)

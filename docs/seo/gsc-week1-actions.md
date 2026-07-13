@@ -55,4 +55,4 @@ GSC → **Indexing** → **Pages** (export `petralian.com-Coverage-2026-07-13.xl
 | Server error (5xx) | 1 | Spot-check in URL Inspection |
 | Excluded by noindex | 1 | Intentional page |
 
-Re-check in 2–4 weeks (target **~2026-07-27**).
+Re-check in 2–4 weeks (target **~2026-07-27**). After WP redirect deploy: run `audit-wp-redirects.mjs`, then **Validate fix** on GSC 404 report.

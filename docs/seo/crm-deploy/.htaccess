@@ -1,0 +1,4 @@
+# Perfex CRM web root — block search indexing (internal login app)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>

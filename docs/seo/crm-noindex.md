@@ -4,22 +4,9 @@ Internal Perfex CRM on `46.224.49.175` (Cloudflare **dns-only**). The main Next.
 
 ## 1. On the CRM server (permanent)
 
-Upload or create **`/robots.txt`** at the Perfex web root:
+Ready-to-upload files in the repo: [`docs/seo/crm-deploy/`](crm-deploy/) (`robots.txt` + `.htaccess`).
 
-```txt
-User-agent: *
-Disallow: /
-```
-
-Add **`X-Robots-Tag`** on all responses (Apache `.htaccess` in web root):
-
-```apache
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow, noarchive"
-</IfModule>
-```
-
-Or in Perfex theme **`application/views/themes/perfex/head.php`** (path may vary), inside `<head>`:
+Upload both to the **Perfex web root** on `46.224.49.175` (same folder as `index.php`).
 
 ```html
 <meta name="robots" content="noindex, nofollow, noarchive" />

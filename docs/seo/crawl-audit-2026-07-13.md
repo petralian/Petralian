@@ -13,15 +13,20 @@ Automated substitute for WebSite Auditor (run monthly: `npm run audit:site`).
 
 **5 broken target slugs** (unpublished vault drafts linked from live posts).
 
-**Fix applied:** temporary 301 redirects in [`next.config.ts`](../../next.config.ts) until drafts publish:
+**Fix applied:** temporary redirects in [`next.config.ts`](../../next.config.ts) until drafts publish:
 
 | Broken slug | Redirects to |
 |-------------|--------------|
-| `what-i-learned-directing-ai-as-my-primary-engineer` | `training-an-ai-is-like-managing-an-employee` |
+| `what-i-learned-directing-ai-as-my-primary-engineer` | `training-an-ai-is-like-managing-an-employee` (draft in vault; publish to remove) |
 | `getting-enterprise-ai-right-the-work-that-comes-before-deployment` | `why-your-ai-program-may-fail-before-it-starts` |
+| `why-your-ai-program-is-failing-before-it-starts` | `why-your-ai-program-may-fail-before-it-starts` (permanent) |
+
+**Dropped articles** (redirects kept for old links; drafts deleted):
+
+| Slug | Redirects to |
+|------|--------------|
 | `cursor-local-proxy-cloudflare-tunnel-windows` | `cursor-token-saving-tools-beyond-headroom-2026` |
 | `cursor-stack-cherry-picking-honey-superpowers-headroom-2026` | `cursor-token-saving-tools-beyond-headroom-2026` |
-| `why-your-ai-program-is-failing-before-it-starts` | `why-your-ai-program-may-fail-before-it-starts` (permanent) |
 
 **Next:** publish pillar drafts from vault → remove temporary redirects.
 

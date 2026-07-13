@@ -23,6 +23,7 @@
     "audit:internal-links": "node scripts/audit-internal-links.mjs",
     "audit:seo-meta": "node scripts/audit-seo-meta.mjs",
     "audit:live-sitemap": "node scripts/audit-live-sitemap.mjs",
+    "audit:wp-redirects": "node scripts/audit-wp-redirects.mjs",
     "audit:site": "node scripts/audit-internal-links.mjs && node scripts/audit-live-sitemap.mjs && node scripts/audit-seo-meta.mjs"
   },
   "dependencies": {
