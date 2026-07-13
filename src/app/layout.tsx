@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import ClientScrollProgress from "@/components/ClientScrollProgress";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import TruConversion from "@/components/TruConversion";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, AUTHOR_NAME, AUTHOR_BIO, AUTHOR_TITLE } from "@/lib/constants";
 
 
@@ -140,6 +141,7 @@ export default function RootLayout({
       </head>
       <body>
         <GoogleAnalytics />
+        <TruConversion />
         <Header />
         <main>{children}</main>
         <footer className="site-footer">

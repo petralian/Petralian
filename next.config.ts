@@ -24,6 +24,27 @@ const nextConfig: NextConfig = {
         destination: "/posts/why-your-ai-program-may-fail-before-it-starts",
         permanent: true,
       },
+      // Unpublished pillar drafts — temporary until posts ship from vault
+      {
+        source: "/posts/what-i-learned-directing-ai-as-my-primary-engineer",
+        destination: "/posts/training-an-ai-is-like-managing-an-employee",
+        permanent: false,
+      },
+      {
+        source: "/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment",
+        destination: "/posts/why-your-ai-program-may-fail-before-it-starts",
+        permanent: false,
+      },
+      {
+        source: "/posts/cursor-local-proxy-cloudflare-tunnel-windows",
+        destination: "/posts/cursor-token-saving-tools-beyond-headroom-2026",
+        permanent: false,
+      },
+      {
+        source: "/posts/cursor-stack-cherry-picking-honey-superpowers-headroom-2026",
+        destination: "/posts/cursor-token-saving-tools-beyond-headroom-2026",
+        permanent: false,
+      },
       // petralian.com/{slug} → /posts/{slug} for every live post
       ...buildLegacyPostRedirects(),
     ];

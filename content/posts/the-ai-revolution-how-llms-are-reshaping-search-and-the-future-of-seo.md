@@ -8,9 +8,10 @@ tags:
 - AI in Marketing
 - Generative AI
 - Marketing Technology
-excerpt: ''
+excerpt: 'How large language models are reshaping search discovery—and what still matters in technical SEO for answer engines and classic rankings.'
 featured_image: /images/posts/ai-llms-search-seo-revolution-hero.jpg
-seo_description: ''
+seo_description: 'LLMs are changing how users discover content. What AI-era SEO means for rankings, answer engines, entity clarity, and future-proofing your content strategy.'
+focus_keyword: AI era SEO
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

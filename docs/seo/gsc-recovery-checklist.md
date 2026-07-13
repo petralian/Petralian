@@ -2,6 +2,8 @@
 
 Use this after the WordPress → Next.js migration. Complete in order; check each box.
 
+**Week 1 checklist (copy-paste URLs):** [`gsc-week1-actions.md`](gsc-week1-actions.md)
+
 ## 1. Find or verify your property (~10 min)
 
 1. Open [Google Search Console](https://search.google.com/search-console)

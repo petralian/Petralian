@@ -10,6 +10,10 @@ export const SITE_URL = "https://petralian.com";
 export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-EWJYJZ0QN6";
 
+/** TruConversion site ID (override via NEXT_PUBLIC_TRUCONVERSION_SITE_ID). */
+export const TRUCONVERSION_SITE_ID =
+  process.env.NEXT_PUBLIC_TRUCONVERSION_SITE_ID ?? "";
+
 export const AUTHOR_NAME = "Nathan Petralia";
 export const AUTHOR_TITLE = "Managing Director, Hong Kong";
 export const AUTHOR_BIO =
