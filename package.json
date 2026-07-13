@@ -16,7 +16,9 @@
     "start": "next start",
     "optimize-images": "node scripts/optimize-images.mjs",
     "optimize-images:dry": "node scripts/optimize-images.mjs --dry-run",
-    "diagram-compare": "node scripts/render-diagram-compare.mjs"
+    "diagram-compare": "node scripts/render-diagram-compare.mjs",
+    "generate:llms-txt": "node scripts/generate-llms-txt.mjs",
+    "generate:disavow": "node scripts/generate-disavow.mjs"
   },
   "dependencies": {
     "@panzoom/panzoom": "^4.6.2",

@@ -13,7 +13,7 @@ function escapeXml(input: string): string {
 }
 
 export function GET(): Response {
-    const posts = getAllPosts().slice(0, 50);
+    const posts = getAllPosts();
     const buildDate = new Date().toUTCString();
 
     const items = posts

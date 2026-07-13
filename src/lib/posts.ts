@@ -94,12 +94,23 @@ export function getPost(slug: string): Post {
   };
 }
 
-function readPostFile(slug: string): string {
+function resolvePostFilePath(slug: string): string {
   const mdx = path.join(POSTS_DIR, `${slug}.mdx`);
   const md = path.join(POSTS_DIR, `${slug}.md`);
-  if (fs.existsSync(mdx)) return fs.readFileSync(mdx, "utf8");
-  if (fs.existsSync(md)) return fs.readFileSync(md, "utf8");
+  if (fs.existsSync(mdx)) return mdx;
+  if (fs.existsSync(md)) return md;
   throw new Error(`Post not found: ${slug}`);
+}
+
+function readPostFile(slug: string): string {
+  return fs.readFileSync(resolvePostFilePath(slug), "utf8");
+}
+
+/** Latest of frontmatter date and file mtime — for sitemap freshness signals */
+export function getPostLastModified(slug: string, dateStr: string): Date {
+  const fileMtime = fs.statSync(resolvePostFilePath(slug)).mtime;
+  const postDate = dateStr ? new Date(dateStr) : new Date(0);
+  return fileMtime > postDate ? fileMtime : postDate;
 }
 
 export function getAllCategories(): string[] {
