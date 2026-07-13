@@ -12,7 +12,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #696d84;
+  --color-ink-tertiary: #5a5e72;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -103,7 +103,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #696d84;
+  --color-ink-tertiary: #5a5e72;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -731,7 +731,7 @@ html:not([data-theme]) .theme-icon--moon {
 
 .post-card-date {
   font-size: var(--text-xs);
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
 }
 
 .post-card-title {
@@ -774,10 +774,12 @@ html:not([data-theme]) .theme-icon--moon {
 .post-card-tag {
   font-size: var(--text-2xs);
   font-family: inherit;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
-  padding: 0.2rem 0.5rem;
+  padding: 0.35rem 0.6rem;
+  min-height: 24px;
+  min-width: 24px;
   border-radius: var(--radius-pill);
   line-height: var(--leading-snug);
   cursor: pointer;
@@ -938,8 +940,22 @@ html:not([data-theme]) .theme-icon--moon {
   font-weight: 600;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   margin-bottom: var(--space-5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .section-heading,
+  :root:not([data-theme="light"]) .post-card-date,
+  :root:not([data-theme="light"]) .post-card-tag {
+    color: var(--color-ink);
+  }
+}
+
+[data-theme="dark"] .section-heading,
+[data-theme="dark"] .post-card-date,
+[data-theme="dark"] .post-card-tag {
+  color: var(--color-ink);
 }
 
 /* ══════════════════════════════════════════════════════════════════

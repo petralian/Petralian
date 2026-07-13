@@ -1,25 +1,25 @@
 import Script from "next/script";
 import {
   TRUCONVERSION_REVEAL_CLIENT_ID,
+  TRUCONVERSION_REVEAL_ENABLED,
   TRUCONVERSION_SCRIPT_PATH,
 } from "@/lib/constants";
 
 /**
- * TruConversion heatmaps / session replay + visitor tracking (Reveal).
- * Production only — IDs from TruConversion dashboard → Code.
+ * TruConversion heatmaps (ti-js). Reveal visitor tracking is opt-in — it 402s
+ * when quota is exceeded and breaks Lighthouse console / bfcache audits.
  */
 export default function TruConversion() {
   if (
     process.env.NODE_ENV !== "production" ||
-    !TRUCONVERSION_SCRIPT_PATH ||
-    !TRUCONVERSION_REVEAL_CLIENT_ID
+    !TRUCONVERSION_SCRIPT_PATH
   ) {
     return null;
   }
 
   return (
     <>
-      <Script id="truconversion" strategy="afterInteractive">
+      <Script id="truconversion" strategy="lazyOnload">
         {`
           var _tip = _tip || [];
           (function(d,s,id){
@@ -32,20 +32,21 @@ export default function TruConversion() {
           }(document, 'script', 'ti-js'));
         `}
       </Script>
-      <Script id="truconversion-reveal" strategy="afterInteractive">
-        {`
-          !function(){
-            var e="rest.revealid.xyz/v3/script?clientId=${TRUCONVERSION_REVEAL_CLIENT_ID}&version=4.0.0",
-            t=document.createElement("script");
-            window.location.protocol.split(":")[0];
-            t.src="https://"+e;
-            var c=document.getElementsByTagName("script")[0];
-            t.async = true;
-            t.onload = function(){ new Reveal.default };
-            c.parentNode.insertBefore(t,c);
-          }();
-        `}
-      </Script>
+      {TRUCONVERSION_REVEAL_ENABLED && TRUCONVERSION_REVEAL_CLIENT_ID ? (
+        <Script id="truconversion-reveal" strategy="lazyOnload">
+          {`
+            !function(){
+              var e="rest.revealid.xyz/v3/script?clientId=${TRUCONVERSION_REVEAL_CLIENT_ID}&version=4.0.0",
+              t=document.createElement("script");
+              t.src="https://"+e;
+              var c=document.getElementsByTagName("script")[0];
+              t.async = true;
+              t.onload = function(){ new Reveal.default };
+              c.parentNode.insertBefore(t,c);
+            }();
+          `}
+        </Script>
+      ) : null}
     </>
   );
 }

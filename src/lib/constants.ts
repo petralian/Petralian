@@ -19,6 +19,10 @@ export const TRUCONVERSION_REVEAL_CLIENT_ID =
   process.env.NEXT_PUBLIC_TRUCONVERSION_REVEAL_CLIENT_ID ??
   "bYWmatUgWapY699k1o1sgm";
 
+/** Reveal loads WebSockets + third-party calls; off by default (402 breaks Lighthouse). */
+export const TRUCONVERSION_REVEAL_ENABLED =
+  process.env.NEXT_PUBLIC_TRUCONVERSION_REVEAL_ENABLED === "true";
+
 export const AUTHOR_NAME = "Nathan Petralia";
 export const AUTHOR_TITLE = "Managing Director, Hong Kong";
 export const AUTHOR_BIO =
