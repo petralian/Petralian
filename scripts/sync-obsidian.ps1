@@ -350,6 +350,15 @@ function Publish-ObsidianFile {
   $content = $raw -replace '(?m)^status:\s*(ready|draft|published)\s*$', 'status: published'
   $content = Resolve-Images -content $content -articleFolder $file.DirectoryName -dryRun $DryRun.IsPresent
 
+  # Preserve editorial publish date when re-syncing live posts from vault
+  if (Test-Path $destFile) {
+    $existing = Get-Content $destFile -Raw -Encoding UTF8
+    if ($existing -match '(?m)^date:\s*(.+)$') {
+      $existingDate = $Matches[1].Trim()
+      $content = $content -replace '(?m)^date:\s*.+$', "date: $existingDate"
+    }
+  }
+
   if ($DryRun) {
     Write-Host "[DryRun] Would sync: $($file.Name) -> posts/$slug.md" -ForegroundColor Cyan
     return $slug

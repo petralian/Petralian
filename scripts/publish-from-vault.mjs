@@ -266,24 +266,49 @@ for (const filename of readdirSync(sitePosts).filter(f => f.endsWith('.md'))) {
 
 // ── Publish: copy new/updated articles ───────────────────────────────────────
 const copied = [];
+const processedSlugs = new Set();
 
-for (const filename of readyFiles) {
-  const filePath = join(obsidianReady, filename);
-  console.log(`\nProcessing: ${filename}`);
+function preserveExistingDate(slug, content) {
+  const destFile = join(sitePosts, `${slug}.md`);
+  if (!existsSync(destFile)) return content;
+  const existing = readFileSync(destFile, 'utf8');
+  const m = existing.match(/^date:\s*(.+)$/m);
+  if (!m) return content;
+  const existingDate = m[1].trim();
+  return content.replace(/^date:\s*.+$/m, `date: ${existingDate}`);
+}
+
+function publishFile(filePath, articleFolder, sourceLabel) {
+  console.log(`\nProcessing [${sourceLabel}]: ${basename(filePath)}`);
 
   let content = readFileSync(filePath, 'utf8');
   const slug = getSlug(filePath, content);
 
-  // Set status: published
   content = content.replace(/^status:\s*(ready|draft|published)\s*$/m, 'status: published');
+  content = resolveImages(content, articleFolder);
+  content = preserveExistingDate(slug, content);
 
-  // Resolve + copy images
-  content = resolveImages(content, obsidianReady);
-
-  // Write to content/posts
   writeFileSync(join(sitePosts, `${slug}.md`), content, { encoding: 'utf8' });
   console.log(`  → content/posts/${slug}.md`);
   copied.push(slug);
+  processedSlugs.add(slug);
+}
+
+for (const filename of readyFiles) {
+  publishFile(join(obsidianReady, filename), obsidianReady, '02 Ready');
+}
+
+if (existsSync(obsidianPublished)) {
+  for (const filename of readdirSync(obsidianPublished).filter(f => f.endsWith('.md'))) {
+    const filePath = join(obsidianPublished, filename);
+    const content = readFileSync(filePath, 'utf8');
+    const slug = getSlug(filePath, content);
+    if (processedSlugs.has(slug)) {
+      console.log(`Skipping duplicate slug in 03 Published (already synced from 02 Ready): ${slug}`);
+      continue;
+    }
+    publishFile(filePath, obsidianPublished, '03 Published');
+  }
 }
 
 // ── Image optimisation ────────────────────────────────────────────────────────
