@@ -83,12 +83,12 @@ If every failure can be waived informally, you do not have a gate; you have a su
 
 The best sequence is:
 
-1. Onboard quickly with [From Empty Folder to First Quality Score in 10 Minutes](/blog/first-gravio-score-in-10-minutes/).
-2. Monitor drift with [Why AI Agent Output Quality Drifts Over Time](/blog/ai-agent-quality-drift-detection/).
+1. Onboard quickly with [From Empty Folder to First Quality Score in 10 Minutes](/posts/first-gravio-score-in-10-minutes).
+2. Monitor drift with [Why AI Agent Output Quality Drifts Over Time](/posts/ai-agent-quality-drift-detection).
 3. Enforce thresholds in CI.
-4. Scale governance via [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/blog/gravio-multi-repo-rollout-playbook/).
+4. Scale governance via [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/posts/gravio-multi-repo-rollout-playbook).
 
-If security concerns are slowing adoption, frame the rollout with [Zero-Knowledge AI Quality](/blog/zero-knowledge-ai-quality-gravio/).
+If security concerns are slowing adoption, frame the rollout with [Zero-Knowledge AI Quality](/posts/zero-knowledge-ai-quality-gravio).
 
 ## What is an AI quality CI gate?
 
@@ -135,11 +135,11 @@ Prevent **obvious** regressions first: minimum score, max regression delta, opti
 
 ### How does this fit the Gravio adoption sequence?
 
-Onboard → monitor [drift](/blog/ai-agent-quality-drift-detection/) → enforce CI gates → scale via [multi-repo playbook](/blog/gravio-multi-repo-rollout-playbook/).
+Onboard → monitor [drift](/posts/ai-agent-quality-drift-detection) → enforce CI gates → scale via [multi-repo playbook](/posts/gravio-multi-repo-rollout-playbook).
 
 ### What if security slows adoption?
 
-Frame rollout with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) so quality gates do not require plaintext centralization.
+Frame rollout with [zero-knowledge scoring](/posts/zero-knowledge-ai-quality-gravio) so quality gates do not require plaintext centralization.
 
 ---
 

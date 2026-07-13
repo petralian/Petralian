@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       // WordPress / bookmark paths (GA4 404 top hits)
       { source: "/blog", destination: "/posts", permanent: true },
       { source: "/blog/:slug", destination: "/posts/:slug", permanent: true },
+      { source: "/blog/:slug/", destination: "/posts/:slug", permanent: true },
       { source: "/contact", destination: "/about", permanent: true },
       { source: "/services", destination: "/about", permanent: true },
       { source: "/writing", destination: "/posts", permanent: true },
@@ -29,17 +30,6 @@ const nextConfig: NextConfig = {
         source: "/posts/why-your-ai-program-is-failing-before-it-starts",
         destination: "/posts/why-your-ai-program-may-fail-before-it-starts",
         permanent: true,
-      },
-      // Unpublished pillar drafts — temporary until posts ship from vault
-      {
-        source: "/posts/what-i-learned-directing-ai-as-my-primary-engineer",
-        destination: "/posts/training-an-ai-is-like-managing-an-employee",
-        permanent: false,
-      },
-      {
-        source: "/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment",
-        destination: "/posts/why-your-ai-program-may-fail-before-it-starts",
-        permanent: false,
       },
       {
         source: "/posts/cursor-local-proxy-cloudflare-tunnel-windows",

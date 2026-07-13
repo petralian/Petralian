@@ -54,7 +54,7 @@ In practical terms, Gravio’s contract is straightforward:
 
 This is not marketing theater. It is a product decision that influences endpoint design, publishing flow, and day-to-day developer trust.
 
-If you are evaluating privacy constraints right now, pair this with the implementation guide in [From Empty Folder to First Quality Score in 10 Minutes](/blog/first-gravio-score-in-10-minutes/) for the exact setup sequence.
+If you are evaluating privacy constraints right now, pair this with the implementation guide in [From Empty Folder to First Quality Score in 10 Minutes](/posts/first-gravio-score-in-10-minutes) for the exact setup sequence.
 
 ## Why This Matters for Real Teams
 
@@ -72,7 +72,7 @@ Quality platforms should not become accidental data lakes. Keeping plaintext out
 
 Teams can onboard more repos when trust boundaries are clear. That is critical if you plan to standardize quality checks across multiple projects.
 
-For rollout strategy, see [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/blog/gravio-multi-repo-rollout-playbook/).
+For rollout strategy, see [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/posts/gravio-multi-repo-rollout-playbook).
 
 ## Common Misunderstandings
 
@@ -145,7 +145,7 @@ Local scan and quality generation at the repo; encrypted publish before cloud st
 
 ### When should I pair this with CI gates?
 
-After onboarding and baseline scans—see [first score in 10 minutes](/blog/first-gravio-score-in-10-minutes/) then [drift monitoring](/blog/ai-agent-quality-drift-detection/) before hard gates.
+After onboarding and baseline scans—see [first score in 10 minutes](/posts/first-gravio-score-in-10-minutes) then [drift monitoring](/posts/ai-agent-quality-drift-detection) before hard gates.
 
 ### What should security reviewers ask first?
 
@@ -157,7 +157,7 @@ After onboarding and baseline scans—see [first score in 10 minutes](/blog/firs
 
 AI quality should feel like a reliability improvement, not a compliance exception waiting to happen. Privacy-first scoring gives teams room to measure what matters while protecting what cannot leak.
 
-As teams mature, the next step is turning that quality signal into policy and deployment confidence. Start with [Why AI Agent Output Quality Drifts Over Time](/blog/ai-agent-quality-drift-detection/), then implement guardrails with [The New CI Gate: Failing Builds on Agent Quality](/blog/ai-quality-gate-ci-gravio/).
+As teams mature, the next step is turning that quality signal into policy and deployment confidence. Start with [Why AI Agent Output Quality Drifts Over Time](/posts/ai-agent-quality-drift-detection), then implement guardrails with [The New CI Gate: Failing Builds on Agent Quality](/posts/ai-quality-gate-ci-gravio).
 
 Quality without trust does not scale. Trust without quality does not ship. You need both.
 

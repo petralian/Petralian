@@ -156,7 +156,7 @@ Not automatically—staging CMS notes and widgets can carry the same injection p
 
 ### Where does this connect to quality governance?
 
-Pair bounded capture with [agent quality monitoring](/blog/ai-agent-quality-drift-detection/) and CI gates when capture tools feed autonomous workflows.
+Pair bounded capture with [agent quality monitoring](/posts/ai-agent-quality-drift-detection) and CI gates when capture tools feed autonomous workflows.
 
 ---
 

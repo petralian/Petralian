@@ -39,13 +39,13 @@ Before touching CI, answer three questions:
 
 Without this alignment, rollout feels like extra process instead of risk reduction.
 
-For architecture concerns teams will ask, start with [Zero-Knowledge AI Quality](/blog/zero-knowledge-ai-quality-gravio/).
+For architecture concerns teams will ask, start with [Zero-Knowledge AI Quality](/posts/zero-knowledge-ai-quality-gravio).
 
 ## Phase 2: Standardize Onboarding
 
 Give every team the same first-run flow and expected outputs.
 
-Use the practical setup from [From Empty Folder to First Quality Score in 10 Minutes](/blog/first-gravio-score-in-10-minutes/).
+Use the practical setup from [From Empty Folder to First Quality Score in 10 Minutes](/posts/first-gravio-score-in-10-minutes).
 
 Define a minimal onboarding checklist:
 
@@ -70,9 +70,9 @@ This turns scoring into a common operating language.
 
 Do not enforce strict CI gates on day one. First establish trend visibility and team confidence.
 
-Use concepts in [Why AI Agent Output Quality Drifts Over Time](/blog/ai-agent-quality-drift-detection/) to build stable baselines.
+Use concepts in [Why AI Agent Output Quality Drifts Over Time](/posts/ai-agent-quality-drift-detection) to build stable baselines.
 
-Only then introduce policy enforcement with [The New CI Gate](/blog/ai-quality-gate-ci-gravio/).
+Only then introduce policy enforcement with [The New CI Gate](/posts/ai-quality-gate-ci-gravio).
 
 ## Phase 5: Governance That Helps, Not Harms
 
@@ -146,7 +146,7 @@ A multi-repo Gravio rollout is an **operating model upgrade**—shared onboardin
 
 ### When should we enforce CI gates across all repos?
 
-After **baselines stabilize** and teams trust the signal—typically phase 4 drift visibility, then [CI gate policy](/blog/ai-quality-gate-ci-gravio/).
+After **baselines stabilize** and teams trust the signal—typically phase 4 drift visibility, then [CI gate policy](/posts/ai-quality-gate-ci-gravio).
 
 ### How do we handle different repo risk profiles?
 
@@ -158,7 +158,7 @@ Regression incidents avoided, time from drift detection to remediation, percenta
 
 ### How does privacy affect multi-repo adoption?
 
-Address architecture early with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) so security review does not block each repo.
+Address architecture early with [zero-knowledge scoring](/posts/zero-knowledge-ai-quality-gravio) so security review does not block each repo.
 
 ### What is the minimum onboarding checklist per repo?
 
@@ -172,4 +172,4 @@ A successful Gravio rollout is not a tooling project. It is an operating model u
 
 When teams share onboarding, language, thresholds, and governance, quality moves from reactive firefighting to proactive control.
 
-If you are just starting, begin with [From Empty Folder to First Quality Score in 10 Minutes](/blog/first-gravio-score-in-10-minutes/) and expand from there.
+If you are just starting, begin with [From Empty Folder to First Quality Score in 10 Minutes](/posts/first-gravio-score-in-10-minutes) and expand from there.

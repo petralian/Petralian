@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { SITE_URL } from "@/lib/constants";
 import { getAllPosts, getAllCategories, getAllTags } from "@/lib/posts";
 import writingContent from "../../../content/pages/writing.json";
 
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "Writing",
   description:
     "Insights on AI, digital transformation, and the work that moves organizations forward.",
+  alternates: { canonical: `${SITE_URL}/posts` },
 };
 
 export default async function PostsPage({

@@ -52,7 +52,7 @@ You need additional signals:
 3. Regression detection across releases.
 4. Alert thresholds before severe drop-offs.
 
-If you have not set this up yet, start with onboarding in [From Empty Folder to First Quality Score in 10 Minutes](/blog/first-gravio-score-in-10-minutes/).
+If you have not set this up yet, start with onboarding in [From Empty Folder to First Quality Score in 10 Minutes](/posts/first-gravio-score-in-10-minutes).
 
 ## Early Warning Signals to Watch
 
@@ -88,15 +88,15 @@ This loop is where quality data becomes operational value.
 
 Drift detection is only useful if it affects behavior. The strongest teams wire it into CI and release policy.
 
-That is why the natural next step is [The New CI Gate: Failing Builds on Agent Quality](/blog/ai-quality-gate-ci-gravio/).
+That is why the natural next step is [The New CI Gate: Failing Builds on Agent Quality](/posts/ai-quality-gate-ci-gravio).
 
-And if you are rolling this across many repositories, move directly to [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/blog/gravio-multi-repo-rollout-playbook/).
+And if you are rolling this across many repositories, move directly to [Team Playbook: Rolling Out Gravio Across Multiple Repositories](/posts/gravio-multi-repo-rollout-playbook).
 
 ## Privacy Still Matters Here
 
 Trend and regression monitoring should not force a privacy compromise. You can monitor drift while keeping sensitive run content out of plaintext server paths.
 
-For architecture context, read [Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code](/blog/zero-knowledge-ai-quality-gravio/).
+For architecture context, read [Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code](/posts/zero-knowledge-ai-quality-gravio).
 
 ## What is AI agent quality drift?
 
@@ -124,7 +124,7 @@ AI agent quality drift is the gradual erosion of output usefulness and consisten
 | Treating one dip as noise | Miss slow decline | Watch slope over several scans |
 | Ignoring volatility spikes | Average stable, trust erodes | Track variance, not only mean |
 | Prompt churn without review | Sudden quality collapse | Guardrail high-impact prompt edits |
-| Dashboard-only scores | Teams ship under pressure anyway | Wire drift into [CI quality gates](/blog/ai-quality-gate-ci-gravio/) |
+| Dashboard-only scores | Teams ship under pressure anyway | Wire drift into [CI quality gates](/posts/ai-quality-gate-ci-gravio) |
 
 ---
 
@@ -144,11 +144,11 @@ Match your release cadence at minimum—weekly for active agent repos, daily if 
 
 ### Does drift monitoring require storing plaintext prompts in the cloud?
 
-Not necessarily. Pair monitoring with [zero-knowledge scoring](/blog/zero-knowledge-ai-quality-gravio/) when sensitive code is in scope.
+Not necessarily. Pair monitoring with [zero-knowledge scoring](/posts/zero-knowledge-ai-quality-gravio) when sensitive code is in scope.
 
 ### When should drift feed CI?
 
-After baselines stabilize. Establish trend visibility first; enforce thresholds once teams trust the signal—see the [multi-repo rollout playbook](/blog/gravio-multi-repo-rollout-playbook/).
+After baselines stabilize. Establish trend visibility first; enforce thresholds once teams trust the signal—see the [multi-repo rollout playbook](/posts/gravio-multi-repo-rollout-playbook).
 
 ---
 

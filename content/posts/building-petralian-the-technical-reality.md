@@ -153,7 +153,7 @@ The gap between "done in Obsidian" and "live on the internet" is now two command
 
 ## If You're Building Something Similar
 
-The [repository is open source on GitHub](https://github.com/nathanpetralian/petralian). The sync script, the Tina schema, the `splitIntoColumns` helper, the Asteroids game, the design system — all there to fork.
+The [repository is open source on GitHub](https://github.com/petralian/). The sync script, the Tina schema, the `splitIntoColumns` helper, the Asteroids game, the design system — all there to fork.
 
 The things most worth taking: the Obsidian frontmatter convention and sync approach, the split-column masonry pattern, and the ref-pair technique for bridging a canvas game loop with React state.
 
