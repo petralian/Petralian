@@ -11,6 +11,14 @@ export type LegacyRedirect = {
 const WP_LOCALES =
   "nl|fr|de|es|it|pt|ja|zh|ko|pl|sv|da|fi|no|ru|ar|tr|id|th|vi|cs|hu|ro|el|uk|ca|ms";
 
+function buildLocaleHomeRedirects(): LegacyRedirect[] {
+  return WP_LOCALES.split("|").map((locale) => ({
+    source: `/${locale}`,
+    destination: "/",
+    permanent: true,
+  }));
+}
+
 /** Root paths that must not become /posts/:slug redirects. */
 const RESERVED_ROOT_SEGMENTS = new Set([
   "about",
@@ -85,7 +93,10 @@ export function buildWordPressLegacyRedirects(): LegacyRedirect[] {
     { source: "/case-studies/:path*", destination: "/posts", permanent },
     { source: "/case-study/:path*", destination: "/posts", permanent },
 
-    // Locale-prefixed paths (e.g. /nl/, /nl/my-post)
+    // Locale home pages (exact match before /:locale/:slug patterns)
+    ...buildLocaleHomeRedirects(),
+
+    // Locale-prefixed paths (e.g. /nl/my-post)
     { source: `/:locale(${L})/tag/:path*`, destination: "/posts", permanent },
     { source: `/:locale(${L})/category/:path*`, destination: "/posts", permanent },
     { source: `/:locale(${L})/author/:path*`, destination: "/about", permanent },
@@ -94,8 +105,7 @@ export function buildWordPressLegacyRedirects(): LegacyRedirect[] {
     { source: `/:locale(${L})/contact`, destination: "/about", permanent },
     { source: `/:locale(${L})/blog/:slug`, destination: "/posts/:slug", permanent },
     { source: `/:locale(${L})/:slug`, destination: "/posts/:slug", permanent },
-    { source: `/:locale(${L})/:path*`, destination: "/posts", permanent },
-    { source: `/:locale(${L})`, destination: "/", permanent },
+    { source: `/:locale(${L})/:path+`, destination: "/posts", permanent },
 
     // Numeric WordPress IDs (e.g. /8/)
     { source: "/:id(\\d+)", destination: "/posts", permanent },
