@@ -3,8 +3,8 @@
 import { useEffect, useState, type ReactNode } from "react";
 
 /**
- * Mount GA / TruConversion only after first interaction (or 10s idle).
- * Keeps Lighthouse clean: no Reveal 402, no third-party cookies, no WebSocket bfcache block.
+ * Mount GA / TruConversion only after first interaction.
+ * Keeps Lighthouse clean: no third-party cookies, no Reveal 402, no WebSocket bfcache block.
  */
 export default function DeferredProductionScripts({
   children,
@@ -23,13 +23,10 @@ export default function DeferredProductionScripts({
     window.addEventListener("keydown", activate, opts);
     window.addEventListener("touchstart", activate, opts);
 
-    const fallback = window.setTimeout(activate, 10_000);
-
     return () => {
       window.removeEventListener("pointerdown", activate);
       window.removeEventListener("keydown", activate);
       window.removeEventListener("touchstart", activate);
-      window.clearTimeout(fallback);
     };
   }, []);
 

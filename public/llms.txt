@@ -10,6 +10,7 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 
 - Sitemap: https://petralian.com/sitemap.xml
 - RSS feed: https://petralian.com/feed.xml
+- LLM discovery: https://petralian.com/llms.txt (also /llm.txt, /ai.txt)
 - All articles index: https://petralian.com/posts
 - Breadcrumb navigation on posts, writing index, and about pages
 
@@ -89,6 +90,8 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - From Empty Folder to First Quality Score in 10 Minutes: https://petralian.com/posts/first-gravio-score-in-10-minutes
 - Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC: https://petralian.com/posts/redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
 - Why Your AI Program May Fail Before It Starts: https://petralian.com/posts/why-your-ai-program-may-fail-before-it-starts
+- Getting Enterprise AI Right: The Work That Comes Before Deployment: https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
+- What I Learned Directing AI as My Primary Engineer: https://petralian.com/posts/what-i-learned-directing-ai-as-my-primary-engineer
 - The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and Marketing (Not Just Code): https://petralian.com/posts/knowledge-work-agent-engine-guide-2026
 - Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit Trails): https://petralian.com/posts/knowledge-work-engine-leadership-decisions-2026
 - Marketing and Voice at Scale With a File-Based Agent Engine (Systems, Not Style PDFs): https://petralian.com/posts/knowledge-work-engine-marketing-voice-2026

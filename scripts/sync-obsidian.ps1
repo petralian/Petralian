@@ -405,6 +405,11 @@ if ($synced.Count -gt 0) {
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
 
+# ── SEO/GEO: regenerate llms.txt + indexing reminders ───────────────────────
+if ($synced.Count -gt 0 -or $removed.Count -gt 0) {
+  node "$PSScriptRoot\post-publish-seo.mjs" @($synced)
+}
+
 # ── Git: stage all changes (additions, updates, deletions), commit, push ────
 Push-Location $repo
 try {
@@ -426,7 +431,7 @@ try {
   }
 
   # -A stages new files, modifications, AND deletions
-  git add -A content/posts public/images/posts
+  git add -A content/posts public/images/posts public/llms.txt
 
   $parts = @()
   if ($synced.Count -gt 0) {
@@ -459,7 +464,7 @@ try {
       Write-Error "Could not restore local files from $localSha during auto-recovery."
       exit 1
     }
-    git add -A content/posts public/images/posts
+    git add -A content/posts public/images/posts public/llms.txt
     git diff --cached --quiet
     if ($LASTEXITCODE -eq 0) {
       Write-Host '  Auto-recovery: no diff vs origin/master after overlay. Nothing to push.' -ForegroundColor Yellow

@@ -300,6 +300,19 @@ if (copied.length > 0) {
   }
 }
 
+// ── SEO/GEO: llms.txt + indexing reminders ───────────────────────────────────
+if (copied.length > 0 || removed.length > 0) {
+  const seoScript = join(repoRoot, 'scripts', 'post-publish-seo.mjs');
+  if (existsSync(seoScript)) {
+    try {
+      const slugArgs = copied.map((s) => `"${s}"`).join(' ');
+      execSync(`node "${seoScript}" ${slugArgs}`, { stdio: 'inherit', cwd: repoRoot });
+    } catch (e) {
+      console.warn('Post-publish SEO step failed (non-fatal):', e.message);
+    }
+  }
+}
+
 // ── Summary ──────────────────────────────────────────────────────────────────
 if (copied.length === 0 && removed.length === 0) {
   console.log('\nNothing changed.');
