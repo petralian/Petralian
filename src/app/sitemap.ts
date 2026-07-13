@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getPostLastModified } from "@/lib/posts";
+import { getAllTopicSlugs } from "@/lib/tag-slug-server";
 import { SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: getPostLastModified(post.slug, post.date),
     changeFrequency: "monthly",
     priority: 0.8,
+  }));
+
+  const topicEntries: MetadataRoute.Sitemap = getAllTopicSlugs().map((slug) => ({
+    url: `${SITE_URL}/topics/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.6,
   }));
 
   return [
@@ -38,5 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     ...postEntries,
+    ...topicEntries,
   ];
 }

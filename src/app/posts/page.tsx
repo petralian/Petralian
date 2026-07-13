@@ -1,10 +1,12 @@
 ﻿import { Suspense } from "react";
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
 import BlogFilters from "@/components/BlogFilters";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL } from "@/lib/constants";
 import { getAllPosts } from "@/lib/posts";
 import { getTagStats } from "@/lib/tag-stats";
+import { getTopicUrl } from "@/lib/tag-slug";
 import writingContent from "../../../content/pages/writing.json";
 
 export const metadata: Metadata = {
@@ -20,6 +22,11 @@ export default async function PostsPage({
   searchParams: Promise<{ tag?: string }>;
 }) {
   const { tag } = await searchParams;
+
+  if (tag) {
+    permanentRedirect(getTopicUrl(tag));
+  }
+
   const posts = getAllPosts();
   const tagStats = getTagStats(posts);
 
@@ -52,7 +59,7 @@ export default async function PostsPage({
           </p>
         }
       >
-        <BlogFilters posts={posts} tagStats={tagStats} initialTag={tag} />
+        <BlogFilters posts={posts} tagStats={tagStats} />
       </Suspense>
     </div>
   );

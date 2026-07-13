@@ -6,12 +6,21 @@ import TopicPills from "@/components/TopicPills";
 import type { PostMeta } from "@/lib/posts";
 import type { TagStat } from "@/lib/tag-stats";
 
-interface BlogFiltersProps {
+interface TopicArchiveProps {
   posts: PostMeta[];
   tagStats: TagStat[];
+  totalPostCount: number;
+  activeSlug: string;
+  tagName: string;
 }
 
-export default function BlogFilters({ posts, tagStats }: BlogFiltersProps) {
+export default function TopicArchive({
+  posts,
+  tagStats,
+  totalPostCount,
+  activeSlug,
+  tagName,
+}: TopicArchiveProps) {
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
@@ -46,19 +55,24 @@ export default function BlogFilters({ posts, tagStats }: BlogFiltersProps) {
             </span>
             <input
               type="search"
-              placeholder="Search posts by topic, use case, or keyword…"
+              placeholder={`Search within ${tagName}…`}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="blog-search-input"
-              aria-label="Search articles"
+              aria-label={`Search articles tagged ${tagName}`}
             />
           </div>
         </div>
 
-        <TopicPills tagStats={tagStats} postCount={posts.length} />
+        <TopicPills
+          tagStats={tagStats}
+          postCount={totalPostCount}
+          activeSlug={activeSlug}
+        />
 
         <p className="blog-results-count" aria-live="polite">
-          {filtered.length} article{filtered.length === 1 ? "" : "s"}
+          {filtered.length} article{filtered.length === 1 ? "" : "s"} on{" "}
+          {tagName}
         </p>
       </div>
 

@@ -7,6 +7,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { format, parseISO } from "date-fns";
 import { getAllPosts, getPost } from "@/lib/posts";
+import { getTopicUrl } from "@/lib/tag-slug";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -122,11 +123,11 @@ export default async function PostPage({
                 { label: "Writing", href: "/posts" },
                 ...(post.tags[0]
                   ? [
-                    {
-                      label: post.tags[0],
-                      href: `/posts?tag=${encodeURIComponent(post.tags[0])}`,
-                    },
-                  ]
+                      {
+                        label: post.tags[0],
+                        href: getTopicUrl(post.tags[0]),
+                      },
+                    ]
                   : []),
                 { label: post.title },
               ]}
@@ -145,7 +146,7 @@ export default async function PostPage({
                 {post.tags.map((tag) => (
                   <Link
                     key={tag}
-                    href={`/posts?tag=${encodeURIComponent(tag)}`}
+                    href={getTopicUrl(tag)}
                     className="post-hero-tag"
                   >
                     {tag}

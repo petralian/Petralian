@@ -33,3 +33,26 @@ export function getTagTier(count: number): "xl" | "lg" | "md" | "sm" {
   if (count >= 3) return "md";
   return "sm";
 }
+
+export function getRelatedTags(
+  posts: PostMeta[],
+  tag: string,
+  limit = 3
+): { tag: string; count: number }[] {
+  const coCounts = new Map<string, number>();
+  for (const post of posts) {
+    if (!post.tags.includes(tag)) continue;
+    for (const t of post.tags) {
+      if (t === tag) continue;
+      coCounts.set(t, (coCounts.get(t) ?? 0) + 1);
+    }
+  }
+  return [...coCounts.entries()]
+    .map(([t, count]) => ({ tag: t, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+    .slice(0, limit);
+}
+
+export function topicIntro(tag: string, count: number): string {
+  return `${count} article${count === 1 ? "" : "s"} on ${tag} — programs, tooling, and delivery on Petralian.`;
+}

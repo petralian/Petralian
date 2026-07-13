@@ -12,6 +12,13 @@ const POSTS_DIR = path.join(ROOT, "content/posts");
 const OUT = path.join(ROOT, "public/llms.txt");
 const SITE_URL = "https://petralian.com";
 
+function tagToSlug(tag) {
+  return tag
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function getPublishedPosts() {
   if (!fs.existsSync(POSTS_DIR)) return [];
   return fs
@@ -26,6 +33,7 @@ function getPublishedPosts() {
         title: data.title || slug,
         status: data.status || "published",
         date: data.date ? String(data.date).slice(0, 10) : "",
+        tags: Array.isArray(data.tags) ? data.tags : [],
       };
     })
     .filter((p) => p.status === "published")
@@ -33,7 +41,21 @@ function getPublishedPosts() {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+function getTagStats(posts) {
+  const map = new Map();
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      if (!tag) continue;
+      map.set(tag, (map.get(tag) ?? 0) + 1);
+    }
+  }
+  return [...map.entries()]
+    .map(([tag, count]) => ({ tag, count, slug: tagToSlug(tag) }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+}
+
 const posts = getPublishedPosts();
+const tagStats = getTagStats(posts);
 const today = new Date().toISOString().slice(0, 10);
 
 const lines = [
@@ -51,6 +73,7 @@ const lines = [
   `- RSS feed: ${SITE_URL}/feed.xml`,
   `- LLM discovery: ${SITE_URL}/llms.txt (also /llm.txt, /ai.txt)`,
   `- All articles index: ${SITE_URL}/posts`,
+  `- Topic archives: ${SITE_URL}/topics/{slug}`,
   `- Breadcrumb navigation on posts, writing index, and about pages`,
   "",
   "## Site sections",
@@ -76,6 +99,12 @@ const lines = [
   "- Background: Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu",
   "- LinkedIn: https://www.linkedin.com/in/petralian/",
   "- Contact: nathan@petralian.com",
+  "",
+  "## Topics",
+  "",
+  ...tagStats.slice(0, 15).map(
+    (t) => `- ${t.tag} (${t.count} articles): ${SITE_URL}/topics/${t.slug}`
+  ),
   "",
   "## Published articles",
   "",
