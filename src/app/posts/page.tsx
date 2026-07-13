@@ -1,7 +1,6 @@
 ﻿import { Suspense } from "react";
 import type { Metadata } from "next";
 import BlogFilters from "@/components/BlogFilters";
-import TopicBrowser from "@/components/TopicBrowser";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL } from "@/lib/constants";
 import { getAllPosts } from "@/lib/posts";
@@ -32,7 +31,6 @@ export default async function PostsPage({
           { label: "Writing" },
         ]}
       />
-      {/* ── Blog header ───────────────────────────────────────── */}
       <header className="blog-header">
         <h1 className="blog-header-title">{writingContent.header_title}</h1>
         {writingContent.header_description.split("\n\n").map((block, i) => (
@@ -45,13 +43,8 @@ export default async function PostsPage({
             ))}
           </p>
         ))}
-
-        <Suspense fallback={null}>
-          <TopicBrowser tagStats={tagStats} postCount={posts.length} initialTag={tag} />
-        </Suspense>
       </header>
 
-      {/* ── Filters + grid ────────────────────────────────────── */}
       <Suspense
         fallback={
           <p className="blog-results-count" style={{ marginBottom: "2rem" }}>
@@ -59,7 +52,7 @@ export default async function PostsPage({
           </p>
         }
       >
-        <BlogFilters posts={posts} initialTag={tag} />
+        <BlogFilters posts={posts} tagStats={tagStats} initialTag={tag} />
       </Suspense>
     </div>
   );
