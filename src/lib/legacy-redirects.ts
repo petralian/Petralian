@@ -57,6 +57,34 @@ const RESERVED_ROOT_SEGMENTS = new Set([
   "llms.txt",
   "llm.txt",
   "ai.txt",
+  // WP locale prefixes (must not become /posts/:slug root redirects)
+  "nl",
+  "fr",
+  "de",
+  "es",
+  "it",
+  "pt",
+  "ja",
+  "zh",
+  "ko",
+  "pl",
+  "sv",
+  "da",
+  "fi",
+  "no",
+  "ru",
+  "ar",
+  "tr",
+  "id",
+  "th",
+  "vi",
+  "cs",
+  "hu",
+  "ro",
+  "el",
+  "uk",
+  "ca",
+  "ms",
 ]);
 
 /**
@@ -69,6 +97,9 @@ export function buildWordPressLegacyRedirects(): LegacyRedirect[] {
   const L = WP_LOCALES;
 
   return [
+    // Locale home pages first (e.g. /nl → /)
+    ...buildLocaleHomeRedirects(),
+
     // Feeds → canonical RSS
     { source: "/feed", destination: "/feed.xml", permanent },
     { source: "/feed/:path*", destination: "/feed.xml", permanent },
@@ -92,9 +123,6 @@ export function buildWordPressLegacyRedirects(): LegacyRedirect[] {
     { source: "/portfolio/:path*", destination: "/posts", permanent },
     { source: "/case-studies/:path*", destination: "/posts", permanent },
     { source: "/case-study/:path*", destination: "/posts", permanent },
-
-    // Locale home pages (exact match before /:locale/:slug patterns)
-    ...buildLocaleHomeRedirects(),
 
     // Locale-prefixed paths (e.g. /nl/my-post)
     { source: `/:locale(${L})/tag/:path*`, destination: "/posts", permanent },
