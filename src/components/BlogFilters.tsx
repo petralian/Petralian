@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import PostGrid from "@/components/PostGrid";
 import type { PostMeta } from "@/lib/posts";
-import { getTagTier, type TagStat } from "@/lib/tag-stats";
+import type { TagStat } from "@/lib/tag-stats";
+
+const HOVER_HIDE_MS = 220;
 
 interface BlogFiltersProps {
   posts: PostMeta[];
@@ -22,21 +24,62 @@ export default function BlogFilters({
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
   const [activeTag, setActiveTag] = useState(initialTag ?? "All");
-  const [previewTag, setPreviewTag] = useState<string | null>(null);
+  const [hoverTag, setHoverTag] = useState<string | null>(null);
+  const [finePointer, setFinePointer] = useState(false);
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const tagFromUrl = searchParams.get("tag");
     setActiveTag(tagFromUrl ?? "All");
   }, [searchParams]);
 
-  const preview = useMemo(
-    () => tagStats.find((t) => t.tag === previewTag) ?? null,
-    [tagStats, previewTag]
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setFinePointer(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+    };
+  }, []);
+
+  const cancelHide = useCallback(() => {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
+  }, []);
+
+  const showHover = useCallback(
+    (tag: string) => {
+      if (!finePointer || activeTag !== "All") return;
+      cancelHide();
+      setHoverTag(tag);
+    },
+    [activeTag, cancelHide, finePointer]
   );
+
+  const scheduleHideHover = useCallback(() => {
+    if (!finePointer || activeTag !== "All") return;
+    cancelHide();
+    hideTimer.current = setTimeout(() => setHoverTag(null), HOVER_HIDE_MS);
+  }, [activeTag, cancelHide, finePointer]);
+
+  const teaserTag = activeTag !== "All" ? activeTag : hoverTag;
+  const teaser = useMemo(
+    () => (teaserTag ? tagStats.find((t) => t.tag === teaserTag) ?? null : null),
+    [tagStats, teaserTag]
+  );
+  const teaserPinned = activeTag !== "All";
 
   function setTag(tag: string) {
     setActiveTag(tag);
-    setPreviewTag(null);
+    setHoverTag(null);
+    cancelHide();
     if (tag === "All") {
       router.push("/posts", { scroll: false });
     } else {
@@ -92,75 +135,87 @@ export default function BlogFilters({
             <p className="blog-topics-label">Browse by topic</p>
             <p className="blog-topics-hint">
               <span className="blog-topics-hint-desktop">
-                Hover for a preview · click to filter
+                Click to filter · hover to sample articles
               </span>
               <span className="blog-topics-hint-mobile">Tap a topic to filter</span>
             </p>
           </div>
 
           <div
-            className="blog-topics-cloud"
-            role="group"
-            aria-label="Filter posts by topic"
+            className="blog-topics-hover-zone"
+            onMouseLeave={teaserPinned ? undefined : scheduleHideHover}
           >
-            <button
-              type="button"
-              className={`blog-topic-pill blog-topic-pill--sm${activeTag === "All" ? " blog-topic-pill--active" : ""}`}
-              onClick={() => setTag("All")}
-              aria-pressed={activeTag === "All"}
+            <div
+              className="blog-topics-cloud"
+              role="group"
+              aria-label="Filter posts by topic"
             >
-              All topics
-              <span className="blog-topic-pill-count">{posts.length}</span>
-            </button>
+              <button
+                type="button"
+                className={`blog-topic-pill blog-topic-pill--all${activeTag === "All" ? " blog-topic-pill--active" : ""}`}
+                onClick={() => setTag("All")}
+                aria-pressed={activeTag === "All"}
+              >
+                All topics
+                <span className="blog-topic-pill-count">{posts.length}</span>
+              </button>
 
-            {tagStats.map(({ tag, count }) => {
-              const tier = getTagTier(count);
-              const isActive = activeTag === tag;
-              return (
-                <button
-                  key={tag}
-                  type="button"
-                  className={`blog-topic-pill blog-topic-pill--${tier}${isActive ? " blog-topic-pill--active" : ""}`}
-                  onClick={() => setTag(tag)}
-                  onMouseEnter={() => setPreviewTag(tag)}
-                  onMouseLeave={() => setPreviewTag(null)}
-                  onFocus={() => setPreviewTag(tag)}
-                  onBlur={() => setPreviewTag(null)}
-                  aria-pressed={isActive}
-                >
-                  {tag}
-                  <span className="blog-topic-pill-count">{count}</span>
-                </button>
-              );
-            })}
-          </div>
+              {tagStats.map(({ tag, count }) => {
+                const isActive = activeTag === tag;
+                return (
+                  <button
+                    key={tag}
+                    type="button"
+                    className={`blog-topic-pill${isActive ? " blog-topic-pill--active" : ""}`}
+                    onClick={() => setTag(tag)}
+                    onMouseEnter={() => showHover(tag)}
+                    onFocus={() => showHover(tag)}
+                    onBlur={scheduleHideHover}
+                    aria-pressed={isActive}
+                  >
+                    {tag}
+                    <span className="blog-topic-pill-count">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-          {preview && (
-            <div className="blog-topics-preview" role="status" aria-live="polite">
-              <p className="blog-topics-preview-label">
-                {preview.count} article{preview.count === 1 ? "" : "s"} on{" "}
-                <strong>{preview.tag}</strong>
-              </p>
-              <ul className="blog-topics-preview-list">
-                {preview.posts.slice(0, 3).map((post) => (
-                  <li key={post.slug}>
-                    <Link href={`/posts/${post.slug}`} className="blog-topics-preview-link">
-                      {post.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {preview.count > 3 && (
-                <button
-                  type="button"
-                  className="blog-topics-preview-more"
-                  onClick={() => setTag(preview.tag)}
-                >
-                  View all {preview.count} →
-                </button>
+            <div
+              className={`blog-topics-teaser${teaser ? " blog-topics-teaser--open" : ""}${teaserPinned ? " blog-topics-teaser--pinned" : ""}`}
+              onMouseEnter={() => teaserTag && showHover(teaserTag)}
+              aria-hidden={!teaser}
+            >
+              {teaser && (
+                <div className="blog-topics-teaser-inner">
+                  <p className="blog-topics-teaser-label">
+                    {teaserPinned ? (
+                      <>
+                        Sample articles in <strong>{teaser.tag}</strong> — full list
+                        below
+                      </>
+                    ) : (
+                      <>
+                        {teaser.count} article{teaser.count === 1 ? "" : "s"} on{" "}
+                        <strong>{teaser.tag}</strong> — click the tag to filter
+                      </>
+                    )}
+                  </p>
+                  <ul className="blog-topics-teaser-list">
+                    {teaser.posts.slice(0, 3).map((post) => (
+                      <li key={post.slug}>
+                        <Link
+                          href={`/posts/${post.slug}`}
+                          className="blog-topics-teaser-link"
+                        >
+                          {post.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
-          )}
+          </div>
         </div>
 
         {activeTag !== "All" && (
