@@ -5,22 +5,35 @@ date: 2026-07-04
 status: published
 category: Career
 tags:
-  - Leadership
-  - Agentic AI
-  - Program Delivery
-  - Enterprise AI
-excerpt: "When the agent writes most of the code, the job shifts from typing to operating-system design: rules, file memory, session handoffs, and gates before deploy. Lessons from running that model on production repos."
+- Enterprise AI
+- Agentic AI
+- Program Delivery
+- Leadership
+excerpt: 'When the agent writes most of the code, the job shifts from typing to operating-system
+  design: rules, file memory, session handoffs, and gates before deploy. Lessons from
+  running that model on production repos.'
 featured_image: /images/posts/what-i-learned-directing-ai-as-my-primary-engineer.png
-featured_image_alt: "Conductor podium facing luminous code panels representing directing AI as primary engineer"
+featured_image_alt: Conductor podium facing luminous code panels representing directing
+  AI as primary engineer
 focus_keyword: directing AI as primary engineer
-seo_description: "What changes when AI is your primary implementer: operating-system design, file memory, session handoffs, and deploy gates—not model selection alone."
+seo_description: 'What changes when AI is your primary implementer: operating-system
+  design, file memory, session handoffs, and deploy gates—not model selection alone.'
 related_posts:
-  - training-an-ai-is-like-managing-an-employee
-  - composer-2-5-baseline-model-tighter-bootstrap-better-results
-  - why-deliberate-file-memory-beats-hoping-agents-remember
-image_prompt: "Cinematic 16:9 wide shot of a conductor podium facing an orchestra pit where luminous code panels replace musicians, warm amber key light from above, shallow depth of field, no faces, no logos, no readable text."
-image_prompt_variant_1: "Surreal 16:9 shipyard control tower at dusk: captain's chair overlooks robotic cranes moving labeled cargo crates into a dry dock, bioluminescent teal accents, no readable text, no logos."
-image_prompt_variant_2: "Bold 16:9 isometric poster: three blocks Rules Memory Footer feeding a central Deploy gate, flat graphic style, risograph grain, copper and slate palette, no logos, no readable text."
+- training-an-ai-is-like-managing-an-employee
+- composer-2-5-baseline-model-tighter-bootstrap-better-results
+- why-deliberate-file-memory-beats-hoping-agents-remember
+image_prompt: Cinematic 16:9 wide shot of a conductor podium facing an orchestra pit
+  where luminous code panels replace musicians, warm amber key light from above, shallow
+  depth of field, no faces, no logos, no readable text.
+image_prompt_variant_1: 'Surreal 16:9 shipyard control tower at dusk: captain''s chair
+  overlooks robotic cranes moving labeled cargo crates into a dry dock, bioluminescent
+  teal accents, no readable text, no logos.'
+image_prompt_variant_2: 'Bold 16:9 isometric poster: three blocks Rules Memory Footer
+  feeding a central Deploy gate, flat graphic style, risograph grain, copper and slate
+  palette, no logos, no readable text.'
+format: hybrid
+best_for: Leaders directing AI as primary engineer — and builders curious how that
+  feels in practice
 ---
 
 > **Management habits:** [Training an AI is like managing an employee](/posts/training-an-ai-is-like-managing-an-employee)  

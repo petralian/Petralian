@@ -5,23 +5,33 @@ date: 2026-07-04
 status: published
 category: AI & Building
 tags:
-  - Agentic AI
-  - AI Memory
-  - Obsidian
-excerpt: External memory is four tiers in practice — short-term, operational, evergreen, and a feedback loop hardened into rules and footers. The harness gates when each tier loads so you keep control without token bloat.
+- Agentic AI
+- AI Memory
+- Obsidian
+excerpt: External memory is four tiers in practice — short-term, operational, evergreen,
+  and a feedback loop hardened into rules and footers. The harness gates when each
+  tier loads so you keep control without token bloat.
 featured_image: /images/posts/cursor-harness-memory-loop-2026.png
 focus_keyword: Cursor agent harness memory loop
-seo_description: How to gate four tiers of external memory in Cursor — operational, evergreen, and feedback loop layers — without loading brain-pack on every question. Aligns with the External Memory Series.
+seo_description: How to gate four tiers of external memory in Cursor — operational,
+  evergreen, and feedback loop layers — without loading brain-pack on every question.
+  Aligns with the External Memory Series.
 series: Cursor Agent Harness Series
 series_order: 2
 related_posts:
-  - cursor-lightweight-harness-without-microservice-2026
-  - three-layer-external-brain-for-ai-first-development
-  - why-deliberate-file-memory-beats-hoping-agents-remember
-  - external-memory-series-guide
-image_prompt: "Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack, Vault on a steel desk with one gate lever in front, cool side light, no readable text, no faces."
-image_prompt_variant_1: "Surreal 16:9 library: hot warm cold shelves as colored bands, a single turnstile before the reading desk, indigo and copper, no logos."
-image_prompt_variant_2: "Bold isometric 16:9: stacked memory layers with one arrow through a gate card Mode A Skip, risograph teal and cream, no text."
+- cursor-lightweight-harness-without-microservice-2026
+- three-layer-external-brain-for-ai-first-development
+- why-deliberate-file-memory-beats-hoping-agents-remember
+- external-memory-series-guide
+image_prompt: 'Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,
+  Vault on a steel desk with one gate lever in front, cool side light, no readable
+  text, no faces.'
+image_prompt_variant_1: 'Surreal 16:9 library: hot warm cold shelves as colored bands,
+  a single turnstile before the reading desk, indigo and copper, no logos.'
+image_prompt_variant_2: 'Bold isometric 16:9: stacked memory layers with one arrow
+  through a gate card Mode A Skip, risograph teal and cream, no text.'
+format: hands-on
+best_for: Builders connecting file memory, Obsidian, and agent loops in daily work
 ---
 
 > **Series:** Cursor Agent Harness (Part 2 of 3)  

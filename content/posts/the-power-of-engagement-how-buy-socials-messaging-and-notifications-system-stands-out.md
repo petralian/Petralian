@@ -9,9 +9,12 @@ tags:
 - Customer Experience
 - Marketing Technology
 - Ecommerce
+- Social Commerce
 excerpt: ''
 featured_image: /images/posts/buysocial-messaging-notifications-hero.jpg
 seo_description: ''
+format: strategic
+best_for: Ecommerce operators evaluating messaging and notification engagement patterns
 ---
 
 When building a platform designed to empower brands, one of the most important questions we kept coming back to was this: **How do we help brands not just attract customers but keep them coming back?** The solution we arrived at is one of the simplest yet most impactful features of [Buy.social](http://Buy.social)-our **messaging and notifications system**. It’s more than just a communication tool; it’s a driver of engagement, a feedback loop, and an advertising channel all rolled into one.

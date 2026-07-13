@@ -18,6 +18,8 @@ seo_description: 'The AI memory problem explained: how OpenClaw, Hermes, Karpath
   LLM wiki, and Obsidian each solve it differently - and which approach survives when
   the tooling landscape shifts.'
 image: null
+format: hybrid
+best_for: Builders and product leads comparing durable memory approaches for agents
 ---
 
 # The AI Memory Problem - OpenClaw, Hermes, Karpathy, and the Approach That Actually Survives

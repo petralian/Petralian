@@ -6,6 +6,7 @@ status: published
 category: AI & Building
 tags:
 - Developer Tools
+- SEO
 excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
   site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options
   that don't exist in Next.js 16 and will silently break your build.
@@ -25,6 +26,8 @@ image_prompt_variant_2: 'Split editorial composition: left side shows a tangled 
   of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline
   diagram with green checkmarks — professional, polished, editorial illustration style,
   muted tones'
+format: hands-on
+best_for: Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

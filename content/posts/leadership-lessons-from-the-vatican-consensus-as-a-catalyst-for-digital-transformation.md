@@ -7,9 +7,13 @@ category: Career
 tags:
 - Leadership
 - Digital Transformation
+- Program Delivery
 excerpt: ''
 featured_image: /images/posts/digital-transformation-leadership-hero.jpg
 seo_description: ''
+format: strategic
+best_for: Transformation leaders who need coalition-building lessons beyond the usual
+  tech playbook
 ---
 
 The recent news that the 133 cardinals have not yet elected a new Pope reminds us that transformative decisions require broad support. In the Vatican’s centuries-old process, a two-thirds majority is needed, ensuring that the chosen leader represents a collective vision-an approach that resonates well beyond religious institutions and into modern business and marketing.

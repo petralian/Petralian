@@ -18,6 +18,9 @@ seo_description: Use this team playbook to roll out Gravio across multiple repos
 image_prompt: A network map of many software repositories connected to one quality
   dashboard hub, team avatars collaborating, clean product strategy illustration,
   balanced neutral and green tones
+format: hybrid
+best_for: Platform and engineering leads rolling AI quality scoring across multiple
+  repos
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

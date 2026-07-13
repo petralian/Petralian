@@ -7,6 +7,7 @@ category: AI & Building
 tags:
 - Agentic AI
 - Developer Tools
+- Generative AI
 excerpt: GitHub Copilot's new token-based pricing changes everything. Here's what
   it actually costs compared to OpenRouter and third-party relays when you code extensively.
 featured_image: /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.png
@@ -26,6 +27,9 @@ image_prompt_variant_2: 'Side-by-side maze comparison: left side shows tangled p
   with ''$39/month'' and ''1500 requests'' signs leading to a ''usage exceeded'' wall;
   right side shows clean, direct pipeline with clear token cost labels ($3/1M, $15/1M)
   flowing smoothly. Editorial illustration style, professional but playful.'
+format: hands-on
+best_for: Developers comparing real monthly cost across Copilot, OpenRouter, and similar
+  stacks
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

@@ -7,9 +7,13 @@ category: Commerce & Marketing
 tags:
 - Marketing Technology
 - Agency Landscape
+- Digital Transformation
 excerpt: ''
 featured_image: /images/posts/programmatic-transparency-publicis-trade-desk-2026.jpg
 seo_description: ''
+format: strategic
+best_for: Agency and media leaders following programmatic transparency and platform
+  power
 ---
 
 ### Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk (And Both Sides Have Questions to Answer)

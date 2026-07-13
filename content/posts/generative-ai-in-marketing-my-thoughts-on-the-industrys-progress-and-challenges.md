@@ -11,6 +11,9 @@ tags:
 excerpt: ''
 featured_image: /images/posts/generative-ai-marketing-industry-hero.jpeg
 seo_description: ''
+format: hybrid
+best_for: Marketing leaders who want an honest read on generative AI maturity in the
+  industry
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

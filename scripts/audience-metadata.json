@@ -1,0 +1,278 @@
+{
+  "ai-agent-quality-drift-detection": {
+    "format": "hybrid",
+    "best_for": "Teams running agent workflows who need a practical quality signal before drift becomes production risk"
+  },
+  "ai-quality-gate-ci-gravio": {
+    "format": "hands-on",
+    "best_for": "Builders wiring AI quality checks into CI and release pipelines"
+  },
+  "ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy": {
+    "format": "hybrid",
+    "best_for": "Retail and ecommerce leaders evaluating conversational commerce and AI distribution channels"
+  },
+  "best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management": {
+    "format": "hybrid",
+    "best_for": "Founders and marketers balancing AI-assisted content with durable search visibility"
+  },
+  "boutiques-agencies-consultancies-digital-transformation-roi": {
+    "format": "strategic",
+    "best_for": "Leaders choosing between boutique partners, agencies, and consultancies for transformation work"
+  },
+  "bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac": {
+    "format": "strategic",
+    "best_for": "APAC financial services leaders borrowing retail-grade personalization patterns"
+  },
+  "building-petralian-the-technical-reality": {
+    "format": "hands-on",
+    "best_for": "Builders curious how this site is wired — Obsidian, sync, and Next.js in practice"
+  },
+  "capturing-ui-designs-for-ai-agents-prompt-injection-risk": {
+    "format": "hands-on",
+    "best_for": "Builders feeding UI context to agents who want to understand prompt-injection risk"
+  },
+  "composer-2-5-baseline-model-tighter-bootstrap-better-results": {
+    "format": "hands-on",
+    "best_for": "Developers standardizing on a single coding model and tighter agent bootstrap"
+  },
+  "contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation": {
+    "format": "hybrid",
+    "best_for": "Commerce leaders and practitioners shaping conversational customer journeys"
+  },
+  "crafting-a-strong-digital-identity-for-startups-essential-branding-tips": {
+    "format": "strategic",
+    "best_for": "Founders and marketers defining brand identity before scale dilutes it"
+  },
+  "css-masonry-reading-order-column-count-fix": {
+    "format": "hands-on",
+    "best_for": "Front-end developers fixing masonry layout and screen-reader reading order"
+  },
+  "cursor-harness-measurement-2026": {
+    "format": "hands-on",
+    "best_for": "Builders measuring whether their Cursor harness actually improves output"
+  },
+  "cursor-harness-memory-loop-2026": {
+    "format": "hands-on",
+    "best_for": "Builders connecting file memory, Obsidian, and agent loops in daily work"
+  },
+  "cursor-lightweight-harness-without-microservice-2026": {
+    "format": "hands-on",
+    "best_for": "Solo builders and small teams who want harness discipline without microservice overhead"
+  },
+  "cursor-token-saving-tools-beyond-headroom-2026": {
+    "format": "hands-on",
+    "best_for": "Power users optimizing token spend and context windows in Cursor"
+  },
+  "cursorbench-fable-5-composer-2-5-cost-vs-score": {
+    "format": "hands-on",
+    "best_for": "Builders comparing model cost versus quality with reproducible benchmarks"
+  },
+  "customer-account-monolith-anti-pattern-shopify-extensions": {
+    "format": "hybrid",
+    "best_for": "Shopify merchants and developers splitting customer account extensions by real jobs"
+  },
+  "data-warehousing-as-a-cdp-can-you-really-have-it-all": {
+    "format": "hybrid",
+    "best_for": "Martech and data leaders deciding between warehouse-native CDP and packaged platforms"
+  },
+  "e-commerce-in-2025-trends-statistics-and-strategies-to-stay-ahead": {
+    "format": "strategic",
+    "best_for": "Commerce leaders scanning macro trends before annual planning cycles"
+  },
+  "ex-merkle-md-joins-silk-commerce": {
+    "format": "strategic",
+    "best_for": "Agency and commerce leaders following APAC network moves and partnership models"
+  },
+  "external-memory-series-guide": {
+    "format": "hybrid",
+    "best_for": "Anyone adopting file-based memory for AI-assisted work — start here for the series map"
+  },
+  "first-gravio-score-in-10-minutes": {
+    "format": "hands-on",
+    "best_for": "Builders trying Gravio scoring on a real repo in one sitting"
+  },
+  "fractional-marketing-revolutionize-startups-small-businesses": {
+    "format": "strategic",
+    "best_for": "Startup founders weighing fractional marketing versus full-time hires"
+  },
+  "generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges": {
+    "format": "hybrid",
+    "best_for": "Marketing leaders who want an honest read on generative AI maturity in the industry"
+  },
+  "getting-enterprise-ai-right-the-work-that-comes-before-deployment": {
+    "format": "strategic",
+    "best_for": "Leaders and program owners steering enterprise AI before go-live pressure wins"
+  },
+  "getting-to-lighthouse-100-on-nextjs-16": {
+    "format": "hands-on",
+    "best_for": "Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site"
+  },
+  "github-copilot-vs-openrouter-real-cost-comparison-for-developers": {
+    "format": "hands-on",
+    "best_for": "Developers comparing real monthly cost across Copilot, OpenRouter, and similar stacks"
+  },
+  "gravio-multi-repo-rollout-playbook": {
+    "format": "hybrid",
+    "best_for": "Platform and engineering leads rolling AI quality scoring across multiple repos"
+  },
+  "how-ai-and-human-imagination-work-together": {
+    "format": "hybrid",
+    "best_for": "Creative and marketing leaders exploring where human imagination still wins"
+  },
+  "how-gravio-scoring-engine-was-built": {
+    "format": "hands-on",
+    "best_for": "Builders who want the architecture behind an AI quality scoring engine"
+  },
+  "how-i-built-the-petralian-weekly-digest-on-brevo-free": {
+    "format": "hands-on",
+    "best_for": "Solo publishers automating a weekly digest without paid RSS tooling"
+  },
+  "infinity-loops-the-framework-behind-successful-brand-stories": {
+    "format": "strategic",
+    "best_for": "Brand and marketing leaders structuring narratives that sustain engagement"
+  },
+  "is-saas-being-dismantled-by-ai": {
+    "format": "strategic",
+    "best_for": "Leaders evaluating SaaS portfolio risk as AI reshapes software economics"
+  },
+  "is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant": {
+    "format": "strategic",
+    "best_for": "Martech leaders tracking Salesforce, CDP strategy, and platform consolidation"
+  },
+  "is-using-ai-in-creative-work-wrong": {
+    "format": "hybrid",
+    "best_for": "Creative directors and agency leaders navigating ethics and craft with generative AI"
+  },
+  "knowledge-work-agent-engine-guide-2026": {
+    "format": "hybrid",
+    "best_for": "Leaders and operators designing a knowledge-work engine around agents"
+  },
+  "knowledge-work-engine-leadership-decisions-2026": {
+    "format": "strategic",
+    "best_for": "Executives making the leadership calls that determine whether agent programs scale"
+  },
+  "knowledge-work-engine-marketing-voice-2026": {
+    "format": "hybrid",
+    "best_for": "Marketing leaders keeping brand voice consistent when agents draft at scale"
+  },
+  "knowledge-work-engine-project-management-2026": {
+    "format": "hybrid",
+    "best_for": "Program and delivery leads running projects where agents are part of the team"
+  },
+  "leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation": {
+    "format": "strategic",
+    "best_for": "Transformation leaders who need coalition-building lessons beyond the usual tech playbook"
+  },
+  "leadership-styles-and-their-impact-on-marketing-and-branding": {
+    "format": "strategic",
+    "best_for": "Marketing leaders reflecting on how leadership style shapes brand outcomes"
+  },
+  "marketing-101-fundamental-principles-for-sustainable-business-growth": {
+    "format": "strategic",
+    "best_for": "Founders and generalists who want durable marketing principles without the jargon"
+  },
+  "mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools": {
+    "format": "hybrid",
+    "best_for": "Marketers moving from ad-hoc prompts to repeatable campaign frameworks"
+  },
+  "new-merkle-md": {
+    "format": "strategic",
+    "best_for": "Agency and network leaders watching senior talent moves across APAC"
+  },
+  "obsidian-memory-layers-personal-productivity-beyond-chat": {
+    "format": "hybrid",
+    "best_for": "Knowledge workers layering Obsidian memory beyond a single chat thread"
+  },
+  "programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk": {
+    "format": "strategic",
+    "best_for": "Agency and media leaders following programmatic transparency and platform power"
+  },
+  "publishing-obsidian-drafts-through-github-actions": {
+    "format": "hands-on",
+    "best_for": "Builders publishing from Obsidian with GitHub Actions and minimal friction"
+  },
+  "redefining-media-agency-success-embracing-innovation-in-the-digital-era": {
+    "format": "strategic",
+    "best_for": "Agency leaders redefining success metrics as media and innovation converge"
+  },
+  "redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac": {
+    "format": "strategic",
+    "best_for": "APAC leaders thinking about talent pipelines when AI changes junior work"
+  },
+  "shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article": {
+    "format": "strategic",
+    "best_for": "Retail and media strategists connecting shoppable media to omnichannel plans"
+  },
+  "thank-you-merkle": {
+    "format": "strategic",
+    "best_for": "Agency alumni and leaders reflecting on network culture and career chapters"
+  },
+  "the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing": {
+    "format": "strategic",
+    "best_for": "Marketing and agency leaders reading holding-company transformation signals"
+  },
+  "the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives": {
+    "format": "hybrid",
+    "best_for": "Builders and product leads comparing durable memory approaches for agents"
+  },
+  "the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo": {
+    "format": "hybrid",
+    "best_for": "Marketers and SEO practitioners planning for LLM-shaped discovery"
+  },
+  "the-future-of-social-commerce-why-brands-need-to-own-their-customer-data": {
+    "format": "strategic",
+    "best_for": "Commerce leaders prioritizing first-party data as social platforms shift"
+  },
+  "the-power-of-engagement-how-buy-socials-messaging-and-notifications-system-stands-out": {
+    "format": "strategic",
+    "best_for": "Ecommerce operators evaluating messaging and notification engagement patterns"
+  },
+  "the-rise-of-cxm": {
+    "format": "strategic",
+    "best_for": "Customer experience and marketing leaders mapping the CXM landscape"
+  },
+  "three-layer-external-brain-for-ai-first-development": {
+    "format": "hands-on",
+    "best_for": "Builders implementing the three-layer external memory model for AI-first dev"
+  },
+  "training-an-ai-is-like-managing-an-employee": {
+    "format": "hybrid",
+    "best_for": "Managers and team leads translating people-management instincts to AI workflows"
+  },
+  "vscode-copilot-to-cursor-what-changed-in-my-ai-workflow": {
+    "format": "hands-on",
+    "best_for": "Developers comparing Copilot and Cursor in a real daily workflow"
+  },
+  "what-i-learned-directing-ai-as-my-primary-engineer": {
+    "format": "hybrid",
+    "best_for": "Leaders directing AI as primary engineer — and builders curious how that feels in practice"
+  },
+  "why-deliberate-file-memory-beats-hoping-agents-remember": {
+    "format": "hybrid",
+    "best_for": "Teams adopting governance for file-based agent memory instead of hoping context sticks"
+  },
+  "why-file-memory-beats-the-three-layer-diagram-for-builders": {
+    "format": "hybrid",
+    "best_for": "Builders choosing pragmatic file memory over diagram-perfect architecture"
+  },
+  "why-i-rebuilt-petralian-on-nextjs": {
+    "format": "hands-on",
+    "best_for": "Developers weighing a Next.js rebuild for content, SEO, and shipping speed"
+  },
+  "why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it": {
+    "format": "strategic",
+    "best_for": "Cross-industry leaders borrowing innovation pace from retail"
+  },
+  "why-your-ai-program-may-fail-before-it-starts": {
+    "format": "strategic",
+    "best_for": "Leaders running a fast pre-flight check before an enterprise AI program launches"
+  },
+  "your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian": {
+    "format": "hybrid",
+    "best_for": "Knowledge workers overwhelmed by context who want a second brain without hype"
+  },
+  "zero-knowledge-ai-quality-gravio": {
+    "format": "hands-on",
+    "best_for": "Builders exploring privacy-preserving AI quality scoring with Gravio"
+  }
+}

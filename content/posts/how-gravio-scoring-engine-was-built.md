@@ -8,6 +8,7 @@ tags:
 - Agentic AI
 - AI Quality
 - Developer Tools
+- Gravio
 excerpt: A practical breakdown of how Gravio turns repository signals into six-dimension
   scores, hard quality gates, and actionable remediation plans.
 featured_image: /images/posts/how-gravio-scoring-engine-was-built.png
@@ -25,6 +26,8 @@ image_prompt_variant_2: 'Maze vs Clear Workflow split-screen: left side shows ta
   dashboards and noisy alerts, right side shows a clean scored pipeline with release
   gate checks and traceable evidence, editorial style, sharp contrast, modern product
   illustration.'
+format: hands-on
+best_for: Builders who want the architecture behind an AI quality scoring engine
 ---
 
 Gravio’s scoring engine was built to solve one hard problem: teams using AI-assisted development needed a repeatable way to tell whether code quality was improving or quietly drifting.

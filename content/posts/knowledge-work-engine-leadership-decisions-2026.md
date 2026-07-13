@@ -1,27 +1,40 @@
 ---
-title: Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit Trails)
+title: Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit
+  Trails)
 slug: knowledge-work-engine-leadership-decisions-2026
 date: 2026-07-06
 status: published
 category: Career
 tags:
-  - Leadership
-  - Enterprise AI
-  - Program Delivery
-  - Agentic AI
-excerpt: Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet applied AI. Leaders keep accountability; the file-based engine holds purpose, dissent, and decision records agents need at session start.
+- Leadership
+- Enterprise AI
+- Program Delivery
+- Agentic AI
+excerpt: Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet
+  applied AI. Leaders keep accountability; the file-based engine holds purpose, dissent,
+  and decision records agents need at session start.
 featured_image: /images/posts/knowledge-work-engine-leadership-decisions-2026.png
 focus_keyword: AI leadership Golden Circle decision governance
-seo_description: "Lead with AI using Sinek's Why-How-What and Drucker decision steps: RACI, advisory vs commit, stakeholder maps, memory loops, and governance footers for program leaders."
+seo_description: 'Lead with AI using Sinek''s Why-How-What and Drucker decision steps:
+  RACI, advisory vs commit, stakeholder maps, memory loops, and governance footers
+  for program leaders.'
 series: Knowledge Work Engine Series
 series_order: 2
 related_posts:
-  - knowledge-work-agent-engine-guide-2026
-  - knowledge-work-engine-project-management-2026
-  - why-deliberate-file-memory-beats-hoping-agents-remember
-image_prompt: Cinematic 16:9 low-angle of a single chair at a round table, three empty chairs, one open ledger with blank pages, warm side light, wood and concrete, no faces, no readable text.
-image_prompt_variant_1: "Surreal 16:9 courtroom diorama: tiny gavel, witness stand as a file folder, scales balance a chat bubble vs a stamped document, amber spotlight, no readable text."
-image_prompt_variant_2: "Graphic 16:9 poster: two panels Advisory vs Committed decision with arrow gate between, bold navy and coral flat shapes, no logos."
+- knowledge-work-agent-engine-guide-2026
+- knowledge-work-engine-project-management-2026
+- why-deliberate-file-memory-beats-hoping-agents-remember
+image_prompt: Cinematic 16:9 low-angle of a single chair at a round table, three empty
+  chairs, one open ledger with blank pages, warm side light, wood and concrete, no
+  faces, no readable text.
+image_prompt_variant_1: 'Surreal 16:9 courtroom diorama: tiny gavel, witness stand
+  as a file folder, scales balance a chat bubble vs a stamped document, amber spotlight,
+  no readable text.'
+image_prompt_variant_2: 'Graphic 16:9 poster: two panels Advisory vs Committed decision
+  with arrow gate between, bold navy and coral flat shapes, no logos.'
+format: strategic
+best_for: Executives making the leadership calls that determine whether agent programs
+  scale
 ---
 
 > **Knowledge Work Engine Series (Part 2)**  

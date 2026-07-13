@@ -41,21 +41,21 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 
 ## Topics
 
-- Agentic AI (26 articles): https://petralian.com/topics/agentic-ai
-- Developer Tools (19 articles): https://petralian.com/topics/developer-tools
+- Agentic AI (29 articles): https://petralian.com/topics/agentic-ai
+- Developer Tools (20 articles): https://petralian.com/topics/developer-tools
+- Marketing Technology (18 articles): https://petralian.com/topics/marketing-technology
 - AI in Marketing (15 articles): https://petralian.com/topics/ai-in-marketing
-- Marketing Technology (15 articles): https://petralian.com/topics/marketing-technology
+- Digital Transformation (13 articles): https://petralian.com/topics/digital-transformation
+- Ecommerce (13 articles): https://petralian.com/topics/ecommerce
 - Leadership (13 articles): https://petralian.com/topics/leadership
-- Digital Transformation (12 articles): https://petralian.com/topics/digital-transformation
+- Generative AI (11 articles): https://petralian.com/topics/generative-ai
 - Obsidian (11 articles): https://petralian.com/topics/obsidian
-- AI Memory (9 articles): https://petralian.com/topics/ai-memory
+- Agency Landscape (10 articles): https://petralian.com/topics/agency-landscape
+- AI Memory (10 articles): https://petralian.com/topics/ai-memory
+- Enterprise AI (10 articles): https://petralian.com/topics/enterprise-ai
 - AI Quality (9 articles): https://petralian.com/topics/ai-quality
-- Ecommerce (9 articles): https://petralian.com/topics/ecommerce
-- Enterprise AI (9 articles): https://petralian.com/topics/enterprise-ai
-- Generative AI (9 articles): https://petralian.com/topics/generative-ai
-- Agency Landscape (7 articles): https://petralian.com/topics/agency-landscape
-- Customer Experience (7 articles): https://petralian.com/topics/customer-experience
-- Program Delivery (7 articles): https://petralian.com/topics/program-delivery
+- Brand Strategy (9 articles): https://petralian.com/topics/brand-strategy
+- Customer Experience (9 articles): https://petralian.com/topics/customer-experience
 
 ## Published articles
 

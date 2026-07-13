@@ -7,9 +7,12 @@ category: Career
 tags:
 - Leadership
 - APAC
+- Agency Landscape
 excerpt: ''
 featured_image: /images/posts/thank-you-merkle-team-hero.jpg
 seo_description: ''
+format: strategic
+best_for: Agency alumni and leaders reflecting on network culture and career chapters
 ---
 
 After nearly six incredible years with **Merkle Hong Kong**, I’ve officially transitioned from my role as **Managing Director** to explore new opportunities that align with my passion for shaping organizational strategy and driving digital growth initiatives. This next chapter offers me the chance to build on my **regional leadership experience** and expertise in **customer experience management (CXM)** while continuing my professional development through mentoring, coaching, and collaboration.

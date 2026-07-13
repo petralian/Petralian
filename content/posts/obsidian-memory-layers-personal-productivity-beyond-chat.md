@@ -8,6 +8,7 @@ tags:
 - Obsidian
 - Agentic AI
 - External Memory Series
+- AI Memory
 series: External Memory Series
 series_order: 2
 excerpt: The same three-layer memory stack used for shipping code works for strategic
@@ -27,6 +28,8 @@ image_prompt_variant_2: Maze of sticky notes and notification badges on the left
   a single clear kanban column and one notebook on the right—editorial split, professional
   playful contrast.
 featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.png
+format: hybrid
+best_for: Knowledge workers layering Obsidian memory beyond a single chat thread
 ---
 
 > **External Memory Series (2 of 4)** — [Series hub](/posts/external-memory-series-guide) · [1 Implementation (builders)](/posts/three-layer-external-brain-for-ai-first-development) · **2 Productivity (this article)** · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  

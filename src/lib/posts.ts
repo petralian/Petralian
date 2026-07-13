@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { isPostFormat, type PostFormat } from "@/lib/post-format";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 
@@ -33,6 +34,8 @@ export interface PostMeta {
   seo_description: string;
   featured_image_alt: string;
   readingTime: string;
+  format: PostFormat | "";
+  best_for: string;
 }
 
 export interface Post extends PostMeta {
@@ -82,6 +85,8 @@ export function getPostMeta(slug: string): PostMeta {
     seo_description: data.seo_description || data.excerpt || "",
     featured_image_alt: data.featured_image_alt || "",
     readingTime: readingTime(content).text,
+    format: isPostFormat(data.format) ? data.format : "",
+    best_for: typeof data.best_for === "string" ? data.best_for : "",
   };
 }
 

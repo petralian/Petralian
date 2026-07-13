@@ -11,6 +11,9 @@ tags:
 excerpt: ''
 featured_image: /images/posts/marketing-101-fundamentals-principles-hero.jpg
 seo_description: ''
+format: strategic
+best_for: Founders and generalists who want durable marketing principles without the
+  jargon
 ---
 
 As a digital transformation strategist who has worked with global brands across multiple sectors, I've consistently observed that strong marketing fundamentals serve as the backbone of successful business growth. Whether working with luxury brands like Estée Lauder and Lanvin or financial institutions like Standard Chartered and Livi Bank, I've seen firsthand how these principles transcend industries and market conditions.

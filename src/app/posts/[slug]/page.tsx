@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import { format, parseISO } from "date-fns";
 import { getAllPosts, getPost } from "@/lib/posts";
 import { getTopicUrl } from "@/lib/tag-slug";
+import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -133,6 +134,17 @@ export default async function PostPage({
               ]}
             />
             <h1 className="post-hero-title">{post.title}</h1>
+            {post.format && (
+              <div className="post-hero-format">
+                <FormatBadge format={post.format} variant="full" />
+              </div>
+            )}
+            {post.best_for && (
+              <p className="post-hero-best-for">
+                <span className="post-hero-best-for-label">Best for</span>
+                {post.best_for}
+              </p>
+            )}
             {post.excerpt && (
               <p className="post-hero-excerpt">{post.excerpt}</p>
             )}

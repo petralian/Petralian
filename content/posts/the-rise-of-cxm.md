@@ -9,9 +9,13 @@ tags:
 - Customer Experience
 - Marketing Technology
 - Ecommerce
-seo_description: 'Customer experience management (CXM): why it matters, best practices, and FAQ. Full article on LinkedIn.'
-excerpt: 'CXM designs frictionless, personalized customer journeys across touchpoints. Summary, common mistakes, and FAQ—with link to the full LinkedIn article.'
+seo_description: 'Customer experience management (CXM): why it matters, best practices,
+  and FAQ. Full article on LinkedIn.'
+excerpt: CXM designs frictionless, personalized customer journeys across touchpoints.
+  Summary, common mistakes, and FAQ—with link to the full LinkedIn article.
 featured_image: /images/posts/cxm-customer-experience-management-hero.png
+format: strategic
+best_for: Customer experience and marketing leaders mapping the CXM landscape
 ---
 
 ## What is customer experience management (CXM)?

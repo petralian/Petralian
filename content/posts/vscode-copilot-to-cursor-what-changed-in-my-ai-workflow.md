@@ -1,21 +1,37 @@
 ---
-title: "From VS Code Copilot to Cursor: What Changed in My AI Workflow"
+title: 'From VS Code Copilot to Cursor: What Changed in My AI Workflow'
 slug: vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
 date: 2026-06-27
 status: published
 category: AI & Building
 tags:
-  - Developer Tools
-  - Agentic AI
-  - Obsidian
-  - AI Memory
-excerpt: Copilot had the same footer spec but dropped it on long chats. Cursor keeps it with alwaysApply rules, optional hooks, and a v3.1 mode-based Response Footer Contract.
+- Developer Tools
+- Agentic AI
+- Obsidian
+- AI Memory
+excerpt: Copilot had the same footer spec but dropped it on long chats. Cursor keeps
+  it with alwaysApply rules, optional hooks, and a v3.1 mode-based Response Footer
+  Contract.
 featured_image: /images/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow.png
 focus_keyword: VS Code Copilot vs Cursor migration
-seo_description: "Why VS Code Copilot forgets session footers but Cursor follows them: alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian file memory for agent mode."
-image_prompt: "Cinematic 16:9 low-angle shot: two translucent IDE panes floating in a dim machine room, one pane showing inline code completions and the other an agent chat thread, both fed by copper cables into a single glowing archive cabinet silhouette, amber and cyan rim light, shallow depth of field, no logos, no faces, no readable text."
-image_prompt_variant_1: "Surreal 16:9 underwater observatory diorama: portholes reveal VS Code on one side and Cursor agent mode on the other, paper-note fish swim into a coral filing structure, bioluminescent teal accents, whimsical technical tone, no readable text, no logos."
-image_prompt_variant_2: "Bold isometric 16:9 poster illustration: exploded schematic of Rules, Hooks, Vault, and Footer components launching from a VS Code block into a Cursor frame, risograph grain texture, orange and slate palette, graphic not photographic, no logos, no readable text."
+seo_description: 'Why VS Code Copilot forgets session footers but Cursor follows them:
+  alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian file
+  memory for agent mode.'
+image_prompt: 'Cinematic 16:9 low-angle shot: two translucent IDE panes floating in
+  a dim machine room, one pane showing inline code completions and the other an agent
+  chat thread, both fed by copper cables into a single glowing archive cabinet silhouette,
+  amber and cyan rim light, shallow depth of field, no logos, no faces, no readable
+  text.'
+image_prompt_variant_1: 'Surreal 16:9 underwater observatory diorama: portholes reveal
+  VS Code on one side and Cursor agent mode on the other, paper-note fish swim into
+  a coral filing structure, bioluminescent teal accents, whimsical technical tone,
+  no readable text, no logos.'
+image_prompt_variant_2: 'Bold isometric 16:9 poster illustration: exploded schematic
+  of Rules, Hooks, Vault, and Footer components launching from a VS Code block into
+  a Cursor frame, risograph grain texture, orange and slate palette, graphic not photographic,
+  no logos, no readable text.'
+format: hands-on
+best_for: Developers comparing Copilot and Cursor in a real daily workflow
 ---
 
 > **Memory stack background:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [External Memory series hub](/posts/external-memory-series-guide) · [Your brain was not built for this](/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian)  

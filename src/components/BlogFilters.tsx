@@ -3,7 +3,9 @@
 import { useMemo, useState } from "react";
 import PostGrid from "@/components/PostGrid";
 import TopicPills from "@/components/TopicPills";
+import FormatFilter, { type FormatFilterValue } from "@/components/FormatFilter";
 import type { PostMeta } from "@/lib/posts";
+import type { PostFormat } from "@/lib/post-format";
 import type { TagStat } from "@/lib/tag-stats";
 
 interface BlogFiltersProps {
@@ -11,19 +13,41 @@ interface BlogFiltersProps {
   tagStats: TagStat[];
 }
 
+function countByFormat(posts: PostMeta[]): Record<PostFormat, number> {
+  return posts.reduce(
+    (acc, post) => {
+      if (post.format) acc[post.format] += 1;
+      return acc;
+    },
+    { strategic: 0, "hands-on": 0, hybrid: 0 } as Record<PostFormat, number>
+  );
+}
+
 export default function BlogFilters({ posts, tagStats }: BlogFiltersProps) {
   const [search, setSearch] = useState("");
+  const [formatFilter, setFormatFilter] = useState<FormatFilterValue>("all");
+  const formatCounts = useMemo(() => countByFormat(posts), [posts]);
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase();
-    if (!q) return posts;
-    return posts.filter(
-      (p) =>
+    const q = search.toLowerCase().trim();
+    return posts.filter((p) => {
+      if (formatFilter !== "all" && p.format !== formatFilter) return false;
+      if (!q) return true;
+      return (
         p.title.toLowerCase().includes(q) ||
         p.excerpt.toLowerCase().includes(q) ||
+        p.best_for.toLowerCase().includes(q) ||
         p.tags.some((t) => t.toLowerCase().includes(q))
-    );
-  }, [posts, search]);
+      );
+    });
+  }, [posts, search, formatFilter]);
+
+  const hasActiveFilters = search.length > 0 || formatFilter !== "all";
+
+  const clearFilters = () => {
+    setSearch("");
+    setFormatFilter("all");
+  };
 
   return (
     <>
@@ -55,15 +79,33 @@ export default function BlogFilters({ posts, tagStats }: BlogFiltersProps) {
           </div>
         </div>
 
+        <FormatFilter
+          value={formatFilter}
+          counts={formatCounts}
+          total={posts.length}
+          onChange={setFormatFilter}
+        />
+
         <TopicPills tagStats={tagStats} postCount={posts.length} />
 
-        <p className="blog-results-count" aria-live="polite">
-          {filtered.length} article{filtered.length === 1 ? "" : "s"}
-        </p>
+        <div className="blog-results-row">
+          <p className="blog-results-count" aria-live="polite">
+            {filtered.length} article{filtered.length === 1 ? "" : "s"}
+          </p>
+          {hasActiveFilters && (
+            <button
+              type="button"
+              className="blog-clear-filters"
+              onClick={clearFilters}
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="blog-empty">No posts match that search.</p>
+        <p className="blog-empty">No posts match those filters.</p>
       ) : (
         <PostGrid posts={filtered} />
       )}

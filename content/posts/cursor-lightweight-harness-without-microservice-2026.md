@@ -5,23 +5,36 @@ date: 2026-07-04
 status: published
 category: AI & Building
 tags:
-  - Agentic AI
-  - Developer Tools
-  - AI Quality
-excerpt: Terminal-Bench harnesses look like separate products. On a production Shopify app I already had subagents, CI gates, and session rules. You keep model and mode control — the harness supports routing, tests, and memory gates, not autopilot.
+- Agentic AI
+- Developer Tools
+- AI Quality
+excerpt: Terminal-Bench harnesses look like separate products. On a production Shopify
+  app I already had subagents, CI gates, and session rules. You keep model and mode
+  control — the harness supports routing, tests, and memory gates, not autopilot.
 featured_image: /images/posts/cursor-lightweight-harness-without-microservice-2026.png
 focus_keyword: Cursor agent harness without microservice
-seo_description: How to run a lightweight AI harness in Cursor using rules, subagents, and CI checks instead of LangChain or Harbor. Policy table, starter kit, and what not to build.
+seo_description: How to run a lightweight AI harness in Cursor using rules, subagents,
+  and CI checks instead of LangChain or Harbor. Policy table, starter kit, and what
+  not to build.
 series: Cursor Agent Harness Series
 series_order: 1
 related_posts:
-  - cursor-token-saving-tools-beyond-headroom-2026
-  - composer-2-5-baseline-model-tighter-bootstrap-better-results
-  - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-  - three-layer-external-brain-for-ai-first-development
-image_prompt: "Cinematic 16:9: a single Composer pane on a workbench surrounded by labeled gate cards (Policy, Tests, CI) not a second server rack, copper rim light on concrete wall, no logos, no readable text, no faces."
-image_prompt_variant_1: "Surreal 16:9 planetarium dome: constellations are subagent icons but one bright path labeled Direct Composer, telescope on a rolling cart, deep violet and amber accents, no readable text."
-image_prompt_variant_2: "Bold isometric 16:9 poster: horizontal gate chain Direct to Batch to Test to Ship as flat blocks with checkmarks, risograph texture teal and slate, no logos."
+- cursor-token-saving-tools-beyond-headroom-2026
+- composer-2-5-baseline-model-tighter-bootstrap-better-results
+- vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+- three-layer-external-brain-for-ai-first-development
+image_prompt: 'Cinematic 16:9: a single Composer pane on a workbench surrounded by
+  labeled gate cards (Policy, Tests, CI) not a second server rack, copper rim light
+  on concrete wall, no logos, no readable text, no faces.'
+image_prompt_variant_1: 'Surreal 16:9 planetarium dome: constellations are subagent
+  icons but one bright path labeled Direct Composer, telescope on a rolling cart,
+  deep violet and amber accents, no readable text.'
+image_prompt_variant_2: 'Bold isometric 16:9 poster: horizontal gate chain Direct
+  to Batch to Test to Ship as flat blocks with checkmarks, risograph texture teal
+  and slate, no logos.'
+format: hands-on
+best_for: Solo builders and small teams who want harness discipline without microservice
+  overhead
 ---
 
 > **Series:** Cursor Agent Harness (Part 1 of 3)  

@@ -8,9 +8,13 @@ tags:
 - Ecommerce
 - Social Commerce
 - Marketing Technology
-seo_description: 'Shoppable media shortens path to purchase but trades off platform data and ops complexity. WARC exclusive summary, pros and cons, and FAQ.'
-excerpt: 'WARC exclusive on shoppable media as omnichannel strategy—pros, cons, operational costs, and when to keep shoppers on brand.com.'
+seo_description: Shoppable media shortens path to purchase but trades off platform
+  data and ops complexity. WARC exclusive summary, pros and cons, and FAQ.
+excerpt: WARC exclusive on shoppable media as omnichannel strategy—pros, cons, operational
+  costs, and when to keep shoppers on brand.com.
 featured_image: /images/posts/shoppable-media-warc-omnichannel-hero.jpg
+format: strategic
+best_for: Retail and media strategists connecting shoppable media to omnichannel plans
 ---
 
 ## What is shoppable media?

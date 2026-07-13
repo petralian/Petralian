@@ -5,23 +5,33 @@ date: 2026-07-04
 status: published
 category: AI & Building
 tags:
-  - Agentic AI
-  - Developer Tools
-  - AI Quality
-excerpt: Do not build Phase 2 orchestration until Phase 0 data says so. Layer 4 feedback — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks beat benchmark leaderboard anxiety.
+- Agentic AI
+- Developer Tools
+- AI Quality
+excerpt: Do not build Phase 2 orchestration until Phase 0 data says so. Layer 4 feedback
+  — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks beat benchmark
+  leaderboard anxiety.
 featured_image: /images/posts/cursor-harness-measurement-2026.png
 focus_keyword: measure Cursor agent harness ROI
-seo_description: How to measure a Cursor agent harness with session CSV logs, CI eval gates, and OpenRouter spend. When to defer LangChain or Harbor based on real failure modes.
+seo_description: How to measure a Cursor agent harness with session CSV logs, CI eval
+  gates, and OpenRouter spend. When to defer LangChain or Harbor based on real failure
+  modes.
 series: Cursor Agent Harness Series
 series_order: 3
 related_posts:
-  - cursor-lightweight-harness-without-microservice-2026
-  - cursor-harness-memory-loop-2026
-  - github-copilot-vs-openrouter-real-cost-comparison-for-developers
-  - three-layer-external-brain-for-ai-first-development
-image_prompt: "Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and a single OpenRouter receipt on a drafting table, warm desk lamp, no readable numbers, no faces."
-image_prompt_variant_1: "Surreal 16:9 observatory: CSV rows as star trails, eval gate as a shutter before a telescope, deep blue and amber, no text."
-image_prompt_variant_2: "Bold isometric 16:9: three panels Log CI Dollars connected by arrows, risograph slate and mint, no logos."
+- cursor-lightweight-harness-without-microservice-2026
+- cursor-harness-memory-loop-2026
+- github-copilot-vs-openrouter-real-cost-comparison-for-developers
+- three-layer-external-brain-for-ai-first-development
+image_prompt: 'Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and
+  a single OpenRouter receipt on a drafting table, warm desk lamp, no readable numbers,
+  no faces.'
+image_prompt_variant_1: 'Surreal 16:9 observatory: CSV rows as star trails, eval gate
+  as a shutter before a telescope, deep blue and amber, no text.'
+image_prompt_variant_2: 'Bold isometric 16:9: three panels Log CI Dollars connected
+  by arrows, risograph slate and mint, no logos.'
+format: hands-on
+best_for: Builders measuring whether their Cursor harness actually improves output
 ---
 
 > **Series:** Cursor Agent Harness (Part 3 of 3)  

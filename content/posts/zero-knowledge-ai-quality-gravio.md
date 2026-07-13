@@ -20,6 +20,8 @@ seo_description: Learn how Gravio approaches privacy-first AI agent scoring with
 image_prompt: A cinematic workstation scene with encrypted data streams flowing from
   local code editor into a secure cloud lock icon, neon blue and graphite palette,
   modern SaaS illustration style, high detail, no text overlay
+format: hands-on
+best_for: Builders exploring privacy-preserving AI quality scoring with Gravio
 ---
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 # Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { format, parseISO } from "date-fns";
 import TagPillLink from "@/components/TagPillLink";
+import FormatBadge from "@/components/FormatBadge";
 import type { PostMeta } from "@/lib/posts";
 
 interface PostCardProps {
@@ -41,11 +42,15 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
 
         <div className="post-card-body">
           <div className="post-card-meta">
-            {post.tags[0] ? (
-              <TagPillLink tag={post.tags[0]} className="post-card-topic" />
-            ) : (
-              <span />
-            )}
+            <div className="post-card-meta-left">
+              {post.format ? (
+                <FormatBadge format={post.format} className="post-card-format" />
+              ) : post.tags[0] ? (
+                <TagPillLink tag={post.tags[0]} className="post-card-topic" />
+              ) : (
+                <span />
+              )}
+            </div>
             <time dateTime={post.date} className="post-card-date">
               {formatDate(post.date)}
             </time>
@@ -54,6 +59,13 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           <h2 className={featured ? "post-card-title--featured" : "post-card-title"}>
             {post.title}
           </h2>
+
+          {post.best_for && (
+            <p className="post-card-best-for">
+              <span className="post-card-best-for-label">Best for</span>
+              {post.best_for}
+            </p>
+          )}
 
           {post.excerpt && (
             <p className="post-card-excerpt">{post.excerpt}</p>

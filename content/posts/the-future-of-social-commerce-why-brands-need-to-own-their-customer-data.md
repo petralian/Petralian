@@ -8,9 +8,12 @@ tags:
 - Social Commerce
 - Marketing Technology
 - Ecommerce
+- CDP
 excerpt: ''
 featured_image: /images/posts/buysocial-social-commerce-hero.jpeg
 seo_description: ''
+format: strategic
+best_for: Commerce leaders prioritizing first-party data as social platforms shift
 ---
 
 As someone who has spent years working at the intersection of eCommerce, digital strategy, customer experience, and analytics, I’ve seen how the dynamics between brands and consumers have evolved over time. What’s become increasingly clear is that the brands that thrive are those that take control of their customer relationships-and at the heart of that control is **[owning customer data](https://segment.com/academy/intro/why-you-should-own-your-data/#:~:text=Unfortunately%2C%20it%20may%20be%20difficult,gives%20you%20the%20leg%20up.)**. This realization has been one of the guiding principles behind the development of [Buy.social](http://buy.social).

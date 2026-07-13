@@ -7,6 +7,8 @@ category: AI & Building
 tags:
 - Developer Tools
 - Obsidian
+- SEO
+- Agentic AI
 excerpt: WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com
   on Next.js, how Obsidian now sits at the center of my publishing workflow, and why
   I decided to open source the whole thing.
@@ -16,6 +18,8 @@ seo_description: I rebuilt petralian.com from WordPress to Next.js to unblock a 
   workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS made
   it practical, and why the whole framework is now open source.
 live_url: https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs
+format: hands-on
+best_for: Developers weighing a Next.js rebuild for content, SEO, and shipping speed
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
