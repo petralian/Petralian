@@ -466,7 +466,10 @@ try {
   # rebase our local history on top of them before staging.
   Write-Host ''
   Write-Host '── Syncing with origin/master ───────────────────────────────────' -ForegroundColor Cyan
-  git fetch origin master 2>$null | Out-Null
+  $prevEap = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  git fetch origin master 2>&1 | Out-Null
+  $ErrorActionPreference = $prevEap
   $behind = (git rev-list --count HEAD..origin/master 2>$null)
   if ($behind -and [int]$behind -gt 0) {
     Write-Host "  Local is $behind commit(s) behind origin/master — rebasing..." -ForegroundColor Yellow
@@ -501,7 +504,10 @@ try {
   if ($LASTEXITCODE -ne 0) {
     Write-Host '  Push rejected — remote moved during sync. Auto-recovering...' -ForegroundColor Yellow
     $localSha = (git rev-parse HEAD).Trim()
-    git fetch origin master 2>$null | Out-Null
+    $prevEap = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  git fetch origin master 2>&1 | Out-Null
+  $ErrorActionPreference = $prevEap
     git reset --hard origin/master
     if ($LASTEXITCODE -ne 0) {
       Write-Error "reset --hard origin/master failed during auto-recovery."
