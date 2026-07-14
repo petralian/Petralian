@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-06-16 00:00:00+00:00

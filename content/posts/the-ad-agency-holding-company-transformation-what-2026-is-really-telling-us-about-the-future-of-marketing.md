@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The Ad Agency Holding Company Transformation: What 2026 Is Really Telling
   Us About the Future of Marketing'
 slug: the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO'
 slug: the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo
 date: 2025-04-09 00:00:00+00:00

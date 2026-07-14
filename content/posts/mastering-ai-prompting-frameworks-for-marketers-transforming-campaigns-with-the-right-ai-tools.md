@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with
   Precision and the Right AI Tools'
 slug: mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools

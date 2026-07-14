@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget'
 slug: cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
 date: 2026-07-02

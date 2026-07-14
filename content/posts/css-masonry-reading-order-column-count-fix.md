@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'CSS Masonry Grids and Reading Order: What column-count Gets Wrong, and How
   to Fix It'
 slug: css-masonry-reading-order-column-count-fix

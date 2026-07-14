@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield"
 slug: best-cursor-model-by-task-2026
 date: 2026-07-13

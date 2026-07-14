@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That Actually
   Survives'
 slug: the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives

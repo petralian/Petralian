@@ -1,4 +1,4 @@
-﻿---
+---
 title: Is SaaS Being Dismantled by AI?
 slug: is-saas-being-dismantled-by-ai
 date: 2025-03-05 00:00:00+00:00

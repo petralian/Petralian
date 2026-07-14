@@ -1,4 +1,4 @@
-﻿---
+---
 title: Why AI Agent Output Quality Drifts Over Time (And How to Catch It Early)
 slug: ai-agent-quality-drift-detection
 date: 2026-05-14 00:00:00+00:00

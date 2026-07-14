@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'External Memory Series: A Practical Guide to AI Session Continuity'
 slug: external-memory-series-guide
 date: 2026-05-26 00:00:00+00:00

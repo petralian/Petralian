@@ -1,4 +1,4 @@
-﻿---
+---
 title: Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit
   Trails)
 slug: knowledge-work-engine-leadership-decisions-2026

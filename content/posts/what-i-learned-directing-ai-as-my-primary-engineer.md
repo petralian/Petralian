@@ -1,4 +1,4 @@
-﻿---
+---
 title: What I Learned Directing AI as My Primary Engineer
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-07-04 00:00:00+00:00

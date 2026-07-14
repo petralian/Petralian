@@ -1,4 +1,4 @@
-﻿---
+---
 title: How AI and Human Imagination Work Together to Break Barriers
 slug: how-ai-and-human-imagination-work-together
 date: 2025-01-22 00:00:00+00:00

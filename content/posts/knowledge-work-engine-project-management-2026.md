@@ -1,4 +1,4 @@
-﻿---
+---
 title: Project Management With a File-Based Agent Engine
 slug: knowledge-work-engine-project-management-2026
 date: 2026-07-06 00:00:00+00:00

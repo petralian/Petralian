@@ -1,4 +1,4 @@
-﻿---
+---
 title: Training an AI Is Like Managing an Employee
 slug: training-an-ai-is-like-managing-an-employee
 date: 2026-06-14 00:00:00+00:00

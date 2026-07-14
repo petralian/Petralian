@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Data Warehousing as a CDP: Can You Really Have It All?'
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
 date: 2025-06-13 00:00:00+00:00

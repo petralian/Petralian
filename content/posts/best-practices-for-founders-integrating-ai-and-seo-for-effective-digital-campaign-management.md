@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Best Practices for Founders: Integrating AI and SEO for Effective Digital
   Campaign Management'
 slug: best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management

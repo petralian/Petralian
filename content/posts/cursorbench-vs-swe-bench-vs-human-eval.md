@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CursorBench vs SWE-bench vs HumanEval: What Each Benchmark Actually Tests"
 slug: cursorbench-vs-swe-bench-vs-human-eval
 date: 2026-07-09

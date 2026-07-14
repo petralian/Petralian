@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'AI Shopping Revolution: Will Shopify''s ChatGPT Integration Redefine Retail
   Strategy?'
 slug: ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy

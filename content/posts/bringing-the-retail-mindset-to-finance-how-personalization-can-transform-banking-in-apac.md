@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Bringing the Retail Mindset to Finance: How Personalization Can Transform
   Banking in APAC'
 slug: bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Crafting a Strong Digital Identity for Startups
 slug: crafting-a-strong-digital-identity-for-startups-essential-branding-tips
 date: 2025-01-13 00:00:00+00:00

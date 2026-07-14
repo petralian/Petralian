@@ -1,4 +1,4 @@
-﻿---
+---
 title: Why Retail Often Leads in Digital Innovation Over Banking (and What We Can
   Learn From It)
 slug: why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it

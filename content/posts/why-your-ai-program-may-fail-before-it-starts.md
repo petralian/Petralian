@@ -1,4 +1,4 @@
-﻿---
+---
 title: Why Your AI Program May Fail Before It Starts
 slug: why-your-ai-program-may-fail-before-it-starts
 date: 2026-06-15 00:00:00+00:00

@@ -1,4 +1,4 @@
-﻿---
+---
 title: >-
   Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
   Bootstrap

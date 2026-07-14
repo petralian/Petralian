@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
   Marketing'
 slug: knowledge-work-agent-engine-guide-2026

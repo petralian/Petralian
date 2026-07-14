@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Leadership Lessons from the Vatican: Consensus as a Catalyst for Digital Transformation'
 slug: leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation
 date: 2025-05-08

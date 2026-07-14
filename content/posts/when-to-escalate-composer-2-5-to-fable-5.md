@@ -1,4 +1,4 @@
-﻿---
+---
 title: "When to Escalate from Composer 2.5 to Fable 5: A Decision Tree"
 slug: when-to-escalate-composer-2-5-to-fable-5
 date: 2026-07-12

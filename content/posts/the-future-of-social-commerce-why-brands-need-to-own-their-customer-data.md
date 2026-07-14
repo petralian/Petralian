@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The Future of Social Commerce: Why Brands Need to Own Their Customer Data'
 slug: the-future-of-social-commerce-why-brands-need-to-own-their-customer-data
 date: 2025-01-05 00:00:00+00:00

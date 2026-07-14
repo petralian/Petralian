@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'GitHub Copilot vs OpenRouter: The Real Cost of AI Coding in 2026'
 slug: github-copilot-vs-openrouter-real-cost-comparison-for-developers
 date: 2026-05-24 00:00:00+00:00

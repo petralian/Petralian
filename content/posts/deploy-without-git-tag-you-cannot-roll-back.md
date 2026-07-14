@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy Without a Git Tag and You Cannot Roll Back Cleanly
 slug: deploy-without-git-tag-you-cannot-roll-back
 date: 2026-07-07

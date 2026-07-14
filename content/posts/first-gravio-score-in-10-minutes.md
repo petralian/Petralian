@@ -1,4 +1,4 @@
-﻿---
+---
 title: From Empty Folder to First Quality Score in 10 Minutes
 slug: first-gravio-score-in-10-minutes
 date: 2026-05-11 00:00:00+00:00

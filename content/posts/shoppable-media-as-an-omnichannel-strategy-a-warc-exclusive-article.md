@@ -1,4 +1,4 @@
-﻿---
+---
 title: Shoppable media as an omnichannel strategy, a WARC exclusive article
 slug: shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article
 date: 2022-05-03

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'The New CI Gate: Failing Builds on Agent Quality'
 slug: ai-quality-gate-ci-gravio
 date: 2026-05-15 00:00:00+00:00

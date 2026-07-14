@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates'
 slug: cursor-harness-memory-loop-2026
 date: 2026-07-04 00:00:00+00:00

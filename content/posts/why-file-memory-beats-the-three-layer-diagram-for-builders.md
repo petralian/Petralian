@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Why File Memory Beats the Three-Layer AI Diagram'
 slug: why-file-memory-beats-the-three-layer-diagram-for-builders
 date: 2026-05-26 00:00:00+00:00

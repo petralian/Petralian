@@ -1,4 +1,4 @@
-﻿---
+---
 title: How I Run Cursor With One Obsidian Brain Across Many Projects
 slug: cursor-obsidian-brain-handbook-2026
 date: 2026-07-08

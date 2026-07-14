@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Is Cursor Only for Developers? A Better AI Interface for Anyone With Files"
 slug: is-cursor-only-for-developers
 date: 2026-07-14

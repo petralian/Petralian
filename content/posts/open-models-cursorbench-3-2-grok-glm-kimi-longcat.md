@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi K2.7, and LongCat"
 slug: open-models-cursorbench-3-2-grok-glm-kimi-longcat
 date: 2026-07-10
