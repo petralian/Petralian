@@ -5,7 +5,6 @@ title: >-
 slug: >-
   bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
 date: 2025-01-15T00:00:00.000Z
-status: published
 tags:
   - Digital Transformation
   - APAC

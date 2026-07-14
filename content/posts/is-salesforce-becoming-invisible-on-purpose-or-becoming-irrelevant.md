@@ -2,7 +2,6 @@
 title: 'Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?'
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 date: 2026-05-09T00:00:00.000Z
-status: published
 tags:
   - Salesforce
   - AI in Marketing

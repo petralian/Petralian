@@ -2,7 +2,6 @@
 title: 'Beyond Chat History: Using Layered Obsidian Memory for Personal Productivity'
 slug: obsidian-memory-layers-personal-productivity-beyond-chat
 date: 2026-05-26T00:00:00.000Z
-status: published
 tags:
   - Obsidian
   - Agentic AI

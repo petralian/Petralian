@@ -2,7 +2,6 @@
 title: How AI and Human Imagination Work Together to Break Barriers
 slug: how-ai-and-human-imagination-work-together
 date: 2025-01-22T00:00:00.000Z
-status: published
 tags:
   - Generative AI
   - AI in Marketing

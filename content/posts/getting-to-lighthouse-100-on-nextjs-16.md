@@ -2,7 +2,6 @@
 title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered'
 slug: getting-to-lighthouse-100-on-nextjs-16
 date: 2026-05-24T00:00:00.000Z
-status: published
 tags:
   - Developer Tools
   - SEO

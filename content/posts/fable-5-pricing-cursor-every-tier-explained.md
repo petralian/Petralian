@@ -2,7 +2,6 @@
 title: 'Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low)'
 slug: fable-5-pricing-cursor-every-tier-explained
 date: 2026-07-11T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - Enterprise AI

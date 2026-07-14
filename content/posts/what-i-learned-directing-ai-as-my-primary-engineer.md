@@ -2,7 +2,6 @@
 title: What I Learned Directing AI as My Primary Engineer
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-07-04T00:00:00.000Z
-status: published
 tags:
   - Enterprise AI
   - Agentic AI

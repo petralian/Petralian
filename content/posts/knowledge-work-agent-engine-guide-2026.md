@@ -4,7 +4,6 @@ title: >-
   Marketing
 slug: knowledge-work-agent-engine-guide-2026
 date: 2026-07-06T00:00:00.000Z
-status: published
 tags:
   - Program Delivery
   - Leadership
@@ -598,7 +597,6 @@ After creating files, confirm paths and suggest one 15-minute test task.
 # Decision: <title>
 Date: YYYY-MM-DD
 Owner: <name>
-Status: proposed | decided | superseded
 
 ### Context
 <2-4 sentences>

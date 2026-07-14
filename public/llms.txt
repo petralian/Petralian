@@ -42,20 +42,20 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 ## Topics
 
 - Agentic AI (37 articles): https://petralian.com/topics/agentic-ai
-- Playbook (20 articles): https://petralian.com/topics/playbook
-- Developer Tools (19 articles): https://petralian.com/topics/developer-tools
+- Enterprise AI (21 articles): https://petralian.com/topics/enterprise-ai
+- Playbook (21 articles): https://petralian.com/topics/playbook
 - Marketing Technology (19 articles): https://petralian.com/topics/marketing-technology
-- Enterprise AI (18 articles): https://petralian.com/topics/enterprise-ai
+- Developer Tools (17 articles): https://petralian.com/topics/developer-tools
 - Generative AI (17 articles): https://petralian.com/topics/generative-ai
-- AI in Marketing (15 articles): https://petralian.com/topics/ai-in-marketing
-- Ecommerce (14 articles): https://petralian.com/topics/ecommerce
-- Leadership (14 articles): https://petralian.com/topics/leadership
+- AI in Marketing (16 articles): https://petralian.com/topics/ai-in-marketing
+- Ecommerce (15 articles): https://petralian.com/topics/ecommerce
+- AI Memory (13 articles): https://petralian.com/topics/ai-memory
 - AI Quality (13 articles): https://petralian.com/topics/ai-quality
 - Digital Transformation (13 articles): https://petralian.com/topics/digital-transformation
+- Leadership (13 articles): https://petralian.com/topics/leadership
 - Obsidian (13 articles): https://petralian.com/topics/obsidian
-- AI Memory (12 articles): https://petralian.com/topics/ai-memory
 - Agency Landscape (10 articles): https://petralian.com/topics/agency-landscape
-- Program Delivery (10 articles): https://petralian.com/topics/program-delivery
+- Brand Strategy (9 articles): https://petralian.com/topics/brand-strategy
 
 ## Published articles
 
@@ -80,6 +80,7 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 - Getting Enterprise AI Right: The Work That Comes Before Deployment — Why enterprise AI programs stall after successful pilots: compressed foundation work on data, governance owners, and change runway—and how to get the order right.: https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
 - Reflecting on My 5-Month Engagement with Silk Commerce — Over the past five months, I had the privilege of working with Silk Commerce as their Vice President of International Markets, focusing on expanding the…: https://petralian.com/posts/ex-merkle-md-joins-silk-commerce
 - Is Cursor Only for Developers? A Better AI Interface for Anyone With Files — Is Cursor only for developers? No. CEOs, students, founders, and operators can use Cursor as a file-grounded AI interface that beats disposable chat tabs.: https://petralian.com/posts/is-cursor-only-for-developers
+- How I Built an SEO and GEO Publish Pipeline (Without an Agency) — How I automated preflight, llms.txt, IndexNow, and meta fixes on petralian.com — a vault-to-Vercel pipeline anyone can adapt for search and AI discovery.: https://petralian.com/posts/petralian-seo-geo-publish-pipeline-2026
 - Deploy Without a Git Tag and You Cannot Roll Back Cleanly — Why deploying without a release tag breaks rollback and audit trails, especially when AI agents commit often — and the governance gates program leads should require.: https://petralian.com/posts/deploy-without-git-tag-you-cannot-roll-back
 - Is using AI in creative work wrong? — TL;DR What Is using AI in creative work wrong? covers. Who it is for and when to use it. Practical next steps after reading. External Memory…: https://petralian.com/posts/is-using-ai-in-creative-work-wrong
 - Why AI Agent Output Quality Drifts Over Time (And How to Catch It Early) — Learn the hidden causes of AI agent quality drift and a practical monitoring approach using recurring scans, trend signals, and release thresholds.: https://petralian.com/posts/ai-agent-quality-drift-detection

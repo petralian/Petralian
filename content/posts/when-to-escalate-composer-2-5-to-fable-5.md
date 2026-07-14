@@ -1,31 +1,38 @@
----
-title: "When to Escalate from Composer 2.5 to Fable 5: A Decision Tree"
+﻿---
+title: 'When to Escalate from Composer 2.5 to Fable 5: A Decision Tree'
 slug: when-to-escalate-composer-2-5-to-fable-5
 date: 2026-07-12
-status: published
 tags:
-  - Agentic AI
-  - Enterprise AI
-  - AI Quality
-  - Generative AI
-excerpt: >-
-  Composer 2.5 is the CursorBench budget default. Fable 5 tiers buy peak score at
-  higher cost. Use this decision tree to escalate only when failure cost justifies the line item — for solo work or team policy.
+- Agentic AI
+- Enterprise AI
+- AI Quality
+- Generative AI
+excerpt: Composer 2.5 is the CursorBench budget default. Fable 5 tiers buy peak score
+  at higher cost. Use this decision tree to escalate only when failure cost justifies
+  the line item — for solo work or team policy.
 featured_image: /images/posts/when-to-escalate-composer-2-5-to-fable-5.png
-featured_image_alt: >-
-  Green pedestrian signal beside a taller red emergency beacon on a concrete wall
-  at dusk, shallow depth of field, no logos or readable text.
+featured_image_alt: Green pedestrian signal beside a taller red emergency beacon on
+  a concrete wall at dusk, shallow depth of field, no logos or readable text.
 focus_keyword: composer 2.5 vs fable 5
-seo_description: "When to escalate from Composer 2.5 to Fable 5 in Cursor: decision tree using CursorBench 3.2 cost, steps, and task risk. Avoid 17 USD tasks on routine work."
+seo_description: 'When to escalate from Composer 2.5 to Fable 5 in Cursor: decision
+  tree using CursorBench 3.2 cost, steps, and task risk. Avoid 17 USD tasks on routine
+  work.'
 related_posts:
-  - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
-  - fable-5-pricing-cursor-every-tier-explained
-  - composer-2-5-baseline-model-tighter-bootstrap-better-results
-image_prompt: "Cinematic 16:9 photograph of a green pedestrian signal beside a taller red emergency beacon on a concrete wall, dusk light, shallow depth of field, no logos, no readable text."
-image_prompt_variant_1: "Surreal 16:9 ship bridge diorama: everyday helm wheel at deck level and a glass emergency lever under a red dome above, ocean horizon through windows, copper accents, no readable text, no logos."
-image_prompt_variant_2: "Bold 16:9 flowchart poster: diamond gate nodes branching to Composer vs Fable paths, flat isometric style, mint and orange palette, risograph grain, no logos, no readable text."
+- cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
+- fable-5-pricing-cursor-every-tier-explained
+- composer-2-5-baseline-model-tighter-bootstrap-better-results
+image_prompt: Cinematic 16:9 photograph of a green pedestrian signal beside a taller
+  red emergency beacon on a concrete wall, dusk light, shallow depth of field, no
+  logos, no readable text.
+image_prompt_variant_1: 'Surreal 16:9 ship bridge diorama: everyday helm wheel at
+  deck level and a glass emergency lever under a red dome above, ocean horizon through
+  windows, copper accents, no readable text, no logos.'
+image_prompt_variant_2: 'Bold 16:9 flowchart poster: diamond gate nodes branching
+  to Composer vs Fable paths, flat isometric style, mint and orange palette, risograph
+  grain, no logos, no readable text.'
 format: hybrid
-best_for: Anyone governing Cursor model spend who needs escalation triggers before premium tiers become default
+best_for: Anyone governing Cursor model spend who needs escalation triggers before
+  premium tiers become default
 ---
 
 > **Cluster:** [CursorBench 3.2 analysis](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [Fable 5 tiers](/posts/fable-5-pricing-cursor-every-tier-explained) · [Composer 2.5 baseline](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)

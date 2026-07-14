@@ -4,7 +4,6 @@ title: >-
   Bootstrap
 slug: composer-2-5-baseline-model-tighter-bootstrap-better-results
 date: 2026-05-27T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - Developer Tools

@@ -2,7 +2,6 @@
 title: My Time at Merkle Hong Kong
 slug: thank-you-merkle
 date: 2023-12-17T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - APAC

@@ -4,10 +4,9 @@ title: >-
   Use Now
 slug: cursor-token-saving-tools-beyond-headroom-2026
 date: 2026-07-01T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
-  - Developer Tools
+  - Enterprise AI
   - AI Memory
   - Playbook
 excerpt: >-

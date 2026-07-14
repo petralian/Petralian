@@ -5,7 +5,6 @@ title: >-
 slug: >-
   leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation
 date: 2025-05-08T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - Digital Transformation

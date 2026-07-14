@@ -5,7 +5,6 @@ title: >-
 slug: >-
   generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
 date: 2024-05-25T00:00:00.000Z
-status: published
 tags:
   - Generative AI
   - AI in Marketing

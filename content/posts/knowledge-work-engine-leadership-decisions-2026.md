@@ -4,7 +4,6 @@ title: >-
   Audit Trails)
 slug: knowledge-work-engine-leadership-decisions-2026
 date: 2026-07-06T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - Enterprise AI

@@ -2,10 +2,9 @@
 title: You Already Have an AI Harness in Cursor
 slug: cursor-lightweight-harness-without-microservice-2026
 date: 2026-07-04T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
-  - Developer Tools
+  - Enterprise AI
   - AI Quality
   - Playbook
 excerpt: >-

@@ -2,7 +2,6 @@
 title: 'How We Built Gravio’s Scoring Engine: From Repo Signals to Release Gates'
 slug: how-gravio-scoring-engine-was-built
 date: 2026-05-17T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - AI Quality

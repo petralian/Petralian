@@ -2,7 +2,6 @@
 title: Capturing UI Designs for AI Agents Creates a Prompt Injection Surface
 slug: capturing-ui-designs-for-ai-agents-prompt-injection-risk
 date: 2026-05-29T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - AI Quality

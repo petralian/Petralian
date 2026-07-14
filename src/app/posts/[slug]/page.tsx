@@ -86,8 +86,6 @@ export default async function PostPage({
     notFound();
   }
 
-  if (post.status !== "published") notFound();
-
   const allPosts = getAllPosts();
   const postUrl = `${SITE_URL}/posts/${post.slug}`;
   const modifiedIso = getPostLastModified(post.slug, post.date).toISOString();

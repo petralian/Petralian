@@ -5,7 +5,6 @@ title: >-
 slug: >-
   best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management
 date: 2025-02-28T00:00:00.000Z
-status: published
 tags:
   - SEO
   - AI in Marketing

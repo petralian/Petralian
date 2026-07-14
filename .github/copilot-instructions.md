@@ -87,7 +87,7 @@ Every chat session **must** follow this loop — no exceptions:
 3. **TypeScript** — all files `.ts` or `.tsx`. No `any` without justification.
 4. **Tailwind CSS v4 (CSS-first)** — config lives in `globals.css` under `@theme`. No `tailwind.config.js`.
 5. **JSX escaping** — apostrophes must be `&apos;`, quotes `&quot;` in JSX text. Never raw `'` or `"`.7. **American English** — all prose, UI copy, and article content uses American English spelling. Never British spellings (organisation→organization, colour→color, whilst→while, programme→program, etc.).6. **No hardcoded URLs** — use `SITE_URL`, `SOCIAL_LINKS` from `src/lib/constants.ts`.
-7. **Content visibility** — `getAllPosts()` filters by `status === 'published'`. Always set `status: published` in frontmatter before publishing.
+7. **Content visibility** — `getAllPosts()` lists every file in `content/posts/`. Publish by moving vault notes to `02 Ready to publish/` or `03 Published/` and running sync.
 8. **Images** — use `next/image`. Remote domains must be in `next.config.ts` `remotePatterns`.
 9. **Metadata** — every page must export `metadata` with `title` and `description`.
 10. **No `<script>` or inline styles** — use `next/script` or Tailwind/CSS modules.

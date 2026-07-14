@@ -2,7 +2,6 @@
 title: Training an AI Is Like Managing an Employee
 slug: training-an-ai-is-like-managing-an-employee
 date: 2026-06-14T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - Agentic AI

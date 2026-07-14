@@ -303,7 +303,7 @@ function publishFile(filePath, articleFolder, sourceLabel) {
   let content = readFileSync(filePath, 'utf8');
   const slug = getSlug(filePath, content);
 
-  content = content.replace(/^status:\s*(ready|draft|published)\s*$/m, 'status: published');
+  content = content.replace(/^status:\s*.+\r?\n/gm, '');
   content = content.replace(/^category:\s*.+\r?\n/gm, '');
   content = resolveImages(content, articleFolder);
   content = preserveExistingDate(slug, content);

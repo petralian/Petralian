@@ -2,7 +2,6 @@
 title: 'Your Brain Was Not Built for This: Why I Built a Second One in Obsidian'
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
 date: 2026-05-20T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - Enterprise AI

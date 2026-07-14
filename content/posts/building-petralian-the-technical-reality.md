@@ -1,8 +1,7 @@
----
+﻿---
 title: 'Building petralian.com: The Technical Reality'
 slug: building-petralian-the-technical-reality
 date: 2026-05-23 00:00:00+00:00
-status: published
 tags:
 - Developer Tools
 - Obsidian
@@ -146,7 +145,7 @@ The sync script (`scripts/sync-obsidian.ps1`) is the part of this build I'm most
 
 It reads a draft from the Obsidian vault, strips metadata that only belongs in my personal notes, applies a set of string transformations, writes the result into `content/posts/`, and commits to the repo. A `-DryRun` flag shows you what would change without writing anything.
 
-Every article has a `status` field in its YAML frontmatter. The `getAllPosts()` function that feeds the site filters for `status: published`. Until I set that field and run the sync, the article doesn't exist on the site — it's invisible to the build. That single gate replaces the WordPress workflow of remembering to flip "Draft" to "Published" in a CMS panel, separate from where you were actually writing.
+Publish gate is folder placement, not a frontmatter flag. Notes in `01 Drafts/` never sync. Notes in `02 Ready to publish/` or `03 Published/` copy into `content/posts/` when you run sync. Until a slug is in one of those folders and synced, it does not exist on the site.
 
 The gap between "done in Obsidian" and "live on the internet" is now two commands and a push.
 

@@ -2,9 +2,9 @@
 title: Why Vouch Merchants See Zero Referrals (and It Is Usually Not Your Code)
 slug: vouch-referral-tracking-three-gates-shopify
 date: 2026-07-06T00:00:00.000Z
-status: published
 tags:
   - Ecommerce
+  - Shopify
   - Customer Experience
   - Marketing Technology
 excerpt: >-

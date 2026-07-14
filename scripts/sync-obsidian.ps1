@@ -1,7 +1,7 @@
 # ── Obsidian → Site Sync ─────────────────────────────────────────────────────
 # Bidirectional sync between Obsidian and content/posts:
 #   PUBLISH   — copies articles from "02 Ready to publish" AND "03 Published"
-#               into content/posts, sets status: published, resolves images.
+#               into content/posts, resolves images.
 #               (03 Published = live posts you edit in Obsidian; re-syncs minor edits.)
 #   UNPUBLISH — removes any content/posts file whose slug does not exist in
 #               either "02 Ready to publish" OR "03 Published".
@@ -371,7 +371,7 @@ function Publish-ObsidianFile {
   $raw = Get-Content $file.FullName -Raw -Encoding UTF8
   $destFile = Join-Path $sitePosts "$slug.md"
 
-  $content = $raw -replace '(?m)^status:\s*(ready|draft|published)\s*$', 'status: published'
+  $content = $raw -replace '(?m)^status:\s*.+\r?\n', ''
   $content = $content -replace '(?m)^category:\s*.+\r?\n', ''
   $content = Resolve-Images -content $content -articleFolder $file.DirectoryName -dryRun $DryRun.IsPresent
 
@@ -466,7 +466,7 @@ try {
   # rebase our local history on top of them before staging.
   Write-Host ''
   Write-Host '── Syncing with origin/master ───────────────────────────────────' -ForegroundColor Cyan
-  git fetch origin master 2>&1 | Out-Null
+  git fetch origin master 2>$null | Out-Null
   $behind = (git rev-list --count HEAD..origin/master 2>$null)
   if ($behind -and [int]$behind -gt 0) {
     Write-Host "  Local is $behind commit(s) behind origin/master — rebasing..." -ForegroundColor Yellow
@@ -501,7 +501,7 @@ try {
   if ($LASTEXITCODE -ne 0) {
     Write-Host '  Push rejected — remote moved during sync. Auto-recovering...' -ForegroundColor Yellow
     $localSha = (git rev-parse HEAD).Trim()
-    git fetch origin master 2>&1 | Out-Null
+    git fetch origin master 2>$null | Out-Null
     git reset --hard origin/master
     if ($LASTEXITCODE -ne 0) {
       Write-Error "reset --hard origin/master failed during auto-recovery."

@@ -2,11 +2,11 @@
 title: Reflecting on My 5-Month Engagement with Silk Commerce
 slug: ex-merkle-md-joins-silk-commerce
 date: 2024-07-23T00:00:00.000Z
-status: published
 tags:
   - Leadership
   - APAC
   - Agency Landscape
+  - Ecommerce
 excerpt: >-
   Over the past five months, I had the privilege of working with Silk Commerce
   as their Vice President of International Markets, focusing on expanding the…

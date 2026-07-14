@@ -2,7 +2,6 @@
 title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
 date: 2026-06-16T00:00:00.000Z
-status: published
 tags:
   - Enterprise AI
   - Program Delivery

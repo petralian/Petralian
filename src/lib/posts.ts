@@ -23,7 +23,6 @@ export interface PostMeta {
   title: string;
   slug: string;
   date: string;
-  status: string;
   category: string;
   tags: string[];
   series: string;
@@ -48,7 +47,6 @@ export function getAllPosts(): PostMeta[] {
     .readdirSync(POSTS_DIR)
     .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
     .map((filename) => getPostMeta(filename.replace(/\.mdx?$/, "")))
-    .filter((p) => p.status === "published")
     .filter((p, i, arr) => arr.findIndex((q) => q.slug === p.slug) === i)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
@@ -72,7 +70,6 @@ export function getPostMeta(slug: string): PostMeta {
         ? data.date.toISOString().split("T")[0]
         : String(data.date)
       : "",
-    status: data.status || "published",
     category: data.category || "",
     tags: Array.isArray(data.tags) ? data.tags : [],
     series: typeof data.series === "string" ? data.series : "",

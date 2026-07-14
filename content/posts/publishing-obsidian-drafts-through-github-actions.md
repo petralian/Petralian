@@ -2,7 +2,6 @@
 title: Publishing Obsidian Drafts Through GitHub Actions
 slug: publishing-obsidian-drafts-through-github-actions
 date: 2026-05-24T00:00:00.000Z
-status: published
 tags:
   - Obsidian
   - Developer Tools

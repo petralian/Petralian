@@ -26,13 +26,7 @@ function countPublishedPosts() {
   if (!fs.existsSync(POSTS_DIR)) return 0;
   return fs
     .readdirSync(POSTS_DIR)
-    .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-    .map((f) => {
-      const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
-      const { data } = matter(raw);
-      return data.status || "published";
-    })
-    .filter((s) => s === "published").length;
+    .filter((f) => f.endsWith(".md") || f.endsWith(".mdx")).length;
 }
 
 function auditSlug(slug) {

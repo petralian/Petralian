@@ -1,29 +1,31 @@
----
+﻿---
 title: Deploy Without a Git Tag and You Cannot Roll Back Cleanly
 slug: deploy-without-git-tag-you-cannot-roll-back
 date: 2026-07-07
-status: published
 tags:
-  - Program Delivery
-  - Enterprise AI
-  - Agentic AI
-  - Leadership
-excerpt: >-
-  Agent-assisted delivery fails governance when production has no release handle.
-  Tag or record the commit at promote time, reject dirty-tree releases, keep rollback traceable.
+- Agentic AI
+- Enterprise AI
+- Playbook
+excerpt: Agent-assisted delivery fails governance when production has no release handle.
+  Tag or record the commit at promote time, reject dirty-tree releases, keep rollback
+  traceable.
 featured_image: /images/posts/deploy-without-git-tag-you-cannot-roll-back.png
-featured_image_alt: >-
-  Git tag label beside a deploy pipeline diagram on a drafting table, warm desk
-  lamp, editorial still life, no logos or readable text.
+featured_image_alt: Git tag label beside a deploy pipeline diagram on a drafting table,
+  warm desk lamp, editorial still life, no logos or readable text.
 focus_keyword: git tag deploy rollback strategy
-seo_description: >-
-  Why deploying without a release tag breaks rollback and audit trails, especially
-  when AI agents commit often — and the governance gates program leads should require.
-image_prompt: "Editorial 16:9 scene: deployment console with missing tag field beside a rewind button that leads nowhere, warm technical desk light, no logos, no readable text."
-image_prompt_variant_1: "Tiny launch pad: rocket labeled Deploy with no tag hook, rollback crane unable to grab anything, clever workshop, 16:9."
-image_prompt_variant_2: "Split scene: left messy uncommitted files on deploy button, right clean tagged commit on release rail, editorial contrast, 16:9."
+seo_description: Why deploying without a release tag breaks rollback and audit trails,
+  especially when AI agents commit often — and the governance gates program leads
+  should require.
+image_prompt: 'Editorial 16:9 scene: deployment console with missing tag field beside
+  a rewind button that leads nowhere, warm technical desk light, no logos, no readable
+  text.'
+image_prompt_variant_1: 'Tiny launch pad: rocket labeled Deploy with no tag hook,
+  rollback crane unable to grab anything, clever workshop, 16:9.'
+image_prompt_variant_2: 'Split scene: left messy uncommitted files on deploy button,
+  right clean tagged commit on release rail, editorial contrast, 16:9.'
 format: hybrid
-best_for: Anyone governing agent-assisted releases who needs traceable promote-and-rollback, not just faster commits
+best_for: Anyone governing agent-assisted releases who needs traceable promote-and-rollback,
+  not just faster commits
 ---
 
 ## Why does deploy traceability matter for AI programs?

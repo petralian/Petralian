@@ -5,7 +5,6 @@ title: >-
 slug: >-
   the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
 date: 2026-04-16T00:00:00.000Z
-status: published
 tags:
   - Agency Landscape
   - Digital Transformation

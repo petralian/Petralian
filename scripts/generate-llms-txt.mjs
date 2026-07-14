@@ -32,12 +32,10 @@ function getPublishedPosts() {
         slug,
         title: data.title || slug,
         description: (data.seo_description || data.excerpt || "").trim(),
-        status: data.status || "published",
         date: data.date ? String(data.date).slice(0, 10) : "",
         tags: Array.isArray(data.tags) ? data.tags : [],
       };
     })
-    .filter((p) => p.status === "published")
     .filter((p, i, arr) => arr.findIndex((q) => q.slug === p.slug) === i)
     .sort((a, b) => b.date.localeCompare(a.date));
 }

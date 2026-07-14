@@ -2,7 +2,6 @@
 title: Marketing and Voice at Scale With a File-Based Agent Engine
 slug: knowledge-work-engine-marketing-voice-2026
 date: 2026-07-06T00:00:00.000Z
-status: published
 tags:
   - Brand Strategy
   - AI in Marketing

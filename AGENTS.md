@@ -31,7 +31,8 @@ focus_keyword: "primary 2-4 word keyword phrase"
 
 - `content/posts/*.md` is the live publishing pipeline. Never write here during a writing session.
 - Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
-- `status: published` in frontmatter = live on Vercel after next push
+- Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
+- **Folder = publish gate** (`02 Ready` / `03 Published` sync); no `status` frontmatter
 
 ## Response footer (mandatory)
 

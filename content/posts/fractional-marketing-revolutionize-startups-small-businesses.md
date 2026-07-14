@@ -2,7 +2,6 @@
 title: How Fractional Marketing Can Revolutionize Startups and Small Businesses
 slug: fractional-marketing-revolutionize-startups-small-businesses
 date: 2025-02-05T00:00:00.000Z
-status: published
 tags:
   - Marketing Technology
   - Brand Strategy

@@ -2,7 +2,6 @@
 title: 'CursorBench vs SWE-bench vs HumanEval: What Each Benchmark Actually Tests'
 slug: cursorbench-vs-swe-bench-vs-human-eval
 date: 2026-07-09T00:00:00.000Z
-status: published
 tags:
   - Enterprise AI
   - Program Delivery

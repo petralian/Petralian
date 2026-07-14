@@ -2,7 +2,6 @@
 title: 'Team Playbook: Rolling Out Gravio Across Multiple Repositories'
 slug: gravio-multi-repo-rollout-playbook
 date: 2026-05-15T00:00:00.000Z
-status: published
 tags:
   - Gravio
   - Enterprise AI

@@ -2,7 +2,6 @@
 title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates'
 slug: cursor-harness-memory-loop-2026
 date: 2026-07-04T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - AI Memory

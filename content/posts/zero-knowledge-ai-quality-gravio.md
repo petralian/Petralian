@@ -2,7 +2,6 @@
 title: 'Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code'
 slug: zero-knowledge-ai-quality-gravio
 date: 2026-05-09T00:00:00.000Z
-status: published
 tags:
   - Gravio
   - Agentic AI

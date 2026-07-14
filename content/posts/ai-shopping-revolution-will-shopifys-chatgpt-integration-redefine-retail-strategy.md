@@ -5,7 +5,6 @@ title: >-
 slug: >-
   ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
 date: 2025-04-24T00:00:00.000Z
-status: published
 tags:
   - Shopify
   - ChatGPT

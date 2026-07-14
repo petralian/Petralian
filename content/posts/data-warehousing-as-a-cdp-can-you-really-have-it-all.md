@@ -2,7 +2,6 @@
 title: 'Data Warehousing as a CDP: Can You Really Have It All?'
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
 date: 2025-06-13T00:00:00.000Z
-status: published
 tags:
   - CDP
   - Marketing Technology

@@ -5,7 +5,6 @@ title: >-
 slug: >-
   mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
 date: 2025-03-19T00:00:00.000Z
-status: published
 tags:
   - AI in Marketing
   - Generative AI

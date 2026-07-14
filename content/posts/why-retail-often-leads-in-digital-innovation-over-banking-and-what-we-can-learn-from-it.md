@@ -5,7 +5,6 @@ title: >-
 slug: >-
   why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
 date: 2025-01-20T00:00:00.000Z
-status: published
 tags:
   - Digital Transformation
   - Ecommerce

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Normalize post tags; strip retired category field from frontmatter."""
+"""Normalize post tags; strip retired category and status fields from frontmatter."""
 
 from __future__ import annotations
 
@@ -620,18 +620,22 @@ def process_file(path: pathlib.Path, dry_run: bool) -> bool:
         new_tags = normalize_tags(category, old_tags if isinstance(old_tags, list) else [])
 
     had_category = bool(old_category)
+    had_status = "status" in data
 
-    if old_tags == new_tags and not had_category:
+    if old_tags == new_tags and not had_category and not had_status:
         return False
 
     if not dry_run:
         data.pop("category", None)
+        data.pop("status", None)
         data["tags"] = new_tags
         path.write_text(dump_frontmatter(data, body), encoding="utf-8")
 
     print(f"{'[dry] ' if dry_run else ''}{path.name}")
     if had_category:
         print(f"  category: removed ({old_category!r})")
+    if had_status:
+        print(f"  status: removed")
     if old_tags != new_tags:
         print(f"  tags: {old_tags} -> {new_tags}")
     return True

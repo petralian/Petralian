@@ -33,7 +33,7 @@ Articles are written in [Obsidian](https://obsidian.md) and published via a sync
 
 1. Write in Obsidian (`01 Drafts/`)
 2. Move to `02 Ready to publish/` when the article is done
-3. Run `.\scripts\sync-obsidian.ps1` — copies to `content/posts/`, sets `status: published`, commits, and pushes to GitHub
+3. Run `.\scripts\sync-obsidian.ps1` — copies from `02 Ready to publish/` and `03 Published/` into `content/posts/`, commits, and pushes to GitHub
 4. Vercel auto-deploys in ~30 seconds
 
 Preview without writing: `.\scripts\sync-obsidian.ps1 -DryRun`
@@ -47,8 +47,6 @@ Articles live in `content/posts/` as Markdown files. Each needs frontmatter:
 title: "Article title"
 slug: article-slug
 date: "2026-01-15"
-status: published
-category: "AI & Technology"
 tags: ["AI", "transformation", "strategy"]
 excerpt: "Short summary shown on article cards."
 featured_image: "/images/posts/my-hero-image.jpg"
@@ -59,11 +57,11 @@ focus_keyword: "enterprise AI strategy"
 ---
 ```
 
-Only articles with `status: published` appear on the site.
+Only files in `content/posts/` appear on the site. The vault folder (`02 Ready to publish/` / `03 Published/`) controls what sync copies in.
 
 **SEO fields:** `seo_title` overrides the page `<title>` tag; `seo_description` populates the meta description and OG description; `featured_image_alt` sets the hero image alt text. If `seo_title` is absent, the article `title` is used.
 
-**Categories in use:** `AI & Technology`, `Digital Transformation`, `Marketing & Strategy`, `Leadership`, `Marketing & Media`
+**Categories in use:** deprecated — use `tags` only.
 
 ## Project structure
 

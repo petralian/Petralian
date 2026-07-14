@@ -66,13 +66,12 @@ function auditPost(slug, data) {
 const posts = fs
   .readdirSync(POSTS_DIR)
   .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-  .map((f) => {
-    const slug = f.replace(/\.mdx?$/, "");
-    const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
-    const { data } = matter(raw);
-    if ((data.status || "published") !== "published") return null;
-    return auditPost(data.slug || slug, data);
-  })
+    .map((f) => {
+      const slug = f.replace(/\.mdx?$/, "");
+      const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
+      const { data } = matter(raw);
+      return auditPost(data.slug || slug, data);
+    })
   .filter(Boolean);
 
 let flagged = posts.filter((p) => p.issues.length > 0);

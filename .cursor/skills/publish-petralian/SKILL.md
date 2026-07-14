@@ -26,7 +26,7 @@ description: >-
 ## Safety
 
 - Never write new drafts to `content/posts/` during a writing session
-- **Folder = publish gate** — not vault `status: draft`
+- **Folder = publish gate** — only `02 Ready` / `03 Published` sync; no `status` field
 - `date` = editorial publish date; do not overwrite on re-sync
 
 ## Footer

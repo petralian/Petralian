@@ -2,7 +2,6 @@
 title: Is Cursor Only for Developers? A Better AI Interface for Anyone With Files
 slug: is-cursor-only-for-developers
 date: 2026-07-14T00:00:00.000Z
-status: published
 tags:
   - Agentic AI
   - Obsidian

@@ -47,7 +47,6 @@ for (const slug of listSlugs()) {
   const raw = fs.readFileSync(fp, "utf8");
   const parsed = matter(raw);
   const { data, content } = parsed;
-  if ((data.status || "published") !== "published") continue;
 
   const before = auditSeoFields(data);
   if (before.issues.length === 0) {
