@@ -226,3 +226,4 @@ If session four needs less re-explanation, add Part 1 automation next—not more
 Pick your role from the table above and open **one** part. If you are unsure, read [Part 3](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) for the philosophy, then [Part 1](/posts/three-layer-external-brain-for-ai-first-development) for the mechanics.
 
 When all four parts are published, this hub stays the entry point—bookmark it, link your team to it, and treat the series as a single curriculum rather than four isolated posts.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

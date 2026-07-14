@@ -292,3 +292,4 @@ Document in `known-gotchas.md`, split scope, or escalate for review—**do not**
 4. Read the [migration article](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow) if you are still straddling VS Code Copilot and Cursor with one note system.
 
 If your sessions still feel forgetful after that, add **structure** before you add model cost. Composer 2.5 is my proof of concept—not because it is magic, but because my setup treats memory and rules as part of shipping, not as optional documentation.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

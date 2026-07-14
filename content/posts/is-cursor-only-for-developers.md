@@ -245,3 +245,5 @@ Cursor is a poor fit if you refuse to maintain **any** handoff files. Tools do n
 ---
 
 Cursor is for anyone whose AI-assisted work should **survive the weekend** in files you can reopen without reading chat scrollback. I use it that way across writing, commerce, applications, client work, and build work. The IDE is packaging. **Governed file memory** is the point.
+
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

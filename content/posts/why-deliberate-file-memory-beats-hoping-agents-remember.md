@@ -176,3 +176,4 @@ Run the next agent session with: read that file first, cite it in the plan. If t
 
 - **Next:** None (series capstone)—revisit [Why file memory beats the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) if you skipped the philosophy piece.
 - **Start of series:** [Three layers for AI-first development](/posts/three-layer-external-brain-for-ai-first-development)
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

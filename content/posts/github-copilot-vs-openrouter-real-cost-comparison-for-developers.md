@@ -322,3 +322,4 @@ Same projects, log tokens/requests, include IDE time saved subjectively.
 ### When is OpenRouter clearly better?
 
 When you need model choice, routing, or non-GitHub IDEs at scale.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

@@ -735,3 +735,4 @@ Same four tiers. This series applies that model to **PM, leadership, and marketi
 - [Obsidian memory for personal productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat)
 - [Cursor harness memory loop](/posts/cursor-harness-memory-loop-2026)
 - [Deliberate file memory / governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

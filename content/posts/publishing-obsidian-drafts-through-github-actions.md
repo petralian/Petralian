@@ -181,3 +181,4 @@ Yes in Obsidian if frontmatter template and folder rules are documented.
 ### What should CI validate?
 
 Frontmatter, image existence, link targets, and build success before merge to main.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

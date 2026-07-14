@@ -285,3 +285,4 @@ A **public HTTPS tunnel** lets Cursor reach localhost; it solves routing, not un
 - If you run a **local proxy today:** compare OpenRouter cache hit % **direct vs through proxy**. If hit rate drops, the proxy is costing money.
 - If you see **`Access to private networks is forbidden`:** that is Cursor SSRF, not OpenRouter. A public HTTPS tunnel fixes routing; it does not fix savings by itself.
 - If you want **sustainable savings:** start with direct routing, MCP input tools, and harness gates. Read Part 1 of the [harness series](/posts/cursor-lightweight-harness-without-microservice-2026).
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

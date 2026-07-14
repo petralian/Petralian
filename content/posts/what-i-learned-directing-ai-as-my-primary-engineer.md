@@ -218,3 +218,4 @@ Directing AI as a primary engineer is not abdication. It is **delegation with an
 **Sources**
 
 1. McKinsey & Company, "The state of AI in 2025: Agents, innovation, and transformation." Global survey published November 2025 (fieldwork June 25–July 29, 2025). https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

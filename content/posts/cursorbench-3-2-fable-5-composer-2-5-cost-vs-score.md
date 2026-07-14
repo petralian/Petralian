@@ -400,3 +400,4 @@ The benchmark answered a question vendors often skip: **what does the top score 
 2. Z.ai, "GLM-5.2: Built for Long-Horizon Tasks." https://z.ai/blog/glm-5.2
 3. Moonshot AI, "Kimi K2.7 Code." https://www.kimi.com/resources/kimi-k2-7-code
 4. Meituan, "Introducing LongCat-2.0" (Evaluations table). https://longcat.chat/blog/longcat-2.0/
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

@@ -168,3 +168,4 @@ This post is **Layer 4** in practice: Brain templates → repo rules → hooks �
 - Optional: retire light-tier `session-bootstrap-snapshot.mdc` if hooks stay stable for two weeks.
 
 The short human version (daily workflow, footer recovery phrases, profiles vs workspaces) lives in my Brain vault under **Operations → Cursor User Handbook**, linked from `_Home` so agents and I land on the same page.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

@@ -77,7 +77,7 @@ That's the gap closed.
 
 If you're not already using Obsidian for long-form writing, the relevance here might not be obvious. Let me be specific about why this matters for the publishing workflow.
 
-Obsidian stores everything as plain Markdown files on disk. No database, no sync service you don't control, no lock-in. Every article has YAML frontmatter (`title`, `slug`, `date`, `tags`, `excerpt`, SEO fields). Folder placement controls publish: drafts stay in `01 Drafts/`; ready notes move to `02 Ready to publish/` or `03 Published/` before sync.
+Obsidian stores everything as plain Markdown files on disk. No database, no sync service you don't control, no lock-in. Every article I write has a YAML frontmatter block at the top with `title`, `slug`, `date`, `tags`, `category`, `excerpt`, and `status`. When `status` is `published`, the sync script picks it up. When it's `draft`, it stays local.
 
 This means my entire content pipeline — from first sentence to live site — lives in files I own and can version control. The site build process reads those same files. There's no CMS database to query, no REST API to call at build time, no cache to flush. Next.js statically generates every post at build time from the Markdown on disk. Pages load fast. The architecture is simple.
 

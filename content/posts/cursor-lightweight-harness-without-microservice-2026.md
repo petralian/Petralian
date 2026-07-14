@@ -308,3 +308,4 @@ When **all** defer gates pass: repeated `wrong-fix` with tests run, subagent ove
 Open your main repo. List what you already have: subagents, test script, deploy gate, CI check, session rules. If the list has three or more rows, you likely have a harness. Write the policy page before you write another service.
 
 Part 2 covers the **four-tier memory loop** (including Layer 4 feedback) without loading everything every turn. Part 3 covers the CSV, OpenRouter dollars, and when to build more.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

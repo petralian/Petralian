@@ -265,3 +265,4 @@ Training an AI is not about finding the perfect prompt template. It is about app
 **Sources**
 
 1. GitHub, "Research: quantifying GitHub Copilot's impact on developer productivity and happiness." https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/ (55% faster completion in controlled experiment; outcome depends on task context supplied).
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

@@ -211,3 +211,4 @@ When four weeks show `failure_mode` mostly `none`, subagents only on `batch` row
 ### Reader action
 
 Create `docs/harness-session-log.csv` today. Log this week's sessions. Run `eval:gate` once. If you have three or more `wrong-fix` rows with tests run, re-read `HARNESS-DEFER.md`. Otherwise ship the policy and stop building orchestrators.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*

@@ -288,3 +288,4 @@ The series uses **three layers for clarity**; in practice there are **four tiers
 ### Reader action
 
 Audit your last five agent sessions. Count how many loaded brain-pack or vault files for questions that needed no code. Map your stack to four tiers — if Layer 4 is only "hope the model remembers," add footer + one rule file before adding another memory product. Part 3 shows how to log and review that discipline weekly.
+*If you're new to Cursor: [50% off your first month](https://cursor.com/referral?code=JP5ARNKSFI2Q) (code `JP5ARNKSFI2Q`). I may earn usage credits; install directly if you prefer.*
