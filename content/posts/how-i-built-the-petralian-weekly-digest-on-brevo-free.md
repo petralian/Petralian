@@ -1,4 +1,4 @@
----
+﻿---
 title: How I Built the Petralian Weekly Digest on Brevo Free
 slug: how-i-built-the-petralian-weekly-digest-on-brevo-free
 date: 2026-05-24T00:00:00.000Z

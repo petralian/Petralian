@@ -1,5 +1,5 @@
----
-title: Project Management With a File-Based Agent Engine (Not Another PM Tool)
+﻿---
+title: Project Management With a File-Based Agent Engine
 slug: knowledge-work-engine-project-management-2026
 date: 2026-07-06T00:00:00.000Z
 status: published
@@ -57,9 +57,7 @@ best_for: Program and delivery leads running projects where agents are part of t
 - Agile, Scrum, Jira, and Confluence already own execution and narrative.
 - This playbook shows where a file-based agent engine fits—iron triangle tradeoffs, RAG, RACI, RAID, and applied AI without pretending chat is a program office.
 
-## Getting oriented
-
-### How to start with this playbook
+## How to start with this playbook
 
 > **Example — how I use this for PM:** One folder per client initiative under my vault (`Initiatives/<name>/`). I open it in Cursor, scaffold with the [Part 0 replication kit](/posts/knowledge-work-agent-engine-guide-2026#replication-kit-give-this-to-an-ai), sync `Bridge.md` to the Jira sprint goal at sprint boundary, and link ticket keys—never mirror the backlog in markdown.
 
@@ -94,7 +92,7 @@ This article is thought leadership on **where a file-based agent engine plugs in
 
 ---
 
-### Not a fourth PM tool: a complement layer
+### How the engine complements Jira and Confluence
 
 | System | Primary job | Source of truth for |
 |--------|-------------|---------------------|

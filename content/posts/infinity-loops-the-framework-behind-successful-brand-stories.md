@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Infinity Loops: The Framework Behind Successful Brand Stories'
 slug: infinity-loops-the-framework-behind-successful-brand-stories
 date: 2025-02-21T00:00:00.000Z

@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
   Bootstrap
@@ -290,4 +290,4 @@ Document in `known-gotchas.md`, split scope, or escalate for review—**do not**
 3. **Copy the Cursor templates** from `00_Brain/Templates/cursor/` on your next retrofit—or add a user-level Cursor rule as a safety net until every repo has them.
 4. Read the [migration article](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow) if you are still straddling VS Code Copilot and Cursor with one note system.
 
-If your sessions still feel forgetful after that, add **structure** before you add model cost. Composer 2.5 is my proof of concept—not because it is magic, but because I built a runtime that treats memory and rules as part of shipping, not as optional documentation.
+If your sessions still feel forgetful after that, add **structure** before you add model cost. Composer 2.5 is my proof of concept—not because it is magic, but because my setup treats memory and rules as part of shipping, not as optional documentation.

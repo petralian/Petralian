@@ -23,6 +23,7 @@ Minimum outputs before coding:
 ## During work
 - Append to today's session note after major changes
 - Update Feature notes when touching a feature area
+- Every work reply: **Session context** (top) + **Mode v3.1 footer** (bottom) per Response Footer Contract — see `.cursor/rules/response-footer.mdc`
 
 ## End of Session (when user closes or asks)
 Read: `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\End of Session.md`

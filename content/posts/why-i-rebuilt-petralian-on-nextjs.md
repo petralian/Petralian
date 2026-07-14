@@ -1,4 +1,4 @@
----
+﻿---
 title: Why I Rebuilt Petralian on Next.js (And Open Sourced It)
 slug: why-i-rebuilt-petralian-on-nextjs
 date: 2026-05-23T00:00:00.000Z
@@ -121,9 +121,9 @@ For now it's an option rather than the default workflow. But it means the archit
 
 When I was planning the rebuild, I spent time looking for a Next.js + Obsidian + Vercel template that matched what I wanted. I didn't find one that fitted the specific workflow — the sync script, the frontmatter schema, the Tina CMS integration, the design system built for a writing-focused personal site rather than a startup landing page.
 
-So I built it myself. And then it occurred to me that other people writing in Obsidian who want a fast, low-maintenance public site probably have the same problem I had.
+So I directed AI to build it and reviewed every change. Then it occurred to me that other people writing in Obsidian who want a fast, low-maintenance public site probably have the same problem I had.
 
-The full repository is [open source on GitHub](https://github.com/petralian/). If you want a site that:
+The full repository is [open source on GitHub](https://github.com/nathanpetralian/petralian). If you want a site that:
 
 - Publishes from Obsidian with a script
 - Deploys to Vercel on push

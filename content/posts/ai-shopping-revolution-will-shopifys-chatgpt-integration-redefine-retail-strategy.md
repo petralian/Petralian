@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail
   Strategy?
@@ -14,7 +14,6 @@ tags:
   - Social Commerce
   - AI in Marketing
   - Customer Experience
-  - GEO
 excerpt: ''
 featured_image: /images/posts/creative-ai-hero.jpg
 seo_description: ''

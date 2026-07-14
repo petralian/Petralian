@@ -1,5 +1,5 @@
----
-title: Three Layers of External Memory for AI-First Development (What Actually Ships)
+﻿---
+title: Three Layers of External Memory for AI-First Development
 slug: three-layer-external-brain-for-ai-first-development
 date: 2026-05-26T00:00:00.000Z
 status: published

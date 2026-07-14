@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That
   Actually Survives
@@ -15,8 +15,7 @@ excerpt: >-
   memory problem - OpenClaw, Hermes, Karpathy's LLM wiki, and a plain Obsidian
   vault. Here's how they differ and which approach actually survives tool churn.
 focus_keyword: AI memory persistent knowledge management
-featured_image: >-
-  /images/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives.png
+featured_image: /images/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives.png
 seo_description: >-
   The AI memory problem explained: how OpenClaw, Hermes, Karpathy's LLM wiki,
   and Obsidian each solve it differently - and which approach survives when the

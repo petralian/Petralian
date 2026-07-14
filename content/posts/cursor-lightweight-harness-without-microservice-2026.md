@@ -1,5 +1,5 @@
----
-title: You Already Have an AI Harness in Cursor (Without LangChain)
+ï»¿---
+title: You Already Have an AI Harness in Cursor
 slug: cursor-lightweight-harness-without-microservice-2026
 date: 2026-07-04T00:00:00.000Z
 status: published
@@ -149,7 +149,7 @@ Power stays with you. The harness is the **operating manual** the agent reads â€
 
 ## What was already in the repo
 
-Before I wrote `docs/HARNESS-POLICY.md`, my main app repo already had:
+Before `docs/HARNESS-POLICY.md` existed in the repo, my main app already had:
 
 | Pattern | Location | Job |
 |---------|----------|-----|

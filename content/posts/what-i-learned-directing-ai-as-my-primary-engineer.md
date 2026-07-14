@@ -1,4 +1,4 @@
----
+﻿---
 title: What I Learned Directing AI as My Primary Engineer
 slug: what-i-learned-directing-ai-as-my-primary-engineer
 date: 2026-07-04T00:00:00.000Z
@@ -14,9 +14,6 @@ excerpt: >-
   operating-system design: rules, file memory, session handoffs, and gates
   before deploy. Lessons from running that model on production repos.
 featured_image: /images/posts/what-i-learned-directing-ai-as-my-primary-engineer.png
-featured_image_alt: >-
-  Conductor podium facing luminous code panels representing directing AI as
-  primary engineer
 focus_keyword: directing AI as primary engineer
 seo_description: >-
   What changes when AI is your primary implementer: operating-system design,
@@ -88,7 +85,7 @@ At individual scale, the same gap shows up as merged PRs that violate architectu
 
 ---
 
-## Where this sits: program delivery and accountability
+## How this relates to program delivery and accountability
 
 In classic delivery terms:
 

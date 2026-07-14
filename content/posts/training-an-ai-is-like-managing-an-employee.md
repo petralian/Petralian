@@ -1,4 +1,4 @@
----
+﻿---
 title: Training an AI Is Like Managing an Employee
 slug: training-an-ai-is-like-managing-an-employee
 date: 2026-06-14T00:00:00.000Z
@@ -50,7 +50,7 @@ best_for: >-
 
 
 
-> **Leadership angle:** [What I learned directing AI as my primary engineer](/posts/training-an-ai-is-like-managing-an-employee) · [Why AI programs fail before they start](/posts/why-your-ai-program-may-fail-before-it-starts)  
+> **Leadership angle:** [What I learned directing AI as my primary engineer](/posts/what-i-learned-directing-ai-as-my-primary-engineer) · [Why AI programs fail before they start](/posts/why-your-ai-program-is-failing-before-it-starts)  
 > **Memory stack:** [Three layers of external memory](/posts/three-layer-external-brain-for-ai-first-development) · [Why deliberate file memory beats hoping agents remember](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)  
 > **Tooling context:** [VS Code Copilot to Cursor migration](/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow) · [Composer 2.5 as my baseline model](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)
 

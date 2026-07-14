@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered'
 slug: getting-to-lighthouse-100-on-nextjs-16
 date: 2026-05-24T00:00:00.000Z
@@ -212,7 +212,7 @@ At Slow 4G, 65 KB downloads in approximately 350ms. The image was no longer the 
 
 ### The Image Optimizer Script
 
-For the post images (40 files, 6.5 MB total before), I wrote a reusable optimizer script using sharp. It runs as part of the project:
+For the post images (40 files, 6.5 MB total before), there is a reusable optimizer script using sharp in the repo:
 
 ```js
 // scripts/optimize-images.mjs

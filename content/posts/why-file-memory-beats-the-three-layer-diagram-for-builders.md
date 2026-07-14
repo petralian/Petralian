@@ -1,5 +1,5 @@
----
-title: 'Why File Memory Beats the Three-Layer AI Diagram (For Builders, Not Vendors)'
+﻿---
+title: 'Why File Memory Beats the Three-Layer AI Diagram'
 slug: why-file-memory-beats-the-three-layer-diagram-for-builders
 date: 2026-05-26T00:00:00.000Z
 status: published
@@ -125,7 +125,7 @@ LTM -> STM: {
 
 Memory is opaque to you. Audit means scrolling threads. Tool change often means reset.
 
-### Architecture B — External files (what I built)
+### Architecture B — External files (my setup)
 
 ```d2
 USER: User
@@ -249,7 +249,7 @@ Those are builder outcomes the diagram does not specify.
 | Attention as filter | Bootstrap order + hub notes as filter |
 | Single product / session | `00_Brain` (cross-project) + per-project vault |
 
-I built a **documentation-centric external brain**—Zettelkasten-style evergreen notes plus a session loop—not a neural memory stack. ~40% structural match to the infographic is expected; ~70% conceptual overlap (session context, durable store, feedback) is real. The **implementation plane** is what diverges.
+My setup is a **documentation-centric external brain**—Zettelkasten-style evergreen notes plus a session loop—not a neural memory stack. ~40% structural match to the infographic is expected; ~70% conceptual overlap (session context, durable store, feedback) is real. The **implementation plane** is what diverges.
 
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: The Customer Account Monolith Is an Anti-Pattern for Shopify Extensions
 slug: customer-account-monolith-anti-pattern-shopify-extensions
 date: 2026-06-07T00:00:00.000Z

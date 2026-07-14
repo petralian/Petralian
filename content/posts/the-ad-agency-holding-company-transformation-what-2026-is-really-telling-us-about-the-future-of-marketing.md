@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   The Ad Agency Holding Company Transformation: What 2026 Is Really Telling Us
   About the Future of Marketing

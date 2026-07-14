@@ -1,4 +1,4 @@
----
+﻿---
 title: Capturing UI Designs for AI Agents Creates a Prompt Injection Surface
 slug: capturing-ui-designs-for-ai-agents-prompt-injection-risk
 date: 2026-05-29T00:00:00.000Z
@@ -184,7 +184,7 @@ Not automatically—staging CMS notes and widgets can carry the same injection p
 
 ### Where does this connect to quality governance?
 
-Pair bounded capture with [agent quality monitoring](/posts/ai-agent-quality-drift-detection) and CI gates when capture tools feed autonomous workflows.
+Pair bounded capture with [agent quality monitoring](/blog/ai-agent-quality-drift-detection/) and CI gates when capture tools feed autonomous workflows.
 
 ---
 

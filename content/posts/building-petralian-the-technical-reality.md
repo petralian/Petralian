@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Building petralian.com: The Technical Reality'
 slug: building-petralian-the-technical-reality
 date: 2026-05-23T00:00:00.000Z
@@ -164,7 +164,7 @@ The gap between "done in Obsidian" and "live on the internet" is now two command
 
 **Name your SEO fields consistently from day one.** TinaCMS defines fields in `tina/config.ts`, and your code reads them in `src/lib/posts.ts`. If those don't agree on a field name — say, TinaCMS has `meta_description` and your code reads `seo_description` — the field silently returns empty strings on every post. It won't throw an error. The metadata just won't render. Name the field once, in one place, and document it somewhere a future agent can find it.
 
-**Write the sync script first.** I built a significant portion of the site by copying Markdown files manually before the script existed. That was friction I created for myself that the script later eliminated. The script should be one of the first things you build, not one of the last.
+**Write the sync script first.** I copied Markdown files manually for a while before the sync script existed. That was friction I created for myself that the script later eliminated. Have an agent scaffold the script early, not as an afterthought.
 
 **Don't start with CSS `column-count` for a masonry grid that needs left-to-right reading order.** It's one line and looks right. It's wrong by default. Knowing that going in would have saved me time.
 
@@ -174,7 +174,7 @@ The gap between "done in Obsidian" and "live on the internet" is now two command
 
 ### If You're Building Something Similar
 
-The [repository is open source on GitHub](https://github.com/petralian/). The sync script, the Tina schema, the `splitIntoColumns` helper, the Asteroids game, the design system — all there to fork.
+The [repository is open source on GitHub](https://github.com/nathanpetralian/petralian). The sync script, the Tina schema, the `splitIntoColumns` helper, the Asteroids game, the design system — all there to fork.
 
 The things most worth taking: the Obsidian frontmatter convention and sync approach, the split-column masonry pattern, and the ref-pair technique for bridging a canvas game loop with React state.
 

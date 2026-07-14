@@ -1,4 +1,4 @@
----
+﻿---
 title: 'GitHub Copilot vs OpenRouter: The Real Cost of AI Coding in 2026'
 slug: github-copilot-vs-openrouter-real-cost-comparison-for-developers
 date: 2026-05-24T00:00:00.000Z
@@ -12,8 +12,7 @@ excerpt: >-
   GitHub Copilot's new token-based pricing changes everything. Here's what it
   actually costs compared to OpenRouter and third-party relays when you code
   extensively.
-featured_image: >-
-  /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.png
+featured_image: /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.png
 focus_keyword: github copilot pricing comparison
 seo_description: >-
   Real cost comparison of GitHub Copilot Pro+ vs OpenRouter for heavy coding

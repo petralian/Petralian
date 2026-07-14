@@ -1,7 +1,7 @@
----
+﻿---
 title: >-
   The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
-  Marketing (Not Just Code)
+  Marketing
 slug: knowledge-work-agent-engine-guide-2026
 date: 2026-07-06T00:00:00.000Z
 status: published
@@ -181,7 +181,7 @@ Proof elsewhere on this site: [Obsidian second brain](/posts/your-brain-was-not-
 | **Routing** | `WORK-ROUTING.md` — load rules by situation | One giant context dump every turn |
 | **Continuity** | `Session Summaries` + `Bridge` updated at session end | Hoping ChatGPT "remembers" |
 
-#### Where files live (hosts, not dogma)
+#### Where files live
 
 | Host | Good for | Continuity |
 |------|----------|------------|
@@ -307,7 +307,7 @@ The engine does not replace judgment. It **records** judgment in files the next 
 
 ---
 
-### Where this sits among PM frameworks
+### How this relates to PM frameworks
 
 Agile, Scrum, Kanban, and phase-gate programs already define **execution** (Jira), **narrative** (Confluence), and **ceremony**. None of them define **what an AI assistant must read at session start**.
 

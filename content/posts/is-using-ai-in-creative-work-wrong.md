@@ -1,4 +1,4 @@
----
+﻿---
 title: Is using AI in creative work wrong?
 slug: is-using-ai-in-creative-work-wrong
 date: 2025-05-29T00:00:00.000Z

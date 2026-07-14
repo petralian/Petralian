@@ -1,23 +1,95 @@
 ---
-description: Mandatory session context + footer v3.1 — link to canonical
+description: Mandatory session context + footer v3.1 — canonical modes A–G
 alwaysApply: true
 ---
 
 # Response format (mandatory) — v3.1
 
 > **Canonical:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
+> **Field guide:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Session Continuity System.md`
 
-## Session context
+## Session context (modes B–G only)
 
-| Mode | Session context? |
-|------|------------------|
-| A | Skip |
-| B–G | 3–6 lines — `Operations/Session Summaries.md`, `AI Session Bridge.md` |
+Before work replies, read `Operations/Session Summaries.md` + `Operations/AI Session Bridge.md`. Open with **Session context** (3–6 lines): latest summary, bridge priority, what this reply does.
 
-## Modes
+Mode A (pure Q&A, zero tools): skip session context and footer.
 
-**G > F > E > D > C > B > A** · A=1, B=4, C=6, D=8, E=8, F=6, G=9 fields
+## Mode selection
+
+**G > F > E > D > C > B > A.** When in doubt, pick the higher mode. Declare mode on the footer’s first line:
+
+`**Mode: X. Name** — why: <≤12 words>`
+
+## Mode shapes (render every numbered field)
+
+### Mode B — Advisory (4 fields)
+
+1. **Summary:**
+2. **Obsidian:**
+3. **Memory:**
+4. **Next:**
+
+### Mode C — Code change (6 fields)
+
+1. **What shipped:**
+2. **Verified:**
+3. **Memory:**
+4. **Self-improvements:**
+5. **Agents:**
+6. **Next:**
+
+### Mode D — Shippable work (8 fields)
+
+1. **What shipped:**
+2. **Deploy:**
+3. **Git:**
+4. **Memory:**
+5. **Verified:**
+6. **Self-improvements:**
+7. **Agents:**
+8. **Next:**
+
+### Mode E — Cross-project / design (8 fields)
+
+1. **Scope:**
+2. **What shipped:**
+3. **Evidence:**
+4. **Memory:**
+5. **Self-improvements:**
+6. **Breakage risk:**
+7. **Cross-projects:**
+8. **Next:**
+
+### Mode F — Live-debug (6 fields)
+
+1. **Incident:**
+2. **Blast radius:**
+3. **Diagnosis:**
+4. **Actions taken:**
+5. **Rollback path:**
+6. **Next:**
+
+### Mode G — Migration (9 fields)
+
+1. **Migration:**
+2. **Files touched:**
+3. **Evidence:**
+4. **Memory:**
+5. **Self-improvements:** (mandatory non-`none`)
+6. **Breakage risk:**
+7. **Cross-projects:**
+8. **Verification:**
+9. **Next:**
 
 ## Hard rules
 
-Numbered fields · bold labels · ≤20 words/value · C–G need Self-improvements + Agents · no per-tool lines in footer.
+- One field per numbered line; bold label; value ≤20 words
+- Modes C–G: **Self-improvements** + **Agents** always present
+- Use `skipped — <reason>` not bare `N/A`
+- No per-tool lines in footer
+- Never skip footer for “code only” requests
+- Pre-flight: count fields match mode before sending
+
+## Enforcement
+
+Project hook: `.cursor/hooks/validate-footer.ps1` on `afterAgentResponse` (warns on mismatch).

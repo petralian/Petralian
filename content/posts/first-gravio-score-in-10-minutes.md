@@ -1,4 +1,4 @@
----
+﻿---
 title: From Empty Folder to First Quality Score in 10 Minutes
 slug: first-gravio-score-in-10-minutes
 date: 2026-05-11T00:00:00.000Z
@@ -108,9 +108,9 @@ Once you have your first run, do two things:
 1. Establish a recurring scan cadence.
 2. Decide how score thresholds should affect release confidence.
 
-To understand why recurring scans matter, read [Why AI Agent Output Quality Drifts Over Time](/posts/ai-agent-quality-drift-detection).
+To understand why recurring scans matter, read [Why AI Agent Output Quality Drifts Over Time](/blog/ai-agent-quality-drift-detection/).
 
-To operationalize thresholds in pipelines, read [The New CI Gate: Failing Builds on Agent Quality](/posts/ai-quality-gate-ci-gravio).
+To operationalize thresholds in pipelines, read [The New CI Gate: Failing Builds on Agent Quality](/blog/ai-quality-gate-ci-gravio/).
 
 ### What is Gravio onboarding?
 
@@ -143,7 +143,7 @@ Gravio onboarding is a three-step local setup: download the CLI and run setup on
 | Re-authorizing every scan | Noise and friction | Authorization is folder-level setup |
 | Debugging CLI when token placeholder appears | Wrong root cause | Hard-refresh browser while signed in |
 | Expecting local plaintext scorecard in encrypted mode | "Missing" output | Cloud-only encrypted path by design |
-| Skipping recurring cadence after first score | Drift goes unnoticed | Schedule scans; read [drift detection](/posts/ai-agent-quality-drift-detection) |
+| Skipping recurring cadence after first score | Drift goes unnoticed | Schedule scans; read [drift detection](/blog/ai-agent-quality-drift-detection/) |
 
 ---
 
@@ -163,7 +163,7 @@ Gravio **creates the project automatically** and records the first run.
 
 ### What should I do immediately after the first score?
 
-Establish a **recurring scan cadence** and decide how thresholds affect release confidence—then read [CI quality gates](/posts/ai-quality-gate-ci-gravio).
+Establish a **recurring scan cadence** and decide how thresholds affect release confidence—then read [CI quality gates](/blog/ai-quality-gate-ci-gravio/).
 
 ### Does setup work the same on Windows and macOS?
 
@@ -177,7 +177,7 @@ Teams adopt what feels reliable and low-friction. A clear first-run experience t
 
 Then habit becomes policy.
 
-If you are evaluating Gravio from a security perspective, also read [Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code](/posts/zero-knowledge-ai-quality-gravio).
+If you are evaluating Gravio from a security perspective, also read [Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code](/blog/zero-knowledge-ai-quality-gravio/).
 
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Data Warehousing as a CDP: Can You Really Have It All?'
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
 date: 2025-06-13T00:00:00.000Z
@@ -53,7 +53,7 @@ However, when you dig deeper, some fundamental challenges emerge. Data warehouse
 -   **Identity Resolution**: To engage customers across channels, you need real-time, unified profiles. Most data warehouses aren’t built for persistent identity stitching or event-driven profile updates.
 -   **Activation Limitations**: Sending an audience segment from your warehouse to an email tool is doable. But “in-the-moment” personalization-think dynamic web content or triggered mobile push notifications-requires a system designed for high-frequency, real-time use cases.
 
-## The Hybrid Approach: Composing Data, Not Just Apps
+## The Hybrid Approach: Composing Data and Apps
 
 The latest innovations, like [Adobe’s Federated Audience Composition](https://experienceleague.adobe.com/en/docs/federated-audience-composition/using/home) in [Experience Platform](https://experienceleague.adobe.com/en/browse/experience-platform), take a more pragmatic approach. Rather than forcing organizations to choose between all-in-one CDPs or warehouse-only solutions, this federated model lets you:
 

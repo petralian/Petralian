@@ -1,4 +1,4 @@
----
+﻿---
 title: 'From VS Code Copilot to Cursor: What Changed in My AI Workflow'
 slug: vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
 date: 2026-06-27T00:00:00.000Z

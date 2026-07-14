@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Best Practices for Founders: Integrating AI and SEO for Effective Digital
   Campaign Management
@@ -132,6 +132,8 @@ Relevant links:
 -   [SEMrush](https://www.semrush.com/)
 -   [Ahrefs](https://ahrefs.com/)
 -   [Adobe Campaign](https://business.adobe.com/products/campaign/adobe-campaign.html)
+
+if(window.strchfSettings === undefined) window.strchfSettings = {};window.strchfSettings.stats = {url: "https://petralian.storychief.io/en/best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management-d51g5COdek1mFx?id=1046311435&type=2",title: "Best Practices for Founders: Integrating AI and SEO for Effective Digital Campaign Management",siteId: "1709",id: "016550e5-d65b-47a4-9818-9298e6aa4952"};(function(d, s, id) {var js, sjs = d.getElementsByTagName(s)\[0\];if (d.getElementById(id)) {window.strchf.update(); return;}js = d.createElement(s); js.id = id;js.src = "https://d37oebn0w9ir6a.cloudfront.net/scripts/v0/strchf.js";js.async = true;sjs.parentNode.insertBefore(js, sjs);}(document, 'script', 'storychief-jssdk'))
 
 ---
 

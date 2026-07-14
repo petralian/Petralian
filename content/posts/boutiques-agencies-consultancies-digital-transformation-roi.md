@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Boutiques, Agencies, or Consultancies? Which one should you work with?'
 slug: boutiques-agencies-consultancies-digital-transformation-roi
 date: 2025-04-11T00:00:00.000Z
@@ -8,7 +8,6 @@ tags:
   - Agency Landscape
   - Digital Transformation
   - Marketing Technology
-  - Playbook
 excerpt: ''
 featured_image: /images/posts/boutique-agency-consultancy-choice-hero.png
 seo_description: ''

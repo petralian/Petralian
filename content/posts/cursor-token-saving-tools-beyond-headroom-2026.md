@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What I
   Use Now

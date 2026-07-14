@@ -1,4 +1,4 @@
----
+﻿---
 title: Why Deliberate File Memory Beats Hoping Agents Remember
 slug: why-deliberate-file-memory-beats-hoping-agents-remember
 date: 2026-05-26T00:00:00.000Z

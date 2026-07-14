@@ -53,8 +53,12 @@ if (-not $DryRun -and -not (Test-Path $siteImages)) {
 function Get-FileSlug {
   param([string]$filePath)
   $raw = Get-Content $filePath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
+  if ($raw -match '(?ms)^slug:\s*>-?\s*\r?\n\s*([^\r\n#]+)') {
+    return ($matches[1].Trim().Trim('"').Trim("'"))
+  }
   if ($raw -match '(?m)^slug:\s*(.+)$') {
-    return $matches[1].Trim().Trim('"').Trim("'")
+    $slug = $matches[1].Trim().Trim('"').Trim("'")
+    if ($slug -notmatch '^>-?$') { return $slug }
   }
   $base = [System.IO.Path]::GetFileNameWithoutExtension($filePath)
   return ($base -replace '[^a-zA-Z0-9]+', '-' -replace '^-|-$', '').ToLower()
@@ -67,19 +71,19 @@ function Find-VaultImage {
   $candidate = Join-Path $obsidianAttachments $filename
   if (Test-Path $candidate) { return $candidate }
   # 2. Attachments subfolder under the article's folder (Obsidian default per-folder setting)
-  $candidate = Join-Path $articleFolder "Attachments" $filename
+  $candidate = Join-Path (Join-Path $articleFolder "Attachments") $filename
   if (Test-Path $candidate) { return $candidate }
   # 3. Same folder as the article
   $candidate = Join-Path $articleFolder $filename
   if (Test-Path $candidate) { return $candidate }
   # 4. Other common sibling subfolder names
   foreach ($sub in @('assets', 'attachments', 'images')) {
-    $candidate = Join-Path $articleFolder $sub $filename
+    $candidate = Join-Path (Join-Path $articleFolder $sub) $filename
     if (Test-Path $candidate) { return $candidate }
   }
   # 5. Vault-level Attachments / assets folder
   foreach ($sub in @('Attachments', 'assets', 'attachments', 'images')) {
-    $candidate = Join-Path $obsidianVault $sub $filename
+    $candidate = Join-Path (Join-Path $obsidianVault $sub) $filename
     if (Test-Path $candidate) { return $candidate }
   }
   # 6. Recursive vault search (slower, last resort)
@@ -355,7 +359,7 @@ function Publish-ObsidianFile {
     $existing = Get-Content $destFile -Raw -Encoding UTF8
     if ($existing -match '(?m)^date:\s*(.+)$') {
       $existingDate = $Matches[1].Trim()
-      $content = $content -replace '(?m)^date:\s*.+$', "date: $existingDate"
+      $content = [regex]::Replace($content, '(?m)^date:\s*.+$', { "date: $existingDate" })
     }
   }
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with
   Precision and the Right AI Tools

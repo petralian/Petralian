@@ -29,6 +29,8 @@ ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
         "Enterprise AI",
         "Shopify",
         "SEO",
+        "Playbook",
+        "GEO",
     ],
     "Career": [
         "Leadership",
@@ -41,6 +43,8 @@ ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
         "Agentic AI",
         "Agency Landscape",
         "Marketing Technology",
+        "Playbook",
+        "GEO",
     ],
     "Commerce & Marketing": [
         "Ecommerce",
@@ -59,6 +63,8 @@ ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
         "Salesforce",
         "CDP",
         "Developer Tools",
+        "Playbook",
+        "GEO",
     ],
 }
 
@@ -256,19 +262,19 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Developer Tools", "AI Quality", "Agentic AI", "Gravio",
     ],
     "ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy": [
-        "Shopify", "ChatGPT", "Ecommerce", "Social Commerce", "AI in Marketing", "Customer Experience",
+        "Shopify", "ChatGPT", "Ecommerce", "Social Commerce", "AI in Marketing", "GEO",
     ],
     "best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management": [
-        "SEO", "AI in Marketing", "Marketing Technology", "Brand Strategy",
+        "SEO", "AI in Marketing", "Marketing Technology", "Brand Strategy", "GEO",
     ],
     "boutiques-agencies-consultancies-digital-transformation-roi": [
-        "Agency Landscape", "Digital Transformation", "Marketing Technology",
+        "Agency Landscape", "Digital Transformation", "Marketing Technology", "Playbook",
     ],
     "bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac": [
         "Digital Transformation", "APAC", "Customer Experience", "Ecommerce",
     ],
     "building-petralian-the-technical-reality": [
-        "Developer Tools", "Obsidian", "Agentic AI", "SEO",
+        "Developer Tools", "Obsidian", "Agentic AI", "SEO", "GEO",
     ],
     "capturing-ui-designs-for-ai-agents-prompt-injection-risk": [
         "Agentic AI", "AI Quality", "Developer Tools", "Generative AI",
@@ -277,7 +283,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Agentic AI", "Developer Tools", "AI Memory", "Enterprise AI",
     ],
     "contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation": [
-        "AI in Marketing", "Ecommerce", "Customer Experience", "ChatGPT", "Social Commerce",
+        "AI in Marketing", "Ecommerce", "Customer Experience", "ChatGPT", "Social Commerce", "GEO",
     ],
     "crafting-a-strong-digital-identity-for-startups-essential-branding-tips": [
         "Brand Strategy", "Marketing Technology", "Ecommerce",
@@ -286,16 +292,16 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Developer Tools", "SEO",
     ],
     "cursor-harness-measurement-2026": [
-        "Agentic AI", "Developer Tools", "AI Quality",
+        "Agentic AI", "Developer Tools", "AI Quality", "Playbook",
     ],
     "cursor-harness-memory-loop-2026": [
-        "Agentic AI", "AI Memory", "Obsidian",
+        "Agentic AI", "AI Memory", "Obsidian", "Playbook",
     ],
     "cursor-lightweight-harness-without-microservice-2026": [
-        "Agentic AI", "Developer Tools", "AI Quality",
+        "Agentic AI", "Developer Tools", "AI Quality", "Playbook",
     ],
     "cursor-token-saving-tools-beyond-headroom-2026": [
-        "Agentic AI", "Developer Tools", "AI Memory",
+        "Agentic AI", "Developer Tools", "AI Memory", "Playbook",
     ],
     "cursorbench-fable-5-composer-2-5-cost-vs-score": [
         "Agentic AI", "Developer Tools", "AI Quality", "Generative AI",
@@ -313,7 +319,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Leadership", "APAC", "Agency Landscape", "Ecommerce",
     ],
     "external-memory-series-guide": [
-        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series",
+        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series", "Playbook",
     ],
     "first-gravio-score-in-10-minutes": [
         "Gravio", "Agentic AI", "Developer Tools",
@@ -325,7 +331,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Generative AI", "AI in Marketing", "Agency Landscape",
     ],
     "getting-enterprise-ai-right-the-work-that-comes-before-deployment": [
-        "Enterprise AI", "Program Delivery", "Digital Transformation", "Leadership",
+        "Enterprise AI", "Program Delivery", "Digital Transformation", "Leadership", "Playbook",
     ],
     "getting-to-lighthouse-100-on-nextjs-16": [
         "Developer Tools", "SEO",
@@ -334,13 +340,13 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Agentic AI", "Developer Tools", "Generative AI",
     ],
     "gravio-multi-repo-rollout-playbook": [
-        "Gravio", "Enterprise AI", "Agentic AI", "AI Quality",
+        "Gravio", "Enterprise AI", "Agentic AI", "AI Quality", "Playbook",
     ],
     "how-ai-and-human-imagination-work-together": [
         "Generative AI", "AI in Marketing", "Brand Strategy",
     ],
     "how-gravio-scoring-engine-was-built": [
-        "Agentic AI", "AI Quality", "Developer Tools", "Gravio",
+        "Agentic AI", "AI Quality", "Developer Tools", "Gravio", "Playbook",
     ],
     "how-i-built-the-petralian-weekly-digest-on-brevo-free": [
         "Developer Tools", "Marketing Technology", "Brand Strategy",
@@ -358,16 +364,16 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Generative AI", "AI in Marketing", "Agency Landscape",
     ],
     "knowledge-work-agent-engine-guide-2026": [
-        "Program Delivery", "Leadership", "Agentic AI", "Digital Transformation",
+        "Program Delivery", "Leadership", "Agentic AI", "Digital Transformation", "Playbook", "GEO",
     ],
     "knowledge-work-engine-leadership-decisions-2026": [
-        "Leadership", "Enterprise AI", "Program Delivery", "Agentic AI",
+        "Leadership", "Enterprise AI", "Program Delivery", "Agentic AI", "Playbook",
     ],
     "knowledge-work-engine-marketing-voice-2026": [
-        "Brand Strategy", "AI in Marketing", "Marketing Technology", "Generative AI",
+        "Brand Strategy", "AI in Marketing", "Marketing Technology", "Generative AI", "Playbook", "GEO",
     ],
     "knowledge-work-engine-project-management-2026": [
-        "Program Delivery", "Digital Transformation", "Agentic AI", "Enterprise AI",
+        "Program Delivery", "Digital Transformation", "Agentic AI", "Enterprise AI", "Playbook",
     ],
     "leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation": [
         "Leadership", "Digital Transformation", "Program Delivery",
@@ -385,7 +391,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Leadership", "APAC", "Agency Landscape",
     ],
     "obsidian-memory-layers-personal-productivity-beyond-chat": [
-        "Obsidian", "Agentic AI", "External Memory Series", "AI Memory",
+        "Obsidian", "Agentic AI", "External Memory Series", "AI Memory", "Playbook",
     ],
     "programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk": [
         "Marketing Technology", "Agency Landscape", "Digital Transformation",
@@ -412,7 +418,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "AI Memory", "Agentic AI", "Obsidian",
     ],
     "the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo": [
-        "SEO", "AI in Marketing", "Generative AI", "ChatGPT",
+        "SEO", "AI in Marketing", "Generative AI", "ChatGPT", "GEO",
     ],
     "the-future-of-social-commerce-why-brands-need-to-own-their-customer-data": [
         "Social Commerce", "Marketing Technology", "Ecommerce", "CDP",
@@ -424,25 +430,25 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Customer Experience", "Marketing Technology", "Ecommerce",
     ],
     "three-layer-external-brain-for-ai-first-development": [
-        "AI Memory", "Agentic AI", "Obsidian", "Developer Tools", "External Memory Series",
+        "AI Memory", "Agentic AI", "Obsidian", "Developer Tools", "External Memory Series", "Playbook",
     ],
     "training-an-ai-is-like-managing-an-employee": [
         "Leadership", "Agentic AI", "Program Delivery", "Generative AI",
     ],
     "vscode-copilot-to-cursor-what-changed-in-my-ai-workflow": [
-        "Developer Tools", "Agentic AI", "Obsidian", "AI Memory",
+        "Developer Tools", "Agentic AI", "Obsidian", "AI Memory", "Playbook",
     ],
     "what-i-learned-directing-ai-as-my-primary-engineer": [
         "Enterprise AI", "Agentic AI", "Program Delivery", "Leadership",
     ],
     "why-deliberate-file-memory-beats-hoping-agents-remember": [
-        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series",
+        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series", "Playbook",
     ],
     "why-file-memory-beats-the-three-layer-diagram-for-builders": [
-        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series",
+        "AI Memory", "Agentic AI", "Obsidian", "External Memory Series", "Playbook",
     ],
     "why-i-rebuilt-petralian-on-nextjs": [
-        "Developer Tools", "Obsidian", "SEO", "Agentic AI",
+        "Developer Tools", "Obsidian", "SEO", "Agentic AI", "GEO",
     ],
     "why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it": [
         "Digital Transformation", "Ecommerce", "APAC",

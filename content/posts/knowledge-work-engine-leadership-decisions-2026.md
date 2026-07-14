@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and
   Audit Trails)
@@ -104,7 +104,7 @@ You do not need a custom agent product. You need **purpose and decision files** 
 
 ---
 
-### Where this sits (leadership stack)
+### How this relates to your leadership stack
 
 | Layer | Typical tool | Leadership job |
 |-------|--------------|------------------|

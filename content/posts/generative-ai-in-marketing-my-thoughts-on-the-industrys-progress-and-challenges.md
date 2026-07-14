@@ -1,4 +1,4 @@
----
+﻿---
 title: >-
   Generative AI in Marketing: My Thoughts on the Industry’s Progress and
   Challenges

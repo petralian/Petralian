@@ -1,7 +1,5 @@
----
-title: >-
-  Marketing and Voice at Scale With a File-Based Agent Engine (Systems, Not
-  Style PDFs)
+﻿---
+title: Marketing and Voice at Scale With a File-Based Agent Engine
 slug: knowledge-work-engine-marketing-voice-2026
 date: 2026-07-06T00:00:00.000Z
 status: published
@@ -59,9 +57,7 @@ best_for: Marketing leaders keeping brand voice consistent when agents draft at 
 - Brand voice fails when it lives in a PDF nobody opens.
 - This playbook maps Sinek's Why-How-What, voice-as-system governance, and content-batch routing to produce consistent, high-volume marketing with minimum rework.
 
-## Getting oriented
-
-### How to start with this playbook
+## How to start with this playbook
 
 > **Example — how I use this for marketing:** `System/Profile/voice-guide.md` and `Brand/messaging-pillars.md` load on every content session (via Cursor rules or paste). One `Editorial/` folder per site or brand; **content-batch** when I need long-form + atomized social from one voice-pack.
 
@@ -101,7 +97,7 @@ You do not need a new MarTech suite. You need **machine-readable voice**, **edit
 
 ---
 
-### Where this sits (marketing stack)
+### How this relates to your marketing stack
 
 | Layer | Typical tool | Marketing job |
 |-------|--------------|---------------|
