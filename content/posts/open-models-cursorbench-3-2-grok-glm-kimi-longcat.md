@@ -1,7 +1,7 @@
 ---
-title: "Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi K2.7, and LongCat"
+title: 'Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi K2.7, and LongCat'
 slug: open-models-cursorbench-3-2-grok-glm-kimi-longcat
-date: 2026-07-10
+date: 2026-07-10T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -9,23 +9,39 @@ tags:
   - AI Quality
   - Generative AI
 excerpt: >-
-  Open-model launch posts cite SWE-bench; CursorBench cites session cost. Here is
-  how to read Grok, GLM, Kimi, and LongCat for buying decisions — not picker hype alone.
+  Open-model launch posts cite SWE-bench; CursorBench cites session cost. Here
+  is how to read Grok, GLM, Kimi, and LongCat for buying decisions — not picker
+  hype alone.
 featured_image: /images/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat.png
 featured_image_alt: >-
   Three seedlings sprouting from cracked concrete under distinct colored light
   filters, morning mist, macro editorial, no logos or readable text.
 focus_keyword: Grok 4.5 Cursor benchmark
-seo_description: "Open models on CursorBench 3.2: Grok 4.5 vs GLM 5.2 vs Kimi K2.7 Code with cost and steps, plus LongCat SWE-bench context. Budget picks vs Composer 2.5 on Cursor sessions."
+seo_description: >-
+  Open models on CursorBench 3.2: Grok 4.5 vs GLM 5.2 vs Kimi K2.7 Code with
+  cost and steps, plus LongCat SWE-bench context. Budget picks vs Composer 2.5
+  on…
 related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - cursorbench-vs-swe-bench-vs-human-eval
   - best-cursor-model-by-task-2026
-image_prompt: "Cinematic 16:9 macro of three different seeds sprouting from cracked concrete, each under a distinct colored gel filter (teal, amber, violet), morning mist, no logos, no readable text."
-image_prompt_variant_1: "Surreal 16:9 greenhouse at night: three bioluminescent plants in separate terrariums on a bench, irrigation tubes cross but do not merge, deep green and copper light, no readable labels, no logos."
-image_prompt_variant_2: "Bold 16:9 isometric cutaway: three open-source crates on a loading dock with separate bill-of-lading icons, dashed line to a Cursor terminal shape, risograph texture, no logos, no readable text."
+image_prompt: >-
+  Cinematic 16:9 macro of three different seeds sprouting from cracked concrete,
+  each under a distinct colored gel filter (teal, amber, violet), morning mist,
+  no logos, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 greenhouse at night: three bioluminescent plants in separate
+  terrariums on a bench, irrigation tubes cross but do not merge, deep green and
+  copper light, no readable labels, no logos.
+image_prompt_variant_2: >-
+  Bold 16:9 isometric cutaway: three open-source crates on a loading dock with
+  separate bill-of-lading icons, dashed line to a Cursor terminal shape,
+  risograph texture, no logos, no readable text.
 format: hybrid
-best_for: Anyone comparing open-model vendor claims to Cursor session economics before changing defaults
+best_for: >-
+  Anyone comparing open-model vendor claims to Cursor session economics before
+  changing defaults
+seo_title: 'Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi…'
 ---
 
 > **Cluster:** [CursorBench 3.2 hub](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [Benchmark lenses](/posts/cursorbench-vs-swe-bench-vs-human-eval) · [Best model by work mode](/posts/best-cursor-model-by-task-2026)

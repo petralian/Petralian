@@ -3,7 +3,7 @@ title: >-
   Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What I
   Use Now
 slug: cursor-token-saving-tools-beyond-headroom-2026
-date: 2026-07-01 00:00:00+00:00
+date: 2026-07-01T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -19,7 +19,7 @@ focus_keyword: Cursor token saving OpenRouter what works
 seo_description: >-
   Honest post-mortem: Headroom, local proxy, Cloudflare tunnel, and RTK on
   Cursor + OpenRouter. What savings are real, why the experiment failed, and
-  what I use now (Context7, Serena, harness).
+  what I use…
 series: ''
 related_posts:
   - github-copilot-vs-openrouter-real-cost-comparison-for-developers
@@ -39,7 +39,13 @@ image_prompt_variant_2: >-
   Bold isometric 16:9: before stack Proxy Tunnel RTK crossed out, after stack
   Direct MCP Harness as three blocks, risograph teal and slate, no logos.
 format: hands-on
-best_for: Program leads optimizing Cursor token spend and context discipline without proxy middleware
+best_for: >-
+  Program leads optimizing Cursor token spend and context discipline without
+  proxy middleware
+seo_title: 'Beyond Headroom: What I Tried to Save Cursor Tokens, What…'
+featured_image_alt: >-
+  Hero illustration for Beyond Headroom: What I Tried to Save Cursor Tokens,
+  What Failed, and What I Use Now
 ---
 **TL;DR**
 

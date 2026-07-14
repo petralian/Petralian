@@ -3,7 +3,7 @@ title: >-
   Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
   Bootstrap
 slug: composer-2-5-baseline-model-tighter-bootstrap-better-results
-date: 2026-05-27 00:00:00+00:00
+date: 2026-05-27T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -18,8 +18,7 @@ featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-bett
 focus_keyword: Cursor Composer 2.5 baseline model
 seo_description: >-
   Why I use Cursor Composer 2.5 as my only coding model: lower cost, predictable
-  footer and rule compliance, and better results from a tighter session
-  bootstrap—not frontier roulette.
+  footer and rule compliance, and better results from a tighter session…
 image_prompt: >-
   Minimal developer workspace with a single model selector pinned to one option,
   beside a neat stack of labeled rule cards and an Obsidian vault notebook—calm
@@ -34,6 +33,10 @@ image_prompt_variant_2: >-
   contrast, professional playful tone.
 format: hands-on
 best_for: Practice leads standardizing Cursor model policy and tighter agent bootstrap
+seo_title: 'Composer 2.5 as My Only Coding Model: Cost,…'
+featured_image_alt: >-
+  Hero illustration for Composer 2.5 as My Only Coding Model: Cost,
+  Predictability, and a Tighter Bootstrap
 ---
 **TL;DR**
 

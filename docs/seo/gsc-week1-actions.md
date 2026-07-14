@@ -13,7 +13,7 @@ GSC → **Indexing** → **Sitemaps** → three-dot menu → **Remove sitemap** 
 - [x] `http://frankfurt.petralian.com/sitemap-index.xml`
 - [x] `http://www.petralian.com/sitemap_index.xml`
 
-**Keep:** `https://petralian.com/sitemap.xml` (Status: Success, 71 pages).
+**Keep:** `https://petralian.com/sitemap.xml` (Status: Success; ~78+ posts + topics after 2026-07-14 batch).
 
 ## Step 2 — Manual actions ✅
 
@@ -53,6 +53,22 @@ GSC → **URL Inspection** → **Request indexing** for each:
 - [ ] `https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment`
 
 Direct links: [GSC URL Inspection](https://search.google.com/search-console/inspect?resource_id=sc-domain%3Apetralian.com)
+
+### 3d. Request indexing — 2026-07-14 batch (9 articles)
+
+Automated: `npm run request-indexing -- --batch-2026-07-14` (IndexNow ping + prints URLs below).
+
+GSC → **URL Inspection** → **Request indexing** for each (manual; ~10–20/day):
+
+- [ ] `https://petralian.com/posts/vouch-referral-tracking-three-gates-shopify`
+- [ ] `https://petralian.com/posts/deploy-without-git-tag-you-cannot-roll-back`
+- [ ] `https://petralian.com/posts/cursor-obsidian-brain-handbook-2026`
+- [ ] `https://petralian.com/posts/cursorbench-vs-swe-bench-vs-human-eval`
+- [ ] `https://petralian.com/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat`
+- [ ] `https://petralian.com/posts/fable-5-pricing-cursor-every-tier-explained`
+- [ ] `https://petralian.com/posts/when-to-escalate-composer-2-5-to-fable-5`
+- [ ] `https://petralian.com/posts/best-cursor-model-by-task-2026`
+- [ ] `https://petralian.com/posts/is-cursor-only-for-developers`
 
 ## Step 4 — Baseline snapshot
 

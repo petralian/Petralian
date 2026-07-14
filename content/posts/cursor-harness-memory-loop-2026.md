@@ -1,7 +1,7 @@
 ---
 title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates'
 slug: cursor-harness-memory-loop-2026
-date: 2026-07-04 00:00:00+00:00
+date: 2026-07-04T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -17,7 +17,7 @@ focus_keyword: Cursor agent harness memory loop
 seo_description: >-
   How to gate four tiers of external memory in Cursor — operational, evergreen,
   and feedback loop layers — without loading brain-pack on every question.
-  Aligns with the External Memory Series.
+  Aligns…
 series: Cursor Agent Harness Series
 series_order: 2
 related_posts:
@@ -36,7 +36,13 @@ image_prompt_variant_2: >-
   Bold isometric 16:9: stacked memory layers with one arrow through a gate card
   Mode A Skip, risograph teal and cream, no text.
 format: hands-on
-best_for: Practice leads connecting file memory, Obsidian, and agent loops across engagements
+best_for: >-
+  Practice leads connecting file memory, Obsidian, and agent loops across
+  engagements
+seo_title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and…'
+featured_image_alt: >-
+  Hero illustration for Agent Harness Memory Loop — Four Tiers, Feedback Loop,
+  and Load Gates
 ---
 **TL;DR**
 

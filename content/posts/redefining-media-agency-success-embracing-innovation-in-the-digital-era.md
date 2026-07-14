@@ -1,17 +1,28 @@
 ---
 title: 'Redefining Media Agency Success: Embracing Innovation in the Digital Era'
 slug: redefining-media-agency-success-embracing-innovation-in-the-digital-era
-date: 2025-05-12 00:00:00+00:00
+date: 2025-05-12T00:00:00.000Z
 status: published
 tags:
-- Agency Landscape
-- AI in Marketing
-- Digital Transformation
-excerpt: ''
+  - Agency Landscape
+  - AI in Marketing
+  - Digital Transformation
+excerpt: >-
+  TL;DR What Redefining Media Agency Success: Embracing Innovation in the
+  Digital Era covers. Who it is for and when to use it. Practical next steps
+  after…
 featured_image: /images/posts/media-agency-innovation-digital-era-hero.jpg
-seo_description: ''
+seo_description: >-
+  TL;DR What Redefining Media Agency Success: Embracing Innovation in the
+  Digital Era covers. Who it is for and when to use it. Practical next steps
+  after…
 format: strategic
 best_for: Agency leaders redefining success metrics as media and innovation converge
+seo_title: 'Redefining Media Agency Success: Embracing Innovation in…'
+focus_keyword: agency landscape
+featured_image_alt: >-
+  Hero illustration for Redefining Media Agency Success: Embracing Innovation in
+  the Digital Era
 ---
 **TL;DR**
 

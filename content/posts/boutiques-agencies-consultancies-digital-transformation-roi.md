@@ -1,19 +1,29 @@
 ---
-title: Boutiques, Agencies, or Consultancies? Which one should you work with?
+title: 'Boutiques, Agencies, or Consultancies? Which one should you work with?'
 slug: boutiques-agencies-consultancies-digital-transformation-roi
-date: 2025-04-11 00:00:00+00:00
+date: 2025-04-11T00:00:00.000Z
 status: published
 tags:
-- Agency Landscape
-- Digital Transformation
-- Marketing Technology
-- Playbook
-excerpt: ''
+  - Agency Landscape
+  - Digital Transformation
+  - Marketing Technology
+  - Playbook
+excerpt: >-
+  Having led digital transformation initiatives across Asia Pacific for global
+  brands ranging from luxury retail to financial services, I've experienced the…
 featured_image: /images/posts/boutique-agency-consultancy-choice-hero.png
-seo_description: ''
+seo_description: >-
+  Having led digital transformation initiatives across Asia Pacific for global
+  brands ranging from luxury retail to financial services, I've experienced the…
 format: strategic
-best_for: Leaders choosing between boutique partners, agencies, and consultancies
-  for transformation work
+best_for: >-
+  Leaders choosing between boutique partners, agencies, and consultancies for
+  transformation work
+seo_title: 'Boutiques, Agencies, or Consultancies? Which one should…'
+focus_keyword: agency landscape
+featured_image_alt: >-
+  Hero illustration for Boutiques, Agencies, or Consultancies? Which one should
+  you work with?
 ---
 
 Having led digital transformation initiatives across Asia Pacific for global brands ranging from luxury retail to financial services, I've experienced the professional services landscape from multiple angles. I've started my own boutique, worked client-side dealing with agencies and consultancies, and served within agency networks. This diverse perspective has shown me that choosing between boutique firms, agencies, and consultancies isn't merely about company size-it's about understanding the unique value propositions, team dynamics, and return on investment each model offers.

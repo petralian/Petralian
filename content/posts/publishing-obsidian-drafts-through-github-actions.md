@@ -1,31 +1,38 @@
 ---
 title: Publishing Obsidian Drafts Through GitHub Actions
 slug: publishing-obsidian-drafts-through-github-actions
-date: 2026-05-24 00:00:00+00:00
+date: 2026-05-24T00:00:00.000Z
 status: published
 tags:
-- Obsidian
-- Developer Tools
-- Agentic AI
-excerpt: A practical way to move from writing in Obsidian to publishing on a live
-  site without copy-paste, manual uploads, or brittle one-off scripts.
+  - Obsidian
+  - Developer Tools
+  - Agentic AI
+excerpt: >-
+  A practical way to move from writing in Obsidian to publishing on a live site
+  without copy-paste, manual uploads, or brittle one-off scripts.
 featured_image: /images/posts/publishing-obsidian-drafts-through-github-actions.png
 focus_keyword: Obsidian GitHub Actions publishing workflow
-seo_description: Learn how to publish Obsidian drafts with a GitHub Actions workflow,
-  from draft note to live site, with fewer handoffs and less friction.
-image_prompt: A clean editorial illustration of a writer's Obsidian note entering
-  a tiny publishing factory, moving through a GitHub Actions conveyor, image checks,
+seo_description: >-
+  Learn how to publish Obsidian drafts with a GitHub Actions workflow, from
+  draft note to live site, with fewer handoffs and less friction.
+image_prompt: >-
+  A clean editorial illustration of a writer's Obsidian note entering a tiny
+  publishing factory, moving through a GitHub Actions conveyor, image checks,
   and a final website output gate. Warm, technical, practical, and realistic.
-image_prompt_variant_1: 'Tiny System Factory: a compact workshop where an Obsidian
-  note becomes a published article through labeled checkpoints, with a GitHub Actions
-  conveyor, image validation, and a live site output. Clever, warm, technical, not
-  cartoonish.'
-image_prompt_variant_2: 'Maze vs Clear Workflow: split scene showing a confusing publishing
-  maze on one side and a clean code-owned Obsidian-to-GitHub workflow on the other,
-  with the article moving smoothly from draft to live site. Editorial, polished, professional
-  but playful.'
+image_prompt_variant_1: >-
+  Tiny System Factory: a compact workshop where an Obsidian note becomes a
+  published article through labeled checkpoints, with a GitHub Actions conveyor,
+  image validation, and a live site output. Clever, warm, technical, not
+  cartoonish.
+image_prompt_variant_2: >-
+  Maze vs Clear Workflow: split scene showing a confusing publishing maze on one
+  side and a clean code-owned Obsidian-to-GitHub workflow on the other, with the
+  article moving smoothly from draft to live site. Editorial, polished,
+  professional but playful.
 format: hands-on
 best_for: Builders publishing from Obsidian with GitHub Actions and minimal friction
+seo_title: Publishing Obsidian Drafts Through GitHub Actions
+featured_image_alt: Hero illustration for Publishing Obsidian Drafts Through GitHub Actions
 ---
 **TL;DR**
 

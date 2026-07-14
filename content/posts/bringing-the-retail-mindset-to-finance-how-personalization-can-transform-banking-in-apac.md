@@ -1,19 +1,34 @@
 ---
-title: 'Bringing the Retail Mindset to Finance: How Personalization Can Transform
-  Banking in APAC'
-slug: bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
-date: 2025-01-15 00:00:00+00:00
+title: >-
+  Bringing the Retail Mindset to Finance: How Personalization Can Transform
+  Banking in APAC
+slug: >-
+  bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
+date: 2025-01-15T00:00:00.000Z
 status: published
 tags:
-- Digital Transformation
-- APAC
-- Customer Experience
-- Ecommerce
-excerpt: ''
+  - Digital Transformation
+  - APAC
+  - Customer Experience
+  - Ecommerce
+excerpt: >-
+  TL;DR What Bringing the Retail Mindset to Finance: How Personalization Can
+  Transform Bankin covers. Who it is for and when to use it. Practical next
+  steps…
 featured_image: /images/posts/personalized-banking-digital-app-apac-hero.jpg
-seo_description: ''
+seo_description: >-
+  TL;DR What Bringing the Retail Mindset to Finance: How Personalization Can
+  Transform Bankin covers. Who it is for and when to use it. Practical next
+  steps…
 format: strategic
-best_for: APAC financial services leaders borrowing retail-grade personalization patterns
+best_for: >-
+  APAC financial services leaders borrowing retail-grade personalization
+  patterns
+seo_title: 'Bringing the Retail Mindset to Finance: How…'
+focus_keyword: digital transformation
+featured_image_alt: >-
+  Hero illustration for Bringing the Retail Mindset to Finance: How
+  Personalization Can Transform Banking in APAC
 ---
 **TL;DR**
 

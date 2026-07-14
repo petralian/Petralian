@@ -31,6 +31,7 @@ function getPublishedPosts() {
       return {
         slug,
         title: data.title || slug,
+        description: (data.seo_description || data.excerpt || "").trim(),
         status: data.status || "published",
         date: data.date ? String(data.date).slice(0, 10) : "",
         tags: Array.isArray(data.tags) ? data.tags : [],
@@ -61,11 +62,11 @@ const today = new Date().toISOString().slice(0, 10);
 const lines = [
   "# Petralian",
   "",
-  "> Writing on enterprise AI and commercial growth — from someone with the track record to close it, build the team, and ship it.",
+  "> Practical writing on AI, technology, and commercial growth — for anyone who wants better results from AI than a disposable chat tab.",
   "",
   `Last updated: ${today}`,
   "",
-  "Nathan Petralia is a Managing Director based in Hong Kong with twenty years inside APAC's most demanding digital programs — Estée Lauder, Shiseido, Microsoft, Merkle (Dentsu CXM network). In 2024 he started building AI products from scratch. He writes about enterprise AI strategy, commercial growth, and the gap between what AI programs promise and what actually ships.",
+  "Nathan Petralia writes from twenty years leading digital and commercial programs across APAC (Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu). Since 2024 he builds AI products and documents what works: enterprise AI strategy, commercial growth, external memory for agents, and operator-grade tooling — in language a student, founder, or CEO can act on this afternoon.",
   "",
   "## Discovery",
   "",
@@ -108,9 +109,10 @@ const lines = [
   "",
   "## Published articles",
   "",
-  ...posts.map(
-    (p) => `- ${p.title}: ${SITE_URL}/posts/${p.slug}`
-  ),
+  ...posts.map((p) => {
+    const desc = p.description ? ` — ${p.description}` : "";
+    return `- ${p.title}${desc}: ${SITE_URL}/posts/${p.slug}`;
+  }),
   "",
   "## Usage",
   "",

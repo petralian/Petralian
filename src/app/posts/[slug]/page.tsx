@@ -6,10 +6,11 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { format, parseISO } from "date-fns";
-import { getAllPosts, getPost } from "@/lib/posts";
+import { getAllPosts, getPost, getPostLastModified } from "@/lib/posts";
 import { getTopicUrl } from "@/lib/tag-slug";
 import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
+import { absoluteAssetUrl, extractFaqPairs } from "@/lib/seo";
 import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -32,6 +33,8 @@ export async function generateMetadata({
   try {
     const post = getPost(slug);
     const postUrl = `${SITE_URL}/posts/${slug}`;
+    const modified = getPostLastModified(slug, post.date).toISOString();
+    const ogImage = absoluteAssetUrl(post.featured_image);
     return {
       title: post.seo_title || post.title,
       description: post.seo_description || post.excerpt,
@@ -44,10 +47,16 @@ export async function generateMetadata({
         type: "article",
         url: postUrl,
         publishedTime: post.date,
-        modifiedTime: post.date,
+        modifiedTime: modified,
         authors: [`${SITE_URL}/about`],
         siteName: SITE_NAME,
-        ...(post.featured_image && { images: [post.featured_image] }),
+        ...(ogImage && { images: [ogImage] }),
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.seo_title || post.title,
+        description: post.seo_description || post.excerpt,
+        ...(ogImage && { images: [ogImage] }),
       },
     };
   } catch {
@@ -81,9 +90,12 @@ export default async function PostPage({
 
   const allPosts = getAllPosts();
   const postUrl = `${SITE_URL}/posts/${post.slug}`;
+  const modifiedIso = getPostLastModified(post.slug, post.date).toISOString();
+  const heroUrl = absoluteAssetUrl(post.featured_image);
   const headings = extractHeadings(post.content);
   const navHeadings = buildOutlineNav(headings);
   const showOutline = shouldShowOutline(navHeadings);
+  const faqPairs = extractFaqPairs(post.content);
 
   const blogPostingSchema = {
     "@context": "https://schema.org",
@@ -93,7 +105,7 @@ export default async function PostPage({
     description: post.seo_description || post.excerpt,
     url: postUrl,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: modifiedIso,
     author: {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
@@ -110,10 +122,25 @@ export default async function PostPage({
       "@id": postUrl,
     },
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    ...(post.featured_image && { image: post.featured_image }),
+    ...(heroUrl && { image: heroUrl }),
     ...(post.tags.length > 0 && { keywords: post.tags.join(", ") }),
-    ...(post.category && { articleSection: post.category }),
   };
+
+  const faqSchema =
+    faqPairs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqPairs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: f.answer,
+            },
+          })),
+        }
+      : null;
 
   return (
     <>
@@ -121,6 +148,12 @@ export default async function PostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <section className="post-hero">
         <div className="post-hero-inner">
           <div className="post-hero-left">

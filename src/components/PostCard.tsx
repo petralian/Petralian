@@ -27,7 +27,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           <div className="post-card-image-wrap">
             <Image
               src={post.featured_image!}
-              alt={post.title}
+              alt={post.featured_image_alt || post.title}
               fill
               loading="lazy"
               fetchPriority="low"

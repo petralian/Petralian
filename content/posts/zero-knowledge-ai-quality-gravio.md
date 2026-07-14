@@ -1,26 +1,33 @@
 ---
 title: 'Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code'
 slug: zero-knowledge-ai-quality-gravio
-date: 2026-05-09 00:00:00+00:00
+date: 2026-05-09T00:00:00.000Z
 status: published
 tags:
-- Gravio
-- Agentic AI
-- Developer Tools
-- AI Quality
-excerpt: 'Most AI quality platforms ask you to trust them with your source code. Gravio
-  takes a different path: encrypted scoring designed to keep plaintext out of the
-  server path.'
+  - Gravio
+  - Agentic AI
+  - Developer Tools
+  - AI Quality
+excerpt: >-
+  Most AI quality platforms ask you to trust them with your source code. Gravio
+  takes a different path: encrypted scoring designed to keep plaintext out of
+  the server path.
 featured_image: /images/posts/zero-knowledge-ai-quality-gravio.png
 focus_keyword: zero knowledge ai code quality
-seo_description: Learn how Gravio approaches privacy-first AI agent scoring with encrypted
-  run data and why zero-knowledge architecture matters for teams handling sensitive
+seo_description: >-
+  Learn how Gravio approaches privacy-first AI agent scoring with encrypted run
+  data and why zero-knowledge architecture matters for teams handling sensitive
   code.
-image_prompt: A cinematic workstation scene with encrypted data streams flowing from
-  local code editor into a secure cloud lock icon, neon blue and graphite palette,
+image_prompt: >-
+  A cinematic workstation scene with encrypted data streams flowing from local
+  code editor into a secure cloud lock icon, neon blue and graphite palette,
   modern SaaS illustration style, high detail, no text overlay
 format: hands-on
 best_for: Builders exploring privacy-preserving AI quality scoring with Gravio
+seo_title: 'Zero-Knowledge AI Quality: How Gravio Scores Agents…'
+featured_image_alt: >-
+  Hero illustration for Zero-Knowledge AI Quality: How Gravio Scores Agents
+  Without Seeing Your Code
 ---
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
 # Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code

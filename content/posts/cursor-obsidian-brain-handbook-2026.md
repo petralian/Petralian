@@ -1,7 +1,7 @@
 ---
 title: How I Run Cursor With One Obsidian Brain Across Many Projects
 slug: cursor-obsidian-brain-handbook-2026
-date: 2026-07-08
+date: 2026-07-08T00:00:00.000Z
 status: published
 tags:
   - Obsidian
@@ -11,16 +11,17 @@ tags:
   - Playbook
 excerpt: >-
   I stopped copying AI rules into every engagement. One Brain vault, native file
-  reads, hooks, and a sync script align personal site, Shopify app, job applications,
-  and client work — one memory system for program delivery.
+  reads, hooks, and a sync script align personal site, Shopify app, job
+  applications, and client work — one memory system for program delivery.
 featured_image: /images/posts/cursor-obsidian-brain-handbook-2026.png
 featured_image_alt: >-
-  Desk with one labeled Obsidian notebook feeding multiple project folders
-  on a laptop screen, warm editorial lighting, no logos or readable text.
+  Desk with one labeled Obsidian notebook feeding multiple project folders on a
+  laptop screen, warm editorial lighting, no logos or readable text.
 focus_keyword: Cursor Obsidian multi project setup
 seo_description: >-
-  Run Cursor with one Obsidian Brain across many projects: personal site, Shopify
-  app, job applications, and client engagements. Workspaces, native reads, hooks, sync loop.
+  Run Cursor with one Obsidian Brain across many projects: personal site,
+  Shopify app, job applications, and client engagements. Workspaces, native
+  reads,…
 related_posts:
   - three-layer-external-brain-for-ai-first-development
   - cursor-lightweight-harness-without-microservice-2026
@@ -40,6 +41,7 @@ format: hybrid
 best_for: >-
   Anyone running Cursor across multiple contexts who wants one external memory
   system without rebuilding rules per folder
+seo_title: How I Run Cursor With One Obsidian Brain Across Many…
 ---
 
 ## How do I run Cursor with one Obsidian Brain across many projects?

@@ -1,24 +1,41 @@
 ---
-title: "Why Vouch Merchants See Zero Referrals (and It Is Usually Not Your Code)"
+title: Why Vouch Merchants See Zero Referrals (and It Is Usually Not Your Code)
 slug: vouch-referral-tracking-three-gates-shopify
-date: 2026-07-06
+date: 2026-07-06T00:00:00.000Z
 status: published
 tags:
   - Ecommerce
   - Customer Experience
   - Marketing Technology
-excerpt: "Vouch can be installed while referrals stay at zero. Three separate gates—embed enabled, link attribution, and account-page data—must pass before orders earn credit."
+excerpt: >-
+  Vouch can be installed while referrals stay at zero. Three separate
+  gates—embed enabled, link attribution, and account-page data—must pass before
+  orders earn credit.
 featured_image: /images/posts/vouch-referral-tracking-three-gates-shopify.png
 featured_image_alt: >-
   Editorial diagram of three gates leading to a checkout receipt with a referral
   field, warm paper texture, no logos or readable text.
 focus_keyword: shopify referral tracking not working
-seo_description: "Why Vouch and other Shopify referral apps show zero conversions: app embed off, referral links confused with discount codes, and customer account pages on a different API path."
-image_prompt: "Editorial 16:9 diagram on warm paper: three gates labeled Installed, Enabled, Attributing leading to a checkout receipt with a referral field, office light, no logos, no readable text, no faces."
-image_prompt_variant_1: "Tiny theme-editor diorama: green Installed badge while app embed toggle stays OFF, clever workshop tone, 16:9, no logos."
-image_prompt_variant_2: "Split scene: left checkout missing referral attribute, right same checkout with referral code flowing from link to cart to order, editorial contrast, 16:9."
+seo_description: >-
+  Why Vouch and other Shopify referral apps show zero conversions: app embed
+  off, referral links confused with discount codes, and customer account pages
+  on a…
+image_prompt: >-
+  Editorial 16:9 diagram on warm paper: three gates labeled Installed, Enabled,
+  Attributing leading to a checkout receipt with a referral field, office light,
+  no logos, no readable text, no faces.
+image_prompt_variant_1: >-
+  Tiny theme-editor diorama: green Installed badge while app embed toggle stays
+  OFF, clever workshop tone, 16:9, no logos.
+image_prompt_variant_2: >-
+  Split scene: left checkout missing referral attribute, right same checkout
+  with referral code flowing from link to cart to order, editorial contrast,
+  16:9.
 format: hybrid
-best_for: Shopify merchants and founders triaging zero-referral tickets on referral programs
+best_for: >-
+  Shopify merchants and founders triaging zero-referral tickets on referral
+  programs
+seo_title: Why Vouch Merchants See Zero Referrals (and It Is Usually…
 ---
 
 > **Deeper architecture:** [Customer account monolith anti-pattern](/posts/customer-account-monolith-anti-pattern-shopify-extensions) — when one API path cannot serve every Shopify surface.

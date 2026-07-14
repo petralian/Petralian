@@ -1,7 +1,7 @@
 ---
 title: 'From VS Code Copilot to Cursor: What Changed in My AI Workflow'
 slug: vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-date: 2026-06-27 00:00:00+00:00
+date: 2026-06-27T00:00:00.000Z
 status: published
 tags:
   - Developer Tools
@@ -18,7 +18,7 @@ focus_keyword: VS Code Copilot vs Cursor migration
 seo_description: >-
   Why VS Code Copilot forgets session footers but Cursor follows them:
   alwaysApply rules, per-turn re-injection, hooks, and retrofitting Obsidian
-  file memory for agent mode.
+  file memory…
 image_prompt: >-
   Cinematic 16:9 low-angle shot: two translucent IDE panes floating in a dim
   machine room, one pane showing inline code completions and the other an agent
@@ -37,6 +37,10 @@ image_prompt_variant_2: >-
   photographic, no logos, no readable text.
 format: hands-on
 best_for: Practice leads comparing Copilot and Cursor for governed agent workflows
+seo_title: 'From VS Code Copilot to Cursor: What Changed in My AI…'
+featured_image_alt: >-
+  Hero illustration for From VS Code Copilot to Cursor: What Changed in My AI
+  Workflow
 ---
 **TL;DR**
 

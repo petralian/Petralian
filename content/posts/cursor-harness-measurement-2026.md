@@ -1,7 +1,7 @@
 ---
 title: 'Measure Your Cursor Harness — CSV, CI, and OpenRouter Dollars'
 slug: cursor-harness-measurement-2026
-date: 2026-07-04 00:00:00+00:00
+date: 2026-07-04T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -37,6 +37,10 @@ image_prompt_variant_2: >-
   risograph slate and mint, no logos.
 format: hands-on
 best_for: Program leads measuring whether a Cursor harness improves output and spend
+seo_title: 'Measure Your Cursor Harness — CSV, CI, and OpenRouter…'
+featured_image_alt: >-
+  Hero illustration for Measure Your Cursor Harness — CSV, CI, and OpenRouter
+  Dollars
 ---
 
 > **Series:** Cursor Agent Harness (Part 3 of 3)  

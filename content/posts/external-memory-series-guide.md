@@ -1,7 +1,7 @@
 ---
 title: 'External Memory Series: A Practical Guide to AI Session Continuity'
 slug: external-memory-series-guide
-date: 2026-05-26 00:00:00+00:00
+date: 2026-05-26T00:00:00.000Z
 status: published
 tags:
   - AI Memory
@@ -36,6 +36,10 @@ format: hybrid
 best_for: >-
   Program leads and knowledge workers adopting file-based memory for AI-assisted
   work — start here for the series map
+seo_title: 'External Memory Series: A Practical Guide to AI Session…'
+featured_image_alt: >-
+  Hero illustration for External Memory Series: A Practical Guide to AI Session
+  Continuity
 ---
 **TL;DR**
 

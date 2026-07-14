@@ -1,20 +1,28 @@
 ---
-title: 'The Rise of Customer Experience Management: Why It Matters and How to Make
-  the Most of It'
+title: >-
+  The Rise of Customer Experience Management: Why It Matters and How to Make the
+  Most of It
 slug: the-rise-of-cxm
-date: 2023-12-01
+date: 2023-12-01T00:00:00.000Z
 status: published
 tags:
-- Customer Experience
-- Marketing Technology
-- Ecommerce
-seo_description: 'Customer experience management (CXM): why it matters, best practices,
-  and FAQ. Full article on LinkedIn.'
-excerpt: CXM designs frictionless, personalized customer journeys across touchpoints.
+  - Customer Experience
+  - Marketing Technology
+  - Ecommerce
+seo_description: >-
+  Customer experience management (CXM): why it matters, best practices, and FAQ.
+  Full article on LinkedIn.
+excerpt: >-
+  CXM designs frictionless, personalized customer journeys across touchpoints.
   Summary, common mistakes, and FAQ—with link to the full LinkedIn article.
 featured_image: /images/posts/cxm-customer-experience-management-hero.png
 format: strategic
 best_for: Customer experience and marketing leaders mapping the CXM landscape
+seo_title: 'The Rise of Customer Experience Management: Why It Matters…'
+focus_keyword: customer experience
+featured_image_alt: >-
+  Hero illustration for The Rise of Customer Experience Management: Why It
+  Matters and How to Make the Most of It
 ---
 
 ## What is customer experience management (CXM)?

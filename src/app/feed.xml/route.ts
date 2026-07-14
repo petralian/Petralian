@@ -1,5 +1,6 @@
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { getAllPosts } from "@/lib/posts";
+import { absoluteAssetUrl } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -21,6 +22,7 @@ export function GET(): Response {
             const link = `${SITE_URL}/posts/${post.slug}`;
             const pubDate = new Date(post.date).toUTCString();
             const description = post.seo_description || post.excerpt || "";
+            const enclosureUrl = absoluteAssetUrl(post.featured_image);
 
             return [
                 "<item>",
@@ -29,6 +31,11 @@ export function GET(): Response {
                 `<guid>${escapeXml(link)}</guid>`,
                 `<pubDate>${escapeXml(pubDate)}</pubDate>`,
                 `<description>${escapeXml(description)}</description>`,
+                ...(enclosureUrl
+                    ? [
+                          `<enclosure url="${escapeXml(enclosureUrl)}" type="image/png" length="0" />`,
+                      ]
+                    : []),
                 "</item>",
             ].join("");
         })

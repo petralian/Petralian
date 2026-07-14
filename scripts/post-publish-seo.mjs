@@ -84,4 +84,17 @@ if (slugs.length > 0) {
   console.log("\n  No new slugs passed — skipped per-post SEO audit.");
 }
 
+// IndexNow + GSC URL list for new slugs
+if (slugs.length > 0) {
+  try {
+    const slugArgs = slugs.map((s) => `"${s}"`).join(" ");
+    execSync(`node "${path.join(__dir, "request-indexing.mjs")}" ${slugArgs}`, {
+      stdio: "inherit",
+      cwd: repoRoot,
+    });
+  } catch (e) {
+    console.warn("  Indexing pass failed (non-fatal):", e.message);
+  }
+}
+
 console.log("─────────────────────────────────────────────────────────────────\n");

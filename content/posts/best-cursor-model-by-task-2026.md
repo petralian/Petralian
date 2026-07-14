@@ -1,7 +1,7 @@
 ---
-title: "Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield"
+title: 'Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield'
 slug: best-cursor-model-by-task-2026
-date: 2026-07-13
+date: 2026-07-13T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -10,22 +10,39 @@ tags:
   - Generative AI
 excerpt: >-
   CursorBench 3.2 reports one score per model, but agent work varies by risk and
-  scope. Here is a work-mode default map for anyone choosing Cursor models — with cost, tokens, and steps from the public table.
+  scope. Here is a work-mode default map for anyone choosing Cursor models —
+  with cost, tokens, and steps from the public table.
 featured_image: /images/posts/best-cursor-model-by-task-2026.png
 featured_image_alt: >-
-  Four workshop trays on a concrete bench under colored gel lights, each suggesting
-  a different work mode, editorial still life, no logos or readable text.
+  Four workshop trays on a concrete bench under colored gel lights, each
+  suggesting a different work mode, editorial still life, no logos or readable
+  text.
 focus_keyword: best cursor model 2026
-seo_description: "Best Cursor model by work mode in 2026: analysis, review, execution, and greenfield picks from CursorBench 3.2 with cost, tokens, and agent steps for any power user."
+seo_description: >-
+  Best Cursor model by work mode in 2026: analysis, review, execution, and
+  greenfield picks from CursorBench 3.2 with cost, tokens, and agent steps for
+  any power user.
 related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - fable-5-pricing-cursor-every-tier-explained
   - when-to-escalate-composer-2-5-to-fable-5
-image_prompt: Cinematic 16:9 top-down photograph of four workshop trays on a concrete bench, each tray holds different tools under colored gel lights (teal, amber, violet, copper), shallow depth of field, no logos, no readable text.
-image_prompt_variant_1: "Surreal 16:9 subway map diorama: four station stops connected by colored lines, each platform has a different tiny workbench scene, night lighting through grates, no readable station names, no logos."
-image_prompt_variant_2: "Bold 16:9 isometric grid poster: four quadrants Analysis Review Execution Greenfield as pictogram panels with small cost meter icons, risograph texture, slate and mint palette, no logos, no readable text."
+image_prompt: >-
+  Cinematic 16:9 top-down photograph of four workshop trays on a concrete bench,
+  each tray holds different tools under colored gel lights (teal, amber, violet,
+  copper), shallow depth of field, no logos, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 subway map diorama: four station stops connected by colored
+  lines, each platform has a different tiny workbench scene, night lighting
+  through grates, no readable station names, no logos.
+image_prompt_variant_2: >-
+  Bold 16:9 isometric grid poster: four quadrants Analysis Review Execution
+  Greenfield as pictogram panels with small cost meter icons, risograph texture,
+  slate and mint palette, no logos, no readable text.
 format: hybrid
-best_for: Anyone choosing Cursor model defaults by work mode who wants cost-aware picks from public benchmarks
+best_for: >-
+  Anyone choosing Cursor model defaults by work mode who wants cost-aware picks
+  from public benchmarks
+seo_title: 'Best Cursor Model by Work Mode (2026): Analysis, Review,…'
 ---
 
 > **Cluster:** [CursorBench 3.2 analysis](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [Fable 5 tiers](/posts/fable-5-pricing-cursor-every-tier-explained) · [Composer → Fable escalation](/posts/when-to-escalate-composer-2-5-to-fable-5)

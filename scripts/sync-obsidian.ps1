@@ -205,10 +205,26 @@ function Test-ArticlePreflight {
   }
 
   # Recommended fields — warn only
-  foreach ($field in @('excerpt', 'seo_description', 'focus_keyword')) {
+  foreach ($field in @('excerpt', 'seo_description', 'focus_keyword', 'seo_title')) {
     if (-not $fm[$field] -or $fm[$field] -eq '') {
       $warnings.Add("Missing recommended field: $field")
     }
+  }
+
+  $seoTitle = if ($fm['seo_title']) { $fm['seo_title'] } elseif ($fm['title']) { $fm['title'] } else { '' }
+  if ($seoTitle.Length -gt 0 -and $seoTitle.Length -lt 50) {
+    $warnings.Add("seo_title short ($($seoTitle.Length)/55-60 chars)")
+  }
+  if ($seoTitle.Length -gt 65) {
+    $warnings.Add("seo_title long ($($seoTitle.Length) chars)")
+  }
+
+  $seoDesc = if ($fm['seo_description']) { $fm['seo_description'] } else { '' }
+  if ($seoDesc.Length -gt 0 -and $seoDesc.Length -lt 140) {
+    $warnings.Add("seo_description short ($($seoDesc.Length)/150-160 chars)")
+  }
+  if ($seoDesc.Length -gt 165) {
+    $warnings.Add("seo_description long ($($seoDesc.Length) chars)")
   }
 
   if ($raw -match '```mermaid') {
@@ -418,8 +434,22 @@ if ($synced.Count -eq 0 -and $removed.Count -eq 0) {
 if ($synced.Count -gt 0) {
   Write-Host ''
   Write-Host '── Image compression ────────────────────────────────────────────' -ForegroundColor Cyan
-  $nodeOutput = node "$PSScriptRoot\optimize-images.mjs" 2>&1
-  $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+  try {
+    $nodeOutput = node "$PSScriptRoot\optimize-images.mjs" 2>&1
+    $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+  }
+  catch {
+    Write-Host "  WARN: Image compression failed (non-fatal): $_" -ForegroundColor Yellow
+  }
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
+# ── Auto-fix easy SEO gaps on synced slugs ───────────────────────────────────
+if ($synced.Count -gt 0) {
+  Write-Host ''
+  Write-Host '── SEO auto-fix ─────────────────────────────────────────────────' -ForegroundColor Cyan
+  $slugArgList = ($synced | ForEach-Object { "`"$_`"" }) -join ' '
+  node "$PSScriptRoot\autofix-seo-meta.mjs" @($synced) 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
 
@@ -449,7 +479,7 @@ try {
   }
 
   # -A stages new files, modifications, AND deletions
-  git add -A content/posts public/images/posts public/llms.txt
+  git add -A content/posts public/images/posts public/llms.txt public/*.txt
 
   $parts = @()
   if ($synced.Count -gt 0) {
@@ -482,7 +512,7 @@ try {
       Write-Error "Could not restore local files from $localSha during auto-recovery."
       exit 1
     }
-    git add -A content/posts public/images/posts public/llms.txt
+    git add -A content/posts public/images/posts public/llms.txt public/*.txt
     git diff --cached --quiet
     if ($LASTEXITCODE -eq 0) {
       Write-Host '  Auto-recovery: no diff vs origin/master after overlay. Nothing to push.' -ForegroundColor Yellow

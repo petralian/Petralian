@@ -1,32 +1,42 @@
 ---
 title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That Actually Mattered'
 slug: getting-to-lighthouse-100-on-nextjs-16
-date: 2026-05-24 00:00:00+00:00
+date: 2026-05-24T00:00:00.000Z
 status: published
 tags:
-- Developer Tools
-- SEO
-excerpt: A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
-  site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config options
-  that don't exist in Next.js 16 and will silently break your build.
+  - Developer Tools
+  - SEO
+excerpt: >-
+  A complete walkthrough of every Lighthouse bottleneck on a Next.js 16 Vercel
+  site — TBT from 3,020ms to 20ms, LCP from 3.0s to 1.7s — including the config
+  options that don't exist in Next.js 16 and will silently break your build.
 featured_image: /images/posts/getting-to-lighthouse-100-on-nextjs-16.png
 focus_keyword: lighthouse 100 next.js 16
-seo_description: How I fixed TBT, LCP, contrast failures, and image weight on a Next.js
-  16 Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
+seo_description: >-
+  How I fixed TBT, LCP, contrast failures, and image weight on a Next.js 16
+  Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
   code.
-image_prompt: Cinematic editorial photograph of a lighthouse standing at the edge
-  of a rocky coast at dusk, light beam sweeping across calm dark water, minimalist
-  composition, deep blues and warm amber, photorealistic, professional photography
-image_prompt_variant_1: Isometric illustration of a tiny workshop where web performance
-  metrics move through inspection checkpoints on a conveyor belt — a small engineer
-  adjusting dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
+image_prompt: >-
+  Cinematic editorial photograph of a lighthouse standing at the edge of a rocky
+  coast at dusk, light beam sweeping across calm dark water, minimalist
+  composition, deep blues and warm amber, photorealistic, professional
+  photography
+image_prompt_variant_1: >-
+  Isometric illustration of a tiny workshop where web performance metrics move
+  through inspection checkpoints on a conveyor belt — a small engineer adjusting
+  dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
   no cartoonish elements
-image_prompt_variant_2: 'Split editorial composition: left side shows a tangled maze
-  of dashboard warnings and red audit flags; right side shows a clean, minimal pipeline
-  diagram with green checkmarks — professional, polished, editorial illustration style,
-  muted tones'
+image_prompt_variant_2: >-
+  Split editorial composition: left side shows a tangled maze of dashboard
+  warnings and red audit flags; right side shows a clean, minimal pipeline
+  diagram with green checkmarks — professional, polished, editorial illustration
+  style, muted tones
 format: hands-on
 best_for: Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site
+seo_title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That…'
+featured_image_alt: >-
+  Hero illustration for Getting to Lighthouse 100 on Next.js 16: Every Fix That
+  Actually Mattered
 ---
 **TL;DR**
 

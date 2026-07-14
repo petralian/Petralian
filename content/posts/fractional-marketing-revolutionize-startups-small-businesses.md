@@ -1,17 +1,28 @@
 ---
 title: How Fractional Marketing Can Revolutionize Startups and Small Businesses
 slug: fractional-marketing-revolutionize-startups-small-businesses
-date: 2025-02-05 00:00:00+00:00
+date: 2025-02-05T00:00:00.000Z
 status: published
 tags:
-- Marketing Technology
-- Brand Strategy
-- Agency Landscape
-excerpt: ''
+  - Marketing Technology
+  - Brand Strategy
+  - Agency Landscape
+excerpt: >-
+  TL;DR What How Fractional Marketing Can Revolutionize Startups and Small
+  Businesses covers. Who it is for and when to use it. Practical next steps
+  after…
 featured_image: /images/posts/fractional-cmo-marketing-hero.jpeg
-seo_description: ''
+seo_description: >-
+  TL;DR What How Fractional Marketing Can Revolutionize Startups and Small
+  Businesses covers. Who it is for and when to use it. Practical next steps
+  after…
 format: strategic
 best_for: Startup founders weighing fractional marketing versus full-time hires
+seo_title: How Fractional Marketing Can Revolutionize Startups and…
+focus_keyword: marketing technology
+featured_image_alt: >-
+  Hero illustration for How Fractional Marketing Can Revolutionize Startups and
+  Small Businesses
 ---
 **TL;DR**
 

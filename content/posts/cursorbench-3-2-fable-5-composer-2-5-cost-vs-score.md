@@ -1,7 +1,7 @@
 ---
 title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget'
 slug: cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
-date: 2026-07-02
+date: 2026-07-02T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -10,12 +10,14 @@ tags:
   - Generative AI
 excerpt: >-
   Fable 5 Max leads CursorBench 3.2 at 70.5%, but at 17 USD per task and 72
-  steps. Grok 4.5 High scores 66.7% at 1.51 USD. Composer 2.5 still wins score per dollar at 56.1% and 0.44 USD.
+  steps. Grok 4.5 High scores 66.7% at 1.51 USD. Composer 2.5 still wins score
+  per dollar at 56.1% and 0.44 USD.
 featured_image: /images/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score.png
 focus_keyword: CursorBench 3.2 Fable 5 Composer 2.5 cost
 seo_description: >-
   CursorBench 3.2 analysis: Fable 5 Max scores 70.5% but costs 17.32 USD/task.
-  Grok 4.5 High hits 66.7%. Composer 2.5 hits 56.1% at 0.44 USD. Compare GLM, Kimi, LongCat.
+  Grok 4.5 High hits 66.7%. Composer 2.5 hits 56.1% at 0.44 USD. Compare GLM,
+  Kimi,…
 related_posts:
   - fable-5-pricing-cursor-every-tier-explained
   - when-to-escalate-composer-2-5-to-fable-5
@@ -37,7 +39,13 @@ image_prompt_variant_2: >-
   graphic shapes, violet and amber accents, risograph texture, no logos, no
   readable text.
 format: hybrid
-best_for: Practice leads and commercial operators setting Cursor AI model policy using CursorBench unit economics
+best_for: >-
+  Practice leads and commercial operators setting Cursor AI model policy using
+  CursorBench unit economics
+seo_title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5…'
+featured_image_alt: >-
+  Hero illustration for CursorBench 3.2: Fable 5 Tops the Chart, but Composer
+  2.5 Wins the Budget
 ---
 **TL;DR**
 

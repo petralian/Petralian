@@ -1,18 +1,31 @@
 ---
-title: 'The Ad Agency Holding Company Transformation: What 2026 Is Really Telling
-  Us About the Future of Marketing'
-slug: the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
-date: 2026-04-16 00:00:00+00:00
+title: >-
+  The Ad Agency Holding Company Transformation: What 2026 Is Really Telling Us
+  About the Future of Marketing
+slug: >-
+  the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
+date: 2026-04-16T00:00:00.000Z
 status: published
 tags:
-- Agency Landscape
-- Digital Transformation
-- AI in Marketing
-excerpt: ''
+  - Agency Landscape
+  - Digital Transformation
+  - AI in Marketing
+excerpt: >-
+  TL;DR What Ad Agency Holding Company Transformation: What 2026 Is Really
+  Telling Us About t covers. Who it is for and when to use it. Practical next
+  steps…
 featured_image: /images/posts/ad-agency-holding-company-2026-hero.jpg
-seo_description: ''
+seo_description: >-
+  TL;DR What Ad Agency Holding Company Transformation: What 2026 Is Really
+  Telling Us About t covers. Who it is for and when to use it. Practical next
+  steps…
 format: strategic
 best_for: Marketing and agency leaders reading holding-company transformation signals
+seo_title: 'The Ad Agency Holding Company Transformation: What 2026 Is…'
+focus_keyword: agency landscape
+featured_image_alt: >-
+  Hero illustration for The Ad Agency Holding Company Transformation: What 2026
+  Is Really Telling Us About the Future of Marketing
 ---
 **TL;DR**
 

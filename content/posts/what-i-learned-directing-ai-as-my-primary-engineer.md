@@ -1,7 +1,7 @@
 ---
 title: What I Learned Directing AI as My Primary Engineer
 slug: what-i-learned-directing-ai-as-my-primary-engineer
-date: 2026-07-04 00:00:00+00:00
+date: 2026-07-04T00:00:00.000Z
 status: published
 tags:
   - Enterprise AI
@@ -34,8 +34,9 @@ image_prompt_variant_2: >-
   Deploy gate, flat graphic style, risograph grain, copper and slate palette, no
   logos, no readable text.
 format: hybrid
-best_for: >-
-  Practice leads directing AI as primary implementer at program scale
+best_for: Practice leads directing AI as primary implementer at program scale
+seo_title: What I Learned Directing AI as My Primary Engineer
+featured_image_alt: Hero illustration for What I Learned Directing AI as My Primary Engineer
 ---
 **TL;DR**
 

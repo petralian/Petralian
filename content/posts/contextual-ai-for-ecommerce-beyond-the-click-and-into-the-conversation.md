@@ -1,20 +1,31 @@
 ---
 title: 'Contextual AI for ecommerce: Beyond the Click and Into the Conversation'
 slug: contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation
-date: 2025-08-28 00:00:00+00:00
+date: 2025-08-28T00:00:00.000Z
 status: published
 tags:
-- AI in Marketing
-- Ecommerce
-- Customer Experience
-- ChatGPT
-- Social Commerce
-- GEO
-excerpt: ''
+  - AI in Marketing
+  - Ecommerce
+  - Customer Experience
+  - ChatGPT
+  - Social Commerce
+  - GEO
+excerpt: >-
+  TL;DR What Contextual AI for ecommerce: Beyond the Click and Into the
+  Conversation covers. Who it is for and when to use it. Practical next steps
+  after…
 featured_image: /images/posts/contextual-ai-ecommerce-conversation-hero.png
-seo_description: ''
+seo_description: >-
+  TL;DR What Contextual AI for ecommerce: Beyond the Click and Into the
+  Conversation covers. Who it is for and when to use it. Practical next steps
+  after…
 format: hybrid
 best_for: Commerce leaders and practitioners shaping conversational customer journeys
+seo_title: 'Contextual AI for ecommerce: Beyond the Click and Into the…'
+focus_keyword: ai in marketing
+featured_image_alt: >-
+  Hero illustration for Contextual AI for ecommerce: Beyond the Click and Into
+  the Conversation
 ---
 **TL;DR**
 

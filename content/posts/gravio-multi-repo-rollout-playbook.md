@@ -1,26 +1,34 @@
 ---
 title: 'Team Playbook: Rolling Out Gravio Across Multiple Repositories'
 slug: gravio-multi-repo-rollout-playbook
-date: 2026-05-15 00:00:00+00:00
+date: 2026-05-15T00:00:00.000Z
 status: published
 tags:
-- Gravio
-- Enterprise AI
-- Agentic AI
-- AI Quality
-- Playbook
-excerpt: A practical rollout framework for introducing Gravio across many repos without
+  - Gravio
+  - Enterprise AI
+  - Agentic AI
+  - AI Quality
+  - Playbook
+excerpt: >-
+  A practical rollout framework for introducing Gravio across many repos without
   creating process fatigue, policy confusion, or noisy quality signals.
 featured_image: /images/posts/gravio-multi-repo-rollout-playbook.png
 focus_keyword: gravio rollout across repositories
-seo_description: Use this team playbook to roll out Gravio across multiple repositories
-  with clear policy, phased adoption, and governance that scales.
-image_prompt: A network map of many software repositories connected to one quality
-  dashboard hub, team avatars collaborating, clean product strategy illustration,
-  balanced neutral and green tones
+seo_description: >-
+  Use this team playbook to roll out Gravio across multiple repositories with
+  clear policy, phased adoption, and governance that scales.
+image_prompt: >-
+  A network map of many software repositories connected to one quality dashboard
+  hub, team avatars collaborating, clean product strategy illustration, balanced
+  neutral and green tones
 format: hybrid
-best_for: Platform and engineering leads rolling AI quality scoring across multiple
+best_for: >-
+  Platform and engineering leads rolling AI quality scoring across multiple
   repos
+seo_title: 'Team Playbook: Rolling Out Gravio Across Multiple…'
+featured_image_alt: >-
+  Hero illustration for Team Playbook: Rolling Out Gravio Across Multiple
+  Repositories
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

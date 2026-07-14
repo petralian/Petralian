@@ -1,0 +1,48 @@
+---
+description: Mandatory auto-parallel routing — launch Task subagents in one message when work splits
+globs:
+alwaysApply: true
+---
+
+# Parallel agents (auto-routing — mandatory)
+
+When a request has **two or more independent deliverables**, the parent agent **must** launch **Task** subagents **in parallel in a single message** before or alongside parent work. **Do not** default to serial single-agent execution.
+
+## Auto-parallel triggers (any match → parallelize)
+
+| Trigger | Example |
+|---------|---------|
+| Vault + repo in one ask | Obsidian doc + `scripts/` change |
+| Doc + draft + code | Runbook + blog draft + pipeline fix |
+| Explore + implement | Read-only audit while editing elsewhere |
+| 3+ numbered deliverables | "1. GSC 2. P0–P4 3. vault doc 4. draft" |
+| User says parallel / batch / "and also" | Explicit or implicit multi-output |
+| Independent trees | SEO audit + vault session note |
+
+## Subagent routing table
+
+| Work | `subagent_type` | Notes |
+|------|-----------------|-------|
+| Vault markdown, ops notes, blog drafts | `vault-writer` | Never write drafts to `content/posts/` |
+| Broad codebase search | `explore` | `medium` or `very thorough` |
+| Git, npm, deploy shell | `shell` | |
+| Post-ship diff review | `code-reviewer` | After substantive edits |
+| Footer shape check | `footer-auditor` | Readonly |
+| General multi-step when no specialist fits | `generalPurpose` | |
+
+**Launch rule:** Multiple Task calls in **one** parent message. Pass full context — subagents do not see parent chat history.
+
+## Do NOT parallelize
+
+- Single-file or single-question fix
+- Step B depends on step A output (e.g. fix then verify same file)
+- User asked for one focused answer (Mode A/B)
+- Security-sensitive sequential review required
+
+## Footer contract
+
+Modes **C–G:** field **Agents** must list subagent names + one-line why, or `none — single-agent` only when triggers above did not apply.
+
+## Reload
+
+After template sync: **Developer: Reload Window** so `sessionStart` injects PARALLEL LAW.

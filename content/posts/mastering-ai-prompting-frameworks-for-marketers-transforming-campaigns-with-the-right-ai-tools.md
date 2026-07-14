@@ -1,19 +1,32 @@
 ---
-title: 'Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with
-  Precision and the Right AI Tools'
-slug: mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
-date: 2025-03-19 00:00:00+00:00
+title: >-
+  Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with
+  Precision and the Right AI Tools
+slug: >-
+  mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
+date: 2025-03-19T00:00:00.000Z
 status: published
 tags:
-- AI in Marketing
-- Generative AI
-- Marketing Technology
-- SEO
-excerpt: ''
+  - AI in Marketing
+  - Generative AI
+  - Marketing Technology
+  - SEO
+excerpt: >-
+  TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming
+  Campaigns with Pre covers. Who it is for and when to use it. Practical next
+  steps…
 featured_image: /images/posts/ai-prompting-frameworks-marketers-hero.jpg
-seo_description: ''
+seo_description: >-
+  TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming
+  Campaigns with Pre covers. Who it is for and when to use it. Practical next
+  steps…
 format: hybrid
 best_for: Marketers moving from ad-hoc prompts to repeatable campaign frameworks
+seo_title: 'Mastering AI Prompting Frameworks for Marketers:…'
+focus_keyword: ai in marketing
+featured_image_alt: >-
+  Hero illustration for Mastering AI Prompting Frameworks for Marketers:
+  Transforming Campaigns with Precision and the Right AI Tools
 ---
 **TL;DR**
 

@@ -1,17 +1,26 @@
 ---
 title: 'Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC'
 slug: redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
-date: 2025-06-16 00:00:00+00:00
+date: 2025-06-16T00:00:00.000Z
 status: published
 tags:
-- Leadership
-- APAC
-- Enterprise AI
-excerpt: ''
+  - Leadership
+  - APAC
+  - Enterprise AI
+excerpt: >-
+  TL;DR What Redefining the Career Ladder: How AI Sidelines Entry-Level Learning
+  in APAC covers. Who it is for and when to use it. Practical next steps…
 featured_image: /images/posts/career-ladder-ai-apac-sidelines-hero.jpg
-seo_description: ''
+seo_description: >-
+  TL;DR What Redefining the Career Ladder: How AI Sidelines Entry-Level Learning
+  in APAC covers. Who it is for and when to use it. Practical next steps…
 format: strategic
 best_for: APAC leaders thinking about talent pipelines when AI changes junior work
+seo_title: 'Redefining the Career Ladder: How AI Sidelines Entry-Level…'
+focus_keyword: leadership
+featured_image_alt: >-
+  Hero illustration for Redefining the Career Ladder: How AI Sidelines
+  Entry-Level Learning in APAC
 ---
 **TL;DR**
 

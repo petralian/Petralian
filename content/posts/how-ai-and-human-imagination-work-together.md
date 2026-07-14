@@ -1,17 +1,28 @@
 ---
 title: How AI and Human Imagination Work Together to Break Barriers
 slug: how-ai-and-human-imagination-work-together
-date: 2025-01-22 00:00:00+00:00
+date: 2025-01-22T00:00:00.000Z
 status: published
 tags:
-- Generative AI
-- AI in Marketing
-- Brand Strategy
-excerpt: ''
+  - Generative AI
+  - AI in Marketing
+  - Brand Strategy
+excerpt: >-
+  External Memory Series — File-based memory for AI-assisted work (overview · 1
+  Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) AI and
+  human…
 featured_image: /images/posts/ai-human-imagination-collaboration-hero.jpg
-seo_description: ''
+seo_description: >-
+  External Memory Series — File-based memory for AI-assisted work (overview · 1
+  Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) AI and
+  human…
 format: hybrid
 best_for: Creative and marketing leaders exploring where human imagination still wins
+seo_title: How AI and Human Imagination Work Together to Break Barriers
+focus_keyword: generative ai
+featured_image_alt: >-
+  Hero illustration for How AI and Human Imagination Work Together to Break
+  Barriers
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

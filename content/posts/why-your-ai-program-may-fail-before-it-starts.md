@@ -1,32 +1,41 @@
 ---
 title: Why Your AI Program May Fail Before It Starts
 slug: why-your-ai-program-may-fail-before-it-starts
-date: 2026-06-15 00:00:00+00:00
+date: 2026-06-15T00:00:00.000Z
 status: published
 tags:
-- Enterprise AI
-- Program Delivery
-- Digital Transformation
-- Leadership
-excerpt: Most enterprise AI programs struggle before the model fails. Data, governance
-  owners, and change runway get compressed. A pre-flight diagnostic before the next
-  funding gate.
+  - Enterprise AI
+  - Program Delivery
+  - Digital Transformation
+  - Leadership
+excerpt: >-
+  Most enterprise AI programs struggle before the model fails. Data, governance
+  owners, and change runway get compressed. A pre-flight diagnostic before the
+  next funding gate.
 featured_image: /images/posts/why-your-ai-program-may-fail-before-it-starts.png
 focus_keyword: enterprise AI program readiness
-seo_description: 'Enterprise AI programs often fail before deployment: skipped data
-  readiness, unnamed governance owners, and short change runway. A pre-flight diagnostic.'
-image_prompt: 'Editorial 16:9 hero for enterprise AI readiness: architectural blueprint
-  on a desk with three labeled foundation blocks (data, governance, change) beneath
-  a folded deployment plan, warm neutral light, no logos, no readable text, no faces.'
-image_prompt_variant_1: 'Tiny airport pre-flight diorama: three inspection stations
-  labeled Data, Owners, and Runway with a plane marked Deploy waiting at a hold line,
-  clever warm technical style, 16:9, no logos, no text.'
-image_prompt_variant_2: 'Split editorial scene: left side fast-forward deploy button
-  with cracked foundation; right side same building with three solid labeled layers
-  and calm stakeholders, professional playful contrast, 16:9, no logos.'
+seo_description: >-
+  Enterprise AI programs often fail before deployment: skipped data readiness,
+  unnamed governance owners, and short change runway. A pre-flight diagnostic.
+image_prompt: >-
+  Editorial 16:9 hero for enterprise AI readiness: architectural blueprint on a
+  desk with three labeled foundation blocks (data, governance, change) beneath a
+  folded deployment plan, warm neutral light, no logos, no readable text, no
+  faces.
+image_prompt_variant_1: >-
+  Tiny airport pre-flight diorama: three inspection stations labeled Data,
+  Owners, and Runway with a plane marked Deploy waiting at a hold line, clever
+  warm technical style, 16:9, no logos, no text.
+image_prompt_variant_2: >-
+  Split editorial scene: left side fast-forward deploy button with cracked
+  foundation; right side same building with three solid labeled layers and calm
+  stakeholders, professional playful contrast, 16:9, no logos.
 format: strategic
-best_for: Leaders running a fast pre-flight check before an enterprise AI program
+best_for: >-
+  Leaders running a fast pre-flight check before an enterprise AI program
   launches
+seo_title: Why Your AI Program May Fail Before It Starts
+featured_image_alt: Hero illustration for Why Your AI Program May Fail Before It Starts
 ---
 **TL;DR**
 

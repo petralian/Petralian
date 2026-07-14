@@ -1,7 +1,7 @@
 ---
 title: Three Layers of External Memory for AI-First Development
 slug: three-layer-external-brain-for-ai-first-development
-date: 2026-05-26 00:00:00+00:00
+date: 2026-05-26T00:00:00.000Z
 status: published
 tags:
   - AI Memory
@@ -20,7 +20,7 @@ focus_keyword: external memory AI first development
 seo_description: >-
   How a three-layer Obsidian + repo memory system keeps AI coding sessions
   coherent: bootstrap hooks, handoff files, feature notes, and why it beats
-  hoping the model remembers.
+  hoping the…
 image_prompt: >-
   Editorial overhead photograph of a developer desk with three labeled stacks of
   notebooks beside a laptop showing code—short-term sticky notes, dated session
@@ -35,7 +35,11 @@ image_prompt_variant_2: >-
   arrow—editorial contrast, professional playful tone.
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
 format: hands-on
-best_for: Practice leads implementing layered external memory for agent-assisted delivery (Playbook)
+best_for: >-
+  Practice leads implementing layered external memory for agent-assisted
+  delivery (Playbook)
+seo_title: Three Layers of External Memory for AI-First Development
+featured_image_alt: Hero illustration for Three Layers of External Memory for AI-First Development
 ---
 **TL;DR**
 

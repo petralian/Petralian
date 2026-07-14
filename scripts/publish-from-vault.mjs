@@ -160,17 +160,37 @@ function preflight(filePath, content, articleFolder) {
 
   const fm = parseFrontmatter(content);
 
-  // Required — blocks publish
-  for (const field of ['title', 'slug', 'date', 'category']) {
+  for (const field of ['title', 'slug', 'date', 'format', 'best_for']) {
     if (!fm[field]) errors.push(`Missing required field: ${field}`);
   }
 
-  // Recommended — warnings only
-  for (const field of ['excerpt', 'seo_description', 'focus_keyword']) {
+  if (fm['format'] && !['strategic', 'hands-on', 'hybrid'].includes(fm['format'])) {
+    errors.push(`Invalid format: ${fm['format']} — must be strategic, hands-on, or hybrid`);
+  }
+
+  for (const field of ['excerpt', 'seo_description', 'focus_keyword', 'seo_title']) {
     if (!fm[field]) warnings.push(`Missing recommended field: ${field}`);
   }
 
-  // Featured image exists in vault
+  const seoTitle = fm['seo_title'] || fm['title'] || '';
+  if (seoTitle.length > 0 && seoTitle.length < 50) {
+    warnings.push(`seo_title short (${seoTitle.length}/55-60)`);
+  }
+  if (seoTitle.length > 65) warnings.push(`seo_title long (${seoTitle.length})`);
+
+  const seoDesc = fm['seo_description'] || '';
+  if (seoDesc.length > 0 && seoDesc.length < 140) {
+    warnings.push(`seo_description short (${seoDesc.length}/150-160)`);
+  }
+  if (seoDesc.length > 165) warnings.push(`seo_description long (${seoDesc.length})`);
+
+  if (content.includes('```mermaid')) {
+    errors.push('Found ```mermaid blocks — convert to ```d2');
+  }
+  if (!content.includes('```d2') && !content.match(/!\[.*\]\(\/images\//)) {
+    warnings.push('No ```d2 diagram — consider adding one');
+  }
+
   const fi = fm['featured_image'];
   if (!fi) {
     warnings.push('No featured_image set — article will render without a header image');
@@ -185,7 +205,6 @@ function preflight(filePath, content, articleFolder) {
     warnings.push('Missing featured_image_alt — hero image will have no alt text');
   }
 
-  // Body word count
   const body = content.replace(/^---[\s\S]+?---\s*/, '');
   const wordCount = body.split(/\s+/).filter(Boolean).length;
   if (wordCount < 300) warnings.push(`Low word count: ${wordCount} words (min 300 recommended)`);
@@ -285,6 +304,7 @@ function publishFile(filePath, articleFolder, sourceLabel) {
   const slug = getSlug(filePath, content);
 
   content = content.replace(/^status:\s*(ready|draft|published)\s*$/m, 'status: published');
+  content = content.replace(/^category:\s*.+\r?\n/gm, '');
   content = resolveImages(content, articleFolder);
   content = preserveExistingDate(slug, content);
 
@@ -322,6 +342,21 @@ if (copied.length > 0) {
       console.warn('Image optimisation failed (non-fatal):', e.message);
     }
     console.log('─────────────────────────────────────────────────────────────────');
+  }
+}
+
+// ── SEO auto-fix on synced slugs ─────────────────────────────────────────────
+if (copied.length > 0) {
+  const autofix = join(repoRoot, 'scripts', 'autofix-seo-meta.mjs');
+  if (existsSync(autofix)) {
+    try {
+      execSync(`node "${autofix}" ${copied.map((s) => `"${s}"`).join(' ')}`, {
+        stdio: 'inherit',
+        cwd: repoRoot,
+      });
+    } catch (e) {
+      console.warn('SEO auto-fix failed (non-fatal):', e.message);
+    }
   }
 }
 

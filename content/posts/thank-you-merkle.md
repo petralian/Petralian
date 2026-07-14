@@ -1,17 +1,26 @@
 ---
 title: My Time at Merkle Hong Kong
 slug: thank-you-merkle
-date: 2023-12-17
+date: 2023-12-17T00:00:00.000Z
 status: published
 tags:
-- Leadership
-- APAC
-- Agency Landscape
-excerpt: ''
+  - Leadership
+  - APAC
+  - Agency Landscape
+excerpt: >-
+  After nearly six incredible years with Merkle Hong Kong, I’ve officially
+  transitioned from my role as Managing Director to explore new opportunities
+  that align…
 featured_image: /images/posts/thank-you-merkle-team-hero.jpg
-seo_description: ''
+seo_description: >-
+  After nearly six incredible years with Merkle Hong Kong, I’ve officially
+  transitioned from my role as Managing Director to explore new opportunities
+  that align…
 format: strategic
 best_for: Agency alumni and leaders reflecting on network culture and career chapters
+seo_title: My Time at Merkle Hong Kong
+focus_keyword: leadership
+featured_image_alt: Hero illustration for My Time at Merkle Hong Kong
 ---
 
 After nearly six incredible years with **Merkle Hong Kong**, I’ve officially transitioned from my role as **Managing Director** to explore new opportunities that align with my passion for shaping organizational strategy and driving digital growth initiatives. This next chapter offers me the chance to build on my **regional leadership experience** and expertise in **customer experience management (CXM)** while continuing my professional development through mentoring, coaching, and collaboration.

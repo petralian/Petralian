@@ -13,6 +13,13 @@ desktop.ini
 *.tmp
 lh*.json
 lighthouse-*.json
+.lighthouse-tmp/
+scripts/__pycache__/
+scripts/_test-*
+scripts/_*-temp.*
+scripts/_bridge-temp.md
+scripts/_draft-fix-temp.md
+scripts/_tags-before.json
 
 # Editor
 *.swp

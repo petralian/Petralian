@@ -1,7 +1,7 @@
 ---
-title: "Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low)"
+title: 'Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low)'
 slug: fable-5-pricing-cursor-every-tier-explained
-date: 2026-07-11
+date: 2026-07-11T00:00:00.000Z
 status: published
 tags:
   - Agentic AI
@@ -10,22 +10,39 @@ tags:
   - Generative AI
 excerpt: >-
   Fable 5 ships as five effort tiers on Cursor. CursorBench 3.2 shows how score,
-  cost, tokens, and steps change from Max to Low — for anyone approving model spend, not pickers chasing rank.
+  cost, tokens, and steps change from Max to Low — for anyone approving model
+  spend, not pickers chasing rank.
 featured_image: /images/posts/fable-5-pricing-cursor-every-tier-explained.png
 featured_image_alt: >-
-  Five nested brass rings on dark slate with coin stacks beside each ring,
-  macro editorial still life, amber keylight, no logos or readable text.
+  Five nested brass rings on dark slate with coin stacks beside each ring, macro
+  editorial still life, amber keylight, no logos or readable text.
 focus_keyword: cursor fable 5 pricing
-seo_description: "Fable 5 pricing tiers on Cursor explained: Max through Low with CursorBench 3.2 score, cost per task, tokens, and steps. Pick the right tier for budget vs peak score."
+seo_description: >-
+  Fable 5 pricing tiers on Cursor explained: Max through Low with CursorBench
+  3.2 score, cost per task, tokens, and steps. Pick the right tier for budget
+  vs…
 related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - when-to-escalate-composer-2-5-to-fable-5
   - composer-2-5-baseline-model-tighter-bootstrap-better-results
-image_prompt: "Cinematic 16:9 macro photograph of five nested brass rings on dark slate, each ring taller toward camera with increasing coin stacks beside them, single amber keylight, shallow depth of field, no logos, no readable text."
-image_prompt_variant_1: "Surreal 16:9 flea-market stall at night: five labeled glass jars of different heights filled with glowing marbles, shortest jar brightest green, tallest jar gold, string lights overhead, witty editorial tone, no readable text, no logos."
-image_prompt_variant_2: "Bold 16:9 isometric poster: five-step staircase labeled only by height blocks ascending left to right, cost bars shrinking on lower steps, risograph violet and copper texture, no logos, no readable text."
+image_prompt: >-
+  Cinematic 16:9 macro photograph of five nested brass rings on dark slate, each
+  ring taller toward camera with increasing coin stacks beside them, single
+  amber keylight, shallow depth of field, no logos, no readable text.
+image_prompt_variant_1: >-
+  Surreal 16:9 flea-market stall at night: five labeled glass jars of different
+  heights filled with glowing marbles, shortest jar brightest green, tallest jar
+  gold, string lights overhead, witty editorial tone, no readable text, no
+  logos.
+image_prompt_variant_2: >-
+  Bold 16:9 isometric poster: five-step staircase labeled only by height blocks
+  ascending left to right, cost bars shrinking on lower steps, risograph violet
+  and copper texture, no logos, no readable text.
 format: hybrid
-best_for: Anyone approving Cursor AI spend who needs Fable tier unit economics before picking a default
+best_for: >-
+  Anyone approving Cursor AI spend who needs Fable tier unit economics before
+  picking a default
+seo_title: 'Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low)'
 ---
 
 > **Cluster:** [CursorBench 3.2 cost analysis](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [When to escalate Composer → Fable](/posts/when-to-escalate-composer-2-5-to-fable-5) · [Composer 2.5 baseline](/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results)

@@ -13,8 +13,10 @@
  */
 
 import sharp from "sharp";
-import { readdir, stat, rename } from "fs/promises";
+import { readdir, stat, unlink, copyFile } from "fs/promises";
 import { join, extname, dirname } from "path";
+import { tmpdir } from "os";
+import { randomBytes } from "crypto";
 import { fileURLToPath } from "url";
 
 const isDryRun = process.argv.includes("--dry-run");
@@ -62,18 +64,21 @@ async function processFile(filePath) {
   if (isDryRun) {
     const { data } = await pipeline.toBuffer({ resolveWithObject: true });
     return { filePath, originalSize, newSize: data.length };
-  } else {
-    const tmp = filePath + ".opt.tmp";
+  }
+
+  // Temp file outside target dir avoids Windows EPERM on in-place rename
+  const tmp = join(
+    tmpdir(),
+    `petralian-opt-${randomBytes(6).toString("hex")}${ext}`
+  );
+  try {
     const info = await pipeline.toFile(tmp);
-    // Only replace if the optimized version is actually smaller
-    if (info.size < originalSize) {
-      await rename(tmp, filePath);
-      return { filePath, originalSize, newSize: info.size };
-    } else {
-      // Delete the temp file if no savings
-      await rename(tmp, filePath); // still replace to normalize encoding
-      return { filePath, originalSize, newSize: info.size };
+    if (info.size <= originalSize) {
+      await copyFile(tmp, filePath);
     }
+    return { filePath, originalSize, newSize: Math.min(info.size, originalSize) };
+  } finally {
+    await unlink(tmp).catch(() => {});
   }
 }
 

@@ -1,22 +1,36 @@
 ---
-title: 'AI Shopping Revolution: Will Shopify''s ChatGPT Integration Redefine Retail
-  Strategy?'
-slug: ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
-date: 2025-04-24 00:00:00+00:00
+title: >-
+  AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail
+  Strategy?
+slug: >-
+  ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
+date: 2025-04-24T00:00:00.000Z
 status: published
 tags:
-- Shopify
-- ChatGPT
-- Ecommerce
-- Social Commerce
-- AI in Marketing
-- GEO
-excerpt: ''
+  - Shopify
+  - ChatGPT
+  - Ecommerce
+  - Social Commerce
+  - AI in Marketing
+  - GEO
+excerpt: >-
+  External Memory Series — File-based memory for AI-assisted work (overview · 1
+  Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) The
+  reported…
 featured_image: /images/posts/creative-ai-hero.jpg
-seo_description: ''
+seo_description: >-
+  External Memory Series — File-based memory for AI-assisted work (overview · 1
+  Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) The
+  reported…
 format: hybrid
-best_for: Retail and ecommerce leaders evaluating conversational commerce and AI distribution
-  channels
+best_for: >-
+  Retail and ecommerce leaders evaluating conversational commerce and AI
+  distribution channels
+seo_title: 'AI Shopping Revolution: Will Shopify''s ChatGPT Integration…'
+focus_keyword: shopify
+featured_image_alt: >-
+  Hero illustration for AI Shopping Revolution: Will Shopify's ChatGPT
+  Integration Redefine Retail Strategy?
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
