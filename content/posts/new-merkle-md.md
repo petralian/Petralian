@@ -3,7 +3,6 @@ title: New Merkle MD
 slug: new-merkle-md
 date: 2022-07-02
 status: published
-category: Career
 tags:
 - Leadership
 - APAC

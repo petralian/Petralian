@@ -1,28 +1,26 @@
 ﻿---
-title: 'CursorBench 3.1: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget'
-slug: cursorbench-fable-5-composer-2-5-cost-vs-score
-date: 2026-07-02T00:00:00.000Z
+title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget'
+slug: cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
+date: 2026-07-02
 status: published
-category: AI & Building
 tags:
   - Agentic AI
-  - Developer Tools
+  - Enterprise AI
   - AI Quality
   - Generative AI
 excerpt: >-
-  Anthropic's Fable 5 leads CursorBench 3.1 at 72.9%, but at $18 per task and 76
-  steps. I read the table for score per dollar, tokens, and steps, and where
-  open models land.
-featured_image: /images/posts/cursorbench-fable-5-composer-2-5-cost-vs-score.png
-focus_keyword: CursorBench Fable 5 Composer 2.5 cost
+  Fable 5 Max leads CursorBench 3.2 at 70.5%, but at 17 USD per task and 72
+  steps. Grok 4.5 High scores 66.7% at 1.51 USD. Composer 2.5 still wins score per dollar at 56.1% and 0.44 USD.
+featured_image: /images/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score.png
+focus_keyword: CursorBench 3.2 Fable 5 Composer 2.5 cost
 seo_description: >-
-  CursorBench 3.1 analysis: Fable 5 Max scores 72.9% but costs $18/task.
-  Composer 2.5 hits 63.2% at $0.55. Compare GLM 5.2, Kimi K2.7 Code, LongCat
-  2.0.
+  CursorBench 3.2 analysis: Fable 5 Max scores 70.5% but costs 17.32 USD/task.
+  Grok 4.5 High hits 66.7%. Composer 2.5 hits 56.1% at 0.44 USD. Compare GLM, Kimi, LongCat.
 related_posts:
-  - composer-2-5-baseline-model-tighter-bootstrap-better-results
-  - github-copilot-vs-openrouter-real-cost-comparison-for-developers
-  - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+  - fable-5-pricing-cursor-every-tier-explained
+  - when-to-escalate-composer-2-5-to-fable-5
+  - open-models-cursorbench-3-2-grok-glm-kimi-longcat
+  - best-cursor-model-by-task-2026
 image_prompt: >-
   Cinematic 16:9 macro photograph: scatter-plot points carved as glowing marbles
   on a dark slate surface, one small green marble isolated in the efficient
@@ -38,26 +36,26 @@ image_prompt_variant_2: >-
   the left versus a compact stepladder with three checkmarks on the right, flat
   graphic shapes, violet and amber accents, risograph texture, no logos, no
   readable text.
-format: hands-on
-best_for: Builders comparing model cost versus quality with reproducible benchmarks
+format: hybrid
+best_for: Practice leads and commercial operators setting Cursor AI model policy using CursorBench unit economics
 ---
 **TL;DR**
 
-- Anthropic's Fable 5 leads CursorBench 3.
-- 9%, but at $18 per task and 76 steps.
-- I read the table for score per dollar, tokens, and steps, and where open models land.
+- Fable 5 Max leads CursorBench 3.2 at **70.5%**, but at **$17.32** per task and **72 steps**.
+- Grok 4.5 High hits **66.7%** at **$1.51** with a Cursor training-data caveat.
+- Composer 2.5 still wins **score per dollar** at **56.1%** and **$0.44**.
 
+When teams scale Cursor across programs, **model defaults become a budget line** — not a hobby for power users. CursorBench 3.2 is one input to that decision: it reports what top scores **cost** in dollars, tokens, and agent steps on real multi-file sessions ([Cursor evals](https://cursor.com/evals)).
 
+Anthropic brought Fable 5 back to public Cursor model pickers. Fable 5 Max sits at the top of the score column — and at the top of the cost column.
 
-Anthropic brought Fable 5 back to public Cursor model pickers. Cursor published fresh numbers on [CursorBench 3.1](https://cursor.com/evals): ambiguous, multi-file tasks drawn from real agent sessions. Fable 5 Max sits at the top of the score column.
+## What is CursorBench 3.2?
 
-## What is CursorBench 3.1?
+**CursorBench 3.2** is Cursor's **agent-task benchmark**: success rate, cost per task, tokens per task, and steps per task on ambiguous, multi-file work drawn from real sessions—not a single leaderboard column.
 
-**CursorBench 3.1** is Cursor's **agent-task benchmark**: success rate, cost per task, tokens per task, and steps per task on ambiguous, multi-file work drawn from real sessions—not a single leaderboard column.
+**Who it is for:** practice leads and commercial operators choosing **default models in Cursor** who need **unit economics** (score per dollar, score per step), not vendor launch headlines.
 
-**Who it is for:** builders choosing default models in Cursor who want **unit economics** (score per dollar, score per step), not vendor launch headlines.
-
-**What you will learn:** why Fable 5 Max and Composer 2.5 answer different questions, three derived efficiency lenses, and how open models (GLM 5.2, Kimi K2.7, LongCat) compare on vendor benches vs Cursor rows.
+**What you will learn:** why Fable 5 Max and Composer 2.5 answer different questions, three derived efficiency lenses, how **Grok 4.5** fits between Fable and Composer (with Cursor's training caveat), and how open models (GLM 5.2, Kimi K2.7, LongCat) compare on vendor benches vs Cursor rows.
 
 ---
 
@@ -74,33 +72,33 @@ Vendor launches train us to look at rank. CursorBench reports four numbers that 
 3. **Tokens per task**
 4. **Steps per task** (agent turns until close)
 
-A model can score 73% and still be a bad default if it spends 76 steps and $18 to get there. Another model can land at 63% for $0.55. For daily shipping work, that gap changes how many tasks you can afford in a month.
+A model can score 71% and still be a bad default if it spends 72 steps and $17 to get there. Another model can land at 56% for $0.44. For daily shipping work, that gap changes how many tasks you can afford in a month.
 
 Cursor notes that results have variance and small score gaps may not be statistically meaningful. Treat the table as directional, not gospel. It is still useful for tradeoff thinking.
 
-## What CursorBench 3.1 measures
+## What CursorBench 3.2 measures
 
-Version 3.1 added tasks focused on codebase understanding, bugfinding, planning, and code review. Earlier 3.0 work centered on edit, refactor, and bugfix problems.
+Version 3.2 adds instruction following and advanced tool use on top of 3.1's codebase understanding, bugfinding, planning, and code review tasks.
 
 That matters when you compare models. A benchmark heavy on multi-step diagnosis rewards models that plan well. It also rewards models that **stop** instead of burning steps on the wrong file.
 
 ## Fable 5: performance tier, pricing ladder
 
-Fable 5 ships as a family. On CursorBench 3.1 the spread is wide:
+Fable 5 ships as a family. On CursorBench 3.2 the spread is wide:
 
 | Model | Score | Cost / task | Tokens / task | Steps / task |
 |-------|------:|------------:|--------------:|-------------:|
-| Fable 5 Max | 72.9% | $18.02 | 63,842 | 76 |
-| Fable 5 Extra High | 72.0% | $13.74 | 48,754 | 63 |
-| Fable 5 High | 70.6% | $10.81 | 37,173 | 54 |
-| Fable 5 Medium | 69.8% | $8.27 | 28,507 | 47 |
-| Fable 5 Low | 64.2% | $5.70 | 18,882 | 36 |
+| Fable 5 Max | 70.5% | $17.32 | 103,525 | 72 |
+| Fable 5 Extra High | 68.4% | $11.73 | 64,971 | 56 |
+| Fable 5 High | 66.5% | $8.77 | 43,747 | 48 |
+| Fable 5 Medium | 65.2% | $6.80 | 30,366 | 41 |
+| Fable 5 Low | 62.1% | $4.46 | 18,182 | 31 |
 
-**Raw performance winner:** Fable 5 Max at **72.9%**.
+**Raw performance winner:** Fable 5 Max at **70.5%**.
 
-**Cost story:** Max is roughly **33×** more expensive per task than Composer 2.5 ($18.02 vs $0.55) for about **10 percentage points** more score (72.9% vs 63.2%).
+**Cost story:** Max is roughly **39×** more expensive per task than Composer 2.5 ($17.32 vs $0.44) for about **14.4 percentage points** more score (70.5% vs 56.1%).
 
-**Steps story:** Max takes **76 steps**. Opus 4.7 Max takes **96**. Sonnet 5 Max takes **93 steps** for only **61.2%** score. High step counts are not free. They add latency, context churn, and review fatigue even when the task eventually passes.
+**Steps story:** Max takes **72 steps**. Opus 4.7 Max takes **96**. Sonnet 5 Max takes **93 steps** for only **61.2%** score. High step counts are not free. They add latency, context churn, and review fatigue even when the task eventually passes.
 
 If your work is high stakes and failure is expensive, the top Fable tier can be rational. If you run dozens of agent tasks a week, the Max row is a specialty tool, not a default.
 
@@ -112,14 +110,14 @@ I computed three simple ratios from the public CursorBench rows. They are not of
 
 | Model | Score / $1 |
 |-------|-----------:|
-| **Composer 2.5** | **114.9** |
+| **Composer 2.5** | **127.5** |
 | GPT-5.5 Medium | 26.7 |
-| Kimi K2.7 Code | 27.4 |
+| Kimi K2.7 Code | 34.8 |
 | GPT-5.5 High | 17.4 |
 | Fable 5 Low | 11.3 |
-| GLM 5.2 High | 20.6 |
-| GLM 5.2 Max | 17.6 |
-| Fable 5 Max | 4.0 |
+| GLM 5.2 High | 43.3 |
+| GLM 5.2 Max | 31.3 |
+| Fable 5 Max | 4.1 |
 
 Composer 2.5 is an extreme outlier on cost efficiency. Nothing else in the top third of the scoreboard comes close on score per dollar.
 
@@ -181,17 +179,24 @@ need -> max: "highest score" { style.stroke-dash: 8 }
 
 ### Composer 2.5: the Pareto surprise
 
-Cursor's chart plots score against average cost. Composer 2.5 sits in the corner you want: **63.2%** score, **$0.55** per task, **15,152 tokens**, **37 steps**.
+Cursor's chart plots score against average cost. Composer 2.5 sits in the corner you want: **56.1%** score, **$0.44** per task, **14,286 tokens**, **33 steps**.
 
-That is not a perfect score. It beats **27 of 36** listed models on the public table while costing less than a coffee per task in the benchmark's pricing model.
+That is not a perfect score. It remains the **score-per-dollar** outlier on the public table while costing less than a coffee per task in the benchmark's pricing model.
 
 I run Composer 2.5 as my default coding model in Cursor for a related reason: predictable rule compliance and a tighter session bootstrap beat frontier roulette on the work I ship daily. CursorBench gives that habit a cost line item. The model is not just cheaper. It is **efficient** on this task mix.
 
 ### GPT-5.5: the token miser
 
-GPT-5.5 Medium (**59.2%**, **$2.22**, **9,065 tokens**, **35 steps**) is the best token budget story in the table. Extra High reaches **64.3%** at **$4.37** with still-reasonable tokens.
+GPT-5.5 Medium (**53.8%**, **$1.51**, **8,522 tokens**, **25 steps**) is the best token budget story in the table. Extra High reaches **58.4%** at **$2.85** with still-reasonable tokens.
 
 If your constraint is context window pressure or API token caps, GPT-5.5 Medium deserves a look. You give up peak score versus Fable Max. You buy back tokens and steps.
+
+
+### Grok 4.5: score bump with a caveat
+
+**Grok 4.5 High** lands **66.7%** at **$1.51**, **19,521 tokens**, and **33 steps** on CursorBench 3.2 — between Fable High and Medium on score at a fraction of Fable cost. Cursor flags that Grok 4.5 may have an advantage because a Cursor codebase snapshot was unintentionally included in training; exact impact is unclear ([evals disclaimer](https://cursor.com/evals)).
+
+**Practical read:** Grok is the headline **score-per-dollar challenger** to Fable on the public table, but treat the row as **directional** until you validate on your repo and read the footnote. See [open models on CursorBench 3.2](/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat).
 
 ### Open models on CursorBench: GLM 5.2 and Kimi K2.7 Code
 
@@ -201,14 +206,14 @@ CursorBench includes two open-weight families I watch closely.
 
 Z.ai positions GLM 5.2 for **long-horizon** agent work: **1M-token context**, MIT license, effort levels (High vs Max), and strong vendor-reported scores on FrontierSWE, Terminal-Bench 2.1, and SWE-bench Pro. On their table GLM 5.2 Max lands near Opus 4.8 on several coding benches while leading open source.
 
-**On CursorBench 3.1 (Cursor's harness, not Z.ai's):**
+**On CursorBench 3.2 (Cursor's harness, not Z.ai's):**
 
 | Model | Score | Cost / task | Tokens / task | Steps / task |
 |-------|------:|------------:|--------------:|-------------:|
-| GLM 5.2 Max | 54.6% | $3.11 | 51,312 | 83 |
-| GLM 5.2 High | 50.7% | $2.46 | 30,621 | 76 |
+| GLM 5.2 Max | 55.0% | $1.76 | 35,946 | 58 |
+| GLM 5.2 High | 51.5% | $1.19 | 21,829 | 49 |
 
-GLM 5.2 is **cheap versus Fable Max** and **open**. On this benchmark it scores **~9 points below Composer 2.5** while using **more steps** (83 vs 37 on Max). Vendor long-horizon numbers and Cursor session tasks are not the same test. GLM may shine on hour-scale runs that CursorBench does not simulate.
+GLM 5.2 is **cheap versus Fable Max** and **open**. On this benchmark Max scores **~1 point below Composer 2.5** while using **more steps** (58 vs 33). Vendor long-horizon numbers and Cursor session tasks are not the same test. GLM may shine on hour-scale runs that CursorBench does not simulate.
 
 Practical read: GLM 5.2 is a serious open option when you need **1M context** or self-hosting. For Cursor agent sessions on ambiguous repo tasks, the public table does not show it beating Composer 2.5 on score or step efficiency.
 
@@ -216,13 +221,13 @@ Practical read: GLM 5.2 is a serious open option when you need **1M context** or
 
 Kimi K2.7 Code is an open **coding-focused** agentic model. Moonshot reports gains over K2.6 on Kimi Code Bench v2, Program Bench, and MLS Bench Lite, plus roughly **30% lower thinking-token usage** than K2.6. Thinking mode is required; non-thinking requests fall back to K2.6 in Kimi Code.
 
-**On CursorBench 3.1:**
+**On CursorBench 3.2:**
 
 | Model | Score | Cost / task | Tokens / task | Steps / task |
 |-------|------:|------------:|--------------:|-------------:|
-| Kimi K2.7 Code | 52.7% | $1.92 | 32,902 | 70 |
+| Kimi K2.7 Code | 49.7% | $1.43 | 31,247 | 58 |
 
-K2.7 is **inexpensive** and lands mid-table on score. Score per dollar is strong (**~27**), but **70 steps** for **52.7%** is a lot of agent churn. Moonshot's own benches use Kimi Code CLI with thinking enabled; Cursor's agent loop may not map 1:1.
+K2.7 is **inexpensive** but lands below Composer on score. Score per dollar is mid-pack (**~35**), and **58 steps** for **49.7%** is heavy agent churn. Moonshot's own benches use Kimi Code CLI with thinking enabled; Cursor's agent loop may not map 1:1.
 
 Practical read: K2.7 Code is compelling for **open-source agent coding** and terminal/IDE workflows Kimi controls end to end. On CursorBench it reads as a budget exploratory model, not a drop-in replacement for Composer 2.5 on score.
 
@@ -276,14 +281,14 @@ LongCat is competitive on writing and reasoning subsets. Gemini and GPT-5.5 stil
 
 ### LongCat vs CursorBench (why both tables matter)
 
-**LongCat 2.0 does not appear in the CursorBench 3.1 table** at the time of writing. You cannot yet line it up against Fable 5 or Composer 2.5 on **cost, tokens, and steps per real Cursor session**.
+**LongCat 2.0 does not appear in the CursorBench 3.2 table** at the time of writing. You cannot yet line it up against Fable 5 or Composer 2.5 on **cost, tokens, and steps per real Cursor session**.
 
 That gap is the whole point of comparing sources:
 
 | Lens | What it measures | LongCat signal |
 |------|------------------|----------------|
 | **Meituan Evaluations** | SWE-bench, Terminal-Bench, FORTE, etc. | Strong open coding model; trails Opus 4.8 on code rows |
-| **CursorBench 3.1** | Ambiguous multi-file tasks from Cursor agent sessions | No row yet; Composer 2.5 at **63.2%** / **$0.55** / **37 steps** |
+| **CursorBench 3.2** | Ambiguous multi-file tasks from Cursor agent sessions | No row yet; Composer 2.5 at **56.1%** / **$0.44** / **33 steps** |
 
 A model can score **59.5** on SWE-bench Pro and still burn **70+ steps** on a Cursor storefront bug. Or the reverse. Until LongCat ships on Cursor's eval page, treat the vendor charts as **capability marketing** and CursorBench as **IDE economics**.
 
@@ -293,7 +298,7 @@ Practical read:
 - **Do not drop Composer 2.5** as a Cursor default because LongCat edges GPT-5.5 on one SWE-bench row.
 - **Watch for the CursorBench row.** Compare **steps** and **cost per task**, not just score. Open models often look better on vendor harnesses than on agent-loop efficiency.
 
-Early builder commentary outside Meituan's tables is mixed: strong infra story (large domestic training cluster), but some preview users report rough agent edges. Hands-on beats bar charts.
+Early field commentary outside Meituan's tables is mixed: strong infra story (large domestic training cluster), but some preview users report rough agent edges. Validation on real program tasks beats bar charts alone.
 
 ### Models I would not default to (on this table)
 
@@ -303,8 +308,8 @@ These are benchmark-specific callouts, not permanent verdicts:
 |-------|-------------|
 | **Sonnet 5 Max** | 93K tokens, 93 steps, 61.2% score |
 | **Opus 4.7 Max** | 96 steps, $11.02/task, 64.8% score |
-| **Fable 5 Max** | ~10 points above Composer 2.5, ~33× the cost |
-| **GLM 5.2 Max** (on CursorBench) | 83 steps, 54.6% score |
+| **Fable 5 Max** | ~14 points above Composer 2.5, ~39× the cost |
+| **GLM 5.2 Max** (on CursorBench) | 58 steps, 55.0% score |
 
 Max tiers can still make sense for one-shot critical work. They are poor defaults for high-volume agent loops.
 
@@ -312,27 +317,27 @@ Max tiers can still make sense for one-shot critical work. They are poor default
 
 | Need | Model to try first | Why |
 |------|-------------------|-----|
-| **Best value on Cursor tasks** | Composer 2.5 | Top-third score, lowest cost, low steps |
-| **Tight token budget** | GPT-5.5 Medium | 9K tokens/task, decent score |
-| **Highest score, budget open** | Fable 5 Medium | 69.8% at $8.27 (not Max) |
-| **Must maximize pass rate** | Fable 5 Max | 72.9% if cost is secondary |
+| **Best value on Cursor tasks** | Composer 2.5 | 56.1% score, lowest cost, 33 steps |
+| **Tight token budget** | GPT-5.5 Medium | 8.5K tokens/task, decent score |
+| **Higher score, budget open** | Grok 4.5 High* or Fable 5 Medium | 66.7% at $1.51* or 65.2% at $6.80 |
+| **Must maximize pass rate** | Fable 5 Max | 70.5% if cost is secondary |
 | **Open weights + 1M context** | GLM 5.2 or LongCat 2.0 | GLM on CursorBench today; LongCat strong on vendor SWE-bench, unmeasured on Cursor cost/steps |
 | **Open Kimi stack** | Kimi K2.7 Code | Cheap on CursorBench; validate in Kimi Code CLI |
 
-Model choice is one lever. **Context bootstrap** is the other. I benchmark file memory separately because a $0.55 model with a 3K-token gotchas pack can beat a $18 model that reads the wrong layer first. Stack both levers.
+Model choice is one lever. **Context bootstrap** is the other. I benchmark file memory separately because a $0.44 model with a 3K-token gotchas pack can beat a $17 model that reads the wrong layer first. Stack both levers.
 
 ### Reference
 
-### Quick reference: CursorBench 3.1 pick matrix
+### Quick reference: CursorBench 3.2 pick matrix
 
 | Need | Model to try first | CursorBench signal |
 |------|-------------------|-------------------|
-| Best value on Cursor tasks | Composer 2.5 | 63.2% · $0.55 · 37 steps · ~115 score/$ |
-| Tight token budget | GPT-5.5 Medium | 59.2% · 9K tokens/task |
-| Highest score, budget open | Fable 5 Medium | 69.8% · $8.27 (not Max) |
-| Must maximize pass rate | Fable 5 Max | 72.9% · $18.02 · 76 steps |
+| Best value on Cursor tasks | Composer 2.5 | 56.1% · $0.44 · 33 steps · ~128 score/$ |
+| Tight token budget | GPT-5.5 Medium | 53.8% · 8.5K tokens/task |
+| Higher score, budget open | Grok 4.5 High* | 66.7% · $1.51 · read caveat |
+| Must maximize pass rate | Fable 5 Max | 70.5% · $17.32 · 72 steps |
 | Open weights + 1M context | GLM 5.2 | Cursor row today; validate long-horizon separately |
-| Open Kimi stack | Kimi K2.7 Code | ~$1.92/task; 70 steps on CursorBench |
+| Open Kimi stack | Kimi K2.7 Code | ~$1.43/task; 58 steps on CursorBench |
 
 **Derived ratios (not official Cursor metrics):** score ÷ $ · score ÷ 1K tokens · score ÷ step—compute for the two models you actually use.
 
@@ -340,7 +345,7 @@ Model choice is one lever. **Context bootstrap** is the other. I benchmark file 
 
 | Mistake | Why it fails | Fix |
 |---------|--------------|-----|
-| Defaulting to Fable 5 Max from rank alone | ~33× cost vs Composer 2.5 for ~10 pts | Sort by **cost** and **steps**, not score only |
+| Defaulting to Fable 5 Max from rank alone | ~39× cost vs Composer 2.5 for ~14 pts | Sort by **cost** and **steps**, not score only |
 | Ignoring steps per task | Latency + context churn + review fatigue | Compare score per step |
 | Trusting vendor SWE-bench for Cursor economics | Different harness and loop | Wait for CursorBench row (e.g. LongCat) |
 | Switching models every sprint | Breaks rule compliance and memory | Pin baseline; escalate manually for review |
@@ -351,11 +356,11 @@ Model choice is one lever. **Context bootstrap** is the other. I benchmark file 
 
 ### Did Fable 5 "win" CursorBench?
 
-**On score:** Fable 5 Max leads at 72.9%. **On budget:** Composer 2.5 leads score per dollar (~115 vs ~4 for Max).
+**On score:** Fable 5 Max leads at 70.5%. **On budget:** Composer 2.5 leads score per dollar (~128 vs ~4 for Max).
 
 ### Is Composer 2.5 "worse" than frontier Max tiers?
 
-**On this task mix:** 63.2% at $0.55 beats most of the table on economics. Max tiers buy peak pass rate when failure cost exceeds ~$17/task headroom.
+**On this task mix:** 56.1% at $0.44 beats most of the table on economics. Max tiers buy peak pass rate when failure cost exceeds ~$17/task headroom.
 
 ### How do I use the three efficiency lenses?
 
@@ -371,20 +376,20 @@ Compute **score ÷ $**, **score ÷ 1K tokens**, and **score ÷ step** for your t
 
 ### What you can do next
 
-1. Open [CursorBench 3.1](https://cursor.com/evals) and sort by **cost**, not just score.
+1. Open [CursorBench 3.2](https://cursor.com/evals) and sort by **cost**, not just score.
 2. Compute **score per dollar** and **score per step** for the two models you actually use.
 3. Run **one real repo task** twice: frontier Max vs your daily model. Log tokens, steps, and whether you shipped.
 4. For **LongCat**, read Meituan's Evaluations table (code vs general agent rows) separately from CursorBench. Wait for a Cursor row before judging IDE economics.
 5. If you test **GLM 5.2** or **K2.7**, compare Cursor against the vendor's native CLI before trusting launch blog tables.
-6. Keep **Composer 2.5** (or GPT-5.5 Medium) as default; promote Fable Max only when failure cost exceeds ~$17 per task of headroom.
+6. Keep **Composer 2.5** (or GPT-5.5 Medium) as default; promote Fable Max only when failure cost exceeds ~$17 per task of headroom. Read the **Grok 4.5** training-data caveat before swapping defaults.
 
-The benchmark answered a question vendors often skip: **what does the top score cost in steps and dollars?** On CursorBench 3.1, Fable 5 wins the headline. Composer 2.5 wins the spreadsheet.
+The benchmark answered a question vendors often skip: **what does the top score cost in steps and dollars?** On CursorBench 3.2, Fable 5 wins the headline. Composer 2.5 wins the spreadsheet.
 
 ---
 
 **Sources**
 
-1. Cursor, "CursorBench 3.1." https://cursor.com/evals
+1. Cursor, "CursorBench 3.2." https://cursor.com/evals
 2. Z.ai, "GLM-5.2: Built for Long-Horizon Tasks." https://z.ai/blog/glm-5.2
 3. Moonshot AI, "Kimi K2.7 Code." https://www.kimi.com/resources/kimi-k2-7-code
 4. Meituan, "Introducing LongCat-2.0" (Evaluations table). https://longcat.chat/blog/longcat-2.0/

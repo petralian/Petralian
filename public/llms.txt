@@ -2,7 +2,7 @@
 
 > Writing on enterprise AI and commercial growth — from someone with the track record to close it, build the team, and ship it.
 
-Last updated: 2026-07-13
+Last updated: 2026-07-14
 
 Nathan Petralia is a Managing Director based in Hong Kong with twenty years inside APAC's most demanding digital programs — Estée Lauder, Shiseido, Microsoft, Merkle (Dentsu CXM network). In 2024 he started building AI products from scratch. He writes about enterprise AI strategy, commercial growth, and the gap between what AI programs promise and what actually ships.
 
@@ -41,21 +41,21 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 
 ## Topics
 
-- Agentic AI (29 articles): https://petralian.com/topics/agentic-ai
-- Developer Tools (20 articles): https://petralian.com/topics/developer-tools
-- Marketing Technology (18 articles): https://petralian.com/topics/marketing-technology
+- Agentic AI (37 articles): https://petralian.com/topics/agentic-ai
+- Playbook (20 articles): https://petralian.com/topics/playbook
+- Developer Tools (19 articles): https://petralian.com/topics/developer-tools
+- Marketing Technology (19 articles): https://petralian.com/topics/marketing-technology
+- Enterprise AI (18 articles): https://petralian.com/topics/enterprise-ai
+- Generative AI (17 articles): https://petralian.com/topics/generative-ai
 - AI in Marketing (15 articles): https://petralian.com/topics/ai-in-marketing
+- Ecommerce (14 articles): https://petralian.com/topics/ecommerce
+- Leadership (14 articles): https://petralian.com/topics/leadership
+- AI Quality (13 articles): https://petralian.com/topics/ai-quality
 - Digital Transformation (13 articles): https://petralian.com/topics/digital-transformation
-- Ecommerce (13 articles): https://petralian.com/topics/ecommerce
-- Leadership (13 articles): https://petralian.com/topics/leadership
-- Generative AI (11 articles): https://petralian.com/topics/generative-ai
-- Obsidian (11 articles): https://petralian.com/topics/obsidian
+- Obsidian (13 articles): https://petralian.com/topics/obsidian
+- AI Memory (12 articles): https://petralian.com/topics/ai-memory
 - Agency Landscape (10 articles): https://petralian.com/topics/agency-landscape
-- AI Memory (10 articles): https://petralian.com/topics/ai-memory
-- Enterprise AI (10 articles): https://petralian.com/topics/enterprise-ai
-- AI Quality (9 articles): https://petralian.com/topics/ai-quality
-- Brand Strategy (9 articles): https://petralian.com/topics/brand-strategy
-- Customer Experience (9 articles): https://petralian.com/topics/customer-experience
+- Program Delivery (10 articles): https://petralian.com/topics/program-delivery
 
 ## Published articles
 
@@ -63,6 +63,7 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - Your Brain Was Not Built for This: Why I Built a Second One in Obsidian: https://petralian.com/posts/your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
 - Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Precision and the Right AI Tools: https://petralian.com/posts/mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools
 - Is SaaS Being Dismantled by AI?: https://petralian.com/posts/is-saas-being-dismantled-by-ai
+- How I Run Cursor With One Obsidian Brain Across Many Projects: https://petralian.com/posts/cursor-obsidian-brain-handbook-2026
 - Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What I Use Now: https://petralian.com/posts/cursor-token-saving-tools-beyond-headroom-2026
 - How AI and Human Imagination Work Together to Break Barriers: https://petralian.com/posts/how-ai-and-human-imagination-work-together
 - Bringing the Retail Mindset to Finance: How Personalization Can Transform Banking in APAC: https://petralian.com/posts/bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac
@@ -72,16 +73,19 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO: https://petralian.com/posts/the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo
 - External Memory Series: A Practical Guide to AI Session Continuity: https://petralian.com/posts/external-memory-series-guide
 - Beyond Chat History: Using Layered Obsidian Memory for Personal Productivity: https://petralian.com/posts/obsidian-memory-layers-personal-productivity-beyond-chat
-- Three Layers of External Memory for AI-First Development (What Actually Ships): https://petralian.com/posts/three-layer-external-brain-for-ai-first-development
+- Three Layers of External Memory for AI-First Development: https://petralian.com/posts/three-layer-external-brain-for-ai-first-development
 - Why Deliberate File Memory Beats Hoping Agents Remember: https://petralian.com/posts/why-deliberate-file-memory-beats-hoping-agents-remember
-- Why File Memory Beats the Three-Layer AI Diagram (For Builders, Not Vendors): https://petralian.com/posts/why-file-memory-beats-the-three-layer-diagram-for-builders
+- Why File Memory Beats the Three-Layer AI Diagram: https://petralian.com/posts/why-file-memory-beats-the-three-layer-diagram-for-builders
 - Shoppable media as an omnichannel strategy, a WARC exclusive article: https://petralian.com/posts/shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article
 - Getting Enterprise AI Right: The Work That Comes Before Deployment: https://petralian.com/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment
 - Reflecting on My 5-Month Engagement with Silk Commerce: https://petralian.com/posts/ex-merkle-md-joins-silk-commerce
+- Is Cursor Only for Developers? A Better AI Interface for Anyone With Files: https://petralian.com/posts/is-cursor-only-for-developers
+- Deploy Without a Git Tag and You Cannot Roll Back Cleanly: https://petralian.com/posts/deploy-without-git-tag-you-cannot-roll-back
 - Is using AI in creative work wrong?: https://petralian.com/posts/is-using-ai-in-creative-work-wrong
 - Why AI Agent Output Quality Drifts Over Time (And How to Catch It Early): https://petralian.com/posts/ai-agent-quality-drift-detection
 - Leadership Lessons from the Vatican: Consensus as a Catalyst for Digital Transformation: https://petralian.com/posts/leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation
-- CursorBench 3.1: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget: https://petralian.com/posts/cursorbench-fable-5-composer-2-5-cost-vs-score
+- CursorBench vs SWE-bench vs HumanEval: What Each Benchmark Actually Tests: https://petralian.com/posts/cursorbench-vs-swe-bench-vs-human-eval
+- CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5 Wins the Budget: https://petralian.com/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
 - Contextual AI for ecommerce: Beyond the Click and Into the Conversation: https://petralian.com/posts/contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation
 - AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail Strategy?: https://petralian.com/posts/ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy
 - The Ad Agency Holding Company Transformation: What 2026 Is Really Telling Us About the Future of Marketing: https://petralian.com/posts/the-ad-agency-holding-company-transformation-what-2026-is-really-telling-us-about-the-future-of-marketing
@@ -92,6 +96,7 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - How We Built Gravio’s Scoring Engine: From Repo Signals to Release Gates: https://petralian.com/posts/how-gravio-scoring-engine-was-built
 - Training an AI Is Like Managing an Employee: https://petralian.com/posts/training-an-ai-is-like-managing-an-employee
 - The Customer Account Monolith Is an Anti-Pattern for Shopify Extensions: https://petralian.com/posts/customer-account-monolith-anti-pattern-shopify-extensions
+- When to Escalate from Composer 2.5 to Fable 5: A Decision Tree: https://petralian.com/posts/when-to-escalate-composer-2-5-to-fable-5
 - The Future of Social Commerce: Why Brands Need to Own Their Customer Data: https://petralian.com/posts/the-future-of-social-commerce-why-brands-need-to-own-their-customer-data
 - My Time at Merkle Hong Kong: https://petralian.com/posts/thank-you-merkle
 - Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges: https://petralian.com/posts/generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
@@ -101,9 +106,10 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?: https://petralian.com/posts/is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
 - Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code: https://petralian.com/posts/zero-knowledge-ai-quality-gravio
 - From VS Code Copilot to Cursor: What Changed in My AI Workflow: https://petralian.com/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
+- Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low): https://petralian.com/posts/fable-5-pricing-cursor-every-tier-explained
 - Measure Your Cursor Harness — CSV, CI, and OpenRouter Dollars: https://petralian.com/posts/cursor-harness-measurement-2026
 - Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates: https://petralian.com/posts/cursor-harness-memory-loop-2026
-- You Already Have an AI Harness in Cursor (Without LangChain): https://petralian.com/posts/cursor-lightweight-harness-without-microservice-2026
+- You Already Have an AI Harness in Cursor: https://petralian.com/posts/cursor-lightweight-harness-without-microservice-2026
 - What I Learned Directing AI as My Primary Engineer: https://petralian.com/posts/what-i-learned-directing-ai-as-my-primary-engineer
 - New Merkle MD: https://petralian.com/posts/new-merkle-md
 - The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That Actually Survives: https://petralian.com/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
@@ -111,17 +117,20 @@ Nathan Petralia is a Managing Director based in Hong Kong with twenty years insi
 - From Empty Folder to First Quality Score in 10 Minutes: https://petralian.com/posts/first-gravio-score-in-10-minutes
 - Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC: https://petralian.com/posts/redefining-the-career-ladder-how-ai-sidelines-entry-level-learning-in-apac
 - Why Your AI Program May Fail Before It Starts: https://petralian.com/posts/why-your-ai-program-may-fail-before-it-starts
-- The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and Marketing (Not Just Code): https://petralian.com/posts/knowledge-work-agent-engine-guide-2026
+- Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield: https://petralian.com/posts/best-cursor-model-by-task-2026
+- The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and Marketing: https://petralian.com/posts/knowledge-work-agent-engine-guide-2026
 - Leadership and Decisions With an AI Session Engine (Purpose, Dissent, and Audit Trails): https://petralian.com/posts/knowledge-work-engine-leadership-decisions-2026
-- Marketing and Voice at Scale With a File-Based Agent Engine (Systems, Not Style PDFs): https://petralian.com/posts/knowledge-work-engine-marketing-voice-2026
-- Project Management With a File-Based Agent Engine (Not Another PM Tool): https://petralian.com/posts/knowledge-work-engine-project-management-2026
+- Marketing and Voice at Scale With a File-Based Agent Engine: https://petralian.com/posts/knowledge-work-engine-marketing-voice-2026
+- Project Management With a File-Based Agent Engine: https://petralian.com/posts/knowledge-work-engine-project-management-2026
+- Why Vouch Merchants See Zero Referrals (and It Is Usually Not Your Code): https://petralian.com/posts/vouch-referral-tracking-three-gates-shopify
 - Why Retail Often Leads in Digital Innovation Over Banking (and What We Can Learn From It): https://petralian.com/posts/why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
 - Crafting a Strong Digital Identity for Startups: https://petralian.com/posts/crafting-a-strong-digital-identity-for-startups-essential-branding-tips
 - The Power of Engagement: How Buy.social’s Messaging and Notifications System Stands Out: https://petralian.com/posts/the-power-of-engagement-how-buy-socials-messaging-and-notifications-system-stands-out
 - Capturing UI Designs for AI Agents Creates a Prompt Injection Surface: https://petralian.com/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk
-- The New CI Gate: Failing Builds on Agent Quality, Not Just Unit Tests: https://petralian.com/posts/ai-quality-gate-ci-gravio
+- The New CI Gate: Failing Builds on Agent Quality: https://petralian.com/posts/ai-quality-gate-ci-gravio
 - Team Playbook: Rolling Out Gravio Across Multiple Repositories: https://petralian.com/posts/gravio-multi-repo-rollout-playbook
 - Data Warehousing as a CDP: Can You Really Have It All?: https://petralian.com/posts/data-warehousing-as-a-cdp-can-you-really-have-it-all
+- Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi K2.7, and LongCat: https://petralian.com/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat
 - Best Practices for Founders: Integrating AI and SEO for Effective Digital Campaign Management: https://petralian.com/posts/best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management
 - Infinity Loops: The Framework Behind Successful Brand Stories: https://petralian.com/posts/infinity-loops-the-framework-behind-successful-brand-stories
 - The Rise of Customer Experience Management: Why It Matters and How to Make the Most of It: https://petralian.com/posts/the-rise-of-cxm

@@ -1,36 +1,29 @@
 ﻿---
 title: Capturing UI Designs for AI Agents Creates a Prompt Injection Surface
 slug: capturing-ui-designs-for-ai-agents-prompt-injection-risk
-date: 2026-05-29T00:00:00.000Z
+date: 2026-05-29 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - Agentic AI
-  - AI Quality
-  - Developer Tools
-  - Generative AI
-excerpt: >-
-  Design capture CLIs that dump outerHTML into SKILL.md files can smuggle
-  instructions. Sanitize at the trust boundary before agents read the DOM.
+- Agentic AI
+- AI Quality
+- Developer Tools
+- Generative AI
+excerpt: Design capture CLIs that dump outerHTML into SKILL.md files can smuggle instructions.
+  Sanitize at the trust boundary before agents read the DOM.
 featured_image: /images/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk.png
 focus_keyword: ai agent ui capture prompt injection
-seo_description: >-
-  CLI tools that capture live UI into agent skills risk prompt injection via
-  hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted
+seo_description: CLI tools that capture live UI into agent skills risk prompt injection
+  via hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted
   input boundary.
-image_prompt: >-
-  Editorial 16:9 illustration: browser DOM tree with a hidden instruction note
-  sneaking into a skill document, warm technical desk, no logos, no readable
-  text.
-image_prompt_variant_1: >-
-  Tiny factory: HTML snippets on conveyor pass through sanitizer gate before
-  entering robot skill shelf, clever workshop, 16:9.
-image_prompt_variant_2: >-
-  Split view: left raw outerHTML with stray script text, right cleaned capture
-  with allowlist badge, editorial playful, 16:9.
+image_prompt: 'Editorial 16:9 illustration: browser DOM tree with a hidden instruction
+  note sneaking into a skill document, warm technical desk, no logos, no readable
+  text.'
+image_prompt_variant_1: 'Tiny factory: HTML snippets on conveyor pass through sanitizer
+  gate before entering robot skill shelf, clever workshop, 16:9.'
+image_prompt_variant_2: 'Split view: left raw outerHTML with stray script text, right
+  cleaned capture with allowlist badge, editorial playful, 16:9.'
 format: hands-on
-best_for: >-
-  Builders feeding UI context to agents who want to understand prompt-injection
+best_for: Builders feeding UI context to agents who want to understand prompt-injection
   risk
 ---
 

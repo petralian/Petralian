@@ -1,9 +1,8 @@
 ﻿---
 title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and Load Gates'
 slug: cursor-harness-memory-loop-2026
-date: 2026-07-04T00:00:00.000Z
+date: 2026-07-04 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Agentic AI
   - AI Memory
@@ -37,7 +36,7 @@ image_prompt_variant_2: >-
   Bold isometric 16:9: stacked memory layers with one arrow through a gate card
   Mode A Skip, risograph teal and cream, no text.
 format: hands-on
-best_for: 'Builders connecting file memory, Obsidian, and agent loops in daily work'
+best_for: Practice leads connecting file memory, Obsidian, and agent loops across engagements
 ---
 **TL;DR**
 
@@ -54,7 +53,7 @@ best_for: 'Builders connecting file memory, Obsidian, and agent loops in daily w
 
 The **harness memory loop** is how a Cursor agent harness **gates when each memory tier loads**—short-term chat, operational handoffs, evergreen docs, and feedback hardened into rules—so you keep control without pasting 14k tokens on every question.
 
-**Who it is for:** builders who already use Obsidian, `memories/repo/`, or session summaries and want those files to load **once** on code work, **skip** on quick Q&A, and **write back** at session end.
+**Who it is for:** practice leads and operators who already use Obsidian, handoff files, or session summaries and want those files to load on governed work, skip on quick Q&A, and write back at session end.
 
 **What you will learn:** the four-tier map (including Layer 4 feedback), which tier lives in git vs vault, and how session summary lines feed the CSV in [Part 3](/posts/cursor-harness-measurement-2026).
 

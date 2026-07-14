@@ -1,13 +1,12 @@
 ﻿---
 title: 'Redefining Media Agency Success: Embracing Innovation in the Digital Era'
 slug: redefining-media-agency-success-embracing-innovation-in-the-digital-era
-date: 2025-05-12T00:00:00.000Z
+date: 2025-05-12 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Agency Landscape
-  - AI in Marketing
-  - Digital Transformation
+- Agency Landscape
+- AI in Marketing
+- Digital Transformation
 excerpt: ''
 featured_image: /images/posts/media-agency-innovation-digital-era-hero.jpg
 seo_description: ''

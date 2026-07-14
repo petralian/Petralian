@@ -1,9 +1,8 @@
 ﻿---
 title: You Already Have an AI Harness in Cursor
 slug: cursor-lightweight-harness-without-microservice-2026
-date: 2026-07-04T00:00:00.000Z
+date: 2026-07-04 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Agentic AI
   - Developer Tools
@@ -41,8 +40,8 @@ image_prompt_variant_2: >-
   logos.
 format: hands-on
 best_for: >-
-  Solo builders and small teams who want harness discipline without microservice
-  overhead
+  Practice leads governing Cursor Agent with harness discipline without
+  microservice overhead
 ---
 **TL;DR**
 
@@ -61,7 +60,7 @@ best_for: >-
 
 A **Cursor agent harness** is a **lightweight operating system** for AI-assisted coding inside your repo: routing rules, optional subagents, test gates, and CI checks—not a second HTTP orchestrator or LangChain service.
 
-**Who it is for:** developers and tech leads using Cursor Agent who want fewer bad deploys and retry threads without installing Harbor, Redis, or a token proxy.
+**Who it is for:** practice leads and delivery leads governing Cursor Agent across engagements who want fewer bad deploys and retry threads without installing Harbor, Redis, or a token proxy.
 
 **What you will learn:** how to name what you already have (policy table, context-budget rule, eval gate), what the harness supports versus what you still control (model, Plan vs Agent, ship approval), and what to defer until measurement proves a gap ([Part 3](/posts/cursor-harness-measurement-2026)).
 

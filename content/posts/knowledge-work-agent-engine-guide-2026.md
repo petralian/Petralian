@@ -1,45 +1,39 @@
 ﻿---
-title: >-
-  The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
-  Marketing
+title: 'The Knowledge Work Agent Engine: A File-Based Stack for PM, Leadership, and
+  Marketing'
 slug: knowledge-work-agent-engine-guide-2026
-date: 2026-07-06T00:00:00.000Z
+date: 2026-07-06 00:00:00+00:00
 status: published
-category: Career
 tags:
-  - Program Delivery
-  - Leadership
-  - Agentic AI
-  - Digital Transformation
-  - Playbook
-  - GEO
-excerpt: >-
-  The same session-continuity engine that ships software can run initiatives,
-  decisions, and content. Maps memory, voice, and routing to Agile, Jira,
-  Confluence, RACI, and RAG—with a replication kit an AI can execute.
+- Program Delivery
+- Leadership
+- Agentic AI
+- Digital Transformation
+- Playbook
+- GEO
+excerpt: The same session-continuity engine that ships software can run initiatives,
+  decisions, and content. Maps memory, voice, and routing to Agile, Jira, Confluence,
+  RACI, and RAG—with a replication kit an AI can execute.
 featured_image: /images/posts/knowledge-work-agent-engine-guide-2026.png
 focus_keyword: knowledge work AI agent engine project management
-seo_description: >-
-  Start a file-based AI engine: my Cursor + dual-vault setup, Path A chat-only
-  start, replication kit for PM, leadership, and marketing.
+seo_description: 'Start a file-based AI engine: my Cursor + dual-vault setup, Path
+  A chat-only start, replication kit for PM, leadership, and marketing.'
 series: Knowledge Work Engine Series
 series_order: 0
 related_posts:
-  - external-memory-series-guide
-  - obsidian-memory-layers-personal-productivity-beyond-chat
-  - cursor-harness-memory-loop-2026
-  - cursor-lightweight-harness-without-microservice-2026
-image_prompt: >-
-  Cinematic 16:9 wide shot of a conference table with four labeled trays
-  (Initiatives, Decisions, Brand, Session Log) feeding one open notebook, copper
-  desk lamp, shallow depth, no faces, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium dome: constellations connect sticky notes into a
-  single orbit path labeled Engine, deep violet sky, amber instrument glow, no
-  readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: six hex blocks (Memory, Routing, Footer, Voice,
-  Gates, Tools) snap into one hub, risograph teal and slate texture, no logos.
+- external-memory-series-guide
+- obsidian-memory-layers-personal-productivity-beyond-chat
+- cursor-harness-memory-loop-2026
+- cursor-lightweight-harness-without-microservice-2026
+image_prompt: Cinematic 16:9 wide shot of a conference table with four labeled trays
+  (Initiatives, Decisions, Brand, Session Log) feeding one open notebook, copper desk
+  lamp, shallow depth, no faces, no readable text.
+image_prompt_variant_1: 'Surreal 16:9 planetarium dome: constellations connect sticky
+  notes into a single orbit path labeled Engine, deep violet sky, amber instrument
+  glow, no readable text.'
+image_prompt_variant_2: 'Bold isometric 16:9 poster: six hex blocks (Memory, Routing,
+  Footer, Voice, Gates, Tools) snap into one hub, risograph teal and slate texture,
+  no logos.'
 format: hybrid
 best_for: Leaders and operators designing a knowledge-work engine around agents
 ---

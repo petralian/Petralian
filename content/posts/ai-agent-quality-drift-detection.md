@@ -1,31 +1,26 @@
 ﻿---
 title: Why AI Agent Output Quality Drifts Over Time (And How to Catch It Early)
 slug: ai-agent-quality-drift-detection
-date: 2026-05-14T00:00:00.000Z
+date: 2026-05-14 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - AI Quality
-  - Gravio
-  - Agentic AI
-  - Enterprise AI
-excerpt: >-
-  Your AI outputs can look great this month and degrade next month without
-  obvious failures. Here is why drift happens and how to detect it before it
-  reaches production.
+- AI Quality
+- Gravio
+- Agentic AI
+- Enterprise AI
+excerpt: Your AI outputs can look great this month and degrade next month without
+  obvious failures. Here is why drift happens and how to detect it before it reaches
+  production.
 featured_image: /images/posts/ai-agent-quality-drift-detection.png
 focus_keyword: ai output quality drift
-seo_description: >-
-  Learn the hidden causes of AI agent quality drift and a practical monitoring
-  approach using recurring scans, trend signals, and release thresholds.
-image_prompt: >-
-  A timeline dashboard with quality score trend lines bending downward then
-  recovering, subtle warning markers and detection signals, sleek
-  data-visualization style, teal and amber palette
+seo_description: Learn the hidden causes of AI agent quality drift and a practical
+  monitoring approach using recurring scans, trend signals, and release thresholds.
+image_prompt: A timeline dashboard with quality score trend lines bending downward
+  then recovering, subtle warning markers and detection signals, sleek data-visualization
+  style, teal and amber palette
 format: hybrid
-best_for: >-
-  Teams running agent workflows who need a practical quality signal before drift
-  becomes production risk
+best_for: Teams running agent workflows who need a practical quality signal before
+  drift becomes production risk
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

@@ -3,9 +3,8 @@ title: >-
   Beyond Headroom: What I Tried to Save Cursor Tokens, What Failed, and What I
   Use Now
 slug: cursor-token-saving-tools-beyond-headroom-2026
-date: 2026-07-01T00:00:00.000Z
+date: 2026-07-01 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Agentic AI
   - Developer Tools
@@ -40,7 +39,7 @@ image_prompt_variant_2: >-
   Bold isometric 16:9: before stack Proxy Tunnel RTK crossed out, after stack
   Direct MCP Harness as three blocks, risograph teal and slate, no logos.
 format: hands-on
-best_for: Power users optimizing token spend and context windows in Cursor
+best_for: Program leads optimizing Cursor token spend and context discipline without proxy middleware
 ---
 **TL;DR**
 
@@ -58,7 +57,7 @@ best_for: Power users optimizing token spend and context windows in Cursor
 
 **Cursor token saving** on OpenRouter-heavy workloads is mostly **input discipline, cache shape, harness gates, and model choice**—not a local HTTP proxy compressing an already-cached prompt stream.
 
-**Who it is for:** developers paying for Cursor Agent volume (multi-turn loops, subagents, long context) who tried Headroom, tunnel, or RTK and want an honest post-mortem before installing more middleware.
+**Who it is for:** practice leads and program directors managing Cursor Agent volume and OpenRouter spend who tried Headroom, tunnel, or RTK and want an honest post-mortem before installing more middleware.
 
 **What you will learn:** which savings layers stack orthogonally, measured numbers from one production experiment (proxy retired July 2026), and what to run instead (direct OpenRouter, Context7, Serena, harness policy).
 

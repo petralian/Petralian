@@ -1,27 +1,23 @@
 ﻿---
 title: 'Zero-Knowledge AI Quality: How Gravio Scores Agents Without Seeing Your Code'
 slug: zero-knowledge-ai-quality-gravio
-date: 2026-05-09T00:00:00.000Z
+date: 2026-05-09 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - Gravio
-  - Agentic AI
-  - Developer Tools
-  - AI Quality
-excerpt: >-
-  Most AI quality platforms ask you to trust them with your source code. Gravio
-  takes a different path: encrypted scoring designed to keep plaintext out of
-  the server path.
+- Gravio
+- Agentic AI
+- Developer Tools
+- AI Quality
+excerpt: 'Most AI quality platforms ask you to trust them with your source code. Gravio
+  takes a different path: encrypted scoring designed to keep plaintext out of the
+  server path.'
 featured_image: /images/posts/zero-knowledge-ai-quality-gravio.png
 focus_keyword: zero knowledge ai code quality
-seo_description: >-
-  Learn how Gravio approaches privacy-first AI agent scoring with encrypted run
-  data and why zero-knowledge architecture matters for teams handling sensitive
+seo_description: Learn how Gravio approaches privacy-first AI agent scoring with encrypted
+  run data and why zero-knowledge architecture matters for teams handling sensitive
   code.
-image_prompt: >-
-  A cinematic workstation scene with encrypted data streams flowing from local
-  code editor into a secure cloud lock icon, neon blue and graphite palette,
+image_prompt: A cinematic workstation scene with encrypted data streams flowing from
+  local code editor into a secure cloud lock icon, neon blue and graphite palette,
   modern SaaS illustration style, high detail, no text overlay
 format: hands-on
 best_for: Builders exploring privacy-preserving AI quality scoring with Gravio

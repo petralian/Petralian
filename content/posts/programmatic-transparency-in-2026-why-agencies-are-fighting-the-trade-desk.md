@@ -1,19 +1,17 @@
 ﻿---
 title: 'Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk'
 slug: programmatic-transparency-in-2026-why-agencies-are-fighting-the-trade-desk
-date: 2026-04-17T00:00:00.000Z
+date: 2026-04-17 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Marketing Technology
-  - Agency Landscape
-  - Digital Transformation
+- Marketing Technology
+- Agency Landscape
+- Digital Transformation
 excerpt: ''
 featured_image: /images/posts/programmatic-transparency-publicis-trade-desk-2026.jpg
 seo_description: ''
 format: strategic
-best_for: >-
-  Agency and media leaders following programmatic transparency and platform
+best_for: Agency and media leaders following programmatic transparency and platform
   power
 ---
 **TL;DR**

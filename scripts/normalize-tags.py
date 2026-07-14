@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Normalize post tags to canonical Title Case vocabulary (max 10 tags per category)."""
+"""Normalize post tags; strip retired category field from frontmatter."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ VAULT_PUBLISHED = _VAULT_ROOT / "03 Published"
 VAULT_DRAFTS = _VAULT_ROOT / "01 Drafts"
 VAULT_READY = _VAULT_ROOT / "02 Ready to publish"
 
-# Blog categories (2026-06) — max 10 tags each
+# Legacy category vocab — used only to resolve tag allowlists for overrides
 ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
     "AI & Building": [
         "Agentic AI",
@@ -68,7 +68,9 @@ ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
     ],
 }
 
-# Legacy category names → current (also applied during normalize)
+SITE_ALLOWED_TAGS = sorted({tag for tags in ALLOWED_BY_CATEGORY.values() for tag in tags})
+
+# Legacy category names → current (tag resolution only; category not written to frontmatter)
 CATEGORY_RENAME: dict[str, str] = {
     "AI & Technology": "AI & Building",
     "Commerce & Growth": "Commerce & Marketing",
@@ -298,13 +300,40 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Agentic AI", "AI Memory", "Obsidian", "Playbook",
     ],
     "cursor-lightweight-harness-without-microservice-2026": [
-        "Agentic AI", "Developer Tools", "AI Quality", "Playbook",
+        "Agentic AI", "Enterprise AI", "AI Quality", "Playbook",
     ],
     "cursor-token-saving-tools-beyond-headroom-2026": [
-        "Agentic AI", "Developer Tools", "AI Memory", "Playbook",
+        "Agentic AI", "Enterprise AI", "AI Memory", "Playbook",
     ],
-    "cursorbench-fable-5-composer-2-5-cost-vs-score": [
-        "Agentic AI", "Developer Tools", "AI Quality", "Generative AI",
+    "cursorbench-3-2-fable-5-composer-2-5-cost-vs-score": [
+        "Agentic AI", "Enterprise AI", "AI Quality", "Generative AI",
+    ],
+    "best-cursor-model-by-task-2026": [
+        "Agentic AI", "Enterprise AI", "AI Quality", "Generative AI",
+    ],
+    "cursorbench-vs-swe-bench-vs-human-eval": [
+        "Enterprise AI", "Program Delivery", "Agentic AI", "Generative AI",
+    ],
+    "when-to-escalate-composer-2-5-to-fable-5": [
+        "Agentic AI", "Enterprise AI", "AI Quality", "Generative AI",
+    ],
+    "fable-5-pricing-cursor-every-tier-explained": [
+        "Agentic AI", "Enterprise AI", "AI Quality", "Generative AI",
+    ],
+    "open-models-cursorbench-3-2-grok-glm-kimi-longcat": [
+        "Agentic AI", "Enterprise AI", "AI Quality", "Generative AI",
+    ],
+    "cursor-obsidian-brain-handbook-2026": [
+        "Obsidian", "Agentic AI", "Enterprise AI", "AI Memory", "Playbook",
+    ],
+    "deploy-without-git-tag-you-cannot-roll-back": [
+        "Program Delivery", "Enterprise AI", "Digital Transformation", "Playbook",
+    ],
+    "vouch-referral-tracking-three-gates-shopify": [
+        "Ecommerce", "Shopify", "Customer Experience", "Marketing Technology",
+    ],
+    "is-cursor-only-for-developers": [
+        "Agentic AI", "Obsidian", "Generative AI", "AI Memory", "Playbook",
     ],
     "customer-account-monolith-anti-pattern-shopify-extensions": [
         "Shopify", "Ecommerce", "Customer Experience", "Marketing Technology", "Developer Tools",
@@ -436,7 +465,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "Leadership", "Agentic AI", "Program Delivery", "Generative AI",
     ],
     "vscode-copilot-to-cursor-what-changed-in-my-ai-workflow": [
-        "Developer Tools", "Agentic AI", "Obsidian", "AI Memory", "Playbook",
+        "Agentic AI", "Enterprise AI", "Obsidian", "AI Memory", "Playbook",
     ],
     "what-i-learned-directing-ai-as-my-primary-engineer": [
         "Enterprise AI", "Agentic AI", "Program Delivery", "Leadership",
@@ -536,7 +565,7 @@ def closest_allowed(tag: str, allowed: list[str]) -> str:
 
 
 def normalize_tags(category: str, tags: list) -> list[str]:
-    allowed = ALLOWED_BY_CATEGORY.get(category, [])
+    allowed = ALLOWED_BY_CATEGORY.get(category) or SITE_ALLOWED_TAGS
     allowed_set = set(allowed)
     out: list[str] = []
     seen: set[str] = set()
@@ -585,23 +614,26 @@ def process_file(path: pathlib.Path, dry_run: bool) -> bool:
     if slug in SEO_POST_TAGS:
         new_tags = normalize_tags(category, SEO_POST_TAGS[slug])
     elif slug in ALL_OVERRIDES:
-        _, new_tags = ALL_OVERRIDES[slug]
-        new_tags = normalize_tags(category, new_tags)
+        _, override_tags = ALL_OVERRIDES[slug]
+        new_tags = normalize_tags(category, override_tags)
     else:
         new_tags = normalize_tags(category, old_tags if isinstance(old_tags, list) else [])
 
-    if old_tags == new_tags and old_category == category:
+    had_category = bool(old_category)
+
+    if old_tags == new_tags and not had_category:
         return False
 
     if not dry_run:
-        data["category"] = category
+        data.pop("category", None)
         data["tags"] = new_tags
         path.write_text(dump_frontmatter(data, body), encoding="utf-8")
 
     print(f"{'[dry] ' if dry_run else ''}{path.name}")
-    if old_category != category:
-        print(f"  category: {old_category} -> {category}")
-    print(f"  tags: {old_tags} -> {new_tags}")
+    if had_category:
+        print(f"  category: removed ({old_category!r})")
+    if old_tags != new_tags:
+        print(f"  tags: {old_tags} -> {new_tags}")
     return True
 
 

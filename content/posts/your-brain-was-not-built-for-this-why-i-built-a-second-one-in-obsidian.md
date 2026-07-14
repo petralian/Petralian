@@ -1,21 +1,20 @@
 ﻿---
 title: 'Your Brain Was Not Built for This: Why I Built a Second One in Obsidian'
 slug: your-brain-was-not-built-for-this-why-i-built-a-second-one-in-obsidian
-date: 2026-05-20T00:00:00.000Z
+date: 2026-05-20 00:00:00+00:00
 status: published
-category: Career
 tags:
-  - Leadership
-  - Enterprise AI
-  - Generative AI
+- Leadership
+- Enterprise AI
+- Generative AI
 excerpt: ''
 featured_image: /images/posts/obsidian-second-brain-graph-view.jpg
-seo_description: >-
-  Why leadership and knowledge work need an Obsidian second brain—plain
-  Markdown, linking, and AI-ready files—not another app that traps what you
-  already know.
+seo_description: Why leadership and knowledge work need an Obsidian second brain—plain
+  Markdown, linking, and AI-ready files—not another app that traps what you already
+  know.
 format: hybrid
-best_for: Knowledge workers overwhelmed by context who want a second brain without hype
+best_for: Knowledge workers overwhelmed by context who want a second brain without
+  hype
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))

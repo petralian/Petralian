@@ -1,9 +1,8 @@
 ﻿---
 title: 'Why File Memory Beats the Three-Layer AI Diagram'
 slug: why-file-memory-beats-the-three-layer-diagram-for-builders
-date: 2026-05-26T00:00:00.000Z
+date: 2026-05-26 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - AI Memory
   - Agentic AI
@@ -35,7 +34,7 @@ image_prompt_variant_2: >-
   workflow, editorial playful.
 featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.png
 format: hybrid
-best_for: Builders choosing pragmatic file memory over diagram-perfect architecture
+best_for: Leaders choosing file memory for governed AI programs over diagram-perfect architecture
 ---
 **TL;DR**
 
@@ -60,7 +59,7 @@ This article answers four questions plainly: Is the file-based design better? Di
 
 **The three-layer diagram** (short-term memory, long-term memory, feedback) describes memory *inside* an agent runtime—attention, retrieval, and product-side learning. **File-based external memory** stores operational handoffs, evergreen product notes, and enforceable rules in Markdown and git that you own, diff, and port across tools.
 
-**Who it is for:** Builders comparing in-chat or in-product memory to a deliberate external brain before committing to a stack.
+**Who it is for:** program owners and practice leads comparing in-chat or in-product memory to a deliberate external brain before committing to a stack.
 
 **What you will learn:** When each architecture wins, five reasons files win for production work, honest tradeoffs, and a one-table decision guide. Implementation detail is in [Part 1](/posts/three-layer-external-brain-for-ai-first-development); the [series hub](/posts/external-memory-series-guide) maps the full series.
 

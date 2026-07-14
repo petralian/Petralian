@@ -1,26 +1,22 @@
 ﻿---
 title: From Empty Folder to First Quality Score in 10 Minutes
 slug: first-gravio-score-in-10-minutes
-date: 2026-05-11T00:00:00.000Z
+date: 2026-05-11 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - Gravio
-  - Agentic AI
-  - Developer Tools
-excerpt: >-
-  A practical, no-fluff walkthrough for getting Gravio running from a clean
-  folder to your first quality score, including the exact command flow and
-  common mistakes.
+- Gravio
+- Agentic AI
+- Developer Tools
+excerpt: A practical, no-fluff walkthrough for getting Gravio running from a clean
+  folder to your first quality score, including the exact command flow and common
+  mistakes.
 featured_image: /images/posts/first-gravio-score-in-10-minutes.png
 focus_keyword: gravio setup guide
-seo_description: >-
-  Follow a step-by-step Gravio onboarding guide from zero setup to first AI
-  quality score in about 10 minutes, with troubleshooting tips for common
+seo_description: Follow a step-by-step Gravio onboarding guide from zero setup to
+  first AI quality score in about 10 minutes, with troubleshooting tips for common
   friction points.
-image_prompt: >-
-  A clean developer desktop with terminal commands and checklist steps floating
-  as UI cards, bright neutral lighting, modern technical illustration, subtle
+image_prompt: A clean developer desktop with terminal commands and checklist steps
+  floating as UI cards, bright neutral lighting, modern technical illustration, subtle
   green success accents, no text
 format: hands-on
 best_for: Builders trying Gravio scoring on a real repo in one sitting

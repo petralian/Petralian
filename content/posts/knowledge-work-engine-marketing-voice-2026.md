@@ -1,41 +1,36 @@
 ﻿---
 title: Marketing and Voice at Scale With a File-Based Agent Engine
 slug: knowledge-work-engine-marketing-voice-2026
-date: 2026-07-06T00:00:00.000Z
+date: 2026-07-06 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Brand Strategy
-  - AI in Marketing
-  - Marketing Technology
-  - Generative AI
-  - Playbook
-  - GEO
-excerpt: >-
-  Brand voice fails when it lives in a PDF nobody opens. This playbook maps
-  Sinek's Why-How-What, voice-as-system governance, and content-batch routing to
-  produce consistent, high-volume marketing with minimum rework.
+- Brand Strategy
+- AI in Marketing
+- Marketing Technology
+- Generative AI
+- Playbook
+- GEO
+excerpt: Brand voice fails when it lives in a PDF nobody opens. This playbook maps
+  Sinek's Why-How-What, voice-as-system governance, and content-batch routing to produce
+  consistent, high-volume marketing with minimum rework.
 featured_image: /images/posts/knowledge-work-engine-marketing-voice-2026.png
 focus_keyword: AI marketing brand voice style guide scale
-seo_description: >-
-  Scale marketing with AI: brand voice systems, Golden Circle messaging,
-  define-enforce-measure governance, editorial routing, and content-batch for
-  high output with minimum drift.
+seo_description: 'Scale marketing with AI: brand voice systems, Golden Circle messaging,
+  define-enforce-measure governance, editorial routing, and content-batch for high
+  output with minimum drift.'
 series: Knowledge Work Engine Series
 series_order: 3
 related_posts:
-  - knowledge-work-agent-engine-guide-2026
-  - knowledge-work-engine-leadership-decisions-2026
-  - publishing-obsidian-drafts-through-github-actions
-image_prompt: >-
-  Cinematic 16:9 macro of a printing press roller lifting, ink gradient copper
-  to teal, paper fiber texture, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 greenhouse at night: vines grow into neat labeled pots (Blog,
-  Email, Social) under one glass roof, bioluminescent green, no readable text.
-image_prompt_variant_2: >-
-  Isometric 16:9 editorial desk cutaway: draft tray, voice guide book, checklist
-  stamp, publish chute, risograph purple and cream, no logos.
+- knowledge-work-agent-engine-guide-2026
+- knowledge-work-engine-leadership-decisions-2026
+- publishing-obsidian-drafts-through-github-actions
+image_prompt: Cinematic 16:9 macro of a printing press roller lifting, ink gradient
+  copper to teal, paper fiber texture, no logos, no readable text.
+image_prompt_variant_1: 'Surreal 16:9 greenhouse at night: vines grow into neat labeled
+  pots (Blog, Email, Social) under one glass roof, bioluminescent green, no readable
+  text.'
+image_prompt_variant_2: 'Isometric 16:9 editorial desk cutaway: draft tray, voice
+  guide book, checklist stamp, publish chute, risograph purple and cream, no logos.'
 format: hybrid
 best_for: Marketing leaders keeping brand voice consistent when agents draft at scale
 ---

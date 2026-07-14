@@ -1,14 +1,13 @@
 ﻿---
 title: 'E-commerce in 2025: Trends, Statistics, and Strategies to Stay Ahead'
 slug: e-commerce-in-2025-trends-statistics-and-strategies-to-stay-ahead
-date: 2025-02-12T00:00:00.000Z
+date: 2025-02-12 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Ecommerce
-  - AI in Marketing
-  - Social Commerce
-  - ChatGPT
+- Ecommerce
+- AI in Marketing
+- Social Commerce
+- ChatGPT
 excerpt: ''
 featured_image: /images/posts/ecommerce-2025-trends-statistics-hero.jpg
 seo_description: ''

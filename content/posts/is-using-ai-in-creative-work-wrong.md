@@ -1,20 +1,18 @@
 ﻿---
 title: Is using AI in creative work wrong?
 slug: is-using-ai-in-creative-work-wrong
-date: 2025-05-29T00:00:00.000Z
+date: 2025-05-29 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Generative AI
-  - AI in Marketing
-  - Agency Landscape
+- Generative AI
+- AI in Marketing
+- Agency Landscape
 excerpt: ''
 featured_image: /images/posts/creative-ai-hero.jpg
 seo_description: ''
 format: hybrid
-best_for: >-
-  Creative directors and agency leaders navigating ethics and craft with
-  generative AI
+best_for: Creative directors and agency leaders navigating ethics and craft with generative
+  AI
 ---
 **TL;DR**
 

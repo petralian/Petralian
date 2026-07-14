@@ -194,10 +194,14 @@ function Test-ArticlePreflight {
   }
 
   # Required fields — block publish if missing
-  foreach ($field in @('title', 'slug', 'date', 'category')) {
+  foreach ($field in @('title', 'slug', 'date', 'format', 'best_for')) {
     if (-not $fm[$field] -or $fm[$field] -eq '') {
       $errors.Add("Missing required field: $field")
     }
+  }
+
+  if ($fm['format'] -and $fm['format'] -notin @('strategic', 'hands-on', 'hybrid')) {
+    $errors.Add("Invalid format: $($fm['format']) — must be strategic, hands-on, or hybrid")
   }
 
   # Recommended fields — warn only
@@ -352,6 +356,7 @@ function Publish-ObsidianFile {
   $destFile = Join-Path $sitePosts "$slug.md"
 
   $content = $raw -replace '(?m)^status:\s*(ready|draft|published)\s*$', 'status: published'
+  $content = $content -replace '(?m)^category:\s*.+\r?\n', ''
   $content = Resolve-Images -content $content -articleFolder $file.DirectoryName -dryRun $DryRun.IsPresent
 
   # Preserve editorial publish date when re-syncing live posts from vault

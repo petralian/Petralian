@@ -3,9 +3,8 @@ title: >-
   Composer 2.5 as My Only Coding Model: Cost, Predictability, and a Tighter
   Bootstrap
 slug: composer-2-5-baseline-model-tighter-bootstrap-better-results
-date: 2026-05-27T00:00:00.000Z
+date: 2026-05-27 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Agentic AI
   - Developer Tools
@@ -34,7 +33,7 @@ image_prompt_variant_2: >-
   flying off; right side straight assembly line with checklist gates—editorial
   contrast, professional playful tone.
 format: hands-on
-best_for: Developers standardizing on a single coding model and tighter agent bootstrap
+best_for: Practice leads standardizing Cursor model policy and tighter agent bootstrap
 ---
 **TL;DR**
 
@@ -53,7 +52,7 @@ best_for: Developers standardizing on a single coding model and tighter agent bo
 
 A **baseline model policy** means picking **one implementation model** (here: Cursor Composer 2.5) for weeks—not chasing every frontier release—so rules, footers, and vault handoffs stay **predictable**.
 
-**Who it is for:** solo builders and small teams with an external memory stack (Obsidian, `memories/repo/`, session footers) who lose continuity when the model picker changes every sprint.
+**Who it is for:** practice leads and program directors with an external memory stack (Obsidian, handoff files, session footers) who lose continuity when the model picker changes every sprint.
 
 **What you will learn:** why instruction-following variance hurts file memory, a tightened bootstrap order, tradeoffs accepted, and when manual escalation still makes sense.
 
@@ -277,7 +276,7 @@ The limiting factor was never "the model cannot code." It was **sessions that sk
 
 ### How does this relate to CursorBench?
 
-Composer 2.5 scores well on **score per dollar** on CursorBench 3.1 ([analysis](/posts/cursorbench-fable-5-composer-2-5-cost-vs-score))—one line item, not the whole argument.
+Composer 2.5 scores well on **score per dollar** on CursorBench 3.2 ([analysis](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score))—one line item, not the whole argument.
 
 ### What if Composer 2.5 cannot do a task?
 

@@ -1,20 +1,19 @@
 ﻿---
-title: 'Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?'
+title: Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?
 slug: is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant
-date: 2026-05-09T00:00:00.000Z
+date: 2026-05-09 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Salesforce
-  - AI in Marketing
-  - Marketing Technology
-  - CDP
-  - Digital Transformation
+- Salesforce
+- AI in Marketing
+- Marketing Technology
+- CDP
+- Digital Transformation
 excerpt: ''
 featured_image: /images/posts/salesforce-agentforce-invisible-crm-hero.jpg
 seo_description: ''
 format: strategic
-best_for: 'Martech leaders tracking Salesforce, CDP strategy, and platform consolidation'
+best_for: Martech leaders tracking Salesforce, CDP strategy, and platform consolidation
 ---
 **TL;DR**
 

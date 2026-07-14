@@ -1,43 +1,38 @@
 ﻿---
 title: Project Management With a File-Based Agent Engine
 slug: knowledge-work-engine-project-management-2026
-date: 2026-07-06T00:00:00.000Z
+date: 2026-07-06 00:00:00+00:00
 status: published
-category: Career
 tags:
-  - Program Delivery
-  - Digital Transformation
-  - Agentic AI
-  - Enterprise AI
-  - Playbook
-excerpt: >-
-  Agile, Scrum, Jira, and Confluence already own execution and narrative. This
-  playbook shows where a file-based agent engine fits—iron triangle tradeoffs,
-  RAG, RACI, RAID, and applied AI without pretending chat is a program office.
+- Program Delivery
+- Digital Transformation
+- Agentic AI
+- Enterprise AI
+- Playbook
+excerpt: Agile, Scrum, Jira, and Confluence already own execution and narrative. This
+  playbook shows where a file-based agent engine fits—iron triangle tradeoffs, RAG,
+  RACI, RAID, and applied AI without pretending chat is a program office.
 featured_image: /images/posts/knowledge-work-engine-project-management-2026.png
 focus_keyword: AI project management agile scrum jira
-seo_description: >-
-  How a file-based AI engine complements Agile, Scrum, Jira, and Confluence:
-  iron triangle, RAG, RACI, RAID, sprint goals, and agent routing for program
-  delivery.
+seo_description: 'How a file-based AI engine complements Agile, Scrum, Jira, and Confluence:
+  iron triangle, RAG, RACI, RAID, sprint goals, and agent routing for program delivery.'
 series: Knowledge Work Engine Series
 series_order: 1
 related_posts:
-  - knowledge-work-agent-engine-guide-2026
-  - knowledge-work-engine-leadership-decisions-2026
-  - getting-enterprise-ai-right-the-work-that-comes-before-deployment
-image_prompt: >-
-  Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete
-  desk, three columns only, single brass pen, cool morning light, no readable
-  text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 subway control room: three glowing lines on a map merge into one
-  departure board, teal and amber lights, miniature scale, no readable text.
-image_prompt_variant_2: >-
-  Isometric 16:9 cutaway: inbox tray, bridge folder, milestone flag, task-app
-  icon as three connected rooms, risograph orange and gray, no logos.
+- knowledge-work-agent-engine-guide-2026
+- knowledge-work-engine-leadership-decisions-2026
+- getting-enterprise-ai-right-the-work-that-comes-before-deployment
+image_prompt: Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete
+  desk, three columns only, single brass pen, cool morning light, no readable text,
+  no faces.
+image_prompt_variant_1: 'Surreal 16:9 subway control room: three glowing lines on
+  a map merge into one departure board, teal and amber lights, miniature scale, no
+  readable text.'
+image_prompt_variant_2: 'Isometric 16:9 cutaway: inbox tray, bridge folder, milestone
+  flag, task-app icon as three connected rooms, risograph orange and gray, no logos.'
 format: hybrid
-best_for: Program and delivery leads running projects where agents are part of the team
+best_for: Program and delivery leads running projects where agents are part of the
+  team
 ---
 
 > **Knowledge Work Engine Series (Part 1)**  

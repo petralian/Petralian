@@ -1,9 +1,8 @@
 ﻿---
 title: 'External Memory Series: A Practical Guide to AI Session Continuity'
 slug: external-memory-series-guide
-date: 2026-05-26T00:00:00.000Z
+date: 2026-05-26 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - AI Memory
   - Agentic AI
@@ -35,8 +34,8 @@ image_prompt_variant_2: >-
 featured_image: /images/posts/external-memory-series-guide.png
 format: hybrid
 best_for: >-
-  Anyone adopting file-based memory for AI-assisted work — start here for the
-  series map
+  Program leads and knowledge workers adopting file-based memory for AI-assisted
+  work — start here for the series map
 ---
 **TL;DR**
 
@@ -54,7 +53,7 @@ This page is the **hub** for the External Memory series: a file-based approach I
 
 **External memory** is a deliberate file system—Obsidian notes, repo handoff files, agent rules, and hooks—that carries context between AI sessions instead of relying on chat history or product-side memory. It separates short-term conversation from operational handoffs, evergreen product truth, and feedback that hardens into rules you can inspect and version.
 
-**Who it is for:** Developers, leaders, and knowledge workers who use AI across multiple tools and need continuity that survives session resets and vendor changes.
+**Who it is for:** program leads, delivery directors, and knowledge workers who use AI across multiple tools and need continuity that survives session resets and vendor changes.
 
 **What you will learn:** How the four layers fit together, which series part matches your role, and the smallest afternoon setup that proves the model before you automate.
 

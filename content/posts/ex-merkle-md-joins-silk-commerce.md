@@ -3,7 +3,6 @@ title: Reflecting on My 5-Month Engagement with Silk Commerce
 slug: ex-merkle-md-joins-silk-commerce
 date: 2024-07-23
 status: published
-category: Career
 tags:
 - Leadership
 - APAC

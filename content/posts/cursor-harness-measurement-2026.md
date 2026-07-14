@@ -1,9 +1,8 @@
 ﻿---
 title: 'Measure Your Cursor Harness — CSV, CI, and OpenRouter Dollars'
 slug: cursor-harness-measurement-2026
-date: 2026-07-04T00:00:00.000Z
+date: 2026-07-04 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Agentic AI
   - Developer Tools
@@ -37,7 +36,7 @@ image_prompt_variant_2: >-
   Bold isometric 16:9: three panels Log CI Dollars connected by arrows,
   risograph slate and mint, no logos.
 format: hands-on
-best_for: Builders measuring whether their Cursor harness actually improves output
+best_for: Program leads measuring whether a Cursor harness improves output and spend
 ---
 
 > **Series:** Cursor Agent Harness (Part 3 of 3)  
@@ -48,7 +47,7 @@ best_for: Builders measuring whether their Cursor harness actually improves outp
 
 **Harness measurement** is the **Layer 4 feedback loop** for a Cursor agent stack: a session CSV, CI eval gates, footer audit fields, and weekly OpenRouter checks—so you defer LangChain or Harbor until real failure modes justify the build.
 
-**Who it is for:** solo builders and small teams who already have a policy page ([Part 1](/posts/cursor-lightweight-harness-without-microservice-2026)) and memory gates ([Part 2](/posts/cursor-harness-memory-loop-2026)) and need evidence before adding orchestration.
+**Who it is for:** practice leads and program directors who already have harness policy ([Part 1](/posts/cursor-lightweight-harness-without-microservice-2026)) and memory gates ([Part 2](/posts/cursor-harness-memory-loop-2026)) and need evidence before adding orchestration.
 
 **What you will learn:** what to log in week 1, how `eval:gate` costs zero chat tokens, an honest ROI formula, and when `HARNESS-DEFER.md` should block Phase 2 work.
 

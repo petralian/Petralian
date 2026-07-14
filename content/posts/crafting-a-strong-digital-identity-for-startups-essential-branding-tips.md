@@ -1,13 +1,12 @@
 ﻿---
 title: Crafting a Strong Digital Identity for Startups
 slug: crafting-a-strong-digital-identity-for-startups-essential-branding-tips
-date: 2025-01-13T00:00:00.000Z
+date: 2025-01-13 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Brand Strategy
-  - Marketing Technology
-  - Ecommerce
+- Brand Strategy
+- Marketing Technology
+- Ecommerce
 excerpt: ''
 featured_image: /images/posts/ar-glasses-digital-brand-identity-hero.jpg
 seo_description: ''

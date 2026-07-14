@@ -1,9 +1,8 @@
 ﻿---
 title: Three Layers of External Memory for AI-First Development
 slug: three-layer-external-brain-for-ai-first-development
-date: 2026-05-26T00:00:00.000Z
+date: 2026-05-26 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - AI Memory
   - Agentic AI
@@ -36,7 +35,7 @@ image_prompt_variant_2: >-
   arrow—editorial contrast, professional playful tone.
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
 format: hands-on
-best_for: Builders implementing the three-layer external memory model for AI-first dev
+best_for: Practice leads implementing layered external memory for agent-assisted delivery (Playbook)
 ---
 **TL;DR**
 
@@ -60,7 +59,7 @@ This article is the development-focused view: what the layers are, how they map 
 
 **External memory for AI-first development** is a layered file stack—session handoffs in the repo, evergreen Feature and Architecture notes in Obsidian, and rules plus hooks at session boundaries—that lets agents implement most code while humans own direction and durable truth. Chat context is a short-term buffer; production continuity lives in Markdown and git.
 
-**Who it is for:** Solo builders and small teams shipping production software with IDE agents or chat assistants as the primary implementer.
+**Who it is for:** practice leads and delivery directors running agent-assisted programs who need production continuity across hundreds of sessions.
 
 **What you will learn:** The four tiers in practice, bootstrap and session-end promotion rules, May 2026 automation patterns (session hooks, post-commit Feature updates), and what breaks when you skip a layer. See the [series hub](/posts/external-memory-series-guide) for the full map.
 

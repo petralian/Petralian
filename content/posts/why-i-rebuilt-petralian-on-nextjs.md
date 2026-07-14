@@ -1,28 +1,25 @@
 ﻿---
 title: Why I Rebuilt Petralian on Next.js (And Open Sourced It)
 slug: why-i-rebuilt-petralian-on-nextjs
-date: 2026-05-23T00:00:00.000Z
+date: 2026-05-23 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - Developer Tools
-  - Obsidian
-  - SEO
-  - Agentic AI
-  - GEO
-excerpt: >-
-  WordPress was slowing down the actual writing. Here's why I rebuilt
-  petralian.com on Next.js, how Obsidian now sits at the center of my publishing
-  workflow, and why I decided to open source the whole thing.
+- Developer Tools
+- Obsidian
+- SEO
+- Agentic AI
+- GEO
+excerpt: WordPress was slowing down the actual writing. Here's why I rebuilt petralian.com
+  on Next.js, how Obsidian now sits at the center of my publishing workflow, and why
+  I decided to open source the whole thing.
 featured_image: /images/posts/why-i-rebuilt-petralian-hero.png
 focus_keyword: rebuild petralian wordpress nextjs obsidian
-seo_description: >-
-  I rebuilt petralian.com from WordPress to Next.js to unblock a writing
-  workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS
-  made it practical, and why the whole framework is now open source.
-live_url: 'https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs'
+seo_description: I rebuilt petralian.com from WordPress to Next.js to unblock a writing
+  workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS made
+  it practical, and why the whole framework is now open source.
+live_url: https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs
 format: hands-on
-best_for: 'Developers weighing a Next.js rebuild for content, SEO, and shipping speed'
+best_for: Developers weighing a Next.js rebuild for content, SEO, and shipping speed
 ---
 **TL;DR**
 

@@ -1,13 +1,12 @@
 ﻿---
 title: Leadership Styles and Their Impact on Marketing and Branding
 slug: leadership-styles-and-their-impact-on-marketing-and-branding
-date: 2025-02-26T00:00:00.000Z
+date: 2025-02-26 00:00:00+00:00
 status: published
-category: Career
 tags:
-  - Leadership
-  - Brand Strategy
-  - Marketing Technology
+- Leadership
+- Brand Strategy
+- Marketing Technology
 excerpt: ''
 featured_image: /images/posts/leadership-styles-marketing-branding-hero.jpeg
 seo_description: ''

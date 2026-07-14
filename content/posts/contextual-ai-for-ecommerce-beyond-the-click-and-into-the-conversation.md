@@ -1,15 +1,15 @@
 ﻿---
 title: 'Contextual AI for ecommerce: Beyond the Click and Into the Conversation'
 slug: contextual-ai-for-ecommerce-beyond-the-click-and-into-the-conversation
-date: 2025-08-28T00:00:00.000Z
+date: 2025-08-28 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - AI in Marketing
-  - Ecommerce
-  - Customer Experience
-  - ChatGPT
-  - Social Commerce
+- AI in Marketing
+- Ecommerce
+- Customer Experience
+- ChatGPT
+- Social Commerce
+- GEO
 excerpt: ''
 featured_image: /images/posts/contextual-ai-ecommerce-conversation-hero.png
 seo_description: ''

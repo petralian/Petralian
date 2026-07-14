@@ -1,20 +1,18 @@
 ﻿---
 title: 'Data Warehousing as a CDP: Can You Really Have It All?'
 slug: data-warehousing-as-a-cdp-can-you-really-have-it-all
-date: 2025-06-13T00:00:00.000Z
+date: 2025-06-13 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - CDP
-  - Marketing Technology
-  - AI in Marketing
-  - Customer Experience
+- CDP
+- Marketing Technology
+- AI in Marketing
+- Customer Experience
 excerpt: ''
 featured_image: /images/posts/data-warehouse-cdp-architecture-hero.jpg
 seo_description: ''
 format: hybrid
-best_for: >-
-  Martech and data leaders deciding between warehouse-native CDP and packaged
+best_for: Martech and data leaders deciding between warehouse-native CDP and packaged
   platforms
 ---
 **TL;DR**

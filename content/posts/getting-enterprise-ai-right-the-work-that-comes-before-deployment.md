@@ -1,43 +1,37 @@
 ﻿---
 title: 'Getting Enterprise AI Right: The Work That Comes Before Deployment'
 slug: getting-enterprise-ai-right-the-work-that-comes-before-deployment
-date: 2026-06-16T00:00:00.000Z
+date: 2026-06-16 00:00:00+00:00
 status: published
-category: Career
 tags:
-  - Enterprise AI
-  - Program Delivery
-  - Digital Transformation
-  - Leadership
-  - Playbook
-excerpt: >-
-  Enterprise AI programs that last share one pattern: data readiness, named
-  governance owners, and change runway are gates before go-live—not parallel
-  work you finish after the demo.
+- Enterprise AI
+- Program Delivery
+- Digital Transformation
+- Leadership
+- Playbook
+excerpt: 'Enterprise AI programs that last share one pattern: data readiness, named
+  governance owners, and change runway are gates before go-live—not parallel work
+  you finish after the demo.'
 featured_image: /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.png
-featured_image_alt: >-
-  Isometric cutaway of three enterprise AI foundation layers—data, governance,
-  and change—with a deploy capsule waiting above a hold line
+featured_image_alt: Isometric cutaway of three enterprise AI foundation layers—data,
+  governance, and change—with a deploy capsule waiting above a hold line
 focus_keyword: enterprise AI program readiness
-seo_description: >-
-  Why enterprise AI programs stall after successful pilots: compressed
-  foundation work on data, governance owners, and change runway—and how to get
-  the order right.
-image_prompt: >-
-  Cinematic 16:9 wide shot of a concrete foundation pour at dusk, three wooden
-  formwork sections labeled only by shape not text, crane bokeh in background,
+seo_description: 'Why enterprise AI programs stall after successful pilots: compressed
+  foundation work on data, governance owners, and change runway—and how to get the
+  order right.'
+image_prompt: Cinematic 16:9 wide shot of a concrete foundation pour at dusk, three
+  wooden formwork sections labeled only by shape not text, crane bokeh in background,
   amber floodlights, no people, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium scene: a model rocket on a launch pad held by three
-  visible support pillars made of stacked books and binders, starfield dome
-  above, violet and copper accents, no readable text, no logos.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric cutaway: three-layer building foundation (data,
-  governance, change) with a small deploy capsule waiting at a hold line above,
-  flat graphic style, risograph grain, teal and slate palette, no logos, no
-  readable text.
+image_prompt_variant_1: 'Surreal 16:9 planetarium scene: a model rocket on a launch
+  pad held by three visible support pillars made of stacked books and binders, starfield
+  dome above, violet and copper accents, no readable text, no logos.'
+image_prompt_variant_2: 'Bold 16:9 isometric cutaway: three-layer building foundation
+  (data, governance, change) with a small deploy capsule waiting at a hold line above,
+  flat graphic style, risograph grain, teal and slate palette, no logos, no readable
+  text.'
 format: strategic
-best_for: Leaders and program owners steering enterprise AI before go-live pressure wins
+best_for: Leaders and program owners steering enterprise AI before go-live pressure
+  wins
 ---
 **TL;DR**
 

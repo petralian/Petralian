@@ -4,7 +4,6 @@ title: 'The Rise of Customer Experience Management: Why It Matters and How to Ma
 slug: the-rise-of-cxm
 date: 2023-12-01
 status: published
-category: Commerce & Marketing
 tags:
 - Customer Experience
 - Marketing Technology

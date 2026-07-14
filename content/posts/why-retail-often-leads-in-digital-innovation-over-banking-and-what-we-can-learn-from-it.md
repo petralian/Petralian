@@ -1,16 +1,13 @@
 ﻿---
-title: >-
-  Why Retail Often Leads in Digital Innovation Over Banking (and What We Can
+title: Why Retail Often Leads in Digital Innovation Over Banking (and What We Can
   Learn From It)
-slug: >-
-  why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
-date: 2025-01-20T00:00:00.000Z
+slug: why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it
+date: 2025-01-20 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Digital Transformation
-  - Ecommerce
-  - APAC
+- Digital Transformation
+- Ecommerce
+- APAC
 excerpt: ''
 featured_image: /images/posts/retail-digital-innovation-banking-apac-hero.jpg
 seo_description: ''

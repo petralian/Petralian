@@ -3,7 +3,6 @@ title: 'Marketing 101: Fundamental Principles for Sustainable Business Growth'
 slug: marketing-101-fundamental-principles-for-sustainable-business-growth
 date: 2025-04-04
 status: published
-category: Commerce & Marketing
 tags:
 - Marketing Technology
 - Brand Strategy

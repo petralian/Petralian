@@ -1,13 +1,12 @@
 ﻿---
 title: 'Infinity Loops: The Framework Behind Successful Brand Stories'
 slug: infinity-loops-the-framework-behind-successful-brand-stories
-date: 2025-02-21T00:00:00.000Z
+date: 2025-02-21 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Customer Experience
-  - Brand Strategy
-  - Ecommerce
+- Customer Experience
+- Brand Strategy
+- Ecommerce
 excerpt: ''
 featured_image: /images/posts/infinity-loops-brand-storytelling-hero.jpg
 seo_description: ''

@@ -1,17 +1,14 @@
 ﻿---
-title: >-
-  The Power of Engagement: How Buy.social’s Messaging and Notifications System
-  Stands Out
-slug: >-
-  the-power-of-engagement-how-buy-socials-messaging-and-notifications-system-stands-out
-date: 2025-01-06T00:00:00.000Z
+title: 'The Power of Engagement: How Buy.social’s Messaging and Notifications System
+  Stands Out'
+slug: the-power-of-engagement-how-buy-socials-messaging-and-notifications-system-stands-out
+date: 2025-01-06 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Customer Experience
-  - Marketing Technology
-  - Ecommerce
-  - Social Commerce
+- Customer Experience
+- Marketing Technology
+- Ecommerce
+- Social Commerce
 excerpt: ''
 featured_image: /images/posts/buysocial-messaging-notifications-hero.jpg
 seo_description: ''

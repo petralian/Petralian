@@ -1,39 +1,31 @@
 ﻿---
 title: 'How We Built Gravio’s Scoring Engine: From Repo Signals to Release Gates'
 slug: how-gravio-scoring-engine-was-built
-date: 2026-05-17T00:00:00.000Z
+date: 2026-05-17 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
-  - Agentic AI
-  - AI Quality
-  - Developer Tools
-  - Gravio
-  - Playbook
-excerpt: >-
-  A practical breakdown of how Gravio turns repository signals into
-  six-dimension scores, hard quality gates, and actionable remediation plans.
+- Agentic AI
+- AI Quality
+- Developer Tools
+- Gravio
+- Playbook
+excerpt: A practical breakdown of how Gravio turns repository signals into six-dimension
+  scores, hard quality gates, and actionable remediation plans.
 featured_image: /images/posts/how-gravio-scoring-engine-was-built.png
 focus_keyword: how gravio scoring engine works
-seo_description: >-
-  Learn how Gravio’s scoring engine was built: signal detection, weighted
-  dimensions, gate policy, and practical quality remediation for AI-assisted
-  codebases.
-image_prompt: >-
-  A transparent engineering control room with six illuminated quality dials
-  (safety, reliability, evaluation, observability, governance, agentic) fed by
-  live repository signals, realistic UI overlays, cinematic but grounded, no
-  generic corporate stock look.
-image_prompt_variant_1: >-
-  Tiny System Factory scene: miniature engineers route code artifacts through
-  labeled stations (tests, eval corpus, security scan, observability), with a
-  final scorecard conveyor output, warm practical lighting, witty but
-  professional.
-image_prompt_variant_2: >-
-  Maze vs Clear Workflow split-screen: left side shows tangled dashboards and
-  noisy alerts, right side shows a clean scored pipeline with release gate
-  checks and traceable evidence, editorial style, sharp contrast, modern product
-  illustration.
+seo_description: 'Learn how Gravio’s scoring engine was built: signal detection, weighted
+  dimensions, gate policy, and practical quality remediation for AI-assisted codebases.'
+image_prompt: A transparent engineering control room with six illuminated quality
+  dials (safety, reliability, evaluation, observability, governance, agentic) fed
+  by live repository signals, realistic UI overlays, cinematic but grounded, no generic
+  corporate stock look.
+image_prompt_variant_1: 'Tiny System Factory scene: miniature engineers route code
+  artifacts through labeled stations (tests, eval corpus, security scan, observability),
+  with a final scorecard conveyor output, warm practical lighting, witty but professional.'
+image_prompt_variant_2: 'Maze vs Clear Workflow split-screen: left side shows tangled
+  dashboards and noisy alerts, right side shows a clean scored pipeline with release
+  gate checks and traceable evidence, editorial style, sharp contrast, modern product
+  illustration.'
 format: hands-on
 best_for: Builders who want the architecture behind an AI quality scoring engine
 ---

@@ -1,29 +1,25 @@
 ﻿---
 title: How I Built the Petralian Weekly Digest on Brevo Free
 slug: how-i-built-the-petralian-weekly-digest-on-brevo-free
-date: 2026-05-24T00:00:00.000Z
+date: 2026-05-24 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Developer Tools
-  - Marketing Technology
-  - Brand Strategy
-excerpt: >-
-  I wanted a clean weekly digest for petralian.com without paying for RSS
-  automations. This is the exact architecture we implemented, the issues we hit,
-  and the code patterns that made it reliable.
+- Developer Tools
+- Marketing Technology
+- Brand Strategy
+excerpt: I wanted a clean weekly digest for petralian.com without paying for RSS automations.
+  This is the exact architecture we implemented, the issues we hit, and the code patterns
+  that made it reliable.
 featured_image: /images/posts/how-i-built-the-petralian-weekly-digest-on-brevo-free.png
 focus_keyword: petralian weekly digest brevo free
-seo_description: >-
-  A practical build log for implementing a weekly digest on Brevo free tier with
-  Next.js and Vercel cron, including double opt-in, confirm unsubscribe, privacy
-  safeguards, and fork-ready code.
-image_prompt: >-
-  Create a 16:9 hero image for a technical build-log article. Show a laptop with
-  a minimal dashboard representing petralian.com newsletter flow: subscribe,
-  confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red
-  warning icon replaced by green checks, dark modern UI aesthetic, no brand
-  logos, no text overlays, no watermarks.
+seo_description: A practical build log for implementing a weekly digest on Brevo free
+  tier with Next.js and Vercel cron, including double opt-in, confirm unsubscribe,
+  privacy safeguards, and fork-ready code.
+image_prompt: 'Create a 16:9 hero image for a technical build-log article. Show a
+  laptop with a minimal dashboard representing petralian.com newsletter flow: subscribe,
+  confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red warning
+  icon replaced by green checks, dark modern UI aesthetic, no brand logos, no text
+  overlays, no watermarks.'
 format: hands-on
 best_for: Solo publishers automating a weekly digest without paid RSS tooling
 ---

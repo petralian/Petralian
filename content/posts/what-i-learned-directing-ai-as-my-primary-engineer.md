@@ -1,9 +1,8 @@
 ﻿---
 title: What I Learned Directing AI as My Primary Engineer
 slug: what-i-learned-directing-ai-as-my-primary-engineer
-date: 2026-07-04T00:00:00.000Z
+date: 2026-07-04 00:00:00+00:00
 status: published
-category: Career
 tags:
   - Enterprise AI
   - Agentic AI
@@ -36,8 +35,7 @@ image_prompt_variant_2: >-
   logos, no readable text.
 format: hybrid
 best_for: >-
-  Leaders directing AI as primary engineer — and builders curious how that feels
-  in practice
+  Practice leads directing AI as primary implementer at program scale
 ---
 **TL;DR**
 
@@ -54,7 +52,7 @@ best_for: >-
 
 **Directing AI as a primary engineer** means the agent implements most code while I own **requirements, architecture, review, and deploy gates**. The bottleneck moves from typing speed to **operating-system design**: what the agent reads at session start, what it must write at session end, and what evidence blocks a merge.
 
-**Who it is for:** tech leads, staff engineers, and solo builders who already ship with agents and feel variance (skipped rules, lost context, surprise deploys) more than raw model quality.
+**Who it is for:** practice leads and program directors directing AI as primary implementer who feel variance (skipped rules, lost context, surprise deploys) more than raw model quality.
 
 **What you will learn:** how the role changes, four practices I rely on, where the management metaphor holds, and how this connects to enterprise readiness gates.
 

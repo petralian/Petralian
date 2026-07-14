@@ -1,14 +1,13 @@
 ﻿---
 title: Is SaaS Being Dismantled by AI?
 slug: is-saas-being-dismantled-by-ai
-date: 2025-03-05T00:00:00.000Z
+date: 2025-03-05 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - AI in Marketing
-  - Digital Transformation
-  - Marketing Technology
-  - Ecommerce
+- AI in Marketing
+- Digital Transformation
+- Marketing Technology
+- Ecommerce
 excerpt: ''
 featured_image: /images/posts/saas-ai-disruption-future-hero.jpg
 seo_description: ''

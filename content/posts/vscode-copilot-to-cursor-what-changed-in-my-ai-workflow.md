@@ -1,9 +1,8 @@
 ﻿---
 title: 'From VS Code Copilot to Cursor: What Changed in My AI Workflow'
 slug: vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
-date: 2026-06-27T00:00:00.000Z
+date: 2026-06-27 00:00:00+00:00
 status: published
-category: AI & Building
 tags:
   - Developer Tools
   - Agentic AI
@@ -37,7 +36,7 @@ image_prompt_variant_2: >-
   frame, risograph grain texture, orange and slate palette, graphic not
   photographic, no logos, no readable text.
 format: hands-on
-best_for: Developers comparing Copilot and Cursor in a real daily workflow
+best_for: Practice leads comparing Copilot and Cursor for governed agent workflows
 ---
 **TL;DR**
 
@@ -53,7 +52,7 @@ best_for: Developers comparing Copilot and Cursor in a real daily workflow
 
 **The shift is enforcement, not vault content:** Copilot loads one large `copilot-instructions.md` at chat scope; Cursor re-injects small `.cursor/rules/*.mdc` files with `alwaysApply: true` on **every agent turn**, plus optional hooks.
 
-**Who it is for:** developers with Obsidian or repo file memory who saw footers disappear on long Copilot threads and want the same spec to survive Cursor Agent loops.
+**Who it is for:** practice leads and operators with Obsidian or file memory who saw footers disappear on long Copilot threads and want the same spec to survive Cursor Agent loops.
 
 **What you will learn:** mechanical reasons footers drop on Copilot, a retrofit checklist (canonical footer v3.1, Cursor templates), and what still requires human habit.
 

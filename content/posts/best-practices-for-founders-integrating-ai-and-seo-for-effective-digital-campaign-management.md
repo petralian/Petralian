@@ -1,31 +1,24 @@
 ﻿---
-title: >-
-  Best Practices for Founders: Integrating AI and SEO for Effective Digital
-  Campaign Management
-slug: >-
-  best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management
-date: 2025-02-28T00:00:00.000Z
+title: 'Best Practices for Founders: Integrating AI and SEO for Effective Digital
+  Campaign Management'
+slug: best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management
+date: 2025-02-28 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - SEO
-  - AI in Marketing
-  - Marketing Technology
-  - Brand Strategy
-  - GEO
-excerpt: >-
-  Unlock the potential of AI and SEO integration to elevate your digital
-  campaigns. Discover how combining these innovative strategies can enhance
-  search engine rankings, personalize content, and automate tasks, driving
-  substantial growth for your business.
+- SEO
+- AI in Marketing
+- Marketing Technology
+- Brand Strategy
+- GEO
+excerpt: Unlock the potential of AI and SEO integration to elevate your digital campaigns.
+  Discover how combining these innovative strategies can enhance search engine rankings,
+  personalize content, and automate tasks, driving substantial growth for your business.
 featured_image: /images/posts/ai-seo-founders-digital-campaign-hero.jpg
-seo_description: >-
-  Unlock the potential of AI and SEO integration to elevate your digital
-  campaigns. Discover how combining these innovative strategies can enhance
-  search engine r
+seo_description: Unlock the potential of AI and SEO integration to elevate your digital
+  campaigns. Discover how combining these innovative strategies can enhance search
+  engine r
 format: hybrid
-best_for: >-
-  Founders and marketers balancing AI-assisted content with durable search
+best_for: Founders and marketers balancing AI-assisted content with durable search
   visibility
 ---
 **TL;DR**

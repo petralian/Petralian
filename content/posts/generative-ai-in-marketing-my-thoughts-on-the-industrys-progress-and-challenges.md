@@ -1,22 +1,17 @@
 ﻿---
-title: >-
-  Generative AI in Marketing: My Thoughts on the Industry’s Progress and
-  Challenges
-slug: >-
-  generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
-date: 2024-05-25T00:00:00.000Z
+title: 'Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges'
+slug: generative-ai-in-marketing-my-thoughts-on-the-industrys-progress-and-challenges
+date: 2024-05-25 00:00:00+00:00
 status: published
-category: Commerce & Marketing
 tags:
-  - Generative AI
-  - AI in Marketing
-  - Agency Landscape
+- Generative AI
+- AI in Marketing
+- Agency Landscape
 excerpt: ''
 featured_image: /images/posts/generative-ai-marketing-industry-hero.jpeg
 seo_description: ''
 format: hybrid
-best_for: >-
-  Marketing leaders who want an honest read on generative AI maturity in the
+best_for: Marketing leaders who want an honest read on generative AI maturity in the
   industry
 ---
 **TL;DR**
