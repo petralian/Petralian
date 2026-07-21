@@ -35,6 +35,10 @@ AI can regress while classic checks still pass.
 
 If quality scores are visible but non-blocking, teams often ship under pressure anyway. The fix is simple in concept: make AI quality a gate, not just a dashboard.
 
+![](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.png)
+
+*Screenshot: Petralian / GitHub (2026)*
+
 ## Why Existing Gates Miss AI Regressions
 
 Traditional gates answer deterministic questions:
@@ -113,12 +117,13 @@ An AI quality CI gate is a **blocking release check** that fails the pipeline wh
 
 ### Quick reference: gate policy components
 
-| Component | Purpose |
-|-----------|---------|
-| **Minimum total score** | Floor for acceptable overall quality |
-| **Regression delta** | Max drop vs rolling baseline |
-| **Dimension floors** | Critical categories cannot slip alone |
-| **Pass/fail CI output** | Predictable, actionable log context |
+| Component               | Purpose                               |
+| ----------------------- | ------------------------------------- |
+| **Minimum total score** | Floor for acceptable overall quality  |
+| **Regression delta**    | Max drop vs rolling baseline          |
+| **Dimension floors**    | Critical categories cannot slip alone |
+| **Pass/fail CI output** | Predictable, actionable log context   |
+|                         |                                       |
 
 ---
 

@@ -74,6 +74,9 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) teaching line still ho
 | Forensics on a long technical thread | Exact tool output or error text |
 | Same-week continuity inside one workspace | Faster than opening vault notes |
 | "Did we already try X?" inside the project | Surfaces prior attempts |
+![](/images/posts/cursor-conversation-search-body-01-transcript-search.png)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 Search is strong for **recall inside the chat record**. It is weak as a governance layer. It does not tell you which of three conflicting answers is current policy.
 
@@ -117,6 +120,10 @@ Bridge sections stay short:
 - **Last session** — three bullets: shipped, blocked, open questions
 - **Next action** — one line a tired future me can execute
 - **Links** — vault paths or repo areas, not chat URLs
+
+![](/images/posts/cursor-conversation-search-body-02-bridge-template.png)
+
+*Screenshot: Petralian / Obsidian (2026)*
 
 The [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) covers workspace layout. This post is the decision rule: **search for archaeology; Bridge for navigation**.
 
@@ -168,6 +175,10 @@ Create one markdown file in any tool:
 ```
 
 Point your next chat at it: "Read Bridge; do not start until you summarize goal and next action." Close every session by editing Bridge only. Try transcript search once mid-week when you forget a detail — notice whether Bridge or search solved it faster.
+
+![](/images/posts/cursor-conversation-search-body-03-start-session-skill.jpg)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 ---
 

@@ -60,6 +60,10 @@ People and teams rarely fail because they lack a **top-scoring model**. They fai
 
 CursorBench **3.2** groups agent problems into codebase understanding, bugfinding, planning, code review, instruction following, and advanced tool use ([Cursor evals](https://cursor.com/evals)). The public table still reports **one aggregate score per model**. This article uses that battery plus **task-shaped risk** (steps, tokens, cost) to recommend defaults until per-task columns ship.
 
+![](/images/posts/best-cursor-model-by-task-2026-body-01-cursorbench-scatter.png)
+
+*Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
+
 ## Why work mode changes the right model
 
 | Task shape | Primary risk | Model pressure |
@@ -77,17 +81,20 @@ A model that scores 70% on the full battery may still be wrong for **routine exe
 
 Benchmarked numbers (from [CursorBench 3.2](https://cursor.com/evals)):
 
-| Model | Score | Cost / task | Tokens / task | Steps / task |
-|-------|------:|------------:|--------------:|-------------:|
-| Fable 5 Max | 70.5% | $17.32 | 103,525 | 72 |
-| Grok 4.5 High* | 66.7% | $1.51 | 19,521 | 33 |
-| Fable 5 Medium | 65.2% | $6.80 | 30,366 | 41 |
-| Composer 2.5 | 56.1% | $0.44 | 14,286 | 33 |
-| GPT-5.5 Medium | 53.8% | $1.51 | 8,522 | 25 |
-| GPT-5.5 Extra High | 58.4% | $2.85 | 17,534 | 32 |
-| Kimi K2.7 Code | 49.7% | $1.43 | 31,247 | 58 |
-
+| Model              | Score | Cost / task | Tokens / task | Steps / task |
+| ------------------ | ----: | ----------: | ------------: | -----------: |
+| Fable 5 Max        | 70.5% |      $17.32 |       103,525 |           72 |
+| Grok 4.5 High*     | 66.7% |       $1.51 |        19,521 |           33 |
+| Fable 5 Medium     | 65.2% |       $6.80 |        30,366 |           41 |
+| Composer 2.5       | 56.1% |       $0.44 |        14,286 |           33 |
+| GPT-5.5 Medium     | 53.8% |       $1.51 |         8,522 |           25 |
+| GPT-5.5 Extra High | 58.4% |       $2.85 |        17,534 |           32 |
+| Kimi K2.7 Code     | 49.7% |       $1.43 |        31,247 |           58 |
 \* Grok 4.5: Cursor training-data caveat on [evals](https://cursor.com/evals).
+
+![](/images/posts/best-cursor-model-by-task-2026-body-02-cursorbench-leaderboard.png)
+
+*Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
 
 ## Recommended defaults by work mode
 
@@ -138,6 +145,10 @@ tasks -> refactor: "blast radius" { style.stroke-dash: 8 }
 tasks -> review: "token budget" { style.stroke-dash: 8 }
 tasks -> green: "rules + cost" { style.stroke-dash: 8 }
 ```
+
+![](/images/posts/best-cursor-model-by-task-2026-body-03-work-mode-table.png)
+
+*Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
 
 ## Work-mode notes
 

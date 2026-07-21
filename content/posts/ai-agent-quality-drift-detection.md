@@ -39,6 +39,10 @@ Nothing crashes. Builds pass. Basic tests stay green.
 
 But outputs become slightly less useful, slightly less consistent, slightly harder to trust. That is drift.
 
+![](/images/posts/ai-agent-quality-drift-body-01-drift-types.gif)
+
+*Source: [LinkedIn post by Nathan Petralia](https://www.linkedin.com/posts/different-drift-different-risk-different-share-7474755988206788608--pMx/) — used with attribution*
+
 ## Drift Is a System Behavior, Not a Rare Event
 
 Even well-built AI pipelines drift because multiple moving pieces change over time:

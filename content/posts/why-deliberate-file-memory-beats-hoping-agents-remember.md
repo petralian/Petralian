@@ -88,6 +88,10 @@ Chat feedback fixes one instance. File feedback fixes the **class**:
 
 Session End footer requires **Self-improvements: exact file path**—or the write did not happen. That is stricter than the generic "feedback loop" on a slide.
 
+![](/images/posts/why-deliberate-file-memory-body-01-mode-b-footer.jpg)
+
+*Screenshot: Petralian / Cursor (2026)*
+
 [Why AI agent output quality drifts](/posts/ai-agent-quality-drift-detection) is the quality angle on the same idea: without external anchors, drift is invisible until production.
 
 ---

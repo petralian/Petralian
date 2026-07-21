@@ -31,20 +31,18 @@ image_prompt_variant_2: >-
   Split view: left a fading chat window, right a clear four-step filing workflow
   with arrows—editorial contrast, professional playful.
 featured_image: /images/posts/external-memory-series-guide.png
+featured_image_alt: >-
+  Desk with layered notebooks and a laptop showing a linked note graph for
+  session continuity.
 format: hybrid
 best_for: >-
   Program leads and knowledge workers adopting file-based memory for AI-assisted
   work — start here for the series map
 seo_title: 'External Memory Series: A Practical Guide to AI Session…'
-featured_image_alt: >-
-  Hero illustration for External Memory Series: A Practical Guide to AI Session
-  Continuity
 ---
 **TL;DR**
 
 - This series explains a file-based external brain for builders and leaders—four layers, hooks, and why it beats hoping the model remembers.
-
-
 
 Every AI session starts cold. The model does not remember your deploy rules, your product boundaries, or what you decided last Tuesday. Vendors sell longer context and product memory; both help. Neither gives you an **inspectable, portable system** you own when tools change.
 
@@ -59,6 +57,10 @@ This page is the **hub** for the External Memory series: a file-based approach I
 **Who it is for:** program leads, delivery directors, and knowledge workers who use AI across multiple tools and need continuity that survives session resets and vendor changes.
 
 **What you will learn:** How the four layers fit together, which series part matches your role, and the smallest afternoon setup that proves the model before you automate.
+
+![](/images/posts/external-memory-series-guide-body-01-molecular-structure.jpg)
+
+*Photo: [Google DeepMind](https://www.pexels.com/photo/25626509/) on Pexels*
 
 ---
 

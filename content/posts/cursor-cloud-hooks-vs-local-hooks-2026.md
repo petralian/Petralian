@@ -64,6 +64,10 @@ Hooks are **mechanical reminders** at event boundaries. They are not a place to 
 
 Without a split mental model, teams either over-wire local scripts for cloud-only events or expect cloud hooks to reach private files they cannot see. Both patterns weaken the harness.
 
+![](/images/posts/cursor-cloud-hooks-body-01-hook-layers.png)
+
+*Screenshot: Petralian / Cursor (2026)*
+
 ---
 
 ## Two layers, one harness
@@ -152,6 +156,10 @@ I treat cloud hooks as **portable policy** that should make sense on any machine
 
 **Typical Petralian setup:** user `sessionStart` injects light context; project `afterAgentResponse` validates footer shape. I still run **Start of Session skill** when I need vault session notes, Bridge refresh, or a planned multi-file pass — the hook does not replace that judgment call.
 
+![](/images/posts/cursor-cloud-hooks-body-02-hooks-settings.png)
+
+*Screenshot: Petralian / Cursor (2026)*
+
 Neither layer stores strategy. Both point back to markdown SSOT: Bridge, open loops, writing guide gates. The [memory loop](/posts/cursor-harness-memory-loop-2026) close step is a human habit; hooks only make skipping it visible.
 
 For program teams: cloud hooks are easier to standardize across seats. Local hooks are where repo owners enforce merge discipline. Document both in your internal runbook; publish only the teaching pattern on the blog.
@@ -162,14 +170,17 @@ For program teams: cloud hooks are easier to standardize across seats. Local hoo
 
 ## What not to put in hooks
 
-| Avoid | Do instead |
-|-------|------------|
-| Pricing or model escalation policy | SSOT + human picker |
-| Legal/commercial approval | RACI file + explicit human A |
+| Avoid                               | Do instead                           |
+| ----------------------------------- | ------------------------------------ |
+| Pricing or model escalation policy  | SSOT + human picker                  |
+| Legal/commercial approval           | RACI file + explicit human A         |
 | Long markdown injections every turn | sessionStart once + Bridge read rule |
-| Secret values in hook scripts | env vars; never commit keys |
-
+| Secret values in hook scripts       | env vars; never commit keys          |
 Hooks should be **boring**. If a hook reads like a blog post, move it to a skill or rule.
+
+![](/images/posts/cursor-cloud-hooks-body-03-hook-guardrails.png)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 ---
 

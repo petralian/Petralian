@@ -51,9 +51,13 @@ I started with a simple task. The footer text on this site was failing a Lightho
 
 Two working sessions later: 100/100 on both mobile and desktop. LCP down to 1.7 seconds. TBT at 20ms. CLS: 0.
 
-![](/images/posts/1.jpg)
+![](/images/posts/getting-to-lighthouse-100-body-01-mobile-audit.jpg)
 
-![](/images/posts/2.jpg)
+*Screenshot: Petralian / Chrome DevTools (2026)*
+
+![](/images/posts/getting-to-lighthouse-100-body-02-desktop-audit.jpg)
+
+*Screenshot: Petralian / Chrome DevTools (2026)*
 
 This is the complete account — what the problems actually were, what I tried that did not work, what fixed each one, and the code you can apply directly to a Next.js 16 and Vercel setup.
 

@@ -72,6 +72,10 @@ That is **lightweight agent harness design** in practice: not a separate microse
 
 Most people do not get weaker results because the model is weak. They get weaker results because Monday's brainstorm lives in one tab, Wednesday's proposal in another, and Friday's "remind me what we decided" has no home. Voice drifts. Facts contradict. You paste the same background paragraph until trust in the tool erodes.
 
+![](/images/posts/cursor-customize-hub-body-01-chat-overwhelm.jpg)
+
+*Photo: [Nicola Barts](https://www.pexels.com/photo/7925881/) on Pexels*
+
 The pattern is the same across study, business, and personal work: **context without a file**.
 
 The fix is not "use a coding IDE." The fix is **one agent interface** that reads your files and follows your rules - then Customize so each work mode gets the right constraints.
@@ -126,15 +130,18 @@ desk -> phone: "handoff note\nor agent resume" {
 
 Cursor's Customize surface looks technical until you rename each layer by **job**.
 
-| Layer | Plain job | Example question it answers |
-|-------|-----------|-----------------------------|
-| **Rules** | Standing instructions the agent should not forget | "Always write in first person on my blog." |
-| **Skills** | Packaged how-to for a recurring task | "Run my writing session checklist." |
-| **Commands** | Short, invokable recipes | "Close this session into a handoff note." |
-| **Hooks** | Automatic checks around agent turns | "Warn if the footer or publish gate is wrong." |
-| **Plugins** | Extra IDE capabilities | "Connect a tool I already use." |
-| **MCPs** | Bridges to external systems | "Read or write a connected app when needed." |
-| **Subagents** | Parallel specialists for independent jobs | "Draft the vault note while I fix the script." |
+| Layer         | Plain job                                         | Example question it answers                    |
+| ------------- | ------------------------------------------------- | ---------------------------------------------- |
+| **Rules**     | Standing instructions the agent should not forget | "Always write in first person on my blog."     |
+| **Skills**    | Packaged how-to for a recurring task              | "Run my writing session checklist."            |
+| **Commands**  | Short, invokable recipes                          | "Close this session into a handoff note."      |
+| **Hooks**     | Automatic checks around agent turns               | "Warn if the footer or publish gate is wrong." |
+| **Plugins**   | Extra IDE capabilities                            | "Connect a tool I already use."                |
+| **MCPs**      | Bridges to external systems                       | "Read or write a connected app when needed."   |
+| **Subagents** | Parallel specialists for independent jobs         | "Draft the vault note while I fix the script." |
+![](/images/posts/cursor-customize-hub-body-02-customize-layers.png)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 You do not turn every layer on for every mode. Brainstorm needs loose rules and strong honesty about unknowns. Consulting SSOT needs tight rules around the questionnaire file. Blogging needs voice and folder gates. Shipping needs review habits, not a second copy of your entire Brain.
 
@@ -152,6 +159,10 @@ The handoff that matters is **what survives the commute**:
 2. **Via agents directly** - Continue the same agent conversation when you are back, or start a fresh session that is told to read the handoff note first.
 
 Either path beats "I will remember." You will not. Files remember.
+
+![](/images/posts/cursor-customize-hub-body-03-mobile-handoff.png)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 The deep dive on skills, hooks, orchestration, and the Obsidian loop is [Skills, hooks, and orchestration](/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026).
 

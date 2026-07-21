@@ -8,11 +8,13 @@ tags:
   - Digital Transformation
 excerpt: >-
   TL;DR What Programmatic Transparency in 2026: Why Agencies Are Fighting The
-  Trade Desk covers. Who it is for and when to use it. Practical next steps…
+  Trade Desk covers. Who it is for and when to use it. Practical next steps
+  after…
 featured_image: /images/posts/programmatic-transparency-publicis-trade-desk-2026.jpg
 seo_description: >-
   TL;DR What Programmatic Transparency in 2026: Why Agencies Are Fighting The
-  Trade Desk covers. Who it is for and when to use it. Practical next steps…
+  Trade Desk covers. Who it is for and when to use it. Practical next steps
+  after…
 format: strategic
 best_for: >-
   Agency and media leaders following programmatic transparency and platform

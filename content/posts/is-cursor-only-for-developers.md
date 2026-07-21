@@ -56,6 +56,10 @@ seo_title: Is Cursor Only for Developers? A Better AI Interface for…
 
 **What you will learn:** why the developer marketing misleads, how I use Cursor across real work (not one "dev" mode), why file-grounded agents beat chat-only tabs, and a minimum path you can try this afternoon without a full vault stack.
 
+![](/images/posts/is-cursor-only-for-developers-body-01-cursor-marketing.png)
+
+*Screenshot: [Cursor](https://cursor.com) — Petralian (2026)*
+
 ---
 
 **TL;DR**
@@ -125,6 +129,10 @@ These are **my** live contexts. Public projects are named; confidential client a
 | **Personal and open-source** | Release notes, docs for tools like [WhisperX](https://github.com/petralian/whisperx) | Public repo + shared templates |
 | **Directed implementation** | Features, fixes, deploy gates when the deliverable is software | Agent as implementer; I review and own release decisions |
 
+![](/images/posts/is-cursor-only-for-developers-body-02-use-cases-table.png)
+
+*Screenshot: Petralian / Cursor (2026)*
+
 Most rows are **not coding**. Marketing highlights implementation because screenshots of repos are easy. Your row might be study, founder ops, or creative work. The mechanics are the same: **files the agent can read on purpose**.
 
 ```d2
@@ -182,6 +190,10 @@ For a student, that might mean "always cite sources." For a founder, "never inve
 ### 3. One workspace per context
 
 I open **one Cursor window per major context** (site, Shopify app, job-application vault, client folder, course folder). Context does not bleed across employers, clients, or subjects. Switching workspaces is cheaper than sanitizing one mega-chat.
+
+![](/images/posts/is-cursor-only-for-developers-body-03-workspace-switcher.png)
+
+*Screenshot: Petralian / Cursor (2026)*
 
 ### 4. Notes and execution share one interface
 
