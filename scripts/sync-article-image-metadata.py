@@ -5,7 +5,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-VAULT = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\03 Published")
+VAULT_PUBLISHED = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\03 Published")
+VAULT_READY = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish")
+VAULT_FOLDERS = (VAULT_PUBLISHED, VAULT_READY)
 REPO_POSTS = Path(r"C:\Users\User\OneDrive\02 VS Code\Petralian\content\posts")
 
 WIKI_RE = re.compile(r"!\[\[([^\]|]+)(?:\|([^\]]*))?\]\]")
@@ -142,54 +144,57 @@ def main() -> None:
     vault_updated = 0
     repo_updated = 0
 
-    for vault_md in sorted(VAULT.glob("*.md")):
-        slug = vault_md.stem
-        vault_text = vault_md.read_text(encoding="utf-8")
-        fm, fm_raw, vault_body = split_frontmatter(vault_text)
-        title = fm.get("title", slug)
-        images = extract_vault_images(vault_body)
-
-        # Ensure vault featured_image_alt
-        if not re.search(r"^featured_image_alt:\s*.+$", vault_text, re.M):
-            alt = hero_alt_from_fm(fm, title)
-            new_fm_raw = set_fm_field(
-                fm_raw,
-                "featured_image_alt",
-                yaml_quote(alt),
-            )
-            vault_text = new_fm_raw + vault_body
-            vault_md.write_text(vault_text, encoding="utf-8", newline="\n")
-            vault_updated += 1
-            fm["featured_image_alt"] = alt
-            report.append(f"VAULT alt: {slug}")
-
-        repo_md = REPO_POSTS / f"{slug}.md"
-        if not repo_md.is_file():
+    for vault_root in VAULT_FOLDERS:
+        if not vault_root.is_dir():
             continue
+        for vault_md in sorted(vault_root.glob("*.md")):
+            slug = vault_md.stem
+            vault_text = vault_md.read_text(encoding="utf-8")
+            fm, fm_raw, vault_body = split_frontmatter(vault_text)
+            title = fm.get("title", slug)
+            images = extract_vault_images(vault_body)
 
-        repo_text = repo_md.read_text(encoding="utf-8")
-        repo_fm, repo_fm_raw, repo_body = split_frontmatter(repo_text)
-        new_body, img_changes = apply_repo_images(repo_body, images)
+            # Ensure vault featured_image_alt
+            if not re.search(r"^featured_image_alt:\s*.+$", vault_text, re.M):
+                alt = hero_alt_from_fm(fm, title)
+                new_fm_raw = set_fm_field(
+                    fm_raw,
+                    "featured_image_alt",
+                    yaml_quote(alt),
+                )
+                vault_text = new_fm_raw + vault_body
+                vault_md.write_text(vault_text, encoding="utf-8", newline="\n")
+                vault_updated += 1
+                fm["featured_image_alt"] = alt
+                report.append(f"VAULT alt: {slug}")
 
-        hero_alt = fm.get("featured_image_alt") or hero_alt_from_fm(fm, title)
-        new_repo_fm_raw = repo_fm_raw
-        if not re.search(r"^featured_image_alt:\s*.+$", repo_text, re.M):
-            new_repo_fm_raw = set_fm_field(
-                repo_fm_raw,
-                "featured_image_alt",
-                yaml_quote(hero_alt),
-            )
+            repo_md = REPO_POSTS / f"{slug}.md"
+            if not repo_md.is_file():
+                continue
 
-        new_repo = new_repo_fm_raw + new_body
-        if new_repo != repo_text:
-            repo_md.write_text(new_repo, encoding="utf-8", newline="\n")
-            repo_updated += 1
-            parts = [f"REPO: {slug}"]
-            if img_changes:
-                parts.append(f"{img_changes} img")
-            if new_repo_fm_raw != repo_fm_raw:
-                parts.append("hero alt")
-            report.append(" | ".join(parts))
+            repo_text = repo_md.read_text(encoding="utf-8")
+            repo_fm, repo_fm_raw, repo_body = split_frontmatter(repo_text)
+            new_body, img_changes = apply_repo_images(repo_body, images)
+
+            hero_alt = fm.get("featured_image_alt") or hero_alt_from_fm(fm, title)
+            new_repo_fm_raw = repo_fm_raw
+            if not re.search(r"^featured_image_alt:\s*.+$", repo_text, re.M):
+                new_repo_fm_raw = set_fm_field(
+                    repo_fm_raw,
+                    "featured_image_alt",
+                    yaml_quote(hero_alt),
+                )
+
+            new_repo = new_repo_fm_raw + new_body
+            if new_repo != repo_text:
+                repo_md.write_text(new_repo, encoding="utf-8", newline="\n")
+                repo_updated += 1
+                parts = [f"REPO: {slug}"]
+                if img_changes:
+                    parts.append(f"{img_changes} img")
+                if new_repo_fm_raw != repo_fm_raw:
+                    parts.append("hero alt")
+                report.append(" | ".join(parts))
 
     out = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Operations\Article Image Fix Log.md")
     out.write_text(

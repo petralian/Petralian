@@ -2,17 +2,17 @@
 # Bidirectional sync between Obsidian and content/posts:
 #   PUBLISH   — copies articles from "02 Ready to publish" AND "03 Published"
 #               into content/posts, resolves images.
-#               (03 Published = live posts you edit in Obsidian; re-syncs minor edits.)
+#               After successful push, articles synced from 02 Ready are moved
+#               to 03 Published/ (with images → 03 Published/Attachments/).
 #   UNPUBLISH — removes any content/posts file whose slug does not exist in
 #               either "02 Ready to publish" OR "03 Published".
 #
-# Image lookup order:
-#   1. Blog/00 Attachments/          ← drop images here (primary)
-#   2. Article's own Attachments/ subfolder
-#   3. Same folder as article
-#   4. Other common subfolders (assets/, attachments/, images/)
-#   5. Vault-level Attachments/
-#   6. Recursive vault search (last resort)
+# Image lookup order (stage-specific Attachments first):
+#   1. {articleFolder}/Attachments/     ← 03 Published or 02 Ready Attachments
+#   2. Same folder as article           ← 02 Ready preflight (loose heroes)
+#   3. Blog/00 Attachments/             ← legacy staging (normalize moves on publish)
+#   4. Other common subfolders
+#   5. Recursive vault search (last resort)
 #
 # Usage:
 #   .\scripts\sync-obsidian.ps1              # sync + commit + push
@@ -64,17 +64,108 @@ function Get-FileSlug {
   return ($base -replace '[^a-zA-Z0-9]+', '-' -replace '^-|-$', '').ToLower()
 }
 
+# ── Collect image filenames referenced in vault markdown ───────────────────
+function Get-VaultImageRefs {
+  param([string]$mdPath)
+  $raw = Get-Content $mdPath -Raw -Encoding UTF8
+  $names = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+  foreach ($m in [regex]::Matches($raw, '!\[\[([^\]|]+)')) {
+    [void]$names.Add([System.IO.Path]::GetFileName($m.Groups[1].Value.Trim()))
+  }
+  if ($raw -match '(?m)^featured_image:\s*.+?\[\[([^\]]+)\]\]') {
+    [void]$names.Add([System.IO.Path]::GetFileName($Matches[1].Trim()))
+  }
+  elseif ($raw -match '(?m)^featured_image:\s*([^\r\n]+)$') {
+    $fi = $Matches[1].Trim().Trim('"').Trim("'")
+    if ($fi -and -not $fi.StartsWith('http') -and -not $fi.StartsWith('/')) {
+      [void]$names.Add([System.IO.Path]::GetFileName($fi))
+    }
+  }
+  return $names
+}
+
+# ── After publish: move 02 Ready articles + images → 03 Published ───────────
+function Promote-ReadyToPublished {
+  param(
+    [array]$ReadyEntries,
+    [bool]$dryRun
+  )
+  if (-not $ReadyEntries -or $ReadyEntries.Count -eq 0) { return }
+
+  $readyAttach = Join-Path $obsidianReady 'Attachments'
+  $pubAttach = Join-Path $obsidianPublished 'Attachments'
+
+  Write-Host ''
+  Write-Host '── Vault promote: 02 Ready → 03 Published ───────────────────────' -ForegroundColor Cyan
+
+  if (-not $dryRun) {
+    if (-not (Test-Path $obsidianPublished)) {
+      New-Item -ItemType Directory -Path $obsidianPublished -Force | Out-Null
+    }
+    if (-not (Test-Path $pubAttach)) {
+      New-Item -ItemType Directory -Path $pubAttach -Force | Out-Null
+    }
+  }
+
+  foreach ($entry in $ReadyEntries) {
+    $file = $entry.File
+    $slug = $entry.Slug
+    if (-not (Test-Path $file.FullName)) { continue }
+
+    $destMd = Join-Path $obsidianPublished $file.Name
+    $mdForRefs = $file.FullName
+    if ($dryRun) {
+      Write-Host "[DryRun] Would promote: $($file.Name) -> 03 Published/" -ForegroundColor Cyan
+    }
+    elseif (Test-Path $destMd) {
+      Write-Host "  WARN: $slug already in 03 Published — removing duplicate from 02 Ready" -ForegroundColor Yellow
+      Remove-Item $file.FullName -Force
+      $mdForRefs = $destMd
+    }
+    else {
+      Move-Item -Path $file.FullName -Destination $destMd -Force
+      Write-Host "  Promoted: $($file.Name) -> 03 Published/" -ForegroundColor Green
+      $mdForRefs = $destMd
+    }
+
+    $imageNames = Get-VaultImageRefs -mdPath $mdForRefs
+    foreach ($dir in @($obsidianReady, $readyAttach)) {
+      if (-not (Test-Path $dir)) { continue }
+      Get-ChildItem -Path $dir -File | Where-Object {
+        $imageNames.Contains($_.Name) -or
+        $_.BaseName -eq $slug -or
+        $_.BaseName -like "$slug-body-*"
+      } | ForEach-Object {
+        $destImg = Join-Path $pubAttach $_.Name
+        if ($dryRun) {
+          Write-Host "  [DryRun] Would move image: $($_.Name) -> 03 Published/Attachments/" -ForegroundColor DarkGray
+        }
+        elseif (Test-Path $destImg) {
+          Remove-Item $_.FullName -Force
+          Write-Host "  Image exists in 03 Published/Attachments: $($_.Name) (removed 02 Ready copy)" -ForegroundColor DarkGray
+        }
+        else {
+          Move-Item -Path $_.FullName -Destination $destImg -Force
+          Write-Host "  Image: $($_.Name) -> 03 Published/Attachments/" -ForegroundColor DarkGray
+        }
+      }
+    }
+  }
+
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
 # ── Locate an image file anywhere under the vault ────────────────────────────
 function Find-VaultImage {
   param([string]$filename, [string]$articleFolder)
-  # 1. Centralised attachments folder (Blog/00 Attachments) — primary location
-  $candidate = Join-Path $obsidianAttachments $filename
-  if (Test-Path $candidate) { return $candidate }
-  # 2. Attachments subfolder under the article's folder (Obsidian default per-folder setting)
+  # 1. Stage Attachments (03 Published/Attachments or 02 Ready/Attachments)
   $candidate = Join-Path (Join-Path $articleFolder "Attachments") $filename
   if (Test-Path $candidate) { return $candidate }
-  # 3. Same folder as the article
+  # 2. Same folder as article (02 Ready preflight — loose hero PNGs)
   $candidate = Join-Path $articleFolder $filename
+  if (Test-Path $candidate) { return $candidate }
+  # 3. Legacy staging folder
+  $candidate = Join-Path $obsidianAttachments $filename
   if (Test-Path $candidate) { return $candidate }
   # 4. Other common sibling subfolder names
   foreach ($sub in @('assets', 'attachments', 'images')) {
@@ -99,9 +190,10 @@ function Resolve-Images {
   $copiedImages = @()
 
   # Pattern 1: Obsidian wiki-link  ![[filename.ext]]  or  ![[filename.ext|alt]]
-  $content = [regex]::Replace($content, '!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]', {
+  $content = [regex]::Replace($content, '!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\]', {
       param($m)
       $filename = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
+      $alt = $m.Groups[2].Value.Trim()
       $ext = [System.IO.Path]::GetExtension($filename).ToLower()
       if ($ext -notin $script:imageExtensions) { return $m.Value }
 
@@ -115,6 +207,9 @@ function Resolve-Images {
       }
       Write-Host "  Image: $filename" -ForegroundColor DarkGray
       $script:copiedImages += $filename
+      if ($alt) {
+        return "![$alt](/images/posts/$filename)"
+      }
       return "![](/images/posts/$filename)"
     })
 
@@ -256,13 +351,24 @@ function Test-ArticlePreflight {
   # Strip frontmatter for body checks
   $body = $raw -replace '(?s)^---.*?---\s*', ''
 
-  # Body images — wiki-link syntax  ![[file.ext]]
-  foreach ($m in [regex]::Matches($body, '!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]')) {
+  # Body images — wiki-link syntax  ![[file.ext]]  or  ![[file|alt]]
+  foreach ($m in [regex]::Matches($body, '!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\]')) {
     $fname = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
     $ext = [System.IO.Path]::GetExtension($fname).ToLower()
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
         $errors.Add("Body image not found in vault: $fname")
+      }
+      $lower = $fname.ToLower()
+      if ($lower -like 'pasted image*' -or $lower -match '^\d+\.(jpe?g|png|gif|webp)$') {
+        $warnings.Add("Body image needs rename (run normalize-vault-images): $fname")
+      }
+      $after = $body.Substring([Math]::Min($m.Index + $m.Length, $body.Length - 1))
+      if ($after -notmatch '^\s*\n\s*\*') {
+        $warnings.Add("Missing attribution line after body image: $fname")
+      }
+      if (-not $m.Groups[2].Success -or [string]::IsNullOrWhiteSpace($m.Groups[2].Value)) {
+        $warnings.Add("Missing alt in wiki embed (use ![[file|alt]]): $fname")
       }
     }
   }
@@ -331,6 +437,23 @@ if ($preflightBlocking -and -not $Force) {
   exit 1
 }
 
+# ── Normalize vault images (rename, attributions, featured_image) ─────────────
+if (-not $Preflight) {
+  Write-Host ''
+  Write-Host '── Vault image normalization ────────────────────────────────────' -ForegroundColor Cyan
+  $normalizeScript = Join-Path $PSScriptRoot 'normalize-vault-images.py'
+  if (Test-Path $normalizeScript) {
+    $normalizeArgs = @($normalizeScript)
+    if ($DryRun) { $normalizeArgs += '--dry-run' }
+    # 02 Ready + 03 Published
+    python @normalizeArgs 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+  }
+  else {
+    Write-Host '  WARN: normalize-vault-images.py not found — skipping' -ForegroundColor Yellow
+  }
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
 # ── Build set of slugs authorised to be in content/posts/ ───────────────────
 Write-Host ""
 Write-Host "Scanning authorised slugs..." -ForegroundColor White
@@ -396,6 +519,7 @@ function Publish-ObsidianFile {
 
 $synced = @()
 $processedSlugs = @{}
+$readyPromoted = @()
 
 # 02 Ready first (new publishes)
 Get-ChildItem -Path $obsidianReady -Filter "*.md" | ForEach-Object {
@@ -403,6 +527,7 @@ Get-ChildItem -Path $obsidianReady -Filter "*.md" | ForEach-Object {
   if ($slug) {
     $synced += $slug
     $processedSlugs[$slug] = $true
+    $readyPromoted += [PSCustomObject]@{ Slug = $slug; File = $_ }
   }
 }
 
@@ -420,6 +545,7 @@ if (Test-Path $obsidianPublished) {
 }
 
 if ($DryRun) {
+  Promote-ReadyToPublished -ReadyEntries $readyPromoted -dryRun $true
   Write-Host ""
   Write-Host "Dry run complete. Run without -DryRun to apply." -ForegroundColor Cyan
   exit 0
@@ -535,6 +661,8 @@ try {
   Write-Host ""
   Write-Host "Pushed. Vercel will deploy in ~30 seconds." -ForegroundColor Green
   Write-Host "  https://petralian.com" -ForegroundColor Blue
+
+  Promote-ReadyToPublished -ReadyEntries $readyPromoted -dryRun $false
 }
 finally {
   Pop-Location

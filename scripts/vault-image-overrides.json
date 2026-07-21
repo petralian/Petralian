@@ -1,0 +1,42 @@
+{
+  "_comment": "Optional per-slug overrides. Keys are OLD filenames before rename. __featured__ fixes hero wiki-link + alt.",
+  "bringing-the-retail-mindset-to-finance-how-personalization-can-transform-banking-in-apac": {
+    "__featured__": {
+      "wiki": "[[personalized-banking-digital-app-apac-hero.jpg]]",
+      "alt": "Smartphone banking app on a desk with APAC city skyline bokeh, warm editorial light."
+    },
+    "bringing-retail-banking-apac-body-01-hong-kong-harbor.jpg": {
+      "attribution": "*Photo: [Vivian Chan](https://www.pexels.com/photo/traditional-junk-boat-in-hong-kong-harbor-37095486/) on Pexels*"
+    },
+    "bringing-retail-banking-apac-body-02-mobile-banking.jpg": {
+      "attribution": "*Photo: [Photo By: Kaboompics.com](https://www.pexels.com/photo/person-holding-smartphone-6347/) on Pexels*"
+    }
+  },
+  "best-practices-for-founders-integrating-ai-and-seo-for-effective-digital-campaign-management": {
+    "__featured__": {
+      "wiki": "[[ai-seo-founders-digital-campaign-hero.jpg]]",
+      "alt": "Founder reviewing SEO and AI campaign analytics on a laptop in a modern workspace."
+    },
+    "best-practices-founders-body-01-google-search-central.png": {
+      "attribution": "*Screenshot: [Google Search Central](https://developers.google.com/search) — Petralian (2026)*"
+    },
+    "best-practices-founders-body-02-ahrefs-serp.png": {
+      "attribution": "*Screenshot: [Ahrefs](https://ahrefs.com/) — Petralian (2026)*"
+    },
+    "best-practices-founders-body-03-adobe-campaign-personalize.webp": {
+      "attribution": "*Screenshot: [Adobe Campaign](https://business.adobe.com/products/campaign/adobe-campaign.html) — Petralian (2026)*"
+    }
+  },
+  "external-memory-series-guide": {
+    "__featured__": {
+      "wiki": "[[external-memory-series-guide.png]]",
+      "alt": "Desk with layered notebooks and a laptop showing a linked note graph for session continuity."
+    }
+  },
+  "why-i-rebuilt-petralian-on-nextjs": {
+    "__featured__": {
+      "wiki": "[[why-i-rebuilt-petralian-hero.png]]",
+      "alt": "Editorial split of WordPress admin, Obsidian vault, and Next.js deployment pipeline."
+    }
+  }
+}
