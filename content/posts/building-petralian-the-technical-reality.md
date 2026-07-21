@@ -1,31 +1,36 @@
-﻿---
+---
 title: 'Building petralian.com: The Technical Reality'
 slug: building-petralian-the-technical-reality
-date: 2026-05-23 00:00:00+00:00
+date: 2026-05-23T00:00:00.000Z
 tags:
-- Developer Tools
-- Obsidian
-- Agentic AI
-- SEO
-- GEO
-excerpt: The why was clean. The how had corners. A ground-level account of building
-  petralian.com — the masonry layout that fought back, a 404 page with a working Asteroids
-  game, the TinaCMS newline problem nobody warns you about, and how AI wrote most
-  of it.
+  - Developer Tools
+  - Obsidian
+  - Agentic AI
+  - SEO
+  - GEO
+excerpt: >-
+  The why was clean. The how had corners. A ground-level account of building
+  petralian.com — the masonry layout that fought back, a 404 page with a working
+  Asteroids game, the TinaCMS newline problem nobody warns you about, and how AI
+  wrote most of it.
 featured_image: /images/posts/building-petralian-the-technical-reality.png
-featured_image_alt: Wireframe grid of a website being built, with code and markdown
-  files in the background
+featured_image_alt: >-
+  Wireframe grid of a website being built, with code and markdown files in the
+  background
 seo_title: 'Building petralian.com: What Actually Happened'
-seo_description: The technical account of building petralian.com on Next.js 16, Tailwind
-  v4, and TinaCMS — masonry reading order, the Asteroids 404, and using AI as primary
-  engineer.
+seo_description: >-
+  The technical account of building petralian.com on Next.js 16, Tailwind v4,
+  and TinaCMS — masonry reading order, the Asteroids 404, and using AI as
+  primary…
 focus_keyword: building petralian nextjs technical decisions
-image_prompt: A developer's workspace with multiple monitors showing code and a website
-  preview; clean, minimal aesthetic with dark background and orange accent tones;
-  Next.js site scaffold visible on one screen, Obsidian vault on another; abstract
-  sense of building and architecture
+image_prompt: >-
+  A developer's workspace with multiple monitors showing code and a website
+  preview; clean, minimal aesthetic with dark background and orange accent
+  tones; Next.js site scaffold visible on one screen, Obsidian vault on another;
+  abstract sense of building and architecture
 format: hands-on
-best_for: Builders curious how this site is wired — Obsidian, sync, and Next.js in
+best_for: >-
+  Builders curious how this site is wired — Obsidian, sync, and Next.js in
   practice
 ---
 **TL;DR**

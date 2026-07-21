@@ -20,7 +20,7 @@ focus_keyword: best cursor model 2026
 seo_description: >-
   Best Cursor model by work mode in 2026: analysis, review, execution, and
   greenfield picks from CursorBench 3.2 with cost, tokens, and agent steps for
-  any power user.
+  any…
 related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - fable-5-pricing-cursor-every-tier-explained

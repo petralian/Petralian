@@ -17,8 +17,8 @@ excerpt: >-
 focus_keyword: file based AI memory vs three layer diagram
 seo_description: >-
   Is external file memory better than the three-layer AI memory diagram? A
-  builder's comparison of chat memory vs Obsidian + repo handoffs for production
-  software.
+  builder's comparison of chat memory vs Obsidian + repo handoffs for
+  production…
 image_prompt: >-
   Editorial desk with two diagrams side by side on paper—one a simple
   three-circle stack labeled in-model memory, the other a filing system with

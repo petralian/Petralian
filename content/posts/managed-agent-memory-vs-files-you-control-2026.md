@@ -1,26 +1,42 @@
-﻿---
-title: "Managed Agent Memory vs Files You Control: A Strategic Hybrid"
+---
+title: 'Managed Agent Memory vs Files You Control: A Strategic Hybrid'
 slug: managed-agent-memory-vs-files-you-control-2026
-date: 2026-07-24
+date: 2026-07-24T00:00:00.000Z
 tags:
   - AI Memory
   - Agentic AI
   - Obsidian
   - Enterprise AI
-excerpt: "Mem0 and managed memory layers promise automatic recall. File harnesses promise portability. I use both lanes deliberately — not as a single winner."
+excerpt: >-
+  Mem0 and managed memory layers promise automatic recall. File harnesses
+  promise portability. I use both lanes deliberately — not as a single winner.
 featured_image: /images/posts/managed-agent-memory-vs-files-you-control-2026.png
 focus_keyword: agent memory files vs managed
-seo_description: "Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT): when each wins, hybrid patterns, and governance for portable AI memory."
+seo_description: >-
+  Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT):
+  when each wins, hybrid patterns, and governance for portable AI memory.
 related_posts:
   - the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
   - why-deliberate-file-memory-beats-hoping-agents-remember
   - cursor-harness-memory-loop-2026
-image_prompt: "Cinematic 16:9: two archive systems side by side, left a glowing automatic carousel of memory cards, right open wooden drawers of markdown files, single beam of light connecting both, no logos, no readable text, no faces."
-image_prompt_variant_1: "Surreal 16:9 library: robotic librarian sorts floating memory bubbles into labeled file folders on a conveyor, teal and amber light, no readable text."
-image_prompt_variant_2: "Bold isometric 16:9 poster: Managed Memory API cylinder feeds Agent; File SSOT vault feeds Agent; Human Review gate between both, violet risograph, no logos."
+image_prompt: >-
+  Cinematic 16:9: two archive systems side by side, left a glowing automatic
+  carousel of memory cards, right open wooden drawers of markdown files, single
+  beam of light connecting both, no logos, no readable text, no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 library: robotic librarian sorts floating memory bubbles into
+  labeled file folders on a conveyor, teal and amber light, no readable text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9 poster: Managed Memory API cylinder feeds Agent; File SSOT
+  vault feeds Agent; Human Review gate between both, violet risograph, no logos.
 format: hybrid
-best_for: Anyone evaluating Mem0 or similar managed memory who also keeps Obsidian or git markdown and wants a clear hybrid rule instead of vendor lock-in
-featured_image_alt: "Automatic memory carousel beside open wooden drawers of markdown files connected by a beam of light."
+best_for: >-
+  Anyone evaluating Mem0 or similar managed memory who also keeps Obsidian or
+  git markdown and wants a clear hybrid rule instead of vendor lock-in
+featured_image_alt: >-
+  Automatic memory carousel beside open wooden drawers of markdown files
+  connected by a beam of light.
+seo_title: 'Managed Agent Memory vs Files You Control: A Strategic…'
 ---
 > **Memory cluster:** [AI memory landscape](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) · [Deliberate file memory](/posts/why-deliberate-file-memory-beats-hoping-agents-remember) · [Harness memory loop](/posts/cursor-harness-memory-loop-2026)
 

@@ -1,26 +1,46 @@
-﻿---
-title: "Grok 4.5 in Cursor for Knowledge Work: Beyond the Benchmark Row"
+---
+title: 'Grok 4.5 in Cursor for Knowledge Work: Beyond the Benchmark Row'
 slug: grok-4-5-cursor-knowledge-work-2026
-date: 2026-07-23
+date: 2026-07-23T00:00:00.000Z
 tags:
   - Agentic AI
   - Generative AI
   - Enterprise AI
   - AI Quality
-excerpt: "Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis, briefs, and research passes — not as a default for every repo edit. Here is the decision frame."
+excerpt: >-
+  Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis,
+  briefs, and research passes — not as a default for every repo edit. Here is
+  the decision frame.
 featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.png
 focus_keyword: Grok 4.5 Cursor knowledge work
-seo_description: "Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for synthesis and briefs, with links to CursorBench posts — not another score table."
+seo_description: >-
+  Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for
+  synthesis and briefs, with links to CursorBench posts — not another score
+  table.
 related_posts:
   - open-models-cursorbench-3-2-grok-glm-kimi-longcat
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - when-to-escalate-composer-2-5-to-fable-5
-image_prompt: "Cinematic 16:9: wide desk with scattered research papers morphing into a single clean brief stack under a sharp desk lamp, deep blue shadows, copper accent edge, no logos, no readable text, no faces."
-image_prompt_variant_1: "Surreal 16:9 planetarium: constellation lines connect note cards into one glowing narrative arc, observer silhouette absent, violet sky, no readable text."
-image_prompt_variant_2: "Bold isometric 16:9 poster: Research Notes funnel to Synthesis block to Brief Output, Grok tier as accent gem on synthesis step only, teal risograph, no logos."
+image_prompt: >-
+  Cinematic 16:9: wide desk with scattered research papers morphing into a
+  single clean brief stack under a sharp desk lamp, deep blue shadows, copper
+  accent edge, no logos, no readable text, no faces.
+image_prompt_variant_1: >-
+  Surreal 16:9 planetarium: constellation lines connect note cards into one
+  glowing narrative arc, observer silhouette absent, violet sky, no readable
+  text.
+image_prompt_variant_2: >-
+  Bold isometric 16:9 poster: Research Notes funnel to Synthesis block to Brief
+  Output, Grok tier as accent gem on synthesis step only, teal risograph, no
+  logos.
 format: hybrid
-best_for: Anyone who read Grok 4.5 CursorBench numbers and wants a practical rule for knowledge work, briefs, and synthesis without changing every default
-featured_image_alt: "Research papers on a desk morphing into a single clean brief stack under a desk lamp."
+best_for: >-
+  Anyone who read Grok 4.5 CursorBench numbers and wants a practical rule for
+  knowledge work, briefs, and synthesis without changing every default
+featured_image_alt: >-
+  Research papers on a desk morphing into a single clean brief stack under a
+  desk lamp.
+seo_title: 'Grok 4.5 in Cursor for Knowledge Work: Beyond the…'
 ---
 > **Benchmark cluster:** [Open models on CursorBench 3.2](/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat) · [Fable 5 vs Composer cost vs score](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [When to escalate to Fable 5](/posts/when-to-escalate-composer-2-5-to-fable-5)
 

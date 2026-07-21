@@ -21,7 +21,7 @@ focus_keyword: enterprise AI program readiness
 seo_description: >-
   Why enterprise AI programs stall after successful pilots: compressed
   foundation work on data, governance owners, and change runway—and how to get
-  the order right.
+  the order…
 image_prompt: >-
   Cinematic 16:9 wide shot of a concrete foundation pour at dusk, three wooden
   formwork sections labeled only by shape not text, crane bokeh in background,

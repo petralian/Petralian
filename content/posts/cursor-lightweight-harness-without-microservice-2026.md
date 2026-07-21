@@ -17,7 +17,7 @@ focus_keyword: Cursor agent harness without microservice
 seo_description: >-
   How to run a lightweight AI harness in Cursor using rules, subagents, and CI
   checks instead of LangChain or Harbor. Policy table, starter kit, and what not
-  to build.
+  to…
 series: Cursor Agent Harness Series
 series_order: 1
 related_posts:

@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Cmd+K transcript search finds what was said. A Bridge SSOT file holds what
   still matters. Here is when to use each and why files win for handoff.
-featured_image: /images/posts/cursor-conversation-search-vs-bridge-file-2026.jpg
+featured_image: /images/posts/cursor-conversation-search-vs-bridge-file-2026.png
 focus_keyword: Cursor agent transcript search
 seo_description: >-
   Cursor agent transcript search vs Bridge SSOT: when Cmd+K helps, when file
