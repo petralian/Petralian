@@ -180,6 +180,20 @@ export default async function PostPage({
           </div>
         </div>
         <div className="post-hero-inner">
+          {post.featured_image && (
+            <div className="post-hero-right">
+              <Image
+                src={post.featured_image}
+                alt={post.featured_image_alt || post.title}
+                fill
+                priority
+                fetchPriority="high"
+                quality={55}
+                className="post-card-image"
+                sizes="(max-width: 768px) 100vw, min(50vw, 600px)"
+              />
+            </div>
+          )}
           <div className="post-hero-left">
             <h1 className="post-hero-title">{post.title}</h1>
             {post.format && (
@@ -215,20 +229,6 @@ export default async function PostPage({
               </div>
             )}
           </div>
-          {post.featured_image && (
-            <div className="post-hero-right">
-              <Image
-                src={post.featured_image}
-                alt={post.featured_image_alt || post.title}
-                fill
-                priority
-                fetchPriority="high"
-                quality={60}
-                className="post-card-image"
-                sizes="(max-width: 768px) 100vw, min(50vw, 640px)"
-              />
-            </div>
-          )}
         </div>
       </section>
 

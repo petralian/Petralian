@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   images: {
-    qualities: [60, 70, 75],
+    qualities: [55, 60, 70, 75],
     deviceSizes: [384, 640, 750, 828, 1080, 1200],
     remotePatterns: [
       {

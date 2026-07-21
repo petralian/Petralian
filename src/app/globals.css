@@ -1023,7 +1023,7 @@ html:not([data-theme]) .theme-icon--moon {
 
 .hero-title {
   font-family: var(--font-heading), "Lexend Deca", system-ui, sans-serif;
-  font-size: clamp(1.875rem, 4.5vw, 3rem);
+  font-size: clamp(2.125rem, 5.5vw, 3rem);
   font-weight: 700;
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
@@ -1068,6 +1068,19 @@ html:not([data-theme]) .theme-icon--moon {
   max-width: min(42rem, 100%);
   line-height: var(--leading-normal);
   margin-bottom: var(--space-6);
+}
+
+.home-start-here,
+.home-series {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+.home-newsletter,
+.home-recent-posts,
+.home-view-all {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
 }
 
 .home-start-here,
@@ -1570,14 +1583,27 @@ html:not([data-theme]) .theme-icon--moon {
   align-items: center;
 }
 
+.post-hero-left {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.post-hero-right {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 @media (max-width: 768px) {
   .post-hero-inner {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
 
+  .post-hero-left,
   .post-hero-right {
-    order: -1;
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
