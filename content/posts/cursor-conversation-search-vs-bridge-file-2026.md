@@ -35,9 +35,7 @@ best_for: >-
   Anyone relying on Cursor chat search who still loses thread between sessions
   and wants a durable handoff file without rebuilding the whole vault
 seo_title: 'Cursor Conversation Search vs a Bridge File: Where Session…'
-featured_image_alt: >-
-  Hero illustration for Cursor Conversation Search vs a Bridge File: Where
-  Session Memory Should Live
+featured_image_alt: "Cinematic 16:9: magnifying glass over a faint chat transcript layer floating above a solid leather notebook labeled only by texture, amber desk lamp, cool sh..."
 ---
 
 > **Memory cluster:** [Harness memory loop](/posts/cursor-harness-memory-loop-2026) · [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) · [Deliberate file memory](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
@@ -74,7 +72,7 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) teaching line still ho
 | Forensics on a long technical thread | Exact tool output or error text |
 | Same-week continuity inside one workspace | Faster than opening vault notes |
 | "Did we already try X?" inside the project | Surfaces prior attempts |
-![](/images/posts/cursor-conversation-search-body-01-transcript-search.png)
+![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.png)
 
 *Screenshot: Petralian / Cursor (2026)*
 
@@ -121,7 +119,7 @@ Bridge sections stay short:
 - **Next action** — one line a tired future me can execute
 - **Links** — vault paths or repo areas, not chat URLs
 
-![](/images/posts/cursor-conversation-search-body-02-bridge-template.png)
+![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.png)
 
 *Screenshot: Petralian / Obsidian (2026)*
 
@@ -176,7 +174,7 @@ Create one markdown file in any tool:
 
 Point your next chat at it: "Read Bridge; do not start until you summarize goal and next action." Close every session by editing Bridge only. Try transcript search once mid-week when you forget a detail — notice whether Bridge or search solved it faster.
 
-![](/images/posts/cursor-conversation-search-body-03-start-session-skill.jpg)
+![Cursor start-session skill prompt in the agent panel.](/images/posts/cursor-conversation-search-body-03-start-session-skill.jpg)
 
 *Screenshot: Petralian / Cursor (2026)*
 

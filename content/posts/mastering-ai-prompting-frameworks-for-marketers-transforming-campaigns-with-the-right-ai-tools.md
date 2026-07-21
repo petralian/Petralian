@@ -23,9 +23,7 @@ format: hybrid
 best_for: Marketers moving from ad-hoc prompts to repeatable campaign frameworks
 seo_title: 'Mastering AI Prompting Frameworks for Marketers:…'
 focus_keyword: ai in marketing
-featured_image_alt: >-
-  Hero illustration for Mastering AI Prompting Frameworks for Marketers:
-  Transforming Campaigns with Precision and the Right AI Tools
+featured_image_alt: "Hero illustration for Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with"
 ---
 **TL;DR**
 

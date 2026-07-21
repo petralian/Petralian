@@ -18,9 +18,7 @@ format: strategic
 best_for: APAC leaders thinking about talent pipelines when AI changes junior work
 seo_title: 'Redefining the Career Ladder: How AI Sidelines Entry-Level…'
 focus_keyword: leadership
-featured_image_alt: >-
-  Hero illustration for Redefining the Career Ladder: How AI Sidelines
-  Entry-Level Learning in APAC
+featured_image_alt: "Hero illustration for Redefining the Career Ladder: How AI Sidelines Entry-Level Learning in APAC"
 ---
 **TL;DR**
 

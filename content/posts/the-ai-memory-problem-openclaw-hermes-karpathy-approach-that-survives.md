@@ -22,9 +22,7 @@ image: null
 format: hybrid
 best_for: Builders and product leads comparing durable memory approaches for agents
 seo_title: 'The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the…'
-featured_image_alt: >-
-  Hero illustration for The AI Memory Problem: OpenClaw, Hermes, Karpathy, and
-  the Approach That Actually Survives
+featured_image_alt: "Hero illustration for The AI Memory Problem: OpenClaw, Hermes, Karpathy, and the Approach That Actually"
 ---
 **TL;DR**
 

@@ -41,9 +41,7 @@ best_for: >-
   Readers who already get work modes and want the Customize mechanics plus
   Obsidian/mobile handoff without a full wiring handbook
 seo_title: 'Skills, Hooks, and Orchestration: Cursor Customize With an…'
-featured_image_alt: >-
-  Hero illustration for Skills, Hooks, and Orchestration: Cursor Customize With
-  an Obsidian Memory Loop
+featured_image_alt: "Cinematic 16:9: macro of interlocking brass gears beside a leather notebook and a phone face-down, warm rim light suggesting a closed loop, no logos, no read..."
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 5 of 5 deep dives  

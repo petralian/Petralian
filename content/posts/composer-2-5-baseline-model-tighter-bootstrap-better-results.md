@@ -33,9 +33,7 @@ image_prompt_variant_2: >-
 format: hands-on
 best_for: Practice leads standardizing Cursor model policy and tighter agent bootstrap
 seo_title: 'Composer 2.5 as My Only Coding Model: Cost,…'
-featured_image_alt: >-
-  Hero illustration for Composer 2.5 as My Only Coding Model: Cost,
-  Predictability, and a Tighter Bootstrap
+featured_image_alt: "Minimal developer workspace with a single model selector pinned to one"
 ---
 **TL;DR**
 

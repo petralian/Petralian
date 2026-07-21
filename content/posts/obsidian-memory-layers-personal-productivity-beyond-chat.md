@@ -35,9 +35,7 @@ featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyon
 format: hybrid
 best_for: Knowledge workers layering Obsidian memory beyond a single chat thread
 seo_title: 'Beyond Chat History: Using Layered Obsidian Memory for…'
-featured_image_alt: >-
-  Hero illustration for Beyond Chat History: Using Layered Obsidian Memory for
-  Personal Productivity
+featured_image_alt: "Calm home office desk with an open Obsidian-style linked note graph"
 ---
 **TL;DR**
 

@@ -41,9 +41,7 @@ image_prompt_variant_2: >-
 format: hybrid
 best_for: Leaders and operators designing a knowledge-work engine around agents
 seo_title: 'The Knowledge Work Agent Engine: A File-Based Stack for…'
-featured_image_alt: >-
-  Hero illustration for The Knowledge Work Agent Engine: A File-Based Stack for
-  PM, Leadership, and Marketing
+featured_image_alt: "Cinematic 16:9 wide shot of a conference table with four labeled trays"
 ---
 
 > **Knowledge Work Engine Series (Part 0 — hub)**  

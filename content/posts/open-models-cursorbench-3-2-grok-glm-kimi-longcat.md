@@ -12,9 +12,7 @@ excerpt: >-
   is how to read Grok, GLM, Kimi, and LongCat for buying decisions — not picker
   hype alone.
 featured_image: /images/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat.png
-featured_image_alt: >-
-  Three seedlings sprouting from cracked concrete under distinct colored light
-  filters, morning mist, macro editorial, no logos or readable text.
+featured_image_alt: "Three seedlings sprouting from cracked concrete under distinct"
 focus_keyword: Grok 4.5 Cursor benchmark
 seo_description: >-
   Open models on CursorBench 3.2: Grok 4.5 vs GLM 5.2 vs Kimi K2.7 Code with

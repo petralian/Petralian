@@ -37,9 +37,7 @@ image_prompt_variant_2: >-
 format: hybrid
 best_for: Marketing leaders keeping brand voice consistent when agents draft at scale
 seo_title: Marketing and Voice at Scale With a File-Based Agent Engine
-featured_image_alt: >-
-  Hero illustration for Marketing and Voice at Scale With a File-Based Agent
-  Engine
+featured_image_alt: "Cinematic 16:9 macro of a printing press roller lifting, ink gradient"
 ---
 
 > **Knowledge Work Engine Series (Part 3)**  

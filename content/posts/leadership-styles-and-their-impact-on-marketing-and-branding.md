@@ -17,9 +17,7 @@ format: strategic
 best_for: Marketing leaders reflecting on how leadership style shapes brand outcomes
 seo_title: Leadership Styles and Their Impact on Marketing and Branding
 focus_keyword: leadership
-featured_image_alt: >-
-  Hero illustration for Leadership Styles and Their Impact on Marketing and
-  Branding
+featured_image_alt: "Hero illustration for Leadership Styles and Their Impact on Marketing and Branding"
 ---
 **TL;DR**
 

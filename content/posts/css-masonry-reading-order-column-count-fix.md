@@ -12,9 +12,7 @@ excerpt: >-
   left-to-right reading order. Here is what is actually happening in the DOM,
   and a reliable fix that holds up under variable card heights.
 featured_image: /images/posts/css-masonry-reading-order-column-count-fix.png
-featured_image_alt: >-
-  Diagram-style hero image showing CSS masonry cards rendered in top-to-bottom
-  column order versus expected left-to-right reading order
+featured_image_alt: "Diagram-style hero image showing CSS masonry cards rendered in"
 focus_keyword: css masonry reading order fix
 seo_title: CSS Masonry Reading Order Fix for column-count Grids
 seo_description: >-

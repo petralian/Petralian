@@ -14,9 +14,7 @@ excerpt: >-
   work you finish after the demo.
 featured_image: >-
   /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.png
-featured_image_alt: >-
-  Isometric cutaway of three enterprise AI foundation layers—data, governance,
-  and change—with a deploy capsule waiting above a hold line
+featured_image_alt: "Isometric cutaway of three enterprise AI foundation layers—data,"
 focus_keyword: enterprise AI program readiness
 seo_description: >-
   Why enterprise AI programs stall after successful pilots: compressed

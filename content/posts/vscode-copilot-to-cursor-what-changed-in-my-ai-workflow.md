@@ -37,9 +37,7 @@ image_prompt_variant_2: >-
 format: hands-on
 best_for: Practice leads comparing Copilot and Cursor for governed agent workflows
 seo_title: 'From VS Code Copilot to Cursor: What Changed in My AI…'
-featured_image_alt: >-
-  Hero illustration for From VS Code Copilot to Cursor: What Changed in My AI
-  Workflow
+featured_image_alt: "Cinematic 16:9 low-angle shot: two translucent IDE panes floating in"
 ---
 **TL;DR**
 

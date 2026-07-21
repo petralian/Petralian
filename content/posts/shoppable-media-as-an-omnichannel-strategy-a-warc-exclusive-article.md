@@ -17,9 +17,7 @@ format: strategic
 best_for: Retail and media strategists connecting shoppable media to omnichannel plans
 seo_title: 'Shoppable media as an omnichannel strategy, a WARC…'
 focus_keyword: ecommerce
-featured_image_alt: >-
-  Hero illustration for Shoppable media as an omnichannel strategy, a WARC
-  exclusive article
+featured_image_alt: "Hero illustration for Shoppable media as an omnichannel strategy, a WARC exclusive article"
 ---
 
 ## What is shoppable media?

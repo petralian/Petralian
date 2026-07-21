@@ -31,9 +31,7 @@ image_prompt_variant_2: >-
   Split view: left a fading chat window, right a clear four-step filing workflow
   with arrows—editorial contrast, professional playful.
 featured_image: /images/posts/external-memory-series-guide.png
-featured_image_alt: >-
-  Desk with layered notebooks and a laptop showing a linked note graph for
-  session continuity.
+featured_image_alt: "Desk with layered notebooks and a laptop showing a linked note graph for session continuity."
 format: hybrid
 best_for: >-
   Program leads and knowledge workers adopting file-based memory for AI-assisted
@@ -58,7 +56,7 @@ This page is the **hub** for the External Memory series: a file-based approach I
 
 **What you will learn:** How the four layers fit together, which series part matches your role, and the smallest afternoon setup that proves the model before you automate.
 
-![](/images/posts/external-memory-series-guide-body-01-molecular-structure.jpg)
+![Abstract molecular structure suggesting linked knowledge nodes.](/images/posts/external-memory-series-guide-body-01-molecular-structure.jpg)
 
 *Photo: [Google DeepMind](https://www.pexels.com/photo/25626509/) on Pexels*
 

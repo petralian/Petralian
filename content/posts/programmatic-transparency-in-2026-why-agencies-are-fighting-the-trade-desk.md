@@ -21,9 +21,7 @@ best_for: >-
   power
 seo_title: 'Programmatic Transparency in 2026: Why Agencies Are…'
 focus_keyword: marketing technology
-featured_image_alt: >-
-  Hero illustration for Programmatic Transparency in 2026: Why Agencies Are
-  Fighting The Trade Desk
+featured_image_alt: "Hero illustration for Programmatic Transparency in 2026: Why Agencies Are Fighting The Trade Desk"
 ---
 **TL;DR**
 

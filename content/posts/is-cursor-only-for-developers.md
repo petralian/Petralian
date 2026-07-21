@@ -13,9 +13,7 @@ excerpt: >-
   research, commerce, job search, client work, and code when needed. The win is
   file-grounded memory, not syntax highlighting.
 featured_image: /images/posts/is-cursor-only-for-developers.png
-featured_image_alt: >-
-  Everyday desk with laptop open to a workspace beside folders for study, work,
-  and personal projects, warm natural light, no logos or readable text.
+featured_image_alt: "Everyday desk with laptop open to a workspace beside folders for"
 focus_keyword: is cursor only for developers
 seo_description: >-
   Is Cursor only for developers? No. CEOs, students, founders, and operators can
@@ -56,7 +54,7 @@ seo_title: Is Cursor Only for Developers? A Better AI Interface for…
 
 **What you will learn:** why the developer marketing misleads, how I use Cursor across real work (not one "dev" mode), why file-grounded agents beat chat-only tabs, and a minimum path you can try this afternoon without a full vault stack.
 
-![](/images/posts/is-cursor-only-for-developers-body-01-cursor-marketing.png)
+![Cursor product page positioning the IDE for developers.](/images/posts/is-cursor-only-for-developers-body-01-cursor-marketing.png)
 
 *Screenshot: [Cursor](https://cursor.com) — Petralian (2026)*
 
@@ -129,7 +127,7 @@ These are **my** live contexts. Public projects are named; confidential client a
 | **Personal and open-source** | Release notes, docs for tools like [WhisperX](https://github.com/petralian/whisperx) | Public repo + shared templates |
 | **Directed implementation** | Features, fixes, deploy gates when the deliverable is software | Agent as implementer; I review and own release decisions |
 
-![](/images/posts/is-cursor-only-for-developers-body-02-use-cases-table.png)
+![Table of non-developer Cursor use cases across writing, study, and operations.](/images/posts/is-cursor-only-for-developers-body-02-use-cases-table.png)
 
 *Screenshot: Petralian / Cursor (2026)*
 
@@ -191,7 +189,7 @@ For a student, that might mean "always cite sources." For a founder, "never inve
 
 I open **one Cursor window per major context** (site, Shopify app, job-application vault, client folder, course folder). Context does not bleed across employers, clients, or subjects. Switching workspaces is cheaper than sanitizing one mega-chat.
 
-![](/images/posts/is-cursor-only-for-developers-body-03-workspace-switcher.png)
+![Cursor workspace switcher showing separate project contexts.](/images/posts/is-cursor-only-for-developers-body-03-workspace-switcher.png)
 
 *Screenshot: Petralian / Cursor (2026)*
 

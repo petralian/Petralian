@@ -37,9 +37,7 @@ best_for: >-
   Founders, consultants, and operators who need AI-assisted proposals and plans
   that stay consistent across collaborators and drafts
 seo_title: 'Cursor Customize for Business Development: Questionnaire…'
-featured_image_alt: >-
-  Hero illustration for Cursor Customize for Business Development: Questionnaire
-  to Plan SSOT
+featured_image_alt: "Cinematic 16:9: two chairs at a wooden table with a single shared binder open between them, soft afternoon window light, sense of alignment not sales theater..."
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 2 of 5 deep dives

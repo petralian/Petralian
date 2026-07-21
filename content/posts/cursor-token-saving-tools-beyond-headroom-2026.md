@@ -42,9 +42,7 @@ best_for: >-
   Program leads optimizing Cursor token spend and context discipline without
   proxy middleware
 seo_title: 'Beyond Headroom: What I Tried to Save Cursor Tokens, What…'
-featured_image_alt: >-
-  Hero illustration for Beyond Headroom: What I Tried to Save Cursor Tokens,
-  What Failed, and What I Use Now
+featured_image_alt: "Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter"
 ---
 **TL;DR**
 

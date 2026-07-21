@@ -31,9 +31,7 @@ best_for: >-
   Builders feeding UI context to agents who want to understand prompt-injection
   risk
 seo_title: Capturing UI Designs for AI Agents Creates a Prompt…
-featured_image_alt: >-
-  Hero illustration for Capturing UI Designs for AI Agents Creates a Prompt
-  Injection Surface
+featured_image_alt: "Editorial 16:9 illustration: browser DOM tree with a hidden instruction"
 ---
 
 Agent workflows that capture live UI into skill files or context bundles solve a real problem: the model sees what you see. They also create a new trust boundary. Anything in the DOM can become instructions if you paste outerHTML verbatim into a prompt.

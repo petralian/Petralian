@@ -37,9 +37,7 @@ image_prompt_variant_2: >-
 format: hands-on
 best_for: Program leads measuring whether a Cursor harness improves output and spend
 seo_title: 'Measure Your Cursor Harness — CSV, CI, and OpenRouter…'
-featured_image_alt: >-
-  Hero illustration for Measure Your Cursor Harness — CSV, CI, and OpenRouter
-  Dollars
+featured_image_alt: "Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and"
 ---
 
 > **Series:** Cursor Agent Harness (Part 3 of 3)  

@@ -19,9 +19,7 @@ format: strategic
 best_for: Startup founders weighing fractional marketing versus full-time hires
 seo_title: How Fractional Marketing Can Revolutionize Startups and…
 focus_keyword: marketing technology
-featured_image_alt: >-
-  Hero illustration for How Fractional Marketing Can Revolutionize Startups and
-  Small Businesses
+featured_image_alt: "Hero illustration for How Fractional Marketing Can Revolutionize Startups and Small Businesses"
 ---
 **TL;DR**
 

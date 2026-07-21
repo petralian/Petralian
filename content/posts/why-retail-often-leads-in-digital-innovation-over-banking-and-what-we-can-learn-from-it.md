@@ -20,9 +20,7 @@ format: strategic
 best_for: Cross-industry leaders borrowing innovation pace from retail
 seo_title: Why Retail Often Leads in Digital Innovation Over Banking…
 focus_keyword: digital transformation
-featured_image_alt: >-
-  Hero illustration for Why Retail Often Leads in Digital Innovation Over
-  Banking (and What We Can Learn From It)
+featured_image_alt: "Hero illustration for Why Retail Often Leads in Digital Innovation Over Banking (and What We Can"
 ---
 **TL;DR**
 

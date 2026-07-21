@@ -17,9 +17,7 @@ format: strategic
 best_for: Brand and marketing leaders structuring narratives that sustain engagement
 seo_title: 'Infinity Loops: The Framework Behind Successful Brand…'
 focus_keyword: customer experience
-featured_image_alt: >-
-  Hero illustration for Infinity Loops: The Framework Behind Successful Brand
-  Stories
+featured_image_alt: "Hero illustration for Infinity Loops: The Framework Behind Successful Brand Stories"
 ---
 **TL;DR**
 

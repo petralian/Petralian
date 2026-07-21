@@ -25,9 +25,7 @@ best_for: >-
   Teams running agent workflows who need a practical quality signal before drift
   becomes production risk
 seo_title: Why AI Agent Output Quality Drifts Over Time (And How to…
-featured_image_alt: >-
-  Hero illustration for Why AI Agent Output Quality Drifts Over Time (And How to
-  Catch It Early)
+featured_image_alt: "A timeline dashboard with quality score trend lines bending downward"
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
@@ -39,7 +37,7 @@ Nothing crashes. Builds pass. Basic tests stay green.
 
 But outputs become slightly less useful, slightly less consistent, slightly harder to trust. That is drift.
 
-![](/images/posts/ai-agent-quality-drift-body-01-drift-types.gif)
+![Animated diagram contrasting different types of AI output drift.](/images/posts/ai-agent-quality-drift-body-01-drift-types.gif)
 
 *Source: [LinkedIn post by Nathan Petralia](https://www.linkedin.com/posts/different-drift-different-risk-different-share-7474755988206788608--pMx/) — used with attribution*
 

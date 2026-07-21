@@ -22,9 +22,7 @@ best_for: >-
   industry
 seo_title: 'Generative AI in Marketing: My Thoughts on the Industry’s…'
 focus_keyword: generative ai
-featured_image_alt: >-
-  Hero illustration for Generative AI in Marketing: My Thoughts on the
-  Industry’s Progress and Challenges
+featured_image_alt: "Hero illustration for Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges"
 ---
 **TL;DR**
 

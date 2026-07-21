@@ -12,10 +12,7 @@ excerpt: >-
   SWE-bench, and HumanEval each measure — and how to read tables without picking
   the wrong default for your work.
 featured_image: /images/posts/cursorbench-vs-swe-bench-vs-human-eval.png
-featured_image_alt: >-
-  Three measuring instruments on a steel table in cool side light, suggesting
-  different benchmark types, shallow depth of field, no logos or readable
-  scales.
+featured_image_alt: "Three measuring instruments on a steel table in cool side light,"
 focus_keyword: cursorbench results
 seo_description: >-
   CursorBench vs SWE-bench vs HumanEval: what each AI benchmark tests, cost and

@@ -42,9 +42,7 @@ best_for: >-
   Practice leads and commercial operators setting Cursor AI model policy using
   CursorBench unit economics
 seo_title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5…'
-featured_image_alt: >-
-  Hero illustration for CursorBench 3.2: Fable 5 Tops the Chart, but Composer
-  2.5 Wins the Budget
+featured_image_alt: "Cinematic 16:9 macro photograph: scatter-plot points carved as glowing"
 ---
 **TL;DR**
 

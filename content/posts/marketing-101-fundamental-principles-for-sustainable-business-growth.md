@@ -21,9 +21,7 @@ best_for: >-
   jargon
 seo_title: 'Marketing 101: Fundamental Principles for Sustainable…'
 focus_keyword: marketing technology
-featured_image_alt: >-
-  Hero illustration for Marketing 101: Fundamental Principles for Sustainable
-  Business Growth
+featured_image_alt: "Hero illustration for Marketing 101: Fundamental Principles for Sustainable Business Growth"
 ---
 
 As a digital transformation strategist who has worked with global brands across multiple sectors, I've consistently observed that strong marketing fundamentals serve as the backbone of successful business growth. Whether working with luxury brands like Estée Lauder and Lanvin or financial institutions like Standard Chartered and Livi Bank, I've seen firsthand how these principles transcend industries and market conditions.

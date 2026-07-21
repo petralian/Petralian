@@ -39,9 +39,7 @@ best_for: >-
   Practice leads connecting file memory, Obsidian, and agent loops across
   engagements
 seo_title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and…'
-featured_image_alt: >-
-  Hero illustration for Agent Harness Memory Loop — Four Tiers, Feedback Loop,
-  and Load Gates
+featured_image_alt: "Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,"
 ---
 **TL;DR**
 

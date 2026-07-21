@@ -35,7 +35,7 @@ AI can regress while classic checks still pass.
 
 If quality scores are visible but non-blocking, teams often ship under pressure anyway. The fix is simple in concept: make AI quality a gate, not just a dashboard.
 
-![](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.png)
+![GitHub Actions workflow with an AI quality gate step.](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.png)
 
 *Screenshot: Petralian / GitHub (2026)*
 

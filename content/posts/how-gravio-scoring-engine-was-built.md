@@ -35,9 +35,7 @@ image_prompt_variant_2: >-
 format: hands-on
 best_for: Builders who want the architecture behind an AI quality scoring engine
 seo_title: 'How We Built Gravio’s Scoring Engine: From Repo Signals to…'
-featured_image_alt: >-
-  Hero illustration for How We Built Gravio’s Scoring Engine: From Repo Signals
-  to Release Gates
+featured_image_alt: "A transparent engineering control room with six illuminated quality"
 ---
 **TL;DR**
 

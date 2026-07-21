@@ -38,9 +38,7 @@ best_for: >-
   Developers comparing real monthly cost across Copilot, OpenRouter, and similar
   stacks
 seo_title: 'GitHub Copilot vs OpenRouter: The Real Cost of AI Coding…'
-featured_image_alt: >-
-  Hero illustration for GitHub Copilot vs OpenRouter: The Real Cost of AI Coding
-  in 2026
+featured_image_alt: "Split-screen comparison showing a developer's VS Code editor on one"
 ---
 **TL;DR**
 

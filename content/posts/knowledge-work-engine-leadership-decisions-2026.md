@@ -42,9 +42,7 @@ best_for: >-
   Executives making the leadership calls that determine whether agent programs
   scale
 seo_title: Leadership and Decisions With an AI Session Engine…
-featured_image_alt: >-
-  Hero illustration for Leadership and Decisions With an AI Session Engine
-  (Purpose, Dissent, and Audit Trails)
+featured_image_alt: "Cinematic 16:9 low-angle of a single chair at a round table, three empty"
 ---
 
 > **Knowledge Work Engine Series (Part 2)**  

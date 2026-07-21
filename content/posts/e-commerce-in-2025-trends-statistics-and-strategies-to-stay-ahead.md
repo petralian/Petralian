@@ -18,9 +18,7 @@ format: strategic
 best_for: Commerce leaders scanning macro trends before annual planning cycles
 seo_title: 'E-commerce in 2025: Trends, Statistics, and Strategies to…'
 focus_keyword: ecommerce
-featured_image_alt: >-
-  Hero illustration for E-commerce in 2025: Trends, Statistics, and Strategies
-  to Stay Ahead
+featured_image_alt: "Hero illustration for E-commerce in 2025: Trends, Statistics, and Strategies to Stay Ahead"
 ---
 **TL;DR**
 

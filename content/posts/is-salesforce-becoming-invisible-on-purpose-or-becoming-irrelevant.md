@@ -21,9 +21,7 @@ format: strategic
 best_for: 'Martech leaders tracking Salesforce, CDP strategy, and platform consolidation'
 seo_title: 'Is Salesforce Becoming Invisible on Purpose, or Becoming…'
 focus_keyword: salesforce
-featured_image_alt: >-
-  Hero illustration for Is Salesforce Becoming Invisible on Purpose, or Becoming
-  Irrelevant?
+featured_image_alt: "Hero illustration for Is Salesforce Becoming Invisible on Purpose, or Becoming Irrelevant?"
 ---
 **TL;DR**
 

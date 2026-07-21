@@ -19,9 +19,7 @@ format: strategic
 best_for: Agency leaders redefining success metrics as media and innovation converge
 seo_title: 'Redefining Media Agency Success: Embracing Innovation in…'
 focus_keyword: agency landscape
-featured_image_alt: >-
-  Hero illustration for Redefining Media Agency Success: Embracing Innovation in
-  the Digital Era
+featured_image_alt: "Hero illustration for Redefining Media Agency Success: Embracing Innovation in the Digital Era"
 ---
 **TL;DR**
 
