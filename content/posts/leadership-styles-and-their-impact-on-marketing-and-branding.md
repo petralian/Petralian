@@ -13,11 +13,13 @@ featured_image: /images/posts/leadership-styles-marketing-branding-hero.jpeg
 seo_description: >-
   TL;DR What Leadership Styles and Their Impact on Marketing and Branding
   covers. Who it is for and when to use it. Practical next steps after reading.…
+featured_image_alt: >-
+  Hero illustration for Leadership Styles and Their Impact on Marketing and
+  Branding
 format: strategic
 best_for: Marketing leaders reflecting on how leadership style shapes brand outcomes
 seo_title: Leadership Styles and Their Impact on Marketing and Branding
 focus_keyword: leadership
-featured_image_alt: "Hero illustration for Leadership Styles and Their Impact on Marketing and Branding"
 ---
 **TL;DR**
 

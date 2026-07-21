@@ -1,5 +1,5 @@
----
-title: Cursor Customize for Local Develop and GitHub Shipping
+﻿---
+title: "Cursor Customize for Local Develop and GitHub Shipping"
 slug: cursor-customize-local-github-and-shipping-2026
 date: 2026-07-18T00:00:00.000Z
 tags:
@@ -9,36 +9,20 @@ tags:
   - AI Memory
 series: Cursor Customize Series
 series_order: 4
-excerpt: >-
-  A light Customize setup for directed local changes and GitHub shipping: review
-  habits, small diffs, and handoffs - without turning this into another full
-  harness handbook.
+excerpt: "A light Customize setup for directed local changes and GitHub shipping: review habits, small diffs, and handoffs - without turning this into another full harness handbook."
 featured_image: /images/posts/cursor-customize-local-github-and-shipping-2026.png
 focus_keyword: Cursor GitHub shipping workflow
-seo_description: >-
-  Light Cursor Customize for local develop and GitHub shipping: directed agent
-  changes, human review, and small habits - with links to the Brain handbook.
+seo_description: "Light Cursor Customize for local develop and GitHub shipping: directed agent changes, human review, and small habits - with links to the Brain handbook."
 related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-obsidian-brain-handbook-2026
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
-image_prompt: >-
-  Cinematic 16:9: low-angle of a laptop on a workbench with a small shipping
-  crate icon shape nearby, cool daylight from a window, sense of careful
-  release, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 subway map diorama: Local Station connects to Review Bridge then
-  GitHub Terminal, miniature train of file folders, teal night glow, no readable
-  text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Local edit → Review checklist → Commit/PR as three
-  stamped blocks, copper and slate, no logos, no readable text.
+image_prompt: "Cinematic 16:9: low-angle of a laptop on a workbench with a small shipping crate icon shape nearby, cool daylight from a window, sense of careful release, no logos, no readable text, no faces."
+image_prompt_variant_1: "Surreal 16:9 subway map diorama: Local Station connects to Review Bridge then GitHub Terminal, miniature train of file folders, teal night glow, no readable text."
+image_prompt_variant_2: "Bold isometric 16:9 poster: Local edit → Review checklist → Commit/PR as three stamped blocks, copper and slate, no logos, no readable text."
+featured_image_alt: "Cinematic 16:9: low-angle of a laptop on a workbench with a small shipping crate icon shape nearby, cool daylight from a window, sense of careful release, no..."
 format: hybrid
-best_for: >-
-  Anyone who occasionally ships code or config with AI and wants light review
-  habits without a full developer handbook
-seo_title: Cursor Customize for Local Develop and GitHub Shipping
-featured_image_alt: Hero illustration for Cursor Customize for Local Develop and GitHub Shipping
+best_for: Anyone who occasionally ships code or config with AI and wants light review habits without a full developer handbook
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 4 of 5 deep dives  

@@ -30,12 +30,15 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Bold isometric 16:9 poster: Search icon queries Chat Log cloud; Bridge file
   block feeds Agent Start arrow, copper and slate risograph, no logos.
+featured_image_alt: >-
+  Cinematic 16:9: magnifying glass over a faint chat transcript layer floating
+  above a solid leather notebook labeled only by texture, amber desk lamp, cool
+  sh...
 format: hybrid
 best_for: >-
   Anyone relying on Cursor chat search who still loses thread between sessions
   and wants a durable handoff file without rebuilding the whole vault
 seo_title: 'Cursor Conversation Search vs a Bridge File: Where Session…'
-featured_image_alt: "Cinematic 16:9: magnifying glass over a faint chat transcript layer floating above a solid leather notebook labeled only by texture, amber desk lamp, cool sh..."
 ---
 
 > **Memory cluster:** [Harness memory loop](/posts/cursor-harness-memory-loop-2026) · [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) · [Deliberate file memory](/posts/why-deliberate-file-memory-beats-hoping-agents-remember)
@@ -73,7 +76,6 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) teaching line still ho
 | Same-week continuity inside one workspace | Faster than opening vault notes |
 | "Did we already try X?" inside the project | Surfaces prior attempts |
 ![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.png)
-
 *Screenshot: Petralian / Cursor (2026)*
 
 Search is strong for **recall inside the chat record**. It is weak as a governance layer. It does not tell you which of three conflicting answers is current policy.
@@ -120,7 +122,6 @@ Bridge sections stay short:
 - **Links** — vault paths or repo areas, not chat URLs
 
 ![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.png)
-
 *Screenshot: Petralian / Obsidian (2026)*
 
 The [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) covers workspace layout. This post is the decision rule: **search for archaeology; Bridge for navigation**.
@@ -175,7 +176,6 @@ Create one markdown file in any tool:
 Point your next chat at it: "Read Bridge; do not start until you summarize goal and next action." Close every session by editing Bridge only. Try transcript search once mid-week when you forget a detail — notice whether Bridge or search solved it faster.
 
 ![Cursor start-session skill prompt in the agent panel.](/images/posts/cursor-conversation-search-body-03-start-session-skill.jpg)
-
 *Screenshot: Petralian / Cursor (2026)*
 
 ---

@@ -13,11 +13,11 @@ featured_image: /images/posts/new-merkle-announcement-hero.jpg
 seo_description: >-
   In an exciting development for Dentsu International Hong Kong, Nathan Petralia
   has been promoted to managing director of Merkle, the agency's newly launched…
+featured_image_alt: Hero illustration for New Merkle MD
 format: strategic
 best_for: Agency and network leaders watching senior talent moves across APAC
 seo_title: New Merkle MD
 focus_keyword: leadership
-featured_image_alt: Hero illustration for New Merkle MD
 ---
 
 In an exciting development for Dentsu International Hong Kong, Nathan Petralia has been promoted to managing director of Merkle, the agency's newly launched Customer Experience Management (CXM) service line. This strategic move underscores Dentsu's commitment to enhancing its CXM capabilities and driving growth in the competitive Hong Kong market.

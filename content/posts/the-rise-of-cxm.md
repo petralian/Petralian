@@ -15,11 +15,13 @@ excerpt: >-
   CXM designs frictionless, personalized customer journeys across touchpoints.
   Summary, common mistakes, and FAQ—with link to the full LinkedIn article.
 featured_image: /images/posts/cxm-customer-experience-management-hero.png
+featured_image_alt: >-
+  Hero illustration for The Rise of Customer Experience Management: Why It
+  Matters and How to Make
 format: strategic
 best_for: Customer experience and marketing leaders mapping the CXM landscape
 seo_title: 'The Rise of Customer Experience Management: Why It Matters…'
 focus_keyword: customer experience
-featured_image_alt: "Hero illustration for The Rise of Customer Experience Management: Why It Matters and How to Make"
 ---
 
 ## What is customer experience management (CXM)?

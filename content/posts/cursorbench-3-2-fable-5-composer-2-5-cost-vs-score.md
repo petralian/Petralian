@@ -37,12 +37,12 @@ image_prompt_variant_2: >-
   the left versus a compact stepladder with three checkmarks on the right, flat
   graphic shapes, violet and amber accents, risograph texture, no logos, no
   readable text.
+featured_image_alt: 'Cinematic 16:9 macro photograph: scatter-plot points carved as glowing'
 format: hybrid
 best_for: >-
   Practice leads and commercial operators setting Cursor AI model policy using
   CursorBench unit economics
 seo_title: 'CursorBench 3.2: Fable 5 Tops the Chart, but Composer 2.5…'
-featured_image_alt: "Cinematic 16:9 macro photograph: scatter-plot points carved as glowing"
 ---
 **TL;DR**
 

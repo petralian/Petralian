@@ -34,10 +34,10 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Isometric 16:9 cutaway: inbox tray, bridge folder, milestone flag, task-app
   icon as three connected rooms, risograph orange and gray, no logos.
+featured_image_alt: 'Cinematic 16:9 overhead of a kanban board made of paper cards on a concrete'
 format: hybrid
 best_for: Program and delivery leads running projects where agents are part of the team
 seo_title: Project Management With a File-Based Agent Engine
-featured_image_alt: Hero illustration for Project Management With a File-Based Agent Engine
 ---
 
 > **Knowledge Work Engine Series (Part 1)**  

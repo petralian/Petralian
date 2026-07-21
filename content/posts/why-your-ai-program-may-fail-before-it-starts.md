@@ -29,12 +29,12 @@ image_prompt_variant_2: >-
   Split editorial scene: left side fast-forward deploy button with cracked
   foundation; right side same building with three solid labeled layers and calm
   stakeholders, professional playful contrast, 16:9, no logos.
+featured_image_alt: 'Editorial 16:9 hero for enterprise AI readiness: architectural blueprint'
 format: strategic
 best_for: >-
   Leaders running a fast pre-flight check before an enterprise AI program
   launches
 seo_title: Why Your AI Program May Fail Before It Starts
-featured_image_alt: Hero illustration for Why Your AI Program May Fail Before It Starts
 ---
 **TL;DR**
 

@@ -35,12 +35,11 @@ format: hybrid
 best_for: >-
   Anyone comparing a hosted messaging agent with Cursor who wants a clear split
   between ambient life admin and file-heavy project work
-seo_title: 'Hermes vs Cursor in My Setup: Life Agent on the Server,…'
 featured_image_alt: >-
-  Hero illustration for Hermes vs Cursor in My Setup: Life Agent on the Server,
-  File Work at the Desk
+  Phone on a kitchen counter with message bubbles and a desk with open document
+  folders in the background.
+seo_title: 'Hermes vs Cursor in My Setup: Life Agent on the Server,…'
 ---
-
 > **Memory cluster:** [AI memory landscape](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) · [Is Cursor only for developers?](/posts/is-cursor-only-for-developers) · [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026)
 
 ## Hermes vs Cursor in my setup
@@ -60,6 +59,9 @@ I run both. They are not substitutes. They sit at different points on the **ambi
 Chat tabs forget. Context blurs between phone and desk. You re-explain the same household logistics, the same project status, the same "what did we decide?"
 
 Hermes and Cursor both attack amnesia. Hermes attacks it from **messaging and always-on server memory**. Cursor attacks it from **files, rules, and repo-shaped work**.
+
+![Hermes agent product homepage with messaging and deployment overview.](/images/posts/hermes-vs-cursor-my-setup-2026-body-01-hermes-homepage.png)
+*Screenshot: [Hermes Agent](https://hermes-agent.nousresearch.com/) — Petralian (2026); can you be any more bold?*
 
 For the full landscape (OpenClaw, Karpathy wiki, Obsidian), read [the AI memory problem](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives). This post is the **2026 operating split** between two tools I actually run daily.
 
@@ -127,6 +129,9 @@ I direct agent changes in both systems. I read code and configs. I do not hand-c
 - Run parallel subagents across vault + repo in one governed session
 - Replace Bridge as operational SSOT for client work
 - Hold confidential client identifiers (generic labels only in any public writing)
+
+![Hermes Telegram conversation adding World Cup matches to a calendar.](/images/posts/hermes-vs-cursor-my-setup-2026-body-02-hermes-calendar.png)
+*Screenshot: Petralian Hermes instance (Telegram) — Petralian (2026); Add all World Cup matches to my calendar*
 
 What I do not ask Cursor to do while walking the dog:
 

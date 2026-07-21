@@ -19,11 +19,13 @@ seo_description: >-
   TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming
   Campaigns with Pre covers. Who it is for and when to use it. Practical next
   steps…
+featured_image_alt: >-
+  Hero illustration for Mastering AI Prompting Frameworks for Marketers:
+  Transforming Campaigns with
 format: hybrid
 best_for: Marketers moving from ad-hoc prompts to repeatable campaign frameworks
 seo_title: 'Mastering AI Prompting Frameworks for Marketers:…'
 focus_keyword: ai in marketing
-featured_image_alt: "Hero illustration for Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with"
 ---
 **TL;DR**
 

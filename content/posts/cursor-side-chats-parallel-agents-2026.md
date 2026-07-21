@@ -38,12 +38,11 @@ format: hybrid
 best_for: >-
   Anyone running long Cursor agent sessions who needs quick tangents without
   losing the main task or re-explaining context on mobile
-seo_title: 'Cursor Side Chats and Parallel Threads: How I Split Work…'
 featured_image_alt: >-
-  Hero illustration for Cursor Side Chats and Parallel Threads: How I Split Work
-  Without Losing the Main Line
+  Main conversation path on a desk with two thinner side channels branching off
+  like tributaries.
+seo_title: 'Cursor Side Chats and Parallel Threads: How I Split Work…'
 ---
-
 > **Customize cluster:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · [Skills, hooks, orchestration](/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026) · [Is Cursor only for developers?](/posts/is-cursor-only-for-developers)
 
 ## What are Cursor side chats?
@@ -80,6 +79,9 @@ Before side chats, I had two bad options:
 Side chats give me a **parallel lane** while the main thread keeps working. I can be more expressive in real time: "hold the headline options — first answer whether this claim is defensible" or "go deeper on section 2 only, do not touch the draft body." The main goal stays pinned; my steering lives in the branch until I merge one line back.
 
 That rhythm matches how I actually direct work — not batch instructions upfront, but **course corrections while the agent reasons**. Side chats are the UI for that habit.
+
+![Cursor IDE showing a side chat branch alongside the main agent thread.](/images/posts/cursor-side-chats-parallel-agents-2026-body-01-side-chat-ui.png)
+*Screenshot: [Cursor](https://cursor.com/) side chat UI — Petralian (2026)*
 
 ---
 

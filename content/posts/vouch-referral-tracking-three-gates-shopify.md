@@ -12,7 +12,9 @@ excerpt: >-
   gates—embed enabled, link attribution, and account-page data—must pass before
   orders earn credit.
 featured_image: /images/posts/vouch-referral-tracking-three-gates-shopify.png
-featured_image_alt: "Editorial diagram of three gates leading to a checkout receipt"
+featured_image_alt: >-
+  Editorial diagram of three gates leading to a checkout receipt with a referral
+  field, warm paper texture, no logos or readable text.
 focus_keyword: shopify referral tracking not working
 seo_description: >-
   Why Vouch and other Shopify referral apps show zero conversions: app embed

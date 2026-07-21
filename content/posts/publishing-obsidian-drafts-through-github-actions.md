@@ -28,10 +28,10 @@ image_prompt_variant_2: >-
   side and a clean code-owned Obsidian-to-GitHub workflow on the other, with the
   article moving smoothly from draft to live site. Editorial, polished,
   professional but playful.
+featured_image_alt: A clean editorial illustration of a writer's Obsidian note entering
 format: hands-on
 best_for: Builders publishing from Obsidian with GitHub Actions and minimal friction
 seo_title: Publishing Obsidian Drafts Through GitHub Actions
-featured_image_alt: Hero illustration for Publishing Obsidian Drafts Through GitHub Actions
 ---
 **TL;DR**
 

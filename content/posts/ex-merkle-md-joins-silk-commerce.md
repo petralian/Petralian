@@ -14,13 +14,13 @@ featured_image: /images/posts/merkle-silk-commerce-launch-hero.jpg
 seo_description: >-
   Over the past five months, I had the privilege of working with Silk Commerce
   as their Vice President of International Markets, focusing on expanding the…
+featured_image_alt: Hero illustration for Reflecting on My 5-Month Engagement with Silk Commerce
 format: strategic
 best_for: >-
   Agency and commerce leaders following APAC network moves and partnership
   models
 seo_title: Reflecting on My 5-Month Engagement with Silk Commerce
 focus_keyword: leadership
-featured_image_alt: Hero illustration for Reflecting on My 5-Month Engagement with Silk Commerce
 ---
 
 Over the past five months, I had the privilege of working with **[Silk Commerce](https://www.silkcommerce.com/)** as their **Vice President of International Markets**, focusing on expanding the agency’s reach in the fast-growing Asia-Pacific (APAC) region. This engagement was an exciting chapter in my professional journey, offering the opportunity to collaborate with a talented team and contribute to the agency’s efforts in delivering innovative eCommerce solutions.

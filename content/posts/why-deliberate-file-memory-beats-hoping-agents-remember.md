@@ -29,12 +29,12 @@ image_prompt_variant_2: >-
 series: External Memory Series
 series_order: 4
 featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.png
+featured_image_alt: Editorial photograph of a printed runbook and decision log on a conference
 format: hybrid
 best_for: >-
   Teams adopting governance for file-based agent memory instead of hoping
   context sticks
 seo_title: Why Deliberate File Memory Beats Hoping Agents Remember
-featured_image_alt: Hero illustration for Why Deliberate File Memory Beats Hoping Agents Remember
 ---
 **TL;DR**
 
@@ -89,7 +89,6 @@ Chat feedback fixes one instance. File feedback fixes the **class**:
 Session End footer requires **Self-improvements: exact file path**—or the write did not happen. That is stricter than the generic "feedback loop" on a slide.
 
 ![Example Mode B advisory response footer with memory field.](/images/posts/why-deliberate-file-memory-body-01-mode-b-footer.jpg)
-
 *Screenshot: Petralian / Cursor (2026)*
 
 [Why AI agent output quality drifts](/posts/ai-agent-quality-drift-detection) is the quality angle on the same idea: without external anchors, drift is invisible until production.

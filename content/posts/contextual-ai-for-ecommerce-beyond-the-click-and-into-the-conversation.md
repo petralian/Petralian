@@ -18,11 +18,13 @@ seo_description: >-
   TL;DR What Contextual AI for ecommerce: Beyond the Click and Into the
   Conversation covers. Who it is for and when to use it. Practical next steps
   after…
+featured_image_alt: >-
+  Hero illustration for Contextual AI for ecommerce: Beyond the Click and Into
+  the Conversation
 format: hybrid
 best_for: Commerce leaders and practitioners shaping conversational customer journeys
 seo_title: 'Contextual AI for ecommerce: Beyond the Click and Into the…'
 focus_keyword: ai in marketing
-featured_image_alt: "Hero illustration for Contextual AI for ecommerce: Beyond the Click and Into the Conversation"
 ---
 **TL;DR**
 

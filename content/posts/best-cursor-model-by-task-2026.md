@@ -12,7 +12,10 @@ excerpt: >-
   scope. Here is a work-mode default map for anyone choosing Cursor models —
   with cost, tokens, and steps from the public table.
 featured_image: /images/posts/best-cursor-model-by-task-2026.png
-featured_image_alt: "Four workshop trays on a concrete bench under colored gel lights,"
+featured_image_alt: >-
+  Four workshop trays on a concrete bench under colored gel lights, each
+  suggesting a different work mode, editorial still life, no logos or readable
+  text.
 focus_keyword: best cursor model 2026
 seo_description: >-
   Best Cursor model by work mode in 2026: analysis, review, execution, and
@@ -58,7 +61,6 @@ People and teams rarely fail because they lack a **top-scoring model**. They fai
 CursorBench **3.2** groups agent problems into codebase understanding, bugfinding, planning, code review, instruction following, and advanced tool use ([Cursor evals](https://cursor.com/evals)). The public table still reports **one aggregate score per model**. This article uses that battery plus **task-shaped risk** (steps, tokens, cost) to recommend defaults until per-task columns ship.
 
 ![CursorBench cost versus score scatter chart.](/images/posts/best-cursor-model-by-task-2026-body-01-cursorbench-scatter.png)
-
 *Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
 
 ## Why work mode changes the right model
@@ -90,7 +92,6 @@ Benchmarked numbers (from [CursorBench 3.2](https://cursor.com/evals)):
 \* Grok 4.5: Cursor training-data caveat on [evals](https://cursor.com/evals).
 
 ![CursorBench model leaderboard sorted by benchmark score.](/images/posts/best-cursor-model-by-task-2026-body-02-cursorbench-leaderboard.png)
-
 *Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
 
 ## Recommended defaults by work mode
@@ -144,7 +145,6 @@ tasks -> green: "rules + cost" { style.stroke-dash: 8 }
 ```
 
 ![Recommended Cursor model defaults by work mode.](/images/posts/best-cursor-model-by-task-2026-body-03-work-mode-table.png)
-
 *Screenshot: [CursorBench](https://cursor.com/cursorbench) — Petralian (2026)*
 
 ## Work-mode notes

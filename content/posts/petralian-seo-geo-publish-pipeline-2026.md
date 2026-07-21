@@ -12,7 +12,9 @@ excerpt: >-
   llms.txt, IndexNow, and auto-fix scripts into one vault-to-Vercel chain so
   Google and AI crawlers see what I meant to ship.
 featured_image: /images/posts/petralian-seo-geo-publish-pipeline-2026.png
-featured_image_alt: "Flow from Obsidian vault folders through sync scripts to a live"
+featured_image_alt: >-
+  Flow from Obsidian vault folders through sync scripts to a live site and
+  search crawlers, editorial still life, no logos or readable text.
 focus_keyword: SEO GEO publish pipeline
 seo_title: How I Built an SEO and GEO Publish Pipeline (Without an…
 seo_description: >-

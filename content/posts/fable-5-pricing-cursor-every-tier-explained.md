@@ -12,7 +12,9 @@ excerpt: >-
   cost, tokens, and steps change from Max to Low — for anyone approving model
   spend, not pickers chasing rank.
 featured_image: /images/posts/fable-5-pricing-cursor-every-tier-explained.png
-featured_image_alt: "Five nested brass rings on dark slate with coin stacks beside"
+featured_image_alt: >-
+  Five nested brass rings on dark slate with coin stacks beside each ring, macro
+  editorial still life, amber keylight, no logos or readable text.
 focus_keyword: cursor fable 5 pricing
 seo_description: >-
   Fable 5 pricing tiers on Cursor explained: Max through Low with CursorBench

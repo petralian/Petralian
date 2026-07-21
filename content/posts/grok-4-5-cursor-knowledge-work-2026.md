@@ -1,48 +1,27 @@
----
-title: 'Grok 4.5 in Cursor for Knowledge Work: Beyond the Benchmark Row'
+﻿---
+title: "Grok 4.5 in Cursor for Knowledge Work: Beyond the Benchmark Row"
 slug: grok-4-5-cursor-knowledge-work-2026
-date: 2026-07-23T00:00:00.000Z
+date: 2026-07-23
 tags:
   - Agentic AI
   - Generative AI
   - Enterprise AI
   - AI Quality
-excerpt: >-
-  Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis,
-  briefs, and research passes — not as a default for every repo edit. Here is
-  the decision frame.
+excerpt: "Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis, briefs, and research passes — not as a default for every repo edit. Here is the decision frame."
 featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.png
 focus_keyword: Grok 4.5 Cursor knowledge work
-seo_description: >-
-  Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for
-  synthesis and briefs, with links to CursorBench posts — not another score
-  table.
+seo_description: "Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for synthesis and briefs, with links to CursorBench posts — not another score table."
 related_posts:
   - open-models-cursorbench-3-2-grok-glm-kimi-longcat
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - when-to-escalate-composer-2-5-to-fable-5
-image_prompt: >-
-  Cinematic 16:9: wide desk with scattered research papers morphing into a
-  single clean brief stack under a sharp desk lamp, deep blue shadows, copper
-  accent edge, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium: constellation lines connect note cards into one
-  glowing narrative arc, observer silhouette absent, violet sky, no readable
-  text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Research Notes funnel to Synthesis block to Brief
-  Output, Grok tier as accent gem on synthesis step only, teal risograph, no
-  logos.
+image_prompt: "Cinematic 16:9: wide desk with scattered research papers morphing into a single clean brief stack under a sharp desk lamp, deep blue shadows, copper accent edge, no logos, no readable text, no faces."
+image_prompt_variant_1: "Surreal 16:9 planetarium: constellation lines connect note cards into one glowing narrative arc, observer silhouette absent, violet sky, no readable text."
+image_prompt_variant_2: "Bold isometric 16:9 poster: Research Notes funnel to Synthesis block to Brief Output, Grok tier as accent gem on synthesis step only, teal risograph, no logos."
 format: hybrid
-best_for: >-
-  Anyone who read Grok 4.5 CursorBench numbers and wants a practical rule for
-  knowledge work, briefs, and synthesis without changing every default
-seo_title: 'Grok 4.5 in Cursor for Knowledge Work: Beyond the…'
-featured_image_alt: >-
-  Hero illustration for Grok 4.5 in Cursor for Knowledge Work: Beyond the
-  Benchmark Row
+best_for: Anyone who read Grok 4.5 CursorBench numbers and wants a practical rule for knowledge work, briefs, and synthesis without changing every default
+featured_image_alt: "Research papers on a desk morphing into a single clean brief stack under a desk lamp."
 ---
-
 > **Benchmark cluster:** [Open models on CursorBench 3.2](/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat) · [Fable 5 vs Composer cost vs score](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score) · [When to escalate to Fable 5](/posts/when-to-escalate-composer-2-5-to-fable-5)
 
 ## Grok 4.5 for Cursor knowledge work
@@ -64,6 +43,12 @@ Coding sessions punish wrong edits. Knowledge work punishes **weak synthesis**: 
 Composer 2.5 is my default for tight agent loops with files because cost and steps stay predictable ([cost vs score hub](/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score)). Grok 4.5 enters when the task is **judgment across many inputs** and the output must read like a decision memo, not a chat reply.
 
 The CursorBench row matters as **budget signal**, not as bragging rights. Grok tiers run roughly 3x Composer cost per task in the 3.2 battery (see the open-models post for exact figures and the training-data disclaimer on Grok).
+
+![xAI Grok 4.5 announcement page highlighting model capabilities.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-01-grok-announcement.png)
+*Screenshot: [xAI Grok 4.5](https://x.ai/news/grok-4-5) — Petralian (2026); Grok is actually quite clever…*
+
+![Cursor models and pricing documentation with tier comparison.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-02-cursor-models-pricing.png)
+*Screenshot: [Cursor models and pricing](https://cursor.com/docs/models-and-pricing) — Petralian (2026); …and 5× cheaper as Fable 5*
 
 ---
 
@@ -137,6 +122,9 @@ For team governance, pair this with [best model by task](/posts/best-cursor-mode
 ## Limitations
 
 Grok's CursorBench advantage may include training-data overlap with Cursor codebases (see [evals disclaimer](https://cursor.com/evals)). Treat coding scores as directional.
+
+![Cursor evals page disclaimer on benchmark training data overlap.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-03-cursor-evals-disclaimer.png)
+*Screenshot: [Cursor evals](https://cursor.com/evals) — Petralian (2026)*
 
 Knowledge work quality still erodes without file discipline. No model fixes missing Bridge.
 

@@ -15,11 +15,13 @@ seo_description: >-
   TL;DR What Redefining Media Agency Success: Embracing Innovation in the
   Digital Era covers. Who it is for and when to use it. Practical next steps
   after…
+featured_image_alt: >-
+  Hero illustration for Redefining Media Agency Success: Embracing Innovation in
+  the Digital Era
 format: strategic
 best_for: Agency leaders redefining success metrics as media and innovation converge
 seo_title: 'Redefining Media Agency Success: Embracing Innovation in…'
 focus_keyword: agency landscape
-featured_image_alt: "Hero illustration for Redefining Media Agency Success: Embracing Innovation in the Digital Era"
 ---
 **TL;DR**
 

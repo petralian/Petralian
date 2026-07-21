@@ -32,10 +32,10 @@ image_prompt_variant_2: >-
   noisy alerts, right side shows a clean scored pipeline with release gate
   checks and traceable evidence, editorial style, sharp contrast, modern product
   illustration.
+featured_image_alt: A transparent engineering control room with six illuminated quality
 format: hands-on
 best_for: Builders who want the architecture behind an AI quality scoring engine
 seo_title: 'How We Built Gravio’s Scoring Engine: From Repo Signals to…'
-featured_image_alt: "A transparent engineering control room with six illuminated quality"
 ---
 **TL;DR**
 

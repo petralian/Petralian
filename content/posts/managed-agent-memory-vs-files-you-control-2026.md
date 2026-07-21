@@ -1,49 +1,35 @@
----
-title: 'Managed Agent Memory vs Files You Control: A Strategic Hybrid'
+﻿---
+title: "Managed Agent Memory vs Files You Control: A Strategic Hybrid"
 slug: managed-agent-memory-vs-files-you-control-2026
-date: 2026-07-24T00:00:00.000Z
+date: 2026-07-24
 tags:
   - AI Memory
   - Agentic AI
   - Obsidian
   - Enterprise AI
-excerpt: >-
-  Mem0 and managed memory layers promise automatic recall. File harnesses
-  promise portability. I use both lanes deliberately — not as a single winner.
+excerpt: "Mem0 and managed memory layers promise automatic recall. File harnesses promise portability. I use both lanes deliberately — not as a single winner."
 featured_image: /images/posts/managed-agent-memory-vs-files-you-control-2026.png
 focus_keyword: agent memory files vs managed
-seo_description: >-
-  Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT):
-  when each wins, hybrid patterns, and governance for portable AI memory.
+seo_description: "Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT): when each wins, hybrid patterns, and governance for portable AI memory."
 related_posts:
   - the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
   - why-deliberate-file-memory-beats-hoping-agents-remember
   - cursor-harness-memory-loop-2026
-image_prompt: >-
-  Cinematic 16:9: two archive systems side by side, left a glowing automatic
-  carousel of memory cards, right open wooden drawers of markdown files, single
-  beam of light connecting both, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 library: robotic librarian sorts floating memory bubbles into
-  labeled file folders on a conveyor, teal and amber light, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Managed Memory API cylinder feeds Agent; File SSOT
-  vault feeds Agent; Human Review gate between both, violet risograph, no logos.
+image_prompt: "Cinematic 16:9: two archive systems side by side, left a glowing automatic carousel of memory cards, right open wooden drawers of markdown files, single beam of light connecting both, no logos, no readable text, no faces."
+image_prompt_variant_1: "Surreal 16:9 library: robotic librarian sorts floating memory bubbles into labeled file folders on a conveyor, teal and amber light, no readable text."
+image_prompt_variant_2: "Bold isometric 16:9 poster: Managed Memory API cylinder feeds Agent; File SSOT vault feeds Agent; Human Review gate between both, violet risograph, no logos."
 format: hybrid
-best_for: >-
-  Anyone evaluating Mem0 or similar managed memory who also keeps Obsidian or
-  git markdown and wants a clear hybrid rule instead of vendor lock-in
-seo_title: 'Managed Agent Memory vs Files You Control: A Strategic…'
-featured_image_alt: >-
-  Hero illustration for Managed Agent Memory vs Files You Control: A Strategic
-  Hybrid
+best_for: Anyone evaluating Mem0 or similar managed memory who also keeps Obsidian or git markdown and wants a clear hybrid rule instead of vendor lock-in
+featured_image_alt: "Automatic memory carousel beside open wooden drawers of markdown files connected by a beam of light."
 ---
-
 > **Memory cluster:** [AI memory landscape](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) · [Deliberate file memory](/posts/why-deliberate-file-memory-beats-hoping-agents-remember) · [Harness memory loop](/posts/cursor-harness-memory-loop-2026)
 
 ## Managed agent memory vs files you control
 
 **Managed agent memory** (services like Mem0 and similar layers) stores facts and preferences in a product-specific store, often with automatic extraction from chat. **Files you control** (Obsidian, git markdown, Bridge notes) store what you curate in formats that survive tool churn.
+
+![Mem0 managed memory pricing tiers for projects and API usage.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-01-mem0-pricing.png)
+*Screenshot: [Mem0 pricing](https://mem0.ai/pricing) — Petralian (2026); Free until you do more as one project… and I think everyone does more as one project… so find better options*
 
 The strategic question is not which is "smarter." It is which memory tier owns which class of truth.
 
@@ -126,6 +112,9 @@ I do not treat managed memory as the boss. I treat it as **Lane A: contextual ca
 The [memory loop](/posts/cursor-harness-memory-loop-2026) close step is where promotion happens. Hooks can warn when close-out skipped; they cannot replace the human promote/reject call.
 
 **Example implementation — how I run it:** Cursor sessions bootstrap from vault Bridge and repo `memories/` where present. Ambient agents (Hermes, messaging surfaces) may use managed recall for conversational context — covered in the comparison posts. Petralian blogging and client deliverables never rely on managed memory alone for publish truth.
+
+![Vouch Obsidian vault graph linking session notes to git commits.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-02-vouch-obsidian-recall.png)
+*Screenshot: Petralian Vouch Obsidian vault — Petralian (2026); Total recall on what we did, linked to commits*
 
 ---
 

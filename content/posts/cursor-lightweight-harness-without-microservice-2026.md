@@ -37,12 +37,12 @@ image_prompt_variant_2: >-
   Bold isometric 16:9 poster: horizontal gate chain Direct to Batch to Test to
   Ship as flat blocks with checkmarks, risograph texture teal and slate, no
   logos.
+featured_image_alt: 'Cinematic 16:9: a single Composer pane on a workbench surrounded by'
 format: hands-on
 best_for: >-
   Practice leads governing Cursor Agent with harness discipline without
   microservice overhead
 seo_title: You Already Have an AI Harness in Cursor
-featured_image_alt: Hero illustration for You Already Have an AI Harness in Cursor
 ---
 **TL;DR**
 

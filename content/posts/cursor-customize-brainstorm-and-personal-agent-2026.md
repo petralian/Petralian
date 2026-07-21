@@ -1,5 +1,5 @@
----
-title: Cursor Customize for Brainstorming and a Personal Agent
+﻿---
+title: "Cursor Customize for Brainstorming and a Personal Agent"
 slug: cursor-customize-brainstorm-and-personal-agent-2026
 date: 2026-07-15T00:00:00.000Z
 tags:
@@ -9,34 +9,20 @@ tags:
   - Obsidian
 series: Cursor Customize Series
 series_order: 1
-excerpt: >-
-  Use Cursor Customize so brainstorming stays exploratory and your personal
-  agent stays private - without mixing life admin into public drafts.
+excerpt: "Use Cursor Customize so brainstorming stays exploratory and your personal agent stays private - without mixing life admin into public drafts."
 featured_image: /images/posts/cursor-customize-brainstorm-and-personal-agent-2026.png
 focus_keyword: Cursor personal agent brainstorm
-seo_description: >-
-  Set up Cursor Customize for brainstorming and a personal agent: loose
-  exploration rules, private life-admin memory, and a clean phone-to-desk
-  handoff.
+seo_description: "Set up Cursor Customize for brainstorming and a personal agent: loose exploration rules, private life-admin memory, and a clean phone-to-desk handoff."
 related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-customize-business-development-ssot-2026
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
-image_prompt: >-
-  Cinematic 16:9: night train window with soft bokeh city lights, a notebook and
-  phone on the tray table catching warm cabin light, sense of ideas in transit,
-  no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium: thought constellations project onto two separate
-  terrariums labeled Explore and Private Life, teal starlight, no readable text.
-image_prompt_variant_2: >-
-  Bold graphic 16:9 poster: two interlocking circles Explore and Personal with a
-  thin firewall line between them, copper and slate, isometric icons only, no
-  logos.
+image_prompt: "Cinematic 16:9: night train window with soft bokeh city lights, a notebook and phone on the tray table catching warm cabin light, sense of ideas in transit, no logos, no readable text, no faces."
+image_prompt_variant_1: "Surreal 16:9 planetarium: thought constellations project onto two separate terrariums labeled Explore and Private Life, teal starlight, no readable text."
+image_prompt_variant_2: "Bold graphic 16:9 poster: two interlocking circles Explore and Personal with a thin firewall line between them, copper and slate, isometric icons only, no logos."
+featured_image_alt: "Cinematic 16:9: night train window with soft bokeh city lights, a notebook and phone on the tray table catching warm cabin light, sense of ideas in transit, ..."
 format: hybrid
 best_for: Anyone whose idea chats and life-admin chats keep contaminating each other
-seo_title: Cursor Customize for Brainstorming and a Personal Agent
-featured_image_alt: Hero illustration for Cursor Customize for Brainstorming and a Personal Agent
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 1 of 5 deep dives

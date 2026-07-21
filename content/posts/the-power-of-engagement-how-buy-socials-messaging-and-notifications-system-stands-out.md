@@ -17,11 +17,13 @@ featured_image: /images/posts/buysocial-messaging-notifications-hero.jpg
 seo_description: >-
   TL;DR What Power of Engagement: How Buy.social’s Messaging and Notifications
   System Stands covers. Who it is for and when to use it. Practical next steps…
+featured_image_alt: >-
+  Hero illustration for The Power of Engagement: How Buy.social’s Messaging and
+  Notifications System
 format: strategic
 best_for: Ecommerce operators evaluating messaging and notification engagement patterns
 seo_title: 'The Power of Engagement: How Buy.social’s Messaging and…'
 focus_keyword: customer experience
-featured_image_alt: "Hero illustration for The Power of Engagement: How Buy.social’s Messaging and Notifications System"
 ---
 **TL;DR**
 

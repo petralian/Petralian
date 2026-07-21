@@ -37,12 +37,12 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Graphic 16:9 poster: two panels Advisory vs Committed decision with arrow gate
   between, bold navy and coral flat shapes, no logos.
+featured_image_alt: 'Cinematic 16:9 low-angle of a single chair at a round table, three empty'
 format: strategic
 best_for: >-
   Executives making the leadership calls that determine whether agent programs
   scale
 seo_title: Leadership and Decisions With an AI Session Engine…
-featured_image_alt: "Cinematic 16:9 low-angle of a single chair at a round table, three empty"
 ---
 
 > **Knowledge Work Engine Series (Part 2)**  

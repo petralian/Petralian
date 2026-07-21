@@ -36,12 +36,15 @@ image_prompt_variant_2: >-
   Bold isometric 16:9 poster: seven Customize layer blocks (Rules Skills Hooks
   Commands Plugins MCPs Subagents) orbit one agent core, copper and slate
   risograph, no logos, no readable text.
+featured_image_alt: >-
+  Cinematic 16:9: a single desk lamp illuminates a week planner board with six
+  soft abstract mode tiles (thought bubble, handshake, notebook, calendar,
+  wrench,...
 format: hybrid
 best_for: >-
   Anyone who uses AI across study, business, and personal work and wants one
   customized agent interface instead of a pile of chat tabs
 seo_title: 'One Agent, Many Workflows: What Cursor Customize Is For…'
-featured_image_alt: "Cinematic 16:9: a single desk lamp illuminates a week planner board with six soft abstract mode tiles (thought bubble, handshake, notebook, calendar, wrench,..."
 ---
 
 > **Series hub.** Deep dives: [Brainstorm and personal agent](/posts/cursor-customize-brainstorm-and-personal-agent-2026) · [Business development SSOT](/posts/cursor-customize-business-development-ssot-2026) · [Blogging and project memory](/posts/cursor-customize-blogging-and-project-memory-2026) · [Local develop and GitHub](/posts/cursor-customize-local-github-and-shipping-2026) · [Skills, hooks, orchestration](/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026)
@@ -71,7 +74,6 @@ That is **lightweight agent harness design** in practice: not a separate microse
 Most people do not get weaker results because the model is weak. They get weaker results because Monday's brainstorm lives in one tab, Wednesday's proposal in another, and Friday's "remind me what we decided" has no home. Voice drifts. Facts contradict. You paste the same background paragraph until trust in the tool erodes.
 
 ![Person at a laptop surrounded by scattered notes and devices.](/images/posts/cursor-customize-hub-body-01-chat-overwhelm.jpg)
-
 *Photo: [Nicola Barts](https://www.pexels.com/photo/7925881/) on Pexels*
 
 The pattern is the same across study, business, and personal work: **context without a file**.
@@ -138,7 +140,6 @@ Cursor's Customize surface looks technical until you rename each layer by **job*
 | **MCPs**      | Bridges to external systems                       | "Read or write a connected app when needed."   |
 | **Subagents** | Parallel specialists for independent jobs         | "Draft the vault note while I fix the script." |
 ![Cursor Customize panel listing rules, skills, hooks, and plugins.](/images/posts/cursor-customize-hub-body-02-customize-layers.png)
-
 *Screenshot: Petralian / Cursor (2026)*
 
 You do not turn every layer on for every mode. Brainstorm needs loose rules and strong honesty about unknowns. Consulting SSOT needs tight rules around the questionnaire file. Blogging needs voice and folder gates. Shipping needs review habits, not a second copy of your entire Brain.
@@ -159,7 +160,6 @@ The handoff that matters is **what survives the commute**:
 Either path beats "I will remember." You will not. Files remember.
 
 ![Mobile and desktop Cursor sessions illustrating commute handoff.](/images/posts/cursor-customize-hub-body-03-mobile-handoff.png)
-
 *Screenshot: Petralian / Cursor (2026)*
 
 The deep dive on skills, hooks, orchestration, and the Obsidian loop is [Skills, hooks, and orchestration](/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026).

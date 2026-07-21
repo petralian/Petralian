@@ -16,13 +16,15 @@ featured_image: /images/posts/generative-ai-marketing-industry-hero.jpeg
 seo_description: >-
   TL;DR What Generative AI in Marketing: My Thoughts on the Industry’s Progress
   and Challenge covers. Who it is for and when to use it. Practical next steps…
+featured_image_alt: >-
+  Hero illustration for Generative AI in Marketing: My Thoughts on the
+  Industry’s Progress and Challenges
 format: hybrid
 best_for: >-
   Marketing leaders who want an honest read on generative AI maturity in the
   industry
 seo_title: 'Generative AI in Marketing: My Thoughts on the Industry’s…'
 focus_keyword: generative ai
-featured_image_alt: "Hero illustration for Generative AI in Marketing: My Thoughts on the Industry’s Progress and Challenges"
 ---
 **TL;DR**
 

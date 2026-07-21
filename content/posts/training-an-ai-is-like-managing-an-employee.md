@@ -37,12 +37,12 @@ image_prompt_variant_2: >-
   from both human and AI collaborators. Professional editorial illustration with
   subtle humor, cinematic 16:9 framing, no logos, no readable text, no
   watermarks.
+featured_image_alt: 'Create a 16:9 conceptual hero image for an article comparing AI direction'
 format: hybrid
 best_for: >-
   Managers and team leads translating people-management instincts to AI
   workflows
 seo_title: Training an AI Is Like Managing an Employee
-featured_image_alt: Hero illustration for Training an AI Is Like Managing an Employee
 ---
 **TL;DR**
 

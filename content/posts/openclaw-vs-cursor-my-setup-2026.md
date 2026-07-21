@@ -35,12 +35,11 @@ format: hybrid
 best_for: >-
   Anyone who read OpenClaw hype and uses Cursor who wants a clear comparison
   between ambient messaging agents and file-grounded IDE work
-seo_title: 'OpenClaw vs Cursor in 2026: Ambient Messaging Agent vs…'
 featured_image_alt: >-
-  Hero illustration for OpenClaw vs Cursor in 2026: Ambient Messaging Agent vs
-  File-Grounded IDE
+  Smartphone with chat glow on an armrest and a laptop displaying a folder tree
+  on a table.
+seo_title: 'OpenClaw vs Cursor in 2026: Ambient Messaging Agent vs…'
 ---
-
 > **Memory cluster:** [AI memory landscape](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives) · [Hermes vs Cursor](/posts/hermes-vs-cursor-my-setup-2026) · [Is Cursor only for developers?](/posts/is-cursor-only-for-developers)
 
 ## OpenClaw vs Cursor in 2026
@@ -54,6 +53,9 @@ For the original landscape essay, read [The AI memory problem](/posts/the-ai-mem
 **Who it is for:** Anyone choosing between or alongside OpenClaw and Cursor who needs a decision frame for messaging-first agents versus IDE-first agents.
 
 **What you will learn:** architecture contrast in plain terms, when OpenClaw wins, when Cursor wins, memory differences, and a Path A if you only adopt one pattern.
+
+![Diagram explaining how OpenClaw local memory layers connect to skills.](/images/posts/openclaw-vs-cursor-my-setup-2026-body-01-openclaw-memory-diagram.png)
+*Diagram: [How OpenClaw memory works](https://medium.com/@databytoufik/how-openclaw-memory-works-802bd8465b1a) — Petralian (2026)*
 
 ---
 
@@ -132,6 +134,9 @@ I also run **Hermes** as a hosted variant on the server/messaging side ([Hermes 
 ## Example implementation — how I think about the split
 
 I use Cursor daily for Petralian, Vouch, client workspaces, and harness work. OpenClaw is the reference architecture for **what a local ambient agent could do** on messaging surfaces with persistent memory.
+
+![OpenClaw deployment guide showing local agent OS setup steps.](/images/posts/openclaw-vs-cursor-my-setup-2026-body-02-openclaw-deploy.png)
+*Screenshot: [OpenClaw deploy guide](https://open-claw.org/posts/openclaw-deploy) — Petralian (2026); good if you do not mind one system having access to everything all at once*
 
 Practical division:
 

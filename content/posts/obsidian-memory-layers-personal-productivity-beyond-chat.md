@@ -32,10 +32,10 @@ image_prompt_variant_2: >-
   kanban column and one notebook on the right—editorial split, professional
   playful contrast.
 featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.png
+featured_image_alt: Calm home office desk with an open Obsidian-style linked note graph
 format: hybrid
 best_for: Knowledge workers layering Obsidian memory beyond a single chat thread
 seo_title: 'Beyond Chat History: Using Layered Obsidian Memory for…'
-featured_image_alt: "Calm home office desk with an open Obsidian-style linked note graph"
 ---
 **TL;DR**
 

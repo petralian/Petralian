@@ -15,7 +15,9 @@ excerpt: >-
   Transform Banking covers. Who it is for and when to use it. Practical next
   steps…
 featured_image: /images/posts/personalized-banking-digital-app-apac-hero.jpg
-featured_image_alt: "Smartphone banking app on a desk with APAC city skyline bokeh, warm editorial light."
+featured_image_alt: >-
+  Smartphone banking app on a desk with APAC city skyline bokeh, warm editorial
+  light.
 seo_description: >-
   TL;DR What Bringing the Retail Mindset to Finance: How Personalization Can
   Transform Banking covers. Who it is for and when to use it. Practical next
@@ -39,8 +41,7 @@ The financial industry in the Asia-Pacific (APAC) region faces unique challenges
 Let’s dive deeper into how financial institutions in APAC can leverage retail-inspired personalization strategies while addressing regional complexities like regulations and cultural diversity.
 
 ![Traditional junk boat in Hong Kong harbor with city skyline.](/images/posts/bringing-retail-banking-apac-body-01-hong-kong-harbor.jpg)
-
-*Photo: [Cato S.](https://www.pexels.com/photo/37095486/) on Pexels*
+*Photo: [Vivian Chan](https://www.pexels.com/photo/traditional-junk-boat-in-hong-kong-harbor-37095486/) on Pexels*
 
 ## What is retail-style personalization in banking?
 
@@ -110,8 +111,7 @@ While markets like South Korea and Singapore are leaders in fintech adoption, ot
 -   **Solution**: Balance digital and traditional outreach strategies based on the technological maturity of each market.
 
 ![Person using a mobile banking app on a smartphone.](/images/posts/bringing-retail-banking-apac-body-02-mobile-banking.jpg)
-
-*Photo: [Tima Miroshnichenko](https://www.pexels.com/photo/5198284/) on Pexels*
+*Photo: [Photo By: Kaboompics.com](https://www.pexels.com/photo/person-holding-smartphone-6347/) on Pexels*
 
 ### 5\. Data Privacy and Cybersecurity Sensitivity
 

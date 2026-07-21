@@ -22,10 +22,10 @@ image_prompt: >-
   confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red
   warning icon replaced by green checks, dark modern UI aesthetic, no brand
   logos, no text overlays, no watermarks.
+featured_image_alt: 'Create a 16:9 hero image for a technical build-log article'
 format: hands-on
 best_for: Solo publishers automating a weekly digest without paid RSS tooling
 seo_title: How I Built the Petralian Weekly Digest on Brevo Free
-featured_image_alt: Hero illustration for How I Built the Petralian Weekly Digest on Brevo Free
 ---
 **TL;DR**
 

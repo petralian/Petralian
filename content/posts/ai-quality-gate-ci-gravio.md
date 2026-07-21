@@ -20,10 +20,10 @@ image_prompt: >-
   A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
   badges, code and model icons connected, clean enterprise infographic style,
   blue and orange contrast
+featured_image_alt: A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
 format: hands-on
 best_for: Builders wiring AI quality checks into CI and release pipelines
 seo_title: 'The New CI Gate: Failing Builds on Agent Quality'
-featured_image_alt: 'Hero illustration for The New CI Gate: Failing Builds on Agent Quality'
 ---
 
 > **External Memory Series** — File-based memory for AI-assisted work ([overview](/posts/external-memory-series-guide) · [1 Implementation](/posts/three-layer-external-brain-for-ai-first-development) · [2 Productivity](/posts/obsidian-memory-layers-personal-productivity-beyond-chat) · [3 vs the diagram](/posts/why-file-memory-beats-the-three-layer-diagram-for-builders) · [4 Governance](/posts/why-deliberate-file-memory-beats-hoping-agents-remember))
@@ -36,7 +36,6 @@ AI can regress while classic checks still pass.
 If quality scores are visible but non-blocking, teams often ship under pressure anyway. The fix is simple in concept: make AI quality a gate, not just a dashboard.
 
 ![GitHub Actions workflow with an AI quality gate step.](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.png)
-
 *Screenshot: Petralian / GitHub (2026)*
 
 ## Why Existing Gates Miss AI Regressions

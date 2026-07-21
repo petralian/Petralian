@@ -37,12 +37,12 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Bold isometric 16:9: before stack Proxy Tunnel RTK crossed out, after stack
   Direct MCP Harness as three blocks, risograph teal and slate, no logos.
+featured_image_alt: 'Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter'
 format: hands-on
 best_for: >-
   Program leads optimizing Cursor token spend and context discipline without
   proxy middleware
 seo_title: 'Beyond Headroom: What I Tried to Save Cursor Tokens, What…'
-featured_image_alt: "Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter"
 ---
 **TL;DR**
 

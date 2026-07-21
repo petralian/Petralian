@@ -19,10 +19,12 @@ seo_description: >-
   workflow centered on Obsidian. Here's what I built, why Vercel and Tina CMS
   made it…
 live_url: 'https://petralian.com/posts/why-i-rebuilt-petralian-on-nextjs'
+featured_image_alt: >-
+  Editorial split of WordPress admin, Obsidian vault, and Next.js deployment
+  pipeline.
 format: hands-on
 best_for: 'Developers weighing a Next.js rebuild for content, SEO, and shipping speed'
 seo_title: Why I Rebuilt Petralian on Next.js (And Open Sourced It)
-featured_image_alt: Hero illustration for Why I Rebuilt Petralian on Next.js (And Open Sourced It)
 ---
 **TL;DR**
 
@@ -71,7 +73,6 @@ The Obsidian workflow is now a PowerShell script — `sync-obsidian.ps1` — tha
 That's the gap closed.
 
 ![WordPress block editor friction compared with file-based drafting.](/images/posts/why-i-rebuilt-petralian-body-01-wordpress-editor.png)
-
 *Screenshot: Petralian (2026)*
 
 ---
@@ -97,7 +98,6 @@ I connect the GitHub repo, set the root directory, and Vercel handles the rest. 
 For a personal site where I want to write, not operate infrastructure, this matters. The operational overhead of a WordPress site — plugin updates, security patches, PHP version compatibility, caching plugin conflicts — was background noise I was tired of managing. Static generation on Vercel is genuinely lower maintenance.
 
 ![Obsidian vault folder structure for publishing workflow.](/images/posts/why-i-rebuilt-petralian-body-02-obsidian-vault.png)
-
 *Screenshot: Petralian / Obsidian (2026)*
 
 ---
@@ -123,7 +123,6 @@ I'm comfortable writing in Obsidian and pushing from the command line, but I wan
 For now it's an option rather than the default workflow. But it means the architecture supports non-technical contributors without abandoning the simplicity of file-based content.
 
 ![Next.js and Vercel deployment pipeline for petralian.com.](/images/posts/why-i-rebuilt-petralian-body-03-nextjs-vercel.png)
-
 *Screenshot: Petralian / Vercel (2026)*
 
 ---

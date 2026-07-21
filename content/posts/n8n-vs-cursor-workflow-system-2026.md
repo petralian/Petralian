@@ -35,12 +35,11 @@ format: hybrid
 best_for: >-
   Operators comparing n8n to a Cursor plus Obsidian harness who need a clear
   line between scheduled integrations and file-grounded agent judgment
-seo_title: 'n8n vs My Cursor and Obsidian System: Scheduled Automation…'
 featured_image_alt: >-
-  Hero illustration for n8n vs My Cursor and Obsidian System: Scheduled
-  Automation vs Judgment Work
+  Industrial conveyor belts move scheduled packets while a lit desk handles one
+  open folder for judgment work.
+seo_title: 'n8n vs My Cursor and Obsidian System: Scheduled Automation…'
 ---
-
 > **Harness cluster:** [Skills, hooks, orchestration](/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026) · [Lightweight harness](/posts/cursor-lightweight-harness-without-microservice-2026) · [Knowledge Work Engine](/posts/knowledge-work-agent-engine-guide-2026)
 
 ## n8n vs my Cursor and Obsidian system
@@ -67,6 +66,9 @@ The mistake is using one tool for the other's core job.
 - Cursor excels when the path is **negotiated in files** and the output needs **review before it ships**.
 
 When judgment is required every run, a workflow graph — or a pile of microservices with no SSOT — becomes an expensive chatbot with extra boxes.
+
+![n8n workflow automation README showing the node-based editor overview.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-01-n8n-readme.png)
+*Screenshot: [n8n-io/n8n](https://github.com/n8n-io/n8n) README — Petralian (2026)*
 
 ---
 
@@ -113,6 +115,9 @@ If you are solo, comfortable directing AI to ship a 200-line webhook, and you ha
 **When AI-coded microservices make sense:** the integration is **stable**, **repeatable**, and **small** — and you would rather read code than click boxes. Cursor is how I **author** those services. It is not how I **run** them every hour.
 
 **When they do not make sense:** the flow changes weekly, needs a visual ops map for a team, or spans twenty SaaS systems you do not want to maintain as code. That is still n8n or enterprise iPaaS territory.
+
+![Diagram contrasting a single agent with a maze of microservices.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-02-agent-vs-microservices.png)
+*Diagram: Agent architecture illustration — Petralian (2026)*
 
 ---
 

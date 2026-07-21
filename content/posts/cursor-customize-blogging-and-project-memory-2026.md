@@ -32,12 +32,15 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Bold isometric 16:9 poster: Draft folder → Ready → Published as three gates,
   Bridge note as a linking plank, slate and amber risograph, no logos.
+featured_image_alt: >-
+  Cinematic 16:9: editorial desk with a manuscript stack beside a slim bridge
+  notebook and a laptop edge in soft morning light, copper lamp glow, no logos,
+  no ...
 format: hybrid
 best_for: >-
   Writers and operators who want AI help on drafts without losing voice, publish
   control, or session continuity
 seo_title: Cursor Customize for Blogging and Project Memory
-featured_image_alt: Hero illustration for Cursor Customize for Blogging and Project Memory
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 3 of 5 deep dives

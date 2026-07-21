@@ -33,12 +33,12 @@ image_prompt_variant_2: >-
   filing cabinets with linked index cards and a single straight workflow
   arrow—editorial contrast, professional playful tone.
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.png
+featured_image_alt: Editorial overhead photograph of a developer desk with three labeled
 format: hands-on
 best_for: >-
   Practice leads implementing layered external memory for agent-assisted
   delivery (Playbook)
 seo_title: Three Layers of External Memory for AI-First Development
-featured_image_alt: Hero illustration for Three Layers of External Memory for AI-First Development
 ---
 **TL;DR**
 

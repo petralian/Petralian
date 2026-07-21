@@ -32,12 +32,12 @@ image_prompt_variant_2: >-
   labeled binders with a single arrow from inbox to archive—maze vs clear
   workflow, editorial playful.
 featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.png
+featured_image_alt: Editorial desk with two diagrams side by side on paper—one a simple
 format: hybrid
 best_for: >-
   Leaders choosing file memory for governed AI programs over diagram-perfect
   architecture
 seo_title: Why File Memory Beats the Three-Layer AI Diagram
-featured_image_alt: Hero illustration for Why File Memory Beats the Three-Layer AI Diagram
 ---
 **TL;DR**
 

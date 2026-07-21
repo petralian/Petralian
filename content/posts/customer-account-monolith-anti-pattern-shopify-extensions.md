@@ -28,12 +28,12 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Split scene: left scrolling monolith profile, right clean merchant menu with
   distinct extension links, editorial playful, 16:9.
+featured_image_alt: 'Editorial 16:9 whiteboard: one oversized account page blob vs three'
 format: hybrid
 best_for: >-
   Shopify merchants and developers splitting customer account extensions by real
   jobs
 seo_title: The Customer Account Monolith Is an Anti-Pattern for…
-featured_image_alt: "Editorial 16:9 whiteboard: one oversized account page blob vs three"
 ---
 
 Shopify Customer Account UI extensions tempt teams into a monolith: one extension, every feature behind tabs, a thousand lines in the profile block. Merchants install once. Customers drown. Merchant menu IA fights the platform.

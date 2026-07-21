@@ -14,18 +14,19 @@ featured_image: /images/posts/boutique-agency-consultancy-choice-hero.png
 seo_description: >-
   Having led digital transformation initiatives across Asia Pacific for global
   brands ranging from luxury retail to financial services, I've experienced the…
+featured_image_alt: >-
+  Hero illustration for Boutiques, Agencies, or Consultancies? Which one should
+  you work with?
 format: strategic
 best_for: >-
   Leaders choosing between boutique partners, agencies, and consultancies for
   transformation work
 seo_title: 'Boutiques, Agencies, or Consultancies? Which one should…'
 focus_keyword: agency landscape
-featured_image_alt: "Hero illustration for Boutiques, Agencies, or Consultancies? Which one should you work with?"
 ---
 Having led digital transformation initiatives across Asia Pacific for global brands ranging from luxury retail to financial services, I've experienced the professional services landscape from multiple angles. I've started my own boutique, worked client-side dealing with agencies and consultancies, and served within agency networks. This diverse perspective has shown me that choosing between boutique firms, agencies, and consultancies isn't merely about company size-it's about understanding the unique value propositions, team dynamics, and return on investment each model offers.
 
 ![Consulting team collaborating around a table in a modern office.](/images/posts/boutiques-agencies-roi-body-01-consulting-team.jpg)
-
 *Photo: [Pexels](https://www.pexels.com/) — stock*
 
 ## The Organizational Landscape: Understanding Your Options
@@ -46,7 +47,6 @@ Boutique firms operate with focused expertise in specialized areas. During my ti
 Working at [Merkle](https://www.merkle.com/) and Isobar within the [Dentsu network](https://www.dentsu.com/) (77,000 employees strong), I led teams delivering omnichannel commerce solutions for amazing global brands like [Shiseido](http://Shiseido.com) and [Microsoft](http://Microsoft.com). This experience gave me insight into how fully integrated agencies operate across multiple disciplines.
 
 ![Business leaders reviewing digital transformation metrics.](/images/posts/boutiques-agencies-roi-body-02-digital-transformation.jpg)
-
 *Photo: [Pexels](https://www.pexels.com/) — stock*
 
 -   Broad service offerings spanning creative, media, technology, and strategy

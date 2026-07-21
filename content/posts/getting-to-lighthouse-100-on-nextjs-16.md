@@ -30,10 +30,10 @@ image_prompt_variant_2: >-
   warnings and red audit flags; right side shows a clean, minimal pipeline
   diagram with green checkmarks — professional, polished, editorial illustration
   style, muted tones
+featured_image_alt: Cinematic editorial photograph of a lighthouse standing at the edge
 format: hands-on
 best_for: Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site
 seo_title: 'Getting to Lighthouse 100 on Next.js 16: Every Fix That…'
-featured_image_alt: "Cinematic editorial photograph of a lighthouse standing at the edge"
 ---
 **TL;DR**
 
@@ -50,11 +50,9 @@ I started with a simple task. The footer text on this site was failing a Lightho
 Two working sessions later: 100/100 on both mobile and desktop. LCP down to 1.7 seconds. TBT at 20ms. CLS: 0.
 
 ![Lighthouse mobile performance audit before optimization.](/images/posts/getting-to-lighthouse-100-body-01-mobile-audit.jpg)
-
 *Screenshot: Petralian / Chrome DevTools (2026)*
 
 ![Lighthouse desktop performance audit after optimization.](/images/posts/getting-to-lighthouse-100-body-02-desktop-audit.jpg)
-
 *Screenshot: Petralian / Chrome DevTools (2026)*
 
 This is the complete account — what the problems actually were, what I tried that did not work, what fixed each one, and the code you can apply directly to a Next.js 16 and Vercel setup.

@@ -30,10 +30,10 @@ image_prompt_variant_2: >-
   Split chart scene: left side spinning model roulette wheel with price tags
   flying off; right side straight assembly line with checklist gates—editorial
   contrast, professional playful tone.
+featured_image_alt: Minimal developer workspace with a single model selector pinned to one
 format: hands-on
 best_for: Practice leads standardizing Cursor model policy and tighter agent bootstrap
 seo_title: 'Composer 2.5 as My Only Coding Model: Cost,…'
-featured_image_alt: "Minimal developer workspace with a single model selector pinned to one"
 ---
 **TL;DR**
 

@@ -38,10 +38,10 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Bold isometric 16:9 poster: six hex blocks (Memory, Routing, Footer, Voice,
   Gates, Tools) snap into one hub, risograph teal and slate texture, no logos.
+featured_image_alt: 'Cinematic 16:9 wide shot of a conference table with four labeled trays'
 format: hybrid
 best_for: Leaders and operators designing a knowledge-work engine around agents
 seo_title: 'The Knowledge Work Agent Engine: A File-Based Stack for…'
-featured_image_alt: "Cinematic 16:9 wide shot of a conference table with four labeled trays"
 ---
 
 > **Knowledge Work Engine Series (Part 0 — hub)**  

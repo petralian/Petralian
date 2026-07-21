@@ -34,12 +34,12 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Bold isometric 16:9: stacked memory layers with one arrow through a gate card
   Mode A Skip, risograph teal and cream, no text.
+featured_image_alt: 'Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,'
 format: hands-on
 best_for: >-
   Practice leads connecting file memory, Obsidian, and agent loops across
   engagements
 seo_title: 'Agent Harness Memory Loop — Four Tiers, Feedback Loop, and…'
-featured_image_alt: "Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,"
 ---
 **TL;DR**
 

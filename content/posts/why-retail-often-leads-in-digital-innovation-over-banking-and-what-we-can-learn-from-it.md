@@ -16,11 +16,13 @@ featured_image: /images/posts/retail-digital-innovation-banking-apac-hero.jpg
 seo_description: >-
   TL;DR What Why Retail Often Leads in Digital Innovation Over Banking (and What
   We Can Learn covers. Who it is for and when to use it. Practical next steps…
+featured_image_alt: >-
+  Hero illustration for Why Retail Often Leads in Digital Innovation Over
+  Banking (and What We Can
 format: strategic
 best_for: Cross-industry leaders borrowing innovation pace from retail
 seo_title: Why Retail Often Leads in Digital Innovation Over Banking…
 focus_keyword: digital transformation
-featured_image_alt: "Hero illustration for Why Retail Often Leads in Digital Innovation Over Banking (and What We Can"
 ---
 **TL;DR**
 
