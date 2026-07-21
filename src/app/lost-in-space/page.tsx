@@ -18,11 +18,6 @@ export const metadata: Metadata = {
 export default function LostInSpacePage() {
   return (
     <div className="orbit-game-page">
-      <script
-        dangerouslySetInnerHTML={{
-          __html: "document.documentElement.classList.add('orbit-game-active');",
-        }}
-      />
       <OrbitRushGame />
 
       <div className="orbit-game-title-overlay">

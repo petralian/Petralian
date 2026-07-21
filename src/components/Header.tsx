@@ -8,6 +8,10 @@ import { Mail, Menu, X, FileX } from "lucide-react";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
 
+/** Enter compact header above this; exit below — gap prevents shrink/expand flicker. */
+const SCROLL_COMPACT_ENTER = 48;
+const SCROLL_COMPACT_EXIT = 8;
+
 function LinkedInIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -32,7 +36,15 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled((prev) => {
+        const y = window.scrollY;
+        if (y > SCROLL_COMPACT_ENTER) return true;
+        if (y < SCROLL_COMPACT_EXIT) return false;
+        return prev;
+      });
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

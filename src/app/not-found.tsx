@@ -12,11 +12,6 @@ export const metadata: Metadata = {
 export default function NotFound() {
     return (
         <div className="orbit-game-page">
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: "document.documentElement.classList.add('orbit-game-active');",
-                }}
-            />
             <NotFoundAnalytics />
             <OrbitRushGame />
 
