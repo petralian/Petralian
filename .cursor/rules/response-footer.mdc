@@ -1,95 +1,169 @@
 ---
-description: Mandatory session context + footer v3.1 — canonical modes A–G
+description: Mandatory session context + 7-mode footer (A–G) — see Response Footer Contract
+globs:
 alwaysApply: true
 ---
 
-# Response format (mandatory) — v3.1
+# Response format (7 modes — v3.1)
 
-> **Canonical:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
-> **Field guide:** `D:\Obsidian\Obsidian\00_Brain\Conventions\Session Continuity System.md`
+> Canonical: `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`
+> Field guide: `D:\Obsidian\Obsidian\00_Brain\Conventions\Session Continuity System.md`
+> Gate table: `D:\Obsidian\Obsidian\00_Brain\AI Agents\Brain Session Automation.md`
+> **Version:** v3.1 (2026-06-22) — supersedes v2 (L0–L3, 13-line cap)
 
-## Session context (modes B–G only)
+## Bootstrap (once per chat)
 
-Before work replies, read `Operations/Session Summaries.md` + `Operations/AI Session Bridge.md`. Open with **Session context** (3–6 lines): latest summary, bridge priority, what this reply does.
+1. Read `.cursor/brain-pack.md` once if present (from sessionStart / `session-prep`).
+2. Vault on `D:\Obsidian\...`: native `Read`/`Grep` for reads; native `Write`/`StrReplace` for writes (see `.cursor/rules/obsidian-vault-io.mdc`).
+3. Do **not** re-read full Session Summaries or Methodology unless blocked.
 
-Mode A (pure Q&A, zero tools): skip session context and footer.
+## FORBIDDEN footer shapes (Layer 1)
 
-## Mode selection
+- **Never** invent custom numbered lists (`1. **Completed:**`, `1. **Next priority:**`, etc.).
+- **Always** start footer with `---` then `**Mode: X. Name** — why: <phrase>` then mode-specific numbered fields only.
+- If unsure of mode, pick the **higher** mode (G > F > E > D > C > B > A).
 
-**G > F > E > D > C > B > A.** When in doubt, pick the higher mode. Declare mode on the footer’s first line:
+## Session context (top) — when required
 
-`**Mode: X. Name** — why: <≤12 words>`
+| Level | Include session context? |
+|-------|--------------------------|
+| **Mode A** | **Skip** |
+| **Mode B–G** | Yes — 3–6 lines (Summaries tail + Bridge priority + this reply) |
 
-## Mode shapes (render every numbered field)
+## Mode selection — pick ONE per reply
 
-### Mode B — Advisory (4 fields)
+**Conflict resolution:** G > F > E > D > C > B > A. When in doubt, pick the higher mode.
 
-1. **Summary:**
-2. **Obsidian:**
-3. **Memory:**
-4. **Next:**
+### Rendering rules (apply to all modes A–G)
 
-### Mode C — Code change (6 fields)
+1. **Each field on its own line** — never pack two fields into one paragraph.
+2. **Number the fields** in display order ("see #4").
+3. **Bold the field label** (`**Answer:**`) + space + value.
+4. **Keep field values short** — ≤20 words; longer content belongs in the body.
+5. **Use bullet points inside values** when listing ≥2 items.
+6. **Mode declaration first** — `**Mode: X. Name** — why: <phrase>` on its own line above numbered fields.
 
-1. **What shipped:**
-2. **Verified:**
-3. **Memory:**
-4. **Self-improvements:**
-5. **Agents:**
-6. **Next:**
+---
 
-### Mode D — Shippable work (8 fields)
+## The 7 modes
 
-1. **What shipped:**
-2. **Deploy:**
-3. **Git:**
-4. **Memory:**
-5. **Verified:**
-6. **Self-improvements:**
-7. **Agents:**
-8. **Next:**
+### Mode A — Pure Q&A (zero tools)
 
-### Mode E — Cross-project / design (8 fields)
+```
+---
+**Mode: A. Pure Q&A** — why: <one phrase>
+1. **Answer:** <one line>
+```
 
-1. **Scope:**
-2. **What shipped:**
-3. **Evidence:**
-4. **Memory:**
-5. **Self-improvements:**
-6. **Breakage risk:**
-7. **Cross-projects:**
-8. **Next:**
+### Mode B — Advisory (reads/research only)
 
-### Mode F — Live-debug (6 fields)
+```
+---
+**Mode: B. Advisory** — why: <research / analysis / plan-only>
+1. **Summary:** <one line>
+2. **Obsidian:** read ✓ <paths> | write: skipped — <reason>
+3. **Memory:** <add to: file path | skipped — <reason>>
+4. **Next:** <one line>
+```
 
-1. **Incident:**
-2. **Blast radius:**
-3. **Diagnosis:**
-4. **Actions taken:**
-5. **Rollback path:**
-6. **Next:**
+### Mode C — Code change (edits, no deploy, no commit)
 
-### Mode G — Migration (9 fields)
+```
+---
+**Mode: C. Code change** — why: <what + scope>
+1. **What shipped:** <summary + files in parens>
+2. **Verified:** <test/evidence or "manual only">
+3. **Memory:** <repo ✓ path | vault ✓ path | skipped — <reason>>
+4. **Self-improvements:** <path:Lnn or "none — <phrase>">
+5. **Agents:** <names + why or "none — single-agent">
+6. **Next:** <one line>
+```
 
-1. **Migration:**
-2. **Files touched:**
-3. **Evidence:**
-4. **Memory:**
-5. **Self-improvements:** (mandatory non-`none`)
-6. **Breakage risk:**
-7. **Cross-projects:**
-8. **Verification:**
-9. **Next:**
+### Mode D — Shippable work (deploy/commit/IDN)
+
+```
+---
+**Mode: D. Shippable work** — why: <deploy + commit + IDN in one phrase>
+1. **What shipped:** <summary + files in parens>
+2. **Deploy:** <target + state + rollback tag>
+3. **Git:** <hash + msg + rollback tag | N/A>
+4. **Memory:** <repo ✓ path | vault ✓ path | IDN ✓ path | changelog ✓ / No>
+5. **Verified:** <test plan + result>
+6. **Self-improvements:** <path:Lnn or "none — <phrase>">
+7. **Agents:** <names + why or "none — single-agent">
+8. **Next:** <one line>
+```
+
+### Mode E — Cross-project / design
+
+```
+---
+**Mode: E. Cross-project / design** — why: <audit / spec / cross-repo change>
+1. **Scope:** <which projects / rules / contracts touched>
+2. **What shipped:** <summary + files in parens>
+3. **Evidence:** <1–3 bullets — diff lines, rule cites, before/after>
+4. **Memory:** <all systems + paths>
+5. **Self-improvements:** <path:Lnn or "none — <phrase>">
+6. **Breakage risk:** <what could regress + how caught>
+7. **Cross-projects:** <which agents inherit + how>
+8. **Next:** <one line>
+```
+
+### Mode F — Live-debug / incident
+
+```
+---
+**Mode: F. Live-debug / incident** — why: <Sentry / Fly / broken widget / customer report>
+1. **Incident:** <one-line symptom>
+2. **Blast radius:** <how many users / which shop / which widget>
+3. **Diagnosis:** <1–3 bullets — what we know vs assumed>
+4. **Actions taken:** <shell calls, log reads, config changes — with results>
+5. **Rollback path:** <how to revert if fix makes it worse>
+6. **Next:** <one line>
+```
+
+### Mode G — Migration / rollback
+
+```
+---
+**Mode: G. Migration / rollback** — why: <contract version bump / reverting canonical / porting rules>
+1. **Migration:** <from → to>
+2. **Files touched:** <canonical + cross-project rules + repo mirrors>
+3. **Evidence:** <before/after diffs, git hashes>
+4. **Memory:** <all systems touched + migration log entry>
+5. **Self-improvements:** <path:Lnn — mandatory non-`none` in G>
+6. **Breakage risk:** <what could regress until re-read>
+7. **Cross-projects:** <which agents inherit + timeline>
+8. **Verification:** <smoke test each mode on next chat>
+9. **Next:** <one line>
+```
+
+---
+
+## Mandatory completeness check (3 layers)
+
+**Layer 1 — Pre-flight self-check** (in `<thinking>` before emit):
+
+- Mode declared with `why: <phrase>`
+- All fields for that mode present (no missing numbers)
+- Each field has a value (not empty)
+- `None`/`N/A`/`skipped` include a reason phrase
+- Self-improvements + Agents present in C–G (non-`none` mandatory in G)
+- Memory covers all systems (repo + vault + IDN + changelog as applicable)
+- No per-tool lines in footer
+- Mode-downgrade justified in `why:` if applicable
+
+**Layer 2 — Visual completeness check:** count numbered lines match mode (D=8, C=6, etc.).
+
+**Layer 3 — Cursor hook:** `afterAgentResponse` → `.cursor/hooks/validate-footer.ps1` (project) + `~/.cursor/hooks/validate-footer.ps1` (user global). Warns on mismatch; `failClosed: false`.
+
+---
 
 ## Hard rules
 
-- One field per numbered line; bold label; value ≤20 words
-- Modes C–G: **Self-improvements** + **Agents** always present
-- Use `skipped — <reason>` not bare `N/A`
-- No per-tool lines in footer
-- Never skip footer for “code only” requests
-- Pre-flight: count fields match mode before sending
-
-## Enforcement
-
-Project hook: `.cursor/hooks/validate-footer.ps1` on `afterAgentResponse` (warns on mismatch).
+- **Always** declare a mode at the top of the footer with `why: <phrase>`.
+- **Always** include Self-improvements + Agents in modes C–G.
+- **Always** include Memory in modes B–G.
+- **Never** add per-tool lines to the footer (token savings, Sentry, RTK stats → body only).
+- **Never** skip the footer for code, deploy, vault, IDN, memory, or subagent work.
+- When hook returns `additional_context` warning, fix and re-emit.

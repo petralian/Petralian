@@ -10,7 +10,7 @@
 ## Bootstrap order (mandatory every non-trivial session)
 1. `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md` — execute fully
 2. `.claude/NOTES.md` + `.claude/NEXT_SESSION.md`
-3. This folder: `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`
+3. This folder: `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`, `facts-discipline.md`; `data/harness-verify.yaml` when verifying or changing limits
 4. `00_Brain/AI Agent Methodology.md`
 5. `00_Brain/Conventions/Response Footer Contract.md` — session context + footer on every work reply
 6. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`

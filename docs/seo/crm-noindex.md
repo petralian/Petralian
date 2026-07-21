@@ -4,6 +4,10 @@ Internal Perfex CRM on `46.224.49.175` (Cloudflare **dns-only**). The main Next.
 
 **Server:** nginx (verified 2026-07-13) — `.htaccess` does **not** apply.
 
+**SSH (aaPanel VPS):** `ssh root@46.224.49.175` (key `~/.ssh/id_rsa`).  
+**Nginx vhost:** `/www/server/panel/vhost/nginx/crm.petralian.com.conf`  
+**Perfex web root:** `/www/wwwroot/crm.petralian.com/`
+
 ## 1. On the CRM server (permanent)
 
 ### A. robots.txt (done on live site)
@@ -12,27 +16,20 @@ Upload [`crm-deploy/robots.txt`](crm-deploy/robots.txt) to Perfex web root.
 
 Live check (2026-07-13): `https://crm.petralian.com/robots.txt` → `Disallow: /` ✓
 
-### B. X-Robots-Tag header (still needed)
+### B. X-Robots-Tag header (**done 2026-07-20**)
 
-CRM runs **nginx**, not Apache. Add to the `server { }` block for `crm.petralian.com`:
+CRM runs **nginx**, not Apache. Live HTTPS `server` block now includes:
 
 ```nginx
 add_header X-Robots-Tag "noindex, nofollow, noarchive" always;
 ```
 
-Snippet file: [`crm-deploy/nginx-noindex.conf`](crm-deploy/nginx-noindex.conf)
+Verified: `node scripts/audit-crm-noindex.mjs` → home + login headers pass.  
+Backup on server: `crm.petralian.com.conf.bak-xrobots-*` under `/www/server/panel/vhost/nginx/`.
 
-Then on the server:
+Snippet file (reference): [`crm-deploy/nginx-noindex.conf`](crm-deploy/nginx-noindex.conf)
 
-```bash
-sudo nginx -t && sudo systemctl reload nginx
-```
-
-**Alternative:** add to Perfex login layout `<head>`:
-
-```html
-<meta name="robots" content="noindex, nofollow, noarchive" />
-```
+**Optional:** Perfex login layout `<head>` meta robots (redundant once header is live).
 
 ### Verify
 
@@ -40,7 +37,7 @@ sudo nginx -t && sudo systemctl reload nginx
 node scripts/audit-crm-noindex.mjs
 ```
 
-Expect: robots.txt pass; X-Robots-Tag pass after nginx reload.
+Expect: robots.txt pass + X-Robots-Tag pass.
 
 ## 2. Google Search Console (speed up de-index)
 

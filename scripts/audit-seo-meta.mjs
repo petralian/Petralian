@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { auditSeoFields } from "./lib/seo-utils.mjs";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "../content/posts");
 const asJson = process.argv.includes("--json");
@@ -36,20 +37,10 @@ const PILLAR_SLUGS = new Set([
 ]);
 
 function auditPost(slug, data) {
-  const issues = [];
+  const { issues } = auditSeoFields(data);
   const title = data.seo_title || data.title || "";
   const desc = data.seo_description || data.excerpt || "";
   const focus = data.focus_keyword || "";
-
-  if (!title) issues.push("missing title");
-  else if (title.length < 50) issues.push(`title short (${title.length}/55-60)`);
-  else if (title.length > 65) issues.push(`title long (${title.length})`);
-
-  if (!desc) issues.push("missing seo_description/excerpt");
-  else if (desc.length < 140) issues.push(`seo_description short (${desc.length}/150-160)`);
-  else if (desc.length > 165) issues.push(`seo_description long (${desc.length})`);
-
-  if (!focus) issues.push("missing focus_keyword");
 
   return {
     slug,
@@ -66,12 +57,12 @@ function auditPost(slug, data) {
 const posts = fs
   .readdirSync(POSTS_DIR)
   .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-    .map((f) => {
-      const slug = f.replace(/\.mdx?$/, "");
-      const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
-      const { data } = matter(raw);
-      return auditPost(data.slug || slug, data);
-    })
+  .map((f) => {
+    const slug = f.replace(/\.mdx?$/, "");
+    const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf8");
+    const { data } = matter(raw);
+    return auditPost(data.slug || slug, data);
+  })
   .filter(Boolean);
 
 let flagged = posts.filter((p) => p.issues.length > 0);

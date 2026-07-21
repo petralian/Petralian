@@ -156,7 +156,7 @@ const PLAYBOOK_CHAPTERS = {
       "Layer 4: Feedback loop",
     ],
   },
-  "cursorbench-fable-5-composer-2-5-cost-vs-score": {
+  "cursorbench-3-2-fable-5-composer-2-5-cost-vs-score": {
     "Benchmark design": [
       "Methodology",
       "Task selection",

@@ -16,6 +16,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync, copyFileSync, mkd
 import { join, basename, extname, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import { auditSeoFields } from './lib/seo-utils.mjs';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dir, '..');
@@ -172,17 +173,18 @@ function preflight(filePath, content, articleFolder) {
     if (!fm[field]) warnings.push(`Missing recommended field: ${field}`);
   }
 
-  const seoTitle = fm['seo_title'] || fm['title'] || '';
-  if (seoTitle.length > 0 && seoTitle.length < 50) {
-    warnings.push(`seo_title short (${seoTitle.length}/55-60)`);
+  const seoAudit = auditSeoFields({
+    seo_title: fm['seo_title'],
+    title: fm['title'],
+    seo_description: fm['seo_description'],
+    excerpt: fm['excerpt'],
+    focus_keyword: fm['focus_keyword'],
+    featured_image_alt: fm['featured_image_alt'],
+  });
+  for (const issue of seoAudit.issues) {
+    if (issue.startsWith('missing')) warnings.push(issue);
+    else warnings.push(issue);
   }
-  if (seoTitle.length > 65) warnings.push(`seo_title long (${seoTitle.length})`);
-
-  const seoDesc = fm['seo_description'] || '';
-  if (seoDesc.length > 0 && seoDesc.length < 140) {
-    warnings.push(`seo_description short (${seoDesc.length}/150-160)`);
-  }
-  if (seoDesc.length > 165) warnings.push(`seo_description long (${seoDesc.length})`);
 
   if (content.includes('```mermaid')) {
     errors.push('Found ```mermaid blocks — convert to ```d2');

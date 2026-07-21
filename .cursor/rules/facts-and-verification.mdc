@@ -1,0 +1,57 @@
+---
+description: Facts discipline, parametric SSOT (data/*.yaml), and empirical verify→document loop
+globs:
+alwaysApply: true
+---
+
+# Facts, parametric SSOT, and verification
+
+> Canonical repo doc: `memories/repo/facts-discipline.md`  
+> Brain canonical: `D:\Obsidian\Obsidian\00_Brain\Conventions\Facts and Verification.md`  
+> Parametric files: `data/*.yaml` (see `data/README.md`)
+
+## Facts discipline (mandatory)
+
+1. **File beats chat** — If a fact is not in a file you read this session, say **unknown** or read the file. Do not invent URLs, metrics, config values, or client details.
+2. **Prose is not SSOT for numbers** — Benchmarks, env vars, thresholds, pricing, dates, and cross-linked parameters belong in `data/*.yaml` or existing config — not only in markdown paragraphs.
+3. **Promote, don't paraphrase** — When updating a decision, write the canonical line to Bridge, Feature note, or `data/*.yaml`; do not rely on the model "remembering."
+4. **Confidentiality** — Generic labels in public writing; real names only in vault paths the user owns.
+
+## Parametric / interdependent variables
+
+Use `data/<topic>.yaml` when **two or more values must stay consistent** (units, ranges, env matrix, model defaults, SEO caps).
+
+| Put in YAML | Keep in markdown |
+|-------------|------------------|
+| Numeric thresholds, version pins, env keys | Narrative, voice, argument |
+| Interdependent params (change one → update others) | Links, citations, Path A |
+| Canonical glossary terms + definitions | Examples and teaching |
+
+Agent workflow:
+
+1. Read `data/*.yaml` before citing or changing related prose/code.
+2. Update YAML first, then code/markdown that references it.
+3. In footers and session notes, cite the YAML path when a fact came from parametric SSOT.
+
+## Empirical verify → document loop (every non-trivial task)
+
+Before calling work **done**, run this loop and **write results to a file**:
+
+| Step | Action | Write-back |
+|------|--------|------------|
+| **1. Identify** | State what will be verified (command, URL, file diff, test) | Session note or IDN |
+| **2. Execute** | Run the check (build, test, grep, curl, audit script) | Capture output path or one-line result |
+| **3. Validate** | Pass/fail against stated criteria — no "should work" | IDN **Verification** or session note |
+| **4. Document** | Update Bridge, open-loops, Feature note, or `data/*.yaml` | Required — skip = incomplete |
+
+**Minimum verify by task type:**
+
+- **Code change:** `npx next build` or scoped test; linter on touched files.
+- **Content/publish:** preflight + image refs resolve; no invented attributions.
+- **Config/threshold change:** YAML updated + consumer file grep confirms read path.
+
+Mode C–G footers must reflect **Verified:** with evidence or `manual only — <reason>`.
+
+## Tool portability
+
+Markdown vault + `data/*.yaml` + git work in **any** editor (Obsidian, VS Code, Zed, CLI agents). Cursor rules/hooks are **enforcement**, not storage. Prefer portable files for truth; treat Cursor as one runtime.

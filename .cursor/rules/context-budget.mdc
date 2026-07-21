@@ -1,0 +1,12 @@
+---
+description: Context budget — native vault reads, Mode A for Q&A
+alwaysApply: true
+---
+
+# Context budget
+
+- **Mode A:** simple Q&A — no vault bootstrap
+- **Vault reads:** native `Read`/`Grep` on `D:\Obsidian\...`
+- **Vault writes:** native `Write`/`StrReplace` — MCP only per `obsidian-vault-io.mdc`
+- **MCP:** Context7 + Serena per `docs/TOKEN-STACK.md` (not vault I/O)
+- One tool per vault file per turn

@@ -19,6 +19,9 @@ import {
   generateExcerpt,
   auditSeoFields,
 } from "./lib/seo-utils.mjs";
+import { getSeoLimits } from "./lib/load-harness-yaml.mjs";
+
+const SEO = getSeoLimits();
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "../content/posts");
 const dryRun = process.argv.includes("--dry-run");
@@ -63,7 +66,7 @@ for (const slug of listSlugs()) {
       next.seo_description = trimSeoDescription(ex);
       changes.push("seo_description");
     }
-  } else if (next.seo_description.length > 165) {
+  } else if (next.seo_description.length > SEO.desc.max) {
     next.seo_description = trimSeoDescription(next.seo_description);
     changes.push("seo_description(trim)");
   }
@@ -71,10 +74,10 @@ for (const slug of listSlugs()) {
   if (!next.seo_title?.trim()) {
     next.seo_title = trimSeoTitle(next.title || slug);
     changes.push("seo_title");
-  } else if (next.seo_title.length > 65) {
+  } else if (next.seo_title.length > SEO.title.max) {
     next.seo_title = trimSeoTitle(next.seo_title);
     changes.push("seo_title(trim)");
-  } else if (next.seo_title.length < 50 && next.title && next.title.length >= 50) {
+  } else if (next.seo_title.length < SEO.title.min && next.title && next.title.length >= SEO.title.min) {
     next.seo_title = trimSeoTitle(next.title);
     changes.push("seo_title(from title)");
   }

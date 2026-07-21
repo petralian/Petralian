@@ -1,0 +1,47 @@
+# Harness verification defaults — parametric SSOT for agent close-out
+schema_version: 1
+updated: 2026-07-21
+
+vault_path: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian"
+
+verify_loop:
+  steps:
+    - identify
+    - execute
+    - validate
+    - document
+  document_targets:
+    - Operations/Sessions/
+    - Operations/Design Notes/
+    - Operations/Decision Register.md
+    - Operations/AI Session Bridge.md
+    - memories/repo/open-loops.md
+
+traceability:
+  vault_path: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian"
+  decision_register: "Operations/Decision Register.md"
+
+repo_checks:
+  parametric_drift: "node scripts/audit-parametric-drift.mjs"
+  session_traceability: "node scripts/audit-session-traceability.mjs"
+  typescript_build: "npx next build"
+  full_build: "tinacms build --skip-cloud-checks && cross-env NODE_OPTIONS=--max-old-space-size=1024 next build"
+  vault_image_normalize: "python scripts/normalize-vault-images.py --preflight-only"
+  publish_sync: ".\\scripts\\sync-obsidian.ps1 -DryRun"
+
+drift_scan:
+  paths:
+    - AGENTS.md
+    - .cursor/rules
+    - scripts
+    - memories/repo
+    - data/README.md
+
+seo_limits:
+  seo_title_chars: { min: 50, target: 55, max: 60 }
+  seo_description_chars: { min: 140, target: 155, max: 160 }
+
+facts_policy:
+  prose_for: narrative
+  yaml_for: numbers_thresholds_env_interdependent_params
+  unknown_if_not_in_file: true

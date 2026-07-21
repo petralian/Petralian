@@ -1,0 +1,14 @@
+﻿{
+    "_comment":  "Copy to ~/.cursor/mcp.json or merge in Cursor Settings → MCP",
+    "mcpServers":  {
+                       "obsidian-petralian":  {
+                                                  "args":  [
+                                                               "-y",
+                                                               "@modelcontextprotocol/server-filesystem",
+                                                               "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian",
+                                                               "D:\\Obsidian\\Obsidian\\00_Brain"
+                                                           ],
+                                                  "command":  "npx"
+                                              }
+                   }
+}

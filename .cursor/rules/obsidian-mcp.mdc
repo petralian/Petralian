@@ -1,0 +1,18 @@
+---
+description: Petralian vault paths — tool choice in obsidian-vault-io.mdc
+alwaysApply: true
+---
+
+# Obsidian — Petralian
+
+> **Tool choice (reads/writes):** `.cursor/rules/obsidian-vault-io.mdc` — native first; MCP writes only as fallback.
+
+**Project vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian`  
+**Brain:** `D:\Obsidian\Obsidian\00_Brain`
+
+| Action | Tool |
+|--------|------|
+| Read / search | Native `Read`/`Grep` on paths above |
+| Write / edit | Native `Write`/`StrReplace` — MCP only if native blocked |
+
+Do not use `obsidian-brain` or `petralian-obsidian` MCP for reads on this machine.

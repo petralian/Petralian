@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Rename vault body images, fix embeds, attributions, and featured_image paths."""
+"""Legacy one-shot image fixer — prefer scripts/normalize-vault-images.py (runs on sync).
+
+Rename vault body images, fix embeds, attributions, and featured_image paths.
+"""
 from __future__ import annotations
 
 import re

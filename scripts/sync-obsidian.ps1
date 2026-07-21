@@ -37,6 +37,21 @@ $sitePosts = "$PSScriptRoot\..\content\posts"
 $siteImages = "$PSScriptRoot\..\public\images\posts"
 $repo = "$PSScriptRoot\.."
 
+# SEO limits from parametric SSOT
+$script:SeoLimits = $null
+try {
+  $seoJson = node (Join-Path $PSScriptRoot 'lib\load-harness-yaml.mjs') seo $repo 2>$null
+  if ($seoJson) { $script:SeoLimits = $seoJson | ConvertFrom-Json }
+}
+catch { }
+if (-not $script:SeoLimits) {
+  $script:SeoLimits = [PSCustomObject]@{
+    title = [PSCustomObject]@{ min = 50; target = 55; max = 60 }
+    desc  = [PSCustomObject]@{ min = 140; target = 155; max = 160 }
+    label = [PSCustomObject]@{ title = '55-60'; desc = '155-160' }
+  }
+}
+
 $imageExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.avif')
 
 if (-not (Test-Path $obsidianReady)) {
@@ -307,19 +322,25 @@ function Test-ArticlePreflight {
   }
 
   $seoTitle = if ($fm['seo_title']) { $fm['seo_title'] } elseif ($fm['title']) { $fm['title'] } else { '' }
-  if ($seoTitle.Length -gt 0 -and $seoTitle.Length -lt 50) {
-    $warnings.Add("seo_title short ($($seoTitle.Length)/55-60 chars)")
+  $tMin = $script:SeoLimits.title.min
+  $tMax = $script:SeoLimits.title.max
+  $tLabel = $script:SeoLimits.label.title
+  if ($seoTitle.Length -gt 0 -and $seoTitle.Length -lt $tMin) {
+    $warnings.Add("seo_title short ($($seoTitle.Length)/$tLabel chars)")
   }
-  if ($seoTitle.Length -gt 65) {
-    $warnings.Add("seo_title long ($($seoTitle.Length) chars)")
+  if ($seoTitle.Length -gt $tMax) {
+    $warnings.Add("seo_title long ($($seoTitle.Length)/$tMax chars)")
   }
 
   $seoDesc = if ($fm['seo_description']) { $fm['seo_description'] } else { '' }
-  if ($seoDesc.Length -gt 0 -and $seoDesc.Length -lt 140) {
-    $warnings.Add("seo_description short ($($seoDesc.Length)/150-160 chars)")
+  $dMin = $script:SeoLimits.desc.min
+  $dMax = $script:SeoLimits.desc.max
+  $dLabel = $script:SeoLimits.label.desc
+  if ($seoDesc.Length -gt 0 -and $seoDesc.Length -lt $dMin) {
+    $warnings.Add("seo_description short ($($seoDesc.Length)/$dLabel chars)")
   }
-  if ($seoDesc.Length -gt 165) {
-    $warnings.Add("seo_description long ($($seoDesc.Length) chars)")
+  if ($seoDesc.Length -gt $dMax) {
+    $warnings.Add("seo_description long ($($seoDesc.Length)/$dMax chars)")
   }
 
   if ($raw -match '```mermaid') {
@@ -419,6 +440,33 @@ if ($readyForPreflight.Count -gt 0) {
 
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
+
+function Invoke-FactsGate {
+  Write-Host ''
+  Write-Host '── Facts / parametric audit ────────────────────────────────────' -ForegroundColor Cyan
+  $drift = Join-Path $PSScriptRoot 'audit-parametric-drift.mjs'
+  if (Test-Path $drift) {
+    node $drift
+    if ($LASTEXITCODE -ne 0) {
+      Write-Host 'Parametric drift FAILED — fix YAML or consumers before publish.' -ForegroundColor Red
+      exit 1
+    }
+  }
+  else {
+    Write-Host '  WARN: audit-parametric-drift.mjs not found — skipping' -ForegroundColor Yellow
+  }
+  $trace = Join-Path $PSScriptRoot 'audit-session-traceability.mjs'
+  if (Test-Path $trace) {
+    node $trace
+    if ($LASTEXITCODE -ne 0) {
+      Write-Host 'Traceability audit FAILED — see messages above.' -ForegroundColor Red
+      exit 1
+    }
+  }
+  Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
+Invoke-FactsGate
 
 if ($Preflight) {
   Write-Host ''

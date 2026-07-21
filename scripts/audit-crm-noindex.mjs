@@ -9,6 +9,7 @@ const HOME_URL = "https://crm.petralian.com/";
 const LOGIN_URL = "https://crm.petralian.com/authentication/login";
 
 let failed = false;
+let xRobotsOk = 0;
 
 function pass(msg) {
   console.log(`✓ ${msg}`);
@@ -24,13 +25,11 @@ function warn(msg) {
 }
 
 async function head(url) {
-  const res = await fetch(url, { method: "HEAD", redirect: "follow" });
-  return res;
+  return fetch(url, { method: "HEAD", redirect: "follow" });
 }
 
 async function get(url) {
-  const res = await fetch(url, { redirect: "follow" });
-  return res;
+  return fetch(url, { redirect: "follow" });
 }
 
 console.log("CRM noindex audit\n");
@@ -50,10 +49,13 @@ try {
     const server = res.headers.get("server") || "";
     if (tag && /noindex/i.test(tag)) {
       pass(`${url} → X-Robots-Tag: ${tag}`);
+      xRobotsOk += 1;
     } else {
       warn(`${url} → no X-Robots-Tag (server: ${server || "unknown"})`);
       if (/nginx/i.test(server)) {
-        warn("  CRM is nginx — .htaccess does not apply. Add docs/seo/crm-deploy/nginx-noindex.conf to server block.");
+        warn(
+          "  CRM is nginx — .htaccess does not apply. Add docs/seo/crm-deploy/nginx-noindex.conf to server block.",
+        );
       }
     }
   }
@@ -63,11 +65,20 @@ try {
   if (/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(html)) {
     pass("login page has meta robots noindex");
   } else if (!failed) {
-    warn("login page has no meta robots noindex — add nginx header or Perfex theme meta tag");
+    warn(
+      "login page has no meta robots noindex — optional when nginx X-Robots-Tag is present",
+    );
   }
 } catch (err) {
   fail(String(err.message || err));
 }
 
 if (failed) process.exit(1);
-console.log(failed ? "" : "\nPartial pass — robots.txt OK; add nginx X-Robots-Tag for full coverage.");
+
+if (xRobotsOk >= 2) {
+  console.log("\nPass — robots.txt + X-Robots-Tag present. Meta robots optional.");
+} else {
+  console.log(
+    "\nPartial pass — robots.txt OK; add nginx X-Robots-Tag for full coverage.",
+  );
+}

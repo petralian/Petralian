@@ -6,11 +6,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## SEO Frontmatter Fields
 
-The canonical SEO field name is `seo_description` (NOT `meta_description`). The live site reads this via `src/lib/posts.ts`. Any agent adding SEO fields must use:
+The canonical SEO field name is `seo_description` (NOT `meta_description`). The live site reads this via `src/lib/posts.ts`. **Character limits are SSOT in `data/harness-verify.yaml`** (`seo_limits`) — do not hardcode ranges in prose.
 
 ```yaml
-seo_title: "55-60 char SEO title"
-seo_description: "150-160 char meta description"
+seo_title: "SEO title per data/harness-verify.yaml seo_title_chars"
+seo_description: "Meta description per data/harness-verify.yaml seo_description_chars"
 featured_image_alt: "Descriptive alt text for hero image"
 focus_keyword: "primary 2-4 word keyword phrase"
 ```
@@ -38,6 +38,13 @@ focus_keyword: "primary 2-4 word keyword phrase"
 ## Response footer (mandatory)
 
 Every work reply: **Session context** (top) + **10-line footer** (bottom) per `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`. Cursor: `.cursor/rules/response-footer.mdc`.
+
+## Facts and verification (mandatory)
+
+- **Facts:** Unknown until read from a file — no invented metrics, URLs, or config. See `memories/repo/facts-discipline.md`.
+- **Parametric SSOT:** Numbers and interdependent values live in `data/*.yaml`, not prose-only. Update YAML before markdown/code.
+- **Verify loop:** Identify → Execute → Validate → **Document** (session note, IDN, or Bridge). Mode C–G **Verified** field must cite evidence.
+- **Portability:** Markdown + YAML are editor-agnostic; Cursor rules enforce at runtime.
 
 ## Session protocol (mandatory)
 

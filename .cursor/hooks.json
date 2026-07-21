@@ -1,12 +1,12 @@
-{
-  "version": 1,
-  "hooks": {
-    "afterAgentResponse": [
-      {
-        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/validate-footer.ps1",
-        "timeout": 5,
-        "failClosed": false
-      }
-    ]
-  }
+﻿{
+    "version":  1,
+    "hooks":  {
+                  "afterAgentResponse":  [
+                                             {
+                                                 "command":  "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/validate-footer.ps1",
+                                                 "timeout":  5,
+                                                 "failClosed":  false
+                                             }
+                                         ]
+              }
 }

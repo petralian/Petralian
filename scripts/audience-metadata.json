@@ -63,9 +63,9 @@
     "format": "hands-on",
     "best_for": "Power users optimizing token spend and context windows in Cursor"
   },
-  "cursorbench-fable-5-composer-2-5-cost-vs-score": {
-    "format": "hands-on",
-    "best_for": "Builders comparing model cost versus quality with reproducible benchmarks"
+  "cursorbench-3-2-fable-5-composer-2-5-cost-vs-score": {
+    "format": "hybrid",
+    "best_for": "Practice leads and commercial operators setting Cursor AI model policy using CursorBench unit economics"
   },
   "customer-account-monolith-anti-pattern-shopify-extensions": {
     "format": "hybrid",

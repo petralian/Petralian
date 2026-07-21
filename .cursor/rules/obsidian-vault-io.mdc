@@ -1,0 +1,35 @@
+---
+description: Vault I/O on local D: — native Read/Write first; MCP fallback only
+alwaysApply: true
+---
+
+# Obsidian vault I/O (local Windows)
+
+**Brain:** `D:\Obsidian\Obsidian\00_Brain`  
+**Project vaults:** `D:\Obsidian\Obsidian\40_VSCode\<Project>\`
+
+## Mandatory tool choice
+
+| Action | Tool | Do not use |
+|--------|------|------------|
+| Read / search vault | Native `Read` / `Grep` on `D:\Obsidian\...` | MCP `obsidian-*` for reads |
+| Write / edit vault | Native `Write` / `StrReplace` on `D:\Obsidian\...` | MCP in Agent mode |
+| Repo code | Native workspace tools | — |
+
+`obsidian-brain` MCP points at the same `D:\` files — it adds latency and UI noise, not capability.
+
+## MCP fallback (writes only)
+
+Use Obsidian MCP for vault writes **only when**:
+
+1. **Ask mode** blocks native Write/StrReplace, or
+2. Native Write **fails** (path/permission), or
+3. User **explicitly** requests MCP
+
+If MCP is used, footer Memory must note: `vault ✓ path (MCP fallback — <reason>)`.
+
+## Other MCP
+
+Context7, Serena, Shopify, etc. per repo `docs/TOKEN-STACK.md` — not for vault file I/O.
+
+**One tool per vault file per turn.** Never Read a file via MCP if you already read it natively this turn.
