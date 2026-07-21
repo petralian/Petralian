@@ -3,6 +3,8 @@ import { getAllPosts, getPostLastModified } from "@/lib/posts";
 import { getAllTopicSlugs } from "@/lib/tag-slug-server";
 import { SITE_URL } from "@/lib/constants";
 
+export const revalidate = 3600;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
 

@@ -10,13 +10,15 @@
 - **D2 collapsed** — No client viewBox trim, rect strip, or panzoom; pinch/zoom in fullscreen only.
 - **Playbook** — topic tag `Playbook` on long-form posts (filter at `/topics/playbook`); not a separate badge.
 - **GEO** — topic tag on generative-engine / answer-surface posts; filter at `/topics/geo`.
-- **Inline D2 diagrams** — `trimDiagramSvgs()` via getBBox before sizing; no CSS squash on capped viewports; viewport background transparent.
+- **Inline D2 diagrams** — dual-SVG invert pipeline; no client viewBox trim; cap 400px inline; fullscreen pinch/zoom.
 - **Vault hero images** — updating `03 Published/Attachments/*.png` does not sync to `public/images/posts/` until copied or publish script runs; stale repo image = wrong hero on site.
 
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
 - **Every assistant reply** must open with **Session context** and end with the **session footer** — canonical: `00_Brain/Conventions/Response Footer Contract.md`; enforced: `.cursor/rules/response-footer.mdc`.
 - Drafts live in Obsidian `Blog/01 Drafts/` only — do not write `content/posts/` during writing sessions.
+- **`Blog/02 Ready to publish/` — never create new articles there.** User promotes from `01 Drafts`. Agents may **edit existing** `02 Ready` files only on **explicit user request**; validate slug/frontmatter and folder gate before any edit.
+- **Scheduled posts:** `date` in frontmatter gates visibility (`isPostPublished` in `src/lib/posts.ts`). Future-dated files can sit in `content/posts/` after sync; they 404 and stay off homepage/RSS/sitemap until editorial date (HK calendar day; pages revalidate hourly).
 
 ## Diagrams
 - Passing large SVG strings through **client** component props → blank diagram after hydration. Render SVG on **server** (`DiagramFigure`).

@@ -4,6 +4,8 @@ import PostGrid from "@/components/PostGrid";
 import { getAllPosts } from "@/lib/posts";
 import homeContent from "../../content/pages/home.json";
 
+export const revalidate = 3600;
+
 export default function HomePage() {
   const posts = getAllPosts();
   const recent = posts.slice(0, 9);

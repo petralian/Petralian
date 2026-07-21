@@ -3,6 +3,8 @@ import { getAllPosts } from "@/lib/posts";
 import { buildTagSlugMap } from "@/lib/topic-catalog";
 import writingContent from "../../../content/pages/writing.json";
 
+export const revalidate = 3600;
+
 export default function WritingLayout({
   children,
 }: {

@@ -6,6 +6,8 @@ import { topicIntro } from "@/lib/tag-stats";
 import { getTopicSlugsFromCatalog } from "@/lib/topic-catalog";
 import { slugToTag } from "@/lib/tag-slug-server";
 
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return getTopicSlugsFromCatalog().map((slug) => ({ slug }));
 }

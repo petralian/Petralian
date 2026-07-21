@@ -1,5 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
+
+const EDITORIAL_TZ = process.env.EDITORIAL_TIMEZONE ?? "Asia/Hong_Kong";
+
+function editorialTodayKey(now = new Date()): string {
+  return now.toLocaleDateString("en-CA", { timeZone: EDITORIAL_TZ });
+}
+
+function isEditoriallyPublished(dateStr: unknown, now = new Date()): boolean {
+  if (!dateStr) return true;
+  const trimmed = String(dateStr).trim();
+  const postKey = /^\d{4}-\d{2}-\d{2}/.test(trimmed)
+    ? trimmed.slice(0, 10)
+    : editorialTodayKey(new Date(trimmed));
+  if (!postKey || Number.isNaN(Date.parse(postKey))) return true;
+  return postKey <= editorialTodayKey(now);
+}
 
 export type LegacyRedirect = {
   source: string;
@@ -151,7 +168,7 @@ export function buildWordPressLegacyRedirects(): LegacyRedirect[] {
 
 /**
  * WordPress used root slugs (petralian.com/my-post). Next uses /posts/my-post.
- * Generate one 301 per published post file.
+ * Generate one 301 per published post file (respects editorial publish date).
  */
 export function buildLegacyPostRedirects(): LegacyRedirect[] {
   const postsDir = path.join(process.cwd(), "content/posts");
@@ -160,9 +177,19 @@ export function buildLegacyPostRedirects(): LegacyRedirect[] {
   return fs
     .readdirSync(postsDir)
     .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx?$/, ""))
-    .filter((slug) => slug.length > 0 && !RESERVED_ROOT_SEGMENTS.has(slug))
-    .map((slug) => ({
+    .map((f) => {
+      const slug = f.replace(/\.mdx?$/, "");
+      const raw = fs.readFileSync(path.join(postsDir, f), "utf8");
+      const { data } = matter(raw);
+      return { slug, date: data.date };
+    })
+    .filter(
+      ({ slug, date }) =>
+        slug.length > 0 &&
+        !RESERVED_ROOT_SEGMENTS.has(slug) &&
+        isEditoriallyPublished(date)
+    )
+    .map(({ slug }) => ({
       source: `/${slug}`,
       destination: `/posts/${slug}`,
       permanent: true,

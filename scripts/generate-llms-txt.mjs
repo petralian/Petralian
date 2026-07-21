@@ -11,6 +11,17 @@ const ROOT = path.resolve(import.meta.dirname, "..");
 const POSTS_DIR = path.join(ROOT, "content/posts");
 const OUT = path.join(ROOT, "public/llms.txt");
 const SITE_URL = "https://petralian.com";
+const EDITORIAL_TZ = process.env.EDITORIAL_TIMEZONE || "Asia/Hong_Kong";
+
+function editorialTodayKey() {
+  return new Date().toLocaleDateString("en-CA", { timeZone: EDITORIAL_TZ });
+}
+
+function isEditoriallyPublished(dateStr) {
+  const key = dateStr ? String(dateStr).slice(0, 10) : "";
+  if (!key) return true;
+  return key <= editorialTodayKey();
+}
 
 function tagToSlug(tag) {
   return tag
@@ -37,6 +48,7 @@ function getPublishedPosts() {
       };
     })
     .filter((p, i, arr) => arr.findIndex((q) => q.slug === p.slug) === i)
+    .filter((p) => isEditoriallyPublished(p.date))
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 

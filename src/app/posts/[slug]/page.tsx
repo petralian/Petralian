@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { format, parseISO } from "date-fns";
-import { getAllPosts, getPost, getPostLastModified } from "@/lib/posts";
+import { getAllSlugs, getAllPosts, getPost, getPostLastModified } from "@/lib/posts";
 import { getTopicUrl } from "@/lib/tag-slug";
 import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
@@ -20,8 +20,10 @@ import { postDiagramComponents } from "@/components/diagram/post-diagram-compone
 import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
 import { rehypeHeadingIds } from "@/lib/rehype-heading-ids";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  return getAllSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

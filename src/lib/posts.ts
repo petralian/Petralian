@@ -2,9 +2,37 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { EDITORIAL_TIMEZONE } from "@/lib/constants";
 import { isPostFormat, type PostFormat } from "@/lib/post-format";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
+
+/** YYYY-MM-DD in editorial timezone — for scheduled publish comparisons. */
+export function getEditorialDateKey(date: Date = new Date()): string {
+  return date.toLocaleDateString("en-CA", { timeZone: EDITORIAL_TIMEZONE });
+}
+
+/** Normalize frontmatter `date` to YYYY-MM-DD for comparison. */
+export function normalizePostDateKey(dateStr: string): string {
+  if (!dateStr) return "";
+  const trimmed = String(dateStr).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(trimmed)) {
+    return trimmed.slice(0, 10);
+  }
+  const parsed = new Date(trimmed);
+  if (Number.isNaN(parsed.getTime())) return "";
+  return getEditorialDateKey(parsed);
+}
+
+/** True when editorial date is today or earlier (visible on site). */
+export function isPostPublished(
+  dateStr: string,
+  now: Date = new Date()
+): boolean {
+  const postKey = normalizePostDateKey(dateStr);
+  if (!postKey) return true;
+  return postKey <= getEditorialDateKey(now);
+}
 
 function generateExcerpt(content: string): string {
   const plain = content
@@ -42,6 +70,15 @@ export interface Post extends PostMeta {
 }
 
 export function getAllPosts(): PostMeta[] {
+  return listAllPostMeta().filter((post) => isPostPublished(post.date));
+}
+
+/** All posts on disk, including future editorial dates (build/admin only). */
+export function getAllPostsIncludingScheduled(): PostMeta[] {
+  return listAllPostMeta();
+}
+
+function listAllPostMeta(): PostMeta[] {
   if (!fs.existsSync(POSTS_DIR)) return [];
   return fs
     .readdirSync(POSTS_DIR)
@@ -89,9 +126,13 @@ export function getPostMeta(slug: string): PostMeta {
 
 export function getPost(slug: string): Post {
   const raw = readPostFile(slug);
-  const { data, content } = matter(raw);
+  const { content } = matter(raw);
+  const meta = getPostMeta(slug);
+  if (!isPostPublished(meta.date)) {
+    throw new Error(`Post not published yet: ${slug}`);
+  }
   return {
-    ...getPostMeta(slug),
+    ...meta,
     content,
   };
 }

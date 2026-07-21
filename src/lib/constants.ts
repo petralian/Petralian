@@ -38,3 +38,7 @@ export const NAV_LINKS = [
   { label: "Writing", href: "/posts" },
   { label: "About", href: "/about" },
 ] as const;
+
+/** Calendar-day comparison for `date` frontmatter (scheduled publishing). */
+export const EDITORIAL_TIMEZONE =
+  process.env.EDITORIAL_TIMEZONE ?? "Asia/Hong_Kong";

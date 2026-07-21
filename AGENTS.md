@@ -33,6 +33,7 @@ focus_keyword: "primary 2-4 word keyword phrase"
 - Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
 - Drafts belong in the Obsidian vault at `Blog/01 Drafts/` only
 - **Folder = publish gate** (`02 Ready` / `03 Published` sync); no `status` frontmatter
+- **Scheduled publish:** sync future-dated posts to `content/posts/` anytime; site hides them until `date` (calendar day, `Asia/Hong_Kong` default) via `getAllPosts()` + ISR (`revalidate` 3600)
 
 ## Response footer (mandatory)
 
@@ -54,3 +55,4 @@ Do not skip Obsidian updates because the user asked for code only. See `.cursor/
 - Bright theme: Kroki/D2 default colors (no `theme-overrides` in `wrapD2Chart`)
 - Dark theme: same SVG with `filter: invert(1)` on `.diagram-figure__svg--dark`
 - Render SVG on the server (`DiagramFigure`), not via client component props
+- Authoring: `docs/editorial/d2-visual-guide.md` — direction heuristics, node roles, D2-only (no Mermaid on site)
