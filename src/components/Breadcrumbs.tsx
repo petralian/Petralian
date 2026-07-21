@@ -10,11 +10,14 @@ type BreadcrumbsProps = {
   items: BreadcrumbItem[];
   /** `dark` for post hero; `light` for standard pages */
   variant?: "light" | "dark";
+  /** Allow long titles to wrap across full content width (post hero) */
+  fullWidth?: boolean;
 };
 
 export default function Breadcrumbs({
   items,
   variant = "light",
+  fullWidth = false,
 }: BreadcrumbsProps) {
   if (items.length === 0) return null;
 
@@ -36,7 +39,7 @@ export default function Breadcrumbs({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <nav
-        className={`breadcrumbs breadcrumbs--${variant}`}
+        className={`breadcrumbs breadcrumbs--${variant}${fullWidth ? " breadcrumbs--full" : ""}`}
         aria-label="Breadcrumb"
       >
         <ol className="breadcrumbs__list">

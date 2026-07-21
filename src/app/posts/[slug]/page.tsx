@@ -19,6 +19,7 @@ import TaskListEnhancer from "@/components/TaskListEnhancer";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
 import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
 import { rehypeHeadingIds } from "@/lib/rehype-heading-ids";
+import { rehypeFigureCaptions } from "@/lib/rehype-figure-captions";
 
 export const revalidate = 3600;
 
@@ -155,10 +156,11 @@ export default async function PostPage({
         />
       )}
       <section className="post-hero">
-        <div className="post-hero-inner">
-          <div className="post-hero-left">
+        <div className="post-hero-breadcrumbs-bar">
+          <div className="post-hero-breadcrumbs-inner">
             <Breadcrumbs
               variant="dark"
+              fullWidth
               items={[
                 { label: "Home", href: "/" },
                 { label: "Writing", href: "/posts" },
@@ -173,6 +175,10 @@ export default async function PostPage({
                 { label: post.title },
               ]}
             />
+          </div>
+        </div>
+        <div className="post-hero-inner">
+          <div className="post-hero-left">
             <h1 className="post-hero-title">{post.title}</h1>
             {post.format && (
               <div className="post-hero-format">
@@ -235,7 +241,7 @@ export default async function PostPage({
                 mdxOptions: {
                   format: "md",
                   remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeRaw, rehypeHeadingIds],
+                  rehypePlugins: [rehypeRaw, rehypeHeadingIds, rehypeFigureCaptions],
                 },
               }}
             />
