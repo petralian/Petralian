@@ -13,12 +13,24 @@ const OUT = path.join(ROOT, "public/llms.txt");
 const SITE_URL = "https://petralian.com";
 const EDITORIAL_TZ = process.env.EDITORIAL_TIMEZONE || "Asia/Hong_Kong";
 
-function editorialTodayKey() {
-  return new Date().toLocaleDateString("en-CA", { timeZone: EDITORIAL_TZ });
+function editorialTodayKey(date = new Date()) {
+  return date.toLocaleDateString("en-CA", { timeZone: EDITORIAL_TZ });
+}
+
+/** Match src/lib/posts.ts — gray-matter may parse `date` as a Date object. */
+function normalizePostDateKey(dateStr) {
+  if (!dateStr) return "";
+  const trimmed = String(dateStr).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(trimmed)) {
+    return trimmed.slice(0, 10);
+  }
+  const parsed = new Date(trimmed);
+  if (Number.isNaN(parsed.getTime())) return "";
+  return parsed.toLocaleDateString("en-CA", { timeZone: EDITORIAL_TZ });
 }
 
 function isEditoriallyPublished(dateStr) {
-  const key = dateStr ? String(dateStr).slice(0, 10) : "";
+  const key = normalizePostDateKey(dateStr);
   if (!key) return true;
   return key <= editorialTodayKey();
 }
@@ -43,7 +55,7 @@ function getPublishedPosts() {
         slug,
         title: data.title || slug,
         description: (data.seo_description || data.excerpt || "").trim(),
-        date: data.date ? String(data.date).slice(0, 10) : "",
+        date: normalizePostDateKey(data.date),
         tags: Array.isArray(data.tags) ? data.tags : [],
       };
     })
@@ -80,18 +92,17 @@ const lines = [
   "",
   "## Discovery",
   "",
-  `- Sitemap: ${SITE_URL}/sitemap.xml`,
-  `- RSS feed: ${SITE_URL}/feed.xml`,
-  `- LLM discovery: ${SITE_URL}/llms.txt (also /llm.txt, /ai.txt)`,
-  `- All articles index: ${SITE_URL}/posts`,
-  `- Topic archives: ${SITE_URL}/topics/{slug}`,
-  `- Breadcrumb navigation on posts, writing index, and about pages`,
+  `- [Sitemap](${SITE_URL}/sitemap.xml): XML sitemap for crawlers`,
+  `- [RSS feed](${SITE_URL}/feed.xml): Full-text RSS`,
+  `- [LLM discovery](${SITE_URL}/llms.txt): This file (also /llm.txt, /ai.txt)`,
+  `- [All articles](${SITE_URL}/posts): Writing index`,
+  `- [Topic archives](${SITE_URL}/topics): Topic hub pages`,
   "",
   "## Site sections",
   "",
-  `- Homepage: ${SITE_URL}`,
-  `- Writing (all articles): ${SITE_URL}/posts`,
-  `- About Nathan: ${SITE_URL}/about`,
+  `- [Homepage](${SITE_URL})`,
+  `- [Writing](${SITE_URL}/posts): All articles`,
+  `- [About Nathan](${SITE_URL}/about)`,
   "",
   "## Content topics",
   "",
@@ -108,20 +119,21 @@ const lines = [
   "- Name: Nathan Petralia",
   "- Title: Managing Director, Hong Kong",
   "- Background: Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu",
-  "- LinkedIn: https://www.linkedin.com/in/petralian/",
+  `- [LinkedIn](https://www.linkedin.com/in/petralian/)`,
   "- Contact: nathan@petralian.com",
   "",
   "## Topics",
   "",
   ...tagStats.slice(0, 15).map(
-    (t) => `- ${t.tag} (${t.count} articles): ${SITE_URL}/topics/${t.slug}`
+    (t) =>
+      `- [${t.tag}](${SITE_URL}/topics/${t.slug}): ${t.count} articles`
   ),
   "",
   "## Published articles",
   "",
   ...posts.map((p) => {
-    const desc = p.description ? ` — ${p.description}` : "";
-    return `- ${p.title}${desc}: ${SITE_URL}/posts/${p.slug}`;
+    const desc = p.description ? `: ${p.description}` : "";
+    return `- [${p.title}](${SITE_URL}/posts/${p.slug})${desc}`;
   }),
   "",
   "## Usage",
