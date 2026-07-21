@@ -167,7 +167,7 @@ export default async function PostPage({
                 fill
                 priority
                 fetchPriority="high"
-                quality={55}
+                unoptimized
                 className="post-card-image"
                 sizes="(max-width: 768px) 100vw, min(50vw, 600px)"
               />

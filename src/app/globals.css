@@ -1072,21 +1072,14 @@ html:not([data-theme]) .theme-icon--moon {
 
 .home-start-here,
 .home-series {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 420px;
+  margin-bottom: var(--space-12);
+  overflow: visible;
 }
 
-.home-newsletter,
 .home-recent-posts,
 .home-view-all {
   content-visibility: auto;
   contain-intrinsic-size: auto 360px;
-}
-
-.home-start-here,
-.home-series {
-  margin-bottom: var(--space-12);
-  overflow: visible;
 }
 
 .home-start-here .section-heading,
