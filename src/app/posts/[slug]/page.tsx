@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { preload } from "react-dom";
+import "../article.css";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";

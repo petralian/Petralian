@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import Link from "next/link";
 import D2Diagram from "@/components/d2/D2Diagram";
+import "../posts/article.css";
 
 export const metadata = {
   title: "D2 diagram preview",

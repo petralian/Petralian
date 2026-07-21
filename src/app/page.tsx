@@ -1,14 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
-import PostGrid from "@/components/PostGrid";
-import HomeStartHere from "@/components/HomeStartHere";
-import HomeSeriesHubs from "@/components/HomeSeriesHubs";
-import SubscribeBox from "@/components/SubscribeBox";
+import dynamic from "next/dynamic";
 import { getAllPosts } from "@/lib/posts";
 import { getSeriesHubs, getStartHerePosts } from "@/lib/series-hubs";
 import { buildHomeMetadata, buildHomePageSchema } from "@/lib/home-seo";
 import { getNewThisWeekSlugs } from "@/lib/post-freshness";
 import homeContent from "../../content/pages/home.json";
+
+const HomeBelowHero = dynamic(() => import("@/components/home/HomeBelowHero"));
 
 export const revalidate = 3600;
 
@@ -40,6 +37,12 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
       />
       <div className="page-container">
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              ".hero{padding:var(--space-12,3rem) 0 var(--space-10,2.5rem);margin-bottom:var(--space-5,1.25rem)}.hero-title{font-family:var(--font-heading),system-ui,sans-serif;font-size:clamp(2.125rem,5.5vw,3rem);font-weight:700;line-height:1.15;color:var(--color-ink-heading,#1b2430);margin-bottom:var(--space-5,1.25rem);max-width:min(48rem,100%);text-wrap:balance}.hero-tagline{font-size:1.125rem;color:var(--color-ink-secondary,#545468);max-width:min(40rem,100%);line-height:1.7}",
+          }}
+        />
         <section className="hero">
           <h1 className="hero-title">{homeContent.hero_title}</h1>
           {homeContent.hero_byline ? (
@@ -51,68 +54,14 @@ export default function HomePage() {
           ) : null}
         </section>
 
-        <section className="home-intro">
-          <div className="home-intro-inner">
-            <div className="home-intro-photo-wrap">
-              <Image
-                src="/images/nathan-petralia.jpg"
-                alt="Nathan Petralia at HKU"
-                fill
-                loading="eager"
-                quality={60}
-                className="home-intro-photo"
-                sizes="(max-width: 860px) 100vw, 380px"
-              />
-            </div>
-            <div className="home-intro-text">
-              <h2 className="home-intro-eyebrow">Nathan Petralia</h2>
-              {homeContent.intro_bio.split("\n\n").map((block, i) => (
-                <p key={i} className="home-intro-bio">
-                  {block.split("\n").map((line, k, arr) => (
-                    <span key={k}>
-                      {line}
-                      {k < arr.length - 1 && <br />}
-                    </span>
-                  ))}
-                </p>
-              ))}
-              <Link href="/about" className="home-intro-link">
-                About me &rarr;
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <HomeStartHere
-          heading={homeContent.start_here_heading}
-          intro={homeContent.start_here_intro}
-          posts={startHere}
+        <HomeBelowHero
+          homeContent={homeContent}
+          startHere={startHere}
+          seriesHubs={seriesHubs}
+          recent={recent}
+          newThisWeek={newThisWeek}
+          totalPosts={posts.length}
         />
-
-        <HomeSeriesHubs
-          heading={homeContent.series_heading}
-          intro={homeContent.series_intro}
-          hubs={seriesHubs}
-        />
-
-        <section className="home-newsletter" aria-label="Newsletter signup">
-          <SubscribeBox />
-        </section>
-
-        {recent.length > 0 && (
-          <section className="home-recent-posts">
-            <p className="section-heading">{homeContent.latest_heading}</p>
-            <PostGrid posts={recent} newSlugs={newThisWeek} />
-          </section>
-        )}
-
-        {posts.length > 6 && (
-          <div className="home-view-all">
-            <Link href="/posts" className="post-card-read-more">
-              Browse all writing →
-            </Link>
-          </div>
-        )}
       </div>
     </>
   );

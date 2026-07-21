@@ -1,12 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Mail, Menu, X, FileX } from "lucide-react";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
-import ThemeToggle from "./ThemeToggle";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 /** Enter compact header above this; exit below — gap prevents shrink/expand flicker. */
 const SCROLL_COMPACT_ENTER = 48;
@@ -30,6 +31,40 @@ function GitHubIcon() {
   );
 }
 
+function MailIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m2 7 10 7 10-7" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+      <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+      <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function FileXIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6M9.5 12.5l5 5M14.5 12.5l-5 5" />
+    </svg>
+  );
+}
+
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +79,7 @@ export default function Header() {
         return prev;
       });
     };
-    onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -72,14 +107,16 @@ export default function Header() {
             height={503}
             sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-light"
+            priority
           />
           <Image
             src="/images/petralian_white.png"
-            alt="Petralian"
+            alt=""
             width={1702}
             height={247}
             sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-dark"
+            aria-hidden
           />
         </Link>
 
@@ -96,7 +133,7 @@ export default function Header() {
 
           <div className="social-icons" aria-label="Social links">
             <a href={SOCIAL_LINKS.email} aria-label="Email" className="social-icon">
-              <Mail size={18} strokeWidth={1.5} />
+              <MailIcon />
             </a>
             <a
               href={SOCIAL_LINKS.linkedin}
@@ -122,7 +159,7 @@ export default function Header() {
               className="social-icon"
               title="Lost in Space — 404 game"
             >
-              <FileX size={18} strokeWidth={1.5} />
+              <FileXIcon />
             </Link>
           </div>
           <ThemeToggle />
@@ -138,7 +175,7 @@ export default function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((prev) => !prev)}
           >
-            {menuOpen ? <X size={20} strokeWidth={2.2} /> : <Menu size={20} strokeWidth={2.2} />}
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
@@ -168,7 +205,7 @@ export default function Header() {
             <div className="mobile-menu-bottom">
               <div className="social-icons social-icons--mobile" aria-label="Social links">
                 <a href={SOCIAL_LINKS.email} aria-label="Email" className="social-icon">
-                  <Mail size={18} strokeWidth={1.5} />
+                  <MailIcon />
                 </a>
                 <a
                   href={SOCIAL_LINKS.linkedin}
@@ -194,7 +231,7 @@ export default function Header() {
                   className="social-icon"
                   title="Lost in Space — 404 game"
                 >
-                  <FileX size={18} strokeWidth={1.5} />
+                  <FileXIcon />
                 </Link>
               </div>
             </div>
