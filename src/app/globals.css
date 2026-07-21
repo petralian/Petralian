@@ -1460,14 +1460,14 @@ html:not([data-theme]) .theme-icon--moon {
   }
 
   .home-intro-text {
-    order: 2;
+    order: 1;
     grid-column: auto;
     grid-row: auto;
     padding: var(--space-8) 0 var(--space-4);
   }
 
   .home-intro-photo-wrap {
-    order: 1;
+    order: 2;
     grid-column: auto;
     grid-row: auto;
     height: 240px;
