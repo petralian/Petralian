@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/posts/cursorbench-fable-5-composer-2-5-cost-vs-score",
+        destination: "/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score",
+        permanent: true,
+      },
+      {
         source: "/posts/cursor-local-proxy-cloudflare-tunnel-windows",
         destination: "/posts/cursor-token-saving-tools-beyond-headroom-2026",
         permanent: false,

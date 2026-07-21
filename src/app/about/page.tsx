@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import AboutTrust from "@/components/AboutTrust";
 import { SOCIAL_LINKS, SITE_URL, AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from "@/lib/constants";
 import aboutContent from "../../../content/pages/about.json";
 
@@ -117,6 +118,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <AboutTrust />
 
       {/* ── Pillars ─────────────────────────────────────────────── */}
       <div className="about-body">

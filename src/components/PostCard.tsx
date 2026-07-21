@@ -8,6 +8,7 @@ import type { PostMeta } from "@/lib/posts";
 interface PostCardProps {
   post: PostMeta;
   featured?: boolean;
+  isNew?: boolean;
 }
 
 function formatDate(dateStr: string): string {
@@ -18,13 +19,16 @@ function formatDate(dateStr: string): string {
   }
 }
 
-export default function PostCard({ post, featured = false }: PostCardProps) {
+export default function PostCard({ post, featured = false, isNew = false }: PostCardProps) {
   const hasImage = Boolean(post.featured_image);
   return (
     <Link href={`/posts/${post.slug}`} className="post-card">
       <article>
         {hasImage ? (
           <div className="post-card-image-wrap">
+            {isNew ? (
+              <span className="post-card-new-badge">New this week</span>
+            ) : null}
             <Image
               src={post.featured_image!}
               alt={post.featured_image_alt || post.title}
@@ -37,7 +41,11 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             />
           </div>
         ) : (
-          <div className="post-card-image-placeholder" />
+          <div className="post-card-image-placeholder">
+            {isNew ? (
+              <span className="post-card-new-badge">New this week</span>
+            ) : null}
+          </div>
         )}
 
         <div className="post-card-body">

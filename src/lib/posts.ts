@@ -54,6 +54,7 @@ export interface PostMeta {
   category: string;
   tags: string[];
   series: string;
+  series_order: number | null;
   related_posts: string[];
   excerpt: string;
   featured_image: string;
@@ -110,6 +111,10 @@ export function getPostMeta(slug: string): PostMeta {
     category: data.category || "",
     tags: Array.isArray(data.tags) ? data.tags : [],
     series: typeof data.series === "string" ? data.series : "",
+    series_order:
+      typeof data.series_order === "number" && Number.isFinite(data.series_order)
+        ? data.series_order
+        : null,
     related_posts: Array.isArray(data.related_posts)
       ? data.related_posts.filter((s): s is string => typeof s === "string")
       : [],

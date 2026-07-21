@@ -1,5 +1,31 @@
 {
-  "hero_title": "AI, Technology, Transformation, and Inspiration",
-  "hero_tagline": "Writing about AI, technology and commercial growth: what worked, what failed, and what helped me move from pilot to production.",
-  "intro_bio": "I have spent two decades leading digital and commercial programs across APAC. Today I build AI products and leverage AI across consulting, practice building, go-to-market, commercials, delivery governance, and operational leadership."
+  "seo_title": "Practical Writing on Using AI Well",
+  "seo_description": "Guides on file memory, Cursor agent workflows, and delivery judgment — what worked, what failed, and how to move from pilot to production.",
+  "seo_keywords": [
+    "Cursor AI",
+    "external memory",
+    "agent workflows",
+    "AI operations",
+    "file-based memory",
+    "enterprise AI",
+    "Nathan Petralia"
+  ],
+  "og_image": "/images/nathan-petralia.jpg",
+  "hero_title": "Practical writing on using AI well",
+  "hero_byline": "I'm Nathan Petralia — operator and writer on enterprise AI, file memory, and getting agents to production.",
+  "hero_tagline": "What worked, what failed, and what helped me move from pilot to production.",
+  "return_hook": "New posts ship on the blog; the weekly digest catches what you missed — one email, practical only.",
+  "intro_bio": "I have spent two decades leading digital and commercial programs across APAC. Today I build AI products and use agents daily across consulting, practice building, go-to-market, delivery governance, and operational leadership.",
+  "start_here_heading": "Start here",
+  "start_here_intro": "New to the site? Pick one path — each opens a guide or series hub.",
+  "start_here_slugs": [
+    "is-cursor-only-for-developers",
+    "external-memory-series-guide",
+    "cursor-customize-one-agent-many-workflows-2026"
+  ],
+  "start_here_max": 3,
+  "series_heading": "Reading paths",
+  "series_intro": "Multi-part guides — start at the hub, then follow the series in order.",
+  "featured_series_max": 4,
+  "latest_heading": "Latest"
 }
