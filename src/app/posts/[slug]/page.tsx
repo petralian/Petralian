@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { preload } from "react-dom";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -89,6 +90,10 @@ export default async function PostPage({
     post = getPost(slug);
   } catch {
     notFound();
+  }
+
+  if (post.featured_image) {
+    preload(post.featured_image, { as: "image" });
   }
 
   const allPosts = getAllPosts();

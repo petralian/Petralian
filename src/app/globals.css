@@ -1411,6 +1411,8 @@ html:not([data-theme]) .theme-icon--moon {
   margin-bottom: var(--space-12);
   border-radius: var(--radius-card);
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
 }
 
 .home-intro-inner {
