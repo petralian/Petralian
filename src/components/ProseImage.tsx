@@ -4,6 +4,7 @@ import { getImageDimensions } from "@/lib/image-dimensions";
 export default function ProseImage({
   src,
   alt,
+  className,
   ...rest
 }: ImgHTMLAttributes<HTMLImageElement>) {
   if (!src || typeof src !== "string") return null;
@@ -19,6 +20,7 @@ export default function ProseImage({
       height={dims?.height}
       loading="lazy"
       decoding="async"
+      className={className}
       {...rest}
     />
   );

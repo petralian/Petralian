@@ -75,7 +75,7 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) teaching line still ho
 | Forensics on a long technical thread | Exact tool output or error text |
 | Same-week continuity inside one workspace | Faster than opening vault notes |
 | "Did we already try X?" inside the project | Surfaces prior attempts |
-![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.png)
+![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.jpg)
 *Screenshot: Petralian / Cursor (2026)*
 
 Search is strong for **recall inside the chat record**. It is weak as a governance layer. It does not tell you which of three conflicting answers is current policy.
@@ -121,7 +121,7 @@ Bridge sections stay short:
 - **Next action** — one line a tired future me can execute
 - **Links** — vault paths or repo areas, not chat URLs
 
-![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.png)
+![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.jpg)
 *Screenshot: Petralian / Obsidian (2026)*
 
 The [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) covers workspace layout. This post is the decision rule: **search for archaeology; Bridge for navigation**.

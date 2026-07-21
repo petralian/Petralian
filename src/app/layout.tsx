@@ -12,15 +12,17 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL, AUTHOR_NAME, AUTHOR_BIO, AUTHOR_TITL
 const redHatText = Red_Hat_Text({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600"],
-  display: "swap",
+  weight: ["400", "600"],
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 const lexendDeca = Lexend_Deca({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["500", "600", "700"],
-  display: "swap",
+  weight: ["600", "700"],
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

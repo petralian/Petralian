@@ -223,9 +223,9 @@ export default async function PostPage({
                 fill
                 priority
                 fetchPriority="high"
-                quality={70}
+                quality={60}
                 className="post-card-image"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, min(50vw, 640px)"
               />
             </div>
           )}
