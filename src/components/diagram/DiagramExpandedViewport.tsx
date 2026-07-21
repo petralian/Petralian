@@ -192,6 +192,8 @@ export default function DiagramExpandedViewport({ children }: DiagramExpandedVie
     <div
       ref={viewportRef}
       className="diagram-figure__viewport diagram-figure__viewport--expanded"
+      role="button"
+      tabIndex={0}
       aria-label="Diagram full screen — pinch or Command/Ctrl+scroll to zoom, drag to pan, tap to exit"
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}

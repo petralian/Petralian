@@ -12,7 +12,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #5a5e72;
+  --color-ink-tertiary: #484c5c;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -103,7 +103,7 @@
   --color-ink: #272730;
   --color-ink-heading: #1b2430;
   --color-ink-secondary: #545468;
-  --color-ink-tertiary: #5a5e72;
+  --color-ink-tertiary: #484c5c;
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-alt: #f5f7fa;
@@ -853,7 +853,7 @@ html:not([data-theme]) .theme-icon--moon {
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: #fff;
-  background: var(--color-accent);
+  background: #7a2e12;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -903,7 +903,7 @@ html:not([data-theme]) .theme-icon--moon {
 
 .post-card-best-for-label {
   font-weight: 700;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   margin-right: 0.35rem;
 }
 
@@ -1174,7 +1174,7 @@ html:not([data-theme]) .theme-icon--moon {
   font-weight: 600;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   text-align: right;
 }
 
@@ -1309,7 +1309,7 @@ html:not([data-theme]) .theme-icon--moon {
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #fff;
-  background: color-mix(in srgb, var(--path-accent) 88%, #000);
+  background: color-mix(in srgb, var(--path-accent) 50%, #000);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
 }
 
@@ -1338,7 +1338,7 @@ html:not([data-theme]) .theme-icon--moon {
   font-weight: 600;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--path-accent);
+  color: color-mix(in srgb, var(--path-accent) 42%, var(--color-ink-heading));
 }
 
 .home-path-card-title {
@@ -1377,7 +1377,7 @@ html:not([data-theme]) .theme-icon--moon {
   margin: 0;
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--path-accent);
+  color: color-mix(in srgb, var(--path-accent) 48%, var(--color-ink-heading));
   margin-top: auto;
   padding-top: var(--space-2);
 }
@@ -1460,14 +1460,14 @@ html:not([data-theme]) .theme-icon--moon {
   }
 
   .home-intro-text {
-    order: 1;
+    order: 2;
     grid-column: auto;
     grid-row: auto;
     padding: var(--space-8) 0 var(--space-4);
   }
 
   .home-intro-photo-wrap {
-    order: 2;
+    order: 1;
     grid-column: auto;
     grid-row: auto;
     height: 240px;
@@ -1574,6 +1574,10 @@ html:not([data-theme]) .theme-icon--moon {
   .post-hero-inner {
     grid-template-columns: 1fr;
     gap: var(--space-6);
+  }
+
+  .post-hero-right {
+    order: -1;
   }
 }
 
@@ -1715,6 +1719,24 @@ html:not([data-theme]) .theme-icon--moon {
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
+}
+
+.post-hero-format .format-badge--strategic {
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.22);
+  border-color: rgba(147, 197, 253, 0.35);
+}
+
+.post-hero-format .format-badge--hands-on {
+  color: #a7f3d0;
+  background: rgba(5, 150, 105, 0.22);
+  border-color: rgba(110, 231, 183, 0.35);
+}
+
+.post-hero-format .format-badge--hybrid {
+  color: #fde68a;
+  background: rgba(217, 119, 6, 0.22);
+  border-color: rgba(253, 230, 138, 0.35);
 }
 
 .post-hero-best-for {
@@ -2131,6 +2153,13 @@ html:not([data-theme]) .theme-icon--moon {
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
   box-shadow: 0 1px 2px color-mix(in srgb, var(--color-ink) 6%, transparent);
+  height: auto;
+  max-width: 100%;
+}
+
+.prose :where(img[width][height]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  height: auto;
+  max-width: 100%;
 }
 
 .prose .content-figure .figure-caption {
@@ -2241,8 +2270,7 @@ html:not([data-theme]) .theme-icon--moon {
 .code-block__ln {
   padding: 0 0.5rem 0 0.75rem;
   text-align: right;
-  color: var(--color-ink-tertiary);
-  opacity: 0.65;
+  color: color-mix(in srgb, var(--code-block-fg) 72%, transparent);
   user-select: none;
   border-right: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
 }
@@ -2332,11 +2360,11 @@ html:not([data-theme]) .theme-icon--moon {
   --code-inline-fg: var(--color-ink-secondary);
 
   /* Article format orientation (strategic / hands-on / hybrid) */
-  --format-strategic: #2563eb;
+  --format-strategic: #1e40af;
   --format-strategic-bg: color-mix(in srgb, #2563eb 12%, var(--color-surface));
-  --format-hands-on: #059669;
+  --format-hands-on: #065f46;
   --format-hands-on-bg: color-mix(in srgb, #059669 12%, var(--color-surface));
-  --format-hybrid: #d97706;
+  --format-hybrid: #78350f;
   --format-hybrid-bg: color-mix(in srgb, #d97706 12%, var(--color-surface));
 }
 
@@ -2841,7 +2869,7 @@ html:not([data-theme]) .theme-icon--moon {
   font-weight: 600;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   margin-bottom: var(--space-6);
 }
 
@@ -3320,7 +3348,7 @@ html:not([data-theme]) .theme-icon--moon {
 
 .subscribe-note {
   font-size: var(--text-xs);
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-secondary);
   margin: 0;
 }
 
@@ -3999,21 +4027,21 @@ body.orbit-game-active .site-header--scrolled .site-logo-img {
 }
 
 .format-badge--strategic {
-  color: var(--format-strategic);
-  background: var(--format-strategic-bg);
-  border-color: color-mix(in srgb, var(--format-strategic) 22%, transparent);
+  color: #fff;
+  background: #1e40af;
+  border-color: #1e3a8a;
 }
 
 .format-badge--hands-on {
-  color: var(--format-hands-on);
-  background: var(--format-hands-on-bg);
-  border-color: color-mix(in srgb, var(--format-hands-on) 22%, transparent);
+  color: #fff;
+  background: #047857;
+  border-color: #065f46;
 }
 
 .format-badge--hybrid {
-  color: var(--format-hybrid);
-  background: var(--format-hybrid-bg);
-  border-color: color-mix(in srgb, var(--format-hybrid) 22%, transparent);
+  color: #fff;
+  background: #92400e;
+  border-color: #78350f;
 }
 
 .format-filter {

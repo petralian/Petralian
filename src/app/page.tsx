@@ -60,7 +60,7 @@ export default function HomePage() {
                 fill
                 priority
                 fetchPriority="high"
-                quality={70}
+                quality={60}
                 className="home-intro-photo"
                 sizes="(max-width: 860px) 100vw, 420px"
               />

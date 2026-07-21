@@ -17,9 +17,11 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PostOutline from "@/components/PostOutline";
 import TaskListEnhancer from "@/components/TaskListEnhancer";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
+import ProseImage from "@/components/ProseImage";
 import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
 import { rehypeHeadingIds } from "@/lib/rehype-heading-ids";
 import { rehypeFigureCaptions } from "@/lib/rehype-figure-captions";
+import { rehypeImageDimensions } from "@/lib/rehype-image-dimensions";
 
 export const revalidate = 3600;
 
@@ -220,6 +222,8 @@ export default async function PostPage({
                 alt={post.featured_image_alt || post.title}
                 fill
                 priority
+                fetchPriority="high"
+                quality={70}
                 className="post-card-image"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -236,12 +240,17 @@ export default async function PostPage({
           <article className="prose prose-lg max-w-none">
             <MDXRemote
               source={post.content}
-              components={postDiagramComponents}
+              components={{ ...postDiagramComponents, img: ProseImage }}
               options={{
                 mdxOptions: {
                   format: "md",
                   remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeRaw, rehypeHeadingIds, rehypeFigureCaptions],
+                  rehypePlugins: [
+                    rehypeRaw,
+                    rehypeHeadingIds,
+                    rehypeImageDimensions,
+                    rehypeFigureCaptions,
+                  ],
                 },
               }}
             />

@@ -122,7 +122,17 @@ export default function DiagramCollapsedViewport({ children }: DiagramCollapsedV
     <div
       ref={viewportRef}
       className="diagram-figure__viewport"
+      role="button"
+      tabIndex={0}
       aria-label="Diagram — tap for full screen"
+      onKeyDown={(event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        const viewport = viewportRef.current;
+        const layer = layerRef.current;
+        if (viewport && layer) lockDiagramMetrics(viewport, layer, null);
+        toggleExpanded();
+      }}
     >
       <div ref={layerRef} className="diagram-figure__zoom-layer">
         {children}
