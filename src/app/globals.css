@@ -1499,6 +1499,8 @@ html:not([data-theme]) .theme-icon--moon {
 }
 
 .home-intro-bio {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 8rem;
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: rgba(255, 255, 255, 0.78);
@@ -1559,9 +1561,12 @@ html:not([data-theme]) .theme-icon--moon {
   background-color: var(--color-surface-dark);
   color: #fff;
   padding: var(--site-dark-hero-pad-y) 0 calc(var(--site-dark-hero-pad-y) * 0.85);
+  display: flex;
+  flex-direction: column;
 }
 
 .post-hero-breadcrumbs-bar {
+  order: -1;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-5);

@@ -158,27 +158,6 @@ export default async function PostPage({
         />
       )}
       <section className="post-hero">
-        <div className="post-hero-breadcrumbs-bar">
-          <div className="post-hero-breadcrumbs-inner">
-            <Breadcrumbs
-              variant="dark"
-              fullWidth
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Writing", href: "/posts" },
-                ...(post.tags[0]
-                  ? [
-                    {
-                      label: post.tags[0],
-                      href: getTopicUrl(post.tags[0]),
-                    },
-                  ]
-                  : []),
-                { label: post.title },
-              ]}
-            />
-          </div>
-        </div>
         <div className="post-hero-inner">
           {post.featured_image && (
             <div className="post-hero-right">
@@ -228,6 +207,27 @@ export default async function PostPage({
                 ))}
               </div>
             )}
+          </div>
+        </div>
+        <div className="post-hero-breadcrumbs-bar">
+          <div className="post-hero-breadcrumbs-inner">
+            <Breadcrumbs
+              variant="dark"
+              fullWidth
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Writing", href: "/posts" },
+                ...(post.tags[0]
+                  ? [
+                    {
+                      label: post.tags[0],
+                      href: getTopicUrl(post.tags[0]),
+                    },
+                  ]
+                  : []),
+                { label: post.title },
+              ]}
+            />
           </div>
         </div>
       </section>
