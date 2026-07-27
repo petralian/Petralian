@@ -14,6 +14,9 @@ desktop.ini
 lh*.json
 lighthouse-*.json
 .lighthouse-tmp/
+.tmp-lh/
+.website-monitor/
+.lighthouse-agentic.json
 scripts/__pycache__/
 scripts/_test-*
 scripts/_*-temp.*

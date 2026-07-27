@@ -60,7 +60,6 @@ ALLOWED_BY_CATEGORY: dict[str, list[str]] = {
         "Shopify",
         "SEO",
         "ChatGPT",
-        "Salesforce",
         "CDP",
         "Developer Tools",
         "Playbook",
@@ -160,7 +159,6 @@ TAG_ALIASES: dict[str, str] = {
     "shopify": "Shopify",
     "chatgpt": "ChatGPT",
     "openai": "ChatGPT",
-    "salesforce": "Salesforce",
     "cdp": "CDP",
     "customer data platform": "CDP",
     "extension": "Developer Tools",
@@ -203,7 +201,7 @@ POST_OVERRIDES: dict[str, tuple[str, list[str]]] = {
     ),
     "is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant": (
         "Commerce & Marketing",
-        ["AI in Marketing", "Marketing Technology", "Digital Transformation"],
+        ["AI in Marketing", "Marketing Technology", "CDP", "Digital Transformation"],
     ),
     "ai-agent-quality-drift-detection": (
         "AI & Building",
@@ -387,7 +385,7 @@ SEO_POST_TAGS: dict[str, list[str]] = {
         "AI in Marketing", "Digital Transformation", "Marketing Technology", "Ecommerce",
     ],
     "is-salesforce-becoming-invisible-on-purpose-or-becoming-irrelevant": [
-        "Salesforce", "AI in Marketing", "Marketing Technology", "CDP", "Digital Transformation",
+        "AI in Marketing", "Marketing Technology", "CDP", "Digital Transformation",
     ],
     "is-using-ai-in-creative-work-wrong": [
         "Generative AI", "AI in Marketing", "Agency Landscape",
