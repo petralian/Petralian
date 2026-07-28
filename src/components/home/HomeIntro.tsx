@@ -10,11 +10,10 @@ export default function HomeIntro({ homeContent }: { homeContent: HomeContent })
       <div className="home-intro-inner">
         <div className="home-intro-photo-wrap">
           <Image
-            src="/images/nathan-petralia.jpg"
+            src="/images/nathan-petralia.avif"
             alt="Nathan Petralia at HKU"
             fill
             loading="lazy"
-            quality={60}
             className="home-intro-photo"
             sizes="(max-width: 860px) 100vw, 380px"
           />

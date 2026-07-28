@@ -5,7 +5,7 @@ import { stat } from "fs/promises";
 
 const TARGETS = [
   {
-    path: "public/images/nathan-petralia.jpg",
+    path: "public/images/nathan-petralia.avif",
     maxWidth: 720,
     quality: 68,
   },

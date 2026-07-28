@@ -32,7 +32,7 @@
 - **Mobile fullscreen:** Do not use `height: 100svh` on `.diagram-figure--expanded` — locks to small viewport; article bleeds when Chrome hides toolbar. Use `--diagram-vv-height` / `--diagram-vv-top` from `visualViewport` via `diagram-visual-viewport.ts` + `subscribeDiagramVisualViewport()` while expanded.
 
 ## Performance (Lighthouse)
-- Homepage LCP is `nathan-petralia.jpg` — photo must be **first in DOM** on mobile; do not `priority` the header logo (competes with LCP).
+- Homepage LCP is `nathan-petralia.avif` — photo must be **first in DOM** on mobile; do not `priority` the header logo (competes with LCP).
 - Post grid: use `PostGrid` (CSS grid, server-only) — not client `ResponsiveMasonry` (hydration + wrong initial column count hurt LCP/TBT).
 - Post images: pre-compress to **AVIF** at sync (`scripts/raster-to-avif.mjs`, SSOT `data/image-pipeline.yaml`); SVG/GIF pass-through; `next.config.ts` `images.unoptimized: true`.
 - `content-visibility: auto` on `.home-recent-posts` defers below-fold card work.

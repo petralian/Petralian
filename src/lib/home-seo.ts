@@ -15,7 +15,7 @@ export interface HomeSeoContent {
 
 export function buildHomeMetadata(content: HomeSeoContent): Metadata {
   const ogImage = absoluteAssetUrl(
-    content.og_image ?? "/images/nathan-petralia.jpg"
+    content.og_image ?? "/images/nathan-petralia.avif"
   );
 
   return {

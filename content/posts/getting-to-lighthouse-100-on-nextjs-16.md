@@ -187,7 +187,7 @@ The corrected `<Image>` component:
 
 ```tsx
 <Image
-  src="/images/nathan-petralia.jpg"
+  src="/images/nathan-petralia.avif"
   alt="Nathan Petralia at HKU"
   fill
   priority

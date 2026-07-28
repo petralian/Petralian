@@ -108,7 +108,7 @@ export default function AboutPage() {
           {/* Right: photo */}
           <div className="about-hero-photo-wrap">
             <Image
-              src="/images/nathan-petralia-about.jpg"
+              src="/images/nathan-petralia-about.avif"
               alt="Nathan Petralia"
               fill
               priority

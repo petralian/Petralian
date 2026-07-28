@@ -31,4 +31,6 @@ vercel:
 paths:
   repo_posts_images: public/images/posts
   repo_posts_markdown: content/posts
+  # Top-level brand photos (JPEG only — PNG logos stay passthrough)
+  repo_brand_images: public/images
   vault_blog: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian\\Blog"
