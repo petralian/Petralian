@@ -22,6 +22,7 @@ traceability:
   decision_register: "Operations/Decision Register.md"
 
 repo_checks:
+  facts_gate: "node scripts/run-facts-gate.mjs"
   parametric_drift: "node scripts/audit-parametric-drift.mjs"
   session_traceability: "node scripts/audit-session-traceability.mjs"
   typescript_build: "npx next build"

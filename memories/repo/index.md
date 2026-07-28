@@ -1,37 +1,48 @@
 # Petralian — repo memory (machine-readable)
 
-**Updated:** 2026-05-28
+**Updated:** 2026-07-28
 
 ## Identity
 - **Site:** https://petralian.com — Next.js 16 blog + newsletter
-- **Repo:** `D:\VS Code Projects\Petralian`
+- **Repo:** `C:\Users\User\OneDrive\02 VS Code\Petralian`
 - **Vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian`
 
 ## Bootstrap order (mandatory every non-trivial session)
 1. `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\Start of Session.md` — execute fully
-2. `.claude/NOTES.md` + `.claude/NEXT_SESSION.md`
-3. This folder: `memories/repo/index.md`, `open-loops.md`, `known-gotchas.md`, `facts-discipline.md`; `data/harness-verify.yaml` when verifying or changing limits
-4. `00_Brain/AI Agent Methodology.md`
-5. `00_Brain/Conventions/Response Footer Contract.md` — session context + footer on every work reply
-6. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`
-7. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` **before coding**
-8. Confirm `.cursor/rules/response-footer.mdc` (`alwaysApply: true`)
-9. Vault writes: `petralian-obsidian` MCP or `node scripts/obsidian-mcp-cli.mjs` (see `.cursor/rules/obsidian-mcp.mdc`)
+2. `.cursor/rules/response-footer.mdc`, `session-protocol.mdc`, `facts-and-verification.mdc`, `enterprise-traceability.mdc`
+3. This folder: `index.md`, `open-loops.md`, `known-gotchas.md`, `facts-discipline.md`
+4. `data/harness-verify.yaml` — verify commands + SEO limits (parametric SSOT)
+5. Vault: `Operations/AI Session Bridge.md` → `Session Summaries.md` → relevant `Features/*`
+6. Create/update `Operations/Sessions/YYYY-MM-DD <topic>.md` **before coding**
+7. Vault I/O: native `Read`/`Write` on `D:\Obsidian\...` per `.cursor/rules/obsidian-vault-io.mdc`
+
+## Harness verify (before publish / session close)
+```powershell
+npm run audit:facts
+# or: node scripts/run-facts-gate.mjs
+```
 
 ## Key paths
 | Area | Path |
 |------|------|
 | Posts (live) | `content/posts/*.md` |
 | Drafts (never write in session) | Obsidian `Blog/01 Drafts/` |
-| D2 render | `src/lib/render-d2.ts`, `src/lib/d2-design-system.ts` |
-| Diagram UI | `src/components/diagram/`, `src/components/d2/D2Diagram.tsx` |
-| Post MDX | `src/app/posts/[slug]/page.tsx` |
-| SEO field | `seo_description` (not `meta_description`) |
+| Parametric SSOT | `data/harness-verify.yaml` |
+| Facts gate | `scripts/run-facts-gate.mjs` |
+| Publish (local) | `scripts/sync-obsidian.ps1` |
+| Publish (cloud) | `scripts/publish-from-vault.mjs` + `.github/workflows/auto-publish.yml` |
+| D2 render | `src/lib/render-d2.ts` |
+| SEO field | `seo_description` (limits in `data/harness-verify.yaml`) |
 
 ## Deploy
 - **Platform:** Vercel from `master`
-- **Build:** `tinacms build --skip-cloud-checks && cross-env NODE_OPTIONS=--max-old-space-size=1024 next build`
+- **Build:** `npm run build` (Tina + Next)
 - **TS-only check:** `npx next build` if Tina dev on :9000
+- **Facts CI:** `.github/workflows/facts-gate.yml`
 
-## Current priority (2026-05-28)
-Deploy batch: Lighthouse homepage fix + mobile diagram viewport + image JPEGs. Re-run PageSpeed mobile after deploy. Footer/memory loop: brain RFC + Cursor rules synced.
+## Fleet sync
+Brain manifest: `00_Brain/scripts/cursor-projects.json`  
+Spread rules + harness scripts: `00_Brain/scripts/sync-cursor-stack.ps1`
+
+## MCP (Cursor)
+See `docs/TOKEN-STACK.md`. **OpenSEO** (`openseo` in `.cursor/mcp.json`) — GSC + keyword research; auth at https://app.openseo.so/ai

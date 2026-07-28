@@ -17,6 +17,7 @@ import { join, basename, extname, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { auditSeoFields } from './lib/seo-utils.mjs';
+import { runFactsGate } from './lib/run-facts-gate.mjs';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dir, '..');
@@ -215,6 +216,8 @@ function preflight(filePath, content, articleFolder) {
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
+
+runFactsGate(repoRoot);
 
 // Ensure output directories exist
 mkdirSync(siteImages, { recursive: true });

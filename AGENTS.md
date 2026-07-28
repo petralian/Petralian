@@ -39,12 +39,13 @@ focus_keyword: "primary 2-4 word keyword phrase"
 
 Every work reply: **Session context** (top) + **10-line footer** (bottom) per `D:\Obsidian\Obsidian\00_Brain\Conventions\Response Footer Contract.md`. Cursor: `.cursor/rules/response-footer.mdc`.
 
-## Facts and verification (mandatory)
+## Facts discipline (mandatory)
 
 - **Facts:** Unknown until read from a file — no invented metrics, URLs, or config. See `memories/repo/facts-discipline.md`.
 - **Parametric SSOT:** Numbers and interdependent values live in `data/*.yaml`, not prose-only. Update YAML before markdown/code.
+- **Harness verify:** `npm run audit:facts` before publish or session close when limits apply.
 - **Verify loop:** Identify → Execute → Validate → **Document** (session note, IDN, or Bridge). Mode C–G **Verified** field must cite evidence.
-- **Portability:** Markdown + YAML are editor-agnostic; Cursor rules enforce at runtime.
+- **Fleet sync:** `D:\Obsidian\Obsidian\00_Brain\scripts\sync-cursor-stack.ps1` — see Brain `Conventions/Harness Fleet.md`.
 
 ## Session protocol (mandatory)
 

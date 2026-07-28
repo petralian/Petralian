@@ -1,0 +1,32 @@
+{
+  "_comment": "Petralian MCP stack: Context7 P0, Serena P1, OpenSEO P2 (GSC + keyword research). Auth: https://app.openseo.so/ai",
+  "mcpServers": {
+    "openseo": {
+      "_comment": "Hosted OpenSEO MCP — GSC performance/URL inspection, keywords, SERPs, backlinks. Login on first connect.",
+      "url": "https://app.openseo.so/mcp"
+    },
+    "petralian-obsidian": {
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/obsidian-mcp-server.mjs"]
+    },
+    "context7": {
+      "_comment": "Next.js 16 + TinaCMS live docs.",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "serena": {
+      "_comment": "Symbol-level code nav. Use ${workspaceFolder} so OneDrive + D: paths both work.",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide",
+        "--project",
+        "${workspaceFolder}"
+      ]
+    }
+  }
+}

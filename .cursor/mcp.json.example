@@ -1,14 +1,34 @@
 ﻿{
-    "_comment":  "Copy to ~/.cursor/mcp.json or merge in Cursor Settings → MCP",
-    "mcpServers":  {
-                       "obsidian-petralian":  {
-                                                  "args":  [
-                                                               "-y",
-                                                               "@modelcontextprotocol/server-filesystem",
-                                                               "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian",
-                                                               "D:\\Obsidian\\Obsidian\\00_Brain"
-                                                           ],
-                                                  "command":  "npx"
-                                              }
-                   }
+  "_comment": "Copy to project .cursor/mcp.json or merge in Cursor Settings → MCP. See docs/TOKEN-STACK.md",
+  "mcpServers": {
+    "context7": {
+      "_comment": "P0 — live library docs (Next.js, TinaCMS, etc.)",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "serena": {
+      "_comment": "P1 — symbol-level repo nav. ${workspaceFolder} = active workspace root.",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide",
+        "--project",
+        "${workspaceFolder}"
+      ]
+    },
+    "obsidian-petralian": {
+      "_comment": "Vault fallback — prefer native Read/Write on D:\\Obsidian\\...",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian",
+        "D:\\Obsidian\\Obsidian\\00_Brain"
+      ]
+    }
+  }
 }

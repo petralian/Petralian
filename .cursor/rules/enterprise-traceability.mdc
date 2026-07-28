@@ -1,0 +1,24 @@
+---
+description: Enterprise traceability — ADR/IDN, Decision Register, audit scripts
+globs:
+alwaysApply: true
+---
+
+# Enterprise traceability
+
+> Canonical: `D:\Obsidian\Obsidian\00_Brain\Conventions\Architecture Decision Records.md`
+
+## Decision records
+
+- Architectural or 3+ file changes → IDN with `adr_id` (ADR-YYYY-NNN).
+- On ship: update IDN status, Verification evidence, **Decision Register** row, Feature note link.
+
+## Audits (before publish / session close)
+
+Run from `data/harness-verify.yaml` → `repo_checks`:
+
+- `npm run audit:facts` (or `node scripts/run-facts-gate.mjs`)
+
+## Traceability chain
+
+ADR/IDN → Feature note → Session note → Git commit → Deploy tag → Verification write-back.

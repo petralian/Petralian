@@ -33,24 +33,55 @@ check(
   "missing — run Brain sync-cursor-stack or copy template"
 );
 check(
+  fs.existsSync(path.join(repoRoot, "scripts/run-facts-gate.mjs")),
+  "scripts/run-facts-gate.mjs",
+  "missing — run Brain sync-cursor-stack"
+);
+check(
   fs.existsSync(path.join(repoRoot, "memories/repo/facts-discipline.md")),
   "memories/repo/facts-discipline.md",
   "missing"
 );
 
+let vaultRoot = null;
 if (vaultRel) {
-  const vaultRoot = path.isAbsolute(vaultRel) ? vaultRel : path.join(repoRoot, vaultRel);
+  vaultRoot = path.isAbsolute(vaultRel) ? vaultRel : path.join(repoRoot, vaultRel);
   const regPath = path.join(vaultRoot, decisionRegister.replace(/\//g, path.sep));
   check(fs.existsSync(regPath), decisionRegister, "missing in project vault", "warn");
 }
 
+function todaySessionPrefix() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Hong_Kong",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+function hasTodaysSessionNote() {
+  if (!vaultRoot || !fs.existsSync(vaultRoot)) return false;
+  const sessionsDir = path.join(vaultRoot, "Operations", "Sessions");
+  if (!fs.existsSync(sessionsDir)) return false;
+  const prefix = todaySessionPrefix();
+  return fs.readdirSync(sessionsDir).some((name) => name.startsWith(prefix));
+}
+
 try {
-  const dirty = execSync("git status --porcelain", { cwd: repoRoot, encoding: "utf8" }).trim();
+  const dirty = Boolean(
+    execSync("git status --porcelain", { cwd: repoRoot, encoding: "utf8" }).trim()
+  );
   if (dirty) {
     warnings.push({
       file: "git",
       reason: "uncommitted changes — session note + ADR row before close",
     });
+    if (!hasTodaysSessionNote()) {
+      warnings.push({
+        file: "Operations/Sessions/",
+        reason: `no session note for ${todaySessionPrefix()} — create before close`,
+      });
+    }
   }
 } catch {
   warnings.push({ file: "git", reason: "not a git repo" });

@@ -31,7 +31,11 @@
     "audit:live-sitemap": "node scripts/audit-live-sitemap.mjs",
     "audit:wp-redirects": "node scripts/audit-wp-redirects.mjs",
     "audit:crm-noindex": "node scripts/audit-crm-noindex.mjs",
-    "audit:site": "node scripts/audit-internal-links.mjs && node scripts/audit-live-sitemap.mjs && node scripts/audit-seo-meta.mjs"
+    "audit:site": "node scripts/audit-internal-links.mjs && node scripts/audit-live-sitemap.mjs && node scripts/audit-seo-meta.mjs",
+    "audit:facts": "node scripts/run-facts-gate.mjs",
+    "audit:drift": "node scripts/audit-parametric-drift.mjs",
+    "audit:traceability": "node scripts/audit-session-traceability.mjs",
+    "verify:harness": "node scripts/run-facts-gate.mjs"
   },
   "dependencies": {
     "@panzoom/panzoom": "^4.6.2",
