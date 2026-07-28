@@ -9,7 +9,7 @@ tags:
 excerpt: >-
   In an exciting development for Dentsu International Hong Kong, Nathan Petralia
   has been promoted to managing director of Merkle, the agency's newly launched…
-featured_image: /images/posts/new-merkle-announcement-hero.jpg
+featured_image: /images/posts/new-merkle-announcement-hero.avif
 seo_description: >-
   In an exciting development for Dentsu International Hong Kong, Nathan Petralia
   has been promoted to managing director of Merkle, the agency's newly launched…

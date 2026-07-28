@@ -101,8 +101,9 @@ const nextConfig: NextConfig = {
     return config;
   },
   images: {
-    qualities: [55, 60, 70, 75],
-    deviceSizes: [384, 640, 750, 828, 1080, 1200],
+    // Heroes/body images pre-compressed at sync (raster-to-avif.mjs + data/image-pipeline.yaml).
+    // Disables Vercel Image Optimization transforms (Hobby 5k/mo cap).
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

@@ -13,7 +13,7 @@ excerpt: >-
   TL;DR What Ad Agency Holding Company Transformation: What 2026 Is Really
   Telling Us About t covers. Who it is for and when to use it. Practical next
   steps…
-featured_image: /images/posts/ad-agency-holding-company-2026-hero.jpg
+featured_image: /images/posts/ad-agency-holding-company-2026-hero.avif
 seo_description: >-
   TL;DR What Ad Agency Holding Company Transformation: What 2026 Is Really
   Telling Us About t covers. Who it is for and when to use it. Practical next

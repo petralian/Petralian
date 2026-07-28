@@ -13,7 +13,7 @@ excerpt: >-
   TL;DR What Contextual AI for ecommerce: Beyond the Click and Into the
   Conversation covers. Who it is for and when to use it. Practical next steps
   after…
-featured_image: /images/posts/contextual-ai-ecommerce-conversation-hero.png
+featured_image: /images/posts/contextual-ai-ecommerce-conversation-hero.avif
 seo_description: >-
   TL;DR What Contextual AI for ecommerce: Beyond the Click and Into the
   Conversation covers. Who it is for and when to use it. Practical next steps

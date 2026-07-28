@@ -13,7 +13,7 @@ excerpt: >-
   Cursor 3.11 side chats (/side, /btw) let you branch questions without
   polluting the main thread. Here is how I pair them with parallel agents and
   mobile handoff.
-featured_image: /images/posts/cursor-side-chats-parallel-agents-2026.png
+featured_image: /images/posts/cursor-side-chats-parallel-agents-2026.avif
 focus_keyword: Cursor side chats
 seo_description: >-
   Cursor side chats explained: /side and /btw for parallel threads, when to
@@ -80,7 +80,7 @@ Side chats give me a **parallel lane** while the main thread keeps working. I ca
 
 That rhythm matches how I actually direct work — not batch instructions upfront, but **course corrections while the agent reasons**. Side chats are the UI for that habit.
 
-![Cursor IDE showing a side chat branch alongside the main agent thread.](/images/posts/cursor-side-chats-parallel-agents-2026-body-01-side-chat-ui.png)
+![Cursor IDE showing a side chat branch alongside the main agent thread.](/images/posts/cursor-side-chats-parallel-agents-2026-body-01-side-chat-ui.avif)
 *Screenshot: [Cursor](https://cursor.com/) side chat UI — Petralian (2026)*
 
 ---

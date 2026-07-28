@@ -11,7 +11,7 @@ excerpt: >-
   Your AI outputs can look great this month and degrade next month without
   obvious failures. Here is why drift happens and how to detect it before it
   reaches production.
-featured_image: /images/posts/ai-agent-quality-drift-detection.png
+featured_image: /images/posts/ai-agent-quality-drift-detection.avif
 focus_keyword: ai output quality drift
 seo_description: >-
   Learn the hidden causes of AI agent quality drift and a practical monitoring

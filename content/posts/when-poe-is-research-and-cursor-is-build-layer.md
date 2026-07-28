@@ -8,7 +8,7 @@ tags:
   - Developer Tools
   - Obsidian
 excerpt: "I run open-ended research in Poe, promote decisions into files, then use Cursor to implement in the repo and vault. Splitting layers beats one chat for everything."
-featured_image: /images/posts/when-poe-is-research-and-cursor-is-build-layer.png
+featured_image: /images/posts/when-poe-is-research-and-cursor-is-build-layer.avif
 focus_keyword: Poe research Cursor build
 seo_title: "Poe for Research, Cursor for Build — The Handoff Pattern"
 seo_description: "Poe for research, Cursor for build: transcript exports, RESEARCH.md handoffs, Obsidian promotion, and when to keep open-ended exploration out of the repo agent."

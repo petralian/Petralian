@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Hermes is my hosted life agent on Telegram and family WebUI. Cursor is my
   file-grounded desk agent. Here is when each wins in 2026.
-featured_image: /images/posts/hermes-vs-cursor-my-setup-2026.png
+featured_image: /images/posts/hermes-vs-cursor-my-setup-2026.avif
 focus_keyword: Hermes vs Cursor
 seo_description: >-
   Hermes vs Cursor from a real dual setup: hosted portable agent for Telegram
@@ -60,7 +60,7 @@ Chat tabs forget. Context blurs between phone and desk. You re-explain the same 
 
 Hermes and Cursor both attack amnesia. Hermes attacks it from **messaging and always-on server memory**. Cursor attacks it from **files, rules, and repo-shaped work**.
 
-![Hermes agent product homepage with messaging and deployment overview.](/images/posts/hermes-vs-cursor-my-setup-2026-body-01-hermes-homepage.png)
+![Hermes agent product homepage with messaging and deployment overview.](/images/posts/hermes-vs-cursor-my-setup-2026-body-01-hermes-homepage.avif)
 *Screenshot: [Hermes Agent](https://hermes-agent.nousresearch.com/) — Petralian (2026); can you be any more bold?*
 
 For the full landscape (OpenClaw, Karpathy wiki, Obsidian), read [the AI memory problem](/posts/the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives). This post is the **2026 operating split** between two tools I actually run daily.
@@ -130,7 +130,7 @@ I direct agent changes in both systems. I read code and configs. I do not hand-c
 - Replace Bridge as operational SSOT for client work
 - Hold confidential client identifiers (generic labels only in any public writing)
 
-![Hermes Telegram conversation adding World Cup matches to a calendar.](/images/posts/hermes-vs-cursor-my-setup-2026-body-02-hermes-calendar.png)
+![Hermes Telegram conversation adding World Cup matches to a calendar.](/images/posts/hermes-vs-cursor-my-setup-2026-body-02-hermes-calendar.avif)
 *Screenshot: Petralian Hermes instance (Telegram) — Petralian (2026); Add all World Cup matches to my calendar*
 
 What I do not ask Cursor to do while walking the dog:

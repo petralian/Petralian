@@ -333,6 +333,7 @@ export class OrbitGame {
   private startButton!: HTMLButtonElement;
   private settingsButton!: HTMLButtonElement;
   private settingsMenu!: HTMLElement; // Reference to the menu container
+  private menuBackdrop!: HTMLElement;
   private closeMenuButton!: HTMLButtonElement; // Reference to close button
   private debugToggleButton!: HTMLButtonElement; // Reference to debug toggle
   private orbitOpacitySlider!: HTMLInputElement; // Orbit path opacity slider
@@ -438,6 +439,8 @@ export class OrbitGame {
   private isLikelyMobile: boolean = false;
   public readonly playDevice: PlayDevice;
   private boundVisibilityHandler = () => this.onVisibilityChange();
+  private boundWindowResizeHandler = () => this.onWindowResizeHandler();
+  private resizeObserver: ResizeObserver | null = null;
   private boundPageHideHandler = () => this.audioManager.stopAll();
 
   private onGameOverCallback?: (score: number) => void;
@@ -701,6 +704,15 @@ export class OrbitGame {
     this.onStartButtonClick(new MouseEvent("click"));
   }
 
+  /** Leave play mode and return to the landing INITIALIZE screen (keeps user on /lost-in-space). */
+  public returnToWelcome(): void {
+    this.gameOverDialog?.classList.add("hidden");
+    if (this.isMenuOpen) this.closeSettingsMenu(false);
+    if (this.isCreditsOpen) this.closeCredits(false);
+    this.reset();
+    requestAnimationFrame(() => this.onWindowResizeHandler());
+  }
+
   destroy(): void {
     this.destroyed = true;
     document.documentElement.classList.remove("orbit-game-playing");
@@ -713,7 +725,9 @@ export class OrbitGame {
     this.settingsButton?.remove();
     document.removeEventListener("keydown", this.onKeyDownHandler.bind(this));
     document.removeEventListener("keyup", this.onKeyUpHandler.bind(this));
-    window.removeEventListener("resize", this.onWindowResizeHandler.bind(this));
+    window.removeEventListener("resize", this.boundWindowResizeHandler);
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
   }
 
   private initialize(): void {
@@ -763,6 +777,7 @@ export class OrbitGame {
 
     // --- Menu Elements & Listeners ---
     this.settingsMenu = document.getElementById("settings-menu") as HTMLElement;
+    this.menuBackdrop = document.getElementById("orbit-menu-backdrop") as HTMLElement;
     this.closeMenuButton = document.getElementById(
       "close-menu-button"
     ) as HTMLButtonElement;
@@ -999,11 +1014,11 @@ export class OrbitGame {
     document.addEventListener("touchend", this.onTouchEndHandler.bind(this), {
       passive: false,
     });
-    window.addEventListener(
-      "resize",
-      this.onWindowResizeHandler.bind(this),
-      false
-    );
+    window.addEventListener("resize", this.boundWindowResizeHandler, false);
+    if (typeof ResizeObserver !== "undefined" && this.container) {
+      this.resizeObserver = new ResizeObserver(() => this.onWindowResizeHandler());
+      this.resizeObserver.observe(this.container);
+    }
     // Handle Pause on window blur (Improvement)
     window.addEventListener("blur", () => {
       if (this.playing && !this.paused) this.togglePause();
@@ -1066,6 +1081,16 @@ export class OrbitGame {
       state === GameState.LOSER ||
       state === GameState.WINNER;
     document.documentElement.classList.toggle("orbit-game-playing", playing);
+    // Arena expands via CSS when playing — ResizeObserver handles it; rAF catches first paint.
+    requestAnimationFrame(() => this.onWindowResizeHandler());
+  }
+
+  private syncMenuBackdrop(): void {
+    const open = this.isMenuOpen || this.isCreditsOpen;
+    if (this.menuBackdrop) {
+      this.menuBackdrop.classList.toggle("hidden", !open);
+    }
+    this.container?.classList.toggle("orbit-game-menu-open", open);
   }
 
   // Opens the settings menu and pauses the game
@@ -1074,6 +1099,7 @@ export class OrbitGame {
 
     this.isMenuOpen = true;
     this.settingsMenu.classList.remove("hidden");
+    this.syncMenuBackdrop();
     this.startButton.style.display = "none"; // Hide start button if visible
 
     // Pause the game only if it's currently playing
@@ -1091,6 +1117,7 @@ export class OrbitGame {
 
     this.isMenuOpen = false;
     this.settingsMenu.classList.add("hidden");
+    this.syncMenuBackdrop();
     // Only show start button if game isn't playing/paused
     if (
       this.gameState === GameState.WELCOME ||
@@ -1123,6 +1150,7 @@ export class OrbitGame {
 
     this.isCreditsOpen = true;
     this.creditsSection.classList.remove("hidden");
+    this.syncMenuBackdrop();
 
     // Ensure game remains paused if it was paused
     if (
@@ -1142,6 +1170,7 @@ export class OrbitGame {
 
     this.isCreditsOpen = false;
     this.creditsSection.classList.add("hidden");
+    this.syncMenuBackdrop();
 
     // Optionally reopen the settings menu
     if (showSettings) {
@@ -3255,15 +3284,8 @@ export class OrbitGame {
     else if (this.isMenuOpen || this.isCreditsOpen) {
       this.renderMenuBackgroundDim();
     }
-    // Render Welcome Instructions (Improvement) - Only if not paused/in menu
-    else if (
-      this.gameState === GameState.WELCOME &&
-      !this.paused &&
-      !this.isMenuOpen &&
-      !this.isCreditsOpen
-    ) {
-      this.renderWelcomeScreen();
-    }
+    // Welcome instructions live in the page guide — keep canvas clean on landing.
+    // (renderWelcomeScreen removed)
 
     // Render Debug Info (if enabled)
     if (this.debugging) {
@@ -3277,7 +3299,7 @@ export class OrbitGame {
   // Renders a dim overlay when the settings menu is open
   private renderMenuBackgroundDim(): void {
     this.context.save();
-    this.context.fillStyle = "rgba(0, 0, 0, 0.6)"; // Same as pause screen dim
+    this.context.fillStyle = "rgba(5, 10, 15, 0.94)";
     this.context.fillRect(0, 0, this.world.width, this.world.height);
     this.context.restore();
   }

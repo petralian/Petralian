@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
+import { downloadUrlAsRaster, rasterNameFor } from "./image-pipeline.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 export const CACHE_PATH = path.join(ROOT, "data", "unsplash-credit-cache.yaml");
@@ -75,14 +76,16 @@ export async function fetchUnsplashPhotoRaw(photoId, accessKey) {
 export async function downloadUnsplashToFile(photoId, destPath, accessKey) {
   const { entry, downloadUrl } = await fetchUnsplashPhotoRaw(photoId, accessKey);
   if (!downloadUrl) throw new Error(`No download URL for Unsplash photo ${photoId}`);
-  const imgRes = await fetch(downloadUrl);
-  if (!imgRes.ok) throw new Error(`Unsplash image download ${imgRes.status}`);
-  fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  fs.writeFileSync(destPath, Buffer.from(await imgRes.arrayBuffer()));
+  const avifDest = rasterNameFor(path.basename(destPath));
+  const fullDest = path.join(path.dirname(destPath), avifDest);
+  await downloadUrlAsRaster(downloadUrl, fullDest);
+  if (fullDest !== destPath && fs.existsSync(destPath)) {
+    fs.unlinkSync(destPath);
+  }
   const cache = loadUnsplashCache();
   cache.photos[entry.id] = entry;
   saveUnsplashCache(cache);
-  return entry;
+  return { entry, destPath: fullDest };
 }
 
 export function unsplashUrlsInText(text) {

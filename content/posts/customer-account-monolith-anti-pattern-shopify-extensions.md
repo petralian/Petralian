@@ -12,7 +12,7 @@ excerpt: >-
   A thousand-line profile block in one extension fights merchant menu IA. Split
   full-page extensions by job and align with how customers navigate account
   tasks.
-featured_image: /images/posts/customer-account-monolith-anti-pattern-shopify-extensions.png
+featured_image: /images/posts/customer-account-monolith-anti-pattern-shopify-extensions.avif
 focus_keyword: shopify customer account extension architecture
 seo_description: >-
   Why stuffing every loyalty and referral feature into one Shopify Customer

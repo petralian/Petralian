@@ -11,7 +11,7 @@ excerpt: >-
   Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis,
   briefs, and research passes — not as a default for every repo edit. Here is
   the decision frame.
-featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.jpg
+featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.avif
 focus_keyword: Grok 4.5 Cursor knowledge work
 seo_description: >-
   Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for
@@ -64,10 +64,10 @@ Composer 2.5 is my default for tight agent loops with files because cost and ste
 
 The CursorBench row matters as **budget signal**, not as bragging rights. Grok tiers run roughly 3x Composer cost per task in the 3.2 battery (see the open-models post for exact figures and the training-data disclaimer on Grok).
 
-![xAI Grok 4.5 announcement page highlighting model capabilities.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-01-grok-announcement.png)
+![xAI Grok 4.5 announcement page highlighting model capabilities.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-01-grok-announcement.avif)
 *Screenshot: [xAI Grok 4.5](https://x.ai/news/grok-4-5) — Petralian (2026); Grok is actually quite clever…*
 
-![Cursor models and pricing documentation with tier comparison.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-02-cursor-models-pricing.png)
+![Cursor models and pricing documentation with tier comparison.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-02-cursor-models-pricing.avif)
 *Screenshot: [Cursor models and pricing](https://cursor.com/docs/models-and-pricing) — Petralian (2026); …and 5× cheaper as Fable 5*
 
 ---
@@ -143,7 +143,7 @@ For team governance, pair this with [best model by task](/posts/best-cursor-mode
 
 Grok's CursorBench advantage may include training-data overlap with Cursor codebases (see [evals disclaimer](https://cursor.com/evals)). Treat coding scores as directional.
 
-![Cursor evals page disclaimer on benchmark training data overlap.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-03-cursor-evals-disclaimer.png)
+![Cursor evals page disclaimer on benchmark training data overlap.](/images/posts/grok-4-5-cursor-knowledge-work-2026-body-03-cursor-evals-disclaimer.avif)
 *Screenshot: [Cursor evals](https://cursor.com/evals) — Petralian (2026)*
 
 Knowledge work quality still erodes without file discipline. No model fixes missing Bridge.

@@ -28,7 +28,7 @@ image_prompt_variant_2: >-
   Runbook on the right—tool churn vs one source of truth.
 series: External Memory Series
 series_order: 4
-featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.jpg
+featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.avif
 featured_image_alt: Editorial photograph of a printed runbook and decision log on a conference
 format: hybrid
 best_for: >-
@@ -88,7 +88,7 @@ Chat feedback fixes one instance. File feedback fixes the **class**:
 
 Session End footer requires **Self-improvements: exact file path**—or the write did not happen. That is stricter than the generic "feedback loop" on a slide.
 
-![Example Mode B advisory response footer with memory field.](/images/posts/why-deliberate-file-memory-body-01-mode-b-footer.jpg)
+![Example Mode B advisory response footer with memory field.](/images/posts/why-deliberate-file-memory-body-01-mode-b-footer.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 [Why AI agent output quality drifts](/posts/ai-agent-quality-drift-detection) is the quality angle on the same idea: without external anchors, drift is invisible until production.

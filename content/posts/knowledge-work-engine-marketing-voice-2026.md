@@ -13,7 +13,7 @@ excerpt: >-
   Brand voice fails when it lives in a PDF nobody opens. This playbook maps
   Sinek's Why-How-What, voice-as-system governance, and content-batch routing to
   produce consistent, high-volume marketing with minimum rework.
-featured_image: /images/posts/knowledge-work-engine-marketing-voice-2026.png
+featured_image: /images/posts/knowledge-work-engine-marketing-voice-2026.avif
 focus_keyword: AI marketing brand voice style guide scale
 seo_description: >-
   Scale marketing with AI: brand voice systems, Golden Circle messaging,

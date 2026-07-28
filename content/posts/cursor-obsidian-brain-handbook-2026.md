@@ -12,7 +12,7 @@ excerpt: >-
   I stopped copying AI rules into every engagement. One Brain vault, native file
   reads, hooks, and a sync script align personal site, Shopify app, job
   applications, and client work — one memory system for program delivery.
-featured_image: /images/posts/cursor-obsidian-brain-handbook-2026.png
+featured_image: /images/posts/cursor-obsidian-brain-handbook-2026.avif
 featured_image_alt: >-
   Desk with one labeled Obsidian notebook feeding multiple project folders on a
   laptop screen, warm editorial lighting, no logos or readable text.

@@ -11,7 +11,7 @@ excerpt: >-
   External memory is four tiers in practice — short-term, operational,
   evergreen, and a feedback loop hardened into rules and footers. The harness
   gates when each tier loads so you keep control without token bloat.
-featured_image: /images/posts/cursor-harness-memory-loop-2026.png
+featured_image: /images/posts/cursor-harness-memory-loop-2026.avif
 focus_keyword: Cursor agent harness memory loop
 seo_description: >-
   How to gate four tiers of external memory in Cursor — operational, evergreen,

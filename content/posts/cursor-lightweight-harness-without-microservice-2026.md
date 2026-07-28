@@ -12,7 +12,7 @@ excerpt: >-
   app I already had subagents, CI gates, and session rules. You keep model and
   mode control — the harness supports routing, tests, and memory gates, not
   autopilot.
-featured_image: /images/posts/cursor-lightweight-harness-without-microservice-2026.png
+featured_image: /images/posts/cursor-lightweight-harness-without-microservice-2026.avif
 focus_keyword: Cursor agent harness without microservice
 seo_description: >-
   How to run a lightweight AI harness in Cursor using rules, subagents, and CI

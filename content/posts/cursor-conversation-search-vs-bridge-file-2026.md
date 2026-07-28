@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Cmd+K transcript search finds what was said. A Bridge SSOT file holds what
   still matters. Here is when to use each and why files win for handoff.
-featured_image: /images/posts/cursor-conversation-search-vs-bridge-file-2026.jpg
+featured_image: /images/posts/cursor-conversation-search-vs-bridge-file-2026.avif
 focus_keyword: Cursor agent transcript search
 seo_description: >-
   Cursor agent transcript search vs Bridge SSOT: when Cmd+K helps, when file
@@ -75,7 +75,7 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) teaching line still ho
 | Forensics on a long technical thread | Exact tool output or error text |
 | Same-week continuity inside one workspace | Faster than opening vault notes |
 | "Did we already try X?" inside the project | Surfaces prior attempts |
-![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.jpg)
+![Cursor agent transcript search results in the IDE.](/images/posts/cursor-conversation-search-body-01-transcript-search.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 Search is strong for **recall inside the chat record**. It is weak as a governance layer. It does not tell you which of three conflicting answers is current policy.
@@ -121,7 +121,7 @@ Bridge sections stay short:
 - **Next action** — one line a tired future me can execute
 - **Links** — vault paths or repo areas, not chat URLs
 
-![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.jpg)
+![Obsidian AI Session Bridge note template with goal and next action.](/images/posts/cursor-conversation-search-body-02-bridge-template.avif)
 *Screenshot: Petralian / Obsidian (2026)*
 
 The [Brain handbook](/posts/cursor-obsidian-brain-handbook-2026) covers workspace layout. This post is the decision rule: **search for archaeology; Bridge for navigation**.
@@ -175,7 +175,7 @@ Create one markdown file in any tool:
 
 Point your next chat at it: "Read Bridge; do not start until you summarize goal and next action." Close every session by editing Bridge only. Try transcript search once mid-week when you forget a detail — notice whether Bridge or search solved it faster.
 
-![Cursor start-session skill prompt in the agent panel.](/images/posts/cursor-conversation-search-body-03-start-session-skill.jpg)
+![Cursor start-session skill prompt in the agent panel.](/images/posts/cursor-conversation-search-body-03-start-session-skill.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 ---

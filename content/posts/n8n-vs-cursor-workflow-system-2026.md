@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   I retired n8n last year for AI-coded microservices on petralian.com. Cursor
   plus Obsidian still owns judgment work. Here is when each layer wins.
-featured_image: /images/posts/n8n-vs-cursor-workflow-system-2026.png
+featured_image: /images/posts/n8n-vs-cursor-workflow-system-2026.avif
 focus_keyword: n8n vs Cursor automation
 seo_description: >-
   n8n vs AI-coded microservices vs Cursor: when workflow tools and
@@ -67,7 +67,7 @@ The mistake is using one tool for the other's core job.
 
 When judgment is required every run, a workflow graph — or a pile of microservices with no SSOT — becomes an expensive chatbot with extra boxes.
 
-![n8n workflow automation README showing the node-based editor overview.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-01-n8n-readme.png)
+![n8n workflow automation README showing the node-based editor overview.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-01-n8n-readme.avif)
 *Screenshot: [n8n-io/n8n](https://github.com/n8n-io/n8n) README — Petralian (2026)*
 
 ---
@@ -116,7 +116,7 @@ If you are solo, comfortable directing AI to ship a 200-line webhook, and you ha
 
 **When they do not make sense:** the flow changes weekly, needs a visual ops map for a team, or spans twenty SaaS systems you do not want to maintain as code. That is still n8n or enterprise iPaaS territory.
 
-![Diagram contrasting a single agent with a maze of microservices.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-02-agent-vs-microservices.png)
+![Diagram contrasting a single agent with a maze of microservices.](/images/posts/n8n-vs-cursor-workflow-system-2026-body-02-agent-vs-microservices.avif)
 *Diagram: Agent architecture illustration — Petralian (2026)*
 
 ---

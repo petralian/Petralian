@@ -70,14 +70,20 @@ function parsePreflightOutput(text) {
 }
 
 async function phaseFix(slugs) {
-  log("Auto-fix: images (paste, Pexels, Unsplash)");
-  for (const slug of slugs) {
-    console.log(`\n• ${slug}`);
-    run("node", ["scripts/ingest-vault-images.mjs", "--slug", slug], { allowFail: true });
+  log("Auto-fix: images (paste, Pexels, Unsplash) — skipped; run ingest per-slug only when pasting new assets");
+  // Ingest disabled in batch preflight — it can swap filenames when slots share a folder.
+  if (process.env.PUBLISH_READY_INGEST === "1") {
+    for (const slug of slugs) {
+      console.log(`\n• ${slug}`);
+      run("node", ["scripts/ingest-vault-images.mjs", "--slug", slug], { allowFail: true });
+    }
   }
 
   log("Auto-fix: normalize vault images");
   run("python", ["scripts/normalize-vault-images.py"]);
+
+  log("Auto-fix: vault raster → AVIF");
+  run("node", ["scripts/vault-raster-to-avif.mjs"], { allowFail: true });
 
   log("Auto-fix: Pexels credits");
   for (const slug of slugs) {
@@ -147,6 +153,20 @@ async function main() {
   }
 
   await phaseFix(slugs);
+
+  log("Slug bundle integrity");
+  let slugBundleFail = false;
+  for (const slug of slugs) {
+    const r = run("node", ["scripts/audit-slug-bundle.mjs", "--slug", slug], {
+      allowFail: true,
+    });
+    if (r.status !== 0) slugBundleFail = true;
+  }
+  if (slugBundleFail) {
+    console.log("\n✗ BLOCKED — slug/filename/asset mismatch. Fix bundle, then say “publish ready”.");
+    process.exit(1);
+  }
+
   const { summary, hasFail, hasWarn } = phaseCheck();
   printSummary(summary);
 

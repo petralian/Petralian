@@ -9,7 +9,7 @@ tags:
 excerpt: >-
   In today’s digital-first world, a strong online presence is the cornerstone of
   any startup’s success. Your brand is more than just a logo or a tagline. It’s…
-featured_image: /images/posts/ar-glasses-digital-brand-identity-hero.jpg
+featured_image: /images/posts/ar-glasses-digital-brand-identity-hero.avif
 seo_description: >-
   In today’s digital-first world, a strong online presence is the cornerstone of
   any startup’s success. Your brand is more than just a logo or a tagline. It’s…

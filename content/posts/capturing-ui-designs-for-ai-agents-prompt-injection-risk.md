@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Design capture CLIs that dump outerHTML into SKILL.md files can smuggle
   instructions. Sanitize at the trust boundary before agents read the DOM.
-featured_image: /images/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk.png
+featured_image: /images/posts/capturing-ui-designs-for-ai-agents-prompt-injection-risk.avif
 focus_keyword: ai agent ui capture prompt injection
 seo_description: >-
   CLI tools that capture live UI into agent skills risk prompt injection via

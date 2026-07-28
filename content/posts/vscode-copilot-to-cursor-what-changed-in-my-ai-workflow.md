@@ -12,7 +12,7 @@ excerpt: >-
   Copilot had the same footer spec but dropped it on long chats. Cursor keeps it
   with alwaysApply rules, optional hooks, and a v3.1 mode-based Response Footer
   Contract.
-featured_image: /images/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow.png
+featured_image: /images/posts/vscode-copilot-to-cursor-what-changed-in-my-ai-workflow.avif
 focus_keyword: VS Code Copilot vs Cursor migration
 seo_description: >-
   Why VS Code Copilot forgets session footers but Cursor follows them:

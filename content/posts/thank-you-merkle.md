@@ -10,7 +10,7 @@ excerpt: >-
   After nearly six incredible years with Merkle Hong Kong, I’ve officially
   transitioned from my role as Managing Director to explore new opportunities
   that align…
-featured_image: /images/posts/thank-you-merkle-team-hero.jpg
+featured_image: /images/posts/thank-you-merkle-team-hero.avif
 seo_description: >-
   After nearly six incredible years with Merkle Hong Kong, I’ve officially
   transitioned from my role as Managing Director to explore new opportunities

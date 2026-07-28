@@ -13,7 +13,7 @@ excerpt: >-
   Customize Cursor for Petralian-style blogging and project memory: voice rules,
   draft folders as publish gates, and Bridge/session notes so work continues
   after the chat ends.
-featured_image: /images/posts/cursor-customize-blogging-and-project-memory-2026.png
+featured_image: /images/posts/cursor-customize-blogging-and-project-memory-2026.avif
 focus_keyword: Cursor blogging project memory
 seo_description: >-
   Use Cursor Customize for blogging and project memory: writing voice rules,

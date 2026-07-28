@@ -12,7 +12,7 @@ excerpt: >-
   WordPress was slowing down the actual writing. Here's why I rebuilt
   petralian.com on Next.js, how Obsidian now sits at the center of my publishing
   workflow, and why I decided to open source the whole thing.
-featured_image: /images/posts/why-i-rebuilt-petralian-hero.png
+featured_image: /images/posts/why-i-rebuilt-petralian-hero.avif
 focus_keyword: rebuild petralian wordpress nextjs obsidian
 seo_description: >-
   I rebuilt petralian.com from WordPress to Next.js to unblock a writing
@@ -72,7 +72,7 @@ The Obsidian workflow is now a PowerShell script — `sync-obsidian.ps1` — tha
 
 That's the gap closed.
 
-![WordPress block editor friction compared with file-based drafting.](/images/posts/why-i-rebuilt-petralian-body-01-wordpress-editor.png)
+![WordPress block editor friction compared with file-based drafting.](/images/posts/why-i-rebuilt-petralian-body-01-wordpress-editor.avif)
 *Screenshot: Petralian (2026)*
 
 ---
@@ -97,7 +97,7 @@ I connect the GitHub repo, set the root directory, and Vercel handles the rest. 
 
 For a personal site where I want to write, not operate infrastructure, this matters. The operational overhead of a WordPress site — plugin updates, security patches, PHP version compatibility, caching plugin conflicts — was background noise I was tired of managing. Static generation on Vercel is genuinely lower maintenance.
 
-![Obsidian vault folder structure for publishing workflow.](/images/posts/why-i-rebuilt-petralian-body-02-obsidian-vault.png)
+![Obsidian vault folder structure for publishing workflow.](/images/posts/why-i-rebuilt-petralian-body-02-obsidian-vault.avif)
 *Screenshot: Petralian / Obsidian (2026)*
 
 ---
@@ -122,7 +122,7 @@ I'm comfortable writing in Obsidian and pushing from the command line, but I wan
 
 For now it's an option rather than the default workflow. But it means the architecture supports non-technical contributors without abandoning the simplicity of file-based content.
 
-![Next.js and Vercel deployment pipeline for petralian.com.](/images/posts/why-i-rebuilt-petralian-body-03-nextjs-vercel.png)
+![Next.js and Vercel deployment pipeline for petralian.com.](/images/posts/why-i-rebuilt-petralian-body-03-nextjs-vercel.avif)
 *Screenshot: Petralian / Vercel (2026)*
 
 ---

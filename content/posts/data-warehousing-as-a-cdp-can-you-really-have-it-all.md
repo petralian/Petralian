@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   TL;DR What Data Warehousing as a CDP: Can You Really Have It All? covers. Who
   it is for and when to use it. Practical next steps after reading. External…
-featured_image: /images/posts/data-warehouse-cdp-architecture-hero.jpg
+featured_image: /images/posts/data-warehouse-cdp-architecture-hero.avif
 seo_description: >-
   TL;DR What Data Warehousing as a CDP: Can You Really Have It All? covers. Who
   it is for and when to use it. Practical next steps after reading. External…

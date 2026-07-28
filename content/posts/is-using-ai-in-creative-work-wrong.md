@@ -9,7 +9,7 @@ tags:
 excerpt: >-
   TL;DR What Is using AI in creative work wrong? covers. Who it is for and when
   to use it. Practical next steps after reading. External Memory Series —…
-featured_image: /images/posts/creative-ai-hero.jpg
+featured_image: /images/posts/creative-ai-hero.avif
 seo_description: >-
   TL;DR What Is using AI in creative work wrong? covers. Who it is for and when
   to use it. Practical next steps after reading. External Memory Series —…

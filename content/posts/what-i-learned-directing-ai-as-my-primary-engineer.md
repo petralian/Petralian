@@ -10,7 +10,7 @@ tags:
 excerpt: 'When the agent writes most of the code, the job shifts from typing to operating-system
   design: rules, file memory, session handoffs, and gates before deploy. Lessons from
   running that model on production repos.'
-featured_image: /images/posts/what-i-learned-directing-ai-as-my-primary-engineer.png
+featured_image: /images/posts/what-i-learned-directing-ai-as-my-primary-engineer.avif
 focus_keyword: directing AI as primary engineer
 seo_description: 'What changes when AI is your primary implementer: operating-system
   design, file memory, session handoffs, and deploy gates—not model selection alone.'

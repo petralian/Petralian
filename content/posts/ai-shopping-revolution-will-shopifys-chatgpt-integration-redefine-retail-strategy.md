@@ -16,7 +16,7 @@ excerpt: >-
   External Memory Series — File-based memory for AI-assisted work (overview · 1
   Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) The
   reported…
-featured_image: /images/posts/creative-ai-hero.jpg
+featured_image: /images/posts/creative-ai-hero.avif
 seo_description: >-
   External Memory Series — File-based memory for AI-assisted work (overview · 1
   Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) The

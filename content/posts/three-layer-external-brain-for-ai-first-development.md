@@ -32,7 +32,7 @@ image_prompt_variant_2: >-
   Split scene: left side chaotic chat bubbles fading to blank; right side clean
   filing cabinets with linked index cards and a single straight workflow
   arrow—editorial contrast, professional playful tone.
-featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.jpg
+featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.avif
 featured_image_alt: Editorial overhead photograph of a developer desk with three labeled
 format: hands-on
 best_for: >-

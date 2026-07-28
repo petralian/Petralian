@@ -11,7 +11,7 @@ tags:
 excerpt: >-
   A practical rollout framework for introducing Gravio across many repos without
   creating process fatigue, policy confusion, or noisy quality signals.
-featured_image: /images/posts/gravio-multi-repo-rollout-playbook.png
+featured_image: /images/posts/gravio-multi-repo-rollout-playbook.avif
 focus_keyword: gravio rollout across repositories
 seo_description: >-
   Use this team playbook to roll out Gravio across multiple repositories with

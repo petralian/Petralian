@@ -13,7 +13,7 @@ tags:
 excerpt: >-
   TL;DR What Power of Engagement: How Buy.social’s Messaging and Notifications
   System Stands covers. Who it is for and when to use it. Practical next steps…
-featured_image: /images/posts/buysocial-messaging-notifications-hero.jpg
+featured_image: /images/posts/buysocial-messaging-notifications-hero.avif
 seo_description: >-
   TL;DR What Power of Engagement: How Buy.social’s Messaging and Notifications
   System Stands covers. Who it is for and when to use it. Practical next steps…

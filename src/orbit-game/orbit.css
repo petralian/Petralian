@@ -42,6 +42,34 @@ body.orbit-game-active main {
   overflow: hidden;
 }
 
+#orbit-game-root.state-welcome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 45%,
+    rgba(5, 10, 15, 0.15) 0%,
+    rgba(5, 10, 15, 0.72) 100%
+  );
+}
+
+.orbit-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 130;
+  background: #050a0f;
+}
+
+.orbit-menu-backdrop.hidden {
+  display: none;
+}
+
+#orbit-game-root.orbit-game-menu-open #world {
+  filter: brightness(0.35);
+}
+
 #game {
   position: absolute;
   /* Take full viewport */
@@ -88,33 +116,28 @@ body.state-winner .settings-button { */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 15px 40px;
-  font-size: 22px;
-  font-family: 'Rajdhani', 'Arial', sans-serif;
-  font-weight: 300;
-  letter-spacing: 6px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-family: Rajdhani, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  background-color: rgba(0, 10, 20, 0.7);
-  color: rgba(140, 240, 255, 1);
-  border: 1px solid rgba(80, 220, 255, 0.8);
-  border-radius: 0;
-  /* Sharp edges */
-  box-shadow: 0 0 15px rgba(80, 220, 255, 0.5), inset 0 0 8px rgba(80, 220, 255, 0.2);
-  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+  background: rgba(10, 18, 28, 0.98);
+  color: rgba(200, 235, 255, 1);
+  border: 1px solid rgba(100, 180, 220, 0.45);
+  border-radius: 999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+  text-shadow: none;
   cursor: pointer;
   z-index: 100;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.0);
-  min-width: 220px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  min-width: 200px;
   text-align: center;
   overflow: hidden;
   display: flex;
-  /* Use flex to center text vertically/horizontally if needed */
   align-items: center;
   justify-content: center;
-
-  /* Add pseudo-elements for corners and grid overlay here */
-  /* Example: */
-  /* &::before, &::after { content: ''; position: absolute; ... } */
+  backdrop-filter: blur(8px);
 }
 
 /* Start Button Pulsing Animation */
@@ -141,23 +164,22 @@ body.state-winner .settings-button { */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 88%;
-  max-width: 460px;
-  padding: 16px 18px;
-  background-color: rgba(0, 10, 20, 0.9);
-  /* Slightly more opaque */
-  border: 1px solid rgba(80, 220, 255, 0.8);
-  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
-  color: rgba(140, 240, 255, 1);
+  width: min(92%, 400px);
+  max-width: 400px;
+  padding: 20px 22px;
+  background-color: #0c141c;
+  border: 1px solid rgba(100, 180, 220, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+  color: rgba(210, 235, 248, 1);
   z-index: 150;
-  /* Above game, below maybe modals? */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-  max-height: 90vh;
+  align-items: stretch;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  max-height: min(88vh, 520px);
   overflow-y: auto;
-  /* Keep transition */
+  -webkit-overflow-scrolling: touch;
 }
 
 .settings-menu.hidden {
@@ -169,14 +191,15 @@ body.state-winner .settings-button { */
 }
 
 .settings-menu h2 {
-  font-family: 'Rajdhani', 'Arial', sans-serif;
-  font-weight: 300;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  font-family: var(--font-heading, Rajdhani), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
   margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 18px;
-  text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+  text-shadow: none;
+  text-align: center;
 }
 
 .settings-powerup-reference {
@@ -349,21 +372,23 @@ body.state-winner .settings-button { */
 
 /* Close Button Style (similar to start button but smaller) */
 .menu-button {
-  min-width: 152px;
+  min-width: 0;
+  width: 100%;
   margin-top: 8px;
-  padding: 8px 20px;
-  font-size: 14px;
-  font-family: 'Rajdhani', 'Arial', sans-serif;
-  font-weight: 300;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  background-color: rgba(0, 10, 20, 0.7);
-  color: rgba(140, 240, 255, 1);
-  border: 1px solid rgba(80, 220, 255, 0.8);
-  box-shadow: 0 0 10px rgba(80, 220, 255, 0.4), inset 0 0 5px rgba(80, 220, 255, 0.1);
-  text-shadow: 0 0 5px rgba(140, 240, 255, 0.7);
+  padding: 10px 16px;
+  font-size: 0.875rem;
+  font-family: Rajdhani, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  background-color: rgba(14, 26, 40, 0.95);
+  color: rgba(200, 235, 255, 1);
+  border: 1px solid rgba(100, 180, 220, 0.35);
+  border-radius: 8px;
+  box-shadow: none;
+  text-shadow: none;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .menu-item .menu-button {
@@ -400,23 +425,19 @@ body.state-winner .settings-button { */
 }
 
 .start-button--pulsing {
-  animation: pulse-glow-start 2s infinite ease-in-out;
+  /* Subtle idle state — no aggressive pulse */
 }
 
 .start-button:hover {
-  background-color: rgba(10, 30, 50, 0.8);
-  color: rgba(180, 255, 255, 1);
-  box-shadow: 0 0 30px rgba(80, 220, 255, 0.7), inset 0 0 15px rgba(80, 220, 255, 0.4);
-  border-color: rgba(140, 240, 255, 1);
-  animation-play-state: paused;
-  /* Pause pulsing on hover */
+  background: rgba(14, 28, 48, 0.92);
+  color: #fff;
+  border-color: rgba(140, 210, 255, 0.7);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
 }
 
 .start-button:active {
   transform: translate(-50%, -48%);
-  /* Press down effect */
-  box-shadow: 0 0 20px rgba(80, 220, 255, 0.9), inset 0 0 12px rgba(80, 220, 255, 0.6);
-  background-color: rgba(20, 40, 60, 0.9);
+  background: rgba(18, 36, 58, 0.95);
 }
 
 
@@ -426,25 +447,19 @@ body.state-winner .settings-button { */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 450px;
-  /* Slightly wider than settings */
-  max-height: 80vh;
-  /* Limit height and allow scrolling */
+  width: min(92%, 420px);
+  max-height: min(88vh, 520px);
   overflow-y: auto;
-  /* Enable vertical scroll if content overflows */
-  padding: 25px 30px;
-  background-color: rgba(0, 10, 20, 0.92);
-  /* Slightly more opaque */
-  border: 1px solid rgba(80, 220, 255, 0.8);
-  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
-  color: rgba(140, 240, 255, 1);
+  padding: 22px 24px;
+  background-color: #0c141c;
+  border: 1px solid rgba(100, 180, 220, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+  color: rgba(210, 235, 248, 1);
   z-index: 160;
-  /* Above settings menu */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  align-items: stretch;
 }
 
 .credits-section.hidden {
@@ -507,25 +522,18 @@ body.state-winner .settings-button { */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 400px;
-  /* Similar to settings */
-  padding: 25px 30px;
-  background-color: rgba(0, 10, 20, 0.9);
-  /* Dark background - Same as settings */
-  border: 1px solid rgba(80, 220, 255, 0.8);
-  /* Blue border - Same as settings */
-  box-shadow: 0 0 25px rgba(80, 220, 255, 0.5), inset 0 0 10px rgba(80, 220, 255, 0.2);
-  /* Blue shadow - Same as settings */
-  color: rgba(140, 240, 255, 1);
-  /* Blue text - Same as settings */
+  width: min(92%, 400px);
+  padding: 22px 24px;
+  background-color: #0c141c;
+  border: 1px solid rgba(100, 180, 220, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+  color: rgba(210, 235, 248, 1);
   z-index: 170;
-  /* Above other menus */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
 .game-over-dialog.hidden {
@@ -598,104 +606,44 @@ body.state-winner .settings-button { */
 .settings-button {
   position: absolute;
   top: 16px;
-  /* Use consistent spacing */
   right: 16px;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: rgba(0, 10, 20, 0.7);
-  border: 2px solid rgba(255, 100, 100, 0.8);
-  /* Default: Debug OFF color */
+  background: rgba(8, 16, 28, 0.75);
+  border: 1px solid rgba(100, 180, 220, 0.35);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 100, 100, 0.5);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.0);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   z-index: 100;
-
-  /* Add nested divs or pseudo-elements for inner ring and dot here */
-  /* Style them based on .settings-button vs .settings-button--debugging */
-}
-
-/* Settings Button Pulsing Animation */
-@keyframes pulse-glow-settings-off {
-
-  /* Similar to start button, but use OFF colors */
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(255, 100, 100, 0.5), inset 0 0 0 transparent;
-    /* Added transparent inset */
-    text-shadow: 0 0 8px rgba(255, 100, 100, 0.8);
-    border-color: rgba(255, 100, 100, 0.8);
-  }
-
-  50% {
-    box-shadow: 0 0 25px rgba(255, 100, 100, 0.7), inset 0 0 0 transparent;
-    /* Added transparent inset */
-    border-color: rgba(255, 120, 120, 1);
-    text-shadow: 0 0 12px rgba(255, 100, 100, 1);
-  }
-}
-
-@keyframes pulse-glow-settings-on {
-
-  /* Similar to start button, but use ON colors */
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(80, 220, 255, 0.5), inset 0 0 0 transparent;
-    /* Added transparent inset */
-    text-shadow: 0 0 8px rgba(140, 240, 255, 0.8);
-    border-color: rgba(80, 220, 255, 0.8);
-  }
-
-  50% {
-    box-shadow: 0 0 25px rgba(80, 220, 255, 0.7), inset 0 0 0 transparent;
-    /* Added transparent inset */
-    border-color: rgba(100, 230, 255, 1);
-    text-shadow: 0 0 12px rgba(140, 240, 255, 1);
-  }
-}
-
-.settings-button {
-  animation: pulse-glow-settings-off 2s infinite ease-in-out;
+  animation: none;
 }
 
 .settings-button--debugging {
-  border-color: rgba(80, 220, 255, 0.8);
-  /* Debug ON color */
-  box-shadow: 0 0 15px rgba(80, 220, 255, 0.5);
-  animation-name: pulse-glow-settings-on;
-  /* Switch animation */
-
-  /* Style inner elements for ON state here */
+  border-color: rgba(100, 200, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  animation: none;
 }
 
-
 .settings-button:hover {
-  background-color: rgba(10, 30, 50, 0.8);
-  box-shadow: 0 0 25px rgba(255, 100, 100, 0.7);
-  /* Add hover styles for inner elements */
-  animation-play-state: paused;
+  background: rgba(14, 28, 48, 0.9);
+  border-color: rgba(140, 210, 255, 0.55);
 }
 
 .settings-button--debugging:hover {
-  box-shadow: 0 0 25px rgba(80, 220, 255, 0.7);
-  /* Add hover styles for inner elements in ON state */
+  border-color: rgba(140, 210, 255, 0.65);
 }
 
 .settings-button:active {
-  transform: scale(0.92);
-  box-shadow: 0 0 15px rgba(255, 100, 100, 0.9);
-  /* Add active styles for inner elements */
+  transform: scale(0.94);
 }
 
-.settings-button--debugging:active {
-  box-shadow: 0 0 15px rgba(80, 220, 255, 0.9);
-  /* Add active styles for inner elements in ON state */
-}
+/* Settings Button Pulsing Animation — disabled for cleaner UI */
 
 
 /* --- Responsive --- */

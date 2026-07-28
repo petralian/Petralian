@@ -11,7 +11,7 @@ excerpt: >-
   Five management habits that transfer directly to directing AI agents: show
   examples, write context down, guide in steps, define outcomes, and close the
   loop with review.
-featured_image: /images/posts/training-an-ai-is-like-managing-an-employee.png
+featured_image: /images/posts/training-an-ai-is-like-managing-an-employee.avif
 focus_keyword: managing ai like an employee
 seo_description: >-
   A practical framework for directing AI like a strong employee: show examples,

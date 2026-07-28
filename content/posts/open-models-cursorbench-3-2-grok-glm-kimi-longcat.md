@@ -11,7 +11,7 @@ excerpt: >-
   Open-model launch posts cite SWE-bench; CursorBench cites session cost. Here
   is how to read Grok, GLM, Kimi, and LongCat for buying decisions — not picker
   hype alone.
-featured_image: /images/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat.jpg
+featured_image: /images/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat.avif
 featured_image_alt: >-
   Three seedlings sprouting from cracked concrete under distinct colored light
   filters, morning mist, macro editorial, no logos or readable text.

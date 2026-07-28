@@ -9,7 +9,7 @@ tags:
 excerpt: >-
   TL;DR What Leadership Styles and Their Impact on Marketing and Branding
   covers. Who it is for and when to use it. Practical next steps after reading.…
-featured_image: /images/posts/leadership-styles-marketing-branding-hero.jpeg
+featured_image: /images/posts/leadership-styles-marketing-branding-hero.avif
 seo_description: >-
   TL;DR What Leadership Styles and Their Impact on Marketing and Branding
   covers. Who it is for and when to use it. Practical next steps after reading.…

@@ -11,7 +11,7 @@ excerpt: >-
   Most enterprise AI programs struggle before the model fails. Data, governance
   owners, and change runway get compressed. A pre-flight diagnostic before the
   next funding gate.
-featured_image: /images/posts/why-your-ai-program-may-fail-before-it-starts.png
+featured_image: /images/posts/why-your-ai-program-may-fail-before-it-starts.avif
 focus_keyword: enterprise AI program readiness
 seo_description: >-
   Enterprise AI programs often fail before deployment: skipped data readiness,

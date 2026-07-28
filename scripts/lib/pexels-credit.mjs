@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
+import { downloadUrlAsRaster, rasterNameFor } from "./image-pipeline.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 export const CACHE_PATH = path.join(ROOT, "data", "pexels-credit-cache.yaml");
@@ -101,18 +102,18 @@ export async function downloadPexelsToFile(photoId, destPath, apiKey) {
   if (!downloadUrl) {
     throw new Error(`Pexels API returned no download URL for photo ${photoId}`);
   }
-  const imgRes = await fetch(downloadUrl);
-  if (!imgRes.ok) {
-    throw new Error(`Pexels image download ${imgRes.status} for photo ${photoId}`);
+  const avifDest = rasterNameFor(path.basename(destPath));
+  const fullDest = path.join(path.dirname(destPath), avifDest);
+  await downloadUrlAsRaster(downloadUrl, fullDest);
+  if (fullDest !== destPath && fs.existsSync(destPath)) {
+    fs.unlinkSync(destPath);
   }
-  fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  fs.writeFileSync(destPath, Buffer.from(await imgRes.arrayBuffer()));
 
   const cache = loadPexelsCache();
   cache.photos[entry.id] = entry;
   savePexelsCache(cache);
 
-  return entry;
+  return { entry, destPath: fullDest };
 }
 
 export async function resolvePexelsPhoto(photoId, { apiKey, refresh = false } = {}) {

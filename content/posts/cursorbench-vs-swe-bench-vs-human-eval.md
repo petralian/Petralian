@@ -11,7 +11,7 @@ excerpt: >-
   Vendor AI scorecards mix incompatible benchmarks. Here is what CursorBench,
   SWE-bench, and HumanEval each measure — and how to read tables without picking
   the wrong default for your work.
-featured_image: /images/posts/cursorbench-vs-swe-bench-vs-human-eval.jpg
+featured_image: /images/posts/cursorbench-vs-swe-bench-vs-human-eval.avif
 featured_image_alt: >-
   Three measuring instruments on a steel table in cool side light, suggesting
   different benchmark types, shallow depth of field, no logos or readable

@@ -10,7 +10,7 @@ tags:
 series: Cursor Customize Series
 series_order: 4
 excerpt: "A light Customize setup for directed local changes and GitHub shipping: review habits, small diffs, and handoffs - without turning this into another full harness handbook."
-featured_image: /images/posts/cursor-customize-local-github-and-shipping-2026.png
+featured_image: /images/posts/cursor-customize-local-github-and-shipping-2026.avif
 focus_keyword: Cursor GitHub shipping workflow
 seo_description: "Light Cursor Customize for local develop and GitHub shipping: directed agent changes, human review, and small habits - with links to the Brain handbook."
 related_posts:

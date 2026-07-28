@@ -31,7 +31,7 @@ image_prompt_variant_2: >-
   Maze of sticky notes and notification badges on the left versus a single clear
   kanban column and one notebook on the right—editorial split, professional
   playful contrast.
-featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.jpg
+featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.avif
 featured_image_alt: Calm home office desk with an open Obsidian-style linked note graph
 format: hybrid
 best_for: Knowledge workers layering Obsidian memory beyond a single chat thread

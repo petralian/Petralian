@@ -10,7 +10,7 @@ excerpt: >-
   TL;DR What Infinity Loops: The Framework Behind Successful Brand Stories
   covers. Who it is for and when to use it. Practical next steps after reading.
   The…
-featured_image: /images/posts/infinity-loops-brand-storytelling-hero.jpg
+featured_image: /images/posts/infinity-loops-brand-storytelling-hero.avif
 seo_description: >-
   TL;DR What Infinity Loops: The Framework Behind Successful Brand Stories
   covers. Who it is for and when to use it. Practical next steps after reading.

@@ -10,7 +10,7 @@ excerpt: >-
   TL;DR What Redefining Media Agency Success: Embracing Innovation in the
   Digital Era covers. Who it is for and when to use it. Practical next steps
   after…
-featured_image: /images/posts/media-agency-innovation-digital-era-hero.jpg
+featured_image: /images/posts/media-agency-innovation-digital-era-hero.avif
 seo_description: >-
   TL;DR What Redefining Media Agency Success: Embracing Innovation in the
   Digital Era covers. Who it is for and when to use it. Practical next steps

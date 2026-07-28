@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   TL;DR What Redefining the Career Ladder: How AI Sidelines Entry-Level Learning
   in APAC covers. Who it is for and when to use it. Practical next steps after…
-featured_image: /images/posts/career-ladder-ai-apac-sidelines-hero.jpg
+featured_image: /images/posts/career-ladder-ai-apac-sidelines-hero.avif
 seo_description: >-
   TL;DR What Redefining the Career Ladder: How AI Sidelines Entry-Level Learning
   in APAC covers. Who it is for and when to use it. Practical next steps after…

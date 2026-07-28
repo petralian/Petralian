@@ -13,7 +13,7 @@ excerpt: >-
   I ran Headroom, built a 300-line proxy, wired a Cloudflare tunnel, and added
   RTK. On my Cursor + OpenRouter workload the dollars did not move. Here is what
   is worth doing instead.
-featured_image: /images/posts/cursor-token-saving-tools-beyond-headroom-2026.png
+featured_image: /images/posts/cursor-token-saving-tools-beyond-headroom-2026.avif
 focus_keyword: Cursor token saving OpenRouter what works
 seo_description: >-
   Honest post-mortem: Headroom, local proxy, Cloudflare tunnel, and RTK on

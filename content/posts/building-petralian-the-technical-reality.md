@@ -13,7 +13,7 @@ excerpt: >-
   petralian.com — the masonry layout that fought back, a 404 page with a working
   Asteroids game, the TinaCMS newline problem nobody warns you about, and how AI
   wrote most of it.
-featured_image: /images/posts/building-petralian-the-technical-reality.png
+featured_image: /images/posts/building-petralian-the-technical-reality.avif
 featured_image_alt: >-
   Wireframe grid of a website being built, with code and markdown files in the
   background

@@ -12,7 +12,7 @@ tags:
 excerpt: >-
   TL;DR What Generative AI in Marketing: My Thoughts on the Industry’s Progress
   and Challenge covers. Who it is for and when to use it. Practical next steps…
-featured_image: /images/posts/generative-ai-marketing-industry-hero.jpeg
+featured_image: /images/posts/generative-ai-marketing-industry-hero.avif
 seo_description: >-
   TL;DR What Generative AI in Marketing: My Thoughts on the Industry’s Progress
   and Challenge covers. Who it is for and when to use it. Practical next steps…

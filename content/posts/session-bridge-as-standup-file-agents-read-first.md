@@ -13,7 +13,7 @@ excerpt: >-
   Standup worked for humans in the room. It never fed the next session. A short
   Bridge file after standup gives agents and teammates the same priority,
   blockers, and owners.
-featured_image: /images/posts/session-bridge-as-standup-file-agents-read-first.png
+featured_image: /images/posts/session-bridge-as-standup-file-agents-read-first.avif
 focus_keyword: session bridge standup file
 seo_title: 'Session Bridge: The Standup File Your Agents Read First'
 seo_description: >-

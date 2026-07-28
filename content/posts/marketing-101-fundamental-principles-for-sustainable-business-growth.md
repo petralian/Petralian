@@ -10,7 +10,7 @@ excerpt: >-
   As a digital transformation strategist who has worked with global brands
   across multiple sectors, I've consistently observed that strong marketing
   fundamentals…
-featured_image: /images/posts/marketing-101-fundamentals-principles-hero.jpg
+featured_image: /images/posts/marketing-101-fundamentals-principles-hero.avif
 seo_description: >-
   As a digital transformation strategist who has worked with global brands
   across multiple sectors, I've consistently observed that strong marketing
@@ -64,7 +64,7 @@ My experiences reinforced that customer-centricity isn't just a buzzword-it's a 
 3.  **Implement Closed-Loop Feedback Systems**: Regularly collect, analyze, and act on customer feedback.
 4.  **Align Metrics with Customer Success**: Track indicators that reflect real customer value, not just marketing activities.
 
-![Marketing 101 market size framework illustration](/images/posts/marketing-101-market-size-framework.jpg)
+![Marketing 101 market size framework illustration](/images/posts/marketing-101-market-size-framework.avif)
 _Rosenfeld Media from Brooklyn, USA, CC BY 2.0 [https://creativecommons.org/licenses/by/2.0](https://creativecommons.org/licenses/by/2.0), via Wikimedia Commons_
 
 ## The Future of Marketing Fundamentals

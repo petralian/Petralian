@@ -11,7 +11,7 @@ excerpt: >-
   actually costs compared to OpenRouter and third-party relays when you code
   extensively.
 featured_image: >-
-  /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.png
+  /images/posts/github-copilot-vs-openrouter-real-cost-comparison-for-developers.avif
 focus_keyword: github copilot pricing comparison
 seo_description: >-
   Real cost comparison of GitHub Copilot Pro+ vs OpenRouter for heavy coding

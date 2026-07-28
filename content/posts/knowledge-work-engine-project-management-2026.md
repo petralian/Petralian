@@ -12,7 +12,7 @@ excerpt: >-
   Agile, Scrum, Jira, and Confluence already own execution and narrative. This
   playbook shows where a file-based agent engine fits—iron triangle tradeoffs,
   RAG, RACI, RAID, and applied AI without pretending chat is a program office.
-featured_image: /images/posts/knowledge-work-engine-project-management-2026.png
+featured_image: /images/posts/knowledge-work-engine-project-management-2026.avif
 focus_keyword: AI project management agile scrum jira
 seo_description: >-
   How a file-based AI engine complements Agile, Scrum, Jira, and Confluence:

@@ -11,7 +11,7 @@ excerpt: >-
   Unit tests catch code failures. They do not always catch AI quality
   regressions. Here is how to add quality thresholds as a first-class release
   gate.
-featured_image: /images/posts/ai-quality-gate-ci-gravio.png
+featured_image: /images/posts/ai-quality-gate-ci-gravio.avif
 focus_keyword: ai quality gate ci
 seo_description: >-
   Implement AI quality thresholds in CI/CD with Gravio-style scoring so releases
@@ -35,7 +35,7 @@ AI can regress while classic checks still pass.
 
 If quality scores are visible but non-blocking, teams often ship under pressure anyway. The fix is simple in concept: make AI quality a gate, not just a dashboard.
 
-![GitHub Actions workflow with an AI quality gate step.](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.png)
+![GitHub Actions workflow with an AI quality gate step.](/images/posts/ai-quality-gate-ci-gravio-body-01-github-actions.avif)
 *Screenshot: Petralian / GitHub (2026)*
 
 ## Why Existing Gates Miss AI Regressions

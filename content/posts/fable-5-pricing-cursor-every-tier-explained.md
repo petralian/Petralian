@@ -11,7 +11,7 @@ excerpt: >-
   Fable 5 ships as five effort tiers on Cursor. CursorBench 3.2 shows how score,
   cost, tokens, and steps change from Max to Low — for anyone approving model
   spend, not pickers chasing rank.
-featured_image: /images/posts/fable-5-pricing-cursor-every-tier-explained.jpg
+featured_image: /images/posts/fable-5-pricing-cursor-every-tier-explained.avif
 featured_image_alt: >-
   Five nested brass rings on dark slate with coin stacks beside each ring, macro
   editorial still life, amber keylight, no logos or readable text.

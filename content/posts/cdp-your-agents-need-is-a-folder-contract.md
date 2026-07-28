@@ -12,7 +12,7 @@ excerpt: >-
   Composable martech plus a folder contract: governed customer-context paths for
   agents—when CDP, lake, or hybrid stacks fit, and best practice for commerce
   and marketing.
-featured_image: /images/posts/cdp-your-agents-need-is-a-folder-contract.png
+featured_image: /images/posts/cdp-your-agents-need-is-a-folder-contract.avif
 focus_keyword: folder contract CDP agents
 seo_description: >-
   CDP vs data lake vs folder contract for agent teams: commerce, marketing, and

@@ -15,7 +15,7 @@ excerpt: >-
   The same session-continuity engine that ships software can run initiatives,
   decisions, and content. Maps memory, voice, and routing to Agile, Jira,
   Confluence, RACI, and RAG—with a replication kit an AI can execute.
-featured_image: /images/posts/knowledge-work-agent-engine-guide-2026.png
+featured_image: /images/posts/knowledge-work-agent-engine-guide-2026.avif
 focus_keyword: knowledge work AI agent engine project management
 seo_description: >-
   Start a file-based AI engine: my Cursor + dual-vault setup, Path A chat-only

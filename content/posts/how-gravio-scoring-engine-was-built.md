@@ -11,7 +11,7 @@ tags:
 excerpt: >-
   A practical breakdown of how Gravio turns repository signals into
   six-dimension scores, hard quality gates, and actionable remediation plans.
-featured_image: /images/posts/how-gravio-scoring-engine-was-built.png
+featured_image: /images/posts/how-gravio-scoring-engine-was-built.avif
 focus_keyword: how gravio scoring engine works
 seo_description: >-
   Learn how Gravio’s scoring engine was built: signal detection, weighted

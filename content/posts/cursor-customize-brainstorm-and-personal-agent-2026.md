@@ -10,7 +10,7 @@ tags:
 series: Cursor Customize Series
 series_order: 1
 excerpt: "Use Cursor Customize so brainstorming stays exploratory and your personal agent stays private - without mixing life admin into public drafts."
-featured_image: /images/posts/cursor-customize-brainstorm-and-personal-agent-2026.png
+featured_image: /images/posts/cursor-customize-brainstorm-and-personal-agent-2026.avif
 focus_keyword: Cursor personal agent brainstorm
 seo_description: "Set up Cursor Customize for brainstorming and a personal agent: loose exploration rules, private life-admin memory, and a clean phone-to-desk handoff."
 related_posts:

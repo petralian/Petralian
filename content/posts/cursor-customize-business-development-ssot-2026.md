@@ -13,7 +13,7 @@ excerpt: >-
   For consulting and BD work, a shared questionnaire becomes the single source
   of truth for the business plan - so Cursor drafts stay consistent instead of
   inventing a new strategy every chat.
-featured_image: /images/posts/cursor-customize-business-development-ssot-2026.png
+featured_image: /images/posts/cursor-customize-business-development-ssot-2026.avif
 focus_keyword: business plan SSOT AI
 seo_description: >-
   Use Cursor Customize for BD and consulting work: a collaborator questionnaire

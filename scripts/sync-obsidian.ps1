@@ -300,12 +300,30 @@ function Test-ArticlePreflight {
 
   $raw = Get-Content $filePath -Raw -Encoding UTF8
 
-  # Parse frontmatter
+  # Parse frontmatter (supports quoted scalars and >- folded blocks)
   $fm = @{}
   if ($raw -match '(?s)^---\s*\n(.+?)\n---') {
-    foreach ($line in ($matches[1] -split '\n')) {
-      if ($line -match '^([\w][\w_-]*):\s*(.*)$') {
-        $fm[$matches[1].Trim()] = $matches[2].Trim().Trim('"').Trim("'")
+    $fmLines = $matches[1] -split '\n'
+    for ($li = 0; $li -lt $fmLines.Count; $li++) {
+      $line = $fmLines[$li]
+      if ($line -notmatch '^([\w][\w_-]*):\s*(.*)$') { continue }
+      $key = $matches[1].Trim()
+      $rest = $matches[2]
+      $scalar = $rest.Trim().Trim('"').Trim("'")
+      if ($scalar -in @('>-', '>', '|', '|-', '')) {
+        $parts = [System.Collections.Generic.List[string]]::new()
+        while ($li + 1 -lt $fmLines.Count) {
+          $next = $fmLines[$li + 1]
+          if ($next -match '^\s{2,}\S' -and $next -notmatch '^\s*-\s') {
+            $li++
+            $parts.Add($next.Trim())
+          }
+          else { break }
+        }
+        $fm[$key] = ($parts -join ' ').Trim()
+      }
+      else {
+        $fm[$key] = $scalar
       }
     }
   }
@@ -393,6 +411,13 @@ function Test-ArticlePreflight {
         $warnings.Add("Body image placeholder (will not publish until file exists): $fname")
       }
       $lower = $fname.ToLower()
+      $articleSlug = if ($fm['slug']) { $fm['slug'].Trim() } else { [System.IO.Path]::GetFileNameWithoutExtension($filePath) }
+      if ($fname -match '\s' -or $lower -like 'pasted image*' -or $lower -like 'snipaste_*' -or $lower -like 'image*.*') {
+        $errors.Add("Non-SEO image filename (rename to $articleSlug-body-NN-descriptor): $fname")
+      }
+      elseif ($fname -notmatch "^$([regex]::Escape($articleSlug))\.(avif|png|jpe?g|webp|svg|gif)$" -and $fname -notlike "$articleSlug-body-*") {
+        $errors.Add("Image filename must match slug prefix (rename): $fname")
+      }
       if ($lower -like 'pasted image*' -or $lower -match '^\d+\.(jpe?g|png|gif|webp)$') {
         $warnings.Add("Body image needs rename (run normalize-vault-images): $fname")
       }
@@ -519,6 +544,7 @@ if (-not $Preflight) {
   else {
     Write-Host '  WARN: normalize-vault-images.py not found — skipping' -ForegroundColor Yellow
   }
+  node "$PSScriptRoot\vault-raster-to-avif.mjs" 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
 
@@ -624,16 +650,16 @@ if ($synced.Count -eq 0 -and $removed.Count -eq 0) {
   exit 0
 }
 
-# ── Compress newly copied images ─────────────────────────────────────────────
+# ── Compress newly copied images → AVIF ─────────────────────────────────────
 if ($synced.Count -gt 0) {
   Write-Host ''
-  Write-Host '── Image compression ────────────────────────────────────────────' -ForegroundColor Cyan
+  Write-Host '── Image compression (AVIF) ─────────────────────────────────────' -ForegroundColor Cyan
   try {
-    $nodeOutput = node "$PSScriptRoot\optimize-images.mjs" 2>&1
+    $nodeOutput = node "$PSScriptRoot\raster-to-avif.mjs" 2>&1
     $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   }
   catch {
-    Write-Host "  WARN: Image compression failed (non-fatal): $_" -ForegroundColor Yellow
+    Write-Host "  WARN: AVIF pipeline failed (non-fatal): $_" -ForegroundColor Yellow
   }
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
@@ -646,12 +672,6 @@ if ($synced.Count -gt 0) {
   node "$PSScriptRoot\autofix-seo-meta.mjs" @($synced) 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
-
-# ── Convert oversized PNG heroes to JPEG (updates featured_image paths) ─────
-Write-Host ''
-Write-Host '── Hero JPEG optimization ───────────────────────────────────────' -ForegroundColor Cyan
-node "$PSScriptRoot\png-to-jpg-post-heroes.mjs" 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
-Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 
 # ── SEO/GEO: regenerate llms.txt + indexing reminders ───────────────────────
 if ($synced.Count -gt 0 -or $removed.Count -gt 0) {

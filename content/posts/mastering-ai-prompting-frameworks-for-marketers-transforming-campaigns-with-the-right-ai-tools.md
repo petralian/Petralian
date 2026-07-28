@@ -14,7 +14,7 @@ excerpt: >-
   TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming
   Campaigns with Pre covers. Who it is for and when to use it. Practical next
   steps…
-featured_image: /images/posts/ai-prompting-frameworks-marketers-hero.jpg
+featured_image: /images/posts/ai-prompting-frameworks-marketers-hero.avif
 seo_description: >-
   TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming
   Campaigns with Pre covers. Who it is for and when to use it. Practical next

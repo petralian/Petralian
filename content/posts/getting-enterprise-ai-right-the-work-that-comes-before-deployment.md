@@ -13,7 +13,7 @@ excerpt: >-
   governance owners, and change runway are gates before go-live—not parallel
   work you finish after the demo.
 featured_image: >-
-  /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.png
+  /images/posts/getting-enterprise-ai-right-the-work-that-comes-before-deployment.avif
 featured_image_alt: >-
   Isometric cutaway of three enterprise AI foundation layers—data, governance,
   and change—with a deploy capsule waiting above a hold line

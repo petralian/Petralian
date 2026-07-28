@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type React from "react";
@@ -13,7 +14,7 @@ import {
   sanitizeLeaderboardName,
   type LeaderboardEntry,
 } from "@/lib/orbit-rush-leaderboard";
-import { OrbitGame, POWERUP_REFERENCE, drawPowerUpIcon, PowerUpType } from "@/orbit-game/orbit";
+import { OrbitGame } from "@/orbit-game/orbit";
 
 type OverlayPhase = "idle" | "browse-scores" | "entering-name" | "showing-scores";
 
@@ -37,20 +38,6 @@ const panelStyle: React.CSSProperties = {
   fontFamily: "monospace",
 };
 
-const overlayShellStyle: React.CSSProperties = {
-  position: "fixed",
-  inset: 0,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 12,
-  zIndex: 40,
-  pointerEvents: "none",
-  touchAction: "manipulation",
-  padding: "16px",
-};
-
 const overlayContentStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
@@ -60,6 +47,14 @@ const overlayContentStyle: React.CSSProperties = {
   maxWidth: "min(92vw, 360px)",
   width: "100%",
 };
+
+function ExitToSiteLink({ onExit }: { onExit: () => void }) {
+  return (
+    <Link href="/" className="orbit-game-exit-link" data-orbit-ui onClick={onExit}>
+      ← Back to Petralian
+    </Link>
+  );
+}
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
@@ -167,30 +162,6 @@ function Leaderboard({
   );
 }
 
-const ICON_SIZE = 22;
-
-function PowerUpReferenceIcon({ type }: { type: PowerUpType }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    drawPowerUpIcon(ctx, type, ICON_SIZE);
-  }, [type]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={ICON_SIZE}
-      height={ICON_SIZE}
-      className="settings-powerup-reference__icon"
-      aria-hidden
-    />
-  );
-}
-
 async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
   try {
     const res = await fetch(LEADERBOARD_API, { cache: "no-store" });
@@ -271,11 +242,15 @@ export default function OrbitRushGame() {
     async (score: number) => {
       setPendingScore(score);
       setSubmitError("");
-      const scores = await refreshScores();
-      if (qualifiesForLeaderboard(scores, score)) {
-        setOverlay("entering-name");
-      } else {
-        setOverlay("showing-scores");
+      // Show game-over UI immediately (arena is z-index 200; overlay must sit above).
+      setOverlay("showing-scores");
+      try {
+        const scores = await refreshScores();
+        if (qualifiesForLeaderboard(scores, score)) {
+          setOverlay("entering-name");
+        }
+      } catch {
+        // Keep showing-scores with Retry if leaderboard fetch fails
       }
     },
     [refreshScores]
@@ -372,6 +347,12 @@ export default function OrbitRushGame() {
     gameRef.current?.restartFromOverlay();
   }, []);
 
+  const exitGame = useCallback(() => {
+    setOverlay("idle");
+    setSubmitError("");
+    gameRef.current?.returnToWelcome();
+  }, []);
+
   const overlayContent = (
     <>
       {overlay === "idle" && (
@@ -386,8 +367,8 @@ export default function OrbitRushGame() {
       )}
 
       {overlay === "browse-scores" && (
-        <div style={overlayShellStyle} role="presentation">
-          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="High scores">
+        <div className="orbit-game-overlay-shell" role="presentation">
+          <div className="orbit-game-overlay-shell__content" data-orbit-ui role="dialog" aria-label="High scores">
             <Leaderboard scores={highScores} />
             <button
             type="button"
@@ -403,13 +384,14 @@ export default function OrbitRushGame() {
           >
             CLOSE
           </button>
+          <ExitToSiteLink onExit={exitGame} />
           </div>
         </div>
       )}
 
       {overlay === "entering-name" && (
-        <div style={overlayShellStyle} role="presentation">
-          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="Enter your name">
+        <div className="orbit-game-overlay-shell" role="presentation">
+          <div className="orbit-game-overlay-shell__content" data-orbit-ui role="dialog" aria-label="Enter your name">
           <div style={panelStyle}>
             <p style={{ color: "#f75", textAlign: "center", margin: "0 0 6px" }}>
               GAME OVER
@@ -459,14 +441,15 @@ export default function OrbitRushGame() {
                 {shareMsg}
               </p>
             )}
+            <ExitToSiteLink onExit={exitGame} />
           </div>
           </div>
         </div>
       )}
 
       {overlay === "showing-scores" && (
-        <div style={overlayShellStyle} role="presentation">
-          <div style={overlayContentStyle} data-orbit-ui role="dialog" aria-label="Game over">
+        <div className="orbit-game-overlay-shell" role="presentation">
+          <div className="orbit-game-overlay-shell__content" data-orbit-ui role="dialog" aria-label="Game over">
           <p style={{ color: "#f75", margin: 0, fontFamily: "monospace", letterSpacing: "0.1em" }}>
             GAME OVER — SCORE {formatLeaderboardScore(pendingScore)}
           </p>
@@ -500,6 +483,7 @@ export default function OrbitRushGame() {
             SHARE
           </button>
           {shareMsg && <p style={{ color: "#6ef", fontSize: 11, margin: 0 }}>{shareMsg}</p>}
+          <ExitToSiteLink onExit={exitGame} />
           </div>
         </div>
       )}
@@ -509,10 +493,11 @@ export default function OrbitRushGame() {
   return (
     <div ref={shellRef} className="orbit-game-shell" tabIndex={-1}>
       <div id="orbit-game-root">
+        <div id="orbit-menu-backdrop" className="orbit-menu-backdrop hidden" aria-hidden />
         <canvas id="world" />
 
         <div id="settings-menu" className="settings-menu hidden">
-          <h2>SETTINGS</h2>
+          <h2>Settings</h2>
           <div className="menu-item menu-item--slider">
             <label htmlFor="orbit-opacity-slider">Orbit Path:</label>
             <div className="orbit-opacity-control">
@@ -552,23 +537,8 @@ export default function OrbitRushGame() {
             CREDITS
           </button>
           <button id="close-menu-button" className="menu-button" type="button">
-            CLOSE
+            Close
           </button>
-
-          <div className="settings-powerup-reference">
-            <h3>POWER-UPS &amp; DOWNS</h3>
-            <ul>
-              {POWERUP_REFERENCE.map((item) => (
-                <li
-                  key={item.type}
-                  className={`settings-powerup-reference__item settings-powerup-reference__item--${item.kind}`}
-                >
-                  <PowerUpReferenceIcon type={item.type} />
-                  <span className="settings-powerup-reference__desc">{item.description}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div id="credits-section" className="credits-section hidden">

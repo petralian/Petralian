@@ -12,7 +12,7 @@ tags:
 excerpt: >-
   The recent news that the 133 cardinals have not yet elected a new Pope reminds
   us that transformative decisions require broad support. In the Vatican’s…
-featured_image: /images/posts/digital-transformation-leadership-hero.jpg
+featured_image: /images/posts/digital-transformation-leadership-hero.avif
 seo_description: >-
   The recent news that the 133 cardinals have not yet elected a new Pope reminds
   us that transformative decisions require broad support. In the Vatican’s…

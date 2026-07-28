@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Mem0 and managed memory layers promise automatic recall. File harnesses
   promise portability. I use both lanes deliberately — not as a single winner.
-featured_image: /images/posts/managed-agent-memory-vs-files-you-control-2026.png
+featured_image: /images/posts/managed-agent-memory-vs-files-you-control-2026.avif
 focus_keyword: agent memory files vs managed
 seo_description: >-
   Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT):
@@ -44,7 +44,7 @@ seo_title: 'Managed Agent Memory vs Files You Control: A Strategic…'
 
 **Managed agent memory** (services like Mem0 and similar layers) stores facts and preferences in a product-specific store, often with automatic extraction from chat. **Files you control** (Obsidian, git markdown, Bridge notes) store what you curate in formats that survive tool churn.
 
-![Mem0 managed memory pricing tiers for projects and API usage.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-01-mem0-pricing.png)
+![Mem0 managed memory pricing tiers for projects and API usage.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-01-mem0-pricing.avif)
 *Screenshot: [Mem0 pricing](https://mem0.ai/pricing) — Petralian (2026); Free until you do more as one project… and I think everyone does more as one project… so find better options*
 
 The strategic question is not which is "smarter." It is which memory tier owns which class of truth.
@@ -129,7 +129,7 @@ The [memory loop](/posts/cursor-harness-memory-loop-2026) close step is where pr
 
 **Example implementation — how I run it:** Cursor sessions bootstrap from vault Bridge and repo `memories/` where present. Ambient agents (Hermes, messaging surfaces) may use managed recall for conversational context — covered in the comparison posts. Petralian blogging and client deliverables never rely on managed memory alone for publish truth.
 
-![Vouch Obsidian vault graph linking session notes to git commits.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-02-vouch-obsidian-recall.png)
+![Vouch Obsidian vault graph linking session notes to git commits.](/images/posts/managed-agent-memory-vs-files-you-control-2026-body-02-vouch-obsidian-recall.avif)
 *Screenshot: Petralian Vouch Obsidian vault — Petralian (2026); Total recall on what we did, linked to commits*
 
 ---

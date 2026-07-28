@@ -9,7 +9,7 @@ tags:
   - APAC
   - Digital Transformation
 excerpt: "Three Hong Kong touchpoints in one afternoon—IRD, Standard Chartered, HSBC—failed the same simple tests. Policy and press releases run ahead of what citizens and customers actually experience."
-featured_image: /images/posts/hong-kong-customer-ai-is-still-mostly-a-label.png
+featured_image: /images/posts/hong-kong-customer-ai-is-still-mostly-a-label.avif
 focus_keyword: "Hong Kong AI customer service"
 seo_title: "Hong Kong Customer AI Gap: IRD, HSBC, StanChart 2026"
 seo_description: "Hong Kong brands claim strong AI CX; customers disagree. Three real chatbot failures—IRD Iris, HSBC, Standard Chartered Stacy—show what still breaks in 2026."

@@ -26,6 +26,11 @@ import {
   updateBodyImagesSlot,
 } from "./lib/pexels-credit.mjs";
 import {
+  convertRasterFile,
+  isRasterInputExt,
+  rasterNameFor,
+} from "./lib/image-pipeline.mjs";
+import {
   downloadUnsplashToFile,
   extractUnsplashPhotoId,
   formatUnsplashCaption,
@@ -132,10 +137,10 @@ function findCandidateForSlot(files, slot, body) {
 
 function moveToCanonical(srcPath, destPath, dryRun) {
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  if (path.resolve(srcPath) === path.resolve(destPath)) return;
+  if (path.resolve(srcPath) === path.resolve(destPath)) return destPath;
   if (dryRun) {
     console.log(`[dry-run] would move ${srcPath} -> ${destPath}`);
-    return;
+    return destPath;
   }
   if (fs.existsSync(destPath)) fs.unlinkSync(destPath);
   if (path.dirname(srcPath) === path.dirname(destPath)) {
@@ -147,6 +152,26 @@ function moveToCanonical(srcPath, destPath, dryRun) {
     } catch {
       /* keep source if Obsidian lock */
     }
+  }
+  return destPath;
+}
+
+async function ensureRasterOutput(filePath, dryRun) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (!isRasterInputExt(ext)) return filePath;
+  const avifPath = rasterNameFor(filePath);
+  if (dryRun) return avifPath;
+  await convertRasterFile(filePath, avifPath);
+  if (avifPath !== filePath && fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  }
+  return avifPath;
+}
+
+function syncSlotFilename(slots, slotId, filename) {
+  const slot = slots.find((s) => s.id === slotId);
+  if (slot && slot.filename !== filename) {
+    slot.filename = filename;
   }
 }
 
@@ -302,6 +327,11 @@ async function ingestSlug(slug, { dryRun }) {
       }
 
       const dest = path.join(attachDir, slot.filename);
+      if (fs.existsSync(dest) && fs.statSync(dest).size > 0 && !pexelsUrls.length && !unsplashUrls.length) {
+        console.log(`✓ slot ${slot.id}: stock file exists (${slot.filename})`);
+        continue;
+      }
+
       let caption;
       let sourceLine;
 
@@ -313,7 +343,8 @@ async function ingestSlug(slug, { dryRun }) {
         if (!fs.existsSync(dest) || fs.statSync(dest).size === 0) {
           console.log(`↓ downloading Unsplash ${photoId} → ${slot.filename}`);
           if (!dryRun) {
-            await downloadUnsplashToFile(photoId, dest, unsplashKey);
+            const { destPath: written } = await downloadUnsplashToFile(photoId, dest, unsplashKey);
+            syncSlotFilename(parsed.data.body_images, slot.id, path.basename(written));
             files = listVaultImages(articlePath);
           }
         } else {
@@ -340,7 +371,8 @@ async function ingestSlug(slug, { dryRun }) {
         if (!fs.existsSync(dest) || fs.statSync(dest).size === 0) {
           console.log(`↓ downloading Pexels ${photoId} → ${slot.filename}`);
           if (!dryRun) {
-            await downloadPexelsToFile(photoId, dest, pexelsKey);
+            const { destPath: written } = await downloadPexelsToFile(photoId, dest, pexelsKey);
+            syncSlotFilename(parsed.data.body_images, slot.id, path.basename(written));
             files = listVaultImages(articlePath);
           }
         } else {
@@ -375,12 +407,30 @@ async function ingestSlug(slug, { dryRun }) {
     }
 
     if (slot.kind === "ui" || slot.kind === "screenshot") {
+      const dest = path.join(attachDir, slot.filename);
+      if (fs.existsSync(dest) && fs.statSync(dest).size > 0) {
+        console.log(`✓ slot ${slot.id}: canonical file exists (${slot.filename})`);
+        const caption = screenshotCaption(slot);
+        const section = sectionSlice(body, slot.section);
+        if (section.slice) {
+          const newSection = rebuildSlotBlock(section.slice, slot, caption);
+          body = applySectionPatch(body, slot.section, newSection);
+        }
+        const s = parsed.data.body_images.find((x) => x.id === slot.id);
+        if (s) s.status = "embedded";
+        continue;
+      }
+
       const candidate = findCandidateForSlot(files, slot, body);
       const dest = path.join(attachDir, slot.filename);
       if (candidate) {
-        moveToCanonical(candidate.path, dest, dryRun);
+        const placed = moveToCanonical(candidate.path, dest, dryRun);
+        const finalPath = dryRun
+          ? rasterNameFor(placed)
+          : await ensureRasterOutput(placed, dryRun);
+        syncSlotFilename(parsed.data.body_images, slot.id, path.basename(finalPath));
         files = listVaultImages(articlePath);
-        console.log(`✓ slot ${slot.id}: renamed ${candidate.name} → ${slot.filename}`);
+        console.log(`✓ slot ${slot.id}: renamed ${candidate.name} → ${path.basename(finalPath)}`);
       } else if (!fs.existsSync(dest)) {
         console.warn(`WARN slot ${slot.id}: no screenshot file found for ${slot.filename}`);
       }

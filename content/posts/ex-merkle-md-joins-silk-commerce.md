@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Over the past five months, I had the privilege of working with Silk Commerce
   as their Vice President of International Markets, focusing on expanding the…
-featured_image: /images/posts/merkle-silk-commerce-launch-hero.jpg
+featured_image: /images/posts/merkle-silk-commerce-launch-hero.avif
 seo_description: >-
   Over the past five months, I had the privilege of working with Silk Commerce
   as their Vice President of International Markets, focusing on expanding the…

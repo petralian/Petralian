@@ -11,7 +11,7 @@ excerpt: >-
   Do not build Phase 2 orchestration until Phase 0 data says so. Layer 4
   feedback — CSV, footer Agents line, eval gate — plus weekly OpenRouter checks
   beat benchmark leaderboard anxiety.
-featured_image: /images/posts/cursor-harness-measurement-2026.png
+featured_image: /images/posts/cursor-harness-measurement-2026.avif
 focus_keyword: measure Cursor agent harness ROI
 seo_description: >-
   How to measure a Cursor agent harness with session CSV logs, CI eval gates,

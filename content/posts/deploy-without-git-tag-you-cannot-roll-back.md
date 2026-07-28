@@ -10,7 +10,7 @@ excerpt: >-
   Agent-assisted delivery fails governance when production has no release
   handle. Tag or record the commit at promote time, reject dirty-tree releases,
   keep rollback traceable.
-featured_image: /images/posts/deploy-without-git-tag-you-cannot-roll-back.png
+featured_image: /images/posts/deploy-without-git-tag-you-cannot-roll-back.avif
 featured_image_alt: >-
   Git tag label beside a deploy pipeline diagram on a drafting table, warm desk
   lamp, editorial still life, no logos or readable text.

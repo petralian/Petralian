@@ -12,7 +12,7 @@ excerpt: >-
   External Memory Series — File-based memory for AI-assisted work (overview · 1
   Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) In the
   midst…
-featured_image: /images/posts/ai-llms-search-seo-revolution-hero.jpg
+featured_image: /images/posts/ai-llms-search-seo-revolution-hero.avif
 seo_description: >-
   External Memory Series — File-based memory for AI-assisted work (overview · 1
   Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) In the
@@ -51,7 +51,7 @@ The traditional model of search-typing a query and clicking through "blue links"
 
 This shift is more than theoretical. According to recent data from Similarweb, traffic to knowledge-based platforms like Stack Overflow has declined by nearly 14% since the widespread adoption of AI assistants began, indicating a clear change in user behavior patterns.
 
-![Stack Overflow traffic decline over three months as AI search replaces traditional queries](/images/posts/stackoverflow-traffic-decline-ai-search.jpg)
+![Stack Overflow traffic decline over three months as AI search replaces traditional queries](/images/posts/stackoverflow-traffic-decline-ai-search.avif)
 _Screenshot of https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/\*/999/3m?webSource=Total&key=stackoverflow.com_
 
 ## From SEO to AIO: The New Frontier

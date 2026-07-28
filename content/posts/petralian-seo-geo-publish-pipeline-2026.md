@@ -11,7 +11,7 @@ excerpt: >-
   Publishing is not the hard part — being findable is. I wired preflight checks,
   llms.txt, IndexNow, and auto-fix scripts into one vault-to-Vercel chain so
   Google and AI crawlers see what I meant to ship.
-featured_image: /images/posts/petralian-seo-geo-publish-pipeline-2026.png
+featured_image: /images/posts/petralian-seo-geo-publish-pipeline-2026.avif
 featured_image_alt: >-
   Flow from Obsidian vault folders through sync scripts to a live site and
   search crawlers, editorial still life, no logos or readable text.

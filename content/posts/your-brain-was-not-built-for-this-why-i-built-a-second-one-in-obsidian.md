@@ -10,7 +10,7 @@ excerpt: >-
   Why leadership and knowledge work need an Obsidian second brain—plain
   Markdown, linking, and AI-ready files—not another app that traps what you
   already know.
-featured_image: /images/posts/obsidian-second-brain-graph-view.jpg
+featured_image: /images/posts/obsidian-second-brain-graph-view.avif
 seo_description: >-
   Why leadership and knowledge work need an Obsidian second brain—plain
   Markdown, linking, and AI-ready files—not another app that traps what you

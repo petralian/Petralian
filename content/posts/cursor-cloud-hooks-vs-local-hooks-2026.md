@@ -11,7 +11,7 @@ excerpt: >-
   Cloud agent hooks (beforeSubmitPrompt, afterAgentThought, subagentStart) run
   on Cursor's side. Local hooks (sessionStart, afterAgentResponse) run on your
   machine. Here is how I use both.
-featured_image: /images/posts/cursor-cloud-hooks-vs-local-hooks-2026.png
+featured_image: /images/posts/cursor-cloud-hooks-vs-local-hooks-2026.avif
 focus_keyword: Cursor cloud agent hooks
 seo_description: >-
   Cursor cloud hooks vs local hooks: beforeSubmitPrompt, afterAgentThought,
@@ -65,7 +65,7 @@ Hooks are **mechanical reminders** at event boundaries. They are not a place to 
 
 Without a split mental model, teams either over-wire local scripts for cloud-only events or expect cloud hooks to reach private files they cannot see. Both patterns weaken the harness.
 
-![Diagram contrasting cloud agent hooks and local IDE hooks.](/images/posts/cursor-cloud-hooks-body-01-hook-layers.png)
+![Diagram contrasting cloud agent hooks and local IDE hooks.](/images/posts/cursor-cloud-hooks-body-01-hook-layers.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 ---
@@ -156,7 +156,7 @@ I treat cloud hooks as **portable policy** that should make sense on any machine
 
 **Typical Petralian setup:** user `sessionStart` injects light context; project `afterAgentResponse` validates footer shape. I still run **Start of Session skill** when I need vault session notes, Bridge refresh, or a planned multi-file pass — the hook does not replace that judgment call.
 
-![Cursor hooks configuration in project settings.](/images/posts/cursor-cloud-hooks-body-02-hooks-settings.png)
+![Cursor hooks configuration in project settings.](/images/posts/cursor-cloud-hooks-body-02-hooks-settings.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 Neither layer stores strategy. Both point back to markdown SSOT: Bridge, open loops, writing guide gates. The [memory loop](/posts/cursor-harness-memory-loop-2026) close step is a human habit; hooks only make skipping it visible.
@@ -177,7 +177,7 @@ For program teams: cloud hooks are easier to standardize across seats. Local hoo
 | Secret values in hook scripts       | env vars; never commit keys          |
 Hooks should be **boring**. If a hook reads like a blog post, move it to a skill or rule.
 
-![Example hook guardrail checklist for agent sessions.](/images/posts/cursor-cloud-hooks-body-03-hook-guardrails.png)
+![Example hook guardrail checklist for agent sessions.](/images/posts/cursor-cloud-hooks-body-03-hook-guardrails.avif)
 *Screenshot: Petralian / Cursor (2026)*
 
 ---

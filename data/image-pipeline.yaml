@@ -1,0 +1,34 @@
+# Image pipeline — parametric SSOT (pre-publish raster → AVIF; SVG/GIF pass-through)
+schema_version: 1
+updated: 2026-07-28
+
+formats:
+  raster_output: avif
+  passthrough:
+    - svg
+    - gif
+  # PNG/JPEG/WebP inputs → AVIF at sync; existing AVIF recompressed in place.
+
+resize:
+  max_width_px: 1200
+
+encode:
+  # AVIF quality ~50 ≈ JPEG q80 visually (sharp scale 1–100).
+  avif_quality: 50
+  avif_effort: 4
+
+browsers:
+  # Matches package.json browserslist — AVIF-safe floor (no legacy fallbacks).
+  chrome: ">= 85"
+  firefox: ">= 93"
+  safari: ">= 16"
+  edge: ">= 85"
+
+vercel:
+  # Heroes/body images pre-compressed at sync; no /_next/image transforms (Hobby cap).
+  next_image_unoptimized: true
+
+paths:
+  repo_posts_images: public/images/posts
+  repo_posts_markdown: content/posts
+  vault_blog: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian\\Blog"

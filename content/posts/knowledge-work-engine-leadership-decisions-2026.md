@@ -14,7 +14,7 @@ excerpt: >-
   Simon Sinek's Why-How-What, Drucker's decision discipline, and RACI meet
   applied AI. Leaders keep accountability; the file-based engine holds purpose,
   dissent, and decision records agents need at session start.
-featured_image: /images/posts/knowledge-work-engine-leadership-decisions-2026.png
+featured_image: /images/posts/knowledge-work-engine-leadership-decisions-2026.avif
 focus_keyword: AI leadership Golden Circle decision governance
 seo_description: >-
   Lead with AI using Sinek's Why-How-What and Drucker decision steps: RACI,

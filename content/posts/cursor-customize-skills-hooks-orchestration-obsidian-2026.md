@@ -15,7 +15,7 @@ excerpt: >-
   The deep dive on Cursor Customize mechanics that matter: skills, hooks,
   commands, subagents, MCPs - plus the Obsidian memory loop and
   mobile-to-desktop handoff.
-featured_image: /images/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026.png
+featured_image: /images/posts/cursor-customize-skills-hooks-orchestration-obsidian-2026.avif
 focus_keyword: Cursor skills hooks Obsidian
 seo_description: >-
   Cursor Customize deep dive: skills, hooks, commands, subagents, MCPs, plus an

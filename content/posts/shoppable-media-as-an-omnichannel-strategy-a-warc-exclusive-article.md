@@ -12,7 +12,7 @@ seo_description: >-
 excerpt: >-
   WARC exclusive on shoppable media as omnichannel strategy—pros, cons,
   operational costs, and when to keep shoppers on brand.com.
-featured_image: /images/posts/shoppable-media-warc-omnichannel-hero.jpg
+featured_image: /images/posts/shoppable-media-warc-omnichannel-hero.avif
 featured_image_alt: >-
   Hero illustration for Shoppable media as an omnichannel strategy, a WARC
   exclusive article

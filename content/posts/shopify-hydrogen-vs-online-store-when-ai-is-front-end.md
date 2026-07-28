@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   When AI generates storefront UI and copy, the stack choice shifts. Hydrogen
   offers component control; Online Store 2.0 offers speed. Here is how I decide.
-featured_image: /images/posts/shopify-hydrogen-vs-online-store-when-ai-is-front-end.png
+featured_image: /images/posts/shopify-hydrogen-vs-online-store-when-ai-is-front-end.avif
 focus_keyword: Shopify Hydrogen Online Store 2.0
 seo_title: "Hydrogen vs Online Store 2.0 When AI Writes the Front End"
 seo_description: "Shopify Hydrogen vs Online Store 2.0 when AI generates UI and copy: operator tradeoffs, headless vs theme speed, merchant governance, and a decision path."

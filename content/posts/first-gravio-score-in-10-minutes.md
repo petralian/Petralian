@@ -10,7 +10,7 @@ excerpt: >-
   A practical, no-fluff walkthrough for getting Gravio running from a clean
   folder to your first quality score, including the exact command flow and
   common mistakes.
-featured_image: /images/posts/first-gravio-score-in-10-minutes.png
+featured_image: /images/posts/first-gravio-score-in-10-minutes.avif
 focus_keyword: gravio setup guide
 seo_description: >-
   Follow a step-by-step Gravio onboarding guide from zero setup to first AI
