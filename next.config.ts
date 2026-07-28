@@ -46,6 +46,34 @@ const nextConfig: NextConfig = {
         destination: "/posts/cursor-token-saving-tools-beyond-headroom-2026",
         permanent: false,
       },
+      // GSC 404 / legacy slug fixes (2026-07-28 drilldown + live probe)
+      { source: "/privacy-policy", destination: "/about", permanent: true },
+      { source: "/privacy-policy/", destination: "/about", permanent: true },
+      {
+        source: "/how-ai-and-human-imagination-work-together-to-break-barriers",
+        destination: "/posts/how-ai-and-human-imagination-work-together",
+        permanent: true,
+      },
+      {
+        source: "/how-ai-and-human-imagination-work-together-to-break-barriers/",
+        destination: "/posts/how-ai-and-human-imagination-work-together",
+        permanent: true,
+      },
+      {
+        source: "/posts/delivery-leadership",
+        destination: "/posts/knowledge-work-engine-leadership-decisions-2026",
+        permanent: true,
+      },
+      {
+        source: "/posts/what-the-next-generation-of-delivery-leadership-may-look-like",
+        destination: "/posts/knowledge-work-engine-leadership-decisions-2026",
+        permanent: true,
+      },
+      {
+        source: "/new-merkle-md/page/:path*",
+        destination: "/posts/new-merkle-md",
+        permanent: true,
+      },
       // petralian.com/{slug} → /posts/{slug} for every live post
       ...buildLegacyPostRedirects(),
     ];

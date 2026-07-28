@@ -19,6 +19,8 @@ All redirects are **301 (permanent)** to pass link equity.
 
 Root post slugs (`petralian.com/my-post` → `/posts/my-post`) are generated from `content/posts/` separately.
 
+**2026-07-28 GSC fixes** (explicit in `next.config.ts`): `privacy-policy`, old imagination slug, delivery-leadership aliases, `new-merkle-md/page/*` pagination.
+
 ## After deploy
 
 1. `node scripts/audit-wp-redirects.mjs`

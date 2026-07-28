@@ -2148,6 +2148,143 @@ html.orbit-game-overlay-open [data-orbit-ui] textarea {
   background-color: #050a0f;
 }
 
+/* Scrollable guide — visible before play; hidden while playing (orbit-game-page-chrome) */
+.orbit-rush-guide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(max(14px, env(safe-area-inset-bottom, 14px)) + 52px);
+  z-index: 9;
+  max-height: min(36vh, 300px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+  background: linear-gradient(
+    to top,
+    rgba(5, 10, 15, 0.97) 0%,
+    rgba(5, 10, 15, 0.88) 70%,
+    rgba(5, 10, 15, 0) 100%
+  );
+  border-top: 1px solid rgba(68, 170, 255, 0.2);
+}
+
+.orbit-rush-guide__inner {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 12px var(--site-gutter-x, 16px) max(16px, env(safe-area-inset-bottom));
+  color: rgba(200, 230, 245, 0.92);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.orbit-rush-guide__eyebrow {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #4af;
+  margin: 0 0 6px;
+}
+
+.orbit-rush-guide__title {
+  font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.orbit-rush-guide__lede {
+  margin: 0 0 12px;
+}
+
+.orbit-rush-guide__h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7bc;
+  margin: 14px 0 6px;
+}
+
+.orbit-rush-guide__list {
+  margin: 0 0 8px;
+  padding-left: 1.2rem;
+}
+
+.orbit-rush-guide__list li {
+  margin-bottom: 4px;
+}
+
+.orbit-rush-guide__note {
+  margin: 0 0 8px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.orbit-rush-guide__table-wrap {
+  overflow-x: auto;
+  margin-bottom: 8px;
+}
+
+.orbit-rush-guide__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.orbit-rush-guide__table th,
+.orbit-rush-guide__table td {
+  border: 1px solid rgba(68, 170, 255, 0.2);
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.orbit-rush-guide__table th {
+  color: #4af;
+  font-weight: 600;
+}
+
+.orbit-rush-guide__faq {
+  margin: 0 0 12px;
+}
+
+.orbit-rush-guide__faq dt {
+  font-weight: 600;
+  color: #fff;
+  margin-top: 8px;
+}
+
+.orbit-rush-guide__faq dd {
+  margin: 4px 0 0;
+}
+
+.orbit-rush-guide__footer {
+  margin: 12px 0 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.orbit-rush-guide a {
+  color: #9df;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.orbit-rush-guide kbd {
+  font-family: monospace;
+  font-size: 0.95em;
+  padding: 1px 4px;
+  border: 1px solid rgba(68, 170, 255, 0.35);
+  border-radius: 3px;
+  background: rgba(0, 20, 40, 0.5);
+}
+
+@media (min-width: 768px) {
+  .orbit-rush-guide {
+    max-height: min(38vh, 320px);
+  }
+}
+
 html.orbit-game-active,
 body.orbit-game-active {
   overflow: hidden;

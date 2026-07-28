@@ -14,7 +14,10 @@ const CASES = [
   { path: "/8/", expectFinal: "/posts" },
   { path: "/feed", expectFinal: "/feed.xml" },
   { path: "/category/ai/", expectFinal: "/posts" },
-  { path: "/author/nathan/", expectFinal: "/about" },
+  { path: "/privacy-policy/", expectFinal: "/about" },
+  { path: "/how-ai-and-human-imagination-work-together-to-break-barriers/", expectFinal: "/posts/how-ai-and-human-imagination-work-together" },
+  { path: "/new-merkle-md/page/2/", expectFinal: "/posts/new-merkle-md" },
+  { path: "/posts/what-the-next-generation-of-delivery-leadership-may-look-like", expectFinal: "/posts/knowledge-work-engine-leadership-decisions-2026" },
 ];
 
 async function follow(path) {
