@@ -1,0 +1,29 @@
+# Resolved Pexels photo credits (SSOT). Photographer names come from the Pexels API
+# or a verified photo page URL — never from download filenames like pexels-papaz-16416873.jpg.
+#
+# Refresh one photo:
+#   npm run resolve:pexels -- 16416873
+#   npm run resolve:pexels -- --url https://www.pexels.com/photo/chatgpt-on-monitors-screens-16416873/
+#
+# Apply captions to a vault article (02 Ready / 03 Published):
+#   npm run resolve:pexels -- --apply when-chatgpt-is-research-and-cursor-is-build-layer
+#
+# Requires PEXELS_API_KEY in env for API resolution (free at https://www.pexels.com/api/).
+
+photos:
+  '16416873':
+    id: '16416873'
+    photographer: Melih Can
+    photographer_url: 'https://www.pexels.com/@papaz'
+    photo_url: 'https://www.pexels.com/photo/chatgpt-on-monitors-screens-16416873/'
+    alt: Dual computer monitors showcasing a chat interface in a technology workspace setting.
+    resolved_at: '2026-07-28'
+    source: api
+  '18999366':
+    id: '18999366'
+    photographer: Matheus Bertelli
+    photographer_url: 'https://www.pexels.com/@bertellifotografia'
+    photo_url: 'https://www.pexels.com/photo/smiling-men-in-an-office-18999366/'
+    alt: 'Three men standing in a casual office environment, sharing a light moment.'
+    resolved_at: '2026-07-28'
+    source: api

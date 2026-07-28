@@ -35,7 +35,10 @@
     "audit:facts": "node scripts/run-facts-gate.mjs",
     "audit:drift": "node scripts/audit-parametric-drift.mjs",
     "audit:traceability": "node scripts/audit-session-traceability.mjs",
-    "verify:harness": "node scripts/run-facts-gate.mjs"
+    "verify:harness": "node scripts/run-facts-gate.mjs",
+    "resolve:pexels": "node scripts/resolve-pexels-credit.mjs",
+    "ingest:images": "node scripts/ingest-vault-images.mjs",
+    "publish:ready": "node scripts/publish-ready.mjs"
   },
   "dependencies": {
     "@panzoom/panzoom": "^4.6.2",

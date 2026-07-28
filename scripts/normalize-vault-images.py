@@ -19,6 +19,8 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[1]
 VAULT = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog")
 READY = VAULT / "02 Ready to publish"
@@ -26,6 +28,7 @@ PUBLISHED = VAULT / "03 Published"
 LEGACY = VAULT / "00 Attachments"
 REPO_IMAGES = ROOT / "public" / "images" / "posts"
 OVERRIDES_PATH = ROOT / "scripts" / "vault-image-overrides.json"
+PEXELS_CACHE_PATH = ROOT / "data" / "pexels-credit-cache.yaml"
 LOG_PATH = Path(r"D:\Obsidian\Obsidian\40_VSCode\Petralian\Operations\Article Image Fix Log.md")
 
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif", ".svg"}
@@ -185,16 +188,39 @@ def collect_refs(text: str) -> set[str]:
     return refs
 
 
+def load_pexels_cache() -> dict[str, dict]:
+    if not PEXELS_CACHE_PATH.is_file():
+        return {}
+    data = yaml.safe_load(PEXELS_CACHE_PATH.read_text(encoding="utf-8")) or {}
+    photos = data.get("photos", data)
+    return {str(k): v for k, v in photos.items()}
+
+
+def pexels_photo_id_from_filename(filename: str) -> str | None:
+    m = re.match(r"^pexels-.+-(\d+)\.(jpe?g|png|webp)$", filename, re.I)
+    if m:
+        return m.group(1)
+    return None
+
+
+def format_pexels_caption(entry: dict) -> str:
+    name = entry["photographer"]
+    url = entry.get("photo_url") or f"https://www.pexels.com/photo/{entry.get('id', '')}/"
+    return f"*Photo: [{name}]({url}) on Pexels*"
+
+
 def pexels_attribution(filename: str) -> str:
-    m = re.match(r"^pexels-(.+)-(\d+)\.(jpe?g|png|webp)$", filename, re.I)
-    if not m:
+    photo_id = pexels_photo_id_from_filename(filename)
+    if not photo_id:
         return ""
-    author_slug, photo_id = m.group(1), m.group(2)
-    parts = author_slug.split("-")
-    if len(parts) > 1 and parts[-1].isdigit() and len(parts[-1]) > 6:
-        author_slug = "-".join(parts[:-1])
-    author_name = " ".join(p.title() for p in author_slug.split("-"))
-    return f"*Photo: [{author_name}](https://www.pexels.com/photo/{photo_id}/) on Pexels*"
+    cached = load_pexels_cache().get(photo_id)
+    if cached:
+        return format_pexels_caption(cached)
+    # Never infer photographer from pexels-{username}-{id} download names.
+    return (
+        f"*Photo: [Pexels #{photo_id}](https://www.pexels.com/photo/{photo_id}/) "
+        f"— run npm run resolve:pexels -- {photo_id}*"
+    )
 
 
 def default_attribution(filename: str, slug: str) -> str:

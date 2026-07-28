@@ -204,35 +204,44 @@ function Resolve-Images {
 
   $copiedImages = @()
 
+  # Obsidian-only image planning comments — never publish
+  $content = [regex]::Replace($content, '(?ms)<!--\s*petralian-img(?:-slot)?\b.*?-->\s*', '')
+
+  # Drop vault-only body_images shot list from live frontmatter
+  $content = [regex]::Replace($content, '(?ms)^body_images:\s*\r?\n(?:^[ \t]+.*\r?\n)*', '')
+
   # Pattern 1: Obsidian wiki-link  ![[filename.ext]]  or  ![[filename.ext|alt]]
-  $content = [regex]::Replace($content, '!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\]', {
+  # Optional following caption line (*Screenshot:* / *Photo:* / *Diagram:* / *TBD*) is kept when
+  # the file exists, and stripped with the embed when the file is still a planned placeholder.
+  $content = [regex]::Replace($content, '!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\](?:\r?\n(\*[^\r\n]+\*))?', {
       param($m)
       $filename = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
       $alt = $m.Groups[2].Value.Trim()
+      $caption = if ($m.Groups[3].Success) { $m.Groups[3].Value } else { $null }
       $ext = [System.IO.Path]::GetExtension($filename).ToLower()
       if ($ext -notin $script:imageExtensions) { return $m.Value }
 
       $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
       if (-not $src) {
-        Write-Warning "  Image not found: $filename"
-        return $m.Value
+        Write-Warning "  Skipping unpublished body image (file missing): $filename"
+        return ''
       }
       if (-not $dryRun) {
         Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
       }
       Write-Host "  Image: $filename" -ForegroundColor DarkGray
       $script:copiedImages += $filename
-      if ($alt) {
-        return "![$alt](/images/posts/$filename)"
-      }
-      return "![](/images/posts/$filename)"
+      $img = if ($alt) { "![$alt](/images/posts/$filename)" } else { "![](/images/posts/$filename)" }
+      if ($caption) { return "$img`n$caption" }
+      return $img
     })
 
   # Pattern 2: Standard markdown  ![alt](relative/path.ext)  (not http/https)
-  $content = [regex]::Replace($content, '!\[([^\]]*)\]\((?!https?://)([^)]+)\)', {
+  $content = [regex]::Replace($content, '!\[([^\]]*)\]\((?!https?://)([^)]+)\)(?:\r?\n(\*[^\r\n]+\*))?', {
       param($m)
       $alt = $m.Groups[1].Value
       $path = $m.Groups[2].Value.Trim()
+      $caption = if ($m.Groups[3].Success) { $m.Groups[3].Value } else { $null }
       $filename = [System.IO.Path]::GetFileName($path)
       $ext = [System.IO.Path]::GetExtension($filename).ToLower()
       if ($ext -notin $script:imageExtensions) { return $m.Value }
@@ -242,15 +251,17 @@ function Resolve-Images {
 
       $src = Find-VaultImage -filename $filename -articleFolder $articleFolder
       if (-not $src) {
-        Write-Warning "  Image not found: $filename"
-        return $m.Value
+        Write-Warning "  Skipping unpublished body image (file missing): $filename"
+        return ''
       }
       if (-not $dryRun) {
         Copy-Item -Path $src -Destination (Join-Path $script:siteImages $filename) -Force
       }
       Write-Host "  Image: $filename" -ForegroundColor DarkGray
       $script:copiedImages += $filename
-      return "![$alt](/images/posts/$filename)"
+      $img = "![$alt](/images/posts/$filename)"
+      if ($caption) { return "$img`n$caption" }
+      return $img
     })
 
   # Pattern 3: featured_image frontmatter with local filename (not a URL)
@@ -373,12 +384,13 @@ function Test-ArticlePreflight {
   $body = $raw -replace '(?s)^---.*?---\s*', ''
 
   # Body images — wiki-link syntax  ![[file.ext]]  or  ![[file|alt]]
+  # Missing files are WARN only: planned placeholders are stripped on sync, not publish blockers.
   foreach ($m in [regex]::Matches($body, '!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\]')) {
     $fname = [System.IO.Path]::GetFileName($m.Groups[1].Value.Trim())
     $ext = [System.IO.Path]::GetExtension($fname).ToLower()
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
-        $errors.Add("Body image not found in vault: $fname")
+        $warnings.Add("Body image placeholder (will not publish until file exists): $fname")
       }
       $lower = $fname.ToLower()
       if ($lower -like 'pasted image*' -or $lower -match '^\d+\.(jpe?g|png|gif|webp)$') {
@@ -402,7 +414,7 @@ function Test-ArticlePreflight {
     $ext = [System.IO.Path]::GetExtension($fname).ToLower()
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
-        $errors.Add("Body image not found in vault: $fname")
+        $warnings.Add("Body image placeholder (will not publish until file exists): $fname")
       }
     }
   }
@@ -470,12 +482,20 @@ Invoke-FactsGate
 
 if ($Preflight) {
   Write-Host ''
+  $hasWarnings = $false
+  foreach ($file in $readyForPreflight) {
+    $result = Test-ArticlePreflight -filePath $file.FullName -articleFolder $file.DirectoryName
+    if ($result.Warnings.Count -gt 0) { $hasWarnings = $true }
+  }
   if ($preflightBlocking) {
     Write-Host 'Preflight FAILED — fix errors before publishing.' -ForegroundColor Red
+    exit 1
   }
-  else {
-    Write-Host 'Preflight passed. Run without -Preflight to publish.' -ForegroundColor Green
+  if ($hasWarnings) {
+    Write-Host 'Preflight passed with warnings — confirm before publishing.' -ForegroundColor Yellow
+    exit 2
   }
+  Write-Host 'Preflight passed. Run publish:ready -- --publish to sync.' -ForegroundColor Green
   exit 0
 }
 

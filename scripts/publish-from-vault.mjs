@@ -87,34 +87,55 @@ function copyImage(src, filename) {
 
 // ── Resolve all image references in markdown content ────────────────────────
 function resolveImages(content, articleFolder) {
-  // Pattern 1: Obsidian wiki-link  ![[filename.ext]]  or  ![[filename.ext|alt text]]
-  content = content.replace(/!\[\[([^\]|]+?)(?:\|[^\]]*?)?\]\]/g, (match, ref) => {
-    const filename = basename(ref.trim());
-    const ext = extname(filename).toLowerCase();
-    if (!IMAGE_EXTS.has(ext)) return match;
+  // Obsidian-only planning comments — never publish
+  content = content.replace(/<!--\s*petralian-img(?:-slot)?\b[\s\S]*?-->\s*/gi, '');
 
-    const src = findVaultImage(filename, articleFolder);
-    if (!src) { console.warn(`  ⚠ Image not found: ${filename}`); return match; }
+  // Vault-only shot list — strip from live frontmatter
+  content = content.replace(/^body_images:\s*\n(?:[ \t]+.*\n)*/gm, '');
 
-    copyImage(src, filename);
-    console.log(`  Image: ${filename}`);
-    return `![](/images/posts/${filename})`;
-  });
+  // Pattern 1: Obsidian wiki-link + optional caption line
+  // Missing files are skipped (planned placeholders), not left as broken wiki embeds.
+  content = content.replace(
+    /!\[\[([^\]|]+?)(?:\|([^\]]*?))?\]\](?:\r?\n(\*[^\r\n]+\*))?/g,
+    (match, ref, alt, caption) => {
+      const filename = basename(ref.trim());
+      const ext = extname(filename).toLowerCase();
+      if (!IMAGE_EXTS.has(ext)) return match;
 
-  // Pattern 2: Standard markdown  ![alt](relative/path.ext)  — not http(s)
-  content = content.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, (match, alt, path) => {
-    const filename = basename(path.trim());
-    const ext = extname(filename).toLowerCase();
-    if (!IMAGE_EXTS.has(ext)) return match;
-    if (path.startsWith('/images/')) return match; // already resolved
+      const src = findVaultImage(filename, articleFolder);
+      if (!src) {
+        console.warn(`  ⚠ Skipping unpublished body image (file missing): ${filename}`);
+        return '';
+      }
 
-    const src = findVaultImage(filename, articleFolder);
-    if (!src) { console.warn(`  ⚠ Image not found: ${filename}`); return match; }
+      copyImage(src, filename);
+      console.log(`  Image: ${filename}`);
+      const img = alt ? `![${alt}](/images/posts/${filename})` : `![](/images/posts/${filename})`;
+      return caption ? `${img}\n${caption}` : img;
+    }
+  );
 
-    copyImage(src, filename);
-    console.log(`  Image: ${filename}`);
-    return `![${alt}](/images/posts/${filename})`;
-  });
+  // Pattern 2: Standard markdown + optional caption — not http(s)
+  content = content.replace(
+    /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)(?:\r?\n(\*[^\r\n]+\*))?/g,
+    (match, alt, path, caption) => {
+      const filename = basename(path.trim());
+      const ext = extname(filename).toLowerCase();
+      if (!IMAGE_EXTS.has(ext)) return match;
+      if (path.startsWith('/images/')) return match; // already resolved
+
+      const src = findVaultImage(filename, articleFolder);
+      if (!src) {
+        console.warn(`  ⚠ Skipping unpublished body image (file missing): ${filename}`);
+        return '';
+      }
+
+      copyImage(src, filename);
+      console.log(`  Image: ${filename}`);
+      const img = `![${alt}](/images/posts/${filename})`;
+      return caption ? `${img}\n${caption}` : img;
+    }
+  );
 
   // Pattern 3: featured_image frontmatter with a local filename (not a URL or /path)
   content = content.replace(/^featured_image:\s*(.+)$/m, (match, val) => {
