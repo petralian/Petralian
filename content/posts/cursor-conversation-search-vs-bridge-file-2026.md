@@ -33,7 +33,7 @@ image_prompt_variant_2: >-
 featured_image_alt: >-
   Cinematic 16:9: magnifying glass over a faint chat transcript layer floating
   above a solid leather notebook labeled only by texture, amber desk lamp, cool
-  sh...
+  shadow.
 format: hybrid
 best_for: >-
   Anyone relying on Cursor chat search who still loses thread between sessions

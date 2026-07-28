@@ -22,7 +22,7 @@ featured_image_alt: >-
 format: strategic
 best_for: 'Martech leaders tracking Salesforce, CDP strategy, and platform consolidation'
 seo_title: 'Is Salesforce Becoming Invisible on Purpose, or Becoming…'
-focus_keyword: salesforce
+focus_keyword: ai in marketing
 ---
 **TL;DR**
 

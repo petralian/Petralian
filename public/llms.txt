@@ -2,7 +2,7 @@
 
 > Practical writing on AI, technology, and commercial growth — for anyone who wants better results from AI than a disposable chat tab.
 
-Last updated: 2026-07-21
+Last updated: 2026-07-28
 
 Nathan Petralia writes from twenty years leading digital and commercial programs across APAC (Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu). Since 2024 he builds AI products and documents what works: enterprise AI strategy, commercial growth, external memory for agents, and operator-grade tooling — in language a student, founder, or CEO can act on this afternoon.
 
@@ -40,24 +40,31 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 
 ## Topics
 
-- [Agentic AI](https://petralian.com/topics/agentic-ai): 45 articles
-- [Generative AI](https://petralian.com/topics/generative-ai): 25 articles
-- [Enterprise AI](https://petralian.com/topics/enterprise-ai): 23 articles
+- [Agentic AI](https://petralian.com/topics/agentic-ai): 51 articles
+- [Generative AI](https://petralian.com/topics/generative-ai): 29 articles
+- [Enterprise AI](https://petralian.com/topics/enterprise-ai): 27 articles
+- [AI Memory](https://petralian.com/topics/ai-memory): 22 articles
+- [Developer Tools](https://petralian.com/topics/developer-tools): 21 articles
+- [Obsidian](https://petralian.com/topics/obsidian): 21 articles
 - [Playbook](https://petralian.com/topics/playbook): 21 articles
-- [AI Memory](https://petralian.com/topics/ai-memory): 19 articles
-- [Developer Tools](https://petralian.com/topics/developer-tools): 19 articles
 - [Marketing Technology](https://petralian.com/topics/marketing-technology): 19 articles
-- [Obsidian](https://petralian.com/topics/obsidian): 18 articles
 - [AI in Marketing](https://petralian.com/topics/ai-in-marketing): 16 articles
+- [Digital Transformation](https://petralian.com/topics/digital-transformation): 15 articles
 - [Ecommerce](https://petralian.com/topics/ecommerce): 15 articles
+- [AI Quality](https://petralian.com/topics/ai-quality): 14 articles
 - [Leadership](https://petralian.com/topics/leadership): 14 articles
-- [AI Quality](https://petralian.com/topics/ai-quality): 13 articles
-- [Digital Transformation](https://petralian.com/topics/digital-transformation): 13 articles
 - [Agency Landscape](https://petralian.com/topics/agency-landscape): 10 articles
-- [Brand Strategy](https://petralian.com/topics/brand-strategy): 9 articles
+- [Customer Experience](https://petralian.com/topics/customer-experience): 10 articles
 
 ## Published articles
 
+- [Hong Kong Customer AI Is Still Mostly a Label](https://petralian.com/posts/hong-kong-customer-ai-is-still-mostly-a-label): Hong Kong brands claim strong AI CX; customers disagree. Three real chatbot failures—IRD Iris, HSBC, Standard Chartered Stacy—show what still breaks in 2026.
+- [n8n vs My Cursor and Obsidian System: Scheduled Automation vs Judgment Work](https://petralian.com/posts/n8n-vs-cursor-workflow-system-2026): n8n vs AI-coded microservices vs Cursor: when workflow tools and Docker/Workers win on schedules and webhooks, when file-grounded agents win on judgment.
+- [OpenClaw vs Cursor in 2026: Ambient Messaging Agent vs File-Grounded IDE](https://petralian.com/posts/openclaw-vs-cursor-my-setup-2026): OpenClaw vs Cursor in 2026: ambient local agent OS on messaging apps vs file-grounded IDE agent — when each wins and how memory differs.
+- [Hermes vs Cursor in My Setup: Life Agent on the Server, File Work at the Desk](https://petralian.com/posts/hermes-vs-cursor-my-setup-2026): Hermes vs Cursor from a real dual setup: hosted portable agent for Telegram and life admin vs file-grounded IDE agent for projects, writing, and shipping.
+- [Managed Agent Memory vs Files You Control: A Strategic Hybrid](https://petralian.com/posts/managed-agent-memory-vs-files-you-control-2026): Managed agent memory (Mem0) vs files you control (Obsidian, markdown SSOT): when each wins, hybrid patterns, and governance for portable AI memory.
+- [Grok 4.5 in Cursor for Knowledge Work: Beyond the Benchmark Row](https://petralian.com/posts/grok-4-5-cursor-knowledge-work-2026): Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for synthesis and briefs, with links to CursorBench posts — not another score table.
+- [Cursor Cloud Agent Hooks vs Local Hooks: Two Layers of the Same Harness](https://petralian.com/posts/cursor-cloud-hooks-vs-local-hooks-2026): Cursor cloud hooks vs local hooks: beforeSubmitPrompt, afterAgentThought, subagentStart vs sessionStart and afterAgentResponse in a lightweight agent harness.
 - [Cursor Conversation Search vs a Bridge File: Where Session Memory Should Live](https://petralian.com/posts/cursor-conversation-search-vs-bridge-file-2026): Cursor agent transcript search vs Bridge SSOT: when Cmd+K helps, when file memory wins for handoff, and how to pair both in a lightweight harness.
 - [One Agent, Many Workflows: What Cursor Customize Is For (Beyond Coding)](https://petralian.com/posts/cursor-customize-one-agent-many-workflows-2026): What Cursor Customize is for beyond coding: agent harness design, plugins, skills, rules, hooks, MCPs, and mobile handoff for many work modes.
 - [Cursor Side Chats and Parallel Threads: How I Split Work Without Losing the Main Line](https://petralian.com/posts/cursor-side-chats-parallel-agents-2026): Cursor side chats explained: /side and /btw for parallel threads, when to branch vs spawn subagents, and how Customize orchestration keeps mobile handoff clean.
