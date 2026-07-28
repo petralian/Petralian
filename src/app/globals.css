@@ -2350,8 +2350,8 @@ html.orbit-game-overlay-open [data-orbit-ui] textarea {
 
 .orbit-powerup-card {
   display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.65rem 0.75rem;
   border-radius: 10px;
   background: rgba(8, 14, 22, 0.85);
@@ -2359,11 +2359,13 @@ html.orbit-game-overlay-open [data-orbit-ui] textarea {
 }
 
 .orbit-powerup-card--boost {
-  border-color: rgba(80, 180, 140, 0.22);
+  border-color: rgba(50, 220, 140, 0.35);
+  background: rgba(8, 22, 18, 0.9);
 }
 
 .orbit-powerup-card--risk {
-  border-color: rgba(200, 120, 120, 0.22);
+  border-color: rgba(255, 70, 90, 0.4);
+  background: rgba(22, 8, 12, 0.9);
 }
 
 .orbit-powerup-card--wild {
@@ -2392,7 +2394,12 @@ html.orbit-game-overlay-open [data-orbit-ui] textarea {
 
 .orbit-powerup-icon {
   flex-shrink: 0;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  line-height: 0;
 }
 
 .orbit-guide-faq {

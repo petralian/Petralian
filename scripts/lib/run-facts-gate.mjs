@@ -17,6 +17,7 @@ export function runFactsGate(repoRoot, opts = {}) {
   const steps = [
     { file: "audit-parametric-drift.mjs", required: true },
     { file: "audit-session-traceability.mjs", required: true },
+    { file: "audit-live-posts.mjs", required: true },
   ];
 
   console.log(`\n── ${label} ────────────────────────────────────`);

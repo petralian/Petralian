@@ -18,6 +18,7 @@ import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { auditSeoFields } from './lib/seo-utils.mjs';
 import { runFactsGate } from './lib/run-facts-gate.mjs';
+import { stripVaultOnlyFrontmatter } from './lib/strip-vault-frontmatter.mjs';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dir, '..');
@@ -90,8 +91,8 @@ function resolveImages(content, articleFolder) {
   // Obsidian-only planning comments — never publish
   content = content.replace(/<!--\s*petralian-img(?:-slot)?\b[\s\S]*?-->\s*/gi, '');
 
-  // Vault-only shot list — strip from live frontmatter
-  content = content.replace(/^body_images:\s*\n(?:[ \t]+.*\n)*/gm, '');
+  // Vault-only frontmatter — strip via gray-matter (safe vs regex)
+  content = stripVaultOnlyFrontmatter(content);
 
   // Pattern 1: Obsidian wiki-link + optional caption line
   // Missing files are skipped (planned placeholders), not left as broken wiki embeds.
@@ -231,7 +232,11 @@ function preflight(filePath, content, articleFolder) {
 
   const body = content.replace(/^---[\s\S]+?---\s*/, '');
   const wordCount = body.split(/\s+/).filter(Boolean).length;
-  if (wordCount < 300) warnings.push(`Low word count: ${wordCount} words (min 300 recommended)`);
+  if (wordCount < 50) {
+    errors.push(`Body too short: ${wordCount} words (blocking — likely truncated or missing body)`);
+  } else if (wordCount < 300) {
+    warnings.push(`Low word count: ${wordCount} words (min 300 recommended)`);
+  }
 
   return { errors, warnings, wordCount };
 }
@@ -285,6 +290,29 @@ if (preflightBlocking && !FORCE) {
   process.exit(1);
 }
 
+// Preflight 03 Published (blocking on re-sync)
+if (existsSync(obsidianPublished)) {
+  console.log('\n── Preflight (03 Published) ─────────────────────────────────────');
+  for (const filename of readdirSync(obsidianPublished).filter((f) => f.endsWith('.md'))) {
+    const filePath = join(obsidianPublished, filename);
+    const content = readFileSync(filePath, 'utf8');
+    const slug = getSlug(filePath, content);
+    const result = preflight(filePath, content, obsidianPublished);
+    if (result.errors.length === 0 && result.warnings.length === 0) continue;
+    const status = result.errors.length > 0 ? 'FAIL' : 'WARN';
+    console.log(`  [${status}] ${slug}  (${result.wordCount} words)`);
+    for (const e of result.errors) console.log(`        ERROR   ${e}`);
+    for (const w of result.warnings) console.log(`        WARN    ${w}`);
+    if (result.errors.length > 0) preflightBlocking = true;
+  }
+  console.log('─────────────────────────────────────────────────────────────────');
+}
+
+if (preflightBlocking && !FORCE) {
+  console.error('\nSync blocked by 03 Published preflight errors. Set FORCE=true to override.');
+  process.exit(1);
+}
+
 // ── Build set of authorised slugs (ready + already published) ────────────────
 const authorisedSlugs = new Set();
 
@@ -332,6 +360,7 @@ function publishFile(filePath, articleFolder, sourceLabel) {
   content = content.replace(/^status:\s*.+\r?\n/gm, '');
   content = content.replace(/^category:\s*.+\r?\n/gm, '');
   content = resolveImages(content, articleFolder);
+  content = stripVaultOnlyFrontmatter(content);
   content = preserveExistingDate(slug, content);
 
   writeFileSync(join(sitePosts, `${slug}.md`), content, { encoding: 'utf8' });
@@ -407,4 +436,17 @@ if (copied.length === 0 && removed.length === 0) {
   if (copied.length > 0) parts.push(`Published: ${copied.join(', ')}`);
   if (removed.length > 0) parts.push(`Unpublished: ${removed.join(', ')}`);
   console.log(`\n✓ ${parts.join(' | ')}`);
+}
+
+// ── Post-publish gates ───────────────────────────────────────────────────────
+console.log('\n── Post-publish gates ───────────────────────────────────────────');
+try {
+  const gateArgs = copied.length > 0 ? copied : ['--full'];
+  execSync(`node "${join(repoRoot, 'scripts', 'run-post-publish-gates.mjs')}" ${gateArgs.map((s) => JSON.stringify(s)).join(' ')}`, {
+    stdio: 'inherit',
+    cwd: repoRoot,
+  });
+} catch {
+  console.error('\n✗ Post-publish gates FAILED.');
+  process.exit(1);
 }

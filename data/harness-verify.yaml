@@ -25,6 +25,7 @@ repo_checks:
   facts_gate: "node scripts/run-facts-gate.mjs"
   parametric_drift: "node scripts/audit-parametric-drift.mjs"
   session_traceability: "node scripts/audit-session-traceability.mjs"
+  live_posts: "node scripts/audit-live-posts.mjs"
   typescript_build: "npx next build"
   full_build: "tinacms build --skip-cloud-checks && cross-env NODE_OPTIONS=--max-old-space-size=1024 next build"
   vault_image_normalize: "python scripts/normalize-vault-images.py --preflight-only"

@@ -207,8 +207,25 @@ function Resolve-Images {
   # Obsidian-only image planning comments — never publish
   $content = [regex]::Replace($content, '(?ms)<!--\s*petralian-img(?:-slot)?\b.*?-->\s*', '')
 
-  # Drop vault-only body_images shot list from live frontmatter
-  $content = [regex]::Replace($content, '(?ms)^body_images:\s*\r?\n(?:^[ \t]+.*\r?\n)*', '')
+  # Drop vault-only body_images shot list from live frontmatter (gray-matter — safe)
+  $stripScript = Join-Path $PSScriptRoot 'lib\strip-vault-frontmatter.mjs'
+  if (Test-Path $stripScript) {
+    $tmpStrip = New-TemporaryFile
+    try {
+      Set-Content -Path $tmpStrip.FullName -Value $content -Encoding UTF8 -NoNewline
+      $content = node $stripScript $tmpStrip.FullName
+      if ($LASTEXITCODE -ne 0) {
+        Write-Warning "  strip-vault-frontmatter failed — using raw content"
+        $content = Get-Content $tmpStrip.FullName -Raw -Encoding UTF8
+      }
+    }
+    finally {
+      Remove-Item $tmpStrip.FullName -Force -ErrorAction SilentlyContinue
+    }
+  }
+  else {
+    $content = [regex]::Replace($content, '(?ms)^body_images:\s*\r?\n(?:^[ \t]+.*\r?\n)*', '')
+  }
 
   # Pattern 1: Obsidian wiki-link  ![[filename.ext]]  or  ![[filename.ext|alt]]
   # Optional following caption line (*Screenshot:* / *Photo:* / *Diagram:* / *TBD*) is kept when
@@ -444,9 +461,12 @@ function Test-ArticlePreflight {
     }
   }
 
-  # Word count
+  # Word count — blocking floor prevents empty-body publishes
   $wordCount = ($body -split '\s+' | Where-Object { $_ -ne '' }).Count
-  if ($wordCount -lt 300) {
+  if ($wordCount -lt 50) {
+    $errors.Add("Body too short: $wordCount words (blocking — likely truncated or missing body)")
+  }
+  elseif ($wordCount -lt 300) {
     $warnings.Add("Low word count: $wordCount words (recommended minimum: 300)")
   }
 
@@ -476,6 +496,27 @@ if ($readyForPreflight.Count -gt 0) {
   }
 
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+}
+
+# Preflight 03 Published — blocking (re-sync must not ship truncated copies)
+if (Test-Path $obsidianPublished) {
+  $publishedForPreflight = Get-ChildItem -Path $obsidianPublished -Filter '*.md'
+  if ($publishedForPreflight.Count -gt 0) {
+    Write-Host ''
+    Write-Host '── Preflight (03 Published) ─────────────────────────────────────' -ForegroundColor Cyan
+    foreach ($file in $publishedForPreflight) {
+      $result = Test-ArticlePreflight -filePath $file.FullName -articleFolder $file.DirectoryName
+      $slug = Get-FileSlug $file.FullName
+      if ($result.Errors.Count -eq 0 -and $result.Warnings.Count -eq 0) { continue }
+      $status = if ($result.Errors.Count -gt 0) { 'FAIL' } else { 'WARN' }
+      $color = switch ($status) { 'FAIL' { 'Red' } default { 'Yellow' } }
+      Write-Host "  [$status] $slug  ($($result.WordCount) words)" -ForegroundColor $color
+      foreach ($e in $result.Errors) { Write-Host "        ERROR   $e" -ForegroundColor Red }
+      foreach ($w in $result.Warnings) { Write-Host "        WARN    $w" -ForegroundColor Yellow }
+      if ($result.Errors.Count -gt 0) { $preflightBlocking = $true }
+    }
+    Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+  }
 }
 
 function Invoke-FactsGate {
@@ -606,6 +647,18 @@ function Publish-ObsidianFile {
     return $slug
   }
 
+  $stripScript = Join-Path $PSScriptRoot 'lib\strip-vault-frontmatter.mjs'
+  if (Test-Path $stripScript) {
+    $tmpStrip = New-TemporaryFile
+    try {
+      Set-Content -Path $tmpStrip.FullName -Value $content -Encoding UTF8 -NoNewline
+      $content = node $stripScript $tmpStrip.FullName
+    }
+    finally {
+      Remove-Item $tmpStrip.FullName -Force -ErrorAction SilentlyContinue
+    }
+  }
+
   Set-Content -Path $destFile -Value $content -Encoding UTF8 -NoNewline
   Write-Host "Synced: $($file.Name) -> posts/$slug.md" -ForegroundColor Green
   return $slug
@@ -677,6 +730,21 @@ if ($synced.Count -gt 0) {
 if ($synced.Count -gt 0 -or $removed.Count -gt 0) {
   node "$PSScriptRoot\post-publish-seo.mjs" @($synced)
 }
+
+# ── Post-publish gates (sync integrity + live posts + hero diversity) ────────
+Write-Host ''
+Write-Host '── Post-publish gates ───────────────────────────────────────────' -ForegroundColor Cyan
+if ($synced.Count -gt 0) {
+  node "$PSScriptRoot\run-post-publish-gates.mjs" @($synced)
+}
+else {
+  node "$PSScriptRoot\run-post-publish-gates.mjs" --full
+}
+if ($LASTEXITCODE -ne 0) {
+  Write-Host 'Post-publish gates FAILED — commit/push blocked.' -ForegroundColor Red
+  exit 1
+}
+Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 
 # ── Git: stage all changes (additions, updates, deletions), commit, push ────
 Push-Location $repo

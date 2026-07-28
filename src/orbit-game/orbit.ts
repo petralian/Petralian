@@ -72,6 +72,7 @@ export enum PowerUpType {
   ORBIT_FLIP = 12,
   PHANTOM = 13,
   NOVA = 14,
+  RETALIATE = 15,
 }
 
 export const POWERUP_REFERENCE: {
@@ -81,15 +82,16 @@ export const POWERUP_REFERENCE: {
   kind: "up" | "down" | "wild";
 }[] = [
     { type: PowerUpType.SHIELD, label: "SHIELD", description: "Absorbs one hit", kind: "up" },
-    { type: PowerUpType.SCORE_MULTIPLIER, label: "SCORE x2", description: "Double points", kind: "up" },
-    { type: PowerUpType.MAGNET, label: "MAGNET", description: "Pulls pickups toward you", kind: "up" },
+    { type: PowerUpType.SCORE_MULTIPLIER, label: "SCORE ×2", description: "Double points", kind: "up" },
+    { type: PowerUpType.MAGNET, label: "MAGNET", description: "Pulls enemies and pickups toward you", kind: "up" },
     { type: PowerUpType.TURBO_THRUST, label: "TURBO", description: "Stronger orbit push", kind: "up" },
     { type: PowerUpType.OVERCHARGE, label: "OVERCHARGE", description: "Triple points", kind: "up" },
     { type: PowerUpType.ORBIT_FLIP, label: "ORBIT FLIP", description: "Reverse orbit direction (until flipped again)", kind: "up" },
-    { type: PowerUpType.PHANTOM, label: "PHANTOM", description: "Projectiles pass through you", kind: "up" },
+    { type: PowerUpType.PHANTOM, label: "GHOST", description: "Enemy shots pass through you", kind: "up" },
     { type: PowerUpType.NOVA, label: "NOVA", description: "Blast all red enemies on screen", kind: "up" },
-    { type: PowerUpType.GRAVITY_REVERSE, label: "REVERSE", description: "Thrust pulls inward — release drifts out", kind: "down" },
-    { type: PowerUpType.WEAK_THRUST, label: "WEAK THRUST", description: "Weaker orbit push", kind: "down" },
+    { type: PowerUpType.RETALIATE, label: "RETALIATE", description: "Auto-fire at red threats", kind: "up" },
+    { type: PowerUpType.GRAVITY_REVERSE, label: "REVERSE", description: "Hold pulls inward — release drifts out", kind: "down" },
+    { type: PowerUpType.WEAK_THRUST, label: "WEAK THRUST", description: "Much weaker orbit push", kind: "down" },
     { type: PowerUpType.ORBIT_SHRINK, label: "ORBIT SHRINK", description: "Smaller safe orbit", kind: "down" },
     { type: PowerUpType.RANDOM, label: "???", description: "Random effect on pickup", kind: "wild" },
   ];
@@ -273,8 +275,8 @@ export class OrbitGame {
   private readonly POWERUP_ACTIVE_MS: number = 10000;
   private readonly POWERUP_FADE_MS: number = 5000;
   private readonly POWERUP_DURATION_MS: number = 15000;
-  private readonly POWERUP_MAGNET_RANGE: number = 150;
-  private readonly POWERUP_MAGNET_STRENGTH: number = 2;
+  private readonly POWERUP_MAGNET_RANGE: number = 300;
+  private readonly POWERUP_MAGNET_STRENGTH: number = 7;
   // Increase SUN_DANGER_RADIUS_FACTOR slightly
   private readonly SUN_DANGER_RADIUS_FACTOR: number = 0.04; // Increased from 0.03
   // Enemy Spawning (Improvement)
@@ -292,7 +294,7 @@ export class OrbitGame {
   // Change SHOOTER_COOLDOWN_MS
   public readonly SHOOTER_COOLDOWN_MS: number = 2500; // Slower firing rate (was 1800)
   public readonly SHOOTER_MIN_PLAYER_DISTANCE: number = 110; // No point-blank shots
-  public readonly SHOOTER_REACTION_TIME_MS: number = 1000; // No fire if hit would reach player sooner
+  public readonly SHOOTER_REACTION_TIME_MS: number = 1400; // No fire if hit would reach player sooner
   public readonly SHOOTER_WARNING_MS: number = 1000; // Pulse enemy before firing
   private readonly ENTITY_SPAWN_SUN_BUFFER: number = 18; // Keep spawns outside danger zone
   // Projectiles
@@ -301,7 +303,7 @@ export class OrbitGame {
   private readonly PROJECTILE_SIZE: number = 4;
   // Change PROJECTILE_LIFETIME_MS
   private readonly PROJECTILE_LIFETIME_MS: number = 2200; // Shorter lifetime (was 3000)
-  private readonly PROJECTILE_COLLISION_RADIUS: number = 5;
+  private readonly PROJECTILE_COLLISION_RADIUS: number = 3.5;
   // Particles (Pooling)
   private readonly THRUST_PARTICLE_POOL_INITIAL_SIZE: number = 100;
   private readonly THRUST_PARTICLE_COUNT_MIN = 1;
@@ -309,6 +311,9 @@ export class OrbitGame {
   private readonly THRUST_PARTICLE_SPREAD = 0.5;
   private readonly THRUST_PARTICLE_OFFSET_MIN = 15;
   private readonly THRUST_PARTICLE_OFFSET_MAX = 25;
+  private retaliateCooldownMs: number = 0;
+  private readonly RETALIATE_FIRE_INTERVAL_MS: number = 420;
+  private readonly RETALIATE_RANGE: number = 380;
   // High Score Key Base (Improvement) - Mode will be appended
   private readonly HIGH_SCORE_KEY_BASE = "petralian_orbit_rush_hs_v2";
   // Projectiles
@@ -325,6 +330,7 @@ export class OrbitGame {
     enemy: null,
     shooterSprite: null,
   };
+  private powerUpSprites = new Map<PowerUpType, HTMLCanvasElement>();
   private mouse: Mouse = { down: false };
   private keyboardThrust: boolean = false; // For keyboard control
   private canvas!: HTMLCanvasElement;
@@ -551,6 +557,57 @@ export class OrbitGame {
     return this.projectileTimeToReachMs(distPx) < this.SHOOTER_REACTION_TIME_MS;
   }
 
+  /** Skip unfair shots when the player is pinned on an orbit edge with no thrust room. */
+  public isShotFairForPlayer(distPx: number): boolean {
+    if (this.isPlayerTooCloseForShooter(distPx)) return false;
+    const stuck = Math.abs(this.player.interactionDelta) < 0.08;
+    const nearOuter =
+      this.player.radius >= this.getEffectiveMaxPlayerRadius() - 20;
+    const nearInner =
+      this.player.radius <= this.PLAYER_MIN_ORBIT_RADIUS + 14;
+    const nearWall = nearOuter || nearInner;
+    if (stuck && nearWall && distPx < 240) return false;
+    if (
+      this.isInputDown &&
+      this.player.interactionDelta > 0.45 &&
+      nearOuter &&
+      distPx < 170
+    ) {
+      return false;
+    }
+    return true;
+  }
+
+  private isAnyShooterWarningActive(): boolean {
+    return this.enemies.some(
+      (e) => e.type === EnemyType.SHOOTER && e.shotWarningActive
+    );
+  }
+
+  private applyMagnetPull(
+    targetX: number,
+    targetY: number,
+    sourceX: number,
+    sourceY: number
+  ): { x: number; y: number } {
+    const dx = targetX - sourceX;
+    const dy = targetY - sourceY;
+    const distSq = dx * dx + dy * dy;
+    const range = this.POWERUP_MAGNET_RANGE;
+    if (distSq >= range * range || distSq <= 1) {
+      return { x: sourceX, y: sourceY };
+    }
+    const dist = Math.sqrt(distSq);
+    const pull =
+      this.POWERUP_MAGNET_STRENGTH *
+      (1 + (range - dist) / range) *
+      this.timeFactor;
+    return {
+      x: sourceX + (dx / dist) * pull,
+      y: sourceY + (dy / dist) * pull,
+    };
+  }
+
   private getEffectiveMaxPlayerRadius(): number {
     const shrinkStr = this.getPowerUpEffectStrength(PowerUpType.ORBIT_SHRINK);
     const shrinkBy =
@@ -589,6 +646,8 @@ export class OrbitGame {
     p.orbitShrinkActive =
       this.getPowerUpEffectStrength(PowerUpType.ORBIT_SHRINK) > 0;
     p.phantomActive = this.getPowerUpEffectStrength(PowerUpType.PHANTOM) > 0;
+    p.retaliateActive =
+      this.getPowerUpEffectStrength(PowerUpType.RETALIATE) > 0;
 
     const overStr = this.getPowerUpEffectStrength(PowerUpType.OVERCHARGE);
     const scoreStr = this.getPowerUpEffectStrength(PowerUpType.SCORE_MULTIPLIER);
@@ -618,6 +677,7 @@ export class OrbitGame {
       PowerUpType.ORBIT_FLIP,
       PowerUpType.PHANTOM,
       PowerUpType.NOVA,
+      PowerUpType.RETALIATE,
     ];
     const downs = [
       PowerUpType.GRAVITY_REVERSE,
@@ -1521,6 +1581,23 @@ export class OrbitGame {
     ctxShooter.fill();
     ctxShooter.setTransform(1, 0, 0, 1, 0, 0);
     this.sprites.shooterSprite = cvsShooter;
+
+    void this.preloadPowerUpSprites();
+  }
+
+  private preloadPowerUpSprites(): void {
+    void import("./powerup-phosphor")
+      .then(({ loadAllPowerUpSprites }) => loadAllPowerUpSprites(72))
+      .then((sprites) => {
+        this.powerUpSprites = sprites;
+        console.info(
+          "[Orbit Rush] phosphor pickup sprites loaded",
+          sprites.size
+        );
+      })
+      .catch((err) => {
+        console.warn("[Orbit Rush] phosphor sprite preload failed", err);
+      });
   }
 
   private onStartButtonClick(e: Event): void {
@@ -1545,6 +1622,7 @@ export class OrbitGame {
     // Set state calls playMusic and adjusts timers
     this.setGameState(GameState.PLAYING);
     this.notifyGameMode();
+    console.info("[Orbit Rush] phosphor pickups build 2026-07-28");
     this.analytics.track("game_start", { game_mode: this.gameMode });
   }
 
@@ -1608,12 +1686,14 @@ export class OrbitGame {
       this.player.turboThrustActive = false;
       this.player.orbitShrinkActive = false;
       this.player.phantomActive = false;
+      this.player.retaliateActive = false;
       this.player.orbitDirection = 1;
       this.player.interactionDelta = -0.1;
       this.player.radius = this.getPlayerStartRadius();
     }
     this.powerUps = [];
     this.activePowerUps.clear();
+    this.retaliateCooldownMs = 0;
     this.lastPowerUpSpawn = Date.now();
     this.timeLastEnemySpawn = Date.now();
     this.currentEnemySpawnInterval = this.ENEMY_SPAWN_INTERVAL_MS_BASE;
@@ -1803,13 +1883,16 @@ export class OrbitGame {
     const turboStr = this.getPowerUpEffectStrength(PowerUpType.TURBO_THRUST);
     const weakStr = this.getPowerUpEffectStrength(PowerUpType.WEAK_THRUST);
     let pushCap = this.PLAYER_MAX_INTERACTION_DELTA * motionScale;
-    if (turboStr > 0) pushCap *= 1 + turboStr * 0.65;
-    if (weakStr > 0) pushCap *= 1 - weakStr * 0.55;
+    if (turboStr > 0) pushCap *= 1 + turboStr * 1.45;
+    if (weakStr > 0) pushCap *= 1 - weakStr * 0.82;
     const gravityStrength =
       this.PLAYER_BASE_GRAVITY * effectiveTimeFactor * motionScale;
     const effectiveMaxRadius = this.getEffectiveMaxPlayerRadius();
-    const pushAcceleration =
+    let pushAcceleration =
       this.PLAYER_BASE_ACCELERATION * effectiveTimeFactor * motionScale;
+    if (weakStr > 0) pushAcceleration *= 1 - weakStr * 0.62;
+    if (turboStr > 0) pushAcceleration *= 1 + turboStr * 1.05;
+    if (this.isAnyShooterWarningActive()) pushAcceleration *= 1.35;
     const minInteractionDelta =
       this.PLAYER_MIN_INTERACTION_DELTA * motionScale;
     const revStr = this.getPowerUpEffectStrength(PowerUpType.GRAVITY_REVERSE);
@@ -1846,6 +1929,8 @@ export class OrbitGame {
       if (this.frameCount % 6 === 0) this.audioManager.playSound("thrust", 0.3);
     } else {
       let decay = gravityStrength;
+      if (weakStr > 0) decay *= 1 + weakStr * 0.35;
+      if (turboStr > 0) decay *= 1 - turboStr * 0.28;
       if (this.player.interactionDelta > 0) {
         const bleedRate =
           0.14 * this.getReleaseBleedStrength() * effectiveTimeFactor;
@@ -2070,19 +2155,14 @@ export class OrbitGame {
 
       // Apply magnet effect (using direct player state)
       if (this.player.magnetActive) {
-        const dx = this.player.x - enemy.x;
-        const dy = this.player.y - enemy.y;
-        const distSq = dx * dx + dy * dy;
-        if (
-          distSq < this.POWERUP_MAGNET_RANGE * this.POWERUP_MAGNET_RANGE &&
-          distSq > 1
-        ) {
-          const dist = Math.sqrt(distSq);
-          enemy.x +=
-            (dx / dist) * this.POWERUP_MAGNET_STRENGTH * this.timeFactor;
-          enemy.y +=
-            (dy / dist) * this.POWERUP_MAGNET_STRENGTH * this.timeFactor;
-        }
+        const pulled = this.applyMagnetPull(
+          this.player.x,
+          this.player.y,
+          enemy.x,
+          enemy.y
+        );
+        enemy.x = pulled.x;
+        enemy.y = pulled.y;
       }
 
       // Check collision with player
@@ -2155,12 +2235,15 @@ export class OrbitGame {
         this.context.globalAlpha = ghostPulse;
         this.context.shadowColor = "rgba(200, 220, 255, 0.9)";
         this.context.shadowBlur = 18;
+      } else if (this.player.retaliateActive) {
+        this.context.shadowColor = "rgba(50, 255, 200, 0.95)";
+        this.context.shadowBlur = 16;
       } else if (this.player.magnetActive) {
         this.context.shadowColor = "rgba(180, 80, 255, 0.9)";
         this.context.shadowBlur = 16;
       } else if (this.player.turboThrustActive) {
-        this.context.shadowColor = "rgba(255, 160, 60, 0.95)";
-        this.context.shadowBlur = 18;
+        this.context.shadowColor = "rgba(45, 212, 168, 0.95)";
+        this.context.shadowBlur = 20;
       } else if (this.player.weakThrustActive) {
         this.context.globalAlpha = 0.55 * pulse;
       } else if (this.player.scoreMultiplier > 1) {
@@ -2699,6 +2782,17 @@ export class OrbitGame {
       const powerUp = this.powerUps[i];
       powerUp.update(this.timeFactor); // Call entity's update
 
+      if (this.player.magnetActive) {
+        const pulled = this.applyMagnetPull(
+          this.player.x,
+          this.player.y,
+          powerUp.x,
+          powerUp.y
+        );
+        powerUp.x = pulled.x;
+        powerUp.y = pulled.y;
+      }
+
       if (!powerUp.alive) {
         // Remove if faded out or lifetime expired
         this.powerUps.splice(i, 1);
@@ -2833,6 +2927,12 @@ export class OrbitGame {
         );
         break;
       case PowerUpType.PHANTOM:
+        notificationText = "GHOST";
+        notificationColor = this.parseRgbaColor(
+          PowerUp.getColorByType(resolvedType)
+        );
+        break;
+      case PowerUpType.RETALIATE:
         notificationText = PowerUp.getLabelByType(resolvedType);
         notificationColor = this.parseRgbaColor(
           PowerUp.getColorByType(resolvedType)
@@ -2859,7 +2959,7 @@ export class OrbitGame {
 
     // Track powerup collection
     let trackedType = PowerUp.getLabelByType(resolvedType);
-    if (originalTypeLabel === "RANDOM") {
+    if (powerUp.type === PowerUpType.RANDOM) {
       trackedType = `RANDOM->${trackedType}`;
     }
     this.analytics.track("powerup_collected", { powerup_type: trackedType });
@@ -2907,59 +3007,39 @@ export class OrbitGame {
   }
 
   private renderPowerUps(): void {
-    // Add this method signature for context
     this.context.save();
     for (const powerUp of this.powerUps) {
-      this.context.globalAlpha = powerUp.alpha * 0.85; // Slightly transparent base
+      this.context.globalAlpha = powerUp.alpha * 0.95;
       this.context.translate(powerUp.x, powerUp.y);
       this.context.scale(powerUp.scale, powerUp.scale);
       this.context.rotate(powerUp.rotation);
 
       const color = powerUp.getColor();
-      const isDebuff = PowerUp.isDebuff(powerUp.type);
-      this.context.shadowBlur = 15;
+      const r = powerUp.collisionRadius;
+      const sprite = this.powerUpSprites.get(powerUp.type);
+      const drawSize = r * 1.75;
+
+      this.context.shadowBlur = 16;
       this.context.shadowColor = color;
 
-      // Main circle
-      this.context.beginPath();
-      this.context.arc(0, 0, powerUp.collisionRadius * 0.8, 0, Math.PI * 2);
-      this.context.fillStyle = color;
-      this.context.fill();
-
-      if (isDebuff) {
-        this.context.strokeStyle = "rgba(255, 80, 80, 0.95)";
-        this.context.lineWidth = 3 / powerUp.scale;
-        this.context.stroke();
-        this.context.fillStyle = "rgba(255, 255, 255, 0.9)";
-        this.context.font = `bold ${14 / powerUp.scale}px Rajdhani`;
-        this.context.textAlign = "center";
-        this.context.textBaseline = "middle";
-        this.context.fillText("−", 0, 1 / powerUp.scale);
-      } else if (powerUp.type !== PowerUpType.RANDOM) {
-        this.context.fillStyle = "rgba(255, 255, 255, 0.85)";
-        this.context.font = `bold ${12 / powerUp.scale}px Rajdhani`;
-        this.context.textAlign = "center";
-        this.context.textBaseline = "middle";
-        this.context.fillText("+", 0, 1 / powerUp.scale);
+      if (sprite) {
+        this.context.drawImage(
+          sprite,
+          -drawSize / 2,
+          -drawSize / 2,
+          drawSize,
+          drawSize
+        );
+      } else {
+        this.context.beginPath();
+        this.context.arc(0, 0, r, 0, Math.PI * 2);
+        this.context.fillStyle = color;
+        this.context.fill();
       }
 
-      // Inner ring
-      this.context.beginPath();
-      this.context.arc(0, 0, powerUp.collisionRadius * 0.5, 0, Math.PI * 2);
-      this.context.strokeStyle = "rgba(255, 255, 255, 0.8)";
-      this.context.lineWidth = 2 / powerUp.scale; // Keep line width consistent
-      this.context.stroke();
-
-      // Center dot
-      this.context.beginPath();
-      this.context.arc(0, 0, powerUp.collisionRadius * 0.2, 0, Math.PI * 2);
-      this.context.fillStyle = "rgba(255, 255, 255, 0.8)";
-      this.context.fill();
-
-      // Reset transform for next iteration
-      this.context.setTransform(1, 0, 0, 1, 0, 0); // Faster than multiple restores
+      this.context.setTransform(1, 0, 0, 1, 0, 0);
     }
-    this.context.restore(); // Restore initial save
+    this.context.restore();
   }
 
   // --- Screen Shake ---
@@ -3010,6 +3090,7 @@ export class OrbitGame {
       this.updatePlayer();
       this.updateEnemies();
       this.updatePowerUps();
+      this.updateRetaliateShots();
       this.updateProjectiles(); // Update projectiles
       this.updateThrustParticles();
       this.updateExplosionParticles();
@@ -3423,7 +3504,8 @@ export class OrbitGame {
       if (expiring) label += " !";
 
       this.context.globalAlpha = flash;
-      this.context.fillStyle = expiring && isDebuff ? "#ff6666" : powerUpColor;
+      this.context.fillStyle =
+        expiring && isDebuff ? "#ff7777" : isDebuff ? "#ff9999" : powerUpColor;
       this.context.textAlign = "left";
       this.context.fillText(label, startX, currentY + barHeight);
 
@@ -3680,7 +3762,13 @@ export class OrbitGame {
   }
 
   // --- Projectile Management ---
-  spawnProjectile(x: number, y: number, angle: number): void {
+  spawnProjectile(
+    x: number,
+    y: number,
+    angle: number,
+    options: { hostile?: boolean; speed?: number } = {}
+  ): void {
+    const hostile = options.hostile !== false;
     const projectile = this.projectilePool.get();
     const spawnOffset = 10;
     const startX = x + Math.cos(angle) * spawnOffset;
@@ -3700,14 +3788,55 @@ export class OrbitGame {
       startX, // Use offset start position
       startY, // Use offset start position
       angle,
-      this.PROJECTILE_SPEED,
+      options.speed ?? this.PROJECTILE_SPEED,
       this.PROJECTILE_SIZE * spriteScale,
       this.PROJECTILE_COLLISION_RADIUS * spriteScale,
-      this.PROJECTILE_LIFETIME_MS
+      this.PROJECTILE_LIFETIME_MS,
+      hostile
     );
     this.projectiles.push(projectile);
     // Optional: Play shoot sound
     // this.audioManager.playSound("shoot", 0.2);
+  }
+
+  private updateRetaliateShots(): void {
+    if (!this.player.alive || !this.player.retaliateActive) return;
+
+    const deltaMs = this.timeFactor * (1000 / 60);
+    this.retaliateCooldownMs -= deltaMs;
+    if (this.retaliateCooldownMs > 0) return;
+
+    let nearest: Enemy | null = null;
+    let nearestDistSq = this.RETALIATE_RANGE * this.RETALIATE_RANGE;
+
+    for (const enemy of this.enemies) {
+      if (
+        !Enemy.isRedEnemy(enemy.type) ||
+        !enemy.alive ||
+        enemy.isDying
+      ) {
+        continue;
+      }
+      const dx = enemy.x - this.player.x;
+      const dy = enemy.y - this.player.y;
+      const distSq = dx * dx + dy * dy;
+      if (distSq < nearestDistSq) {
+        nearestDistSq = distSq;
+        nearest = enemy;
+      }
+    }
+
+    if (!nearest) return;
+
+    const angle = Math.atan2(
+      nearest.y - this.player.y,
+      nearest.x - this.player.x
+    );
+    this.spawnProjectile(this.player.x, this.player.y, angle, {
+      hostile: false,
+      speed: this.PROJECTILE_SPEED * 1.15,
+    });
+    this.retaliateCooldownMs = this.RETALIATE_FIRE_INTERVAL_MS;
   }
 
   updateProjectiles(): void {
@@ -3721,8 +3850,12 @@ export class OrbitGame {
         continue;
       }
 
-      // Check collision with player
-      if (this.player.alive && this.collides(this.player, projectile)) {
+      // Check collision with player (hostile shots only)
+      if (
+        projectile.hostile &&
+        this.player.alive &&
+        this.collides(this.player, projectile)
+      ) {
         if (this.player.phantomActive) continue;
         projectile.alive = false; // Mark projectile for removal
         this.projectiles.splice(i, 1);
@@ -3752,8 +3885,31 @@ export class OrbitGame {
         // No need to continue checking other projectiles once player is hit in a frame?
         // Or let multiple hits happen if applicable. For now, just handle one hit.
         // break; // Optional: Stop checking after first hit this frame
+        continue;
       }
-      // Optional: Check collision with other enemies?
+
+      if (!projectile.hostile) {
+        for (const enemy of this.enemies) {
+          if (
+            !Enemy.isRedEnemy(enemy.type) ||
+            !enemy.alive ||
+            enemy.isDying ||
+            !this.collides(projectile, enemy)
+          ) {
+            continue;
+          }
+          projectile.alive = false;
+          this.projectiles.splice(i, 1);
+          this.projectilePool.release(projectile);
+          this.audioManager.playSound("explode", 0.35);
+          this.createExplosion(enemy.x, enemy.y);
+          enemy.startDying();
+          const points = 2 * this.player.scoreMultiplier;
+          this.player.score += Math.round(points);
+          this.notify(`+${points}`, enemy.x, enemy.y, 1, [120, 255, 210]);
+          break;
+        }
+      }
     }
   }
 
@@ -3764,6 +3920,9 @@ export class OrbitGame {
     this.context.shadowBlur = 8;
 
     for (const projectile of this.projectiles) {
+      this.context.fillStyle = projectile.hostile
+        ? "rgba(255, 80, 80, 0.9)"
+        : "rgba(80, 255, 210, 0.95)";
       this.context.beginPath();
       this.context.arc(
         projectile.x,
@@ -3822,6 +3981,7 @@ class Player extends Entity {
   public turboThrustActive: boolean = false;
   public orbitShrinkActive: boolean = false;
   public phantomActive: boolean = false;
+  public retaliateActive: boolean = false;
   public orbitDirection: 1 | -1 = 1;
 
   constructor(x: number, y: number, radius: number, collisionRadius: number) {
@@ -3972,9 +4132,14 @@ class Enemy extends Entity {
               );
             }
             if (this.timeSinceLastShot >= game.SHOOTER_COOLDOWN_MS) {
-              const angleToPlayer = Math.atan2(dy, dx);
-              game.spawnProjectile(this.x, this.y, angleToPlayer);
-              this.timeSinceLastShot = 0;
+              if (!game.isShotFairForPlayer(dist)) {
+                this.timeSinceLastShot =
+                  game.SHOOTER_COOLDOWN_MS - game.SHOOTER_WARNING_MS;
+              } else {
+                const angleToPlayer = Math.atan2(dy, dx);
+                game.spawnProjectile(this.x, this.y, angleToPlayer);
+                this.timeSinceLastShot = 0;
+              }
               this.shotWarningActive = false;
               this.shotChargeProgress = 0;
             }
@@ -4158,6 +4323,7 @@ class Projectile extends Entity implements Poolable {
   public speed: number = 0;
   public size: number = 0;
   public lifetimeMs: number = 0;
+  public hostile: boolean = true;
   private timeAlive: number = 0;
 
   constructor() {
@@ -4172,7 +4338,8 @@ class Projectile extends Entity implements Poolable {
     speed: number,
     size: number,
     collisionRadius: number,
-    lifetimeMs: number
+    lifetimeMs: number,
+    hostile: boolean = true
   ): void {
     this.x = x;
     this.y = y;
@@ -4181,6 +4348,7 @@ class Projectile extends Entity implements Poolable {
     this.size = size;
     this.collisionRadius = collisionRadius;
     this.lifetimeMs = lifetimeMs;
+    this.hostile = hostile;
     this.timeAlive = 0;
     this.alive = true;
   }
@@ -4250,110 +4418,216 @@ class PowerUp extends Entity {
   static getColorByType(type: PowerUpType): string {
     switch (type) {
       case PowerUpType.SHIELD:
-        return "rgba(20, 180, 255, 0.9)";
+        return "rgba(77, 163, 255, 0.95)";
       case PowerUpType.SCORE_MULTIPLIER:
-        return "rgba(255, 215, 20, 0.9)";
+        return "rgba(91, 156, 245, 0.95)";
       case PowerUpType.MAGNET:
-        return "rgba(180, 80, 255, 0.9)";
+        return "rgba(155, 77, 232, 0.95)";
       case PowerUpType.TURBO_THRUST:
-        return "rgba(255, 150, 40, 0.95)";
+        return "rgba(45, 212, 168, 0.95)";
       case PowerUpType.OVERCHARGE:
-        return "rgba(255, 230, 80, 0.95)";
+        return "rgba(107, 176, 255, 0.95)";
       case PowerUpType.GRAVITY_REVERSE:
-        return "rgba(180, 180, 200, 0.95)";
+        return "rgba(255, 90, 110, 0.95)";
       case PowerUpType.WEAK_THRUST:
-        return "rgba(160, 160, 180, 0.9)";
+        return "rgba(255, 90, 110, 0.95)";
       case PowerUpType.ORBIT_SHRINK:
-        return "rgba(255, 110, 110, 0.9)";
+        return "rgba(255, 90, 110, 0.95)";
       case PowerUpType.ORBIT_FLIP:
-        return "rgba(100, 200, 255, 0.95)";
+        return "rgba(80, 180, 255, 0.95)";
       case PowerUpType.PHANTOM:
-        return "rgba(200, 220, 255, 0.9)";
+        return "rgba(220, 240, 255, 0.95)";
       case PowerUpType.NOVA:
-        return "rgba(255, 180, 60, 0.95)";
+        return "rgba(255, 140, 50, 0.95)";
+      case PowerUpType.RETALIATE:
+        return "rgba(50, 255, 200, 0.95)";
       case PowerUpType.RANDOM:
-        return "rgba(220, 220, 220, 0.9)";
+        return "rgba(200, 160, 255, 0.95)";
       default:
-        return "rgba(200, 200, 200, 0.8)";
+        return "rgba(200, 200, 200, 0.9)";
     }
   }
   // Added static label getter for UI timers
   static getLabelByType(type: PowerUpType): string {
-    let label = "";
     switch (type) {
       case PowerUpType.SHIELD:
-        label = "SHIELD";
-        break;
+        return "SHIELD";
       case PowerUpType.SCORE_MULTIPLIER:
-        label = "SCORE MULTIPLIER";
-        break;
+        return "SCORE ×2";
       case PowerUpType.MAGNET:
-        label = "MAGNET";
-        break;
+        return "MAGNET";
       case PowerUpType.GRAVITY_REVERSE:
-        label = "REVERSE";
-        break;
+        return "REVERSE";
       case PowerUpType.TURBO_THRUST:
-        label = "TURBO";
-        break;
+        return "TURBO";
       case PowerUpType.OVERCHARGE:
-        label = "x3 POINTS";
-        break;
+        return "OVERCHARGE";
       case PowerUpType.WEAK_THRUST:
-        label = "WEAK";
-        break;
+        return "WEAK THRUST";
       case PowerUpType.ORBIT_SHRINK:
-        label = "SHRINK";
-        break;
+        return "ORBIT SHRINK";
       case PowerUpType.ORBIT_FLIP:
-        label = "ORBIT FLIP";
-        break;
+        return "ORBIT FLIP";
       case PowerUpType.PHANTOM:
-        label = "PHANTOM";
-        break;
-      case PowerUpType.NOVA:
-        label = "NOVA";
-        break;
-      case PowerUpType.RANDOM:
-        label = "RANDOM";
-        break;
-      default:
-        return "???";
-    }
-
-    if (type === PowerUpType.RANDOM) return "???";
-
-    switch (type) {
-      case PowerUpType.SHIELD:
-        return "SHLD";
-      case PowerUpType.SCORE_MULTIPLIER:
-        return "SCRx2";
-      case PowerUpType.MAGNET:
-        return "MGNT";
-      case PowerUpType.GRAVITY_REVERSE:
-        return "REV";
-      case PowerUpType.TURBO_THRUST:
-        return "TRBO";
-      case PowerUpType.OVERCHARGE:
-        return "x3";
-      case PowerUpType.WEAK_THRUST:
-        return "WEAK";
-      case PowerUpType.ORBIT_SHRINK:
-        return "SHNK";
-      case PowerUpType.ORBIT_FLIP:
-        return "FLIP";
-      case PowerUpType.PHANTOM:
-        return "GOST";
+        return "GHOST";
       case PowerUpType.NOVA:
         return "NOVA";
+      case PowerUpType.RETALIATE:
+        return "RETALIATE";
+      case PowerUpType.RANDOM:
+        return "???";
       default:
-        return label.substring(0, 4).toUpperCase();
+        return "???";
     }
   }
   // Instance method calls static method
   public getColor(): string {
     return PowerUp.getColorByType(this.type);
   }
+}
+
+/** White glyph on tinted orb — in-game pickups and guide icons. */
+export function drawPowerUpGlyph(
+  ctx: CanvasRenderingContext2D,
+  type: PowerUpType,
+  size: number
+): void {
+  const s = size / 28;
+  ctx.save();
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.95)";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+  ctx.lineWidth = Math.max(1.2, 1.8 * s);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  const cx = size / 2;
+  const cy = size / 2;
+
+  switch (type) {
+    case PowerUpType.SHIELD: {
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - 8 * s);
+      ctx.lineTo(cx + 7 * s, cy - 3 * s);
+      ctx.lineTo(cx + 6 * s, cy + 6 * s);
+      ctx.quadraticCurveTo(cx, cy + 10 * s, cx - 6 * s, cy + 6 * s);
+      ctx.lineTo(cx - 7 * s, cy - 3 * s);
+      ctx.closePath();
+      ctx.fill();
+      break;
+    }
+    case PowerUpType.SCORE_MULTIPLIER: {
+      ctx.font = `bold ${Math.round(14 * s)}px Rajdhani, Arial, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("×2", cx, cy + 1);
+      break;
+    }
+    case PowerUpType.MAGNET: {
+      ctx.beginPath();
+      ctx.arc(cx - 4 * s, cy - 2 * s, 4 * s, Math.PI * 0.15, Math.PI * 1.1);
+      ctx.arc(cx + 4 * s, cy - 2 * s, 4 * s, Math.PI * 1.9, Math.PI * 0.9, true);
+      ctx.stroke();
+      ctx.fillRect(cx - 5 * s, cy + 2 * s, 3 * s, 3 * s);
+      ctx.fillRect(cx + 2 * s, cy + 2 * s, 3 * s, 3 * s);
+      break;
+    }
+    case PowerUpType.TURBO_THRUST: {
+      ctx.beginPath();
+      ctx.moveTo(cx + 1 * s, cy - 8 * s);
+      ctx.lineTo(cx - 5 * s, cy + 2 * s);
+      ctx.lineTo(cx - 1 * s, cy + 2 * s);
+      ctx.lineTo(cx - 2 * s, cy + 8 * s);
+      ctx.lineTo(cx + 6 * s, cy - 2 * s);
+      ctx.lineTo(cx + 2 * s, cy - 2 * s);
+      ctx.closePath();
+      ctx.fill();
+      break;
+    }
+    case PowerUpType.OVERCHARGE: {
+      ctx.font = `bold ${Math.round(13 * s)}px Rajdhani, Arial, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("×3", cx, cy + 1);
+      break;
+    }
+    case PowerUpType.ORBIT_FLIP: {
+      ctx.beginPath();
+      ctx.arc(cx, cy, 6 * s, Math.PI * 0.2, Math.PI * 1.5);
+      ctx.stroke();
+      break;
+    }
+    case PowerUpType.PHANTOM: {
+      ctx.beginPath();
+      ctx.arc(cx, cy - 2 * s, 5 * s, Math.PI, 0);
+      ctx.lineTo(cx + 5 * s, cy + 5 * s);
+      ctx.quadraticCurveTo(cx, cy + 9 * s, cx - 5 * s, cy + 5 * s);
+      ctx.closePath();
+      ctx.fill();
+      break;
+    }
+    case PowerUpType.NOVA: {
+      for (let i = 0; i < 8; i++) {
+        const a = (i / 8) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(a) * 8 * s, cy + Math.sin(a) * 8 * s);
+        ctx.stroke();
+      }
+      break;
+    }
+    case PowerUpType.RETALIATE: {
+      ctx.beginPath();
+      ctx.arc(cx, cy, 7 * s, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(cx - 7 * s, cy);
+      ctx.lineTo(cx + 7 * s, cy);
+      ctx.moveTo(cx, cy - 7 * s);
+      ctx.lineTo(cx, cy + 7 * s);
+      ctx.stroke();
+      break;
+    }
+    case PowerUpType.GRAVITY_REVERSE: {
+      ctx.beginPath();
+      ctx.moveTo(cx, cy + 7 * s);
+      ctx.lineTo(cx, cy - 5 * s);
+      ctx.moveTo(cx - 4 * s, cy - 1 * s);
+      ctx.lineTo(cx, cy - 6 * s);
+      ctx.lineTo(cx + 4 * s, cy - 1 * s);
+      ctx.stroke();
+      break;
+    }
+    case PowerUpType.WEAK_THRUST: {
+      ctx.beginPath();
+      ctx.moveTo(cx, cy + 5 * s);
+      ctx.lineTo(cx, cy - 3 * s);
+      ctx.moveTo(cx - 3 * s, cy + 1 * s);
+      ctx.lineTo(cx, cy - 5 * s);
+      ctx.lineTo(cx + 3 * s, cy + 1 * s);
+      ctx.stroke();
+      break;
+    }
+    case PowerUpType.ORBIT_SHRINK: {
+      ctx.beginPath();
+      ctx.arc(cx, cy, 8 * s, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 3.5 * s, 0, Math.PI * 2);
+      ctx.stroke();
+      break;
+    }
+    case PowerUpType.RANDOM: {
+      ctx.font = `bold ${Math.round(15 * s)}px Rajdhani, Arial, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("?", cx, cy + 1);
+      break;
+    }
+    default:
+      break;
+  }
+
+  ctx.restore();
 }
 
 /** Draws the in-game pickup icon for settings / reference UI */
@@ -4364,7 +4638,7 @@ export function drawPowerUpIcon(
 ): void {
   const cx = size / 2;
   const cy = size / 2;
-  const radius = size * 0.38;
+  const radius = size * 0.42;
   const color = PowerUp.getColorByType(type);
   const isDebuff = PowerUp.isDebuff(type);
 
@@ -4374,7 +4648,12 @@ export function drawPowerUpIcon(
   ctx.shadowColor = color;
 
   ctx.beginPath();
-  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  const sq = radius * 1.05;
+  if (typeof ctx.roundRect === "function") {
+    ctx.roundRect(cx - sq, cy - sq, sq * 2, sq * 2, radius * 0.35);
+  } else {
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  }
   ctx.fillStyle = color;
   ctx.fill();
 
@@ -4382,48 +4661,9 @@ export function drawPowerUpIcon(
     ctx.strokeStyle = "rgba(255, 80, 80, 0.95)";
     ctx.lineWidth = 2;
     ctx.stroke();
-    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-    ctx.font = `bold ${Math.round(size * 0.42)}px Rajdhani, Arial, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("−", cx, cy + 1);
-  } else if (type === PowerUpType.RANDOM) {
-    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-    ctx.font = `bold ${Math.round(size * 0.36)}px Rajdhani, Arial, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("?", cx, cy + 1);
-  } else if (type === PowerUpType.ORBIT_FLIP) {
-    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-    ctx.font = `bold ${Math.round(size * 0.34)}px Rajdhani, Arial, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("↺", cx, cy + 1);
-  } else if (type === PowerUpType.NOVA) {
-    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-    ctx.font = `bold ${Math.round(size * 0.34)}px Rajdhani, Arial, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("★", cx, cy + 1);
-  } else {
-    ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
-    ctx.font = `bold ${Math.round(size * 0.36)}px Rajdhani, Arial, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("+", cx, cy + 1);
   }
 
-  ctx.beginPath();
-  ctx.arc(cx, cy, radius * 0.55, 0, Math.PI * 2);
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.8)";
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.arc(cx, cy, radius * 0.22, 0, Math.PI * 2);
-  ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-  ctx.fill();
-
+  drawPowerUpGlyph(ctx, type, size);
   ctx.restore();
 }
 

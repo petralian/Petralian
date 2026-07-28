@@ -1,0 +1,45 @@
+# Live post integrity — SSOT for audit-live-posts.mjs and publish gates
+schema_version: 1
+updated: 2026-07-28
+
+required_frontmatter:
+  - title
+  - slug
+  - date
+  - format
+  - best_for
+  - excerpt
+  - featured_image
+  - featured_image_alt
+  - seo_title
+  - seo_description
+  - focus_keyword
+
+format_allowed:
+  - strategic
+  - hands-on
+  - hybrid
+
+vault_only_frontmatter:
+  - body_images
+  - image_prompt
+  - image_prompt_variant_1
+  - image_prompt_variant_2
+
+body:
+  min_words: 300
+  min_words_blocking: 50
+
+hero_diversity:
+  # Lane C (isometric/poster) — cap in recent homepage window
+  window_posts: 12
+  max_lane_c_primary: 4
+  lane_c_markers:
+    - isometric
+    - poster
+    - exploded
+    - node graph
+  banned_in_image_prompt:
+    - readable text
+    - no readable text
+  prefer_primary_lane: cinematic

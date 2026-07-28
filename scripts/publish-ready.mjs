@@ -167,6 +167,10 @@ async function main() {
     process.exit(1);
   }
 
+  log("Hero diversity (vault)");
+  const heroArgs = slugs.flatMap((s) => ["--slug", s]);
+  run("node", ["scripts/audit-hero-diversity.mjs", ...heroArgs]);
+
   const { summary, hasFail, hasWarn } = phaseCheck();
   printSummary(summary);
 
