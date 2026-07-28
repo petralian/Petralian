@@ -11,7 +11,7 @@ excerpt: >-
   Fable 5 Max leads CursorBench 3.2 at 70.5%, but at 17 USD per task and 72
   steps. Grok 4.5 High scores 66.7% at 1.51 USD. Composer 2.5 still wins score
   per dollar at 56.1% and 0.44 USD.
-featured_image: /images/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score.png
+featured_image: /images/posts/cursorbench-3-2-fable-5-composer-2-5-cost-vs-score.jpg
 focus_keyword: CursorBench 3.2 Fable 5 Composer 2.5 cost
 seo_description: >-
   CursorBench 3.2 analysis: Fable 5 Max scores 70.5% but costs 17.32 USD/task.

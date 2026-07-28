@@ -31,7 +31,7 @@ image_prompt_variant_2: >-
   Left: tangled speech bubbles fading to gray; right: one straight shelf of
   labeled binders with a single arrow from inbox to archive—maze vs clear
   workflow, editorial playful.
-featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.png
+featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.jpg
 featured_image_alt: Editorial desk with two diagrams side by side on paper—one a simple
 format: hybrid
 best_for: >-

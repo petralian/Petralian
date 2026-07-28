@@ -3,9 +3,10 @@ import { getAllPosts } from "@/lib/posts";
 import { getSeriesHubs, getStartHerePosts } from "@/lib/series-hubs";
 import { buildHomeMetadata, buildHomePageSchema } from "@/lib/home-seo";
 import { getNewThisWeekSlugs } from "@/lib/post-freshness";
+import HomeIntro from "@/components/home/HomeIntro";
 import homeContent from "../../content/pages/home.json";
 
-const HomeBelowHero = dynamic(() => import("@/components/home/HomeBelowHero"));
+const HomeBelowFold = dynamic(() => import("@/components/home/HomeBelowFold"));
 
 export const revalidate = 3600;
 
@@ -54,7 +55,9 @@ export default function HomePage() {
           ) : null}
         </section>
 
-        <HomeBelowHero
+        <HomeIntro homeContent={homeContent} />
+
+        <HomeBelowFold
           homeContent={homeContent}
           startHere={startHere}
           seriesHubs={seriesHubs}

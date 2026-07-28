@@ -11,7 +11,7 @@ excerpt: >-
   Grok 4.5 scores high on CursorBench agent tasks. I use it for synthesis,
   briefs, and research passes — not as a default for every repo edit. Here is
   the decision frame.
-featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.png
+featured_image: /images/posts/grok-4-5-cursor-knowledge-work-2026.jpg
 focus_keyword: Grok 4.5 Cursor knowledge work
 seo_description: >-
   Grok 4.5 for Cursor knowledge work: when to escalate beyond Composer for

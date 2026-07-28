@@ -30,7 +30,7 @@ image_prompt_variant_1: >-
 image_prompt_variant_2: >-
   Split view: left a fading chat window, right a clear four-step filing workflow
   with arrows—editorial contrast, professional playful.
-featured_image: /images/posts/external-memory-series-guide.png
+featured_image: /images/posts/external-memory-series-guide.jpg
 featured_image_alt: >-
   Desk with layered notebooks and a laptop showing a linked note graph for
   session continuity.

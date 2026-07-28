@@ -107,7 +107,6 @@ export default function Header() {
             height={503}
             sizes="(max-width: 860px) 33vw, 247px"
             className="site-logo-img site-logo-light"
-            priority
           />
           <Image
             src="/images/petralian_white.png"

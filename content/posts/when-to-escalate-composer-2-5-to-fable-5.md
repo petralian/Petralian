@@ -11,7 +11,7 @@ excerpt: >-
   Composer 2.5 is the CursorBench budget default. Fable 5 tiers buy peak score
   at higher cost. Use this decision tree to escalate only when failure cost
   justifies the line item — for solo work or team policy.
-featured_image: /images/posts/when-to-escalate-composer-2-5-to-fable-5.png
+featured_image: /images/posts/when-to-escalate-composer-2-5-to-fable-5.jpg
 featured_image_alt: >-
   Green pedestrian signal beside a taller red emergency beacon on a concrete
   wall at dusk, shallow depth of field, no logos or readable text.

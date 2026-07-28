@@ -28,7 +28,7 @@ image_prompt_variant_2: >-
   Runbook on the right—tool churn vs one source of truth.
 series: External Memory Series
 series_order: 4
-featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.png
+featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.jpg
 featured_image_alt: Editorial photograph of a printed runbook and decision log on a conference
 format: hybrid
 best_for: >-

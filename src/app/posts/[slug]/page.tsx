@@ -1,4 +1,5 @@
-﻿import { notFound } from "next/navigation";
+﻿import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,17 +14,18 @@ import { getTopicUrl } from "@/lib/tag-slug";
 import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import { absoluteAssetUrl, extractFaqPairs } from "@/lib/seo";
-import SubscribeBox from "@/components/SubscribeBox";
 import RelatedPosts from "@/components/RelatedPosts";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import PostOutline from "@/components/PostOutline";
-import TaskListEnhancer from "@/components/TaskListEnhancer";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
 import ProseImage from "@/components/ProseImage";
 import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
 import { rehypeHeadingIds } from "@/lib/rehype-heading-ids";
 import { rehypeFigureCaptions } from "@/lib/rehype-figure-captions";
 import { rehypeImageDimensions } from "@/lib/rehype-image-dimensions";
+
+const PostOutline = dynamic(() => import("@/components/PostOutline"));
+const SubscribeBox = dynamic(() => import("@/components/SubscribeBox"));
+const TaskListEnhancer = dynamic(() => import("@/components/TaskListEnhancer"));
 
 export const revalidate = 3600;
 
@@ -173,9 +175,8 @@ export default async function PostPage({
                 fill
                 priority
                 fetchPriority="high"
-                unoptimized
                 className="post-card-image"
-                sizes="(max-width: 768px) 100vw, min(50vw, 600px)"
+                sizes="(max-width: 860px) 100vw, min(50vw, 600px)"
               />
             </div>
           )}

@@ -11,7 +11,7 @@ excerpt: >-
   CursorBench 3.2 reports one score per model, but agent work varies by risk and
   scope. Here is a work-mode default map for anyone choosing Cursor models —
   with cost, tokens, and steps from the public table.
-featured_image: /images/posts/best-cursor-model-by-task-2026.png
+featured_image: /images/posts/best-cursor-model-by-task-2026.jpg
 featured_image_alt: >-
   Four workshop trays on a concrete bench under colored gel lights, each
   suggesting a different work mode, editorial still life, no logos or readable

@@ -13,7 +13,7 @@ excerpt: >-
   I run Cursor on Composer 2.5 only—not to save money alone, but to get
   predictable rule compliance. A tighter session bootstrap beat chasing frontier
   models for my workflow.
-featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.png
+featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.jpg
 focus_keyword: Cursor Composer 2.5 baseline model
 seo_description: >-
   Why I use Cursor Composer 2.5 as my only coding model: lower cost, predictable

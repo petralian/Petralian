@@ -627,6 +627,12 @@ if ($synced.Count -gt 0) {
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
 
+# ── Convert oversized PNG heroes to JPEG (updates featured_image paths) ─────
+Write-Host ''
+Write-Host '── Hero JPEG optimization ───────────────────────────────────────' -ForegroundColor Cyan
+node "$PSScriptRoot\png-to-jpg-post-heroes.mjs" 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
+
 # ── SEO/GEO: regenerate llms.txt + indexing reminders ───────────────────────
 if ($synced.Count -gt 0 -or $removed.Count -gt 0) {
   node "$PSScriptRoot\post-publish-seo.mjs" @($synced)

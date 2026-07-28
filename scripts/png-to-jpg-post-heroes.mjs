@@ -22,6 +22,14 @@ const SLUGS = [
   "getting-to-lighthouse-100-on-nextjs-16",
   "how-i-built-the-petralian-weekly-digest-on-brevo-free",
   "publishing-obsidian-drafts-through-github-actions",
+  "cursorbench-3-2-fable-5-composer-2-5-cost-vs-score",
+  "cursorbench-vs-swe-bench-vs-human-eval",
+  "open-models-cursorbench-3-2-grok-glm-kimi-longcat",
+  "best-cursor-model-by-task-2026",
+  "composer-2-5-baseline-model-tighter-bootstrap-better-results",
+  "fable-5-pricing-cursor-every-tier-explained",
+  "grok-4-5-cursor-knowledge-work-2026",
+  "when-to-escalate-composer-2-5-to-fable-5",
 ];
 
 async function convertSlug(slug) {
