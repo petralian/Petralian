@@ -36,11 +36,13 @@ if (slugs.length > 0) {
   const syncArgs = slugs.flatMap((s) => ["--slug", s]);
   code = run("audit-sync-integrity.mjs", syncArgs) || code;
   code = run("audit-hero-diversity.mjs", syncArgs) || code;
+  code = run("audit-live-posts.mjs", syncArgs) || code;
 } else if (full) {
   code = run("audit-sync-integrity.mjs", ["--all-synced"]) || code;
+  code = run("audit-live-posts.mjs", []) || code;
+} else {
+  code = run("audit-live-posts.mjs", []) || code;
 }
-
-code = run("audit-live-posts.mjs", []) || code;
 
 if (code !== 0) {
   console.error("\n✗ Post-publish gates FAILED — fix before commit/push.");

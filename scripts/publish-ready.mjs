@@ -172,15 +172,19 @@ async function main() {
   run("node", ["scripts/audit-hero-diversity.mjs", ...heroArgs]);
 
   const { summary, hasFail, hasWarn } = phaseCheck();
+  const readySet = new Set(slugs);
+  const readySummary = summary.filter((a) => readySet.has(a.slug));
+  const readyFail = readySummary.some((a) => a.status === "FAIL" || a.errors.length > 0);
+  const readyWarn = readySummary.some((a) => a.status === "WARN" || a.warnings.length > 0);
   printSummary(summary);
 
-  if (hasFail) {
-    console.log("\n✗ BLOCKED — fix errors above, then say “publish ready” again.");
+  if (readyFail) {
+    console.log("\n✗ BLOCKED — fix errors in 02 Ready above, then say “publish ready” again.");
     process.exit(1);
   }
 
-  if (hasWarn) {
-    console.log("\n⚠ WARNINGS — review above before publishing.");
+  if (readyWarn) {
+    console.log("\n⚠ WARNINGS — review 02 Ready articles above before publishing.");
     if (!doPublish) {
       console.log('   Say: “publish ready now” or “publish with confirm” to continue.');
       process.exit(2);
@@ -192,11 +196,14 @@ async function main() {
   }
 
   if (!doPublish) {
-    console.log('\n✓ All clear — say “publish ready now” to sync to content/posts/.');
+    if (hasFail && !readyFail) {
+      console.log("\n⚠ 03 Published has preflight errors — does not block new Ready publishes.");
+    }
+    console.log('\n✓ 02 Ready clear — say “publish ready now” to sync to content/posts/.');
     process.exit(0);
   }
 
-  phasePublish({ confirm: hasWarn && confirm });
+  phasePublish({ confirm: (readyWarn || hasWarn) && confirm });
   console.log("\n✓ Published to content/posts/.");
 }
 

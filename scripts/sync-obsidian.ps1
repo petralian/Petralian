@@ -29,6 +29,15 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+function Write-Utf8NoBom {
+  param(
+    [string]$Path,
+    [string]$Value
+  )
+  $utf8 = New-Object System.Text.UTF8Encoding $false
+  [System.IO.File]::WriteAllText($Path, $Value, $utf8)
+}
+
 $obsidianReady = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\02 Ready to publish"
 $obsidianPublished = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\03 Published"
 $obsidianAttachments = "D:\Obsidian\Obsidian\40_VSCode\Petralian\Blog\00 Attachments"
@@ -212,11 +221,14 @@ function Resolve-Images {
   if (Test-Path $stripScript) {
     $tmpStrip = New-TemporaryFile
     try {
-      Set-Content -Path $tmpStrip.FullName -Value $content -Encoding UTF8 -NoNewline
-      $content = node $stripScript $tmpStrip.FullName
+      Write-Utf8NoBom -Path $tmpStrip.FullName -Value $content
+      $stripped = node $stripScript $tmpStrip.FullName 2>&1
       if ($LASTEXITCODE -ne 0) {
         Write-Warning "  strip-vault-frontmatter failed — using raw content"
         $content = Get-Content $tmpStrip.FullName -Raw -Encoding UTF8
+      }
+      else {
+        $content = ($stripped | Out-String).TrimEnd("`r", "`n")
       }
     }
     finally {
@@ -651,15 +663,21 @@ function Publish-ObsidianFile {
   if (Test-Path $stripScript) {
     $tmpStrip = New-TemporaryFile
     try {
-      Set-Content -Path $tmpStrip.FullName -Value $content -Encoding UTF8 -NoNewline
-      $content = node $stripScript $tmpStrip.FullName
+      Write-Utf8NoBom -Path $tmpStrip.FullName -Value $content
+      $stripped = node $stripScript $tmpStrip.FullName 2>&1
+      if ($LASTEXITCODE -ne 0) {
+        Write-Warning "  strip-vault-frontmatter failed for $slug — using resolved content"
+      }
+      else {
+        $content = ($stripped | Out-String).TrimEnd("`r", "`n")
+      }
     }
     finally {
       Remove-Item $tmpStrip.FullName -Force -ErrorAction SilentlyContinue
     }
   }
 
-  Set-Content -Path $destFile -Value $content -Encoding UTF8 -NoNewline
+  Write-Utf8NoBom -Path $destFile -Value $content
   Write-Host "Synced: $($file.Name) -> posts/$slug.md" -ForegroundColor Green
   return $slug
 }
@@ -709,10 +727,17 @@ if ($synced.Count -gt 0) {
   Write-Host '── Image compression (AVIF) ─────────────────────────────────────' -ForegroundColor Cyan
   try {
     $nodeOutput = node "$PSScriptRoot\raster-to-avif.mjs" 2>&1
-    $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   }
   catch {
+    $nodeOutput = $null
     Write-Host "  WARN: AVIF pipeline failed (non-fatal): $_" -ForegroundColor Yellow
+  }
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "  WARN: AVIF pipeline exited $LASTEXITCODE — retrying og.jpg sidecars only" -ForegroundColor Yellow
+    $nodeOutput = node "$PSScriptRoot\raster-to-avif.mjs" --og-only 2>&1
+  }
+  if ($nodeOutput) {
+    $nodeOutput | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
   }
   Write-Host '────────────────────────────────────────────────────────────────' -ForegroundColor Cyan
 }
