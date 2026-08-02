@@ -57,6 +57,8 @@ Copy values from your Vercel project dashboard.
 
 ### 5. First build + start
 
+**Important:** Run the app with **CLI PM2 only** (`ecosystem.config.cjs`). Do **not** also use **Website → Node.js Project** for the same site — two managers fight over port 3000 and cause 502s during deploy. If you created a Node.js Project in aaPanel, delete it or leave it stopped permanently.
+
 ```bash
 cd /www/wwwroot/petralian
 npm ci
@@ -151,6 +153,31 @@ Browse the site. Remove the line before switching Cloudflare DNS.
 
 ## Day-2 operations
 
+### Zero-downtime deploys (vs Vercel)
+
+| Vercel | This VPS setup |
+|--------|----------------|
+| Builds off-box, swaps traffic atomically | Builds on-server while **old PM2 workers keep serving** |
+| You never see 502 from a deploy | Brief 502 only if **all** workers die before new ones listen |
+
+**How we minimize downtime:**
+
+1. **Build first, reload last** — `npm ci` + `next build` run while the live app stays up.
+2. **PM2 cluster (2 workers)** — `pm2 reload` restarts one worker at a time (`data/deploy.yaml` → `pm2_instances: 2`).
+3. **Health check + auto-restart** — if reload fails, `deploy-on-vps.sh` runs `pm2 restart` before exiting.
+
+**One-time on the VPS** (after pulling this change):
+
+```bash
+cd /www/wwwroot/petralian
+git pull origin master
+pm2 delete petralian 2>/dev/null || true
+pm2 start ecosystem.config.cjs
+pm2 save
+```
+
+You should see **2** `petralian` workers in `pm2 status`.
+
 ### Manual redeploy (SSH)
 
 ```bash
@@ -178,7 +205,7 @@ pm2 status
 | Symptom | Fix |
 |---------|-----|
 | Build OOM | `export NODE_OPTIONS=--max-old-space-size=2048` before build; add 2GB swap in aaPanel |
-| 502 Bad Gateway | `pm2 status` — app down? `pm2 restart petralian` |
+| 502 Bad Gateway | `pm2 status` — app down? `pm2 restart petralian`. Check you are **not** using aaPanel Node.js Project + CLI PM2 together. |
 | Newsletter 401 | `CRON_SECRET` mismatch between cron script and `.env` |
 | Leaderboard empty | Check Upstash env vars; `pm2 restart` after `.env` change |
 | SSL loop | Cloudflare SSL = Full (strict); origin must have valid Let's Encrypt cert |

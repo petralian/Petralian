@@ -7,6 +7,8 @@ vps:
   ssh_port: 2245
   node_version: "20"
   pm2_name: petralian
+  pm2_instances: 2
+  pm2_exec_mode: cluster
   build_node_options: "--max-old-space-size=2048"
 
 domain:
