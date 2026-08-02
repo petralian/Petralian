@@ -97,4 +97,6 @@ jobs:
           script_stop: true
           script: |
             cd /www/wwwroot/petralian
+            git fetch origin master
+            git reset --hard origin/master
             bash scripts/deploy-on-vps.sh
