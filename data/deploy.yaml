@@ -1,0 +1,25 @@
+# VPS deploy SSOT — paths and ports referenced by docs/deploy/aapanel.md
+# and scripts/deploy-on-vps.sh
+
+vps:
+  app_dir: /www/wwwroot/petralian
+  port: 3000
+  node_version: "20"
+  pm2_name: petralian
+  build_node_options: "--max-old-space-size=2048"
+
+domain:
+  primary: petralian.com
+  www: www.petralian.com
+
+cron:
+  # Monday 09:00 Asia/Hong_Kong = 01:00 UTC
+  newsletter_weekly_utc: "0 1 * * 1"
+  newsletter_path: /api/newsletter/weekly
+
+github:
+  branch: master
+  deploy_secrets:
+    - VPS_HOST
+    - VPS_USER
+    - VPS_SSH_KEY

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Audit (and optionally fix) Cloudflare DNS for petralian.com → Vercel.
+ * Audit (and optionally fix) Cloudflare DNS for petralian.com → VPS (nginx).
  * Usage:
  *   node scripts/audit-cloudflare-dns.mjs
  *   node scripts/audit-cloudflare-dns.mjs --fix
@@ -104,15 +104,14 @@ async function main() {
         r.content.includes("domaincontrol.com"))
   );
 
-  if (!apexA.length && !apexCname) issues.push("Missing apex @ record (A or CNAME to Vercel)");
-  if (apexCname && !apexCname.content.includes("vercel-dns")) {
-    issues.push(`Apex CNAME does not point to Vercel: ${apexCname.content}`);
+  if (!apexA.length && !apexCname) issues.push("Missing apex @ record (A or CNAME)");
+  if (apexCname?.content.includes("vercel-dns")) {
+    issues.push(`Apex still points to Vercel — update CNAME: ${apexCname.content}`);
   }
   if (!wwwCname) issues.push("Missing www CNAME");
-  if (wwwCname && !wwwCname.content.includes("vercel-dns")) {
-    issues.push(`www CNAME does not point to Vercel: ${wwwCname.content}`);
+  if (wwwCname?.content.includes("vercel-dns")) {
+    issues.push(`www still points to Vercel: ${wwwCname.content}`);
   }
-  if (wwwCname?.proxied) issues.push("www CNAME should be DNS-only (grey cloud) for Vercel");
   if (!gscTxt.length) issues.push("Missing google-site-verification TXT");
   if (staleNs.length) {
     issues.push(
@@ -124,7 +123,7 @@ async function main() {
   if (issues.length) {
     for (const i of issues) console.log(`⚠ ${i}`);
   } else {
-    console.log("✓ Core DNS looks correct for Vercel + GSC");
+    console.log("✓ Core DNS looks correct for VPS + GSC");
   }
 
   if (FIX && wwwCname?.proxied) {

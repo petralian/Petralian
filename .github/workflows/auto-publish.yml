@@ -80,8 +80,20 @@ jobs:
             git commit -m "content: auto-publish from vault [skip ci]"
             git push origin master
             echo "PUBLISHED=true" >> "$GITHUB_ENV"
-            echo "✓ Published. Vercel will deploy in ~30 seconds."
+            echo "✓ Published to master."
           else
             echo "PUBLISHED=false" >> "$GITHUB_ENV"
             echo "No new content to publish."
           fi
+
+      - name: Deploy to VPS (when content published)
+        if: env.PUBLISHED == 'true'
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script_stop: true
+          script: |
+            cd /www/wwwroot/petralian
+            bash scripts/deploy-on-vps.sh

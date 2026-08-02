@@ -441,7 +441,7 @@ function Test-ArticlePreflight {
       }
       $lower = $fname.ToLower()
       $articleSlug = if ($fm['slug']) { $fm['slug'].Trim() } else { [System.IO.Path]::GetFileNameWithoutExtension($filePath) }
-      if ($fname -match '\s' -or $lower -like 'pasted image*' -or $lower -like 'snipaste_*' -or $lower -like 'image*.*') {
+      if ($fname -match '\s' -or $lower -like 'pasted image*' -or $lower -like 'snipaste_*' -or $lower -like 'image*.*' -or $fname -match '^[a-f0-9]{20,}\.') {
         $errors.Add("Non-SEO image filename (rename to $articleSlug-body-NN-descriptor): $fname")
       }
       elseif ($fname -notmatch "^$([regex]::Escape($articleSlug))\.(avif|png|jpe?g|webp|svg|gif)$" -and $fname -notlike "$articleSlug-body-*") {
@@ -469,6 +469,19 @@ function Test-ArticlePreflight {
     if ($ext -in $imageExtensions) {
       if (-not (Find-VaultImage -filename $fname -articleFolder $articleFolder)) {
         $warnings.Add("Body image placeholder (will not publish until file exists): $fname")
+      }
+    }
+  }
+
+  # Attachment folder — any non-SEO filename blocks publish (not only referenced embeds)
+  $attachDir = Join-Path $articleFolder 'Attachments'
+  if (Test-Path $attachDir) {
+    $articleSlug = if ($fm['slug']) { $fm['slug'].Trim() } else { [System.IO.Path]::GetFileNameWithoutExtension($filePath) }
+    Get-ChildItem -Path $attachDir -File | ForEach-Object {
+      $fname = $_.Name
+      $lower = $fname.ToLower()
+      if ($fname -match '\s' -or $lower -like 'pasted image*' -or $lower -like 'snipaste_*' -or $fname -match '^[a-f0-9]{20,}\.') {
+        $errors.Add("Attachments folder non-SEO filename (rename): $fname")
       }
     }
   }
@@ -846,7 +859,7 @@ try {
     }
   }
   Write-Host ""
-  Write-Host "Pushed. Vercel will deploy in ~30 seconds." -ForegroundColor Green
+  Write-Host "Pushed. GitHub Actions deploys to VPS (Deploy to VPS workflow, ~2-3 min)." -ForegroundColor Green
   Write-Host "  https://petralian.com" -ForegroundColor Blue
 
   Promote-ReadyToPublished -ReadyEntries $readyPromoted -dryRun $false

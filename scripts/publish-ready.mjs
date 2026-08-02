@@ -154,6 +154,14 @@ async function main() {
 
   await phaseFix(slugs);
 
+  log("Vault attachment filenames");
+  let attachmentFail = false;
+  const attArgs = slugs.flatMap((s) => ["--slug", s]);
+  const att = run("node", ["scripts/audit-vault-attachments.mjs", ...attArgs], {
+    allowFail: true,
+  });
+  if (att.status !== 0) attachmentFail = true;
+
   log("Slug bundle integrity");
   let slugBundleFail = false;
   for (const slug of slugs) {
@@ -162,7 +170,7 @@ async function main() {
     });
     if (r.status !== 0) slugBundleFail = true;
   }
-  if (slugBundleFail) {
+  if (slugBundleFail || attachmentFail) {
     console.log("\n✗ BLOCKED — slug/filename/asset mismatch. Fix bundle, then say “publish ready”.");
     process.exit(1);
   }

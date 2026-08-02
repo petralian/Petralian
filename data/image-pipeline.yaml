@@ -24,9 +24,15 @@ browsers:
   safari: ">= 16"
   edge: ">= 85"
 
-vercel:
-  # Heroes/body images pre-compressed at sync; no /_next/image transforms (Hobby cap).
+hosting:
+  # Heroes/body images pre-compressed at sync; no /_next/image transforms on VPS.
   next_image_unoptimized: true
+
+# JPEG sidecars for LinkedIn / Facebook / X (og:image does not support AVIF).
+social_share:
+  suffix: .og.jpg
+  jpeg_quality: 85
+  max_width_px: 1200
 
 paths:
   repo_posts_images: public/images/posts

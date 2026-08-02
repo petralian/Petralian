@@ -12,11 +12,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import {
+  isBadSeoFilename,
+  isCanonicalAsset,
+  isImageFile,
+} from "./lib/vault-image-filename.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const VAULT = path.join("D:", "Obsidian", "Obsidian", "40_VSCode", "Petralian");
 const READY = path.join(VAULT, "Blog", "02 Ready to publish");
-const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -65,8 +69,7 @@ function collectAttachmentFiles(articleDir) {
     const d = path.join(articleDir, sub);
     if (!fs.existsSync(d)) continue;
     for (const f of fs.readdirSync(d)) {
-      const ext = path.extname(f).toLowerCase();
-      if (IMAGE_EXT.has(ext)) out.push(path.join(d, f));
+      if (isImageFile(f)) out.push(path.join(d, f));
     }
   }
   return out;
@@ -100,27 +103,12 @@ function auditArticle(filePath, { oldSlug } = {}) {
   const bodySlots = Array.isArray(fm.body_images) ? fm.body_images : [];
   const slotFilenames = new Set(bodySlots.map((s) => s?.filename).filter(Boolean));
 
-  const isCanonicalAsset = (name) => {
-    const stem = path.basename(name, path.extname(name));
-    return stem === slug || name.startsWith(`${slug}-body-`);
-  };
-
-  const isBadSeoFilename = (name) => {
-    if (!name || /[\s]/.test(name)) return true;
-    if (/^pasted image /i.test(name)) return true;
-    if (/^snipaste_/i.test(name)) return true;
-    if (/^image\d+\./i.test(name)) return true;
-    if (/^screenshot/i.test(name)) return true;
-    if (/^capture/i.test(name)) return true;
-    return false;
-  };
-
   for (const slot of bodySlots) {
     const fn = slot?.filename;
     if (!fn) continue;
     if (isBadSeoFilename(fn)) {
       errors.push(`body_images ${slot.id}: non-SEO filename "${fn}" — use ${slug}-body-${slot.id}-descriptor.ext`);
-    } else if (!isCanonicalAsset(fn)) {
+    } else if (!isCanonicalAsset(fn, slug)) {
       errors.push(`body_images ${slot.id}: filename "${fn}" must start with "${slug}-body-"`);
     }
     if (slot.status === "embedded" && !findImage(fn, articleDir)) {
@@ -131,11 +119,10 @@ function auditArticle(filePath, { oldSlug } = {}) {
   const wikiEmbeds = [...body.matchAll(/!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/g)];
   for (const m of wikiEmbeds) {
     const name = path.basename(m[1].trim());
-    const ext = path.extname(name).toLowerCase();
-    if (!IMAGE_EXT.has(ext)) continue;
+    if (!isImageFile(name)) continue;
     if (isBadSeoFilename(name)) {
-      errors.push(`Body embed "${name}" is not SEO-safe — rename to ${slug}-body-NN-descriptor${ext}`);
-    } else if (!isCanonicalAsset(name)) {
+      errors.push(`Body embed "${name}" is not SEO-safe — rename to ${slug}-body-NN-descriptor${path.extname(name)}`);
+    } else if (!isCanonicalAsset(name, slug)) {
       errors.push(`Body embed "${name}" must use slug prefix "${slug}-body-"`);
     }
     if (!findImage(name, articleDir)) {
@@ -145,15 +132,17 @@ function auditArticle(filePath, { oldSlug } = {}) {
 
   for (const file of collectAttachmentFiles(articleDir)) {
     const base = path.basename(file);
+    if (isBadSeoFilename(base)) {
+      errors.push(`Attachment folder contains non-SEO file "${base}" — rename or remove before publish`);
+      continue;
+    }
     const referenced =
       base === fiName ||
       slotFilenames.has(base) ||
       body.includes(`[[${base}`) ||
       body.includes(`[[${base}|`);
     if (!referenced) continue;
-    if (isBadSeoFilename(base)) {
-      errors.push(`Referenced asset "${base}" is not SEO-safe — rename before publish`);
-    } else if (!isCanonicalAsset(base)) {
+    if (!isCanonicalAsset(base, slug)) {
       errors.push(`Referenced asset "${base}" must use slug prefix "${slug}-body-" or hero name`);
     }
   }
