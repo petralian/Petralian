@@ -10,7 +10,7 @@ Source for [petralian.com](https://petralian.com) — Nathan Petralia's personal
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) — CSS-first, no config file |
 | **Content** | Markdown files with gray-matter frontmatter |
 | **Syntax highlighting** | [Shiki](https://shiki.style) via rehype-pretty-code |
-| **Deploy** | [Vercel](https://vercel.com) — root directory: repo root |
+| **Deploy** | VPS (aaPanel + PM2) — GitHub Actions `Deploy to VPS` on push to `master` |
 
 ## Development
 
@@ -34,7 +34,7 @@ Articles are written in [Obsidian](https://obsidian.md) and published via a sync
 1. Write in Obsidian (`01 Drafts/`)
 2. Move to `02 Ready to publish/` when the article is done
 3. Run `.\scripts\sync-obsidian.ps1` — copies from `02 Ready to publish/` and `03 Published/` into `content/posts/`, commits, and pushes to GitHub
-4. Vercel auto-deploys in ~30 seconds
+4. GitHub Actions deploys to VPS in ~2–3 minutes (`scripts/deploy-on-vps.sh`)
 
 Preview without writing: `.\scripts\sync-obsidian.ps1 -DryRun`
 
@@ -78,28 +78,24 @@ wp-content/         ← Legacy WordPress theme/plugins
 
 ## Deploy
 
-The site deploys automatically on every push to `master` via **Vercel**.
+The site deploys on every push to `master` via **GitHub Actions** → SSH → `scripts/deploy-on-vps.sh` on the VPS.
 
 | Setting | Value |
 |---|---|
-| **Root directory** | repo root |
-| **Framework preset** | Next.js (auto-detected) |
-| **Build command** | `npm run build` |
+| **App directory** | `/www/wwwroot/petralian` (`data/deploy.yaml`) |
+| **Process manager** | PM2 (`ecosystem.config.cjs`) |
+| **Build command** | `npm run build:vps` |
 | **Production URL** | https://petralian.com |
 
-### First-time setup
+### GitHub secrets (required)
 
-1. [vercel.com/new](https://vercel.com/new) → Import `petralian/Petralian`
-2. Set **Root Directory** → `site`
-3. Deploy — framework auto-detected
-4. Add custom domain `petralian.com` in Project → Settings → Domains
-5. Point DNS at your registrar to Vercel's nameservers
+Set in repo **Settings → Secrets → Actions**:
 
-### Always verify before pushing
+- `VPS_HOST` — server IP or hostname
+- `VPS_USER` — SSH user
+- `VPS_SSH_KEY` — private key (PEM)
 
-```bash
-cd site && npm run build   # must exit 0
-```
+See `docs/deploy/aapanel.md` for first-time VPS setup and manual deploy: `bash scripts/deploy-on-vps.sh`.
 
 ## License
 

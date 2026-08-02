@@ -15,7 +15,7 @@ At the start of every non-trivial session, read universal rules **before** proje
 1. **Brain first** — read via the `obsidian-brain` MCP server:
    - `00_Brain/AI Agent Methodology.md` — note taxonomy, session loop, anti-patterns
    - `00_Brain/Conventions/Response Footer Contract.md` — session context + footer (canonical)
-   - `00_Brain/Conventions/Deploy Playbook.md` — deploy gate (Vercel)
+   - `00_Brain/Conventions/Deploy Playbook.md` — deploy gate (VPS)
    - **Path safety (mandatory):** for `mcp_obsidian-brai_*` reads, always pass absolute paths rooted at `C:\Obsidian\obsidian\00_Brain\...`
    - Never pass relative `00_Brain/...` paths to `mcp_obsidian-brai_*`.
 2. Then follow the Session Memory Loop below.
@@ -60,10 +60,10 @@ Every chat session **must** follow this loop — no exceptions:
 ## Project Identity
 
 - **Site:** petralian.com — personal website + writing on enterprise AI and transformation
-- **Stack:** Next.js 16 · TypeScript · Tailwind CSS v4 · Markdown · Vercel
+- **Stack:** Next.js 16 · TypeScript · Tailwind CSS v4 · Markdown · VPS (PM2)
 - **Repo:** `D:\VS Code Projects\Petralian`
 - **Local URL:** http://localhost:3000
-- **Live URL:** https://petralian.com (Vercel, auto-deploy from `master`)
+- **Live URL:** https://petralian.com (VPS, GitHub Actions deploy from `master`)
 - **Obsidian vault:** `C:\Obsidian\obsidian\40_VSCode\Petralian\`
 - **MCP server:** `petralian-obsidian` (custom) + `obsidian-brain` (built-in filesystem)
 
@@ -110,9 +110,9 @@ npm run build
 
 ## Deploy
 
-Vercel auto-deploys on every push to `master`. Root directory: repo root (no subdirectory).
+GitHub Actions **Deploy to VPS** runs on every push to `master` (SSH + `scripts/deploy-on-vps.sh`). Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` — see `data/deploy.yaml` and `docs/deploy/aapanel.md`.
 
-- Push to GitHub → Vercel builds in ~30 seconds → live at https://petralian.com
+- Push to GitHub → VPS build + PM2 reload (~2–3 min) → live at https://petralian.com
 - Always run `npm run build` locally to verify before pushing.
 
 ## Test Baseline

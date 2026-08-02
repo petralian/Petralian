@@ -33,8 +33,9 @@ npm run publish:ready -- --slug my-article-slug  # one Ready post only
 2. **Normalize** — vault filenames, captions, Attachments paths
 3. **Pexels credits** — photographer from API/cache (never from download filename)
 4. **Slug bundle** — filename, hero, attachments integrity
-5. **Hero diversity** — vault `image_prompt` lane caps (blocks monotone isometric batches)
-6. **Preflight** — `02 Ready` + `03 Published`: format, best_for, body word count (≥50 blocking)
+5. **Vault attachments** — SEO filenames in `Attachments/` (no `Pasted image`, hashes, spaces)
+6. **Hero diversity** — vault personality blocks + lane IDs; graphic-lane caps (`audit-hero-diversity.mjs`)
+7. **Preflight** — `02 Ready` + `03 Published`: format, best_for, body word count (≥50 blocking)
 
 ### After `--publish` (sync-obsidian.ps1 — automatic, user never runs manually)
 
@@ -61,7 +62,7 @@ Agent runs the full loop — user does **not** run audit commands manually:
 1. `npm run publish:ready -- --publish` (or `sync-obsidian.ps1` for direct sync)
 2. Gates above must pass (sync integrity + live posts + hero diversity)
 3. `npx next build` when code changed (Tina port 9000 must be free)
-4. Commit + push when user requests ship
+4. Commit + push → GitHub Actions **Deploy to VPS** (~2–3 min; secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` per `data/deploy.yaml`)
 
 **Runbook:** vault `Operations/SEO Publish Pipeline.md`  
 **Writing rules:** `Blog/00 Writing Session Guide.md`
@@ -115,7 +116,7 @@ When the user changes **title**, **slug**, tool names in the title (e.g. ChatGPT
 - **Rename in place** in `Attachments/` + update `body_images`, wiki embeds, and captions in the **same batch** (slug bundle). One article at a time.
 - **Never** run batch ingest across Ready posts or swap files between articles.
 - Allowed without rename: fix **captions**, `alt`, SEO fields.
-- Preflight **FAIL** if any embedded image uses a non-SEO filename (`audit-slug-bundle.mjs`).
+- Preflight **FAIL** if any embedded image uses a non-SEO filename (`audit-slug-bundle.mjs` + `audit:vault-attachments`).
 
 ## Preflight report format
 
