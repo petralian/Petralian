@@ -4,6 +4,7 @@
 vps:
   app_dir: /www/wwwroot/petralian
   port: 3000
+  ssh_port: 2245
   node_version: "20"
   pm2_name: petralian
   build_node_options: "--max-old-space-size=2048"
