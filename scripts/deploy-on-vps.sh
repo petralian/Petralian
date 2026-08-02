@@ -43,6 +43,15 @@ fi
 pm2 save
 
 echo "==> Health check"
-sleep 2
-curl -fsS "http://127.0.0.1:3000/" >/dev/null
-echo "OK — petralian listening on :3000"
+for i in 1 2 3 4 5 6 7 8 9 10; do
+  if curl -fsS "http://127.0.0.1:3000/" >/dev/null 2>&1; then
+    echo "OK — petralian listening on :3000"
+    exit 0
+  fi
+  sleep 3
+done
+
+echo "Error: app not responding on :3000 after PM2 reload"
+pm2 status || true
+pm2 logs petralian --lines 30 --nostream || true
+exit 1
