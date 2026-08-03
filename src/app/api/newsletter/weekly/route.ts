@@ -1,5 +1,9 @@
 import crypto from "crypto";
 import { NextResponse } from "next/server";
+import {
+    buildWeeklyDigestHtml,
+    buildWeeklyDigestSubject,
+} from "@/lib/newsletter-digest-email";
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { getAllPosts } from "@/lib/posts";
 
@@ -84,50 +88,7 @@ async function getBrevoContacts(apiKey: string, listId?: number): Promise<BrevoC
 function buildDigestHtml(recipientEmail: string, recipientName: string | undefined, posts: ReturnType<typeof getDigestPosts>): string {
     const unsubscribeToken = signUnsubscribeToken(recipientEmail);
     const unsubscribeUrl = `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(recipientEmail)}&token=${unsubscribeToken}`;
-    const greeting = recipientName ? `Hi ${recipientName},` : "Hi,";
-
-    const items = posts
-        .map((post) => {
-            const url = `${SITE_URL}/posts/${post.slug}`;
-            return `
-        <tr>
-          <td style="padding: 0 0 20px;">
-            <a href="${url}" style="font-size:18px;line-height:1.4;color:#121212;text-decoration:none;font-weight:700;">${post.title}</a>
-            <p style="margin:8px 0 0;color:#4b5563;font-size:14px;line-height:1.6;">${post.excerpt}</p>
-          </td>
-        </tr>
-      `;
-        })
-        .join("");
-
-    return `
-  <!doctype html>
-  <html>
-    <body style="margin:0;padding:0;background:#f6f7fb;font-family:Arial,Helvetica,sans-serif;">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="padding:24px 0;">
-        <tr>
-          <td align="center">
-            <table role="presentation" width="640" cellspacing="0" cellpadding="0" style="width:640px;max-width:92%;background:#ffffff;border-radius:12px;padding:28px;">
-              <tr>
-                <td style="font-size:22px;line-height:1.3;color:#111827;font-weight:700;">${SITE_NAME} Weekly Digest</td>
-              </tr>
-              <tr>
-                <td style="padding-top:14px;font-size:16px;line-height:1.6;color:#1f2937;">${greeting}<br/>Here are this week's newest posts.</td>
-              </tr>
-              <tr><td style="height:18px;"></td></tr>
-              ${items}
-              <tr>
-                <td style="padding-top:12px;font-size:13px;line-height:1.6;color:#6b7280;">
-                  You are receiving this because you subscribed on ${SITE_NAME}.<br/>
-                  <a href="${unsubscribeUrl}" style="color:#6b7280;text-decoration:underline;">Unsubscribe</a>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </body>
-  </html>`;
+    return buildWeeklyDigestHtml({ recipientName, posts, unsubscribeUrl });
 }
 
 async function sendBrevoDigest(
@@ -142,7 +103,7 @@ async function sendBrevoDigest(
     const unsubscribeToken = signUnsubscribeToken(recipientEmail);
     const unsubscribeUrl = `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(recipientEmail)}&token=${unsubscribeToken}`;
 
-    const subject = `${SITE_NAME} weekly digest: ${posts.length} new post${posts.length > 1 ? "s" : ""}`;
+    const subject = buildWeeklyDigestSubject(posts.length);
     const htmlContent = buildDigestHtml(recipientEmail, recipientName, posts);
 
     const res = await fetch("https://api.brevo.com/v3/smtp/email", {
