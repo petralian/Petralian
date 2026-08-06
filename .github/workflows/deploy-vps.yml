@@ -26,6 +26,7 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 2245
           script_stop: true
+          command_timeout: 15m
           script: |
             cd /www/wwwroot/petralian
             bash scripts/deploy-on-vps.sh

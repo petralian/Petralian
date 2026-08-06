@@ -11,10 +11,22 @@ STAGING_DIST="${NEXT_STAGING_DIST:-.next-staging}"
 LIVE_DIST="${NEXT_LIVE_DIST:-.next}"
 LOCKFILE_HASH_FILE="${LOCKFILE_HASH_FILE:-.deploy-lockfile.sha256}"
 DEPLOY_LOCK="${DEPLOY_LOCK:-/var/lock/petralian-deploy.lock}"
+DEPLOY_LOCK_WAIT_SEC="${DEPLOY_LOCK_WAIT_SEC:-900}"
 HEALTH_RETRIES="${HEALTH_RETRIES:-25}"
 HEALTH_INTERVAL_SEC="${HEALTH_INTERVAL_SEC:-1}"
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 
 cd "$APP_DIR"
+
+# Pull latest deploy script before flock — re-exec so this process never runs stale logic
+# after `git reset` (GitHub Actions + manual SSH can start concurrently).
+if [[ -d .git ]] && [[ "${PETRALIAN_DEPLOY_SYNCED:-}" != "1" ]]; then
+  echo "==> Sync repo to origin/$BRANCH (before deploy lock)"
+  git fetch origin "$BRANCH"
+  git reset --hard "origin/$BRANCH"
+  export PETRALIAN_DEPLOY_SYNCED=1
+  exec env PETRALIAN_DEPLOY_SYNCED=1 bash "$SCRIPT_PATH" "$@"
+fi
 
 health_check() {
   curl -fsS --max-time 3 "$HEALTH_URL" >/dev/null 2>&1
@@ -40,9 +52,9 @@ rollback_next() {
 
 # Single deploy at a time (GitHub Actions + manual SSH)
 exec 200>"$DEPLOY_LOCK"
-if ! flock -n 200; then
-  echo "Another deploy is running — exit 0 (no duplicate work)"
-  exit 0
+if ! flock -w "$DEPLOY_LOCK_WAIT_SEC" 200; then
+  echo "Error: deploy lock busy for ${DEPLOY_LOCK_WAIT_SEC}s"
+  exit 1
 fi
 
 echo "==> Petralian deploy in $(pwd)"
@@ -59,12 +71,6 @@ if health_check; then
 else
   echo "==> Pre-deploy: app not responding — will start/reload after build"
   pm2 start ecosystem.config.cjs 2>/dev/null || true
-fi
-
-if [[ -d .git ]]; then
-  echo "==> Fetch $BRANCH"
-  git fetch origin "$BRANCH"
-  git reset --hard "origin/$BRANCH"
 fi
 
 LOCK_HASH="$(sha256sum package-lock.json | awk '{print $1}')"
