@@ -55,7 +55,7 @@ const PEXELS_WIKI_RE = /^pexels-.+\.(jpe?g|png|webp)$/i;
 const PASTED_RE = /^pasted image /i;
 
 function findArticlePath(slug) {
-  for (const stage of ["01 Drafts", "02 Ready to publish", "03 Published"]) {
+  for (const stage of ["03 Published", "02 Ready to publish", "01 Drafts"]) {
     const p = path.join(VAULT_BLOG, stage, `${slug}.md`);
     if (fs.existsSync(p)) return p;
   }
@@ -64,11 +64,13 @@ function findArticlePath(slug) {
 
 function searchRoots(articlePath) {
   const folder = path.dirname(articlePath);
-  return [
-    path.join(folder, "Attachments"),
-    folder,
-    LEGACY_ATTACH,
-  ];
+  const roots = [path.join(folder, "Attachments"), folder];
+  const publishedAttach = path.join(VAULT_BLOG, "03 Published", "Attachments");
+  if (publishedAttach !== roots[0]) {
+    roots.push(publishedAttach);
+  }
+  roots.push(LEGACY_ATTACH);
+  return roots;
 }
 
 function listVaultImages(articlePath) {
@@ -102,7 +104,19 @@ function normalizeDoubleExt(name) {
   return name.replace(/\.(png|jpe?g)\.(png|jpe?g)$/i, ".$1");
 }
 
-function findCandidateForSlot(files, slot, body) {
+function slugShort(slug, maxLen = 40) {
+  return slug.length > maxLen ? slug.slice(0, maxLen).replace(/-$/, "") : slug;
+}
+
+/** Shared 03 Published/Attachments — never match another article's -body-NN- file. */
+function belongsToSlug(name, slug) {
+  const base = normalizeDoubleExt(path.basename(name));
+  const short = slugShort(slug);
+  if (PASTED_RE.test(base)) return true;
+  return base.startsWith(`${slug}-`) || base.startsWith(`${short}-`);
+}
+
+function findCandidateForSlot(files, slot, body, slug) {
   const want = slot.filename;
   const embedded = new Set();
   for (const m of body.matchAll(/!\[\[([^\]|]+)/g)) {
@@ -111,6 +125,7 @@ function findCandidateForSlot(files, slot, body) {
   }
 
   for (const name of embedded) {
+    if (!belongsToSlug(name, slug) && !PASTED_RE.test(name)) continue;
     if (files.has(name)) return { name, path: files.get(name) };
     const norm = normalizeDoubleExt(name);
     if (files.has(norm)) return { name: norm, path: files.get(norm) };
@@ -123,6 +138,7 @@ function findCandidateForSlot(files, slot, body) {
 
   const base = want.replace(/\.[^.]+$/, "");
   for (const [name, filePath] of files) {
+    if (!belongsToSlug(name, slug)) continue;
     const norm = normalizeDoubleExt(name);
     if (norm === want || name === `${base}.png` || name === `${base}.png.png`) {
       return { name, path: filePath };
@@ -266,6 +282,7 @@ function applySectionPatch(body, sectionTitle, newSectionLines) {
 async function ingestSlug(slug, { dryRun }) {
   const articlePath = findArticlePath(slug);
   if (!articlePath) throw new Error(`Article not found: ${slug}`);
+  const articleSlug = path.basename(articlePath, ".md");
 
   const pexelsKey = loadEnvKey("PEXELS_API_KEY");
   const unsplashKey = loadEnvKey("UNSPLASH_ACCESS_KEY");
@@ -407,13 +424,19 @@ async function ingestSlug(slug, { dryRun }) {
     }
 
     if (slot.kind === "ui" || slot.kind === "screenshot") {
-      const dest = path.join(attachDir, slot.filename);
-      if (fs.existsSync(dest) && fs.statSync(dest).size > 0) {
-        console.log(`✓ slot ${slot.id}: canonical file exists (${slot.filename})`);
+      const destBase = rasterNameFor(slot.filename);
+      const dest = path.join(attachDir, destBase);
+      const destLegacy = path.join(attachDir, slot.filename);
+      const hasFile =
+        (fs.existsSync(dest) && fs.statSync(dest).size > 0) ||
+        (fs.existsSync(destLegacy) && fs.statSync(destLegacy).size > 0);
+      if (hasFile) {
+        syncSlotFilename(parsed.data.body_images, slot.id, path.basename(dest));
+        console.log(`✓ slot ${slot.id}: canonical file exists (${path.basename(dest)})`);
         const caption = screenshotCaption(slot);
         const section = sectionSlice(body, slot.section);
         if (section.slice) {
-          const newSection = rebuildSlotBlock(section.slice, slot, caption);
+          const newSection = rebuildSlotBlock(section.slice, { ...slot, filename: path.basename(dest) }, caption);
           body = applySectionPatch(body, slot.section, newSection);
         }
         const s = parsed.data.body_images.find((x) => x.id === slot.id);
@@ -421,30 +444,34 @@ async function ingestSlug(slug, { dryRun }) {
         continue;
       }
 
-      const candidate = findCandidateForSlot(files, slot, body);
-      const dest = path.join(attachDir, slot.filename);
+      const candidate = findCandidateForSlot(files, slot, body, articleSlug);
+      const destTarget = path.join(attachDir, slot.filename);
       if (candidate) {
-        const placed = moveToCanonical(candidate.path, dest, dryRun);
+        const placed = moveToCanonical(candidate.path, destTarget, dryRun);
         const finalPath = dryRun
           ? rasterNameFor(placed)
           : await ensureRasterOutput(placed, dryRun);
         syncSlotFilename(parsed.data.body_images, slot.id, path.basename(finalPath));
         files = listVaultImages(articlePath);
         console.log(`✓ slot ${slot.id}: renamed ${candidate.name} → ${path.basename(finalPath)}`);
-      } else if (!fs.existsSync(dest)) {
+      } else if (!fs.existsSync(dest) && !fs.existsSync(destTarget)) {
         console.warn(`WARN slot ${slot.id}: no screenshot file found for ${slot.filename}`);
       }
 
       const caption = screenshotCaption(slot);
       const section = sectionSlice(body, slot.section);
+      const slotForEmbed = {
+        ...slot,
+        filename: fs.existsSync(dest) ? path.basename(dest) : slot.filename,
+      };
       if (section.slice) {
-        const newSection = rebuildSlotBlock(section.slice, slot, caption);
+        const newSection = rebuildSlotBlock(section.slice, slotForEmbed, caption);
         body = applySectionPatch(body, slot.section, newSection);
-      } else if (fs.existsSync(dest)) {
-        const result = applyCaptionForFilename(body, slot.filename, caption);
+      } else if (fs.existsSync(dest) || fs.existsSync(destTarget)) {
+        const result = applyCaptionForFilename(body, slotForEmbed.filename, caption);
         body = result.markdown;
       }
-      if (fs.existsSync(dest) || candidate) {
+      if (fs.existsSync(dest) || fs.existsSync(destTarget) || candidate) {
         const s = parsed.data.body_images.find((x) => x.id === slot.id);
         if (s) s.status = "embedded";
       }

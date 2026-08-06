@@ -70,8 +70,9 @@ function parsePreflightOutput(text) {
 }
 
 async function phaseFix(slugs) {
-  log("Auto-fix: images (paste, Pexels, Unsplash) — skipped; run ingest per-slug only when pasting new assets");
-  // Ingest disabled in batch preflight — it can swap filenames when slots share a folder.
+  log("Auto-fix: images (paste, Pexels, Unsplash) — per-slug ingest only when PUBLISH_READY_INGEST=1");
+  // Batch ingest is OFF by default: shared 03 Published/Attachments can cross-match -body-NN-
+  // slots across articles (fixed in ingest-vault-images.mjs — slug prefix required).
   if (process.env.PUBLISH_READY_INGEST === "1") {
     for (const slug of slugs) {
       console.log(`\n• ${slug}`);

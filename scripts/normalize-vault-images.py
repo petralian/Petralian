@@ -92,19 +92,22 @@ def is_bad_filename(name: str, slug: str) -> bool:
     return False
 
 
-def search_roots(article_folder: Path | None = None) -> list[Path]:
+def search_roots(article_folder: Path | None = None, *, global_search: bool = False) -> list[Path]:
     roots: list[Path] = []
     if article_folder:
         roots.extend([attach_dir_for(article_folder), article_folder])
-    for base in (READY, PUBLISHED):
-        roots.extend([attach_dir_for(base), base])
+    if global_search:
+        for base in (READY, PUBLISHED):
+            roots.extend([attach_dir_for(base), base])
     if LEGACY.is_dir():
         roots.append(LEGACY)
     return roots
 
 
-def find_image(name: str, article_folder: Path | None = None) -> Path | None:
-    for base in search_roots(article_folder):
+def find_image(
+    name: str, article_folder: Path | None = None, *, global_search: bool = False
+) -> Path | None:
+    for base in search_roots(article_folder, global_search=global_search):
         p = base / name
         if p.is_file() and p.stat().st_size > 0:
             return p
@@ -136,10 +139,10 @@ def place_image(src: Path, dest_name: str, dest_dir: Path, dry_run: bool) -> Pat
 def apply_global_renames(dry_run: bool) -> list[str]:
     log: list[str] = []
     for old, new in GLOBAL_RENAMES.items():
-        src = find_image(old)
+        src = find_image(old, global_search=True)
         if not src:
             continue
-        existing = find_image(new)
+        existing = find_image(new, global_search=True)
         if existing and existing.stat().st_size > 0:
             if not dry_run:
                 try:
@@ -161,8 +164,8 @@ def apply_global_renames(dry_run: bool) -> list[str]:
 def remove_paste_duplicates(dry_run: bool) -> list[str]:
     log: list[str] = []
     for pasted, seo in PASTE_ALIASES.items():
-        pasted_path = find_image(pasted)
-        seo_path = find_image(seo)
+        pasted_path = find_image(pasted, global_search=True)
+        seo_path = find_image(seo, global_search=True)
         if pasted_path and seo_path and pasted_path != seo_path:
             if not dry_run:
                 try:
@@ -287,7 +290,7 @@ def normalize_featured(fm: str, slug: str, overrides: dict) -> tuple[str, list[s
             return f"featured_image: '[[{fname}]]'"
         if " " in val:
             clean = GLOBAL_RENAMES.get(val) or val.replace(" 1", "").strip()
-            if find_image(clean):
+            if find_image(clean, global_search=True):
                 log.append(f"{slug}: featured_image fix -> [[{clean}]]")
                 return f"featured_image: '[[{clean}]]'"
         if val and "/" not in val:
@@ -429,7 +432,7 @@ def cleanup_unreferenced_bad_files(dry_run: bool) -> list[str]:
     for name in junk_names:
         if name in all_refs:
             continue
-        p = find_image(name)
+        p = find_image(name, global_search=True)
         if p and not dry_run:
             try:
                 p.unlink()
@@ -449,7 +452,10 @@ def scan_issues() -> list[str]:
             for name in collect_refs(text):
                 if is_bad_filename(name, slug):
                     issues.append(f"{slug}: bad filename {name}")
-                if not find_image(name, md.parent) and not (dest / name).is_file():
+                if (
+                    not find_image(name, md.parent)
+                    and not (dest / name).is_file()
+                ):
                     issues.append(f"{slug}: missing {name}")
     return issues
 

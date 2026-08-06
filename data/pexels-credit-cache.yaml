@@ -6,11 +6,107 @@
 #   npm run resolve:pexels -- --url https://www.pexels.com/photo/chatgpt-on-monitors-screens-16416873/
 #
 # Apply captions to a vault article (02 Ready / 03 Published):
-#   npm run resolve:pexels -- --apply when-chatgpt-is-research-and-cursor-is-build-layer
+#   npm run resolve:pexels -- --apply when-poe-is-research-and-cursor-is-build-layer
 #
 # Requires PEXELS_API_KEY in env for API resolution (free at https://www.pexels.com/api/).
 
 photos:
+  '6347':
+    id: '6347'
+    photographer: Karolina Grabowska www.kaboompics.com
+    photographer_url: 'https://www.pexels.com/@karola-g2'
+    photo_url: 'https://www.pexels.com/photo/happy-coffee-6347/'
+    alt: 'A coffee cup with a smiling face pattern on a wooden table, perfect for morning routines.'
+    resolved_at: '2026-08-06'
+    source: api
+  '159711':
+    id: '159711'
+    photographer: Pixabay
+    photographer_url: 'https://www.pexels.com/@pixabay'
+    photo_url: 'https://www.pexels.com/photo/books-in-black-wooden-book-shelf-159711/'
+    alt: 'Vibrant collection of books on shelves for reading, research, and education.'
+    resolved_at: '2026-08-06'
+    source: api
+  '162553':
+    id: '162553'
+    photographer: Pixabay
+    photographer_url: 'https://www.pexels.com/@pixabay'
+    photo_url: 'https://www.pexels.com/photo/set-of-tool-wrench-162553/'
+    alt: 'Neatly arranged wrenches and tools on a workshop wall, ideal for mechanics.'
+    resolved_at: '2026-08-06'
+    source: api
+  '399187':
+    id: '399187'
+    photographer: Jonathan Petersson
+    photographer_url: 'https://www.pexels.com/@grizzlybear'
+    photo_url: 'https://www.pexels.com/photo/green-football-field-399187/'
+    alt: 'A brightly lit soccer field at night in Norrtälje, Sweden, showcasing green turf and stadium lights.'
+    resolved_at: '2026-08-06'
+    source: api
+  '3802506':
+    id: '3802506'
+    photographer: Ana Maria
+    photographer_url: 'https://www.pexels.com/@annamaria123'
+    photo_url: 'https://www.pexels.com/photo/city-people-france-buildings-3802506/'
+    alt: 'Free stock photo of black and white, black-and-white, buildings'
+    resolved_at: '2026-08-06'
+    source: api
+  '3832026':
+    id: '3832026'
+    photographer: cottonbro studio
+    photographer_url: 'https://www.pexels.com/@cottonbro'
+    photo_url: 'https://www.pexels.com/photo/person-holding-a-book-3832026/'
+    alt: An intimate close-up of hands holding and bookmarking a book. Ideal for educational themes.
+    resolved_at: '2026-08-06'
+    source: api
+  '5225982':
+    id: '5225982'
+    photographer: Ahmet Polat
+    photographer_url: 'https://www.pexels.com/@ibnulharezmi'
+    photo_url: 'https://www.pexels.com/photo/brown-wooden-book-shelves-in-the-bookstore-5225982/'
+    alt: A spacious library featuring tall wooden bookshelves filled with books and ambient lighting.
+    resolved_at: '2026-08-06'
+    source: api
+  '5504388':
+    id: '5504388'
+    photographer: Mike van Schoonderwalt
+    photographer_url: 'https://www.pexels.com/@mike-van-schoonderwalt-1884800'
+    photo_url: 'https://www.pexels.com/photo/yellow-tower-cranes-5504388/'
+    alt: Cluster of yellow tower cranes at a construction site with a gloomy sky background.
+    resolved_at: '2026-08-06'
+    source: api
+  '6169648':
+    id: '6169648'
+    photographer: Tima Miroshnichenko
+    photographer_url: 'https://www.pexels.com/@tima-miroshnichenko'
+    photo_url: 'https://www.pexels.com/photo/a-person-filling-up-a-form-on-a-clipboard-6169648/'
+    alt: 'Close-up of person writing on form attached to clipboard, capturing the diligent process.'
+    resolved_at: '2026-08-06'
+    source: api
+  '6194031':
+    id: '6194031'
+    photographer: Thirdman
+    photographer_url: 'https://www.pexels.com/@thirdman'
+    photo_url: 'https://www.pexels.com/photo/close-up-photo-of-a-tuning-fork-6194031/'
+    alt: A close-up of a metal tuning fork standing on a reflective piano surface with dark background.
+    resolved_at: '2026-08-06'
+    source: api
+  '7709281':
+    id: '7709281'
+    photographer: MART  PRODUCTION
+    photographer_url: 'https://www.pexels.com/@mart-production'
+    photo_url: 'https://www.pexels.com/photo/photograph-of-laptops-with-headsets-7709281/'
+    alt: Row of laptops with headsets in a modern office environment ready for communication.
+    resolved_at: '2026-08-06'
+    source: api
+  '8860212':
+    id: '8860212'
+    photographer: cottonbro studio
+    photographer_url: 'https://www.pexels.com/@cottonbro'
+    photo_url: 'https://www.pexels.com/photo/elderly-man-sitting-on-bed-8860212/'
+    alt: 'An elderly man sits thoughtfully on a bed, conveying solitude and reflection.'
+    resolved_at: '2026-08-06'
+    source: api
   '16416873':
     id: '16416873'
     photographer: Melih Can
@@ -26,4 +122,30 @@ photos:
     photo_url: 'https://www.pexels.com/photo/smiling-men-in-an-office-18999366/'
     alt: 'Three men standing in a casual office environment, sharing a light moment.'
     resolved_at: '2026-07-28'
+    source: api
+  '34957868':
+    id: '34957868'
+    photographer: Mayara Caroline  Mombelli
+    photographer_url: 'https://www.pexels.com/@mayaramombellifotografias'
+    photo_url: 'https://www.pexels.com/photo/woman-enjoying-iced-coffee-while-browsing-smartphone-34957868/'
+    alt: A woman is sipping iced coffee and browsing her smartphone at a cafe.
+    resolved_at: '2026-08-06'
+    source: api
+  '36491205':
+    id: '36491205'
+    photographer: Peter Dyllong
+    photographer_url: 'https://www.pexels.com/@peter-dyllong-2158803154'
+    photo_url: 'https://www.pexels.com/photo/industrial-building-with-external-stairs-in-overcast-weather-36491205/'
+    alt: Exterior view of a green industrial building with stairs and fence under cloudy skies.
+    resolved_at: '2026-08-06'
+    source: api
+  '38751509':
+    id: '38751509'
+    photographer: Mohammad Hedayet Sarker
+    photographer_url: 'https://www.pexels.com/@hedayetsarker'
+    photo_url: 'https://www.pexels.com/photo/aerial-view-of-highway-interchange-in-tokyo-38751509/'
+    alt: >-
+      A detailed aerial shot of a highway interchange in Tokyo, Japan, showcasing the traffic patterns and intricate
+      road design.
+    resolved_at: '2026-08-06'
     source: api
