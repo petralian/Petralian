@@ -28,7 +28,6 @@ featured_image_alt: >-
   ...
 format: hybrid
 best_for: Anyone whose idea chats and life-admin chats keep contaminating each other
-seo_title: Cursor Customize for Brainstorming and a Personal Agent
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 1 of 5 deep dives

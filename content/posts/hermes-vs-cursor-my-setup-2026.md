@@ -19,18 +19,6 @@ related_posts:
   - the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
   - is-cursor-only-for-developers
   - cursor-obsidian-brain-handbook-2026
-image_prompt: >-
-  Cinematic 16:9: phone on kitchen counter glows with message bubbles while a
-  desk in background shows open document folders, warm morning light split
-  cool/warm, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 lighthouse relay: Telegram beam hits offshore server island, file
-  cabinet pier connects to desk mainland, teal water, copper sky, no readable
-  text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Hermes server block with Telegram and WebUI ports;
-  Cursor desk block with vault files; dashed sync arrow between, violet
-  risograph, no logos.
 format: hybrid
 best_for: >-
   Anyone comparing a hosted messaging agent with Cursor who wants a clear split

@@ -23,17 +23,6 @@ related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
   - is-cursor-only-for-developers
-image_prompt: >-
-  Cinematic 16:9 low-angle: one bright main conversation path on a glass desk
-  with two thinner luminous side channels branching off like tributaries, copper
-  rim light, shallow depth, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 subway map diorama: main line train continues while two side
-  platforms hold separate question booths, teal and amber station lights,
-  miniature scale, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Main Thread block with two Side Chat modules
-  feeding back via dashed arrows, violet and slate risograph texture, no logos.
 format: hybrid
 best_for: >-
   Anyone running long Cursor agent sessions who needs quick tangents without

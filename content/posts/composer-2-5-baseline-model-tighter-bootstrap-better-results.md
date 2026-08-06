@@ -13,23 +13,12 @@ excerpt: >-
   I run Cursor on Composer 2.5 only—not to save money alone, but to get
   predictable rule compliance. A tighter session bootstrap beat chasing frontier
   models for my workflow.
-featured_image: /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.avif
+featured_image: >-
+  /images/posts/composer-2-5-baseline-model-tighter-bootstrap-better-results.avif
 focus_keyword: Cursor Composer 2.5 baseline model
 seo_description: >-
   Why I use Cursor Composer 2.5 as my only coding model: lower cost, predictable
   footer and rule compliance, and better results from a tighter session…
-image_prompt: >-
-  Minimal developer workspace with a single model selector pinned to one option,
-  beside a neat stack of labeled rule cards and an Obsidian vault notebook—calm
-  editorial lighting, no logos, no faces.
-image_prompt_variant_1: >-
-  Tiny control room with one steady gauge labeled Composer 2.5 and a wall of
-  filing drawers for Rules and Vault—one operator chair, warm technical diorama,
-  clever not cartoonish.
-image_prompt_variant_2: >-
-  Split chart scene: left side spinning model roulette wheel with price tags
-  flying off; right side straight assembly line with checklist gates—editorial
-  contrast, professional playful tone.
 featured_image_alt: Minimal developer workspace with a single model selector pinned to one
 format: hands-on
 best_for: Practice leads standardizing Cursor model policy and tighter agent bootstrap

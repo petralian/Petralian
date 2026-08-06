@@ -1,7 +1,6 @@
 ---
 title: CX Metrics Agents Cannot Fake (and the Ones They Will)
 slug: cx-metrics-agents-cannot-fake
-seo_title: "CX Metrics Agents Cannot Fake: Hard vs Soft KPIs"
 date: 2026-08-11T00:00:00.000Z
 tags:
   - Customer Experience
@@ -45,6 +44,9 @@ Photo by Tima Miroshnichenko from Pexels: https://www.pexels.com/photo/a-person-
 **Who it is for:** CX leaders, operations directors, and executives building AI-assisted service or content programs who need a scorecard that still means something when agents draft replies and reports.
 
 **What you will learn:** a simple hardness test for metrics, a comparison table, and Path A to stress-test one KPI before you expand agent scope.
+
+![Simple scoreboard or KPI board suggesting metrics that resist gaming.](/images/posts/cx-metrics-agents-cannot-fake-body-01-scoreboard.avif)
+*Photo: [Tima Miroshnichenko](https://www.pexels.com/photo/a-person-filling-up-a-form-on-a-clipboard-6169648/) on Pexels — Petralian (2026)*
 
 ## Why the scorecard matters more when agents join
 
@@ -154,6 +156,9 @@ These are not new ideas. They survive because they bind to money and time.
 | **Churn** on subscription or replenishment | Billing events |
 
 Agents can help **analyze** these series. They should not **be** the source of truth for them.
+
+![Customer support desk headset suggesting outcomes agents cannot fake alone.](/images/posts/cx-metrics-agents-cannot-fake-body-03-support-desk.avif)
+*Photo: [MART  PRODUCTION](https://www.pexels.com/photo/photograph-of-laptops-with-headsets-7709281/) on Pexels — Petralian (2026)*
 
 ## Metrics agents will inflate
 

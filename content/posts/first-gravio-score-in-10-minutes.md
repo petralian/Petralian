@@ -16,10 +16,6 @@ seo_description: >-
   Follow a step-by-step Gravio onboarding guide from zero setup to first AI
   quality score in about 10 minutes, with troubleshooting tips for common
   friction…
-image_prompt: >-
-  A clean developer desktop with terminal commands and checklist steps floating
-  as UI cards, bright neutral lighting, modern technical illustration, subtle
-  green success accents, no text
 featured_image_alt: A clean developer desktop with terminal commands and checklist steps
 format: hands-on
 best_for: Builders trying Gravio scoring on a real repo in one sitting

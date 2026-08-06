@@ -24,18 +24,6 @@ related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-obsidian-brain-handbook-2026
   - cursor-customize-blogging-and-project-memory-2026
-image_prompt: >-
-  Cinematic 16:9: macro of interlocking brass gears beside a leather notebook
-  and a phone face-down, warm rim light suggesting a closed loop, no logos, no
-  readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 observatory: skills as lenses on a rotating turret, hooks as
-  shutter gates, Obsidian vault as the dome archive, violet night sky, no
-  readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Skills Hooks Commands Subagents MCPs as five
-  modules feeding a central Memory Loop ring, teal and copper risograph, no
-  logos.
 featured_image_alt: >-
   Cinematic 16:9: macro of interlocking brass gears beside a leather notebook
   and a phone face-down, warm rim light suggesting a closed loop, no logos, no

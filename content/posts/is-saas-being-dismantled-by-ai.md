@@ -9,13 +9,11 @@ tags:
   - Ecommerce
 excerpt: >-
   TL;DR What Is SaaS Being Dismantled by AI? covers. Who it is for and when to
-  use it. Practical next steps after reading. External Memory Series —
-  File-based…
+  use it. Practical next steps after reading. External Memory Series —…
 featured_image: /images/posts/saas-ai-disruption-future-hero.avif
 seo_description: >-
   TL;DR What Is SaaS Being Dismantled by AI? covers. Who it is for and when to
-  use it. Practical next steps after reading. External Memory Series —
-  File-based…
+  use it. Practical next steps after reading. External Memory Series —…
 featured_image_alt: Hero illustration for Is SaaS Being Dismantled by AI?
 format: strategic
 best_for: Leaders evaluating SaaS portfolio risk as AI reshapes software economics

@@ -150,6 +150,9 @@ Shop automates the shelf. It does not automate **stakeholder alignment** when th
 
 Shoppable media strategy in [WARC-style omnichannel framing](/posts/shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article) already noted Western platforms following APAC in-content checkout. The follow-on question in 2026 is **who owns the program when the button is native everywhere.**
 
+![Person scrolling a social commerce feed on a phone in a cafe.](/images/posts/wechat-mini-programs-vs-instagram-shop-social-commerce-body-02-social-feed.avif)
+*Photo: [Mayara Caroline  Mombelli](https://www.pexels.com/photo/woman-enjoying-iced-coffee-while-browsing-smartphone-34957868/) on Pexels — Petralian (2026)*
+
 ## APAC pace vs Western campaign rhythm
 
 Retail innovation in APAC often moves faster because mobile payment and super-app habits normalized in-content buying earlier. [Retail vs banking innovation patterns](/posts/why-retail-often-leads-in-digital-innovation-over-banking-and-what-we-can-learn-from-it) apply here too: retail rewards speed; regulated categories reward gates.

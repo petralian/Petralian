@@ -26,17 +26,6 @@ related_posts:
   - composer-2-5-baseline-model-tighter-bootstrap-better-results
   - three-layer-external-brain-for-ai-first-development
   - cursor-lightweight-harness-without-microservice-2026
-image_prompt: >-
-  Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter
-  receipt, and small labeled cards Context7 Serena Rules, warm side light, no
-  logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9: leaky pipe labeled Proxy dripping tokens into a bucket labeled
-  OpenRouter Cache already full, telescope and ledger on desk, indigo and amber,
-  no text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9: before stack Proxy Tunnel RTK crossed out, after stack
-  Direct MCP Harness as three blocks, risograph teal and slate, no logos.
 featured_image_alt: 'Cinematic 16:9: workbench with crossed-out proxy diagram, active OpenRouter'
 format: hands-on
 best_for: >-

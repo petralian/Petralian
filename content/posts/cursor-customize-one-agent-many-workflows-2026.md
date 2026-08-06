@@ -23,19 +23,6 @@ related_posts:
   - cursor-customize-business-development-ssot-2026
   - cursor-lightweight-harness-without-microservice-2026
   - is-cursor-only-for-developers
-image_prompt: >-
-  Cinematic 16:9: a single desk lamp illuminates a week planner board with six
-  soft abstract mode tiles (thought bubble, handshake, notebook, calendar,
-  wrench, phone), amber rim light, shallow depth, no logos, no readable text, no
-  faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 greenhouse diorama: one central vine trunk splits into six
-  labeled growing trays for different life work modes, phone and laptop as
-  watering cans, teal bioluminescence, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: seven Customize layer blocks (Rules Skills Hooks
-  Commands Plugins MCPs Subagents) orbit one agent core, copper and slate
-  risograph, no logos, no readable text.
 featured_image_alt: >-
   Cinematic 16:9: a single desk lamp illuminates a week planner board with six
   soft abstract mode tiles (thought bubble, handshake, notebook, calendar,

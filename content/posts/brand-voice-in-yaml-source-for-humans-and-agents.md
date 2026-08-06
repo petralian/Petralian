@@ -1,7 +1,6 @@
 ---
 title: 'Brand Voice in YAML: One Source for Humans and Agents'
 slug: brand-voice-in-yaml-source-for-humans-and-agents
-seo_title: "Brand Voice in YAML for Humans and Agents"
 date: 2026-08-02T00:00:00.000Z
 tags:
   - Brand Strategy
@@ -46,6 +45,9 @@ Photo by Thirdman from Pexels: https://www.pexels.com/photo/close-up-photo-of-a-
 **Who it is for:** brand and content ops leads producing blog, email, and social through multiple AI tools who already accept that voice is a governance problem, not a prompting problem.
 
 **What you will learn:** which fields belong in YAML vs markdown, how this complements (not replaces) the [marketing voice playbook](/posts/knowledge-work-engine-marketing-voice-2026), and Path A for a ten-field voice file today.
+
+![Tuning fork on a desk suggesting aligned human and agent voice.](/images/posts/brand-voice-in-yaml-source-for-humans-and-agents-body-02-tuning-fork.avif)
+*Photo: [Thirdman](https://www.pexels.com/photo/close-up-photo-of-a-tuning-fork-6194031/) on Pexels — Petralian (2026)*
 
 ## Why PDF voice guides fail agents
 
@@ -131,6 +133,9 @@ channels:
 
 Agents read this in one tool call. Humans diff it in git. Neither has to grep a PDF.
 
+![YAML brand voice file with tone, banned words, and claim limits.](/images/posts/brand-voice-in-yaml-source-for-humans-and-agents-body-01-voice-yaml.avif)
+*Screenshot: Petralian (2026)*
+
 ## How this relates to the marketing playbook
 
 Read the pair in this order:
@@ -172,6 +177,9 @@ On Petralian I split voice into four layers. **Nathan voice sits on top.**
 Numeric SEO caps stay in `data/harness-verify.yaml` (`seo_limits`) so agents do not paraphrase character ranges.
 
 When I direct agents to draft posts, the `petralian-writing` skill loads **Nathan's profile first**, then preferences, then YAML, then the Writing Session Guide, then a no-ai-slop detect pass before handoff.
+
+![Agent session start reading brand voice YAML before drafting copy.](/images/posts/brand-voice-in-yaml-source-for-humans-and-agents-body-03-agent-load.avif)
+*Screenshot: Petralian (2026)*
 
 ## The slop layer (not just YAML lists)
 

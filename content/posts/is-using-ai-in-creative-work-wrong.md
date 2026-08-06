@@ -8,11 +8,11 @@ tags:
   - Agency Landscape
 excerpt: >-
   TL;DR What Is using AI in creative work wrong? covers. Who it is for and when
-  to use it. Practical next steps after reading. External Memory Series —…
+  to use it. Practical next steps after reading. External Memory…
 featured_image: /images/posts/creative-ai-hero.avif
 seo_description: >-
   TL;DR What Is using AI in creative work wrong? covers. Who it is for and when
-  to use it. Practical next steps after reading. External Memory Series —…
+  to use it. Practical next steps after reading. External Memory…
 featured_image_alt: Hero illustration for Is using AI in creative work wrong?
 format: hybrid
 best_for: >-

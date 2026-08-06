@@ -21,18 +21,6 @@ related_posts:
   - open-models-cursorbench-3-2-grok-glm-kimi-longcat
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - when-to-escalate-composer-2-5-to-fable-5
-image_prompt: >-
-  Cinematic 16:9: wide desk with scattered research papers morphing into a
-  single clean brief stack under a sharp desk lamp, deep blue shadows, copper
-  accent edge, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium: constellation lines connect note cards into one
-  glowing narrative arc, observer silhouette absent, violet sky, no readable
-  text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Research Notes funnel to Synthesis block to Brief
-  Output, Grok tier as accent gem on synthesis step only, teal risograph, no
-  logos.
 format: hybrid
 best_for: >-
   Anyone who read Grok 4.5 CursorBench numbers and wants a practical rule for

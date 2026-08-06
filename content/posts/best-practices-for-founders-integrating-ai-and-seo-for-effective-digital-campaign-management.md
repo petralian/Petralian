@@ -16,7 +16,7 @@ excerpt: >-
   campaigns. Discover how combining these innovative strategies can enhance
   search engine rankings, personalize content, and automate tasks, driving
   substantial growth for your business.
-featured_image: /images/posts/ai-seo-founders-digital-campaign-hero.avif
+featured_image: '[[ai-seo-founders-digital-campaign-hero.jpg]]'
 featured_image_alt: >-
   Founder reviewing SEO and AI campaign analytics on a laptop in a modern
   workspace.

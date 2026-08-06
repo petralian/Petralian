@@ -9,13 +9,11 @@ tags:
   - ChatGPT
 excerpt: >-
   TL;DR What E-commerce in 2025: Trends, Statistics, and Strategies to Stay
-  Ahead covers. Who it is for and when to use it. Practical next steps after
-  reading.…
+  Ahead covers. Who it is for and when to use it. Practical next steps after…
 featured_image: /images/posts/ecommerce-2025-trends-statistics-hero.avif
 seo_description: >-
   TL;DR What E-commerce in 2025: Trends, Statistics, and Strategies to Stay
-  Ahead covers. Who it is for and when to use it. Practical next steps after
-  reading.…
+  Ahead covers. Who it is for and when to use it. Practical next steps after…
 featured_image_alt: >-
   Hero illustration for E-commerce in 2025: Trends, Statistics, and Strategies
   to Stay Ahead

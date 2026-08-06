@@ -16,10 +16,6 @@ focus_keyword: gravio rollout across repositories
 seo_description: >-
   Use this team playbook to roll out Gravio across multiple repositories with
   clear policy, phased adoption, and governance that scales.
-image_prompt: >-
-  A network map of many software repositories connected to one quality dashboard
-  hub, team avatars collaborating, clean product strategy illustration, balanced
-  neutral and green tones
 featured_image_alt: A network map of many software repositories connected to one quality
 format: hybrid
 best_for: >-

@@ -16,12 +16,6 @@ seo_description: >-
   A practical build log for implementing a weekly digest on Brevo free tier with
   Next.js and Vercel cron, including double opt-in, confirm unsubscribe,
   privacy…
-image_prompt: >-
-  Create a 16:9 hero image for a technical build-log article. Show a laptop with
-  a minimal dashboard representing petralian.com newsletter flow: subscribe,
-  confirm, weekly send, unsubscribe. Use subtle node-link diagrams, one red
-  warning icon replaced by green checks, dark modern UI aesthetic, no brand
-  logos, no text overlays, no watermarks.
 featured_image_alt: 'Create a 16:9 hero image for a technical build-log article'
 format: hands-on
 best_for: Solo publishers automating a weekly digest without paid RSS tooling

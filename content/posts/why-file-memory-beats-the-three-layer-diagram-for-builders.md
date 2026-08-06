@@ -19,18 +19,6 @@ seo_description: >-
   Is external file memory better than the three-layer AI memory diagram? A
   builder's comparison of chat memory vs Obsidian + repo handoffs for
   production…
-image_prompt: >-
-  Editorial desk with two diagrams side by side on paper—one a simple
-  three-circle stack labeled in-model memory, the other a filing system with
-  linked index cards and a laptop—overhead soft light, no faces, no logos.
-image_prompt_variant_1: >-
-  Tiny system factory: fluffy cloud labeled Chat enters a stamping press and
-  exits as dated index cards slotted into labeled drawers—warm workshop,
-  technical clever tone.
-image_prompt_variant_2: >-
-  Left: tangled speech bubbles fading to gray; right: one straight shelf of
-  labeled binders with a single arrow from inbox to archive—maze vs clear
-  workflow, editorial playful.
 featured_image: /images/posts/why-file-memory-beats-the-three-layer-diagram-for-builders.avif
 featured_image_alt: Editorial desk with two diagrams side by side on paper—one a simple
 format: hybrid

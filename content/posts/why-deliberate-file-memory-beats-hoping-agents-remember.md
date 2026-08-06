@@ -16,16 +16,6 @@ focus_keyword: deliberate AI agent memory documentation
 seo_description: >-
   Why file-based agent memory beats chat memory for audit, team continuity, solo
   shipping, and resilience when AI tools change.
-image_prompt: >-
-  Editorial photograph of a printed runbook and decision log on a conference
-  table next to a closed laptop—documented continuity over screen-only chat,
-  soft office light, no faces.
-image_prompt_variant_1: >-
-  Tiny system factory quality stamp station: each card gets a dated audit mark
-  before entering a vault—warm technical workshop.
-image_prompt_variant_2: >-
-  Crossed-out software logos on the left; one sturdy filing cabinet labeled
-  Runbook on the right—tool churn vs one source of truth.
 series: External Memory Series
 series_order: 4
 featured_image: /images/posts/why-deliberate-file-memory-beats-hoping-agents-remember.avif

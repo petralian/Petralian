@@ -16,10 +16,6 @@ focus_keyword: zero knowledge ai code quality
 seo_description: >-
   Learn how Gravio approaches privacy-first AI agent scoring with encrypted run
   data and why zero-knowledge architecture matters for teams handling sensitive…
-image_prompt: >-
-  A cinematic workstation scene with encrypted data streams flowing from local
-  code editor into a secure cloud lock icon, neon blue and graphite palette,
-  modern SaaS illustration style, high detail, no text overlay
 featured_image_alt: A cinematic workstation scene with encrypted data streams flowing from
 format: hands-on
 best_for: Builders exploring privacy-preserving AI quality scoring with Gravio

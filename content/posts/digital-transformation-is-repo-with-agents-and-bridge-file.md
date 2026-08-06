@@ -49,6 +49,9 @@ Photo by Peter Dyllong from Pexels: https://www.pexels.com/photo/industrial-buil
 
 > **Pair with:** [[three-file-minimum-for-any-agent-project]] for the minimum file set before adding rules or MCP. This post is **executive delivery mechanics**; three-file is the week-one bootstrap.
 
+![Construction site office trailer at dusk suggesting delivery mechanics over vision slides.](/images/posts/digital-transformation-is-repo-with-agents-and-bridge-file-body-01-site-office.avif)
+*Photo: [Peter Dyllong](https://www.pexels.com/photo/industrial-building-with-external-stairs-in-overcast-weather-36491205/) on Pexels — Petralian (2026)*
+
 ## Why transformation theater persists
 
 Most transformation programs produce artifacts audiences recognize: roadmaps, capability maps, town halls, pilot logos. Fewer produce **traceable weekly deltas** tied to a single source of intent.
@@ -98,6 +101,9 @@ Agents draft specs, migration checklists, test plans, and comms. They do not pas
 
 The [Knowledge Work Engine](/posts/knowledge-work-agent-engine-guide-2026) adds routing, footers, and optional batch workers. Transformation programs can start with a three-file minimum (Bridge, open loops, known gotchas) before that full stack, using the same discipline as [deliberate file memory](/posts/why-deliberate-file-memory-beats-hoping-agents-remember).
 
+![Split view of Bridge markdown and git repo history for one transformation workstream.](/images/posts/digital-transformation-is-repo-with-agents-and-bridge-file-body-02-bridge-repo.avif)
+*Screenshot: Petralian / Obsidian Session Bridge (2026)*
+
 ## How this maps to familiar program frames
 
 | Familiar frame | Delivery mechanic |
@@ -126,6 +132,9 @@ A sponsor should be able to open Bridge and repo history and answer:
 | What did agents touch? | Session summaries or PR authors |
 
 If those answers require a workshop, the program is still theater.
+
+![Crane lifting materials suggesting agents accelerate delivery inside guardrails.](/images/posts/digital-transformation-is-repo-with-agents-and-bridge-file-body-03-crane.avif)
+*Photo: [Mike van Schoonderwalt](https://www.pexels.com/photo/yellow-tower-cranes-5504388/) on Pexels — Petralian (2026)*
 
 ## Example implementation: how I run multi-workspace delivery
 

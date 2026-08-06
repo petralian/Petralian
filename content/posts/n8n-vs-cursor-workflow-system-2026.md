@@ -20,17 +20,6 @@ related_posts:
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
   - cursor-lightweight-harness-without-microservice-2026
   - knowledge-work-agent-engine-guide-2026
-image_prompt: >-
-  Cinematic 16:9: industrial timer conveyor belts move packets left while a lit
-  desk with notebooks handles one open folder right, factory depth vs shallow
-  focus, copper and cyan, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 clockwork aqueduct: scheduled water wheels feed API flumes; side
-  channel librarian reads markdown scrolls, teal night, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: n8n node graph on left clock icon; Cursor Obsidian
-  hooks stack on right brain icon; OR gate labeled Judgment vs Schedule, violet
-  risograph, no logos.
 format: hybrid
 best_for: >-
   Operators comparing n8n to a Cursor plus Obsidian harness who need a clear

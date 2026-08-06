@@ -24,18 +24,6 @@ related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - cursorbench-vs-swe-bench-vs-human-eval
   - best-cursor-model-by-task-2026
-image_prompt: >-
-  Cinematic 16:9 macro of three different seeds sprouting from cracked concrete,
-  each under a distinct colored gel filter (teal, amber, violet), morning mist,
-  no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 greenhouse at night: three bioluminescent plants in separate
-  terrariums on a bench, irrigation tubes cross but do not merge, deep green and
-  copper light, no readable labels, no logos.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric cutaway: three open-source crates on a loading dock with
-  separate bill-of-lading icons, dashed line to a Cursor terminal shape,
-  risograph texture, no logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone comparing open-model vendor claims to Cursor session economics before

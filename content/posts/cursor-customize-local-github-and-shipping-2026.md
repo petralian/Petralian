@@ -30,7 +30,6 @@ format: hybrid
 best_for: >-
   Anyone who occasionally ships code or config with AI and wants light review
   habits without a full developer handbook
-seo_title: Cursor Customize for Local Develop and GitHub Shipping
 ---
 
 > **Series:** [Hub - One Agent, Many Workflows](/posts/cursor-customize-one-agent-many-workflows-2026) · Part 4 of 5 deep dives  

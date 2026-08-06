@@ -25,18 +25,6 @@ related_posts:
   - composer-2-5-baseline-model-tighter-bootstrap-better-results
   - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
   - three-layer-external-brain-for-ai-first-development
-image_prompt: >-
-  Cinematic 16:9: a single Composer pane on a workbench surrounded by labeled
-  gate cards (Policy, Tests, CI) not a second server rack, copper rim light on
-  concrete wall, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium dome: constellations are subagent icons but one
-  bright path labeled Direct Composer, telescope on a rolling cart, deep violet
-  and amber accents, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: horizontal gate chain Direct to Batch to Test to
-  Ship as flat blocks with checkmarks, risograph texture teal and slate, no
-  logos.
 featured_image_alt: 'Cinematic 16:9: a single Composer pane on a workbench surrounded by'
 format: hands-on
 best_for: >-

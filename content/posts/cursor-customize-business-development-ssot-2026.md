@@ -22,16 +22,6 @@ related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-customize-brainstorm-and-personal-agent-2026
   - cursor-customize-blogging-and-project-memory-2026
-image_prompt: >-
-  Cinematic 16:9: two chairs at a wooden table with a single shared binder open
-  between them, soft afternoon window light, sense of alignment not sales
-  theater, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 shipyard: a questionnaire clipboard as the keel, business-plan
-  planks attaching in sequence, amber dock lights, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Questionnaire block feeds Plan SSOT cube which
-  feeds Draft Proposal / Deck / FAQ outputs, teal and slate risograph, no logos.
 featured_image_alt: >-
   Cinematic 16:9: two chairs at a wooden table with a single shared binder open
   between them, soft afternoon window light, sense of alignment not sales

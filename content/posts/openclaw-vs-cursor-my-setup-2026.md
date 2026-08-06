@@ -19,18 +19,6 @@ related_posts:
   - the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
   - hermes-vs-cursor-my-setup-2026
   - is-cursor-only-for-developers
-image_prompt: >-
-  Cinematic 16:9: smartphone on armrest shows chat glow while laptop on table
-  displays folder tree light, night train interior, copper and blue contrast, no
-  logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 market alley: WhatsApp and Telegram lanterns hang over messaging
-  stall, adjacent archive shop opens into file drawers, teal mist, no readable
-  text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: OpenClaw local OS hexagon with chat app spokes;
-  Cursor IDE block with vault stack; memory dashed loop only on OpenClaw side,
-  slate and amber risograph, no logos.
 format: hybrid
 best_for: >-
   Anyone who read OpenClaw hype and uses Cursor who wants a clear comparison

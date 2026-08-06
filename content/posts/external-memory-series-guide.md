@@ -19,18 +19,7 @@ seo_description: >-
   Hub for the External Memory series: layered Obsidian + repo memory for
   AI-first development, productivity, governance, and why files beat in-chat
   memory.
-image_prompt: >-
-  Editorial photograph of a desk with four labeled notebooks stacked beside an
-  open laptop showing a linked note graph—session log, handoff, evergreen
-  reference, rules—warm natural light, no faces.
-image_prompt_variant_1: >-
-  Tiny system factory tour: four conveyor stations labeled Session, Operations,
-  Evergreen, Rules with a visitor guide card at the entrance—warm workshop,
-  clever technical tone.
-image_prompt_variant_2: >-
-  Split view: left a fading chat window, right a clear four-step filing workflow
-  with arrows—editorial contrast, professional playful.
-featured_image: /images/posts/external-memory-series-guide.avif
+featured_image: '[[external-memory-series-guide.png]]'
 featured_image_alt: >-
   Desk with layered notebooks and a laptop showing a linked note graph for
   session continuity.

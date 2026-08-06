@@ -24,18 +24,6 @@ related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - fable-5-pricing-cursor-every-tier-explained
   - composer-2-5-baseline-model-tighter-bootstrap-better-results
-image_prompt: >-
-  Cinematic 16:9 photograph of a green pedestrian signal beside a taller red
-  emergency beacon on a concrete wall, dusk light, shallow depth of field, no
-  logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 ship bridge diorama: everyday helm wheel at deck level and a
-  glass emergency lever under a red dome above, ocean horizon through windows,
-  copper accents, no readable text, no logos.
-image_prompt_variant_2: >-
-  Bold 16:9 flowchart poster: diamond gate nodes branching to Composer vs Fable
-  paths, flat isometric style, mint and orange palette, risograph grain, no
-  logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone governing Cursor model spend who needs escalation triggers before

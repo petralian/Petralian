@@ -23,7 +23,6 @@ related_posts:
 featured_image_alt: 'Cinematic 16:9 wide shot of a conductor podium facing an orchestra pit'
 format: hybrid
 best_for: Practice leads directing AI as primary implementer at program scale
-seo_title: What I Learned Directing AI as My Primary Engineer
 ---
 **TL;DR**
 

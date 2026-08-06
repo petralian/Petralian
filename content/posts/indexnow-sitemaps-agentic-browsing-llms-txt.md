@@ -49,7 +49,7 @@ seo_title: 'IndexNow, Sitemaps, and Why Agentic Browsing Cared About…'
 ## Three discovery files, three audiences
 
 ![Excerpt of public llms.txt listing posts with one-line descriptions.](/images/posts/indexnow-sitemaps-agentic-browsing-llms-txt-body-02-llms-txt.avif)
-*Screenshot: petralian.com/llms.txt excerpt — Petralian (2026)*
+*Screenshot: Petralian (2026)*
 
 Traditional SEO and GEO overlap but do not collapse into one file.
 
@@ -61,9 +61,6 @@ Traditional SEO and GEO overlap but do not collapse into one file.
 | **IndexNow POST** | Bing, Yandex, partners | "These URLs changed since last deploy" |
 
 Google still wants Search Console URL Inspection for many sites. IndexNow does not replace Google. llms.txt does not replace `seo_description`. Each layer answers a different bot.
-
-![Aerial highway interchange suggesting multiple crawl and discovery paths.](/images/posts/indexnow-sitemaps-agentic-browsing-llms-txt-body-04-interchange.avif)
-*Photo: Pexels — Petralian (2026); search terms in frontmatter `body_images` slot 04*
 
 I documented the full vault-to-Vercel chain in [how I built an SEO and GEO publish pipeline](/posts/petralian-seo-geo-publish-pipeline-2026). This post zooms in on the discovery trio plus the Lighthouse lesson.
 
@@ -102,7 +99,7 @@ llms -> lh: "llms.txt audit" {
 ## What Lighthouse Agentic Browsing checks on llms.txt
 
 ![Chrome Lighthouse Agentic Browsing audit highlighting llms.txt structure checks.](/images/posts/indexnow-sitemaps-agentic-browsing-llms-txt-body-01-lighthouse-agentic.avif)
-*Screenshot: Lighthouse Agentic Browsing / llms.txt — Petralian (2026)*
+*Screenshot: Petralian (2026)*
 
 Chrome's Lighthouse Agentic Browsing audits include [llms.txt recommendations](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt): the file should be Markdown with at least one H1, readable structure, and guidance that matches the [llms.txt convention](https://llmstxt.org/).
 

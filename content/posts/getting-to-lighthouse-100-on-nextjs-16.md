@@ -15,21 +15,6 @@ seo_description: >-
   How I fixed TBT, LCP, contrast failures, and image weight on a Next.js 16
   Vercel site to reach Lighthouse 100/100 on mobile and desktop — with the exact
   code.
-image_prompt: >-
-  Cinematic editorial photograph of a lighthouse standing at the edge of a rocky
-  coast at dusk, light beam sweeping across calm dark water, minimalist
-  composition, deep blues and warm amber, photorealistic, professional
-  photography
-image_prompt_variant_1: >-
-  Isometric illustration of a tiny workshop where web performance metrics move
-  through inspection checkpoints on a conveyor belt — a small engineer adjusting
-  dials labeled LCP, TBT, CLS — warm workshop lighting, technical but charming,
-  no cartoonish elements
-image_prompt_variant_2: >-
-  Split editorial composition: left side shows a tangled maze of dashboard
-  warnings and red audit flags; right side shows a clean, minimal pipeline
-  diagram with green checkmarks — professional, polished, editorial illustration
-  style, muted tones
 featured_image_alt: Cinematic editorial photograph of a lighthouse standing at the edge
 format: hands-on
 best_for: Developers chasing Core Web Vitals and Lighthouse scores on a Next.js site
@@ -187,7 +172,7 @@ The corrected `<Image>` component:
 
 ```tsx
 <Image
-  src="/images/nathan-petralia.avif"
+  src="/images/nathan-petralia.jpg"
   alt="Nathan Petralia at HKU"
   fill
   priority

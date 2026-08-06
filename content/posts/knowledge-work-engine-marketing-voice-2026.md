@@ -25,15 +25,6 @@ related_posts:
   - knowledge-work-agent-engine-guide-2026
   - knowledge-work-engine-leadership-decisions-2026
   - publishing-obsidian-drafts-through-github-actions
-image_prompt: >-
-  Cinematic 16:9 macro of a printing press roller lifting, ink gradient copper
-  to teal, paper fiber texture, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 greenhouse at night: vines grow into neat labeled pots (Blog,
-  Email, Social) under one glass roof, bioluminescent green, no readable text.
-image_prompt_variant_2: >-
-  Isometric 16:9 editorial desk cutaway: draft tray, voice guide book, checklist
-  stamp, publish chute, risograph purple and cream, no logos.
 featured_image_alt: 'Cinematic 16:9 macro of a printing press roller lifting, ink gradient'
 format: hybrid
 best_for: Marketing leaders keeping brand voice consistent when agents draft at scale

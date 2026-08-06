@@ -20,18 +20,6 @@ seo_description: >-
   How a three-layer Obsidian + repo memory system keeps AI coding sessions
   coherent: bootstrap hooks, handoff files, feature notes, and why it beats
   hoping the…
-image_prompt: >-
-  Editorial overhead photograph of a developer desk with three labeled stacks of
-  notebooks beside a laptop showing code—short-term sticky notes, dated session
-  log, and a thick reference binder—warm natural light, no faces, no logos.
-image_prompt_variant_1: >-
-  Tiny system factory diorama: sticky notes enter a conveyor, get stamped into a
-  session ledger, then filed into labeled vault drawers marked Code and
-  Rules—clever workshop aesthetic, warm lighting, technical not cartoonish.
-image_prompt_variant_2: >-
-  Split scene: left side chaotic chat bubbles fading to blank; right side clean
-  filing cabinets with linked index cards and a single straight workflow
-  arrow—editorial contrast, professional playful tone.
 featured_image: /images/posts/three-layer-external-brain-for-ai-first-development.avif
 featured_image_alt: Editorial overhead photograph of a developer desk with three labeled
 format: hands-on

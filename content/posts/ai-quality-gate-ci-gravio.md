@@ -16,10 +16,6 @@ focus_keyword: ai quality gate ci
 seo_description: >-
   Implement AI quality thresholds in CI/CD with Gravio-style scoring so releases
   fail on meaningful regression signals, not only traditional test failures.
-image_prompt: >-
-  A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
-  badges, code and model icons connected, clean enterprise infographic style,
-  blue and orange contrast
 featured_image_alt: A CI pipeline diagram where one stage is AI Quality Gate with pass/fail
 format: hands-on
 best_for: Builders wiring AI quality checks into CI and release pipelines

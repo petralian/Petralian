@@ -10,7 +10,7 @@ tags:
 excerpt: >-
   Cmd+K transcript search finds what was said. A Bridge SSOT file holds what
   still matters. Here is when to use each and why files win for handoff.
-featured_image: /images/posts/cursor-conversation-search-vs-bridge-file-2026.avif
+featured_image: '[[cursor-conversation-search-vs-bridge-file-2026.jpg]]'
 focus_keyword: Cursor agent transcript search
 seo_description: >-
   Cursor agent transcript search vs Bridge SSOT: when Cmd+K helps, when file
@@ -19,17 +19,6 @@ related_posts:
   - cursor-harness-memory-loop-2026
   - cursor-obsidian-brain-handbook-2026
   - why-deliberate-file-memory-beats-hoping-agents-remember
-image_prompt: >-
-  Cinematic 16:9: magnifying glass over a faint chat transcript layer floating
-  above a solid leather notebook labeled only by texture, amber desk lamp, cool
-  shadow, no readable text, no logos, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 archive hall: left wall is scrolling ghost transcripts, right
-  wall is labeled file cabinets with one glowing Bridge drawer, teal vault
-  light, no readable labels.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Search icon queries Chat Log cloud; Bridge file
-  block feeds Agent Start arrow, copper and slate risograph, no logos.
 featured_image_alt: >-
   Cinematic 16:9: magnifying glass over a faint chat transcript layer floating
   above a solid leather notebook labeled only by texture, amber desk lamp, cool

@@ -23,11 +23,6 @@ seo_description: >-
   and TinaCMS — masonry reading order, the Asteroids 404, and using AI as
   primary…
 focus_keyword: building petralian nextjs technical decisions
-image_prompt: >-
-  A developer's workspace with multiple monitors showing code and a website
-  preview; clean, minimal aesthetic with dark background and orange accent
-  tones; Next.js site scaffold visible on one screen, Obsidian vault on another;
-  abstract sense of building and architecture
 format: hands-on
 best_for: >-
   Builders curious how this site is wired — Obsidian, sync, and Next.js in

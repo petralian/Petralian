@@ -20,17 +20,6 @@ seo_description: >-
   Why Vouch and other Shopify referral apps show zero conversions: app embed
   off, referral links confused with discount codes, and customer account pages
   on a…
-image_prompt: >-
-  Editorial 16:9 diagram on warm paper: three gates labeled Installed, Enabled,
-  Attributing leading to a checkout receipt with a referral field, office light,
-  no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Tiny theme-editor diorama: green Installed badge while app embed toggle stays
-  OFF, clever workshop tone, 16:9, no logos.
-image_prompt_variant_2: >-
-  Split scene: left checkout missing referral attribute, right same checkout
-  with referral code flowing from link to cart to order, editorial contrast,
-  16:9.
 format: hybrid
 best_for: >-
   Shopify merchants and founders triaging zero-referral tickets on referral

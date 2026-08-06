@@ -19,16 +19,6 @@ seo_description: >-
   Why deploying without a release tag breaks rollback and audit trails,
   especially when AI agents commit often — and the governance gates program
   leads should…
-image_prompt: >-
-  Editorial 16:9 scene: deployment console with missing tag field beside a
-  rewind button that leads nowhere, warm technical desk light, no logos, no
-  readable text.
-image_prompt_variant_1: >-
-  Tiny launch pad: rocket labeled Deploy with no tag hook, rollback crane unable
-  to grab anything, clever workshop, 16:9.
-image_prompt_variant_2: >-
-  Split scene: left messy uncommitted files on deploy button, right clean tagged
-  commit on release rail, editorial contrast, 16:9.
 format: hybrid
 best_for: >-
   Anyone governing agent-assisted releases who needs traceable

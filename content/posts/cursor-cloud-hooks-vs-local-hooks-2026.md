@@ -21,17 +21,6 @@ related_posts:
   - cursor-lightweight-harness-without-microservice-2026
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
   - cursor-harness-memory-loop-2026
-image_prompt: >-
-  Cinematic 16:9: two translucent control panels floating over a laptop, upper
-  panel cloud-lit cyan, lower panel warm copper desk reflection, cables meet at
-  a single agent core, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 split-level workshop: cloud floor with hook levers above,
-  basement with local hook gears below, one vertical shaft connecting both,
-  violet accent, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 cutaway: Cloud Hooks layer above Local Hooks layer feeding
-  one Agent Session block, teal and orange risograph, no logos.
 featured_image_alt: >-
   Cinematic 16:9: two translucent control panels floating over a laptop, upper
   panel cloud-lit cyan, lower panel warm copper desk reflection, cables meet at

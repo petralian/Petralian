@@ -25,18 +25,6 @@ related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - fable-5-pricing-cursor-every-tier-explained
   - when-to-escalate-composer-2-5-to-fable-5
-image_prompt: >-
-  Cinematic 16:9 top-down photograph of four workshop trays on a concrete bench,
-  each tray holds different tools under colored gel lights (teal, amber, violet,
-  copper), shallow depth of field, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 subway map diorama: four station stops connected by colored
-  lines, each platform has a different tiny workbench scene, night lighting
-  through grates, no readable station names, no logos.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric grid poster: four quadrants Analysis Review Execution
-  Greenfield as pictogram panels with small cost meter icons, risograph texture,
-  slate and mint palette, no logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone choosing Cursor model defaults by work mode who wants cost-aware picks

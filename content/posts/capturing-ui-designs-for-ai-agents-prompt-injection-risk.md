@@ -16,16 +16,6 @@ seo_description: >-
   CLI tools that capture live UI into agent skills risk prompt injection via
   hidden DOM text. Sanitize outerHTML and treat design capture as an untrusted
   input…
-image_prompt: >-
-  Editorial 16:9 illustration: browser DOM tree with a hidden instruction note
-  sneaking into a skill document, warm technical desk, no logos, no readable
-  text.
-image_prompt_variant_1: >-
-  Tiny factory: HTML snippets on conveyor pass through sanitizer gate before
-  entering robot skill shelf, clever workshop, 16:9.
-image_prompt_variant_2: >-
-  Split view: left raw outerHTML with stray script text, right cleaned capture
-  with allowlist badge, editorial playful, 16:9.
 featured_image_alt: 'Editorial 16:9 illustration: browser DOM tree with a hidden instruction'
 format: hands-on
 best_for: >-

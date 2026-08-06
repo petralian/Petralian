@@ -8,13 +8,11 @@ tags:
   - Ecommerce
 excerpt: >-
   TL;DR What Infinity Loops: The Framework Behind Successful Brand Stories
-  covers. Who it is for and when to use it. Practical next steps after reading.
-  The…
+  covers. Who it is for and when to use it. Practical next steps after reading.…
 featured_image: /images/posts/infinity-loops-brand-storytelling-hero.avif
 seo_description: >-
   TL;DR What Infinity Loops: The Framework Behind Successful Brand Stories
-  covers. Who it is for and when to use it. Practical next steps after reading.
-  The…
+  covers. Who it is for and when to use it. Practical next steps after reading.…
 featured_image_alt: >-
   Hero illustration for Infinity Loops: The Framework Behind Successful Brand
   Stories

@@ -19,18 +19,6 @@ seo_description: >-
   How layered Obsidian memory—session, operational, evergreen—improves personal
   productivity with Claude, ChatGPT, and IDE agents without relying on chat
   history.
-image_prompt: >-
-  Calm home office desk with an open Obsidian-style linked note graph on a
-  laptop, paper daily log, and phone showing a messaging app—editorial
-  lifestyle, soft morning light, no faces or logos.
-image_prompt_variant_1: >-
-  Tiny system factory: inbox tray of raw notes, sorting belt into daily log
-  folders, finished cards slotted into a wall of labeled personal domains—warm
-  workshop, clever not childish.
-image_prompt_variant_2: >-
-  Maze of sticky notes and notification badges on the left versus a single clear
-  kanban column and one notebook on the right—editorial split, professional
-  playful contrast.
 featured_image: /images/posts/obsidian-memory-layers-personal-productivity-beyond-chat.avif
 featured_image_alt: Calm home office desk with an open Obsidian-style linked note graph
 format: hybrid

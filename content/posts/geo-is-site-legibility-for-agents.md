@@ -45,6 +45,9 @@ Photo by Ahmet Polat from Pexels: https://www.pexels.com/photo/brown-wooden-book
 
 **What you will learn:** how GEO differs from classic SEO and from AIO (brand-wide AI discoverability), what "site legibility" means in practice, and one afternoon test you can run in any chat tool.
 
+![Library stacks with a single shelf lit, suggesting readable passages for retrieval.](/images/posts/geo-is-site-legibility-for-agents-body-01-library-light.avif)
+*Photo: [Ahmet Polat](https://www.pexels.com/photo/brown-wooden-book-shelves-in-the-bookstore-5225982/) on Pexels — Petralian (2026)*
+
 ## Why the ChatGPT framing misleads buyers
 
 Vendor decks often sell GEO as "rank inside ChatGPT." That framing pushes teams toward prompt stuffing, hidden FAQ blocks, and duplicate pages tuned for one interface. Retrieval systems do not share one ranking file. Google AI Overviews, Perplexity, Gemini, and enterprise copilots each combine crawl data, freshness signals, and passage scoring differently ([Google Search Central on AI features](https://developers.google.com/search/docs/appearance/ai-features)).
@@ -94,6 +97,9 @@ Legibility is editorial choices that reduce ambiguity for a machine reader: pass
 
 **Internal links with intent.** Two or three links to related posts help retrieval systems cluster your expertise. Random footer links do not.
 
+![Article opening with answer capsule highlighted for extractable GEO passages.](/images/posts/geo-is-site-legibility-for-agents-body-02-answer-capsule.avif)
+*Screenshot: Petralian (2026)*
+
 ## Common GEO mistakes
 
 | Myth | Reality |
@@ -123,6 +129,9 @@ You do not need my stack. Pick one published page you care about (product, polic
 3. If the model invents audience, stakes, or numbers, fix the passage, not the prompt.
 
 Repeat after you add a comparison table or a limits paragraph. Legibility improvements show up as fewer invented qualifiers in the summary.
+
+![Open book with sticky notes suggesting citable passages.](/images/posts/geo-is-site-legibility-for-agents-body-03-citation.avif)
+*Photo: [cottonbro studio](https://www.pexels.com/photo/person-holding-a-book-3832026/) on Pexels — Petralian (2026)*
 
 ## Limitations
 

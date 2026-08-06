@@ -16,19 +16,6 @@ focus_keyword: enterprise AI program readiness
 seo_description: >-
   Enterprise AI programs often fail before deployment: skipped data readiness,
   unnamed governance owners, and short change runway. A pre-flight diagnostic.
-image_prompt: >-
-  Editorial 16:9 hero for enterprise AI readiness: architectural blueprint on a
-  desk with three labeled foundation blocks (data, governance, change) beneath a
-  folded deployment plan, warm neutral light, no logos, no readable text, no
-  faces.
-image_prompt_variant_1: >-
-  Tiny airport pre-flight diorama: three inspection stations labeled Data,
-  Owners, and Runway with a plane marked Deploy waiting at a hold line, clever
-  warm technical style, 16:9, no logos, no text.
-image_prompt_variant_2: >-
-  Split editorial scene: left side fast-forward deploy button with cracked
-  foundation; right side same building with three solid labeled layers and calm
-  stakeholders, professional playful contrast, 16:9, no logos.
 featured_image_alt: 'Editorial 16:9 hero for enterprise AI readiness: architectural blueprint'
 format: strategic
 best_for: >-

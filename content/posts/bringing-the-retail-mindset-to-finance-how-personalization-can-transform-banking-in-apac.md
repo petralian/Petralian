@@ -12,16 +12,14 @@ tags:
   - Ecommerce
 excerpt: >-
   TL;DR What Bringing the Retail Mindset to Finance: How Personalization Can
-  Transform Banking covers. Who it is for and when to use it. Practical next
-  steps…
-featured_image: /images/posts/personalized-banking-digital-app-apac-hero.avif
+  Transform Banking covers. Who it is for and when to use it. Practical next…
+featured_image: '[[personalized-banking-digital-app-apac-hero.jpg]]'
 featured_image_alt: >-
   Smartphone banking app on a desk with APAC city skyline bokeh, warm editorial
   light.
 seo_description: >-
   TL;DR What Bringing the Retail Mindset to Finance: How Personalization Can
-  Transform Banking covers. Who it is for and when to use it. Practical next
-  steps…
+  Transform Banking covers. Who it is for and when to use it. Practical next…
 format: strategic
 best_for: >-
   APAC financial services leaders borrowing retail-grade personalization

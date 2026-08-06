@@ -24,16 +24,6 @@ related_posts:
   - cursor-harness-memory-loop-2026
   - github-copilot-vs-openrouter-real-cost-comparison-for-developers
   - three-layer-external-brain-for-ai-first-development
-image_prompt: >-
-  Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and a single
-  OpenRouter receipt on a drafting table, warm desk lamp, no readable numbers,
-  no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 observatory: CSV rows as star trails, eval gate as a shutter
-  before a telescope, deep blue and amber, no text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9: three panels Log CI Dollars connected by arrows,
-  risograph slate and mint, no logos.
 featured_image_alt: 'Cinematic 16:9: spreadsheet notebook beside a CI pipeline light and'
 format: hands-on
 best_for: Program leads measuring whether a Cursor harness improves output and spend

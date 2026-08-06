@@ -24,16 +24,6 @@ related_posts:
   - three-layer-external-brain-for-ai-first-development
   - why-deliberate-file-memory-beats-hoping-agents-remember
   - external-memory-series-guide
-image_prompt: >-
-  Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack, Vault on a
-  steel desk with one gate lever in front, cool side light, no readable text, no
-  faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 library: hot warm cold shelves as colored bands, a single
-  turnstile before the reading desk, indigo and copper, no logos.
-image_prompt_variant_2: >-
-  Bold isometric 16:9: stacked memory layers with one arrow through a gate card
-  Mode A Skip, risograph teal and cream, no text.
 featured_image_alt: 'Cinematic 16:9: three translucent drawers labeled Repo, Brain-Pack,'
 format: hands-on
 best_for: >-

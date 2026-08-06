@@ -27,17 +27,6 @@ related_posts:
   - obsidian-memory-layers-personal-productivity-beyond-chat
   - cursor-harness-memory-loop-2026
   - cursor-lightweight-harness-without-microservice-2026
-image_prompt: >-
-  Cinematic 16:9 wide shot of a conference table with four labeled trays
-  (Initiatives, Decisions, Brand, Session Log) feeding one open notebook, copper
-  desk lamp, shallow depth, no faces, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium dome: constellations connect sticky notes into a
-  single orbit path labeled Engine, deep violet sky, amber instrument glow, no
-  readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: six hex blocks (Memory, Routing, Footer, Voice,
-  Gates, Tools) snap into one hub, risograph teal and slate texture, no logos.
 featured_image_alt: 'Cinematic 16:9 wide shot of a conference table with four labeled trays'
 format: hybrid
 best_for: Leaders and operators designing a knowledge-work engine around agents

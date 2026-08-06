@@ -10,12 +10,12 @@ tags:
 excerpt: >-
   TL;DR What Is Salesforce Becoming Invisible on Purpose, or Becoming
   Irrelevant? covers. Who it is for and when to use it. Practical next steps
-  after reading.…
+  after…
 featured_image: /images/posts/salesforce-agentforce-invisible-crm-hero.avif
 seo_description: >-
   TL;DR What Is Salesforce Becoming Invisible on Purpose, or Becoming
   Irrelevant? covers. Who it is for and when to use it. Practical next steps
-  after reading.…
+  after…
 featured_image_alt: >-
   Hero illustration for Is Salesforce Becoming Invisible on Purpose, or Becoming
   Irrelevant?

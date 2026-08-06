@@ -9,13 +9,11 @@ tags:
   - CDP
 excerpt: >-
   TL;DR What Future of Social Commerce: Why Brands Need to Own Their Customer
-  Data covers. Who it is for and when to use it. Practical next steps after
-  reading.…
+  Data covers. Who it is for and when to use it. Practical next steps after…
 featured_image: /images/posts/buysocial-social-commerce-hero.avif
 seo_description: >-
   TL;DR What Future of Social Commerce: Why Brands Need to Own Their Customer
-  Data covers. Who it is for and when to use it. Practical next steps after
-  reading.…
+  Data covers. Who it is for and when to use it. Practical next steps after…
 featured_image_alt: >-
   Hero illustration for The Future of Social Commerce: Why Brands Need to Own
   Their Customer Data

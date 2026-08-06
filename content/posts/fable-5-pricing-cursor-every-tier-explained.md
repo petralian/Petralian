@@ -24,19 +24,6 @@ related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - when-to-escalate-composer-2-5-to-fable-5
   - composer-2-5-baseline-model-tighter-bootstrap-better-results
-image_prompt: >-
-  Cinematic 16:9 macro photograph of five nested brass rings on dark slate, each
-  ring taller toward camera with increasing coin stacks beside them, single
-  amber keylight, shallow depth of field, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 flea-market stall at night: five labeled glass jars of different
-  heights filled with glowing marbles, shortest jar brightest green, tallest jar
-  gold, string lights overhead, witty editorial tone, no readable text, no
-  logos.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric poster: five-step staircase labeled only by height blocks
-  ascending left to right, cost bars shrinking on lower steps, risograph violet
-  and copper texture, no logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone approving Cursor AI spend who needs Fable tier unit economics before

@@ -25,20 +25,6 @@ related_posts:
   - obsidian-memory-layers-personal-productivity-beyond-chat
   - what-i-learned-directing-ai-as-my-primary-engineer
   - cursor-obsidian-brain-handbook-2026
-image_prompt: >-
-  Cinematic 16:9 wide shot of an everyday desk: laptop shows a split workspace
-  with document folders and a chat panel, beside items suggesting study, work,
-  and side projects (notebook, headphones, coffee) in abstract form only, copper
-  desk lamp, shallow depth, no faces, no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 airport hub diorama: one central terminal gate labeled Agent with
-  five boarding bridges to different life trays (grad cap, briefcase, shopping
-  bag, folder, wrench icon shapes only), night interior glow, teal and amber, no
-  readable text.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric poster: five life-context panels feed one Cursor window
-  hub, file icons enter from left, outputs exit right, risograph slate and mint
-  texture, no logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone outgrowing ChatGPT tabs who wants file-grounded AI that remembers your

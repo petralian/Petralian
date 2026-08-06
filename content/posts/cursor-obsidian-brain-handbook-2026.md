@@ -26,16 +26,6 @@ related_posts:
   - cursor-lightweight-harness-without-microservice-2026
   - vscode-copilot-to-cursor-what-changed-in-my-ai-workflow
   - why-file-memory-beats-the-three-layer-diagram-for-builders
-image_prompt: >-
-  Editorial 16:9 overhead desk: one thick Obsidian-style notebook labeled Brain
-  with arrows to five slim repo folders on a laptop, copper accent light, no
-  logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Isometric 16:9: central vault cube with sync arrows to repo blocks, hook icons
-  as small gate cards, teal and slate risograph texture, no readable text.
-image_prompt_variant_2: >-
-  Split scene 16:9: left chaotic duplicate sticky notes per repo; right single
-  hub note with clean workspace windows, professional contrast, no logos.
 format: hybrid
 best_for: >-
   Anyone running Cursor across multiple contexts who wants one external memory

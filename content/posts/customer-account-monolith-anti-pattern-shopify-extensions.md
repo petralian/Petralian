@@ -18,16 +18,6 @@ seo_description: >-
   Why stuffing every loyalty and referral feature into one Shopify Customer
   Account extension hurts merchant IA, and how full-page extensions should map
   to…
-image_prompt: >-
-  Editorial 16:9 whiteboard: one oversized account page blob vs three labeled
-  full-page extension cards, warm office light, no logos, no readable text, no
-  faces.
-image_prompt_variant_1: >-
-  Tiny restaurant menu: one page with 40 items vs four focused menus, clever
-  workshop tone, 16:9.
-image_prompt_variant_2: >-
-  Split scene: left scrolling monolith profile, right clean merchant menu with
-  distinct extension links, editorial playful, 16:9.
 featured_image_alt: 'Editorial 16:9 whiteboard: one oversized account page blob vs three'
 format: hybrid
 best_for: >-

@@ -24,19 +24,6 @@ related_posts:
   - publishing-obsidian-drafts-through-github-actions
   - getting-to-lighthouse-100-on-nextjs-16
   - is-cursor-only-for-developers
-image_prompt: >-
-  Cinematic 16:9 photograph of a wooden desk at dusk: open laptop shows a
-  sitemap tree, beside it a printed llms.txt page and a vault notebook labeled
-  only "Drafts", warm desk lamp and cool window light, shallow depth of field,
-  no logos, no readable text.
-image_prompt_variant_1: >-
-  Surreal 16:9 diorama: tiny crawler figures on ladders read floating scrolls
-  marked only as sitemap and llms, a pipeline of file folders flows into a
-  glowing cloud, twilight haze, no readable words, no logos.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: four panels Vault → Sync → Vercel → Crawlers as
-  pictogram steps with checkmark gates, risograph texture, teal and amber
-  palette, no logos, no readable text.
 format: hybrid
 best_for: >-
   Anyone publishing a personal or company site who wants search and AI discovery

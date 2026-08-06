@@ -22,16 +22,6 @@ related_posts:
   - cursor-customize-one-agent-many-workflows-2026
   - cursor-customize-business-development-ssot-2026
   - cursor-customize-skills-hooks-orchestration-obsidian-2026
-image_prompt: >-
-  Cinematic 16:9: editorial desk with a manuscript stack beside a slim bridge
-  notebook and a laptop edge in soft morning light, copper lamp glow, no logos,
-  no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 archive greenhouse: draft seedlings in labeled pots on one shelf,
-  a stone bridge path to a published shelf, misty teal light, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Draft folder → Ready → Published as three gates,
-  Bridge note as a linking plank, slate and amber risograph, no logos.
 featured_image_alt: >-
   Cinematic 16:9: editorial desk with a manuscript stack beside a slim bridge
   notebook and a laptop edge in soft morning light, copper lamp glow, no logos,

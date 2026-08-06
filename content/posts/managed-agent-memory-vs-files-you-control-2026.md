@@ -19,16 +19,6 @@ related_posts:
   - the-ai-memory-problem-openclaw-hermes-karpathy-approach-that-survives
   - why-deliberate-file-memory-beats-hoping-agents-remember
   - cursor-harness-memory-loop-2026
-image_prompt: >-
-  Cinematic 16:9: two archive systems side by side, left a glowing automatic
-  carousel of memory cards, right open wooden drawers of markdown files, single
-  beam of light connecting both, no logos, no readable text, no faces.
-image_prompt_variant_1: >-
-  Surreal 16:9 library: robotic librarian sorts floating memory bubbles into
-  labeled file folders on a conveyor, teal and amber light, no readable text.
-image_prompt_variant_2: >-
-  Bold isometric 16:9 poster: Managed Memory API cylinder feeds Agent; File SSOT
-  vault feeds Agent; Human Review gate between both, violet risograph, no logos.
 format: hybrid
 best_for: >-
   Anyone evaluating Mem0 or similar managed memory who also keeps Obsidian or

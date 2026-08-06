@@ -27,18 +27,6 @@ related_posts:
   - cursorbench-3-2-fable-5-composer-2-5-cost-vs-score
   - open-models-cursorbench-3-2-grok-glm-kimi-longcat
   - best-cursor-model-by-task-2026
-image_prompt: >-
-  Cinematic 16:9 wide shot of three different measuring instruments on a steel
-  table (tape measure, caliper, stopwatch), cool side light, shallow depth of
-  field, no logos, no readable scales.
-image_prompt_variant_1: >-
-  Surreal 16:9 planetarium with three separate orrery rings each orbiting
-  different toy workspaces, deep blue dome, copper accents, no readable text, no
-  logos.
-image_prompt_variant_2: >-
-  Bold 16:9 isometric poster: three labeled panels as icons only (loop, patch,
-  function) connected by dashed lines to a warning sign shape, risograph grain,
-  slate and amber, no logos.
 format: strategic
 seo_title: 'CursorBench vs SWE-bench vs HumanEval: What Each Benchmark…'
 ---

@@ -16,23 +16,6 @@ focus_keyword: github copilot pricing comparison
 seo_description: >-
   Real cost comparison of GitHub Copilot Pro+ vs OpenRouter for heavy coding
   use. Verified token pricing, model costs, and when each option makes sense.
-image_prompt: >-
-  Split-screen comparison showing a developer's VS Code editor on one side with
-  GitHub Copilot interface, and on the other side a cost calculator dashboard
-  displaying token usage metrics and pricing tiers. Clean, technical aesthetic
-  with blue and green accent colors. Professional software development
-  environment.
-image_prompt_variant_1: >-
-  Tiny factory assembly line where code snippets move through different pricing
-  checkpoints - one path labeled 'Copilot Bundle' with flat monthly gate,
-  another path labeled 'Pay-per-token' with individual token meters. Small
-  workers (representing developers) choosing between the two paths. Warm,
-  technical illustration style.
-image_prompt_variant_2: >-
-  Side-by-side maze comparison: left side shows tangled paths with '$39/month'
-  and '1500 requests' signs leading to a 'usage exceeded' wall; right side shows
-  clean, direct pipeline with clear token cost labels ($3/1M, $15/1M) flowing
-  smoothly. Editorial illustration style, professional but playful.
 featured_image_alt: Split-screen comparison showing a developer's VS Code editor on one
 format: hands-on
 best_for: >-
