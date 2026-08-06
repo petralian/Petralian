@@ -157,14 +157,17 @@ Browse the site. Remove the line before switching Cloudflare DNS.
 
 | Vercel | This VPS setup |
 |--------|----------------|
-| Builds off-box, swaps traffic atomically | Builds on-server while **old PM2 workers keep serving** |
-| You never see 502 from a deploy | Brief 502 only if **all** workers die before new ones listen |
+| Builds off-box, swaps traffic atomically | Builds to `.next-staging`, atomically swaps, then `pm2 reload` |
+| You never see 502 from a deploy | **No multi-minute 502** — live `.next` stays intact during build |
 
-**How we minimize downtime:**
+**How we avoid 502 during deploy:**
 
-1. **Build first, reload last** — `npm ci` + `next build` run while the live app stays up.
-2. **PM2 cluster (2 workers)** — `pm2 reload` restarts one worker at a time (`data/deploy.yaml` → `pm2_instances: 2`).
-3. **Health check + auto-restart** — if reload fails, `deploy-on-vps.sh` runs `pm2 restart` before exiting.
+1. **Staging build** — `NEXT_DIST_DIR=.next-staging` so `next build` never overwrites the live `.next` (overwriting `.next` during build was the main cause of long 502s).
+2. **Atomic swap** — rename staging → live only after `BUILD_ID` exists, then cluster reload.
+3. **PM2 cluster (2 workers)** — `pm2 reload` with `reload_delay: 2000` restarts one worker at a time; **never `pm2 stop`** during deploy.
+4. **Deploy lock** — `/var/lock/petralian-deploy.lock` prevents GitHub Actions + manual SSH from running two deploys at once.
+5. **Nginx retries** — `proxy_next_upstream` retries brief upstream blips during worker reload.
+6. **Rollback** — if health check fails after swap, script restores `.next.prev` and reloads.
 
 **One-time on the VPS** (after pulling this change):
 
@@ -205,7 +208,7 @@ pm2 status
 | Symptom | Fix |
 |---------|-----|
 | Build OOM | `export NODE_OPTIONS=--max-old-space-size=2048` before build; add 2GB swap in aaPanel |
-| 502 Bad Gateway | `pm2 status` — app down? `pm2 restart petralian`. Check you are **not** using aaPanel Node.js Project + CLI PM2 together. |
+| 502 Bad Gateway | `pm2 status` — app down? `pm2 reload ecosystem.config.cjs`. **Never `pm2 stop` during deploy.** Ensure deploy uses staging `.next` (pull latest `deploy-on-vps.sh`). Not using aaPanel Node.js Project + CLI PM2 together. |
 | Newsletter 401 | `CRON_SECRET` mismatch between cron script and `.env` |
 | Leaderboard empty | Check Upstash env vars; `pm2 restart` after `.env` change |
 | SSL loop | Cloudflare SSL = Full (strict); origin must have valid Let's Encrypt cert |

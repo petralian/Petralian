@@ -5,6 +5,8 @@ import {
 } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
+  // VPS deploy builds to NEXT_DIST_DIR (.next-staging) then atomically swaps — live .next stays intact.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   // Allow LAN / WSL / Hyper-V IPs to load dev chunks (Next.js 16 blocks cross-origin dev assets by default)
   allowedDevOrigins: [
     "172.24.208.1",
