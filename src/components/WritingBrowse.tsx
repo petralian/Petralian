@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useTransition } from "react";
 import { notFound, usePathname, useRouter } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SiteTrailBar from "@/components/SiteTrailBar";
 import FormatFilter from "@/components/FormatFilter";
 import PostGrid from "@/components/PostGrid";
 import TopicPills from "@/components/TopicPills";
@@ -97,7 +97,7 @@ export default function WritingBrowse({
 
   return (
     <>
-      <Breadcrumbs items={breadcrumbItems} />
+      <SiteTrailBar items={breadcrumbItems} />
 
       <header className="blog-header blog-header--browse">
         <h1 className="blog-header-title">

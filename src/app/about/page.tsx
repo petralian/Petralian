@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SiteTrailBar from "@/components/SiteTrailBar";
 import AboutTrust from "@/components/AboutTrust";
 import { SOCIAL_LINKS, SITE_URL, AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from "@/lib/constants";
 import aboutContent from "../../../content/pages/about.json";
@@ -60,16 +60,12 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <div className="site-breadcrumbs-bar site-breadcrumbs-bar--page">
-        <div className="site-breadcrumbs-inner">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "About" },
-            ]}
-          />
-        </div>
-      </div>
+      <SiteTrailBar
+        items={[
+          { label: "Home", href: "/" },
+          { label: "About" },
+        ]}
+      />
       {/* ── Dark hero split ─────────────────────────────────────── */}
       <section className="about-hero">
         <div className="about-hero-inner">

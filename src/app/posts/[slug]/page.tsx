@@ -15,7 +15,7 @@ import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
 import { absoluteAssetUrl, absoluteSocialShareUrl, extractFaqPairs } from "@/lib/seo";
 import RelatedPosts from "@/components/RelatedPosts";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import SiteTrailBar from "@/components/SiteTrailBar";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
 import ProseImage from "@/components/ProseImage";
 import { extractHeadings, buildOutlineNav, shouldShowOutline } from "@/lib/extract-headings";
@@ -216,27 +216,22 @@ export default async function PostPage({
             )}
           </div>
         </div>
-        <div className="post-hero-breadcrumbs-bar">
-          <div className="post-hero-breadcrumbs-inner">
-            <Breadcrumbs
-              variant="dark"
-              fullWidth
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Writing", href: "/posts" },
-                ...(post.tags[0]
-                  ? [
-                    {
-                      label: post.tags[0],
-                      href: getTopicUrl(post.tags[0]),
-                    },
-                  ]
-                  : []),
-                { label: post.title },
-              ]}
-            />
-          </div>
-        </div>
+        <SiteTrailBar
+          fullWidth
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Writing", href: "/posts" },
+            ...(post.tags[0]
+              ? [
+                {
+                  label: post.tags[0],
+                  href: getTopicUrl(post.tags[0]),
+                },
+              ]
+              : []),
+            { label: post.title },
+          ]}
+        />
       </section>
 
       <div
