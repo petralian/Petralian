@@ -37,9 +37,6 @@ best_for: >-
 
 ## What brand voice in YAML means
 
-Photo by Thirdman from Pexels: https://www.pexels.com/photo/close-up-photo-of-a-tuning-fork-6194031/
-*Photo: TBD — Pexels "tuning fork"; credit photographer; Petralian (2026)*
-
 **Brand voice in YAML** means storing tone rules, banned phrases, claim limits, and channel overrides in a structured file both humans and agents load at session start. The PDF style guide can stay for designers. Generation needs a **machine-readable source** that does not require an agent to interpret twenty pages of narrative.
 
 **Who it is for:** brand and content ops leads producing blog, email, and social through multiple AI tools who already accept that voice is a governance problem, not a prompting problem.

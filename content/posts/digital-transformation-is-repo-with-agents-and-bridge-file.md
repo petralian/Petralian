@@ -38,9 +38,6 @@ seo_title: Digital Transformation Is a Repo With Agents and a Bridge…
 
 ## What digital transformation looks like as delivery mechanics
 
-Photo by Peter Dyllong from Pexels: https://www.pexels.com/photo/industrial-building-with-external-stairs-in-overcast-weather-36491205/
-*Photo: TBD — Pexels "construction site office"; credit photographer; Petralian (2026)*
-
 **Digital transformation** at program scale is **delivery mechanics**: a durable repo (or equivalent file store), agents that read the same handoff files every session, and a **Bridge** note that states current intent so work survives sponsor changes, vendor churn, and model upgrades.
 
 **Who it is for:** transformation leads, CIOs, and program directors who must show progress beyond workshops without reducing the program to "everyone gets ChatGPT Enterprise."
@@ -118,8 +115,8 @@ You are not replacing PMI or SAFe. You are giving agents the same artifacts prog
 
 ## What good looks like at week eight
 
-Photo by Mike van Schoonderwalt from Pexels: https://www.pexels.com/photo/yellow-tower-cranes-5504388/
-*Photo: TBD — Pexels "construction crane"; credit photographer; Petralian (2026)*
+![Crane lifting materials suggesting agents accelerate delivery inside guardrails.](/images/posts/digital-transformation-is-repo-with-agents-and-bridge-file-body-03-crane.avif)
+*Photo: [Mike van Schoonderwalt](https://www.pexels.com/photo/yellow-tower-cranes-5504388/) on Pexels — Petralian (2026)*
 
 A sponsor should be able to open Bridge and repo history and answer:
 
@@ -132,9 +129,6 @@ A sponsor should be able to open Bridge and repo history and answer:
 | What did agents touch? | Session summaries or PR authors |
 
 If those answers require a workshop, the program is still theater.
-
-![Crane lifting materials suggesting agents accelerate delivery inside guardrails.](/images/posts/digital-transformation-is-repo-with-agents-and-bridge-file-body-03-crane.avif)
-*Photo: [Mike van Schoonderwalt](https://www.pexels.com/photo/yellow-tower-cranes-5504388/) on Pexels — Petralian (2026)*
 
 ## Example implementation: how I run multi-workspace delivery
 

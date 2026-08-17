@@ -16,7 +16,8 @@
   padding-bottom: var(--space-5);
 }
 
-.post-hero-breadcrumbs-inner {
+.post-hero-breadcrumbs-inner,
+.site-breadcrumbs-inner {
   max-width: var(--site-max-width);
   margin: 0 auto;
   padding: 0 var(--site-gutter-x);

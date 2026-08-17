@@ -43,7 +43,7 @@ seo_title: 'WeChat Mini Programs vs Instagram Shop: Where Social…'
 ## Where social commerce still needs a human program owner
 
 ![Smartphone showing a QR code style commerce entry point in a retail setting.](/images/posts/wechat-mini-programs-vs-instagram-shop-social-commerce-body-01-phone-qr.avif)
-*Photo: TBD — Pexels "phone QR retail"; credit photographer; Petralian (2026)*
+*Photo: [iMin Technology](https://www.pexels.com/photo/a-close-up-shot-of-a-person-scanning-a-qr-code-12935064/) on Pexels — Petralian (2026)*
 
 **WeChat Mini Programs and Instagram Shop both sell inside the feed, but they govern customer data, campaign pace, and cross-channel accountability differently.** Platforms automate storefront mechanics. A human program owner still owns your launch calendar, consent language, and the handoff when a shopper becomes a CRM record.
 
@@ -134,8 +134,8 @@ owner -> crm: "identity bridge" {
 
 ## Why Instagram Shop wins discovery and loses the program thread
 
-Photo by Mayara Caroline Mombelli from Pexels: https://www.pexels.com/photo/woman-enjoying-iced-coffee-while-browsing-smartphone-34957868/
-*Photo: TBD — Pexels "phone shopping cafe"; credit photographer; Petralian (2026)*
+![Person scrolling a social commerce feed on a phone in a cafe.](/images/posts/wechat-mini-programs-vs-instagram-shop-social-commerce-body-02-social-feed.avif)
+*Photo: [Mayara Caroline Mombelli](https://www.pexels.com/photo/woman-enjoying-iced-coffee-while-browsing-smartphone-34957868/) on Pexels — Petralian (2026)*
 
 Instagram Shop excels where Western social habits already live: visual discovery, creator loops, and paid amplification. For brands that already invest in content studios, Shop reduces one hop to checkout.
 
@@ -149,9 +149,6 @@ Program risk shows up in different places:
 Shop automates the shelf. It does not automate **stakeholder alignment** when the shelf must match store inventory, influencer contracts, and loyalty tiers.
 
 Shoppable media strategy in [WARC-style omnichannel framing](/posts/shoppable-media-as-an-omnichannel-strategy-a-warc-exclusive-article) already noted Western platforms following APAC in-content checkout. The follow-on question in 2026 is **who owns the program when the button is native everywhere.**
-
-![Person scrolling a social commerce feed on a phone in a cafe.](/images/posts/wechat-mini-programs-vs-instagram-shop-social-commerce-body-02-social-feed.avif)
-*Photo: [Mayara Caroline  Mombelli](https://www.pexels.com/photo/woman-enjoying-iced-coffee-while-browsing-smartphone-34957868/) on Pexels — Petralian (2026)*
 
 ## APAC pace vs Western campaign rhythm
 

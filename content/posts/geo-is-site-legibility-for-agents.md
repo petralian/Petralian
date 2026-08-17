@@ -36,9 +36,6 @@ seo_title: GEO Is Site Legibility for Agents
 
 ## What GEO is in 2026
 
-Photo by Ahmet Polat from Pexels: https://www.pexels.com/photo/brown-wooden-book-shelves-in-the-bookstore-5225982/
-*Photo: TBD — Pexels "library light shelves"; credit photographer; Petralian (2026)*
-
 **Generative engine optimization (GEO)** is the practice of making web content **easy for retrieval systems to chunk, rank, and quote** inside synthesized answers. It complements SEO: write passages that stand alone, state limits honestly, and structure comparisons so a model can extract them without inventing your position.
 
 **Who it is for:** content strategists, SEO leads, and founders who hear "optimize for ChatGPT" and need a decision framework that survives the next product rename.
@@ -119,8 +116,8 @@ I do not maintain separate "GEO pages." I refresh `date` and the opening capsule
 
 ## Path A: test legibility this afternoon
 
-Photo by cottonbro studio from Pexels: https://www.pexels.com/photo/person-holding-a-book-3832026/
-*Photo: TBD — Pexels "book sticky notes"; credit photographer; Petralian (2026)*
+![Open book with sticky notes suggesting citable passages.](/images/posts/geo-is-site-legibility-for-agents-body-03-citation.avif)
+*Photo: [cottonbro studio](https://www.pexels.com/photo/person-holding-a-book-3832026/) on Pexels — Petralian (2026)*
 
 You do not need my stack. Pick one published page you care about (product, policy, or pillar article).
 
@@ -129,9 +126,6 @@ You do not need my stack. Pick one published page you care about (product, polic
 3. If the model invents audience, stakes, or numbers, fix the passage, not the prompt.
 
 Repeat after you add a comparison table or a limits paragraph. Legibility improvements show up as fewer invented qualifiers in the summary.
-
-![Open book with sticky notes suggesting citable passages.](/images/posts/geo-is-site-legibility-for-agents-body-03-citation.avif)
-*Photo: [cottonbro studio](https://www.pexels.com/photo/person-holding-a-book-3832026/) on Pexels — Petralian (2026)*
 
 ## Limitations
 

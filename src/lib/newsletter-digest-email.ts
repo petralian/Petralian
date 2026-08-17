@@ -1,7 +1,10 @@
+import fs from "fs";
+import path from "path";
 import { format, parseISO } from "date-fns";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
 import { formatFilterLabel, POST_FORMATS, type PostFormat } from "@/lib/post-format";
-import type { PostMeta } from "@/lib/posts";
+import { getPost, type PostMeta } from "@/lib/posts";
+import { socialShareImagePath } from "@/lib/seo";
 
 const BRAND = {
   ink: "#1b2430",
@@ -48,15 +51,93 @@ function digestDateRange(posts: PostMeta[]): string {
   return `${start}–${end}`;
 }
 
-/** Email clients handle JPEG/PNG better than AVIF. */
+/** Email clients need JPEG/PNG — resolve first existing sidecar on disk (not AVIF). */
 export function heroImageUrl(featuredImage: string): string | null {
   if (!featuredImage) return null;
-  const path = featuredImage.startsWith("/") ? featuredImage : `/${featuredImage}`;
-  if (path.endsWith(".avif")) {
-    return `${SITE_URL}${path.replace(/\.avif$/, ".og.jpg")}`;
+  if (featuredImage.startsWith("http")) return featuredImage;
+
+  const webPath = featuredImage.startsWith("/") ? featuredImage : `/${featuredImage}`;
+  const publicRoot = path.join(process.cwd(), "public");
+  const candidates: string[] = [];
+
+  const ogPath = socialShareImagePath(webPath);
+  if (ogPath) candidates.push(ogPath);
+
+  if (/\.avif$/i.test(webPath)) {
+    candidates.push(webPath.replace(/\.avif$/i, ".jpg"));
+    candidates.push(webPath.replace(/\.avif$/i, ".jpeg"));
+    candidates.push(webPath.replace(/\.avif$/i, ".png"));
+  } else if (/\.webp$/i.test(webPath)) {
+    candidates.push(webPath.replace(/\.webp$/i, ".jpg"));
+    candidates.push(webPath.replace(/\.webp$/i, ".png"));
   }
-  if (path.startsWith("http")) return path;
-  return `${SITE_URL}${path}`;
+
+  candidates.push(webPath);
+
+  for (const rel of candidates) {
+    const disk = path.join(publicRoot, rel.replace(/^\//, ""));
+    if (fs.existsSync(disk)) {
+      return `${SITE_URL}${rel}`;
+    }
+  }
+
+  return null;
+}
+
+function extractTldrBullets(content: string): string[] {
+  const match = content.match(/\*\*TL;DR\*\*\s*\n+([\s\S]*?)(?=\n## |\n---\s*$|$)/);
+  if (!match) return [];
+  return match[1]
+    .split("\n")
+    .map((line) => line.replace(/^[-*+]\s+/, "").replace(/\*\*/g, "").trim())
+    .filter((line) => line.length > 24);
+}
+
+function extractLeadParagraph(content: string): string {
+  const stripped = content.replace(/^[\s\S]*?\*\*TL;DR\*\*[\s\S]*?(?=\n## )/m, "");
+  const match = stripped.match(/\n\n([^#\n*!][^\n]{80,420}?)\n\n/);
+  if (!match) return "";
+  return match[1]
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function paragraphAlreadyCovered(paragraphs: string[], candidate: string): boolean {
+  const key = candidate.slice(0, 48).toLowerCase();
+  return paragraphs.some((p) => p.toLowerCase().includes(key) || key.includes(p.slice(0, 48).toLowerCase()));
+}
+
+/** Multi-paragraph teaser — excerpt, SEO line, TL;DR hooks, lead paragraph (no spoilers). */
+export function buildDigestTeaser(post: PostMeta, content: string): string[] {
+  const paragraphs: string[] = [];
+  const excerpt = post.excerpt?.trim();
+  const seo = post.seo_description?.trim();
+
+  if (excerpt) paragraphs.push(excerpt);
+  if (seo && seo !== excerpt && !paragraphAlreadyCovered(paragraphs, seo)) {
+    paragraphs.push(seo);
+  }
+
+  for (const bullet of extractTldrBullets(content)) {
+    if (paragraphs.length >= 5) break;
+    if (!paragraphAlreadyCovered(paragraphs, bullet)) paragraphs.push(bullet);
+  }
+
+  const learn = content.match(/\*\*What you will learn:\*\*\s*([^\n]+)/)?.[1]?.trim();
+  if (learn && paragraphs.length < 5 && !paragraphAlreadyCovered(paragraphs, learn)) {
+    paragraphs.push(`You'll leave with a clear read on ${learn.charAt(0).toLowerCase()}${learn.slice(1)}`);
+  }
+
+  if (paragraphs.length < 4) {
+    const lead = extractLeadParagraph(content);
+    if (lead && !paragraphAlreadyCovered(paragraphs, lead)) {
+      paragraphs.push(lead.length > 280 ? `${lead.slice(0, 277).replace(/\s+\S*$/, "")}…` : lead);
+    }
+  }
+
+  return paragraphs.slice(0, 6);
 }
 
 function formatBadge(format: PostFormat | ""): { label: string; color: string } | null {
@@ -90,12 +171,12 @@ function statPill(label: string, value: string): string {
     </td>`;
 }
 
-function renderPostCard(post: PostMeta, index: number): string {
+function renderPostCard(post: PostMeta, index: number, content: string): string {
   const url = `${SITE_URL}/posts/${post.slug}`;
   const imageUrl = heroImageUrl(post.featured_image);
   const badge = formatBadge(post.format);
-  const summary = post.seo_description || post.excerpt;
-  const bestFor = post.best_for ? `Best for: ${post.best_for}` : "";
+  const teaserParagraphs = buildDigestTeaser(post, content);
+  const bestFor = post.best_for?.trim() ?? "";
 
   const imageBlock = imageUrl
     ? `
@@ -128,8 +209,13 @@ function renderPostCard(post: PostMeta, index: number): string {
                 <span style="font-size:12px;color:${BRAND.inkSoft};">${esc(post.readingTime)}</span>
               </p>
               <a href="${url}" style="font-size:22px;line-height:1.35;color:${BRAND.ink};text-decoration:none;font-weight:700;">${esc(post.title)}</a>
-              <p style="margin:12px 0 0;font-size:15px;line-height:1.65;color:${BRAND.inkMuted};">${esc(summary)}</p>
-              ${bestFor ? `<p style="margin:10px 0 0;font-size:13px;line-height:1.5;color:${BRAND.inkSoft};font-style:italic;">${esc(bestFor)}</p>` : ""}
+              ${bestFor ? `<p style="margin:14px 0 0;font-size:13px;line-height:1.55;color:${BRAND.inkSoft};font-style:italic;"><strong style="font-style:normal;color:${BRAND.inkMuted};">Best for:</strong> ${esc(bestFor)}</p>` : ""}
+              ${teaserParagraphs
+                .map(
+                  (para, i) =>
+                    `<p style="margin:${i === 0 && !bestFor ? "12px" : "10px"} 0 ${i === teaserParagraphs.length - 1 ? "0" : "12px"};font-size:15px;line-height:1.65;color:${BRAND.inkMuted};">${esc(para)}</p>`
+                )
+                .join("")}
               <table role="presentation" cellspacing="0" cellpadding="0" style="margin-top:18px;">
                 <tr>
                   <td>${ctaButton(url, "Read article →")}</td>
@@ -156,7 +242,7 @@ export function buildWeeklyDigestHtml(params: {
   const totalMinutes = posts.reduce((sum, post) => sum + parseReadMinutes(post.readingTime), 0);
   const range = digestDateRange(posts);
   const preheader = `${posts.length} new post${posts.length > 1 ? "s" : ""} · about ${totalMinutes} min of reading · ${range}`;
-  const logoUrl = `${SITE_URL}/images/petralian_blue.png`;
+  const logoUrl = `${SITE_URL}/images/petralian_white.png`;
   const postsUrl = `${SITE_URL}/posts`;
 
   const formatCounts = posts.reduce<Record<string, number>>((acc, post) => {
@@ -169,7 +255,17 @@ export function buildWeeklyDigestHtml(params: {
     .map(([label, count]) => `${count} ${label.toLowerCase()}`)
     .join(" · ");
 
-  const items = posts.map((post, index) => renderPostCard(post, index)).join("");
+  const items = posts
+    .map((post, index) => {
+      let content = "";
+      try {
+        content = getPost(post.slug).content;
+      } catch {
+        content = "";
+      }
+      return renderPostCard(post, index, content);
+    })
+    .join("");
 
   return `<!doctype html>
 <html lang="en">

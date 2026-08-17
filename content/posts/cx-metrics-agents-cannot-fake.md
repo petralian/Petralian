@@ -36,9 +36,6 @@ best_for: >-
 
 ## Which CX metrics survive agent assistance
 
-Photo by Tima Miroshnichenko from Pexels: https://www.pexels.com/photo/a-person-filling-up-a-form-on-a-clipboard-6169648/
-*Photo: TBD — Pexels "scoreboard"; credit photographer; Petralian (2026)*
-
 **CX metrics agents cannot fake** tie to customer behavior systems already record: repeat purchase, contact rate, time-to-resolution, return rate, and churn cohorts tied to journeys. **Metrics agents will inflate** include unstructured survey praise, sentiment summaries without sampling discipline, and internal "quality scores" generated from the same model that produced the copy.
 
 **Who it is for:** CX leaders, operations directors, and executives building AI-assisted service or content programs who need a scorecard that still means something when agents draft replies and reports.
@@ -141,8 +138,8 @@ q5 -> soft: "fail 2+" {
 
 ## Metrics that resist gaming
 
-Photo by MART PRODUCTION from Pexels: https://www.pexels.com/photo/photograph-of-laptops-with-headsets-7709281/
-*Photo: TBD — Pexels "support headset desk"; credit photographer; Petralian (2026)*
+![Customer support desk headset suggesting outcomes agents cannot fake alone.](/images/posts/cx-metrics-agents-cannot-fake-body-03-support-desk.avif)
+*Photo: [MART PRODUCTION](https://www.pexels.com/photo/photograph-of-laptops-with-headsets-7709281/) on Pexels — Petralian (2026)*
 
 These are not new ideas. They survive because they bind to money and time.
 
@@ -156,9 +153,6 @@ These are not new ideas. They survive because they bind to money and time.
 | **Churn** on subscription or replenishment | Billing events |
 
 Agents can help **analyze** these series. They should not **be** the source of truth for them.
-
-![Customer support desk headset suggesting outcomes agents cannot fake alone.](/images/posts/cx-metrics-agents-cannot-fake-body-03-support-desk.avif)
-*Photo: [MART  PRODUCTION](https://www.pexels.com/photo/photograph-of-laptops-with-headsets-7709281/) on Pexels — Petralian (2026)*
 
 ## Metrics agents will inflate
 

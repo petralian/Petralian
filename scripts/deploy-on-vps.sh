@@ -87,6 +87,9 @@ fi
 
 verify_node_deps
 
+echo "==> JPEG sidecars (.og.jpg) for email + social previews"
+node scripts/raster-to-avif.mjs --og-only
+
 echo "==> Build to ${STAGING_DIST} (live site keeps serving from ${LIVE_DIST})"
 rm -rf "$STAGING_DIST"
 export NEXT_DIST_DIR="$STAGING_DIST"

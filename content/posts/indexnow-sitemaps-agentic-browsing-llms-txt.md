@@ -173,8 +173,8 @@ My stack is Next.js on Vercel with Obsidian vault sync. Hugo, Astro, and WordPre
 
 ## Path A: wire discovery in one afternoon
 
-Photo by Mohammad Hedayet Sarker from Pexels: https://www.pexels.com/photo/aerial-view-of-highway-interchange-in-tokyo-38751509/
-*Photo: TBD — Pexels "highway interchange aerial"; credit photographer; Petralian (2026)*
+![Aerial highway interchange suggesting multiple crawl and discovery paths.](/images/posts/indexnow-sitemaps-agentic-browsing-llms-txt-body-04-interchange.avif)
+*Photo: [Mohammad Hedayet Sarker](https://www.pexels.com/photo/aerial-view-of-highway-interchange-in-tokyo-38751509/) on Pexels — Petralian (2026)*
 
 1. Confirm `https://yoursite.com/sitemap.xml` lists only URLs you want indexed.
 2. Add or regenerate `public/llms.txt` with H1, site sections, and per-article lines with `seo_description` or excerpt text.

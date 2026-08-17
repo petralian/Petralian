@@ -62,16 +62,21 @@ export default function AboutPage() {
       />
       {/* ── Dark hero split ─────────────────────────────────────── */}
       <section className="about-hero">
-        <div className="about-hero-inner">
-          {/* Left: text */}
-          <div>
+        <div className="site-breadcrumbs-bar">
+          <div className="site-breadcrumbs-inner">
             <Breadcrumbs
               variant="dark"
+              fullWidth
               items={[
                 { label: "Home", href: "/" },
                 { label: "About" },
               ]}
             />
+          </div>
+        </div>
+        <div className="about-hero-inner">
+          {/* Left: text */}
+          <div>
             <h1 className="about-hero-name">Nathan Petralia</h1>
             <p className="about-hero-tagline">{aboutContent.hero_tagline}</p>
 
