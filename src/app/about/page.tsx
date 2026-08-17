@@ -60,20 +60,18 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
+      <div className="site-breadcrumbs-bar site-breadcrumbs-bar--page">
+        <div className="site-breadcrumbs-inner">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About" },
+            ]}
+          />
+        </div>
+      </div>
       {/* ── Dark hero split ─────────────────────────────────────── */}
       <section className="about-hero">
-        <div className="site-breadcrumbs-bar">
-          <div className="site-breadcrumbs-inner">
-            <Breadcrumbs
-              variant="dark"
-              fullWidth
-              items={[
-                { label: "Home", href: "/" },
-                { label: "About" },
-              ]}
-            />
-          </div>
-        </div>
         <div className="about-hero-inner">
           {/* Left: text */}
           <div>
