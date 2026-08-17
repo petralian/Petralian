@@ -165,6 +165,22 @@ export default async function PostPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
+      <SiteTrailBar
+        fullWidth
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Writing", href: "/posts" },
+          ...(post.tags[0]
+            ? [
+              {
+                label: post.tags[0],
+                href: getTopicUrl(post.tags[0]),
+              },
+            ]
+            : []),
+          { label: post.title },
+        ]}
+      />
       <section className="post-hero">
         <div className="post-hero-inner">
           {post.featured_image && (
@@ -216,22 +232,6 @@ export default async function PostPage({
             )}
           </div>
         </div>
-        <SiteTrailBar
-          fullWidth
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Writing", href: "/posts" },
-            ...(post.tags[0]
-              ? [
-                {
-                  label: post.tags[0],
-                  href: getTopicUrl(post.tags[0]),
-                },
-              ]
-              : []),
-            { label: post.title },
-          ]}
-        />
       </section>
 
       <div

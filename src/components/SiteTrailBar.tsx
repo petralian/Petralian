@@ -6,14 +6,14 @@ type SiteTrailBarProps = {
   fullWidth?: boolean;
 };
 
-/** Shared breadcrumb strip — same markup/styles as post hero trail */
+/** Shared breadcrumb row — no band/bg; inherits page surface */
 export default function SiteTrailBar({ items, fullWidth = false }: SiteTrailBarProps) {
   if (items.length === 0) return null;
 
   return (
     <div className="site-trail-bar">
       <div className="site-trail-bar-inner">
-        <Breadcrumbs variant="dark" fullWidth={fullWidth} items={items} />
+        <Breadcrumbs fullWidth={fullWidth} items={items} />
       </div>
     </div>
   );

@@ -507,8 +507,6 @@ html:not([data-theme]) .theme-icon--moon {
    BREADCRUMBS + SITE TRAIL BAR (all pages — SSOT; was post-only in article.css)
    ══════════════════════════════════════════════════════════════════ */
 .site-trail-bar {
-  background-color: var(--color-surface-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: var(--space-4) 0 var(--space-3);
   margin-bottom: var(--space-4);
 }
@@ -524,19 +522,18 @@ html:not([data-theme]) .theme-icon--moon {
   padding: 0 var(--site-gutter-x);
 }
 
-.post-hero .site-trail-bar {
-  order: -1;
-  margin-bottom: var(--space-8);
-  padding-bottom: var(--space-5);
+.site-trail-bar:has(+ .about-hero),
+.site-trail-bar:has(+ .post-hero) {
+  margin-bottom: 0;
 }
 
-.site-trail-bar:has(+ .about-hero) {
-  margin-bottom: 0;
-  border-bottom: none;
+.site-trail-bar + .post-hero {
+  padding-top: var(--space-8);
 }
 
 .breadcrumbs {
   margin-bottom: 0;
+  color: var(--color-ink-secondary);
 }
 
 .breadcrumbs__list {
@@ -566,11 +563,13 @@ html:not([data-theme]) .theme-icon--moon {
 }
 
 .breadcrumbs__link:hover {
+  color: var(--color-ink-heading);
   text-decoration: underline;
 }
 
 .breadcrumbs__current {
   min-width: 0;
+  color: var(--color-ink-tertiary);
 }
 
 .breadcrumbs--full .breadcrumbs__current {
@@ -594,11 +593,15 @@ html:not([data-theme]) .theme-icon--moon {
 }
 
 .breadcrumbs--light {
-  color: var(--color-text-muted, rgba(0, 0, 0, 0.55));
+  color: var(--color-ink-secondary);
 }
 
 .breadcrumbs--light .breadcrumbs__link:hover {
-  color: var(--color-text, inherit);
+  color: var(--color-ink-heading);
+}
+
+.breadcrumbs--light .breadcrumbs__current {
+  color: var(--color-ink-tertiary);
 }
 
 .breadcrumbs--dark {
