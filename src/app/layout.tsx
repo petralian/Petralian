@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import ClientScrollProgress from "@/components/ClientScrollProgress";
 import DeferredProductionScripts from "@/components/DeferredProductionScripts";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import TruConversion from "@/components/TruConversion";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, AUTHOR_NAME, AUTHOR_BIO, AUTHOR_TITLE } from "@/lib/constants";
 
 
@@ -150,7 +149,6 @@ export default function RootLayout({
       <body>
         <DeferredProductionScripts>
           <GoogleAnalytics />
-          <TruConversion />
         </DeferredProductionScripts>
         <Header />
         <main>{children}</main>

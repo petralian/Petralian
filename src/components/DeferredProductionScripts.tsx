@@ -3,8 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 
 /**
- * Mount GA / TruConversion only after first interaction.
- * Keeps Lighthouse clean: no third-party cookies, no Reveal 402, no WebSocket bfcache block.
+ * Mount GA only after first interaction (keeps Lighthouse clean).
  */
 export default function DeferredProductionScripts({
   children,
