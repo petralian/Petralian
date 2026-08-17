@@ -1,10 +1,30 @@
 import { SITE_URL } from "@/lib/constants";
 
+const SOCIAL_RASTER_RE = /\.(avif|webp)$/i;
+
+/** Map on-site AVIF/WebP asset path to JPEG sidecar for social crawlers (LinkedIn, X, Facebook). */
+export function socialShareImagePath(
+  assetPath: string | undefined
+): string | undefined {
+  if (!assetPath) return undefined;
+  const base = assetPath.split("?")[0];
+  if (SOCIAL_RASTER_RE.test(base)) {
+    return base.replace(SOCIAL_RASTER_RE, ".og.jpg");
+  }
+  return base;
+}
+
 export function absoluteAssetUrl(path: string | undefined): string | undefined {
   if (!path) return undefined;
   if (path.startsWith("http")) return path;
   if (path.startsWith("/")) return `${SITE_URL}${path}`;
   return `${SITE_URL}/${path}`;
+}
+
+export function absoluteSocialShareUrl(
+  path: string | undefined
+): string | undefined {
+  return absoluteAssetUrl(socialShareImagePath(path));
 }
 
 /** Extract FAQ Q&A from a ## FAQ section with ### question headings. */
