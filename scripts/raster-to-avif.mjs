@@ -5,6 +5,7 @@
  * Usage:
  *   node scripts/raster-to-avif.mjs
  *   node scripts/raster-to-avif.mjs --dry-run
+ *   node scripts/raster-to-avif.mjs --og-only   # JPEG sidecars only (skip AVIF recompress)
  */
 import path from "node:path";
 import fs from "node:fs";
@@ -12,6 +13,7 @@ import { fileURLToPath } from "node:url";
 import {
   convertRastersInDirectory,
   convertRasterFile,
+  ensureOgSidecarsInDirectory,
   loadImagePipelineConfig,
   rasterNameFor,
   rasterOutputExt,
@@ -23,6 +25,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dryRun = process.argv.includes("--dry-run");
+const ogOnly = process.argv.includes("--og-only");
 const cfg = loadImagePipelineConfig();
 
 const imagesDir = path.join(ROOT, cfg.paths?.repo_posts_images || "public/images/posts");
@@ -91,25 +94,34 @@ async function convertBrandJpegs(dir, { dryRun = false } = {}) {
 
 async function main() {
   const out = rasterOutputExt();
-  const tag = dryRun ? "[dry-run] " : "";
+  const tag = dryRun ? "[dry-run] " : ogOnly ? "[og-only] " : "";
   console.log(`${tag}Raster → ${out}: ${imagesDir}`);
 
-  const postsRename = await convertRastersInDirectory(imagesDir, { dryRun });
-  const brandRename = await convertBrandJpegs(brandDir, { dryRun });
-  const renameMap = new Map([...postsRename, ...brandRename]);
-  const recompressed =
-    (await recompressAvifInDirectory(imagesDir, { dryRun })) +
-    (await recompressAvifInDirectory(brandDir, { dryRun }));
+  let renameMap = new Map();
+  let recompressed = 0;
 
-  if (renameMap.size === 0 && recompressed === 0) {
-    console.log(`${tag}No raster files to convert.`);
+  if (!ogOnly) {
+    const postsRename = await convertRastersInDirectory(imagesDir, { dryRun });
+    const brandRename = await convertBrandJpegs(brandDir, { dryRun });
+    renameMap = new Map([...postsRename, ...brandRename]);
+    recompressed =
+      (await recompressAvifInDirectory(imagesDir, { dryRun })) +
+      (await recompressAvifInDirectory(brandDir, { dryRun }));
+  }
+
+  const ogSidecars =
+    (await ensureOgSidecarsInDirectory(imagesDir, { dryRun })) +
+    (await ensureOgSidecarsInDirectory(brandDir, { dryRun }));
+
+  if (renameMap.size === 0 && recompressed === 0 && ogSidecars === 0) {
+    console.log(`${tag}No raster or og sidecar work needed.`);
     return;
   }
 
-  const markdownUpdated = updateMarkdownFilesInDir(markdownDir, renameMap, { dryRun });
-  const refsUpdated = updateTextRefsInDirs(REF_UPDATE_DIRS, renameMap, { dryRun });
+  const markdownUpdated = ogOnly ? 0 : updateMarkdownFilesInDir(markdownDir, renameMap, { dryRun });
+  const refsUpdated = ogOnly ? 0 : updateTextRefsInDirs(REF_UPDATE_DIRS, renameMap, { dryRun });
   console.log(
-    `${tag}${renameMap.size} file(s) converted | ${recompressed} ${out} recompressed | ${markdownUpdated} markdown + ${refsUpdated} other refs updated`
+    `${tag}${renameMap.size} file(s) converted | ${recompressed} ${out} recompressed | ${ogSidecars} og.jpg sidecar(s) | ${markdownUpdated} markdown + ${refsUpdated} other refs updated`
   );
 }
 

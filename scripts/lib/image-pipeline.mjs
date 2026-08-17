@@ -69,6 +69,63 @@ export function rasterNameFor(fileName) {
   return `${fileName.slice(0, -ext.length)}${out}`;
 }
 
+/** Path for LinkedIn/Facebook/X preview JPEG alongside AVIF/WebP raster. */
+export function socialOgPathFor(filePath) {
+  const base = filePath.split("?")[0];
+  const ext = extLower(base);
+  if (ext === ".avif" || ext === ".webp") {
+    const cfg = loadImagePipelineConfig();
+    const suffix = cfg.social_share?.suffix || ".og.jpg";
+    return `${base.slice(0, -ext.length)}${suffix}`;
+  }
+  return base;
+}
+
+export async function writeSocialOgJpeg(srcPath, { dryRun = false } = {}) {
+  const ogPath = socialOgPathFor(srcPath);
+  if (ogPath === srcPath || !fs.existsSync(srcPath)) return null;
+
+  const cfg = loadImagePipelineConfig();
+  const quality = cfg.social_share?.jpeg_quality ?? 85;
+  const maxWidth = cfg.social_share?.max_width_px ?? cfg.resize?.max_width_px ?? 1200;
+
+  if (dryRun) return ogPath;
+
+  let pipeline = sharp(srcPath, { failOn: "none" });
+  const meta = await pipeline.metadata();
+  if (meta.width && meta.width > maxWidth) {
+    pipeline = pipeline.resize(maxWidth, null, {
+      withoutEnlargement: true,
+      fit: "inside",
+    });
+  }
+  fs.mkdirSync(path.dirname(ogPath), { recursive: true });
+  await pipeline.jpeg({ quality, mozjpeg: true }).toFile(ogPath);
+  return ogPath;
+}
+
+/** Build .og.jpg sidecars for every AVIF in a directory (social link previews). */
+export async function ensureOgSidecarsInDirectory(dir, { dryRun = false } = {}) {
+  const outExt = rasterOutputExt();
+  let count = 0;
+  if (!fs.existsSync(dir)) return count;
+
+  for (const name of fs.readdirSync(dir)) {
+    if (extLower(name) !== outExt) continue;
+    const filePath = path.join(dir, name);
+    if (!fs.statSync(filePath).isFile()) continue;
+    const ogPath = await writeSocialOgJpeg(filePath, { dryRun });
+    if (ogPath) {
+      count += 1;
+      if (!dryRun) {
+        const kb = (fs.statSync(ogPath).size / 1024).toFixed(1);
+        console.log(`  og: ${path.basename(ogPath)} (${kb} KB)`);
+      }
+    }
+  }
+  return count;
+}
+
 export function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
