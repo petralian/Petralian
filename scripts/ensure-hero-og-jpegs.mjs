@@ -7,12 +7,16 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
-import { socialOgPathFor, writeSocialOgJpeg } from "./lib/image-pipeline.mjs";
+import { writeSocialOgJpeg } from "./lib/image-pipeline.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const postsDir = path.join(ROOT, "content", "posts");
 const publicRoot = path.join(ROOT, "public");
 const dryRun = process.argv.includes("--dry-run");
+
+function heroOgRel(avifRel) {
+  return avifRel.replace(/\.avif$/i, ".og.jpg");
+}
 
 async function main() {
   if (!fs.existsSync(postsDir)) {
@@ -32,7 +36,7 @@ async function main() {
     if (!/\.avif$/i.test(rel)) continue;
 
     const avifPath = path.join(publicRoot, rel);
-    const ogRel = socialOgPathFor(`/${rel}`).replace(/^\//, "");
+    const ogRel = heroOgRel(rel);
     const ogPath = path.join(publicRoot, ogRel);
 
     if (!fs.existsSync(avifPath)) {
