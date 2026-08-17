@@ -34,6 +34,27 @@ export function isPostPublished(
   return postKey <= getEditorialDateKey(now);
 }
 
+/** Resolve Obsidian wiki embeds and bare filenames to site image paths. */
+export function normalizeFeaturedImage(value: unknown): string {
+  if (value == null || value === "") return "";
+  let raw = String(value).trim();
+
+  const wiki = raw.match(/^\[\[([^\]|]+)(?:\|[^\]]*)?\]\]$/);
+  if (wiki) raw = wiki[1].trim();
+
+  if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+
+  if (raw.startsWith("/")) {
+    if (/^\/images\/posts\/.+\.(jpe?g|png)$/i.test(raw)) {
+      return raw.replace(/\.(jpe?g|png)$/i, ".avif");
+    }
+    return raw;
+  }
+
+  const base = raw.replace(/\.(avif|webp|jpe?g|png)$/i, "");
+  return `/images/posts/${base}.avif`;
+}
+
 function generateExcerpt(content: string): string {
   const plain = content
     .replace(/^#{1,6}\s+.*/gm, "")
@@ -119,7 +140,7 @@ export function getPostMeta(slug: string): PostMeta {
       ? data.related_posts.filter((s): s is string => typeof s === "string")
       : [],
     excerpt: data.excerpt || generateExcerpt(content),
-    featured_image: data.featured_image || "",
+    featured_image: normalizeFeaturedImage(data.featured_image),
     seo_title: data.seo_title || "",
     seo_description: data.seo_description || data.excerpt || "",
     featured_image_alt: data.featured_image_alt || "",

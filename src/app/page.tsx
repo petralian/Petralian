@@ -41,7 +41,7 @@ export default function HomePage() {
         <style
           dangerouslySetInnerHTML={{
             __html:
-              ".hero{padding:var(--space-12,3rem) 0 var(--space-10,2.5rem);margin-bottom:var(--space-5,1.25rem)}.hero-title{font-family:var(--font-heading),system-ui,sans-serif;font-size:clamp(2.125rem,5.5vw,3rem);font-weight:700;line-height:1.15;color:var(--color-ink-heading,#1b2430);margin-bottom:var(--space-5,1.25rem);max-width:min(48rem,100%);text-wrap:balance}.hero-tagline{font-size:1.125rem;color:var(--color-ink-secondary,#545468);max-width:min(40rem,100%);line-height:1.7}",
+              ".hero{padding:var(--space-12,3rem) 0 var(--space-10,2.5rem);margin-bottom:var(--space-5,1.25rem)}.hero-title{font-family:var(--font-heading),\"Lexend Deca\",system-ui,sans-serif;font-size:clamp(2.125rem,5.5vw,3rem);font-weight:700;line-height:1.15;color:var(--color-ink-heading,#1b2430);margin-bottom:var(--space-5,1.25rem);max-width:min(48rem,100%);text-wrap:balance}.hero-tagline{font-size:1.125rem;color:var(--color-ink-secondary,#545468);max-width:min(40rem,100%);line-height:1.7}",
           }}
         />
         <section className="hero">

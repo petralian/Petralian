@@ -13,7 +13,7 @@ import { getAllSlugs, getAllPosts, getPost, getPostLastModified } from "@/lib/po
 import { getTopicUrl } from "@/lib/tag-slug";
 import FormatBadge from "@/components/FormatBadge";
 import { SITE_NAME, SITE_URL, AUTHOR_NAME } from "@/lib/constants";
-import { absoluteAssetUrl, extractFaqPairs } from "@/lib/seo";
+import { absoluteAssetUrl, absoluteSocialShareUrl, extractFaqPairs } from "@/lib/seo";
 import RelatedPosts from "@/components/RelatedPosts";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { postDiagramComponents } from "@/components/diagram/post-diagram-components";
@@ -43,7 +43,7 @@ export async function generateMetadata({
     const post = getPost(slug);
     const postUrl = `${SITE_URL}/posts/${slug}`;
     const modified = getPostLastModified(slug, post.date).toISOString();
-    const ogImage = absoluteAssetUrl(post.featured_image);
+    const ogImage = absoluteSocialShareUrl(post.featured_image);
     return {
       title: post.seo_title || post.title,
       description: post.seo_description || post.excerpt,
@@ -95,14 +95,14 @@ export default async function PostPage({
     notFound();
   }
 
-  if (post.featured_image) {
+  if (post.featured_image?.startsWith("/")) {
     preload(post.featured_image, { as: "image" });
   }
 
   const allPosts = getAllPosts();
   const postUrl = `${SITE_URL}/posts/${post.slug}`;
   const modifiedIso = getPostLastModified(post.slug, post.date).toISOString();
-  const heroUrl = absoluteAssetUrl(post.featured_image);
+  const heroUrl = absoluteSocialShareUrl(post.featured_image);
   const headings = extractHeadings(post.content);
   const navHeadings = buildOutlineNav(headings);
   const showOutline = shouldShowOutline(navHeadings);
