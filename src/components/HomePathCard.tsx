@@ -18,7 +18,6 @@ export default function HomePathCard({
   blurb,
   footer,
   index = 0,
-  variant = "start",
 }: {
   href: string;
   image?: string;
@@ -28,14 +27,13 @@ export default function HomePathCard({
   blurb?: string;
   footer: string;
   index?: number;
-  variant?: "start" | "series";
 }) {
   const accent = PATH_ACCENTS[index % PATH_ACCENTS.length];
 
   return (
     <Link
       href={href}
-      className={`home-path-card home-path-card--${variant}`}
+      className="home-path-card home-path-card--start"
       style={{ "--path-accent": accent } as CSSProperties}
     >
       <article className="home-path-card-inner">

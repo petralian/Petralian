@@ -37,7 +37,6 @@ export default function HomeSeriesHubs({
               blurb={hub.best_for || undefined}
               footer={`${partLabel(partCount)} · Start →`}
               index={index}
-              variant="series"
             />
           </li>
         ))}

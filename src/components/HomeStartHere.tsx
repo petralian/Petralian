@@ -32,7 +32,6 @@ export default function HomeStartHere({
               blurb={post.best_for || undefined}
               footer="Start here →"
               index={index}
-              variant="start"
             />
           </li>
         ))}
