@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 
 /**
- * Mount GA only after first interaction (keeps Lighthouse clean).
+ * Mount GA and Clarity after first interaction (keeps Lighthouse clean).
  */
 export default function DeferredProductionScripts({
   children,

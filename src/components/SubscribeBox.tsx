@@ -63,7 +63,7 @@ export default function SubscribeBox() {
   return (
     <div className="subscribe-box">
       <p className="subscribe-headline">
-        Get practical posts on enterprise AI and transformation. Only useful updates, sent as a weekly digest.
+        Weekly email with new posts on enterprise AI and how teams ship it.
       </p>
       <form onSubmit={handleSubmit} className="subscribe-form" noValidate>
         <input
@@ -103,7 +103,7 @@ export default function SubscribeBox() {
       {state === "error" && (
         <p className="subscribe-error">{errorMessage}</p>
       )}
-      <p className="subscribe-note">One practical digest each week. Unsubscribe anytime.</p>
+      <p className="subscribe-note">One email per week. Unsubscribe anytime.</p>
     </div>
   );
 }

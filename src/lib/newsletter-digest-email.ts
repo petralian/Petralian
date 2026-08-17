@@ -304,7 +304,7 @@ export function buildWeeklyDigestHtml(params: {
                     <td style="padding:28px;">
                       <p style="margin:0 0 14px;font-size:17px;line-height:1.6;color:${BRAND.ink};">${esc(greeting)}</p>
                       <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:${BRAND.inkMuted};">
-                        ${esc(SITE_TAGLINE)} Here is your curated roundup of what shipped this week.
+                        ${esc(SITE_TAGLINE)} Here is what published this week.
                       </p>
                       <table role="presentation" cellspacing="0" cellpadding="0" style="margin:0 0 8px;">
                         <tr>
@@ -335,9 +335,9 @@ export function buildWeeklyDigestHtml(params: {
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${BRAND.surface};border:1px solid ${BRAND.border};border-radius:14px;">
                   <tr>
                     <td style="padding:28px;text-align:center;">
-                      <p style="margin:0 0 8px;font-size:18px;line-height:1.4;font-weight:700;color:${BRAND.ink};">Want more than the digest?</p>
+                      <p style="margin:0 0 8px;font-size:18px;line-height:1.4;font-weight:700;color:${BRAND.ink};">Read the full archive</p>
                       <p style="margin:0 0 18px;font-size:14px;line-height:1.6;color:${BRAND.inkMuted};">
-                        Explore the full archive, follow on LinkedIn, or reply with what you want covered next.
+                        Browse every post, follow on LinkedIn, or reply with what you want covered next.
                       </p>
                       <table role="presentation" cellspacing="0" cellpadding="0" align="center" style="margin:0 auto 16px;">
                         <tr>

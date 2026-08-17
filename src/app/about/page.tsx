@@ -8,12 +8,12 @@ import aboutContent from "../../../content/pages/about.json";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
+    "Nathan Petralia: twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC. Writing on enterprise AI, commercial growth, and the work behind transformation.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: `About ${AUTHOR_NAME}`,
     description:
-      "Nathan Petralia — twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC.",
+      "Nathan Petralia: twenty years closing deals, building high-performance teams, and delivering complex digital programs across APAC.",
     type: "profile",
     url: `${SITE_URL}/about`,
   },

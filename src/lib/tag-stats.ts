@@ -54,5 +54,5 @@ export function getRelatedTags(
 }
 
 export function topicIntro(tag: string, count: number): string {
-  return `${count} article${count === 1 ? "" : "s"} on ${tag} — programs, tooling, and delivery on Petralian.`;
+  return `${count} article${count === 1 ? "" : "s"} on ${tag}. Programs, tooling, and delivery on Petralian.`;
 }

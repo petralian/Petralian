@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   const count = getAllPosts().filter((p) => p.tags.includes(tag)).length;
   const title = `${tag} articles`;
-  const description = `${count} article${count === 1 ? "" : "s"} on ${tag} — enterprise programs, agent workflows, and delivery.`;
+  const description = `${count} article${count === 1 ? "" : "s"} on ${tag}. Enterprise programs, agent workflows, and delivery.`;
 
   return {
     title,
