@@ -92,7 +92,7 @@ These mirror the foundation work in [getting enterprise AI right](/posts/getting
 **Skip signal:** A two-week "AI training sprint" after deployment.
 
 ```d2
-direction: right
+direction: down
 
 PRESSURE: "Steering\npressure" {
   style.fill: "#f5f7fa"
@@ -101,8 +101,8 @@ PRESSURE: "Steering\npressure" {
 }
 
 GATES: "Readiness gates" {
-  direction: down
-  grid-columns: 2
+  direction: right
+  grid-columns: 3
   style.fill: "#f5f7fa"
   style.stroke: "#d8dce6"
   style.border-radius: 8
@@ -110,10 +110,12 @@ GATES: "Readiness gates" {
   DATA: "Data audit\n+ owners"
   GOV: "Named\ngovernance"
   CHANGE: "Change\nrunway"
-  HOLD: "Gate:\nevidence?" {
-    style.fill: "#fff8f5"
-    style.stroke: "#ff6a3d"
-  }
+}
+
+HOLD: "Gate:\nevidence?" {
+  style.fill: "#fff8f5"
+  style.stroke: "#ff6a3d"
+  style.border-radius: 8
 }
 
 DEPLOY: "Deploy +\nimprove" {
@@ -122,14 +124,17 @@ DEPLOY: "Deploy +\nimprove" {
   style.border-radius: 8
 }
 
-PRESSURE -> GATES.HOLD: "skip risk" {
+PRESSURE -> HOLD: "skip risk" {
   style.stroke: "#9aa3b2"
   style.stroke-dash: 4
 }
-GATES.HOLD -> DEPLOY: "cleared" {
+GATES.DATA -> HOLD
+GATES.GOV -> HOLD
+GATES.CHANGE -> HOLD
+HOLD -> DEPLOY: "cleared" {
   style.stroke: "#ff6a3d"
 }
-DEPLOY -> GATES.DATA: "re-audit" {
+DEPLOY -> HOLD: "re-audit" {
   style.stroke-dash: 8
   style.stroke: "#9aa3b2"
 }

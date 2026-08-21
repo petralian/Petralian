@@ -2,7 +2,7 @@
 
 > Practical writing on AI, technology, and commercial growth — for anyone who wants better results from AI than a disposable chat tab.
 
-Last updated: 2026-08-06
+Last updated: 2026-08-21
 
 Nathan Petralia writes from twenty years leading digital and commercial programs across APAC (Estée Lauder, Shiseido, Microsoft, Merkle / Dentsu). Since 2024 he builds AI products and documents what works: enterprise AI strategy, commercial growth, external memory for agents, and operator-grade tooling — in language a student, founder, or CEO can act on this afternoon.
 
@@ -40,24 +40,28 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 
 ## Topics
 
-- [Agentic AI](https://petralian.com/topics/agentic-ai): 54 articles
+- [Agentic AI](https://petralian.com/topics/agentic-ai): 55 articles
 - [Generative AI](https://petralian.com/topics/generative-ai): 32 articles
-- [Enterprise AI](https://petralian.com/topics/enterprise-ai): 28 articles
+- [Enterprise AI](https://petralian.com/topics/enterprise-ai): 31 articles
 - [Developer Tools](https://petralian.com/topics/developer-tools): 24 articles
 - [AI Memory](https://petralian.com/topics/ai-memory): 23 articles
 - [Obsidian](https://petralian.com/topics/obsidian): 23 articles
 - [Marketing Technology](https://petralian.com/topics/marketing-technology): 22 articles
 - [Playbook](https://petralian.com/topics/playbook): 21 articles
 - [AI in Marketing](https://petralian.com/topics/ai-in-marketing): 18 articles
-- [Ecommerce](https://petralian.com/topics/ecommerce): 16 articles
-- [Digital Transformation](https://petralian.com/topics/digital-transformation): 15 articles
-- [AI Quality](https://petralian.com/topics/ai-quality): 14 articles
-- [Leadership](https://petralian.com/topics/leadership): 14 articles
+- [Digital Transformation](https://petralian.com/topics/digital-transformation): 17 articles
+- [Ecommerce](https://petralian.com/topics/ecommerce): 17 articles
+- [AI Quality](https://petralian.com/topics/ai-quality): 15 articles
+- [Leadership](https://petralian.com/topics/leadership): 15 articles
+- [Customer Experience](https://petralian.com/topics/customer-experience): 12 articles
 - [GEO](https://petralian.com/topics/geo): 11 articles
-- [Agency Landscape](https://petralian.com/topics/agency-landscape): 10 articles
 
 ## Published articles
 
+- [57% Deployed, 11% Hit Their Top AI Goals: What Kyndryl's 2026 Report Measures](https://petralian.com/posts/enterprise-ai-57-deployed-11-hit-goals-kyndryl-2026): Kyndryl 2026 report: 57% deploy AI enterprise-wide, only 11% hit both top goals. Workforce-readiness gap for APAC program owners moving past pilots.
+- [CX Metrics Agents Cannot Fake (and the Ones They Will)](https://petralian.com/posts/cx-metrics-agents-cannot-fake): Which CX metrics resist agent gaming: repeat purchase, contact rate, resolution time, and which scores inflate under AI-generated surveys and reports.
+- [WeChat Mini Programs vs Instagram Shop: Where Social Commerce Still Needs a Human Program Owner](https://petralian.com/posts/wechat-mini-programs-vs-instagram-shop-social-commerce): WeChat Mini Programs vs Instagram Shop: where social commerce still needs a human program owner for data, APAC pace, CRM handoffs, and consent.
+- [Digital Transformation Is a Repo With Agents and a Bridge File](https://petralian.com/posts/digital-transformation-is-repo-with-agents-and-bridge-file): Digital transformation as delivery mechanics: git repo, Bridge handoff, agent harness, not another generic DX essay. Path A for program leads.
 - [GEO Is Site Legibility for Agents](https://petralian.com/posts/geo-is-site-legibility-for-agents): GEO is site legibility for AI retrieval: clear passages, extractable tables, and honest limits so citation systems can quote you accurately.
 - [IndexNow, Sitemaps, and Why Agentic Browsing Cared About llms.txt](https://petralian.com/posts/indexnow-sitemaps-agentic-browsing-llms-txt): IndexNow, sitemaps, and Lighthouse Agentic Browsing on llms.txt: how I wired discovery files into petralian.com publish, plus an honest IndexNow 403 open loop.
 - [Brand Voice in YAML: One Source for Humans and Agents](https://petralian.com/posts/brand-voice-in-yaml-source-for-humans-and-agents): Put brand voice in YAML: tone, banned words, and claim limits as one SSOT for humans and agents. Complements file-based marketing governance.
@@ -82,7 +86,7 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 - [Cursor Customize for Brainstorming and a Personal Agent](https://petralian.com/posts/cursor-customize-brainstorm-and-personal-agent-2026): Set up Cursor Customize for brainstorming and a personal agent: loose exploration rules, private life-admin memory, and a clean phone-to-desk handoff.
 - [Is Cursor Only for Developers? A Better AI Interface for Anyone With Files](https://petralian.com/posts/is-cursor-only-for-developers): Is Cursor only for developers? No. CEOs, students, founders, and operators can use Cursor as a file-grounded AI interface that beats disposable chat tabs.
 - [How I Built an SEO and GEO Publish Pipeline (Without an Agency)](https://petralian.com/posts/petralian-seo-geo-publish-pipeline-2026): How I automated preflight, llms.txt, IndexNow, and meta fixes on petralian.com — a vault-to-Vercel pipeline anyone can adapt for search and AI discovery.
-- [Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield](https://petralian.com/posts/best-cursor-model-by-task-2026): Best Cursor model by work mode in 2026: analysis, review, execution, and greenfield picks from CursorBench 3.2 with cost, tokens, and agent steps for any…
+- [Best Cursor Model by Work Mode (2026): Analysis, Review, Execution, Greenfield](https://petralian.com/posts/best-cursor-model-by-task-2026): Best Cursor model by work mode in 2026: analysis, review, execution, and greenfield picks from CursorBench 3.2 with cost, tokens, and agent steps for any power user.
 - [When to Escalate from Composer 2.5 to Fable 5: A Decision Tree](https://petralian.com/posts/when-to-escalate-composer-2-5-to-fable-5): When to escalate from Composer 2.5 to Fable 5 in Cursor: decision tree using CursorBench 3.2 cost, steps, and task risk. Avoid 17 USD tasks on routine work.
 - [Fable 5 Pricing on Cursor: Every Tier Explained (Max to Low)](https://petralian.com/posts/fable-5-pricing-cursor-every-tier-explained): Fable 5 pricing tiers on Cursor explained: Max through Low with CursorBench 3.2 score, cost per task, tokens, and steps. Pick the right tier for budget vs…
 - [Open Models on CursorBench 3.2: Grok 4.5, GLM 5.2, Kimi K2.7, and LongCat](https://petralian.com/posts/open-models-cursorbench-3-2-grok-glm-kimi-longcat): Open models on CursorBench 3.2: Grok 4.5 vs GLM 5.2 vs Kimi K2.7 Code with cost and steps, plus LongCat SWE-bench context. Budget picks vs Composer 2.5 on…
@@ -136,8 +140,8 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 - [Is using AI in creative work wrong?](https://petralian.com/posts/is-using-ai-in-creative-work-wrong): TL;DR What Is using AI in creative work wrong? covers. Who it is for and when to use it. Practical next steps after reading. External Memory…
 - [Redefining Media Agency Success: Embracing Innovation in the Digital Era](https://petralian.com/posts/redefining-media-agency-success-embracing-innovation-in-the-digital-era): TL;DR What Redefining Media Agency Success: Embracing Innovation in the Digital Era covers. Who it is for and when to use it. Practical next steps after…
 - [Leadership Lessons from the Vatican: Consensus as a Catalyst for Digital Transformation](https://petralian.com/posts/leadership-lessons-from-the-vatican-consensus-as-a-catalyst-for-digital-transformation): The recent news that the 133 cardinals have not yet elected a new Pope reminds us that transformative decisions require broad support. In the Vatican’s…
-- [AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail Strategy?](https://petralian.com/posts/ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy): External Memory Series — File-based memory for AI-assisted work (overview · 1 Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) The reported…
-- [Boutiques, Agencies, or Consultancies? Which one should you work with?](https://petralian.com/posts/boutiques-agencies-consultancies-digital-transformation-roi): Having led digital transformation initiatives across Asia Pacific for global brands ranging from luxury retail to financial services, I've experienced the…
+- [AI Shopping Revolution: Will Shopify's ChatGPT Integration Redefine Retail Strategy?](https://petralian.com/posts/ai-shopping-revolution-will-shopifys-chatgpt-integration-redefine-retail-strategy)
+- [Boutiques, Agencies, or Consultancies? Which one should you work with?](https://petralian.com/posts/boutiques-agencies-consultancies-digital-transformation-roi)
 - [The AI Revolution: How LLMs Are Reshaping Search and the Future of SEO](https://petralian.com/posts/the-ai-revolution-how-llms-are-reshaping-search-and-the-future-of-seo): External Memory Series — File-based memory for AI-assisted work (overview · 1 Implementation · 2 Productivity · 3 vs the diagram · 4 Governance) In the midst…
 - [Marketing 101: Fundamental Principles for Sustainable Business Growth](https://petralian.com/posts/marketing-101-fundamental-principles-for-sustainable-business-growth): As a digital transformation strategist who has worked with global brands across multiple sectors, I've consistently observed that strong marketing fundamentals…
 - [Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Precision and the Right AI Tools](https://petralian.com/posts/mastering-ai-prompting-frameworks-for-marketers-transforming-campaigns-with-the-right-ai-tools): TL;DR What Mastering AI Prompting Frameworks for Marketers: Transforming Campaigns with Pre covers. Who it is for and when to use it. Practical next steps…
