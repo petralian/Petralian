@@ -104,18 +104,30 @@ log "container env after fix: BREVO=${CONTAINER_BREVO:+set} CRON=${CRON_SECRET:+
 log "Recent container logs:"
 docker logs sitemonitor --tail 40 2>&1 | grep -iE 'brevo|cron|digest|email|error|fail|notify|listening' | tail -20 || true
 
-# Internal digest cron (0 7 * * * Asia/Singapore) handles daily email — no external cron needed.
+# Internal digest cron (0 7 * * * Asia/Singapore) handles daily email — remove bad external cron if added earlier.
+CRON_FILE="/var/spool/cron/crontabs/root"
+if [[ -f "$CRON_FILE" ]] && grep -q 'sitemonitor-digest' "$CRON_FILE" 2>/dev/null; then
+  sed -i '/sitemonitor-digest/d' "$CRON_FILE"
+  log "Removed obsolete external sitemonitor-digest crontab (app has internal cron)"
+fi
 
-# ── Trigger digest now (catch-up send via localhost — no dashboard auth) ─────
+# ── Trigger digest now (catch-up) using container cron secret if present ─────
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
-  log "Triggering in-container digest run + email"
-  docker exec sitemonitor node -e "
-    fetch('http://127.0.0.1:3000/api/digest/run?send=1',{method:'POST'})
-      .then(async (r) => console.log(r.status, (await r.text()).slice(0, 500)))
-      .catch((e) => console.error(e.message));
-  " 2>/dev/null || docker exec sitemonitor wget -qO- --method=POST "http://127.0.0.1:3000/api/digest/run?send=1" 2>/dev/null || true
-  sleep 5
-  docker logs sitemonitor --tail 15 2>&1 | grep -iE 'brevo|digest|email|sent|error' | tail -8 || true
+  TRIGGER_SECRET="$(docker exec sitemonitor printenv 2>/dev/null | grep -E '^(CRON_SECRET|DIGEST_SECRET|SITEMONITOR_SECRET|ADMIN_TOKEN)=' | head -1 | cut -d= -f2- || true)"
+  log "Triggering catch-up digest (secret=${TRIGGER_SECRET:+present})"
+  if [[ -n "$TRIGGER_SECRET" ]]; then
+    docker exec sitemonitor node -e "
+      fetch('http://127.0.0.1:3000/api/digest/run?send=1',{
+        method:'POST',
+        headers:{Authorization:'Bearer $TRIGGER_SECRET'}
+      }).then(async (r) => console.log(r.status, (await r.text()).slice(0, 500)))
+        .catch((e) => console.error(e.message));
+    " 2>/dev/null || true
+  else
+    warn "No cron secret in container — next scheduled digest: 07:00 Asia/Singapore"
+  fi
+  sleep 8
+  docker logs sitemonitor --tail 20 2>&1 | grep -iE 'brevo|digest|email|sent|error|queued' | tail -10 || true
 fi
 
 log "Done"
