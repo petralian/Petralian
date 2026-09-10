@@ -36,6 +36,7 @@ read_trigger_secret() {
 
 # ── Resolve compose dir from container labels ────────────────────────────────
 COMPOSE_DIR=""
+ENV_FILE=""
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   COMPOSE_DIR="$(docker inspect sitemonitor --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' 2>/dev/null || true)"
 fi
