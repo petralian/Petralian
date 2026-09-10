@@ -104,36 +104,18 @@ log "container env after fix: BREVO=${CONTAINER_BREVO:+set} CRON=${CRON_SECRET:+
 log "Recent container logs:"
 docker logs sitemonitor --tail 40 2>&1 | grep -iE 'brevo|cron|digest|email|error|fail|notify|listening' | tail -20 || true
 
-# ── External cron fallback (daily 08:00 HKT = 00:00 UTC) ────────────────────
-if [[ -n "$CRON_SECRET" ]]; then
-  CRON_LINE="0 0 * * * curl -fsS -X POST -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://mon.petralian.com/api/digest/run?send=1\" >> /www/wwwlogs/sitemonitor-digest.log 2>&1"
-  CRON_MARK="sitemonitor-digest"
-  CRON_FILE="/var/spool/cron/crontabs/root"
-  if [[ -f "$CRON_FILE" ]] && ! grep -q "$CRON_MARK" "$CRON_FILE" 2>/dev/null; then
-    log "Adding root crontab entry for daily digest email"
-    printf '%s # %s\n' "$CRON_LINE" "$CRON_MARK" >> "$CRON_FILE"
-  elif [[ -f "$CRON_FILE" ]]; then
-    log "root crontab already has sitemonitor-digest entry"
-  fi
-else
-  warn "CRON_SECRET still missing — internal app cron only"
-fi
+# Internal digest cron (0 7 * * * Asia/Singapore) handles daily email — no external cron needed.
 
-# ── Trigger digest now (catch-up send) ───────────────────────────────────────
-if [[ -n "$CRON_SECRET" ]]; then
-  HTTP_CODE="$(curl -sS -o /tmp/sitemonitor-digest-run.json -w '%{http_code}' \
-    -X POST -H "Authorization: Bearer ${CRON_SECRET}" \
-    "https://mon.petralian.com/api/digest/run?send=1" || echo 000)"
-  log "POST /api/digest/run?send=1 => HTTP $HTTP_CODE"
-  head -c 800 /tmp/sitemonitor-digest-run.json 2>/dev/null || true
-  echo
-elif docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
-  log "Triggering in-container digest (no CRON_SECRET for external call)"
+# ── Trigger digest now (catch-up send via localhost — no dashboard auth) ─────
+if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  log "Triggering in-container digest run + email"
   docker exec sitemonitor node -e "
-    fetch('http://127.0.0.1:3000/api/digest/run?send=1',{method:'POST',headers:{Authorization:'Bearer '+(process.env.CRON_SECRET||process.env.DIGEST_SECRET||'')}})
-      .then(r=>r.text().then(t=>console.log(r.status,t.slice(0,500))))
-      .catch(e=>console.error(e.message));
-  " 2>/dev/null || true
+    fetch('http://127.0.0.1:3000/api/digest/run?send=1',{method:'POST'})
+      .then(async (r) => console.log(r.status, (await r.text()).slice(0, 500)))
+      .catch((e) => console.error(e.message));
+  " 2>/dev/null || docker exec sitemonitor wget -qO- --method=POST "http://127.0.0.1:3000/api/digest/run?send=1" 2>/dev/null || true
+  sleep 5
+  docker logs sitemonitor --tail 15 2>&1 | grep -iE 'brevo|digest|email|sent|error' | tail -8 || true
 fi
 
 log "Done"
