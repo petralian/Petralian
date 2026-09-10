@@ -1,164 +1,130 @@
 #!/usr/bin/env bash
-# Find SiteMonitor on VPS, diagnose missing daily digest emails, apply safe fixes.
-# Non-fatal: logs findings; exits 0 unless invoked with --strict.
+# Restore SiteMonitor (mon.petralian.com) daily digest emails on VPS.
+# SiteMonitor runs in Docker (container: sitemonitor, host port 3010).
 set -euo pipefail
-
-STRICT=0
-[[ "${1:-}" == "--strict" ]] && STRICT=1
 
 log() { echo "[monitor-fix] $*"; }
 warn() { echo "[monitor-fix] WARN: $*" >&2; }
 
-MONITOR_DIR=""
-for d in /www/wwwroot/mon.petralian.com /www/wwwroot/website-monitor /www/wwwroot/mon \
-  /www/wwwroot/sitemonitor /www/wwwroot/petralian/.website-monitor /root/website-monitor; do
-  if [[ -d "$d" && -f "$d/package.json" ]]; then
-    MONITOR_DIR="$d"
+COMPOSE_DIR=""
+for d in /www/wwwroot/mon.petralian.com /www/wwwroot/sitemonitor /www/wwwroot/website-monitor /root/sitemonitor; do
+  if [[ -f "$d/docker-compose.yml" || -f "$d/docker-compose.yaml" || -f "$d/compose.yml" ]]; then
+    COMPOSE_DIR="$d"
     break
   fi
 done
-if [[ -z "$MONITOR_DIR" ]]; then
-  MONITOR_DIR="$(find /www /root /home -maxdepth 5 -type d \( -name 'website-monitor' -o -name 'sitemonitor' -o -name '.website-monitor' \) 2>/dev/null | head -1 || true)"
-fi
-if [[ -z "$MONITOR_DIR" ]]; then
-  # Resolve from PM2 cwd
-  MONITOR_DIR="$(pm2 jlist 2>/dev/null | node -e "
-    const list=JSON.parse(require('fs').readFileSync(0,'utf8'));
-    const hit=list.find(p=>/monitor|sitemonitor|website-monitor|mon\.petralian/i.test((p.pm2_env?.pm_cwd||'')+(p.name||'')));
-    if (hit) process.stdout.write(hit.pm2_env.pm_cwd||'');
-  " 2>/dev/null || true)"
-fi
-if [[ -z "$MONITOR_DIR" || ! -d "$MONITOR_DIR" ]]; then
-  warn "SiteMonitor directory not found — dumping PM2 + nginx hints"
-  pm2 list 2>/dev/null || true
-  [[ -f /www/server/panel/vhost/nginx/mon.petralian.com.conf ]] && cat /www/server/panel/vhost/nginx/mon.petralian.com.conf || true
-  systemctl status sitemonitor --no-pager 2>/dev/null | head -10 || true
-  exit 0
+if [[ -z "$COMPOSE_DIR" ]]; then
+  COMPOSE_DIR="$(find /www /root -maxdepth 4 -name 'docker-compose.yml' 2>/dev/null | while read -r f; do
+    grep -q sitemonitor "$f" 2>/dev/null && dirname "$f" && break
+  done | head -1 || true)"
 fi
 
-log "Directory listing:"
-ls -la
-cd "$MONITOR_DIR"
-log "Using $MONITOR_DIR"
+log "compose_dir=${COMPOSE_DIR:-not_found}"
 
-# ── PM2: ensure process is online ───────────────────────────────────────────
-PM2_NAME=""
-while read -r name cwd; do
-  if [[ "$cwd" == "$MONITOR_DIR"* ]] || [[ "$name" =~ monitor|sitemonitor|^mon$ ]]; then
-    PM2_NAME="$name"
-    break
-  fi
-done < <(pm2 jlist 2>/dev/null | node -e "
-const list=JSON.parse(require('fs').readFileSync(0,'utf8'));
-for (const p of list) console.log(p.name, p.pm2_env?.pm_cwd||'');
-" 2>/dev/null || true)
-
-if [[ -z "$PM2_NAME" ]]; then
-  if [[ -f ecosystem.config.cjs ]]; then
-    log "Starting PM2 from ecosystem.config.cjs"
-    pm2 start ecosystem.config.cjs --update-env || true
-    PM2_NAME="$(pm2 jlist | node -e "const l=JSON.parse(require('fs').readFileSync(0,'utf8')); const p=l.find(x=>(x.pm2_env?.pm_cwd||'').includes('monitor')||(x.pm2_env?.pm_cwd||'').includes('mon.petralian')); console.log(p?.name||'');")"
-  elif [[ -f package.json ]]; then
-    START_SCRIPT="$(node -e "const p=require('./package.json'); console.log(p.scripts?.start||'');")"
-    if [[ -n "$START_SCRIPT" ]]; then
-      log "No PM2 entry — starting via npm start as sitemonitor"
-      pm2 start npm --name sitemonitor --cwd "$MONITOR_DIR" -- start || true
-      PM2_NAME="sitemonitor"
-    fi
-  fi
-fi
-
-# systemd fallback (some installs use unit instead of PM2)
-if [[ -z "$PM2_NAME" ]] && systemctl is-active sitemonitor >/dev/null 2>&1; then
-  log "systemd sitemonitor is active"
-  systemctl restart sitemonitor || true
-fi
-
-if [[ -n "$PM2_NAME" ]]; then
-  STATUS="$(pm2 jlist | node -e "const l=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log(l.find(x=>x.name==='$PM2_NAME')?.pm2_env?.status||'unknown');")"
-  log "PM2 $PM2_NAME status=$STATUS"
-  if [[ "$STATUS" != "online" ]]; then
-    log "Reloading $PM2_NAME"
-    pm2 reload "$PM2_NAME" --update-env || pm2 restart "$PM2_NAME" --update-env || true
-  fi
-else
-  warn "No PM2 process found for SiteMonitor"
-fi
-
-# ── .env: Brevo + notify recipients ─────────────────────────────────────────
-if [[ -f .env ]]; then
-  # shellcheck disable=SC1091
-  set -a; source .env; set +a
-fi
-
-if [[ -z "${BREVO_API_KEY:-}" && -f /www/wwwroot/petralian/.env ]]; then
-  PETRALIAN_BREVO="$(grep -E '^BREVO_API_KEY=' /www/wwwroot/petralian/.env | cut -d= -f2- || true)"
-  if [[ -n "$PETRALIAN_BREVO" ]]; then
-    log "Copying BREVO_API_KEY from petralian .env"
-    if grep -q '^BREVO_API_KEY=' .env 2>/dev/null; then
-      sed -i "s|^BREVO_API_KEY=.*|BREVO_API_KEY=$PETRALIAN_BREVO|" .env
-    else
-      echo "BREVO_API_KEY=$PETRALIAN_BREVO" >> .env
-    fi
-    export BREVO_API_KEY="$PETRALIAN_BREVO"
-    [[ -n "$PM2_NAME" ]] && pm2 reload "$PM2_NAME" --update-env || true
-  fi
-fi
-
-# ── Config: ensure digest cron enabled (daily = 1440m) ───────────────────────
-CONFIG_FILES=(data/config.json config.json)
-for cfg in "${CONFIG_FILES[@]}"; do
-  [[ -f "$cfg" ]] || continue
-  node -e "
-    const fs=require('fs');
-    const p='$cfg';
-    const o=JSON.parse(fs.readFileSync(p,'utf8'));
-    let changed=false;
-    if (o.cron && o.cron.enabled === false) { o.cron.enabled=true; changed=true; console.log('enabled cron in', p); }
-    if (o.cron && !o.cron.intervalMinutes) { o.cron.intervalMinutes=1440; changed=true; }
-    if (o.digest && o.digest.cronEnabled === false) { o.digest.cronEnabled=true; changed=true; }
-    if (changed) fs.writeFileSync(p, JSON.stringify(o, null, 2));
-  " || true
-done
-
-# ── aaPanel cron: daily digest trigger at 08:00 HKT (00:00 UTC) ────────────
-CRON_SECRET="${CRON_SECRET:-}"
-[[ -z "$CRON_SECRET" && -f .env ]] && CRON_SECRET="$(grep -E '^CRON_SECRET=' .env | cut -d= -f2- || true)"
-
-CRON_LINE="0 0 * * * curl -fsS -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://mon.petralian.com/api/digest/run?send=1\" >> /www/wwwlogs/sitemonitor-digest.log 2>&1"
-CRON_MARK="sitemonitor-digest"
-
-if [[ -n "$CRON_SECRET" ]]; then
-  CRON_USER="${CRON_USER:-root}"
-  CRON_FILE="/var/spool/cron/crontabs/$CRON_USER"
-  if [[ -f "$CRON_FILE" ]] && ! grep -q "$CRON_MARK" "$CRON_FILE" 2>/dev/null; then
-    log "Adding aaPanel cron for daily digest email"
-    printf '%s # %s\n' "$CRON_LINE" "$CRON_MARK" >> "$CRON_FILE"
-  elif [[ -f "$CRON_FILE" ]] && grep -q "$CRON_MARK" "$CRON_FILE"; then
-    log "aaPanel cron entry already present"
+# ── Docker container health ──────────────────────────────────────────────────
+if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  warn "sitemonitor container not running"
+  if [[ -n "$COMPOSE_DIR" ]]; then
+    log "Starting via docker compose in $COMPOSE_DIR"
+    (cd "$COMPOSE_DIR" && docker compose up -d) || true
   else
-    warn "Could not update crontab at $CRON_FILE"
+    docker start sitemonitor 2>/dev/null || true
   fi
 else
-  warn "CRON_SECRET not set — cannot install external cron fallback"
+  log "sitemonitor container is running"
 fi
 
-# ── Report recent digest + Brevo log lines ───────────────────────────────────
-log "Recent digest files:"
-ls -lt data/digests 2>/dev/null | head -5 || ls -lt data 2>/dev/null | head -5 || true
+# ── Read env from compose dir or container ───────────────────────────────────
+CRON_SECRET=""
+BREVO_API_KEY=""
+ENV_FILE=""
+if [[ -n "$COMPOSE_DIR" ]]; then
+  for f in "$COMPOSE_DIR/.env" "$COMPOSE_DIR/.env.production"; do
+    [[ -f "$f" ]] && ENV_FILE="$f" && break
+  done
+fi
+if [[ -n "$ENV_FILE" ]]; then
+  log "env_file=$ENV_FILE"
+  # shellcheck disable=SC1090
+  set -a; source "$ENV_FILE"; set +a
+  CRON_SECRET="${CRON_SECRET:-}"
+  BREVO_API_KEY="${BREVO_API_KEY:-}"
+fi
 
-log "Recent monitor errors:"
-pm2 logs --nostream --lines 60 2>/dev/null | grep -iE 'brevo|cron|digest|email|error|fail' | tail -20 || true
+if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  if [[ -z "$CRON_SECRET" ]]; then
+    CRON_SECRET="$(docker exec sitemonitor printenv CRON_SECRET 2>/dev/null || true)"
+  fi
+  if [[ -z "$BREVO_API_KEY" ]]; then
+    BREVO_API_KEY="$(docker exec sitemonitor printenv BREVO_API_KEY 2>/dev/null || true)"
+  fi
+  log "container env: BREVO_API_KEY=${BREVO_API_KEY:+set} CRON_SECRET=${CRON_SECRET:+set}"
 
-# ── Smoke: trigger digest if last run > 36h ago (optional) ─────────────────
+  log "Recent container logs (brevo|cron|digest|email|error):"
+  docker logs sitemonitor --tail 80 2>&1 | grep -iE 'brevo|cron|digest|email|error|fail|notify' | tail -25 || true
+
+  log "In-container config snapshot:"
+  docker exec sitemonitor sh -c 'ls -la data 2>/dev/null; ls -la data/digests 2>/dev/null | head -5; test -f data/config.json && head -c 1500 data/config.json || true' 2>/dev/null || true
+
+  # Enable cron in config if present
+  docker exec sitemonitor node -e "
+    const fs=require('fs');
+    for (const p of ['data/config.json','config.json']) {
+      if (!fs.existsSync(p)) continue;
+      const o=JSON.parse(fs.readFileSync(p,'utf8'));
+      let changed=false;
+      if (o.cron?.enabled===false){o.cron.enabled=true;changed=true;}
+      if (o.cron && !o.cron.intervalMinutes){o.cron.intervalMinutes=1440;changed=true;}
+      if (o.digest?.cronEnabled===false){o.digest.cronEnabled=true;changed=true;}
+      if (changed){fs.writeFileSync(p,JSON.stringify(o,null,2));console.log('updated',p);}
+    }
+  " 2>/dev/null || true
+fi
+
+# ── Brevo key fallback from petralian .env ───────────────────────────────────
+if [[ -z "$BREVO_API_KEY" && -f /www/wwwroot/petralian/.env ]]; then
+  BREVO_API_KEY="$(grep -E '^BREVO_API_KEY=' /www/wwwroot/petralian/.env | cut -d= -f2- || true)"
+  if [[ -n "$BREVO_API_KEY" && -n "$ENV_FILE" ]]; then
+    log "Patching BREVO_API_KEY into $ENV_FILE"
+    if grep -q '^BREVO_API_KEY=' "$ENV_FILE"; then
+      sed -i "s|^BREVO_API_KEY=.*|BREVO_API_KEY=$BREVO_API_KEY|" "$ENV_FILE"
+    else
+      echo "BREVO_API_KEY=$BREVO_API_KEY" >> "$ENV_FILE"
+    fi
+    if [[ -n "$COMPOSE_DIR" ]]; then
+      (cd "$COMPOSE_DIR" && docker compose up -d) || docker restart sitemonitor || true
+    fi
+  fi
+fi
+
+# ── External cron fallback (daily 08:00 HKT = 00:00 UTC) ────────────────────
 if [[ -n "$CRON_SECRET" ]]; then
-  HTTP_CODE="$(curl -sS -o /tmp/digest-run.json -w '%{http_code}' \
+  CRON_LINE="0 0 * * * curl -fsS -X POST -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://mon.petralian.com/api/digest/run?send=1\" >> /www/wwwlogs/sitemonitor-digest.log 2>&1"
+  CRON_MARK="sitemonitor-digest"
+  CRON_FILE="/var/spool/cron/crontabs/root"
+  if [[ -f "$CRON_FILE" ]] && ! grep -q "$CRON_MARK" "$CRON_FILE" 2>/dev/null; then
+    log "Adding root crontab entry for daily digest email"
+    printf '%s # %s\n' "$CRON_LINE" "$CRON_MARK" >> "$CRON_FILE"
+  elif [[ -f "$CRON_FILE" ]]; then
+    log "root crontab already has sitemonitor-digest entry"
+  else
+    warn "No root crontab at $CRON_FILE"
+  fi
+else
+  warn "CRON_SECRET missing — cannot install external cron or trigger digest"
+fi
+
+# ── Trigger digest now (catch-up) ────────────────────────────────────────────
+if [[ -n "$CRON_SECRET" ]]; then
+  HTTP_CODE="$(curl -sS -o /tmp/sitemonitor-digest-run.json -w '%{http_code}' \
     -X POST -H "Authorization: Bearer ${CRON_SECRET}" \
     "https://mon.petralian.com/api/digest/run?send=1" || echo 000)"
   log "POST /api/digest/run?send=1 => HTTP $HTTP_CODE"
-  head -c 500 /tmp/digest-run.json 2>/dev/null || true
+  head -c 800 /tmp/sitemonitor-digest-run.json 2>/dev/null || true
   echo
+  if [[ "$HTTP_CODE" == "401" || "$HTTP_CODE" == "403" ]]; then
+    warn "Digest trigger unauthorized — CRON_SECRET may not match container config"
+  fi
 fi
 
 log "Done"
-exit 0
