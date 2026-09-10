@@ -79,6 +79,15 @@ done
 bt default 2>/dev/null | head -3 || true
 
 echo ""
+echo ""
+echo "=== Docker sitemonitor logs (digest/brevo/cron) ==="
+docker logs sitemonitor --tail 40 2>&1 | grep -iE 'brevo|cron|digest|email|error|fail|notify' | tail -20 || docker logs sitemonitor --tail 15 2>&1 || echo "(no container logs)"
+
+COMPOSE_DIR="$(find /www /root -maxdepth 4 -name 'docker-compose.yml' 2>/dev/null | while read -r f; do
+  grep -q sitemonitor "$f" 2>/dev/null && dirname "$f" && break
+done | head -1 || true)"
+echo "COMPOSE_DIR=${COMPOSE_DIR:-not_found}"
+
 if [[ -n "$MONITOR_DIR" && -d "$MONITOR_DIR" ]]; then
   cd "$MONITOR_DIR"
   echo "=== Monitor app ($MONITOR_DIR) ==="
