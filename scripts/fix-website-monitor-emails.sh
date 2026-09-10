@@ -43,13 +43,13 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
 fi
 
 BREVO_BROKEN=0
-if docker logs sitemonitor --tail 30 2>&1 | grep -q 'Key not found'; then
+if docker logs sitemonitor --since 10m 2>&1 | grep -q 'Key not found'; then
   BREVO_BROKEN=1
-  log "Detected invalid Brevo API key in container logs"
+  log "Detected invalid Brevo API key in recent container logs"
 fi
 
 NEED_RECREATE=0
-if [[ -n "$PETRALIAN_BREVO" && ( -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" || "$BREVO_BROKEN" == "1" ) ]]; then
+if [[ -n "$PETRALIAN_BREVO" && ( -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" ) ]]; then
   log "Syncing BREVO_API_KEY from petralian .env"
   NEED_RECREATE=1
   if [[ -n "$ENV_FILE" ]]; then
@@ -61,19 +61,7 @@ if [[ -n "$PETRALIAN_BREVO" && ( -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != 
   fi
 fi
 
-if [[ -z "$CONTAINER_CRON" && -n "$PETRALIAN_CRON" ]]; then
-  log "Syncing CRON_SECRET from petralian .env"
-  NEED_RECREATE=1
-  if [[ -n "$ENV_FILE" ]]; then
-    if grep -q '^CRON_SECRET=' "$ENV_FILE"; then
-      sed -i "s|^CRON_SECRET=.*|CRON_SECRET=$PETRALIAN_CRON|" "$ENV_FILE"
-    else
-      echo "CRON_SECRET=$PETRALIAN_CRON" >> "$ENV_FILE"
-    fi
-  fi
-fi
-
-CRON_SECRET="${PETRALIAN_CRON:-$CONTAINER_CRON}"
+CRON_SECRET="${CONTAINER_CRON:-$PETRALIAN_CRON}"
 
 # ── Recreate container when env changed ──────────────────────────────────────
 if [[ "$NEED_RECREATE" == "1" ]]; then
