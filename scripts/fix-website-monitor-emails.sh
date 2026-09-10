@@ -10,8 +10,8 @@ log() { echo "[monitor-fix] $*"; }
 warn() { echo "[monitor-fix] WARN: $*" >&2; }
 
 MONITOR_DIR=""
-for d in /www/wwwroot/website-monitor /www/wwwroot/mon /www/wwwroot/sitemonitor \
-  /www/wwwroot/petralian/.website-monitor /root/website-monitor; do
+for d in /www/wwwroot/mon.petralian.com /www/wwwroot/website-monitor /www/wwwroot/mon \
+  /www/wwwroot/sitemonitor /www/wwwroot/petralian/.website-monitor /root/website-monitor; do
   if [[ -d "$d" && -f "$d/package.json" ]]; then
     MONITOR_DIR="$d"
     break
@@ -31,9 +31,13 @@ fi
 if [[ -z "$MONITOR_DIR" || ! -d "$MONITOR_DIR" ]]; then
   warn "SiteMonitor directory not found — dumping PM2 + nginx hints"
   pm2 list 2>/dev/null || true
-  grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -10 || true
+  [[ -f /www/server/panel/vhost/nginx/mon.petralian.com.conf ]] && cat /www/server/panel/vhost/nginx/mon.petralian.com.conf || true
+  systemctl status sitemonitor --no-pager 2>/dev/null | head -10 || true
   exit 0
 fi
+
+log "Directory listing:"
+ls -la
 cd "$MONITOR_DIR"
 log "Using $MONITOR_DIR"
 
@@ -53,8 +57,21 @@ if [[ -z "$PM2_NAME" ]]; then
   if [[ -f ecosystem.config.cjs ]]; then
     log "Starting PM2 from ecosystem.config.cjs"
     pm2 start ecosystem.config.cjs --update-env || true
-    PM2_NAME="$(pm2 jlist | node -e "const l=JSON.parse(require('fs').readFileSync(0,'utf8')); const p=l.find(x=>(x.pm2_env?.pm_cwd||'').includes('monitor')); console.log(p?.name||'');")"
+    PM2_NAME="$(pm2 jlist | node -e "const l=JSON.parse(require('fs').readFileSync(0,'utf8')); const p=l.find(x=>(x.pm2_env?.pm_cwd||'').includes('monitor')||(x.pm2_env?.pm_cwd||'').includes('mon.petralian')); console.log(p?.name||'');")"
+  elif [[ -f package.json ]]; then
+    START_SCRIPT="$(node -e "const p=require('./package.json'); console.log(p.scripts?.start||'');")"
+    if [[ -n "$START_SCRIPT" ]]; then
+      log "No PM2 entry — starting via npm start as sitemonitor"
+      pm2 start npm --name sitemonitor --cwd "$MONITOR_DIR" -- start || true
+      PM2_NAME="sitemonitor"
+    fi
   fi
+fi
+
+# systemd fallback (some installs use unit instead of PM2)
+if [[ -z "$PM2_NAME" ]] && systemctl is-active sitemonitor >/dev/null 2>&1; then
+  log "systemd sitemonitor is active"
+  systemctl restart sitemonitor || true
 fi
 
 if [[ -n "$PM2_NAME" ]]; then

@@ -6,6 +6,7 @@ set -euo pipefail
 echo "=== SiteMonitor diagnostic ($(date -u +%Y-%m-%dT%H:%M:%SZ)) ==="
 
 CANDIDATE_DIRS=(
+  /www/wwwroot/mon.petralian.com
   /www/wwwroot/website-monitor
   /www/wwwroot/mon
   /www/wwwroot/sitemonitor
@@ -59,8 +60,16 @@ done
 find /www /root /home -maxdepth 5 -path '*/.website-monitor/package.json' 2>/dev/null | head -5
 
 echo ""
-echo "=== Nginx vhosts mentioning mon ==="
-grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -30 || grep -r 'mon\.petralian' /etc/nginx/ 2>/dev/null | head -30 || echo "(no nginx match or no permission)"
+echo "=== Nginx mon.petralian.com.conf ==="
+if [[ -f /www/server/panel/vhost/nginx/mon.petralian.com.conf ]]; then
+  cat /www/server/panel/vhost/nginx/mon.petralian.com.conf
+else
+  grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -30 || echo "(no nginx match)"
+fi
+
+echo ""
+echo "=== systemd sitemonitor ==="
+systemctl status sitemonitor --no-pager 2>/dev/null | head -20 || echo "(no systemd unit)"
 
 echo ""
 echo "=== aaPanel / system cron (monitor|digest|mon.petralian) ==="
