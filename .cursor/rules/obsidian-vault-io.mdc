@@ -1,5 +1,5 @@
 ---
-description: Vault I/O on local D: — native Read/Write first; MCP fallback only
+description: Vault I/O — native Read/Write at desk; git clone on cloud; no local vault MCP
 alwaysApply: true
 ---
 
@@ -8,28 +8,28 @@ alwaysApply: true
 **Brain:** `D:\Obsidian\Obsidian\00_Brain`  
 **Project vaults:** `D:\Obsidian\Obsidian\40_VSCode\<Project>\`
 
-## Mandatory tool choice
+## Mandatory tool choice (desk / local Cursor)
 
 | Action | Tool | Do not use |
 |--------|------|------------|
-| Read / search vault | Native `Read` / `Grep` on `D:\Obsidian\...` | MCP `obsidian-*` for reads |
-| Write / edit vault | Native `Write` / `StrReplace` on `D:\Obsidian\...` | MCP in Agent mode |
+| Read / search vault | Native `Read` / `Grep` on `D:\Obsidian\...` | Any vault MCP (`petralian-obsidian`, `obsidian-brain`, filesystem MCP on `D:\`) |
+| Write / edit vault | Native `Write` / `StrReplace` on `D:\Obsidian\...` | Any vault MCP |
 | Repo code | Native workspace tools | — |
 
-`obsidian-brain` MCP points at the same `D:\` files — it adds latency and UI noise, not capability.
+**Local policy:** MCP servers in `.cursor/mcp.json` are **not** for vault file I/O. Do not register `petralian-obsidian`, `obsidian-brain`, or filesystem MCP pointed at `D:\Obsidian\...` on the desk machine.
 
-## MCP fallback (writes only)
+## Remote (cloud / iPhone)
 
-Use Obsidian MCP for vault writes **only when**:
+| Action | Tool |
+|--------|------|
+| Read vault ops subset | Native `Read` / `Grep` on `vault-petralian` clone (`repositoryDependencies`) |
+| Write vault ops subset | Commit/push in clone or hand off to desk Obsidian Git |
+| Optional MCP on clone | Filesystem MCP on `${workspaceFolder}/../vault-petralian` — **Dashboard / cloud only**, never on `D:\` |
 
-1. **Ask mode** blocks native Write/StrReplace, or
-2. Native Write **fails** (path/permission), or
-3. User **explicitly** requests MCP
-
-If MCP is used, footer Memory must note: `vault ✓ path (MCP fallback — <reason>)`.
+URL-based MCP (e.g. OpenSEO) is fine on cloud/mobile. Stdio MCP (Context7, Serena) is **desktop-only**.
 
 ## Other MCP
 
-Context7, Serena, Shopify, etc. per repo `docs/TOKEN-STACK.md` — not for vault file I/O.
+Context7, Serena, OpenSEO, etc. per `docs/TOKEN-STACK.md` — **never** for vault file I/O at desk.
 
 **One tool per vault file per turn.** Never Read a file via MCP if you already read it natively this turn.

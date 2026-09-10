@@ -6,7 +6,8 @@ alwaysApply: true
 # Context budget
 
 - **Mode A:** simple Q&A — no vault bootstrap
-- **Vault reads:** native `Read`/`Grep` on `D:\Obsidian\...`
-- **Vault writes:** native `Write`/`StrReplace` — MCP only per `obsidian-vault-io.mdc`
+- **Vault reads (desk):** native `Read`/`Grep` on `D:\Obsidian\...` — no vault MCP
+- **Vault writes (desk):** native `Write`/`StrReplace` on `D:\Obsidian\...` — no vault MCP
+- **Vault (cloud):** native `Read`/`Grep` on `vault-petralian` clone
 - **Harness:** `npm run audit:facts` when verifying limits or before publish
 - One tool per vault file per turn

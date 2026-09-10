@@ -1,20 +1,4 @@
 {
-    "servers": {
-        "petralian-obsidian": {
-            "type": "stdio",
-            "command": "node",
-            "args": [
-                "${workspaceFolder}/scripts/obsidian-mcp-server.mjs"
-            ]
-        },
-        "obsidian-brain": {
-            "type": "stdio",
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-filesystem",
-                "D:\\Obsidian\\Obsidian\\00_Brain"
-            ]
-        }
-    }
+  "_comment": "Vault I/O is native Read/Write on D:\\Obsidian\\... — do not register petralian-obsidian or obsidian-brain here. MCP in this repo is for remote/cloud URL servers only (see docs/TOKEN-STACK.md).",
+  "servers": {}
 }

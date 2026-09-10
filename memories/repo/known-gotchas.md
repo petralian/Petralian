@@ -1,6 +1,6 @@
 # Petralian — known gotchas
 
-**Updated:** 2026-07-13
+**Updated:** 2026-09-10
 
 ## UI / content
 - **Format labels are canonical** — `POST_FORMATS[].label` only: **Strategic**, **Hands-on**, **Hybrid**. Same strings on filter pills, post cards, and post hero. No `shortLabel` aliases (Strategy / Build / Both).
@@ -16,7 +16,7 @@
 ## Obsidian / cloud
 - **Official Obsidian Sync** — no API; cloud/iPhone agents cannot read vault via Sync. Use private git mirror `petralian/vault-petralian` + Cursor `repositoryDependencies`.
 - **Retired:** self-hosted CouchDB + `obsidian-sync-mcp` on VPS — do not wire CouchDB MCP for vault access.
-- **Desk:** native `D:\Obsidian\...` + `petralian-obsidian` stdio MCP. **Cloud:** read cloned `vault-petralian` repo (or optional filesystem MCP on clone).
+- **Desk:** native `D:\Obsidian\...` Read/Write only — **no vault MCP** in `.cursor/mcp.json` or `.vscode/mcp.json`. **Cloud:** read cloned `vault-petralian` repo (optional filesystem MCP on clone in Dashboard only).
 
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
@@ -47,6 +47,8 @@
 - Brand logos: `public/images/` — never under `public/images/posts/`.
 
 ## MCP
-- **Petralian vault:** `petralian-obsidian` in `.cursor/mcp.json` → `scripts/obsidian-mcp-server.mjs` (`obsidian_read` / `obsidian_write` / `obsidian_append`). Fallback CLI: `node scripts/obsidian-mcp-cli.mjs`.
-- **Brain:** `obsidian-brain` in `.vscode/mcp.json` — paths under `D:\Obsidian\Obsidian\00_Brain`.
-- Reload Cursor after MCP config changes; agent chat only sees servers registered in `.cursor/mcp.json`.
+- **Vault at desk:** native `Read`/`Write`/`StrReplace` on `D:\Obsidian\...` — do **not** use `petralian-obsidian`, `obsidian-brain`, or filesystem MCP on `D:\`.
+- **Active stack:** Context7, Serena, OpenSEO in `.cursor/mcp.json` — see `docs/TOKEN-STACK.md`.
+- **Legacy (unwired):** `scripts/obsidian-mcp-server.mjs` / `obsidian-mcp-cli.mjs` — kept for reference; not registered locally.
+- **Cloud/mobile:** URL MCP via Cursor Dashboard; vault via `vault-petralian` clone + native Read.
+- Reload Cursor after MCP config changes; remove stale vault MCP entries from Settings → MCP if cached.

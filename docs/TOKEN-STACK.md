@@ -9,7 +9,17 @@
 | P0 | `context7` | Next.js / TinaCMS live docs |
 | P1 | `serena` | Symbol-level nav for the site repo |
 | P2 | `openseo` | GSC performance + URL inspection, keyword/SERP/backlink research ([setup](https://openseo.so/docs/mcp)) |
-| — | `petralian-obsidian` | Vault bridge (fallback; prefer native `Read`/`Write` on `D:\Obsidian\...`) |
+
+### MCP local vs remote (vault policy)
+
+| Context | Vault I/O | MCP in `.cursor/mcp.json` |
+|---|---|---|
+| **Desk (local)** | Native `Read`/`Grep`/`Write`/`StrReplace` on `D:\Obsidian\...` | Context7, Serena, OpenSEO only — **no vault MCP** |
+| **Cloud / iPhone** | Native `Read`/`Grep` on `vault-petralian` clone | URL servers (OpenSEO); optional filesystem MCP on clone via **Dashboard** |
+
+**Retired locally:** `petralian-obsidian` (`scripts/obsidian-mcp-server.mjs`), `obsidian-brain`, CouchDB `obsidian-sync-mcp`. Do not re-add vault stdio MCP to desk config.
+
+**Reload Cursor** after removing vault MCP from Settings → MCP if entries were cached from an older config.
 
 ### Serena setup
 
