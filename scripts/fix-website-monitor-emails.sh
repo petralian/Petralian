@@ -18,10 +18,20 @@ for d in /www/wwwroot/website-monitor /www/wwwroot/mon /www/wwwroot/sitemonitor 
   fi
 done
 if [[ -z "$MONITOR_DIR" ]]; then
-  MONITOR_DIR="$(find /www/wwwroot -maxdepth 2 -type d \( -name 'website-monitor' -o -name 'sitemonitor' \) 2>/dev/null | head -1 || true)"
+  MONITOR_DIR="$(find /www /root /home -maxdepth 5 -type d \( -name 'website-monitor' -o -name 'sitemonitor' -o -name '.website-monitor' \) 2>/dev/null | head -1 || true)"
+fi
+if [[ -z "$MONITOR_DIR" ]]; then
+  # Resolve from PM2 cwd
+  MONITOR_DIR="$(pm2 jlist 2>/dev/null | node -e "
+    const list=JSON.parse(require('fs').readFileSync(0,'utf8'));
+    const hit=list.find(p=>/monitor|sitemonitor|website-monitor|mon\.petralian/i.test((p.pm2_env?.pm_cwd||'')+(p.name||'')));
+    if (hit) process.stdout.write(hit.pm2_env.pm_cwd||'');
+  " 2>/dev/null || true)"
 fi
 if [[ -z "$MONITOR_DIR" || ! -d "$MONITOR_DIR" ]]; then
-  warn "SiteMonitor directory not found under /www/wwwroot"
+  warn "SiteMonitor directory not found — dumping PM2 + nginx hints"
+  pm2 list 2>/dev/null || true
+  grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -10 || true
   exit 0
 fi
 cd "$MONITOR_DIR"

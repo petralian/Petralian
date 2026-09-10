@@ -34,19 +34,33 @@ fi
 echo "MONITOR_DIR=${MONITOR_DIR:-NOT_FOUND}"
 
 echo ""
-echo "=== PM2 status ==="
+echo "=== PM2 status (all) ==="
+pm2 list 2>/dev/null || true
 pm2 jlist 2>/dev/null | node -e "
 const list = JSON.parse(require('fs').readFileSync(0,'utf8'));
 for (const p of list) {
-  if (/monitor|mon|digest/i.test(p.name + (p.pm2_env?.pm_cwd || ''))) {
-    console.log(JSON.stringify({ name: p.name, status: p.pm2_env?.status, restarts: p.pm2_env?.restart_time, cwd: p.pm2_env?.pm_cwd, uptime: p.pm2_env?.pm_uptime }, null, 2));
-  }
+  console.log(JSON.stringify({ name: p.name, status: p.pm2_env?.status, cwd: p.pm2_env?.pm_cwd, script: p.pm2_env?.pm_exec_path }, null, 0));
 }
-" || pm2 list
+" 2>/dev/null || true
+
+echo ""
+echo "=== Docker containers ==="
+docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Ports}}' 2>/dev/null || echo "(docker unavailable)"
+
+echo ""
+echo "=== Listening node ports ==="
+ss -tlnp 2>/dev/null | grep -E 'node|LISTEN' | head -20 || netstat -tlnp 2>/dev/null | grep node | head -20 || true
+
+echo ""
+echo "=== Find SiteMonitor auth.js on disk ==="
+find /www /root /home -maxdepth 6 -name 'auth.js' 2>/dev/null | while read -r f; do
+  grep -q '/api/auth/session' "$f" 2>/dev/null && echo "$f" || true
+done
+find /www /root /home -maxdepth 5 -path '*/.website-monitor/package.json' 2>/dev/null | head -5
 
 echo ""
 echo "=== Nginx vhosts mentioning mon ==="
-rg -l 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null || rg -l 'mon\.petralian' /etc/nginx/ 2>/dev/null || echo "(no nginx match or no permission)"
+grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -30 || grep -r 'mon\.petralian' /etc/nginx/ 2>/dev/null | head -30 || echo "(no nginx match or no permission)"
 
 echo ""
 echo "=== aaPanel / system cron (monitor|digest|mon.petralian) ==="
