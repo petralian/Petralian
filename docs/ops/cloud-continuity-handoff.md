@@ -14,7 +14,7 @@
 | CouchDB on VPS | **Retired** — `obsidiansync-couchdb` + `obsidian-sync-mcp` are legacy; decommission |
 | Remote Obsidian MCP via CouchDB | **Not applicable** — do not wire `vault-mcp.petralian.com` to CouchDB |
 | Cloud / iPhone vault access | **Private git mirror** (`petralian/vault-petralian`) + Cursor `repositoryDependencies` |
-| At desk | Native `D:\Obsidian\...` + local stdio MCP (`petralian-obsidian`) |
+| At desk | Native `D:\Obsidian\...` only — **no vault MCP** (Context7/Serena/OpenSEO OK) |
 | Code + fleet map | `petralian/ops`, `petralian/sitemonitor`, `petralian/Petralian` |
 
 ---
@@ -24,7 +24,7 @@
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │  Desk: Obsidian (canonical) ←→ Official Obsidian Sync        │
-│        Cursor desktop + D:\ vault + petralian-obsidian MCP   │
+│        Cursor desktop + native D:\ vault Read/Write          │
 └────────────────────────┬─────────────────────────────────────┘
                          │ Obsidian Git plugin (or end-of-session push)
                          ▼
@@ -201,7 +201,7 @@ If you want MCP tool names on cloud (not required — native `Read` works):
 }
 ```
 
-Only after `repositoryDependencies` places `vault-petralian` beside Petralian in the cloud workspace. **Desktop keeps** `petralian-obsidian` → `scripts/obsidian-mcp-server.mjs` for live `D:\` vault.
+Only after `repositoryDependencies` places `vault-petralian` beside Petralian in the cloud workspace. **Do not** register this on the desk machine — local vault I/O stays native `Read`/`Write` on `D:\Obsidian\...`.
 
 ---
 
@@ -220,8 +220,9 @@ Both `deploy-vps.yml` and `deploy-sitemonitor.yml` use `environment: production`
 | OpenSEO | URL | ✅ | ✅ | ✅ |
 | Context7 | stdio | ✅ | ❌ | ❌ |
 | Serena | stdio | ✅ | ❌ | ❌ |
-| petralian-obsidian | stdio → `D:\` | ✅ | ❌ | ❌ |
-| vault-petralian | **git clone + Read** | via push | ✅ | ✅ (via cloud agent) |
+| vault (desk) | native `D:\` Read/Write | ✅ | ❌ | ❌ |
+| vault-petralian | **git clone + Read** | via Obsidian Git push | ✅ | ✅ (via cloud agent) |
+| obsidian-vault-clone (optional) | stdio → clone path | ❌ | optional | ❌ |
 
 Register **URL MCPs** in **Cursor Dashboard → Integrations & MCP** for mobile/cloud (see [Cursor MCP docs](https://cursor.com/docs/context/mcp)).
 

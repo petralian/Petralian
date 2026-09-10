@@ -12,15 +12,13 @@
 
 At the start of every non-trivial session, read universal rules **before** project vault notes:
 
-1. **Brain first** — read via the `obsidian-brain` MCP server:
-   - `00_Brain/AI Agent Methodology.md` — note taxonomy, session loop, anti-patterns
-   - `00_Brain/Conventions/Response Footer Contract.md` — session context + footer (canonical)
-   - `00_Brain/Conventions/Deploy Playbook.md` — deploy gate (VPS)
-   - **Path safety (mandatory):** for `mcp_obsidian-brai_*` reads, always pass absolute paths rooted at `C:\Obsidian\obsidian\00_Brain\...`
-   - Never pass relative `00_Brain/...` paths to `mcp_obsidian-brai_*`.
+1. **Brain first** — read via native file tools on `D:\Obsidian\Obsidian\00_Brain\`:
+   - `AI Agent Methodology.md` — note taxonomy, session loop, anti-patterns
+   - `Conventions/Response Footer Contract.md` — session context + footer (canonical)
+   - `Conventions/Deploy Playbook.md` — deploy gate (VPS)
 2. Then follow the Session Memory Loop below.
 
-If the `obsidian-brain` server isn't responding: Command Palette → **MCP: Reset Cached Tools**.
+Do **not** use `obsidian-brain` or `petralian-obsidian` MCP for vault I/O — native `Read`/`Write` only. See `.cursor/rules/obsidian-vault-io.mdc`.
 
 ### Manual Prompt Integration (Mandatory)
 
@@ -36,7 +34,7 @@ The following Brain manual prompts are part of the default operating model:
 
 Every chat session **must** follow this loop — no exceptions:
 
-1. **Session start:** Call `mcp_petralian-obsidi_obsidian_write` to create/overwrite a session note at `Operations/Sessions/YYYY-MM-DD <Topic>.md`. The note must contain:
+1. **Session start:** Create/overwrite a session note at `Operations/Sessions/YYYY-MM-DD <Topic>.md` via native `Write` on `D:\Obsidian\Obsidian\40_VSCode\Petralian\`. The note must contain:
    - Session goals as checkboxes
    - Current state: uncommitted files, blockers
    - Active phase roadmap with ✅ / ⚠️ / 🔲 status markers
@@ -64,8 +62,8 @@ Every chat session **must** follow this loop — no exceptions:
 - **Repo:** `D:\VS Code Projects\Petralian`
 - **Local URL:** http://localhost:3000
 - **Live URL:** https://petralian.com (VPS, GitHub Actions deploy from `master`)
-- **Obsidian vault:** `C:\Obsidian\obsidian\40_VSCode\Petralian\`
-- **MCP server:** `petralian-obsidian` (custom) + `obsidian-brain` (built-in filesystem)
+- **Obsidian vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian\`
+- **Vault I/O:** native Read/Write — no vault MCP (see `docs/TOKEN-STACK.md`)
 
 ## Key Paths
 

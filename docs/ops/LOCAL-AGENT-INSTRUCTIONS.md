@@ -160,6 +160,18 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 
 ---
 
+### Phase F2 — Retire local vault MCP (~5 min)
+
+**Policy:** At desk, vault I/O is native `Read`/`Write`/`StrReplace` on `D:\Obsidian\...`. MCP is for **remote** services only (OpenSEO URL, optional cloud filesystem MCP on `vault-petralian` clone).
+
+1. Pull latest Petralian `master` (includes removal of `petralian-obsidian` from `.cursor/mcp.json`).
+2. Cursor → **Settings → MCP** → remove any cached `petralian-obsidian`, `obsidian-brain`, or `obsidian-petralian` entries if still listed.
+3. Confirm `.vscode/mcp.json` has empty `servers` (no vault stdio MCP).
+4. **Developer: Reload Window**.
+5. Smoke test: new chat → ask agent to read `Operations/AI Session Bridge.md` via native path (not MCP tools).
+
+---
+
 ### Phase G — Vault write-back (~10 min)
 
 1. Update `Operations/Open Loops.md` — close or update "Cloud continuity" loop.
@@ -177,6 +189,7 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 □ Phase D: petralian/sitemonitor repo + deploy workflow
 □ Phase E: GitHub Environment production secrets
 □ Phase F: Cursor Cloud repositoryDependencies + cloud smoke test
+□ Phase F2: Local vault MCP removed; native Read/Write smoke test
 □ Phase G: Vault Session Summaries + Open Loops updated
 ```
 
@@ -185,6 +198,7 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 ## What NOT to do
 
 - Do not set up `vault-mcp.petralian.com` or CouchDB-based obsidian-sync-mcp.
+- Do not register `petralian-obsidian`, `obsidian-brain`, or filesystem MCP on `D:\Obsidian\...` at desk — use native file tools.
 - Do not assume official Obsidian Sync exposes an API or MCP.
 - Do not commit vault drafts (`Blog/01 Drafts/`) to the mirror repo.
 - Do not hand-copy `BREVO_API_KEY` between services — use GitHub Environment.

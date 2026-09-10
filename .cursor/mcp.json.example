@@ -1,5 +1,5 @@
 ﻿{
-  "_comment": "Copy to project .cursor/mcp.json or merge in Cursor Settings → MCP. See docs/TOKEN-STACK.md",
+  "_comment": "Copy to project .cursor/mcp.json or merge in Cursor Settings → MCP. See docs/TOKEN-STACK.md. Vault: native Read/Write on D:\\Obsidian\\... at desk — no vault MCP in this file.",
   "mcpServers": {
     "context7": {
       "_comment": "P0 — live library docs (Next.js, TinaCMS, etc.)",
@@ -20,15 +20,9 @@
         "${workspaceFolder}"
       ]
     },
-    "obsidian-petralian": {
-      "_comment": "Vault fallback — prefer native Read/Write on D:\\Obsidian\\...",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian",
-        "D:\\Obsidian\\Obsidian\\00_Brain"
-      ]
+    "openseo": {
+      "_comment": "P2 — GSC + keyword research (URL transport; works on cloud/iPhone when registered in Dashboard)",
+      "url": "https://app.openseo.so/mcp"
     }
   }
 }

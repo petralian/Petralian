@@ -2,18 +2,15 @@
 /**
  * scripts/obsidian-mcp-server.mjs
  *
- * Minimal MCP (Model Context Protocol) server that exposes tools to AI
- * coding assistants running in this repo:
+ * LEGACY — not registered in .cursor/mcp.json or .vscode/mcp.json (2026-09).
+ * At desk: use native Read/Write on D:\Obsidian\... per obsidian-vault-io.mdc.
+ * Cloud: use vault-petralian git clone + native Read (optional filesystem MCP on clone in Dashboard).
+ *
+ * Kept for reference / manual CLI only (obsidian-mcp-cli.mjs).
  *
  *   obsidian_append   — append text to any note under the Petralian Obsidian vault.
  *   obsidian_read     — read the contents of a vault note.
  *   obsidian_write    — overwrite a note (use sparingly).
- *
- * Protocol: JSON-RPC 2.0 over stdio (MCP standard transport).
- *
- * Usage (VS Code MCP config in .vscode/mcp.json):
- *   command: node
- *   args: ["${workspaceFolder}/scripts/obsidian-mcp-server.mjs"]
  */
 
 import { createInterface } from "node:readline";

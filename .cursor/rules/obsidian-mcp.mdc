@@ -1,18 +1,18 @@
 ---
-description: Petralian vault paths — tool choice in obsidian-vault-io.mdc
+description: Petralian vault paths — native I/O at desk; MCP for remote services only
 alwaysApply: true
 ---
 
 # Obsidian — Petralian
 
-> **Tool choice (reads/writes):** `.cursor/rules/obsidian-vault-io.mdc` — native first; MCP writes only as fallback.
+> **Tool choice:** `.cursor/rules/obsidian-vault-io.mdc` — **native only** at desk; no vault MCP locally.
 
 **Project vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian`  
 **Brain:** `D:\Obsidian\Obsidian\00_Brain`
 
-| Action | Tool |
-|--------|------|
-| Read / search | Native `Read`/`Grep` on paths above |
-| Write / edit | Native `Write`/`StrReplace` — MCP only if native blocked |
+| Context | Vault I/O | MCP |
+|---------|-----------|-----|
+| Desk (local Cursor) | Native `Read`/`Grep`/`Write`/`StrReplace` on `D:\Obsidian\...` | **No** `petralian-obsidian`, `obsidian-brain`, or `D:\` filesystem MCP |
+| Cloud / iPhone | Native `Read`/`Grep` on `vault-petralian` git clone | URL servers only (e.g. OpenSEO); optional filesystem MCP on **clone path** in Dashboard |
 
-Do not use `obsidian-brain` or `petralian-obsidian` MCP for reads on this machine.
+Do not use `obsidian-brain` or `petralian-obsidian` MCP on the local machine — they are retired from `.cursor/mcp.json` and `.vscode/mcp.json`.
