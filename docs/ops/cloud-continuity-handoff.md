@@ -1,366 +1,165 @@
-# Cloud continuity handoff — local agent execution plan
+# Cloud continuity — final handoff (official Obsidian Sync)
 
-> **Created:** 2026-09-10 (cloud agent session, SiteMonitor email fix)  
-> **For:** Local Cursor agent when Nathan is back at the desk  
-> **Goal:** Shared operator layer so cloud agents can continue work without `D:\` vault or VPS archaeology
-
----
-
-## Can cloud access Obsidian today?
-
-**No — not from this cloud agent, and not via official Obsidian Sync.**
-
-| Path | Cloud agent today | Why |
-|------|-------------------|-----|
-| `D:\Obsidian\...` native read/write | ❌ | Windows path; not mounted on cloud VM |
-| `petralian-obsidian` MCP (`scripts/obsidian-mcp-server.mjs`) | ❌ | Hardcoded to `D:\Obsidian\Obsidian\40_VSCode\Petralian`; fails closed off Windows |
-| **Obsidian Sync** (official cloud) | ❌ | Syncs Obsidian apps only — no agent/API surface |
-| **Self-hosted CouchDB** on VPS (`obsidiansync-couchdb`, port 5984) | ❌ | Bound to `127.0.0.1` — not reachable from cloud |
-| `obsidian-sync-mcp` container on VPS | ⚠️ Not wired | Exists in Docker; not exposed via HTTPS; not in Cursor Cloud MCP dashboard |
-
-**Yes — MCP is the right bridge for Obsidian.** Official Obsidian Sync has no API, but [obsidian-sync-mcp](https://github.com/es617/obsidian-sync-mcp) exposes your vault over HTTP MCP, reading from the same CouchDB that **Self-hosted LiveSync** syncs to. You already run `obsidiansync-couchdb` + `obsidian-sync-mcp` on the VPS — they just need wiring + Cursor Cloud registration.
-
-**Half the solution** = wire Obsidian MCP. **Other half** = git-hosted ops map + service repos (SiteMonitor, secrets manifest).
+> **Updated:** 2026-09-10  
+> **Sync:** Official **Obsidian Sync** (retired self-hosted CouchDB / LiveSync on VPS)  
+> **Copy-paste for local agent:** `docs/ops/LOCAL-AGENT-INSTRUCTIONS.md`
 
 ---
 
-## Target architecture (when done)
+## Facts (do not contradict)
+
+| Topic | Truth |
+|-------|--------|
+| Obsidian sync | **Official Obsidian Sync** — app-to-app only, **no API** |
+| CouchDB on VPS | **Retired** — `obsidiansync-couchdb` + `obsidian-sync-mcp` are legacy; decommission |
+| Remote Obsidian MCP via CouchDB | **Not applicable** — do not wire `vault-mcp.petralian.com` to CouchDB |
+| Cloud / iPhone vault access | **Private git mirror** (`petralian/vault-petralian`) + Cursor `repositoryDependencies` |
+| At desk | Native `D:\Obsidian\...` + local stdio MCP (`petralian-obsidian`) |
+| Code + fleet map | `petralian/ops`, `petralian/sitemonitor`, `petralian/Petralian` |
+
+---
+
+## Target architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Nathan @ desk: Obsidian (canonical prose) + local Cursor      │
-└───────────────┬─────────────────────────────┬───────────────┘
-                │ git push (Operations mirror)  │ git push (code)
-                ▼                               ▼
-┌───────────────────────────┐     ┌────────────────────────────┐
-│ petralian/ops (private)    │     │ petralian/Petralian         │
-│ services.yaml, secrets     │     │ petralian/sitemonitor       │
-│ manifest, runbooks         │     │ (app code + compose)        │
-└───────────────┬───────────┘     └──────────────┬─────────────┘
-                │                                 │
-                └────────────┬────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│  Desk: Obsidian (canonical) ←→ Official Obsidian Sync        │
+│        Cursor desktop + D:\ vault + petralian-obsidian MCP   │
+└────────────────────────┬─────────────────────────────────────┘
+                         │ Obsidian Git plugin (or end-of-session push)
+                         ▼
+              ┌─────────────────────────────┐
+              │ petralian/vault-petralian  │  private git — ops subset only
+              │ Operations/, Features/, _MOC │
+              └──────────────┬──────────────┘
+                             │
+     ┌───────────────────────┼───────────────────────┐
+     ▼                       ▼                       ▼
+petralian/ops          petralian/Petralian    petralian/sitemonitor
+(services.yaml)        (site)                 (mon.petralian.com)
+     │                       │                       │
+     └───────────────────────┴───────────────────────┘
                              ▼
               ┌──────────────────────────────┐
-              │ Cursor Cloud environment      │
-              │ repositoryDependencies: all 3 │
+              │ Cursor Cloud + iPhone agents  │
+              │ repositoryDependencies: all 4 │
               │ GitHub Environment secrets    │
               └──────────────────────────────┘
-                             │
-                             ▼
-              ┌──────────────────────────────┐
-              │ VPS (deploy from git only)    │
-              │ /www/wwwroot/petralian        │
-              │ /opt/sitemonitor              │
-              └──────────────────────────────┘
+```
+
+**MCP on iPhone / cloud:** URL-based servers only (e.g. OpenSEO). Vault is **not** MCP — cloud agents **read the git clone** of `vault-petralian`.
+
+---
+
+## Phase 0 — Retire legacy CouchDB stack (VPS)
+
+```bash
+# SSH VPS — find compose dir first
+docker inspect obsidian-sync-mcp --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' 2>/dev/null
+docker inspect obsidiansync-couchdb --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' 2>/dev/null
+
+# Stop and remove (after confirming no vault depends on it)
+cd <compose-dir>   # e.g. /opt/obsidian-sync
+docker compose down -v   # -v only if you have backup / Obsidian Sync is sole source
+
+# Optional: remove nginx vhost if vault-mcp was added
+# aaPanel → delete vault-mcp.petralian.com site if exists
+```
+
+Document in `petralian/ops/services.yaml`:
+
+```yaml
+obsidian_sync:
+  type: official_obsidian_sync
+  note: "No VPS component. Cloud reads petralian/vault-petralian git mirror."
+  retired:
+    - obsidiansync-couchdb
+    - obsidian-sync-mcp
 ```
 
 ---
 
-## Phase 0 — Inventory (local agent, ~30 min)
+## Phase 1 — `petralian/vault-petralian` (private git mirror)
 
-Run at desk. Fill gaps in `petralian/ops` later.
+**Purpose:** Cloud agents + iPhone-driven cloud agents read Bridge, Features, session notes.
 
-### 0.1 Vault paths (confirm)
-
-| Vault | Path |
-|-------|------|
-| Brain | `D:\Obsidian\Obsidian\00_Brain` |
-| Petralian project | `D:\Obsidian\Obsidian\40_VSCode\Petralian` |
-
-### 0.2 What must cloud agents read without Obsidian?
-
-Minimum mirror set (private git):
+### 1.1 Scope (mirror only)
 
 ```
 Operations/
   AI Session Bridge.md
   Session Summaries.md
   Open Loops.md
-_MOC.md
+  Sessions/          # optional: rolling window
+Features/
 _Home.md
-Features/          # active features only
-Operations/Sessions/  # last 14 days optional
+_MOC.md
 ```
 
-**Do not mirror:** `Blog/01 Drafts/`, full `00_Brain` (too large; methodology stays local unless needed).
+**Exclude:** `Blog/01 Drafts/`, `Blog/02 Ready to publish/`, `.obsidian/workspace*`, `.trash/`
 
-### 0.3 VPS services (confirmed 2026-09-10)
-
-| Service | Domain | VPS path | Runtime |
-|---------|--------|----------|---------|
-| Petralian site | petralian.com | `/www/wwwroot/petralian` | PM2 cluster :3000 |
-| SiteMonitor | mon.petralian.com | `/opt/sitemonitor` | Docker `sitemonitor` :3010 |
-| Obsidian sync | — | CouchDB `127.0.0.1:5984` | Docker `obsidiansync-couchdb` |
-
-### 0.4 Secrets inventory (names only — document where values live)
-
-| Secret | Used by | Current location |
-|--------|---------|------------------|
-| `BREVO_API_KEY` | Petralian newsletter + SiteMonitor digest | VPS `.env` files (was drifting!) |
-| `CRON_SECRET` | Petralian weekly digest API | petralian `.env` |
-| `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` | GitHub Actions deploy | GitHub repo secrets |
-| SiteMonitor dashboard password | mon.petralian.com UI | SiteMonitor config only |
-| CouchDB credentials | Obsidian self-host sync | VPS / compose env |
-
----
-
-## Phase 1 — `petralian/ops` private repo (priority)
-
-**Owner:** local agent creates repo; cloud can consume immediately.
-
-### 1.1 Create repo
-
-```bash
-# On GitHub: new private repo petralian/ops
-```
-
-### 1.2 Add `services.yaml` (SSOT)
-
-```yaml
-# ops/services.yaml — machine-readable fleet map
-version: 1
-
-vps:
-  host_secret: VPS_HOST          # GitHub secret name
-  ssh_port: 2245
-
-services:
-  petralian:
-    repo: github.com/petralian/Petralian
-    domain: petralian.com
-    app_dir: /www/wwwroot/petralian
-    port: 3000
-    deploy: .github/workflows/deploy-vps.yml
-    shared_secrets: [BREVO_API_KEY, CRON_SECRET, UNSUBSCRIBE_SECRET]
-
-  sitemonitor:
-    repo: github.com/petralian/sitemonitor   # Phase 2
-    domain: mon.petralian.com
-    compose_dir: /opt/sitemonitor
-    port: 3010
-    container: sitemonitor
-    digest_cron: "0 7 * * * Asia/Singapore"
-    shared_secrets: [BREVO_API_KEY]
-
-  obsidian_sync:
-    type: couchdb
-    bind: 127.0.0.1:5984
-    container: obsidiansync-couchdb
-    note: "Local Obsidian only today; not exposed to cloud"
-```
-
-### 1.3 Add `secrets.manifest.yaml`
-
-```yaml
-# Names and consumers only — NEVER values
-secrets:
-  BREVO_API_KEY:
-    github_environment: production
-    consumers: [petralian, sitemonitor]
-  CRON_SECRET:
-    github_environment: production
-    consumers: [petralian]
-  VPS_HOST:
-    github_repo_secrets: [Petralian, ops, sitemonitor]
-```
-
-### 1.4 Link from Petralian repo
-
-In `memories/repo/index.md` and `AGENTS.md`, add:
-
-```markdown
-Fleet map: github.com/petralian/ops → services.yaml
-```
-
----
-
-## Phase 2 — Obsidian via MCP (recommended — you already have the stack)
-
-MCP gives cloud agents **live read/write** to vault notes (Bridge, Features, session notes) without a git mirror. Works when your laptop is off, as long as LiveSync has synced to CouchDB.
-
-### Architecture
-
-```
-Obsidian (desk/phone)
-    │  Self-hosted LiveSync plugin
-    ▼
-CouchDB (VPS, obsidiansync-couchdb :5984)
-    │
-    ▼
-obsidian-sync-mcp (VPS, :8787/mcp)
-    │  HTTPS + MCP_AUTH_TOKEN
-    ▼
-Cursor Cloud Agent  ←→  obsidian_read / write / search tools
-```
-
-### 2.1 Confirm LiveSync is syncing both vaults
-
-In Obsidian → **Self-hosted LiveSync** settings on each vault:
-
-| Vault | Path | CouchDB database name |
-|-------|------|------------------------|
-| Brain | `00_Brain` | (note exact DB name) |
-| Petralian | `40_VSCode/Petralian` | (note exact DB name) |
-
-If E2E encryption is on, you need `COUCHDB_PASSPHRASE` (same as plugin).
-
-### 2.2 Find / fix VPS compose for obsidian-sync
-
-SSH to VPS and locate compose (likely `/opt/obsidian-sync` or similar):
-
-```bash
-docker inspect obsidian-sync-mcp --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}'
-docker inspect obsidiansync-couchdb --format '{{json .Config.Env}}' | jq .
-```
-
-Ensure `obsidian-sync-mcp` has:
-
-```yaml
-# docker-compose snippet (adjust paths)
-services:
-  couchdb:
-    image: couchdb:3
-    ports:
-      - "127.0.0.1:5984:5984"   # keep localhost-only
-
-  obsidian-sync-mcp:
-    image: ghcr.io/es617/obsidian-sync-mcp:latest
-    ports:
-      - "127.0.0.1:8787:8787"   # nginx will proxy publicly
-    environment:
-      COUCHDB_URL: http://couchdb:5984
-      COUCHDB_USER: admin
-      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD}
-      COUCHDB_DATABASE: obsidian          # match LiveSync
-      VAULT_NAME: Petralian               # match LiveSync vault name
-      COUCHDB_PASSPHRASE: ${COUCHDB_PASSPHRASE}  # if E2E enabled
-      MCP_AUTH_TOKEN: ${MCP_AUTH_TOKEN}   # openssl rand -hex 32
-      BASE_URL: https://vault-mcp.petralian.com   # public URL nginx uses
-```
-
-**Two MCP instances** (optional): one per vault/DB — Brain + Petralian — or one server with the DB you use most for agent work (start with Petralian project vault).
-
-### 2.3 Expose MCP via nginx (HTTPS + auth)
-
-Add subdomain e.g. `vault-mcp.petralian.com` (aaPanel → reverse proxy → `127.0.0.1:8787`). Let's Encrypt SSL.
-
-MCP endpoint: `https://vault-mcp.petralian.com/mcp`
-
-Do **not** expose CouchDB :5984 publicly — only the MCP server.
-
-### 2.4 Register in Cursor Cloud (required for cloud agents)
-
-Project `.cursor/mcp.json` alone is **not enough** for cloud agents. Add the same server in:
-
-**Cursor Dashboard → Integrations & MCP** (or Cloud Agent environment MCP settings)
-
-```json
-{
-  "mcpServers": {
-    "obsidian-petralian": {
-      "url": "https://vault-mcp.petralian.com/mcp",
-      "headers": {
-        "Authorization": "Bearer <MCP_AUTH_TOKEN>"
-      }
-    }
-  }
-}
-```
-
-Store `MCP_AUTH_TOKEN` in the dashboard secret field — **not** committed to git. For local IDE, use `${env:OBSIDIAN_MCP_TOKEN}` in headers if supported.
-
-**Cloud preference:** HTTP MCP is recommended — credentials stay in Cursor backend, not the agent VM.
-
-### 2.4b Also add to repo `.cursor/mcp.json` (local + team)
-
-```json
-"obsidian-petralian-remote": {
-  "_comment": "Remote vault via LiveSync+CouchDB. Token in dashboard for cloud; env var locally.",
-  "url": "https://vault-mcp.petralian.com/mcp",
-  "headers": {
-    "Authorization": "Bearer ${env:OBSIDIAN_MCP_TOKEN}"
-  }
-}
-```
-
-Keep local `petralian-obsidian` stdio MCP for fast native `D:\` access at desk. Cloud uses the remote URL.
-
-### 2.5 Smoke test
-
-**From cloud agent chat:**
-> Read `Operations/AI Session Bridge.md` via obsidian MCP and summarize current priority.
-
-**From local agent:**
-> Same — confirm both local stdio and remote HTTP work.
-
-### 2.6 Update session protocol
-
-When MCP is live, cloud agents can follow full session protocol:
-- Read Bridge, Summaries, Features via MCP
-- Append session notes via `obsidian_append`
-- No git mirror required for day-to-day ops
-
----
-
-## Phase 2b — Vault git mirror (fallback / backup)
-
-Use **in addition to MCP** if you want version history in GitHub, or if MCP setup is blocked.
-
-### Option A — private `petralian/vault-petralian` mirror
-
-Ops subset only; Obsidian remains canonical at desk.
+### 1.2 One-time setup (PowerShell at desk)
 
 ```powershell
 cd "D:\Obsidian\Obsidian\40_VSCode\Petralian"
-# git init, remote, .gitignore Blog/01 Drafts/, push Operations/ + Features/
+
+# If not already a git repo for mirror — use a subdirectory or separate clone strategy.
+# Recommended: init git IN the vault with careful .gitignore (Obsidian Git plugin does this)
+
+@'
+Blog/01 Drafts/
+Blog/02 Ready to publish/
+.obsidian/workspace*
+.obsidian/cache
+.trash/
+'@ | Set-Content -Encoding utf8 .gitignore
+
+git init
+git remote add origin git@github.com:petralian/vault-petralian.git
+git add Operations/ Features/ _Home.md _MOC.md .gitignore
+git commit -m "Initial vault ops mirror for cloud continuity"
+git push -u origin master
 ```
 
-See git commands in previous revision or Obsidian Git plugin for auto-commit.
+### 1.3 Obsidian Git plugin (recommended habit)
 
-**When to use:** audit trail, PR review of ops notes, offline cloud if MCP is down.
+1. Install **Obsidian Git** in Petralian vault.
+2. Settings → auto-commit interval (e.g. 10–30 min) **or** commit on idle.
+3. **Split repos:** If Brain vault also needs mirror later, use separate remote `petralian/vault-brain` — start with Petralian project vault only.
+
+### 1.4 End-of-session rule (manual fallback)
+
+If not using auto-commit: before closing Cursor → `git add Operations/ Features/` → `git commit` → `git push`.
 
 ---
 
-## Phase 3 — `petralian/sitemonitor` repo
+## Phase 2 — `petralian/ops` (private fleet map)
 
-SiteMonitor code today: `/opt/sitemonitor` + local `.website-monitor/` (gitignored in Petralian).
+Create `github.com/petralian/ops` with:
 
-### 3.1 Snapshot from VPS
+**`services.yaml`** — see `LOCAL-AGENT-INSTRUCTIONS.md` for full template.
 
-```bash
-ssh -p 2245 user@VPS
-sudo tar -czf /tmp/sitemonitor-backup.tgz -C /opt sitemonitor
-# scp to local, unpack, review
-```
+**`secrets.manifest.yaml`** — names only; `BREVO_API_KEY` shared by petralian + sitemonitor.
 
-Also copy local `.website-monitor/` if it exists and diff against VPS.
+Link from `memories/repo/index.md` and `AGENTS.md`.
 
-### 3.2 Create repo structure
+---
 
-```
-sitemonitor/
-├── docker-compose.yml
-├── .env.example          # all keys, no values
-├── package.json
-├── src/ or server/
-├── public/               # auth.js, index.html
-├── data/                 # .gitignore — volume on VPS
-└── .github/workflows/deploy-sitemonitor.yml
-```
+## Phase 3 — `petralian/sitemonitor` (private app repo)
 
-### 3.3 Deploy workflow
+Snapshot `/opt/sitemonitor` (+ local `.website-monitor/` if present) → git repo.
 
-Mirror `deploy-vps.yml`: SSH → `cd /opt/sitemonitor` → `git pull` → `docker compose up -d --build`.
+Deploy: GitHub Actions SSH → `git pull` → `docker compose up -d`.
 
-### 3.4 Shared Brevo secret
+Shared `BREVO_API_KEY` from GitHub Environment `production` — never hand-copy to VPS `.env` again.
 
-GitHub Environment `production` → inject `BREVO_API_KEY` into compose `.env` on deploy. **Never hand-copy between petralian and sitemonitor again.**
+**Already shipped:** `scripts/fix-website-monitor-emails.sh` on Petralian deploy (symptom fix until repo owns deploy).
 
 ---
 
 ## Phase 4 — Cursor Cloud environment
 
-In [Cursor Cloud environment](https://cursor.com/dashboard/cloud-agents/environments/e/ef658c55-accc-11f1-bf4b-42ffb4d10ea7) (or commit `.cursor/environment.json`):
+Dashboard or commit `.cursor/environment.json`:
 
 ```json
 {
@@ -369,79 +168,67 @@ In [Cursor Cloud environment](https://cursor.com/dashboard/cloud-agents/environm
   "repositoryDependencies": [
     "github.com/petralian/ops",
     "github.com/petralian/vault-petralian",
-    "github.com/petralian/sitemonitor"
+    "github.com/petralian/sitemonitor",
+    "github.com/petralian/Petralian"
   ]
 }
 ```
 
-### 4.1 Cloud agent bootstrap (add to `AGENTS.md`)
+Grant the Cloud environment access to all four private repos.
+
+### Cloud bootstrap (add to `AGENTS.md`)
 
 ```markdown
 ## Cloud bootstrap (no D:\ vault)
-1. Read `ops/services.yaml` from ops repo dependency
-2. Read `Operations/AI Session Bridge.md` from vault-petralian dependency
-3. Read `memories/repo/open-loops.md` in Petralian (fallback)
-4. Never assume `.website-monitor/` exists — use sitemonitor repo
+1. Read `services.yaml` from cloned `ops` dependency
+2. Read `Operations/AI Session Bridge.md` from cloned `vault-petralian` dependency
+3. Read `memories/repo/open-loops.md` in Petralian repo (machine fallback)
+4. SiteMonitor code: `sitemonitor` repo — not `.website-monitor/` in Petralian
+5. Do not use CouchDB or obsidian-sync-mcp — retired; official Obsidian Sync has no API
 ```
 
-### 4.2 Relax `obsidian-mcp-server.mjs` for cloud (optional)
+### Optional: cloud stdio MCP on git clone
 
-Allow `PETRALIAN_OBSIDIAN_VAULT_ROOT` to point at cloned `vault-petralian` in cloud workspace when `D:\` is absent. Local agent can patch:
+If you want MCP tool names on cloud (not required — native `Read` works):
 
-```javascript
-// If D:\ missing, fall back to env or ./vault-petralian clone path
+```json
+"obsidian-vault-clone": {
+  "command": "npx",
+  "args": [
+    "-y", "@modelcontextprotocol/server-filesystem",
+    "${workspaceFolder}/../vault-petralian"
+  ]
+}
 ```
+
+Only after `repositoryDependencies` places `vault-petralian` beside Petralian in the cloud workspace. **Desktop keeps** `petralian-obsidian` → `scripts/obsidian-mcp-server.mjs` for live `D:\` vault.
 
 ---
 
-## Phase 5 — GitHub Environments (shared secrets)
+## Phase 5 — GitHub Environment `production`
 
-1. GitHub → petralian org → Settings → Environments → `production`.
-2. Add secrets: `BREVO_API_KEY`, `CRON_SECRET`, `UNSUBSCRIBE_SECRET`.
-3. Update `deploy-vps.yml` and new `deploy-sitemonitor.yml`:
+Secrets: `BREVO_API_KEY`, `CRON_SECRET`, `UNSUBSCRIBE_SECRET`, `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`.
 
-```yaml
-environment: production
-```
-
-4. Optional workflow `ops/.github/workflows/sync-vps-env.yml` — writes `.env` files from secrets (single source).
+Both `deploy-vps.yml` and `deploy-sitemonitor.yml` use `environment: production`.
 
 ---
 
-## Local agent checklist (copy-paste)
+## MCP cheat sheet (desk vs cloud vs iPhone)
 
-```
-□ Phase 2 MCP (priority): confirm LiveSync → CouchDB on VPS
-□ Wire obsidian-sync-mcp: env vars, nginx vault-mcp.petralian.com, MCP_AUTH_TOKEN
-□ Register HTTP MCP in Cursor Dashboard → Integrations & MCP (cloud agents)
-□ Add obsidian-petralian-remote to .cursor/mcp.json (local uses OBSIDIAN_MCP_TOKEN env)
-□ Smoke test: cloud agent reads Operations/AI Session Bridge.md via MCP
-□ Create private petralian/ops with services.yaml + secrets.manifest.yaml
-□ Snapshot /opt/sitemonitor → petralian/sitemonitor repo + deploy workflow
-□ GitHub Environment production with shared BREVO_API_KEY
-□ Cursor Cloud: repositoryDependencies (ops, sitemonitor)
-□ Optional fallback: petralian/vault-petralian git mirror for audit trail
-□ Vault: append Session Summaries entry linking this handoff when MCP is live
-```
+| Server | Transport | Desk | Cloud | iPhone |
+|--------|-----------|------|-------|--------|
+| OpenSEO | URL | ✅ | ✅ | ✅ |
+| Context7 | stdio | ✅ | ❌ | ❌ |
+| Serena | stdio | ✅ | ❌ | ❌ |
+| petralian-obsidian | stdio → `D:\` | ✅ | ❌ | ❌ |
+| vault-petralian | **git clone + Read** | via push | ✅ | ✅ (via cloud agent) |
+
+Register **URL MCPs** in **Cursor Dashboard → Integrations & MCP** for mobile/cloud (see [Cursor MCP docs](https://cursor.com/docs/context/mcp)).
 
 ---
 
-## What cloud can do *right now* (without Phase 1–4)
+## Session context (2026-09-10)
 
-- Edit `petralian/Petralian` and deploy via GitHub Actions
-- Run `scripts/fix-website-monitor-emails.sh` on VPS (symptom fix; not root ownership)
-- Read `memories/repo/*` and `data/*.yaml` in repo
-
-## What cloud cannot do until handoff is done
-
-- Read/write Obsidian Bridge, Session Summaries, Feature notes
-- Own SiteMonitor source changes
-- See full secrets map or fix cross-service drift confidently
-
----
-
-## Session context for local agent
-
-**Prior cloud work (2026-09-10):** SiteMonitor daily emails failed due to invalid `BREVO_API_KEY` in Docker container at `/opt/sitemonitor`. Fixed by syncing key from petralian `.env` and recreating container. Added `scripts/fix-website-monitor-emails.sh` to deploy hook. Root issue: operator layer not in git.
-
-**Open loop:** Promote SiteMonitor to `petralian/sitemonitor` repo and vault ops to `petralian/vault-petralian` per this plan.
+- SiteMonitor emails fixed: stale `BREVO_API_KEY` in `/opt/sitemonitor` Docker; deploy hook `scripts/fix-website-monitor-emails.sh`.
+- CouchDB / self-hosted LiveSync **retired** — user on official Obsidian Sync.
+- Cloud continuity = **git mirror + ops repo + sitemonitor repo**, not CouchDB MCP.

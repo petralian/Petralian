@@ -13,6 +13,11 @@
 - **Inline D2 diagrams** — dual-SVG invert pipeline; no client viewBox trim; cap 400px inline; fullscreen pinch/zoom.
 - **Vault hero images** — updating `03 Published/Attachments/*.png` does not sync to `public/images/posts/` until copied or publish script runs; stale repo image = wrong hero on site.
 
+## Obsidian / cloud
+- **Official Obsidian Sync** — no API; cloud/iPhone agents cannot read vault via Sync. Use private git mirror `petralian/vault-petralian` + Cursor `repositoryDependencies`.
+- **Retired:** self-hosted CouchDB + `obsidian-sync-mcp` on VPS — do not wire CouchDB MCP for vault access.
+- **Desk:** native `D:\Obsidian\...` + `petralian-obsidian` stdio MCP. **Cloud:** read cloned `vault-petralian` repo (or optional filesystem MCP on clone).
+
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
 - **Every assistant reply** must open with **Session context** and end with the **session footer** — canonical: `00_Brain/Conventions/Response Footer Contract.md`; enforced: `.cursor/rules/response-footer.mdc`.
