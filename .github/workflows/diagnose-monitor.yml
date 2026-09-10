@@ -20,10 +20,38 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 2245
           command_timeout: 5m
+          script_stop: false
           script: |
-            bash /www/wwwroot/petralian/scripts/diagnose-website-monitor.sh 2>/dev/null || {
-              cd /www/wwwroot/petralian
-              git fetch origin master
-              git show origin/master:scripts/diagnose-website-monitor.sh > /tmp/diagnose-website-monitor.sh
-              bash /tmp/diagnose-website-monitor.sh
-            }
+            set -euo pipefail
+            echo "=== SiteMonitor diagnostic ($(date -u +%Y-%m-%dT%H:%M:%SZ)) ==="
+            CANDIDATE_DIRS=(/www/wwwroot/website-monitor /www/wwwroot/mon /www/wwwroot/sitemonitor /www/wwwroot/petralian/.website-monitor /root/website-monitor)
+            MONITOR_DIR=""
+            for d in "${CANDIDATE_DIRS[@]}"; do [[ -d "$d" ]] && MONITOR_DIR="$d" && break; done
+            if [[ -z "$MONITOR_DIR" ]]; then
+              MONITOR_DIR="$(find /www/wwwroot -maxdepth 2 -type d \( -name 'website-monitor' -o -name 'sitemonitor' -o -name 'mon' \) 2>/dev/null | head -1 || true)"
+            fi
+            echo "MONITOR_DIR=${MONITOR_DIR:-NOT_FOUND}"
+            echo "=== PM2 (all) ==="
+            pm2 list || true
+            echo "=== Nginx mon.petralian ==="
+            grep -r 'mon\.petralian' /www/server/panel/vhost/nginx/ 2>/dev/null | head -20 || true
+            echo "=== Cron (monitor|digest) ==="
+            for f in /var/spool/cron/crontabs/* /etc/crontab; do
+              [[ -f "$f" ]] && grep -E 'monitor|digest|mon\.petralian|website-monitor' "$f" && echo "(in $f)" || true
+            done
+            if [[ -n "$MONITOR_DIR" && -d "$MONITOR_DIR" ]]; then
+              cd "$MONITOR_DIR"
+              echo "=== App dir ==="
+              ls -la
+              [[ -f package.json ]] && head -20 package.json || true
+              [[ -f .env ]] && grep -E '^[A-Z_]+=' .env | sed 's/=.*$/=***/' || true
+              for f in data/config.json data/settings.json config.json ecosystem.config.cjs; do
+                [[ -f "$f" ]] && echo "--- $f ---" && head -c 2000 "$f" && echo || true
+              done
+              echo "=== Digest files ==="
+              ls -lt data/digests 2>/dev/null | head -10 || ls -lt data 2>/dev/null | head -10 || true
+              echo "=== PM2 logs (brevo|cron|digest|error) ==="
+              pm2 logs --nostream --lines 120 2>/dev/null | grep -iE 'brevo|cron|digest|email|error|fail' | tail -50 || true
+            fi
+            curl -fsS -o /dev/null -w "mon HTTP %{http_code}\n" https://mon.petralian.com/ || true
+            echo "=== DONE ==="
