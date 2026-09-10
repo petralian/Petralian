@@ -1,0 +1,29 @@
+# One-off / on-demand SiteMonitor (mon.petralian.com) diagnostics on VPS.
+# Uses same SSH secrets as deploy-vps.yml.
+
+name: Diagnose SiteMonitor
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run VPS diagnostics
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          command_timeout: 5m
+          script: |
+            bash /www/wwwroot/petralian/scripts/diagnose-website-monitor.sh 2>/dev/null || {
+              cd /www/wwwroot/petralian
+              git fetch origin master
+              git show origin/master:scripts/diagnose-website-monitor.sh > /tmp/diagnose-website-monitor.sh
+              bash /tmp/diagnose-website-monitor.sh
+            }
