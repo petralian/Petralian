@@ -1,0 +1,29 @@
+# On-demand SiteMonitor email repair (mon.petralian.com).
+# Faster than full deploy — syncs Brevo key + triggers catch-up digest.
+
+name: Fix SiteMonitor emails
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fix SiteMonitor on VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: false
+          command_timeout: 10m
+          script: |
+            cd /www/wwwroot/petralian
+            git fetch origin master
+            git checkout master
+            git pull --ff-only origin master
+            bash scripts/fix-website-monitor-emails.sh

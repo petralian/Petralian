@@ -6,13 +6,23 @@ set -euo pipefail
 log() { echo "[monitor-fix] $*"; }
 warn() { echo "[monitor-fix] WARN: $*" >&2; }
 
+set_env_key() {
+  local file="$1" key="$2" value="$3"
+  [[ -z "$file" || -z "$value" ]] && return 0
+  if grep -q "^${key}=" "$file"; then
+    sed -i "s|^${key}=.*|${key}=${value}|" "$file"
+  else
+    echo "${key}=${value}" >> "$file"
+  fi
+}
+
 # ── Resolve compose dir from container labels ────────────────────────────────
 COMPOSE_DIR=""
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   COMPOSE_DIR="$(docker inspect sitemonitor --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' 2>/dev/null || true)"
 fi
 if [[ -z "$COMPOSE_DIR" || ! -d "$COMPOSE_DIR" ]]; then
-  for d in /www/wwwroot/mon.petralian.com /www/wwwroot/sitemonitor /www/wwwroot/website-monitor /root/sitemonitor; do
+  for d in /opt/sitemonitor /www/wwwroot/mon.petralian.com /www/wwwroot/sitemonitor /www/wwwroot/website-monitor /root/sitemonitor; do
     [[ -f "$d/docker-compose.yml" || -f "$d/compose.yml" ]] && COMPOSE_DIR="$d" && break
   done
 fi
@@ -43,22 +53,22 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
 fi
 
 BREVO_BROKEN=0
-if docker logs sitemonitor --since 10m 2>&1 | grep -q 'Key not found'; then
+if docker logs sitemonitor --since 24h 2>&1 | grep -q 'Key not found'; then
   BREVO_BROKEN=1
   log "Detected invalid Brevo API key in recent container logs"
 fi
 
 NEED_RECREATE=0
-if [[ -n "$PETRALIAN_BREVO" && ( -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" ) ]]; then
+if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" ) ]]; then
   log "Syncing BREVO_API_KEY from petralian .env"
   NEED_RECREATE=1
-  if [[ -n "$ENV_FILE" ]]; then
-    if grep -q '^BREVO_API_KEY=' "$ENV_FILE"; then
-      sed -i "s|^BREVO_API_KEY=.*|BREVO_API_KEY=$PETRALIAN_BREVO|" "$ENV_FILE"
-    else
-      echo "BREVO_API_KEY=$PETRALIAN_BREVO" >> "$ENV_FILE"
-    fi
-  fi
+  set_env_key "$ENV_FILE" "BREVO_API_KEY" "$PETRALIAN_BREVO"
+fi
+
+if [[ -n "$PETRALIAN_CRON" && ( -z "$CONTAINER_CRON" || "$CONTAINER_CRON" != "$PETRALIAN_CRON" ) ]]; then
+  log "Syncing CRON_SECRET from petralian .env"
+  NEED_RECREATE=1
+  set_env_key "$ENV_FILE" "CRON_SECRET" "$PETRALIAN_CRON"
 fi
 
 CRON_SECRET="${CONTAINER_CRON:-$PETRALIAN_CRON}"
@@ -75,7 +85,7 @@ if [[ "$NEED_RECREATE" == "1" ]]; then
   sleep 3
   CONTAINER_BREVO="$(docker exec sitemonitor printenv BREVO_API_KEY 2>/dev/null || true)"
   CONTAINER_CRON="$(docker exec sitemonitor printenv CRON_SECRET 2>/dev/null || true)"
-  CRON_SECRET="${PETRALIAN_CRON:-$CONTAINER_CRON}"
+  CRON_SECRET="${CONTAINER_CRON:-$PETRALIAN_CRON}"
 fi
 
 if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
@@ -99,9 +109,13 @@ if [[ -f "$CRON_FILE" ]] && grep -q 'sitemonitor-digest' "$CRON_FILE" 2>/dev/nul
   log "Removed obsolete external sitemonitor-digest crontab (app has internal cron)"
 fi
 
-# ── Trigger digest now (catch-up) using container cron secret if present ─────
+# ── Trigger digest now (catch-up) ────────────────────────────────────────────
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   TRIGGER_SECRET="$(docker exec sitemonitor printenv 2>/dev/null | grep -E '^(CRON_SECRET|DIGEST_SECRET|SITEMONITOR_SECRET|ADMIN_TOKEN)=' | head -1 | cut -d= -f2- || true)"
+  if [[ -z "$TRIGGER_SECRET" && -n "$PETRALIAN_CRON" ]]; then
+    TRIGGER_SECRET="$PETRALIAN_CRON"
+    log "Using CRON_SECRET from petralian .env for catch-up trigger"
+  fi
   log "Triggering catch-up digest (secret=${TRIGGER_SECRET:+present})"
   if [[ -n "$TRIGGER_SECRET" ]]; then
     docker exec sitemonitor node -e "
@@ -112,10 +126,10 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
         .catch((e) => console.error(e.message));
     " 2>/dev/null || true
   else
-    warn "No cron secret in container — next scheduled digest: 07:00 Asia/Singapore"
+    warn "No cron secret available — next scheduled digest: 07:00 Asia/Singapore"
   fi
   sleep 8
-  docker logs sitemonitor --tail 20 2>&1 | grep -iE 'brevo|digest|email|sent|error|queued' | tail -10 || true
+  docker logs sitemonitor --tail 30 2>&1 | grep -iE 'brevo|digest|email|sent|error|queued|Key not found' | tail -15 || true
 fi
 
 log "Done"
