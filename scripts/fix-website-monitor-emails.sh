@@ -16,6 +16,24 @@ set_env_key() {
   fi
 }
 
+read_env_key() {
+  local file="$1" key="$2"
+  [[ -f "$file" ]] && grep -E "^${key}=" "$file" | cut -d= -f2- | head -1 || true
+}
+
+read_trigger_secret() {
+  local from_container="$1"
+  local from_env_file=""
+  if [[ -n "$ENV_FILE" ]]; then
+    for key in CRON_SECRET DIGEST_SECRET SITEMONITOR_SECRET ADMIN_TOKEN; do
+      from_env_file="$(read_env_key "$ENV_FILE" "$key")"
+      [[ -n "$from_env_file" ]] && echo "$from_env_file" && return 0
+    done
+  fi
+  [[ -n "$from_container" ]] && echo "$from_container" && return 0
+  return 1
+}
+
 # ── Resolve compose dir from container labels ────────────────────────────────
 COMPOSE_DIR=""
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
@@ -27,6 +45,9 @@ if [[ -z "$COMPOSE_DIR" || ! -d "$COMPOSE_DIR" ]]; then
   done
 fi
 log "compose_dir=${COMPOSE_DIR:-not_found}"
+if [[ -n "$ENV_FILE" ]]; then
+  log "env_file=$ENV_FILE keys=$(grep -E '^[A-Z_]+=' "$ENV_FILE" | cut -d= -f1 | tr '\n' ',' | sed 's/,$//')"
+fi
 
 # ── Source of truth: petralian production .env ───────────────────────────────
 PETRALIAN_ENV="/www/wwwroot/petralian/.env"
@@ -65,13 +86,8 @@ if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO"
   set_env_key "$ENV_FILE" "BREVO_API_KEY" "$PETRALIAN_BREVO"
 fi
 
-if [[ -n "$PETRALIAN_CRON" && ( -z "$CONTAINER_CRON" || "$CONTAINER_CRON" != "$PETRALIAN_CRON" ) ]]; then
-  log "Syncing CRON_SECRET from petralian .env"
-  NEED_RECREATE=1
-  set_env_key "$ENV_FILE" "CRON_SECRET" "$PETRALIAN_CRON"
-fi
-
-CRON_SECRET="${CONTAINER_CRON:-$PETRALIAN_CRON}"
+# Do NOT sync CRON_SECRET from petralian — SiteMonitor uses its own digest auth secret.
+CRON_SECRET="$(read_trigger_secret "$CONTAINER_CRON" || true)"
 
 # ── Recreate container when env changed ──────────────────────────────────────
 if [[ "$NEED_RECREATE" == "1" ]]; then
@@ -85,7 +101,7 @@ if [[ "$NEED_RECREATE" == "1" ]]; then
   sleep 3
   CONTAINER_BREVO="$(docker exec sitemonitor printenv BREVO_API_KEY 2>/dev/null || true)"
   CONTAINER_CRON="$(docker exec sitemonitor printenv CRON_SECRET 2>/dev/null || true)"
-  CRON_SECRET="${CONTAINER_CRON:-$PETRALIAN_CRON}"
+  CRON_SECRET="$(read_trigger_secret "$CONTAINER_CRON" || true)"
 fi
 
 if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
@@ -111,11 +127,8 @@ fi
 
 # ── Trigger digest now (catch-up) ────────────────────────────────────────────
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
-  TRIGGER_SECRET="$(docker exec sitemonitor printenv 2>/dev/null | grep -E '^(CRON_SECRET|DIGEST_SECRET|SITEMONITOR_SECRET|ADMIN_TOKEN)=' | head -1 | cut -d= -f2- || true)"
-  if [[ -z "$TRIGGER_SECRET" && -n "$PETRALIAN_CRON" ]]; then
-    TRIGGER_SECRET="$PETRALIAN_CRON"
-    log "Using CRON_SECRET from petralian .env for catch-up trigger"
-  fi
+  CONTAINER_TRIGGER="$(docker exec sitemonitor printenv 2>/dev/null | grep -E '^(CRON_SECRET|DIGEST_SECRET|SITEMONITOR_SECRET|ADMIN_TOKEN)=' | head -1 | cut -d= -f2- || true)"
+  TRIGGER_SECRET="$(read_trigger_secret "$CONTAINER_TRIGGER" || true)"
   log "Triggering catch-up digest (secret=${TRIGGER_SECRET:+present})"
   if [[ -n "$TRIGGER_SECRET" ]]; then
     docker exec sitemonitor node -e "
