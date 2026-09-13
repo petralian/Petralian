@@ -7,9 +7,9 @@
 | Repo | Status | Notes |
 |------|--------|-------|
 | `petralian/Petralian` | **Exists** (public) | User may want **private** for cloud continuity |
-| `petralian/vault-petralian` | **Missing** | Create private → Phase B |
-| `petralian/ops` | **Missing** | Create private → Phase C; bootstrap files in [`fleet-bootstrap/`](../fleet-bootstrap/) |
-| `petralian/sitemonitor` | **Missing** | Create private → Phase D |
+| `petralian/vault-petralian` | **Created** | Fleet bootstrap run `34752150366`; replace stubs via Obsidian Git |
+| `petralian/ops` | **Created** | Fleet map from `fleet-bootstrap/` |
+| `petralian/sitemonitor` | **Created** | Placeholder README — Phase D import from VPS |
 | `petralian/Gravio`, `aesthetic-clock`, `obsidiandb` | Public | External / not on VPS fleet template unless inventory adds them |
 
 ## HTTP smoke (external)
@@ -39,7 +39,9 @@ Expected containers (from prior logs): `sitemonitor`, Hermes stack, **legacy** `
 - [ ] `Test-Path D:\Obsidian\...\Petralian\.git` and `git remote -v`
 - [ ] `gh repo list petralian --limit 100` (includes private)
 - [ ] Hermes/nginx domains for ports 8787–8790
-- [ ] Merge PR #1 (cloud continuity MCP + fleet docs)
+- [x] Fleet bootstrap Action + `PETRALIAN_ADMIN_PAT` (2026-09-13)
+- [ ] Cursor Cloud `repositoryDependencies` + grant private repo access
+- [ ] `local-phase-b-vault-mirror.ps1` — push real vault over stubs
 
 ## Next execution order
 

@@ -1,6 +1,6 @@
 # Cloud continuity — execution report
 
-> **Updated:** 2026-09-13 (cloud agent run)
+> **Updated:** 2026-09-13 — Fleet bootstrap workflow **succeeded** (run `34752150366`).
 
 ## What the cloud agent could run
 
