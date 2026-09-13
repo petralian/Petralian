@@ -1,0 +1,90 @@
+# Create petralian/ops, vault-petralian, sitemonitor and push initial content.
+# Requires repo secret PETRALIAN_ADMIN_PAT (classic PAT: repo, admin:org or full control of petralian org).
+
+name: Fleet bootstrap
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create repos and push bootstrap
+        env:
+          PAT: ${{ secrets.PETRALIAN_ADMIN_PAT }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${PAT:-}" ]]; then
+            echo "::error::Add repository secret PETRALIAN_ADMIN_PAT (org repo create + push)."
+            exit 1
+          fi
+          export GH_TOKEN="$PAT"
+          for repo in ops vault-petralian sitemonitor; do
+            if ! gh repo view "petralian/${repo}" >/dev/null 2>&1; then
+              gh repo create "petralian/${repo}" --private --confirm
+              echo "Created petralian/${repo}"
+            else
+              echo "Exists: petralian/${repo}"
+            fi
+          done
+
+          TMP=$(mktemp -d)
+          cp fleet-bootstrap/services.yaml fleet-bootstrap/secrets.manifest.yaml fleet-bootstrap/README.md "$TMP/"
+          cd "$TMP"
+          git init
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .
+          git commit -m "Initial fleet map from Petralian fleet-bootstrap"
+          git branch -M master
+          git remote add origin "https://x-access-token:${PAT}@github.com/petralian/ops.git"
+          git push -f origin master
+
+          cd "$TMP"
+          rm -rf .git
+          mkdir -p Operations
+          cp "$GITHUB_WORKSPACE/cloud-bundle/vault-mirror/Operations/"* Operations/ 2>/dev/null || true
+          cp "$GITHUB_WORKSPACE/cloud-bundle/vault-mirror/_MOC.md" .
+          echo "# vault-petralian" > README.md
+          echo "Replace with Obsidian Git push from D:\\Obsidian\\...\\Petralian" >> README.md
+          git init
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .
+          git commit -m "Initial vault mirror stubs (replace via Obsidian Git)"
+          git branch -M master
+          git remote add origin "https://x-access-token:${PAT}@github.com/petralian/vault-petralian.git"
+          git push -f origin master
+
+          cd "$TMP"
+          rm -rf .git *
+          echo "# sitemonitor" > README.md
+          echo "Snapshot /opt/sitemonitor from VPS into this repo (Phase D)." >> README.md
+          git init
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "Placeholder — import from VPS /opt/sitemonitor"
+          git branch -M master
+          git remote add origin "https://x-access-token:${PAT}@github.com/petralian/sitemonitor.git"
+          git push -f origin master
+
+          echo "Fleet bootstrap complete."
+
+      - name: Fix SiteMonitor on VPS (if SSH secrets set)
+        uses: appleboy/ssh-action@v1.2.0
+        continue-on-error: true
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: false
+          command_timeout: 10m
+          script: |
+            cd /www/wwwroot/petralian
+            git fetch origin master && git checkout master && git pull --ff-only origin master || true
+            bash scripts/fix-website-monitor-emails.sh || true

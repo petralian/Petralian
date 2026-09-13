@@ -6,7 +6,7 @@
 - **Site:** https://petralian.com — Next.js 16 blog + newsletter
 - **Repo:** `C:\Users\User\OneDrive\02 VS Code\Petralian`
 - **Vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian`
-- **Fleet map (target):** `github.com/petralian/ops` — bootstrap [`fleet-bootstrap/`](../fleet-bootstrap/)
+- **Fleet map (target):** `github.com/petralian/ops` — bootstrap `fleet-bootstrap/`
 - **Vault cloud mirror (target):** `github.com/petralian/vault-petralian`
 - **Inventory:** `docs/ops/phase-0-inventory-2026-09-13.md`
 

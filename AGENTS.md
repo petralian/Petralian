@@ -60,12 +60,13 @@ Do not skip Obsidian updates because the user asked for code only. See `.cursor/
 
 ## Cloud bootstrap (no `D:\` vault on pod)
 
-1. Read `services.yaml` from cloned **`ops`** dependency (`github.com/petralian/ops`).
-2. Read `Operations/AI Session Bridge.md` from **`vault-petralian`** clone and/or **Obsidian MCP** (Dashboard).
-3. Read `memories/repo/open-loops.md` in this repo.
-4. SiteMonitor: `github.com/petralian/sitemonitor` — not `.website-monitor/` in Petralian.
-5. **Retired:** CouchDB / `obsidian-sync-mcp` on VPS. Official Obsidian Sync has no API.
-6. Fleet template / inventory: `docs/ops/services.yaml.example`, `docs/ops/phase-0-inventory-2026-09-13.md`.
+1. Read `cloud-bundle/ops/services.yaml` in this repo (**fallback** until `ops` dependency exists).
+2. Read `cloud-bundle/vault-mirror/Operations/AI Session Bridge.md` (**fallback**), then cloned **`vault-petralian`** / **Obsidian MCP** (Dashboard) when configured.
+3. When `repositoryDependencies` are live: prefer cloned `ops` + `vault-petralian` over `cloud-bundle/`.
+4. Read `memories/repo/open-loops.md` in this repo.
+5. SiteMonitor: `github.com/petralian/sitemonitor` — not `.website-monitor/` in Petralian.
+6. **Retired:** CouchDB / `obsidian-sync-mcp` on VPS. Official Obsidian Sync has no API.
+7. Runbook: `docs/ops/EXECUTION-REPORT.md`, `docs/ops/phase-0-inventory-2026-09-13.md`.
 
 ## Diagrams (D2)
 

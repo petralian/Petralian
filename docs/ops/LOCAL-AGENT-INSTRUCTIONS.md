@@ -148,9 +148,16 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 
 ---
 
+## Phase 0 results (2026-09-13)
+
+See [`docs/ops/phase-0-inventory-2026-09-13.md`](phase-0-inventory-2026-09-13.md). **Missing repos:** `vault-petralian`, `ops`, `sitemonitor`. **Desk scripts:** `scripts/bootstrap-fleet-repos.ps1`, `scripts/local-phase-b-vault-mirror.ps1`.
+
+---
+
 ## Checklist (tick as you go)
 
 ```
+□ Phase 0: Inventory confirmed on desk (private repos, D:\ vault .git, Hermes domains)
 □ Phase A: CouchDB + obsidian-sync-mcp stopped/removed on VPS
 □ Phase B: petralian/vault-petralian live + Obsidian Git pushing
 □ Phase C: petralian/ops with services.yaml + secrets.manifest.yaml
