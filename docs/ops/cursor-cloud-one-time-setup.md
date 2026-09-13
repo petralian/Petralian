@@ -1,6 +1,6 @@
 # Cursor Cloud — one-time setup (copy-paste)
 
-GitHub **A** is done (Cursor app → All repositories). **B** is automatic from git after one build.
+GitHub **A** is done (Cursor app → All repositories). **B** is the install script + one **Save** in the environment dashboard (personal envs do not auto-read `.cursor/environment.json` from git).
 
 ## 1. GitHub (you did this)
 
@@ -11,26 +11,13 @@ GitHub **A** is done (Cursor app → All repositories). **B** is automatic from 
 
 There is no such field. Fleet repos are cloned by the **install script** in `.cursor/environment.json` (on `master`).
 
-## 3. Trigger a build (one click)
+## 3. Save the environment (one click if the agent proposed it)
 
-1. Open your environment: [petralian/Petralian](https://cursor.com/dashboard/cloud-agents/environments/e/ef658c55-accc-11f1-bf4b-42ffb4d10ea7)
-2. Click **Trigger New Build**
-3. Wait until status is **Success** (not Failure)
+1. Open [petralian/Petralian environment](https://cursor.com/dashboard/cloud-agents/environments/e/ef658c55-accc-11f1-bf4b-42ffb4d10ea7).
+2. If Cursor shows an **environment proposal** from the cloud agent → **Review** → **Save** (uses a build that already succeeded).
+3. Otherwise: **Edit** → paste the **Install script** from `.cursor/environment.json` on `master` → **Save** → **Trigger New Build** → wait for **Success**.
 
-If it fails, click **Edit** and paste this **Install script** (same as repo):
-
-```bash
-set -e
-mkdir -p fleet-repos
-for r in ops vault-petralian sitemonitor; do
-  if [ ! -d "fleet-repos/$r/.git" ]; then
-    git clone --depth 1 "https://github.com/petralian/${r}.git" "fleet-repos/$r"
-  fi
-done
-npm ci
-```
-
-Save → **Trigger New Build** again.
+The install script copies `cloud-bundle/` into `fleet-repos/`, then tries to clone `ops`, `vault-petralian`, and `sitemonitor` (optional; cloud-bundle still works if clone fails).
 
 ## 4. Test
 
