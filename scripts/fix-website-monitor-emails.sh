@@ -305,9 +305,30 @@ if [[ -f "$CRON_FILE" ]] && grep -q 'sitemonitor-digest' "$CRON_FILE" 2>/dev/nul
   log "Removed obsolete external sitemonitor-digest crontab (app has internal cron)"
 fi
 
+try_npm_digest_send() {
+  log "Trying in-container npm digest scripts (no HTTP auth)"
+  docker exec sitemonitor sh -c '
+    set -e
+    for dir in /app /usr/src/app; do
+      [ -f "$dir/package.json" ] || continue
+      cd "$dir"
+      for s in digest send-digest digest:send daily-digest digest:run; do
+        if npm run "$s" --silent 2>/dev/null; then
+          echo "npm-run-ok:$s"
+          exit 0
+        fi
+      done
+    done
+    exit 1
+  ' 2>/dev/null && return 0
+  return 1
+}
+
 # ── Trigger digest now (catch-up) ────────────────────────────────────────────
 if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
-  TRIGGER_SECRET="$(read_trigger_secret "$(container_env_key CRON_SECRET)" || true)"
+  TRIGGER_SECRET="$(read_volume_cron_secret || true)"
+  [[ -z "$TRIGGER_SECRET" ]] && TRIGGER_SECRET="$(read_trigger_secret "$(container_env_key CRON_SECRET)" || true)"
+  [[ -z "$TRIGGER_SECRET" && -n "$FILE_CRON" ]] && TRIGGER_SECRET="$FILE_CRON"
   APP_PORT="$(sitemonitor_app_port)"
   log "Triggering catch-up digest on :${APP_PORT} (secret=${TRIGGER_SECRET:+present})"
   if [[ -n "$TRIGGER_SECRET" ]]; then
@@ -333,8 +354,10 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
         }
       })();
     " 2>/dev/null || true
+    try_npm_digest_send || true
   else
-    warn "No cron secret for HTTP catch-up — internal digest cron still runs at 07:00 Asia/Singapore if Brevo is set"
+    warn "No cron secret for HTTP catch-up — trying npm digest scripts"
+    try_npm_digest_send || warn "npm digest scripts failed — internal cron still runs 07:00 Asia/Singapore if Brevo is set"
     docker exec -e APP_PORT="$APP_PORT" sitemonitor node -e "
       const port = process.env.APP_PORT || '3000';
       fetch('http://127.0.0.1:' + port + '/api/digest/run?send=1', { method: 'POST' })

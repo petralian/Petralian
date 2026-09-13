@@ -1,6 +1,6 @@
 {
   "name": "Petralian fleet",
-  "install": "set -e\nmkdir -p fleet-repos\nfor r in ops vault-petralian sitemonitor; do\n  if [ ! -d \"fleet-repos/$r/.git\" ]; then\n    git clone --depth 1 \"https://github.com/petralian/${r}.git\" \"fleet-repos/$r\"\n  fi\ndone\nnpm ci",
+  "install": "set -e\nmkdir -p fleet-repos\nrm -rf fleet-repos/ops fleet-repos/vault-petralian\ncp -a cloud-bundle/ops fleet-repos/ops\ncp -a cloud-bundle/vault-mirror fleet-repos/vault-petralian\nmkdir -p fleet-repos/sitemonitor\ntest -f fleet-repos/sitemonitor/README.md || echo \"Import from github.com/petralian/sitemonitor\" > fleet-repos/sitemonitor/README.md\nfor r in ops vault-petralian sitemonitor; do\n  if git clone --depth 1 \"https://github.com/petralian/${r}.git\" \"fleet-repos/${r}.gitclone\" 2>/dev/null; then\n    rm -rf \"fleet-repos/$r\"\n    mv \"fleet-repos/${r}.gitclone\" \"fleet-repos/$r\"\n  fi\ndone\nnpm ci",
   "repositoryDependencies": [
     "github.com/petralian/ops",
     "github.com/petralian/vault-petralian",
