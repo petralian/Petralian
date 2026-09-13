@@ -32,6 +32,10 @@ npm ci
 
 Save → **Trigger New Build** again.
 
+## 3b. Install script empty in Edit?
+
+Recurring builds can still **succeed** using `.cursor/environment.json` from the repo. For clarity, paste the same **Install script** from that file into **Edit → Install script → Save** so the dashboard matches git.
+
 ## 4. Test
 
 **New Agent** on `petralian/Petralian`:
