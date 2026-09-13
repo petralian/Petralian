@@ -1,6 +1,6 @@
 {
   "name": "Petralian fleet",
-  "install": "npm ci",
+  "install": "set -e; for r in ops vault-petralian sitemonitor; do if [ ! -d \"../$r/.git\" ]; then git clone --depth 1 \"https://github.com/petralian/${r}.git\" \"../$r\"; fi; done; npm ci",
   "repositoryDependencies": [
     "github.com/petralian/ops",
     "github.com/petralian/vault-petralian",

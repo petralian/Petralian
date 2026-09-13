@@ -43,9 +43,11 @@ cd <Petralian clone>
 
 ### B. Cursor Cloud
 
-1. [Cloud environments](https://cursor.com/dashboard/cloud-agents/environments) → Petralian  
-2. Add `repositoryDependencies` from `.cursor/environment.json`  
-3. Grant access to private repos after step A  
+No dashboard field named `repositoryDependencies`. See **`docs/ops/cursor-cloud-environment.md`**:
+
+1. GitHub App → grant access to `ops`, `vault-petralian`, `sitemonitor`  
+2. `.cursor/environment.json` on `master` (clone + token scope)  
+3. **Trigger New Build** on the environment  
 
 ### C. VPS CouchDB retire (Phase A)
 
