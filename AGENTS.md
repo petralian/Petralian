@@ -62,7 +62,7 @@ Do not skip Obsidian updates because the user asked for code only. See `.cursor/
 
 1. Read `cloud-bundle/ops/services.yaml` in this repo (**fallback** until `ops` dependency exists).
 2. Read `cloud-bundle/vault-mirror/Operations/AI Session Bridge.md` (**fallback**), then cloned **`vault-petralian`** / **Obsidian MCP** (Dashboard) when configured.
-3. When `repositoryDependencies` are live: prefer cloned `ops` + `vault-petralian` over `cloud-bundle/`.
+3. When install has run: prefer `fleet-repos/ops` + `fleet-repos/vault-petralian` over `cloud-bundle/`.
 4. Read `memories/repo/open-loops.md` in this repo.
 5. SiteMonitor: `github.com/petralian/sitemonitor` — not `.website-monitor/` in Petralian.
 6. **Retired:** CouchDB / `obsidian-sync-mcp` on VPS. Official Obsidian Sync has no API.
