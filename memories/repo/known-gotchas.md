@@ -16,7 +16,7 @@
 ## Obsidian / cloud
 - **Official Obsidian Sync** — no API; cloud/iPhone agents cannot read vault via Sync. Use private git mirror `petralian/vault-petralian` + Cursor `repositoryDependencies`.
 - **Retired:** self-hosted CouchDB + `obsidian-sync-mcp` on VPS — do not wire CouchDB MCP for vault access.
-- **Desk:** native `D:\Obsidian\...` Read/Write only — **no vault MCP** in `.cursor/mcp.json` or `.vscode/mcp.json`. **Cloud:** read cloned `vault-petralian` repo (optional filesystem MCP on clone in Dashboard only).
+- **Desk:** Official Sync → native `D:\` I/O and/or Obsidian MCP (`petralian-obsidian`). **Cloud:** Obsidian MCP (Dashboard) + `vault-petralian` git mirror fallback. **Retired:** VPS CouchDB / `obsidian-sync-mcp`.
 
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
@@ -47,8 +47,6 @@
 - Brand logos: `public/images/` — never under `public/images/posts/`.
 
 ## MCP
-- **Vault at desk:** native `Read`/`Write`/`StrReplace` on `D:\Obsidian\...` — do **not** use `petralian-obsidian`, `obsidian-brain`, or filesystem MCP on `D:\`.
-- **Active stack:** Context7, Serena, OpenSEO in `.cursor/mcp.json` — see `docs/TOKEN-STACK.md`.
-- **Legacy (unwired):** `scripts/obsidian-mcp-server.mjs` / `obsidian-mcp-cli.mjs` — kept for reference; not registered locally.
-- **Cloud/mobile:** URL MCP via Cursor Dashboard; vault via `vault-petralian` clone + native Read.
-- Reload Cursor after MCP config changes; remove stale vault MCP entries from Settings → MCP if cached.
+- **Vault:** Official Sync files on `D:\` — native I/O or `petralian-obsidian` / `obsidian-brain`; cloud adds Dashboard Obsidian MCP + `vault-petralian` clone.
+- **Active stack:** Context7, Serena, OpenSEO — `docs/TOKEN-STACK.md`. Fleet map: `docs/ops/services.yaml.example` → `petralian/ops`.
+- **Do not restore:** CouchDB `obsidian-sync-mcp` on VPS.

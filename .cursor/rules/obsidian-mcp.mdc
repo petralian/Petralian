@@ -1,18 +1,18 @@
 ---
-description: Petralian vault paths — native I/O at desk; MCP for remote services only
+description: Petralian vault — Official Sync + native or Obsidian MCP; CouchDB retired
 alwaysApply: true
 ---
 
 # Obsidian — Petralian
 
-> **Tool choice:** `.cursor/rules/obsidian-vault-io.mdc` — **native only** at desk; no vault MCP locally.
+> **Tool choice:** `.cursor/rules/obsidian-vault-io.mdc`
 
 **Project vault:** `D:\Obsidian\Obsidian\40_VSCode\Petralian`  
 **Brain:** `D:\Obsidian\Obsidian\00_Brain`
 
-| Context | Vault I/O | MCP |
-|---------|-----------|-----|
-| Desk (local Cursor) | Native `Read`/`Grep`/`Write`/`StrReplace` on `D:\Obsidian\...` | **No** `petralian-obsidian`, `obsidian-brain`, or `D:\` filesystem MCP |
-| Cloud / iPhone | Native `Read`/`Grep` on `vault-petralian` git clone | URL servers only (e.g. OpenSEO); optional filesystem MCP on **clone path** in Dashboard |
+| Context | Vault | MCP |
+|---------|-------|-----|
+| Desk | Official Sync → files on `D:\` | Native I/O and/or `petralian-obsidian` / `obsidian-brain` on `D:\` |
+| Cloud | `vault-petralian` git mirror + Dashboard Obsidian MCP if registered | OpenSEO (URL); optional filesystem MCP on clone |
 
-Do not use `obsidian-brain` or `petralian-obsidian` MCP on the local machine — they are retired from `.cursor/mcp.json` and `.vscode/mcp.json`.
+Full operational memory (Bridge, Features, open loops) should be reachable via **native paths or Obsidian MCP**, not git mirror alone when MCP is available.

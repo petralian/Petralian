@@ -1,35 +1,39 @@
 ---
-description: Vault I/O — native Read/Write at desk; git clone on cloud; no local vault MCP
+description: Vault I/O — Official Sync + native or Obsidian MCP; git mirror for cloud fallback
 alwaysApply: true
 ---
 
-# Obsidian vault I/O (local Windows)
+# Obsidian vault I/O
 
 **Brain:** `D:\Obsidian\Obsidian\00_Brain`  
-**Project vaults:** `D:\Obsidian\Obsidian\40_VSCode\<Project>\`
+**Project vaults:** `D:\Obsidian\Obsidian\40_VSCode\<Project>\`  
+**Canonical sync:** Official **Obsidian Sync** (no public API — files on disk are SSOT on each device).
 
-## Mandatory tool choice (desk / local Cursor)
+## Operational memory (Bridge, Features, Open Loops)
 
-| Action | Tool | Do not use |
-|--------|------|------------|
-| Read / search vault | Native `Read` / `Grep` on `D:\Obsidian\...` | Any vault MCP (`petralian-obsidian`, `obsidian-brain`, filesystem MCP on `D:\`) |
-| Write / edit vault | Native `Write` / `StrReplace` on `D:\Obsidian\...` | Any vault MCP |
-| Repo code | Native workspace tools | — |
+Use **full vault access** when the session needs it — not only the git-mirror subset.
 
-**Local policy:** MCP servers in `.cursor/mcp.json` are **not** for vault file I/O. Do not register `petralian-obsidian`, `obsidian-brain`, or filesystem MCP pointed at `D:\Obsidian\...` on the desk machine.
+| Context | Preferred | Also OK |
+|---------|-----------|---------|
+| **Desk** | Native `Read` / `Grep` / `Write` / `StrReplace` on `D:\Obsidian\...` | **Obsidian MCP** on the same `D:\` paths (reads/writes what Official Sync maintains) |
+| **Cloud / iPhone** | Obsidian MCP registered in **Cursor Dashboard** (when you expose full vault) | Native `Read` / `Grep` on `vault-petralian` clone + Obsidian Git push for write-back |
 
-## Remote (cloud / iPhone)
+**Retired:** VPS CouchDB / `obsidian-sync-mcp` / `vault-mcp.petralian.com` — do not wire these for vault access.
+
+## Tool choice (desk)
 
 | Action | Tool |
 |--------|------|
-| Read vault ops subset | Native `Read` / `Grep` on `vault-petralian` clone (`repositoryDependencies`) |
-| Write vault ops subset | Commit/push in clone or hand off to desk Obsidian Git |
-| Optional MCP on clone | Filesystem MCP on `${workspaceFolder}/../vault-petralian` — **Dashboard / cloud only**, never on `D:\` |
+| Read / search | Native `Read` / `Grep` **or** Obsidian MCP (`petralian-obsidian`, `obsidian-brain`, filesystem MCP on `D:\`) |
+| Write / edit | Native `Write` / `StrReplace` **or** Obsidian MCP write tools |
+| Repo code | Native workspace tools |
 
-URL-based MCP (e.g. OpenSEO) is fine on cloud/mobile. Stdio MCP (Context7, Serena) is **desktop-only**.
+Pick **one** path per turn per file — do not read the same note natively and via MCP in one turn.
 
-## Other MCP
+## Cloud without `D:\`
 
-Context7, Serena, OpenSEO, etc. per `docs/TOKEN-STACK.md` — **never** for vault file I/O at desk.
+1. `repositoryDependencies` → `vault-petralian` for ops subset (Bridge, Features, `_MOC.md`).
+2. **Obsidian MCP** (Dashboard) when configured — for full vault parity with desk.
+3. URL MCP (OpenSEO, etc.) per `docs/TOKEN-STACK.md`.
 
-**One tool per vault file per turn.** Never Read a file via MCP if you already read it natively this turn.
+Stdio MCP (Context7, Serena) is **desktop-only**.

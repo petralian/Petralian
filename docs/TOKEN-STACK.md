@@ -10,16 +10,18 @@
 | P1 | `serena` | Symbol-level nav for the site repo |
 | P2 | `openseo` | GSC performance + URL inspection, keyword/SERP/backlink research ([setup](https://openseo.so/docs/mcp)) |
 
-### MCP local vs remote (vault policy)
+### MCP local vs remote (vault + fleet)
 
-| Context | Vault I/O | MCP in `.cursor/mcp.json` |
+| Context | Operational memory | Other MCP |
 |---|---|---|
-| **Desk (local)** | Native `Read`/`Grep`/`Write`/`StrReplace` on `D:\Obsidian\...` | Context7, Serena, OpenSEO only — **no vault MCP** |
-| **Cloud / iPhone** | Native `Read`/`Grep` on `vault-petralian` clone | URL servers (OpenSEO); optional filesystem MCP on clone via **Dashboard** |
+| **Desk** | Official Obsidian Sync → native `D:\` I/O **or** Obsidian MCP on same paths (`petralian-obsidian`, `obsidian-brain`) | Context7, Serena, OpenSEO |
+| **Cloud / iPhone** | `vault-petralian` clone + **Obsidian MCP in Dashboard** when you want full vault | OpenSEO (URL); optional filesystem MCP on clone |
 
-**Retired locally:** `petralian-obsidian` (`scripts/obsidian-mcp-server.mjs`), `obsidian-brain`, CouchDB `obsidian-sync-mcp`. Do not re-add vault stdio MCP to desk config.
+**Retired:** CouchDB `obsidian-sync-mcp` on VPS — not a substitute for Official Sync.
 
-**Reload Cursor** after removing vault MCP from Settings → MCP if entries were cached from an older config.
+Fleet web apps SSOT: `petralian/ops` → template [`docs/ops/services.yaml.example`](ops/services.yaml.example).
+
+**Reload Cursor** after MCP config changes.
 
 ### Serena setup
 

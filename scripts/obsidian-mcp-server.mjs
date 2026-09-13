@@ -2,11 +2,10 @@
 /**
  * scripts/obsidian-mcp-server.mjs
  *
- * LEGACY — not registered in .cursor/mcp.json or .vscode/mcp.json (2026-09).
- * At desk: use native Read/Write on D:\Obsidian\... per obsidian-vault-io.mdc.
- * Cloud: use vault-petralian git clone + native Read (optional filesystem MCP on clone in Dashboard).
+ * Desk: optional MCP bridge to Petralian vault on D:\ (Official Obsidian Sync).
+ * Also: native Read/Write per obsidian-vault-io.mdc. Cloud: vault-petralian + Dashboard Obsidian MCP.
  *
- * Kept for reference / manual CLI only (obsidian-mcp-cli.mjs).
+ * CLI fallback: obsidian-mcp-cli.mjs
  *
  *   obsidian_append   — append text to any note under the Petralian Obsidian vault.
  *   obsidian_read     — read the contents of a vault note.

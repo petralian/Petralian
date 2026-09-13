@@ -1,0 +1,109 @@
+# Fleet map — copy to petralian/ops/services.yaml (private repo).
+# Phase 0 inventory: confirm domains, paths, and status on VPS before treating as SSOT.
+
+version: 1
+
+obsidian:
+  sync: official_obsidian_sync
+  note: "Canonical vault on devices. Agents: native D:\\ paths and/or Obsidian MCP on same paths (full vault). Git mirror is for cloud when MCP unavailable."
+  cloud_mirror: github.com/petralian/vault-petralian
+  local_path: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian"
+  brain_path: "D:\\Obsidian\\Obsidian\\00_Brain"
+  agent_access:
+    desk: [native_read_write, obsidian_mcp_optional]
+    cloud: [vault_git_mirror, obsidian_mcp_dashboard_optional]
+  retired_vps: [obsidiansync-couchdb, obsidian-sync-mcp]
+
+vps:
+  host_secret: VPS_HOST
+  ssh_port: 2245
+
+services:
+  petralian:
+    status: active
+    repo: github.com/petralian/Petralian
+    domain: petralian.com
+    domains_extra: [www.petralian.com]
+    runtime: pm2
+    app_dir: /www/wwwroot/petralian
+    port: 3000
+    deploy: .github/workflows/deploy-vps.yml
+    shared_secrets: [BREVO_API_KEY, CRON_SECRET, UNSUBSCRIBE_SECRET]
+
+  sitemonitor:
+    status: active
+    repo: github.com/petralian/sitemonitor
+    domain: mon.petralian.com
+    runtime: docker
+    compose_dir: /opt/sitemonitor
+    container: sitemonitor
+    port: 3010
+    digest_cron: "0 7 * * * Asia/Singapore"
+    deploy: .github/workflows/deploy-sitemonitor.yml
+    shared_secrets: [BREVO_API_KEY]
+    repair_script: /www/wwwroot/petralian/scripts/fix-website-monitor-emails.sh
+
+  crm:
+    status: active
+    domain: crm.petralian.com
+    runtime: php
+    app_dir: /www/wwwroot/crm.petralian.com
+    note: "Perfex CRM — noindex; not in Petralian git. See docs/seo/crm-noindex.md"
+    cloud_agent: read_only_ops_docs
+
+  hermes:
+    status: active
+    runtime: docker
+    image: nousresearch/hermes-agent:v2026.8.3
+    container: hermes
+    port: 8642
+    webui_container: hermes-webui
+    webui_port: 8787
+    domain: null  # fill from aaPanel / inventory
+
+  hermes_luna:
+    status: active
+    runtime: docker
+    container: hermes-luna
+    port: 8643
+    webui_container: hermes-webui-luna
+    webui_port: 8788
+    domain: null
+
+  hermes_minyi:
+    status: active
+    runtime: docker
+    container: hermes-minyi
+    port: 8644
+    webui_container: hermes-webui-minyi
+    webui_port: 8789
+    domain: null
+
+  hermes_enzo:
+    status: active
+    runtime: docker
+    container: hermes-enzo
+    port: 8645
+    webui_container: hermes-webui-enzo
+    webui_port: 8790
+    domain: null
+
+  obsidian_sync_mcp:
+    status: retired
+    runtime: docker
+    container: obsidian-sync-mcp
+    note: "Do not restore. Official Obsidian Sync + optional Obsidian MCP on desk/cloud."
+
+  obsidiansync_couchdb:
+    status: retired
+    runtime: docker
+    container: obsidiansync-couchdb
+    port: 5984
+
+  # Add from Phase 0 inventory (GitHub-only, other VPS sites, subdomains):
+  # gravio:
+  #   status: external
+  #   repo: github.com/petralian/Gravio
+  # aesthetic_clock:
+  #   status: external
+  #   repo: github.com/petralian/aesthetic-clock

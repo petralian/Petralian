@@ -7,7 +7,7 @@
 
 ## Context
 
-Nathan retired **self-hosted CouchDB / LiveSync** on the VPS. Vault sync is now **official Obsidian Sync only** (no API). Cloud agents and iPhone cannot read Obsidian directly — they need a **private git mirror** of vault ops files plus fleet repos.
+Nathan retired **self-hosted CouchDB / LiveSync** on the VPS. Vault sync is **official Obsidian Sync** (no public API). Agents get **full operational memory** via native `D:\` paths and/or **Obsidian MCP** on the same synced files; cloud also uses **`vault-petralian` git mirror** when MCP is unavailable. Fleet map covers **all VPS web apps**, not only petralian.com and mon.
 
 **Do not** wire `obsidian-sync-mcp`, CouchDB, or `vault-mcp.petralian.com`. Decommission those Docker containers if still running.
 
@@ -68,39 +68,7 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 ### Phase C — Create `petralian/ops` (private) (~20 min)
 
 1. Create private repo `petralian/ops`.
-2. Add `services.yaml`:
-
-   ```yaml
-   version: 1
-   obsidian:
-     sync: official_obsidian_sync
-     cloud_mirror: github.com/petralian/vault-petralian
-     local_path: "D:\\Obsidian\\Obsidian\\40_VSCode\\Petralian"
-     brain_path: "D:\\Obsidian\\Obsidian\\00_Brain"
-     retired_vps: [obsidiansync-couchdb, obsidian-sync-mcp]
-
-   vps:
-     host_secret: VPS_HOST
-     ssh_port: 2245
-
-   services:
-     petralian:
-       repo: github.com/petralian/Petralian
-       domain: petralian.com
-       app_dir: /www/wwwroot/petralian
-       port: 3000
-       deploy: .github/workflows/deploy-vps.yml
-       shared_secrets: [BREVO_API_KEY, CRON_SECRET, UNSUBSCRIBE_SECRET]
-
-     sitemonitor:
-       repo: github.com/petralian/sitemonitor
-       domain: mon.petralian.com
-       compose_dir: /opt/sitemonitor
-       port: 3010
-       container: sitemonitor
-       digest_cron: "0 7 * * * Asia/Singapore"
-       shared_secrets: [BREVO_API_KEY]
-   ```
+2. Copy [`docs/ops/services.yaml.example`](services.yaml.example) into `petralian/ops/services.yaml`. It lists **all known VPS web apps** (petralian, sitemonitor, crm, Hermes agents + web UIs, retired CouchDB stack). After Phase 0 inventory, set `domain:` for Hermes services and add any missing aaPanel sites.
 
 3. Add `secrets.manifest.yaml` (names only — never values):
 
@@ -155,7 +123,7 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
    - `github.com/petralian/sitemonitor`
    - `github.com/petralian/Petralian`
 3. Optional: commit `.cursor/environment.json` with same `repositoryDependencies` + `install: npm ci`.
-4. **MCP for mobile/cloud:** Only URL servers (OpenSEO already works). Do **not** add CouchDB Obsidian MCP.
+4. **MCP for mobile/cloud:** OpenSEO (URL) + **Obsidian MCP** in Dashboard for full vault; do **not** add CouchDB `obsidian-sync-mcp`.
 5. Smoke test: launch cloud agent → ask it to read `Operations/AI Session Bridge.md` from vault-petralian clone and summarize priority.
 
 ---

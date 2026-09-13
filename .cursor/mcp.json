@@ -1,6 +1,11 @@
 {
-  "_comment": "Petralian MCP stack: Context7 P0, Serena P1, OpenSEO P2 (GSC + keyword research). Auth: https://app.openseo.so/ai. Vault I/O: native Read/Write on D:\\Obsidian\\... — no vault MCP locally. See docs/TOKEN-STACK.md § MCP local vs remote.",
+  "_comment": "P0 context7, P1 serena, P2 openseo. Vault: Official Sync on D:\\ — native I/O or petralian-obsidian MCP (full vault). See docs/TOKEN-STACK.md",
   "mcpServers": {
+    "petralian-obsidian": {
+      "_comment": "Project vault — same files as Official Obsidian Sync on D:\\Obsidian\\...\\40_VSCode\\Petralian",
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/obsidian-mcp-server.mjs"]
+    },
     "openseo": {
       "_comment": "Hosted OpenSEO MCP — GSC performance/URL inspection, keywords, SERPs, backlinks. Login on first connect.",
       "url": "https://app.openseo.so/mcp"

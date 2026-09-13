@@ -16,6 +16,6 @@
 | PSI / Lighthouse 100 | Open | Perf pass shipped pending deploy; baseline prod home 92 / cursorbench post 75 (LCP 9.3s PNG hero). Target 100 after `HomeIntro` SSR + JPEG heroes + dynamic post chunks |
 | Customize series A+B review | Open | Drafting in `01 Drafts/` |
 | sync-cursor-stack other repos | Open | Run when Vouch etc. on disk |
-| Cloud continuity / shared operator layer | Open | Official Obsidian Sync (no CouchDB). Handoff: `docs/ops/LOCAL-AGENT-INSTRUCTIONS.md` — vault git mirror, ops repo, sitemonitor repo, retire VPS CouchDB stack |
+| Cloud continuity / shared operator layer | Open | Official Sync + Obsidian MCP + `vault-petralian` mirror; `petralian/ops` all web apps (`docs/ops/services.yaml.example`). Handoff: `docs/ops/LOCAL-AGENT-INSTRUCTIONS.md` |
 
 **Reload Obsidian** after agent vault updates (`Ctrl+R`).

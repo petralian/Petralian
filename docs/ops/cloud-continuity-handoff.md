@@ -13,9 +13,9 @@
 | Obsidian sync | **Official Obsidian Sync** — app-to-app only, **no API** |
 | CouchDB on VPS | **Retired** — `obsidiansync-couchdb` + `obsidian-sync-mcp` are legacy; decommission |
 | Remote Obsidian MCP via CouchDB | **Not applicable** — do not wire `vault-mcp.petralian.com` to CouchDB |
-| Cloud / iPhone vault access | **Private git mirror** (`petralian/vault-petralian`) + Cursor `repositoryDependencies` |
-| At desk | Native `D:\Obsidian\...` only — **no vault MCP** (Context7/Serena/OpenSEO OK) |
-| Code + fleet map | `petralian/ops`, `petralian/sitemonitor`, `petralian/Petralian` |
+| Cloud / iPhone vault access | **Obsidian MCP** (Dashboard, full vault when configured) + **`vault-petralian` git mirror** fallback |
+| At desk | Official Sync → native `D:\` I/O **and/or** Obsidian MCP on same paths |
+| Code + fleet map | `petralian/ops` (**all VPS web apps**), per-app repos, `petralian/Petralian` |
 
 ---
 
@@ -24,12 +24,12 @@
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │  Desk: Obsidian (canonical) ←→ Official Obsidian Sync        │
-│        Cursor desktop + native D:\ vault Read/Write          │
+│        Cursor desktop + native and/or Obsidian MCP on D:\      │
 └────────────────────────┬─────────────────────────────────────┘
                          │ Obsidian Git plugin (or end-of-session push)
                          ▼
               ┌─────────────────────────────┐
-              │ petralian/vault-petralian  │  private git — ops subset only
+              │ petralian/vault-petralian  │  private git — cloud fallback (+ Obsidian MCP for full vault)
               │ Operations/, Features/, _MOC │
               └──────────────┬──────────────┘
                              │
@@ -47,7 +47,7 @@ petralian/ops          petralian/Petralian    petralian/sitemonitor
               └──────────────────────────────┘
 ```
 
-**MCP on iPhone / cloud:** URL-based servers only (e.g. OpenSEO). Vault is **not** MCP — cloud agents **read the git clone** of `vault-petralian`.
+**MCP on iPhone / cloud:** URL servers (OpenSEO) + **Obsidian MCP** when registered in Dashboard. Git clone of `vault-petralian` remains the offline fallback for Bridge/Features.
 
 ---
 
@@ -137,7 +137,7 @@ If not using auto-commit: before closing Cursor → `git add Operations/ Feature
 
 Create `github.com/petralian/ops` with:
 
-**`services.yaml`** — see `LOCAL-AGENT-INSTRUCTIONS.md` for full template.
+**`services.yaml`** — **all web apps** on the VPS (and linked GitHub repos). Start from [`docs/ops/services.yaml.example`](services.yaml.example) (petralian, sitemonitor, crm, Hermes stack, retired CouchDB). Trim or extend after Phase 0 inventory.
 
 **`secrets.manifest.yaml`** — names only; `BREVO_API_KEY` shared by petralian + sitemonitor.
 
@@ -201,7 +201,7 @@ If you want MCP tool names on cloud (not required — native `Read` works):
 }
 ```
 
-Only after `repositoryDependencies` places `vault-petralian` beside Petralian in the cloud workspace. **Do not** register this on the desk machine — local vault I/O stays native `Read`/`Write` on `D:\Obsidian\...`.
+Optional on cloud after `repositoryDependencies` places `vault-petralian` beside Petralian. Desk may use native I/O and/or `petralian-obsidian` on `D:\Obsidian\...`.
 
 ---
 
@@ -220,8 +220,9 @@ Both `deploy-vps.yml` and `deploy-sitemonitor.yml` use `environment: production`
 | OpenSEO | URL | ✅ | ✅ | ✅ |
 | Context7 | stdio | ✅ | ❌ | ❌ |
 | Serena | stdio | ✅ | ❌ | ❌ |
-| vault (desk) | native `D:\` Read/Write | ✅ | ❌ | ❌ |
-| vault-petralian | **git clone + Read** | via Obsidian Git push | ✅ | ✅ (via cloud agent) |
+| petralian-obsidian | stdio → `D:\` vault | ✅ | ❌ | ❌ |
+| Obsidian MCP (Dashboard) | URL / hosted | optional | ✅ | ✅ |
+| vault-petralian | git clone + Read | via Obsidian Git push | ✅ | ✅ |
 | obsidian-vault-clone (optional) | stdio → clone path | ❌ | optional | ❌ |
 
 Register **URL MCPs** in **Cursor Dashboard → Integrations & MCP** for mobile/cloud (see [Cursor MCP docs](https://cursor.com/docs/context/mcp)).
