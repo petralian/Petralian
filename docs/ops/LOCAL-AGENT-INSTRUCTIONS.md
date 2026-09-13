@@ -150,7 +150,8 @@ Execute all phases below. Update vault `Operations/Session Summaries.md` and `Op
 
 ## Phase 0 results (2026-09-13)
 
-See [`docs/ops/phase-0-inventory-2026-09-13.md`](phase-0-inventory-2026-09-13.md). **Missing repos:** `vault-petralian`, `ops`, `sitemonitor`. **Desk scripts:** `scripts/bootstrap-fleet-repos.ps1`, `scripts/local-phase-b-vault-mirror.ps1`.
+See [`docs/ops/phase-0-inventory-2026-09-13.md`](phase-0-inventory-2026-09-13.md). **Missing repos:** `vault-petralian`, `ops`, `sitemonitor`. **Desk scripts:** `scripts/bootstrap-fleet-repos.ps1`, `scripts/local-phase-b-vault-mirror.ps1`.  
+**Cloud agent shipped:** `cloud-bundle/` + Action **Fleet bootstrap** (`PETRALIAN_ADMIN_PAT`). Report: `docs/ops/EXECUTION-REPORT.md`.
 
 ---
 
