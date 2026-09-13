@@ -1,6 +1,8 @@
 # Cursor Cloud — one-time setup (copy-paste)
 
-GitHub **A** is done (Cursor app → All repositories). **B** is automatic from git after one build.
+GitHub **A** is done (Cursor app → All repositories). **B** is install script + build (below).
+
+**Obsidian MCP (full vault read/write on cloud):** Dashboard only — see [`cloud-obsidian-mcp.md`](cloud-obsidian-mcp.md).
 
 ## 1. GitHub (you did this)
 
@@ -9,32 +11,36 @@ GitHub **A** is done (Cursor app → All repositories). **B** is automatic from 
 
 ## 2. You do **not** add repo dependencies in the UI
 
-There is no such field. Fleet repos are cloned by the **install script** in `.cursor/environment.json` (on `master`).
+There is no such field. Fleet repos are set up by the **install script** in `.cursor/environment.json` (on `master`).
 
-## 3. Trigger a build (one click)
+## 3. Paste install script (exact steps)
 
-1. Open your environment: [petralian/Petralian](https://cursor.com/dashboard/cloud-agents/environments/e/ef658c55-accc-11f1-bf4b-42ffb4d10ea7)
-2. Click **Trigger New Build**
-3. Wait until status is **Success** (not Failure)
+1. Open [Petralian environment](https://cursor.com/dashboard/cloud-agents/environments/e/ef658c55-accc-11f1-bf4b-42ffb4d10ea7).
+2. Click **Edit** (or open the environment settings).
+3. Find **Install script** (single text box).
+4. Select all → delete → paste the script below **exactly** (one line per command; no `bash` wrapper).
+5. Leave **Start script** empty unless you run a dev server on boot.
+6. Click **Save**.
+7. Click **Trigger New Build** → wait for **Success**.
 
-If it fails, click **Edit** and paste this **Install script** (same as repo):
+### Install script (copy from here)
 
 ```bash
 set -e
 mkdir -p fleet-repos
+rm -rf fleet-repos/ops fleet-repos/vault-petralian
+cp -a cloud-bundle/ops fleet-repos/ops
+cp -a cloud-bundle/vault-mirror fleet-repos/vault-petralian
+mkdir -p fleet-repos/sitemonitor
+test -f fleet-repos/sitemonitor/README.md || echo "Import from github.com/petralian/sitemonitor" > fleet-repos/sitemonitor/README.md
 for r in ops vault-petralian sitemonitor; do
-  if [ ! -d "fleet-repos/$r/.git" ]; then
-    git clone --depth 1 "https://github.com/petralian/${r}.git" "fleet-repos/$r"
+  if git clone --depth 1 "https://github.com/petralian/${r}.git" "fleet-repos/${r}.gitclone" 2>/dev/null; then
+    rm -rf "fleet-repos/$r"
+    mv "fleet-repos/${r}.gitclone" "fleet-repos/$r"
   fi
 done
 npm ci
 ```
-
-Save → **Trigger New Build** again.
-
-## 3b. Install script empty in Edit?
-
-Recurring builds can still **succeed** using `.cursor/environment.json` from the repo. For clarity, paste the same **Install script** from that file into **Edit → Install script → Save** so the dashboard matches git.
 
 ## 4. Test
 
