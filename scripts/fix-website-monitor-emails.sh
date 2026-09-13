@@ -72,6 +72,11 @@ if [[ -n "$COMPOSE_DIR" ]]; then
   for f in "$COMPOSE_DIR/.env" "$COMPOSE_DIR/.env.production"; do
     [[ -f "$f" ]] && ENV_FILE="$f" && break
   done
+  if [[ -z "$ENV_FILE" ]]; then
+    ENV_FILE="$COMPOSE_DIR/.env"
+    touch "$ENV_FILE"
+    log "Created compose env file at $ENV_FILE"
+  fi
 fi
 
 log "compose_dir=${COMPOSE_DIR:-not_found}"
@@ -194,7 +199,13 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
         .catch((e) => console.error(e.message));
     " 2>/dev/null || true
   else
-    warn "No cron secret in container or compose .env — daily 07:00 Asia/Singapore digest may 401 until CRON_SECRET is wired in docker-compose"
+    warn "No cron secret for HTTP catch-up — internal digest cron still runs at 07:00 Asia/Singapore if Brevo is set"
+    docker exec -e APP_PORT="$APP_PORT" sitemonitor node -e "
+      const port = process.env.APP_PORT || '3000';
+      fetch('http://127.0.0.1:' + port + '/api/digest/run?send=1', { method: 'POST' })
+        .then(async (r) => console.log('no-auth', r.status, (await r.text()).slice(0, 300)))
+        .catch((e) => console.error(e.message));
+    " 2>/dev/null || true
   fi
   sleep 8
   docker logs sitemonitor --tail 30 2>&1 | grep -iE 'brevo|digest|email|sent|error|queued|Key not found|401' | tail -15 || true
