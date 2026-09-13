@@ -313,10 +313,13 @@ try_npm_digest_send() {
       [ -f "$dir/package.json" ] || continue
       cd "$dir"
       for s in digest send-digest digest:send daily-digest digest:run; do
-        if npm run "$s" --silent 2>/dev/null; then
-          echo "npm-run-ok:$s"
-          exit 0
-        fi
+        for extra in "--send" "--send=1" ""; do
+          if [ -n "$extra" ]; then
+            npm run "$s" -- $extra 2>/dev/null && echo "npm-run-ok:$s:$extra" && exit 0
+          else
+            SEND_DIGEST=1 DIGEST_SEND=1 npm run "$s" 2>/dev/null && echo "npm-run-ok:$s:env" && exit 0
+          fi
+        done
       done
     done
     exit 1
