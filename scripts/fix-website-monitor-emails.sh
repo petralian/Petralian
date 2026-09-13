@@ -56,6 +56,31 @@ generate_cron_secret() {
   fi
 }
 
+read_host_monitor_cron_secret() {
+  local d secret
+  for d in /www/wwwroot/mon.petralian.com /www/wwwroot/sitemonitor /www/wwwroot/website-monitor; do
+    [[ ! -d "$d" ]] && continue
+    for secret in \
+      "$(read_env_key "$d/.env" CRON_SECRET)" \
+      "$(read_env_key "$d/.env" DIGEST_SECRET)" \
+      "$(read_env_key "$d/.env.production" CRON_SECRET)"; do
+      [[ -n "$secret" ]] && echo "$secret" && return 0
+    done
+    if [[ -f "$d/data/config.json" ]]; then
+      secret="$(node -e "
+        const fs = require('fs');
+        const pick = (o) => {
+          if (!o || typeof o !== 'object') return '';
+          return o.cronSecret || (o.digest && o.digest.cronSecret) || (o.cron && o.cron.secret) || '';
+        };
+        try { const s = pick(JSON.parse(fs.readFileSync('$d/data/config.json', 'utf8'))); if (s) console.log(s); } catch {}
+      " 2>/dev/null || true)"
+      [[ -n "$secret" ]] && echo "$secret" && return 0
+    fi
+  done
+  return 1
+}
+
 read_sitemonitor_config_cron_secret() {
   docker exec sitemonitor node -e "
     const fs = require('fs');
@@ -170,8 +195,8 @@ if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO"
 fi
 
 # Do NOT sync CRON_SECRET from petralian — SiteMonitor uses its own digest auth secret.
-CONFIG_CRON=""
-if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+CONFIG_CRON="$(read_host_monitor_cron_secret || true)"
+if [[ -z "$CONFIG_CRON" ]] && docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   CONFIG_CRON="$(read_sitemonitor_config_cron_secret)"
 fi
 
@@ -262,12 +287,21 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
       sitemonitor node -e "
       const port = process.env.APP_PORT || '3000';
       const url = 'http://127.0.0.1:' + port + '/api/digest/run?send=1';
-      fetch(url, {
-        method: 'POST',
-        headers: { Authorization: 'Bearer ' + process.env.TRIGGER_SECRET },
-      })
-        .then(async (r) => console.log(r.status, (await r.text()).slice(0, 500)))
-        .catch((e) => console.error(e.message));
+      const secret = process.env.TRIGGER_SECRET;
+      const tryAuth = (headers) =>
+        fetch(url, { method: 'POST', headers })
+          .then(async (r) => ({ status: r.status, body: (await r.text()).slice(0, 500), headers }));
+      (async () => {
+        for (const headers of [
+          { Authorization: 'Bearer ' + secret },
+          { 'x-cron-secret': secret },
+          { 'x-api-key': secret },
+        ]) {
+          const res = await tryAuth(headers).catch((e) => ({ status: 0, body: e.message, headers }));
+          console.log(res.status, JSON.stringify(headers), res.body);
+          if (res.status >= 200 && res.status < 300) break;
+        }
+      })();
     " 2>/dev/null || true
   else
     warn "No cron secret for HTTP catch-up — internal digest cron still runs at 07:00 Asia/Singapore if Brevo is set"
