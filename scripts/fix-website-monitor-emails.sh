@@ -56,6 +56,60 @@ generate_cron_secret() {
   fi
 }
 
+read_sitemonitor_config_cron_secret() {
+  docker exec sitemonitor node -e "
+    const fs = require('fs');
+    const paths = ['data/config.json', '/app/data/config.json', 'config.json'];
+    const pick = (o) => {
+      if (!o || typeof o !== 'object') return '';
+      return (
+        o.cronSecret ||
+        o.CRON_SECRET ||
+        (o.cron && (o.cron.secret || o.cron.cronSecret)) ||
+        (o.digest && (o.digest.cronSecret || o.digest.secret)) ||
+        (o.auth && (o.auth.cronSecret || o.auth.adminToken)) ||
+        ''
+      );
+    };
+    for (const p of paths) {
+      try {
+        const s = pick(JSON.parse(fs.readFileSync(p, 'utf8')));
+        if (s) {
+          console.log(s);
+          process.exit(0);
+        }
+      } catch {}
+    }
+  " 2>/dev/null || true
+}
+
+write_sitemonitor_config_cron_secret() {
+  local secret="$1"
+  [[ -z "$secret" ]] && return 0
+  docker exec -e SYNC_SECRET="$secret" sitemonitor node -e "
+    const fs = require('fs');
+    const path = require('path');
+    const secret = process.env.SYNC_SECRET;
+    const paths = ['data/config.json', '/app/data/config.json'];
+    let updated = false;
+    for (const p of paths) {
+      try {
+        const raw = fs.readFileSync(p, 'utf8');
+        const o = JSON.parse(raw);
+        if (o.cronSecret === secret) continue;
+        o.cronSecret = secret;
+        if (o.digest && typeof o.digest === 'object') o.digest.cronSecret = secret;
+        if (o.cron && typeof o.cron === 'object') o.cron.secret = secret;
+        fs.mkdirSync(path.dirname(p), { recursive: true });
+        fs.writeFileSync(p, JSON.stringify(o, null, 2));
+        console.log('config-sync', p);
+        updated = true;
+      } catch {}
+    }
+    if (!updated) console.log('config-sync-skip');
+  " 2>/dev/null || true
+}
+
 # ── Resolve compose dir from container labels ────────────────────────────────
 COMPOSE_DIR=""
 ENV_FILE=""
@@ -116,6 +170,11 @@ if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO"
 fi
 
 # Do NOT sync CRON_SECRET from petralian — SiteMonitor uses its own digest auth secret.
+CONFIG_CRON=""
+if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  CONFIG_CRON="$(read_sitemonitor_config_cron_secret)"
+fi
+
 FILE_CRON="$(read_env_key "$ENV_FILE" CRON_SECRET)"
 if [[ -z "$FILE_CRON" && -n "$ENV_FILE" ]]; then
   for key in DIGEST_SECRET SITEMONITOR_SECRET ADMIN_TOKEN; do
@@ -124,12 +183,24 @@ if [[ -z "$FILE_CRON" && -n "$ENV_FILE" ]]; then
   done
 fi
 
-if [[ -z "$FILE_CRON" && -n "$ENV_FILE" ]]; then
+if [[ -n "$CONFIG_CRON" ]]; then
+  if [[ "$FILE_CRON" != "$CONFIG_CRON" ]]; then
+    log "Aligning compose .env CRON_SECRET with app data/config.json (SSOT)"
+    FILE_CRON="$CONFIG_CRON"
+    set_env_key "$ENV_FILE" "CRON_SECRET" "$FILE_CRON"
+    NEED_RECREATE=1
+  fi
+elif [[ -z "$FILE_CRON" && -n "$ENV_FILE" ]]; then
   FILE_CRON="$(generate_cron_secret)"
-  log "CRON_SECRET missing in sitemonitor .env — generating and persisting (digest API + internal cron)"
+  log "CRON_SECRET missing — generating, persisting to .env and app config"
   set_env_key "$ENV_FILE" "CRON_SECRET" "$FILE_CRON"
+  write_sitemonitor_config_cron_secret "$FILE_CRON"
   NEED_RECREATE=1
-elif [[ -n "$FILE_CRON" && -n "$CONTAINER_CRON" && "$FILE_CRON" != "$CONTAINER_CRON" ]]; then
+else
+  [[ -n "$FILE_CRON" ]] && write_sitemonitor_config_cron_secret "$FILE_CRON"
+fi
+
+if [[ -n "$FILE_CRON" && -n "$CONTAINER_CRON" && "$FILE_CRON" != "$CONTAINER_CRON" ]]; then
   log "Container CRON_SECRET out of sync with compose .env — recreating"
   NEED_RECREATE=1
 elif [[ -n "$FILE_CRON" && -z "$CONTAINER_CRON" ]]; then
