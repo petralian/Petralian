@@ -56,6 +56,30 @@ generate_cron_secret() {
   fi
 }
 
+read_volume_cron_secret() {
+  local mount_dir secret
+  mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/app/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  [[ -z "$mount_dir" ]] && mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  [[ -z "$mount_dir" || ! -d "$mount_dir" ]] && return 1
+  for secret in \
+    "$(read_env_key "$mount_dir/.env" CRON_SECRET)" \
+    "$(read_env_key "$mount_dir/.env" DIGEST_SECRET)"; do
+    [[ -n "$secret" ]] && echo "$secret" && return 0
+  done
+  if [[ -f "$mount_dir/config.json" ]]; then
+    secret="$(node -e "
+      const fs = require('fs');
+      const pick = (o) => {
+        if (!o || typeof o !== 'object') return '';
+        return o.cronSecret || (o.digest && o.digest.cronSecret) || (o.cron && o.cron.secret) || '';
+      };
+      try { const s = pick(JSON.parse(fs.readFileSync('$mount_dir/config.json', 'utf8'))); if (s) console.log(s); } catch {}
+    " 2>/dev/null || true)"
+    [[ -n "$secret" ]] && echo "$secret" && return 0
+  fi
+  return 1
+}
+
 read_host_monitor_cron_secret() {
   local d secret
   for d in /www/wwwroot/mon.petralian.com /www/wwwroot/sitemonitor /www/wwwroot/website-monitor; do
@@ -195,7 +219,13 @@ if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO"
 fi
 
 # Do NOT sync CRON_SECRET from petralian — SiteMonitor uses its own digest auth secret.
-CONFIG_CRON="$(read_host_monitor_cron_secret || true)"
+CONFIG_CRON=""
+if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  CONFIG_CRON="$(read_volume_cron_secret || true)"
+fi
+if [[ -z "$CONFIG_CRON" ]]; then
+  CONFIG_CRON="$(read_host_monitor_cron_secret || true)"
+fi
 if [[ -z "$CONFIG_CRON" ]] && docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   CONFIG_CRON="$(read_sitemonitor_config_cron_secret)"
 fi
@@ -298,7 +328,7 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
           { 'x-api-key': secret },
         ]) {
           const res = await tryAuth(headers).catch((e) => ({ status: 0, body: e.message, headers }));
-          console.log(res.status, JSON.stringify(headers), res.body);
+          console.log(res.status, res.body);
           if (res.status >= 200 && res.status < 300) break;
         }
       })();
