@@ -1,0 +1,10 @@
+{
+  "name": "Petralian fleet",
+  "install": "npm ci",
+  "repositoryDependencies": [
+    "github.com/petralian/ops",
+    "github.com/petralian/vault-petralian",
+    "github.com/petralian/sitemonitor",
+    "github.com/petralian/Petralian"
+  ]
+}

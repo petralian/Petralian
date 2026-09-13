@@ -58,6 +58,15 @@ Before non-trivial work, execute `D:\Obsidian\Obsidian\00_Brain\_Manual Prompts\
 
 Do not skip Obsidian updates because the user asked for code only. See `.cursor/rules/session-protocol.mdc`.
 
+## Cloud bootstrap (no `D:\` vault on pod)
+
+1. Read `services.yaml` from cloned **`ops`** dependency (`github.com/petralian/ops`).
+2. Read `Operations/AI Session Bridge.md` from **`vault-petralian`** clone and/or **Obsidian MCP** (Dashboard).
+3. Read `memories/repo/open-loops.md` in this repo.
+4. SiteMonitor: `github.com/petralian/sitemonitor` — not `.website-monitor/` in Petralian.
+5. **Retired:** CouchDB / `obsidian-sync-mcp` on VPS. Official Obsidian Sync has no API.
+6. Fleet template / inventory: `docs/ops/services.yaml.example`, `docs/ops/phase-0-inventory-2026-09-13.md`.
+
 ## Diagrams (D2)
 
 - Bright theme: Kroki/D2 default colors (no `theme-overrides` in `wrapD2Chart`)
