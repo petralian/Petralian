@@ -43,6 +43,8 @@ Do **not** use the **`ftm`** key (`…45M8MK`) for SiteMonitor unless you intent
 
 The deploy hook sets `BREVO_API_KEY_OVERRIDE` from that secret and updates both `petralian/.env` and `/opt/sitemonitor/.env`.
 
+If Actions logs `Container BREVO suffix=...` **different** from `petralian.env` / `sitemonitor.compose`, the fix script writes `/opt/sitemonitor/docker-compose.brevo-fix.yml` so the running container gets the same key as GitHub (needed for the 07:00 internal cron).
+
 ## Verify in Actions log
 
 After the fix script runs, look for:
