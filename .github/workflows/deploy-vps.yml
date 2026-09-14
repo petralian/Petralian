@@ -57,6 +57,8 @@ jobs:
             bash scripts/deploy-on-vps.sh
 
       - name: Fix SiteMonitor daily emails
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -65,7 +67,9 @@ jobs:
           port: 2245
           script_stop: false
           command_timeout: 10m
+          envs: BREVO_API_KEY
           script: |
             cd /www/wwwroot/petralian
+            export BREVO_API_KEY_OVERRIDE="${BREVO_API_KEY:-}"
             bash scripts/fix-website-monitor-emails.sh || true
             bash scripts/diagnose-website-monitor.sh || true

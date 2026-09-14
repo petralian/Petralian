@@ -13,6 +13,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fix SiteMonitor on VPS
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -21,9 +23,11 @@ jobs:
           port: 2245
           script_stop: false
           command_timeout: 10m
+          envs: BREVO_API_KEY
           script: |
             cd /www/wwwroot/petralian
             git fetch origin master
             git checkout master
             git pull --ff-only origin master
+            export BREVO_API_KEY_OVERRIDE="${BREVO_API_KEY:-}"
             bash scripts/fix-website-monitor-emails.sh

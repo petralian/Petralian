@@ -6,6 +6,37 @@ set -euo pipefail
 log() { echo "[monitor-fix] $*"; }
 warn() { echo "[monitor-fix] WARN: $*" >&2; }
 
+brevo_key_suffix() {
+  local k="$1"
+  [[ ${#k} -ge 6 ]] && echo "${k: -6}" || echo "(short-or-empty)"
+}
+
+brevo_account_ok() {
+  local key="$1"
+  [[ -z "$key" ]] && return 1
+  local code
+  code="$(
+    curl -sS -o /dev/null -w '%{http_code}' \
+      -H "api-key: ${key}" \
+      -H 'accept: application/json' \
+      https://api.brevo.com/v3/account 2>/dev/null || echo 000
+  )"
+  [[ "$code" == "200" ]]
+}
+
+log_brevo_key_check() {
+  local label="$1" key="$2"
+  if [[ -z "$key" ]]; then
+    log "BREVO ${label}: (not set)"
+    return
+  fi
+  if brevo_account_ok "$key"; then
+    log "BREVO ${label}: suffix=…${brevo_key_suffix "$key"} valid=yes (Brevo /v3/account)"
+  else
+    warn "BREVO ${label}: suffix=…${brevo_key_suffix "$key"} valid=no — use active key named petralian.com in Brevo (not revoked)"
+  fi
+}
+
 set_env_key() {
   local file="$1" key="$2" value="$3"
   [[ -z "$file" || -z "$value" ]] && return 0
@@ -193,8 +224,19 @@ fi
 PETRALIAN_ENV="/www/wwwroot/petralian/.env"
 PETRALIAN_BREVO=""
 if [[ -f "$PETRALIAN_ENV" ]]; then
-  PETRALIAN_BREVO="$(grep -E '^BREVO_API_KEY=' "$PETRALIAN_ENV" | cut -d= -f2- || true)"
+  PETRALIAN_BREVO="$(grep -E '^BREVO_API_KEY=' "$PETRALIAN_ENV" | cut -d= -f2- | tr -d '\r"' || true)"
 fi
+
+# Optional: GitHub Actions secret BREVO_API_KEY (repo Settings → Secrets)
+if [[ -n "${BREVO_API_KEY_OVERRIDE:-}" ]]; then
+  log "BREVO_API_KEY_OVERRIDE from CI — updating petralian .env and sitemonitor compose"
+  PETRALIAN_BREVO="$(echo "$BREVO_API_KEY_OVERRIDE" | tr -d '\r"')"
+  set_env_key "$PETRALIAN_ENV" "BREVO_API_KEY" "$PETRALIAN_BREVO"
+fi
+
+log_brevo_key_check "petralian.env" "$PETRALIAN_BREVO"
+SITEMON_FILE_BREVO="$(read_env_key "$ENV_FILE" BREVO_API_KEY)"
+log_brevo_key_check "sitemonitor.compose" "$SITEMON_FILE_BREVO"
 
 CONTAINER_BREVO=""
 CONTAINER_CRON=""
@@ -212,6 +254,10 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
 fi
 
 NEED_RECREATE=0
+if [[ -n "$PETRALIAN_BREVO" && ! brevo_account_ok "$PETRALIAN_BREVO" ]]; then
+  warn "petralian BREVO_API_KEY fails Brevo API check — emails will fail until you paste the petralian.com key (Brevo → SMTP & API → API keys)"
+fi
+
 if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" ) ]]; then
   log "Syncing BREVO_API_KEY from petralian .env into sitemonitor compose env"
   NEED_RECREATE=1
