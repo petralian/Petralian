@@ -230,6 +230,15 @@ replace_xkeysib_in_json_file() {
   " 2>/dev/null || true
 }
 
+strip_empty_brevo_env_overrides() {
+  local f="$1"
+  [[ -f "$f" ]] || return 0
+  if grep -qE '^BREVO_API_KEY=$|^BREVO_KEY=$' "$f" 2>/dev/null; then
+    sed -i '/^BREVO_API_KEY=$/d;/^BREVO_KEY=$/d' "$f"
+    log "Removed empty BREVO_* lines from $f (dotenv was shadowing Docker env)"
+  fi
+}
+
 sync_brevo_to_volume_configs() {
   local key="$1"
   key="$(normalize_brevo_key "$key")"
@@ -238,11 +247,13 @@ sync_brevo_to_volume_configs() {
   mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/app/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
   [[ -z "$mount_dir" ]] && mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
   if [[ -n "$mount_dir" && -d "$mount_dir" ]]; then
+    strip_empty_brevo_env_overrides "$mount_dir/.env"
     replace_xkeysib_in_json_file "$mount_dir/config.json" "$key"
     for f in "$mount_dir"/settings.json "$mount_dir"/digest-config.json; do
       replace_xkeysib_in_json_file "$f" "$key"
     done
   fi
+  docker exec sitemonitor sh -c 'for f in data/.env /app/data/.env .env; do [ -f "$f" ] && grep -qE "^BREVO_API_KEY=$|^BREVO_KEY=$" "$f" && sed -i "/^BREVO_API_KEY=$/d;/^BREVO_KEY=$/d" "$f" && echo stripped-empty-brevo "$f"; done' 2>/dev/null || true
 }
 
 write_sitemonitor_config_brevo_key() {
@@ -483,6 +494,37 @@ if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   CRON_SECRET="$(read_trigger_secret "$CONTAINER_CRON" || true)"
 fi
 
+if [[ -n "$PETRALIAN_BREVO" ]] && docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  log "BREVO container suffix=...$(brevo_key_suffix "$(normalize_brevo_key "$(container_env_key BREVO_API_KEY)")")"
+  docker exec sitemonitor sh -c '
+    for f in .env /app/.env data/.env /app/data/.env; do
+      [ -f "$f" ] && echo "env-file $f BREVO=$(grep -E "^BREVO" "$f" | cut -d= -f1 | tr "\n" " ")"
+    done
+  ' 2>/dev/null || true
+  docker exec sitemonitor node -e "
+    const fs = require('fs');
+    const p = 'scripts/run-digest.mjs';
+    try {
+      const lines = fs.readFileSync(p, 'utf8').split('\n').filter((l) => /brevo|BREVO|smtp\\/email|api-key/i.test(l));
+      console.log('[monitor-fix] run-digest brevo-related lines:', lines.slice(0, 12).join(' | '));
+    } catch (e) { console.log('[monitor-fix] run-digest probe skip', e.message); }
+    const describe = (obj, path = '') => {
+      if (!obj || typeof obj !== 'object') return;
+      for (const [k, v] of Object.entries(obj)) {
+        const p = path ? path + '.' + k : k;
+        if (/brevo|apikey|api_key|smtp/i.test(k)) {
+          const hint = typeof v === 'string' ? (v ? 'len=' + v.length + ' suffix=' + v.slice(-6) : 'empty') : typeof v;
+          console.log('[monitor-fix] config field', p, hint);
+        }
+        if (v && typeof v === 'object') describe(v, p);
+      }
+    };
+    for (const cfg of ['data/config.json', '/app/data/config.json']) {
+      try { describe(JSON.parse(fs.readFileSync(cfg, 'utf8'))); } catch {}
+    }
+  " 2>/dev/null || true
+fi
+
 log "container env after fix: BREVO=${CONTAINER_BREVO:+set} CRON=${CRON_SECRET:+set}"
 
 log "Recent container logs:"
@@ -496,8 +538,14 @@ if [[ -f "$CRON_FILE" ]] && grep -q 'sitemonitor-digest' "$CRON_FILE" 2>/dev/nul
 fi
 
 try_npm_digest_send() {
+  local brevo_key="${1:-}"
+  brevo_key="$(normalize_brevo_key "$brevo_key")"
   log "Trying in-container npm digest scripts (no HTTP auth)"
-  docker exec sitemonitor sh -c '
+  local -a exec_env=()
+  if [[ -n "$brevo_key" ]]; then
+    exec_env=(-e "BREVO_API_KEY=$brevo_key" -e "BREVO_KEY=$brevo_key")
+  fi
+  docker exec "${exec_env[@]}" sitemonitor sh -c '
     set -e
     for dir in /app /usr/src/app; do
       [ -f "$dir/package.json" ] || continue
@@ -547,10 +595,10 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
         }
       })();
     " 2>/dev/null || true
-    try_npm_digest_send || true
+    try_npm_digest_send "$PETRALIAN_BREVO" || true
   else
     warn "No cron secret for HTTP catch-up — trying npm digest scripts"
-    try_npm_digest_send || warn "npm digest scripts failed — internal cron still runs 07:00 Asia/Singapore if Brevo is set"
+    try_npm_digest_send "$PETRALIAN_BREVO" || warn "npm digest scripts failed — internal cron still runs 07:00 Asia/Singapore if Brevo is set"
     docker exec -e APP_PORT="$APP_PORT" sitemonitor node -e "
       const port = process.env.APP_PORT || '3000';
       fetch('http://127.0.0.1:' + port + '/api/digest/run?send=1', { method: 'POST' })
