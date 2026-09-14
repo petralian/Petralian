@@ -31,9 +31,9 @@ log_brevo_key_check() {
     return
   fi
   if brevo_account_ok "$key"; then
-    log "BREVO ${label}: suffix=…${brevo_key_suffix "$key"} valid=yes (Brevo /v3/account)"
+    log "BREVO ${label}: suffix=...$(brevo_key_suffix "$key") valid=yes (Brevo /v3/account)"
   else
-    warn "BREVO ${label}: suffix=…${brevo_key_suffix "$key"} valid=no — use active key named petralian.com in Brevo (not revoked)"
+    warn "BREVO ${label}: suffix=...$(brevo_key_suffix "$key") valid=no — use active key named petralian.com in Brevo (not revoked)"
   fi
 }
 

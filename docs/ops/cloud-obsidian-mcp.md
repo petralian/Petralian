@@ -1,30 +1,45 @@
 # Obsidian access for cloud agents (read/write)
 
-## What the repo does **not** do
+## “Obsidian” is not in Cursor **Plugins**
 
-Cloud agents **cannot** turn on Obsidian MCP for you from git alone. These are **desk-only** in `.cursor/mcp.json`:
+The [Plugins](https://cursor.com/dashboard/plugins) marketplace search will show **No Plugins** for Obsidian — that is normal. Vault access is **not** installed from Plugins.
 
-- `petralian-obsidian` → `scripts/obsidian-mcp-server.mjs` on `D:\Obsidian\…`
-
-There is no `D:\` on the cloud VM.
-
-## What you enable in **Cursor Dashboard** (cloud + iPhone)
-
-1. Open [Cursor Dashboard → Integrations / MCP](https://cursor.com/dashboard).
-2. Add **Obsidian** (official URL / hosted MCP) per Cursor’s current Obsidian integration docs.
-3. Sign in with the same Obsidian account that syncs your **Petralian** vault.
-4. Save. New **cloud agents** on `petralian/Petralian` can then use Obsidian MCP tools for **full vault** read/write (not only the git mirror).
-
-## Fallback without Obsidian MCP (already working)
+## What works today (no Obsidian MCP)
 
 | Source | Path in cloud workspace |
 |--------|-------------------------|
-| Git mirror stub/real | `fleet-repos/vault-petralian/Operations/…` |
+| Git mirror (stub or real) | `fleet-repos/vault-petralian/Operations/…` |
 | In-repo bundle | `cloud-bundle/vault-mirror/Operations/…` |
 | Repo memory | `memories/repo/open-loops.md` |
 
-Run `scripts/local-phase-b-vault-mirror.ps1` on your PC and push **`vault-petralian`** so the mirror matches desk.
+Push real vault ops from desk: `scripts/local-phase-b-vault-mirror.ps1` → `petralian/vault-petralian` (private repo).
 
-## Optional stdio MCP on clone (not required)
+## Workarounds for fuller vault on cloud
 
-See `docs/ops/cloud-continuity-handoff.md` — `@modelcontextprotocol/server-filesystem` on `fleet-repos/vault-petralian`. Native `Read`/`Write` in the agent is usually enough on cloud.
+### A — Git mirror (recommended, already wired)
+
+1. Private repo **`petralian/vault-petralian`** (not public Petralian site repo).
+2. Obsidian Git on your PC pushes `Operations/`, `Features/`, etc.
+3. Cloud install script clones into `fleet-repos/vault-petralian/`.
+4. Agents use normal **Read/Write** on those paths — no MCP required.
+
+### B — Filesystem MCP on the clone (optional)
+
+In **Cursor → Settings → MCP** (desktop) or project MCP config, add a stdio server pointing at the clone path after build:
+
+```json
+"vault-clone": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspace/fleet-repos/vault-petralian"]
+}
+```
+
+Cloud agents may expose MCP from **Dashboard → Integrations** when Cursor adds/supports project MCP for cloud — check **Integrations**, not Plugins.
+
+### C — Obsidian Official Sync
+
+There is **no API** for agents to read your full synced vault remotely. Sync stays on devices; **git mirror** is the cloud bridge.
+
+## Desk (unchanged)
+
+Native `D:\Obsidian\…` paths and/or `petralian-obsidian` in `.cursor/mcp.json` — see `docs/TOKEN-STACK.md`.
