@@ -40,6 +40,12 @@ Cloud agents may expose MCP from **Dashboard → Integrations** when Cursor adds
 
 There is **no API** for agents to read your full synced vault remotely. Sync stays on devices; **git mirror** is the cloud bridge.
 
+## Notion instead?
+
+**No** — for your setup (long-form blog drafts, D2 diagrams, Official Sync, git mirror). Notion adds another silo and weakens the Obsidian → git → cloud path you already built.
+
+**Straightforward path:** stay on Obsidian on desk → run `scripts/local-phase-b-vault-mirror.ps1` → push **`petralian/vault-petralian`** (private) → cloud agents read `fleet-repos/vault-petralian/`. No Plugins MCP required.
+
 ## Desk (unchanged)
 
-Native `D:\Obsidian\…` paths and/or `petralian-obsidian` in `.cursor/mcp.json` — see `docs/TOKEN-STACK.md`.
+Native `D:\Obsidian\…` paths — see `docs/TOKEN-STACK.md`. On desk, open **Cursor Settings → MCP** only if you want OpenSEO etc.; vault I/O stays native file tools.

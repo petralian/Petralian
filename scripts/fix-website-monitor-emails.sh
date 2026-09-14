@@ -227,11 +227,15 @@ if [[ -f "$PETRALIAN_ENV" ]]; then
   PETRALIAN_BREVO="$(grep -E '^BREVO_API_KEY=' "$PETRALIAN_ENV" | cut -d= -f2- | tr -d '\r"' || true)"
 fi
 
+NEED_RECREATE=0
+
 # Optional: GitHub Actions secret BREVO_API_KEY (repo Settings → Secrets)
 if [[ -n "${BREVO_API_KEY_OVERRIDE:-}" ]]; then
   log "BREVO_API_KEY_OVERRIDE from CI — updating petralian .env and sitemonitor compose"
   PETRALIAN_BREVO="$(echo "$BREVO_API_KEY_OVERRIDE" | tr -d '\r"')"
   set_env_key "$PETRALIAN_ENV" "BREVO_API_KEY" "$PETRALIAN_BREVO"
+  set_env_key "$ENV_FILE" "BREVO_API_KEY" "$PETRALIAN_BREVO"
+  NEED_RECREATE=1
 fi
 
 log_brevo_key_check "petralian.env" "$PETRALIAN_BREVO"
@@ -253,8 +257,7 @@ if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   fi
 fi
 
-NEED_RECREATE=0
-if [[ -n "$PETRALIAN_BREVO" && ! brevo_account_ok "$PETRALIAN_BREVO" ]]; then
+if [[ -n "$PETRALIAN_BREVO" ]] && ! brevo_account_ok "$PETRALIAN_BREVO"; then
   warn "petralian BREVO_API_KEY fails Brevo API check — emails will fail until you paste the petralian.com key (Brevo → SMTP & API → API keys)"
 fi
 

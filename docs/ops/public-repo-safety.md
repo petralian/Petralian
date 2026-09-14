@@ -31,9 +31,13 @@ git grep -E 'xkeysib-|ghp_[A-Za-z0-9]{20,}|BEGIN OPENSSH PRIVATE'
 
 Run `npm run audit:facts` when changing harness limits.
 
+## Never put real keys in `.env.example`
+
+`.env.example` is committed and **public**. Use empty placeholders only. Put live values in **GitHub Actions secret `BREVO_API_KEY`** and VPS `/www/wwwroot/petralian/.env` (via deploy hook).
+
 ## If something leaked
 
-1. **Rotate** the key (Brevo, PAT, SSH) immediately.
+1. **Rotate** the key in Brevo (revoke old key, create new, update GitHub secret `BREVO_API_KEY`) immediately.
 2. Remove from git history (`git filter-repo` or BFG) if a real secret was committed.
 3. Prefer **GitHub Secret** `BREVO_API_KEY` + deploy hook over VPS hand-edits.
 

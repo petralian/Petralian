@@ -35,9 +35,11 @@ Do **not** use the **`ftm`** key (`…45M8MK`) for SiteMonitor unless you intent
 
 ## Fix via GitHub secret (recommended)
 
-1. **Petralian** repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
-2. Name: `BREVO_API_KEY` — value: full **petralian.com** key from Brevo.
-3. Run **Fix SiteMonitor emails** (or push to `master`).
+1. **Petralian** repo → **Settings** → **Secrets and variables** → **Actions** → **Repository secrets** (not Environment secrets).
+2. Name: **`BREVO_API_KEY`** — value: full key from Brevo (`xkeysib-…`). **Never** put this in `.env.example` or commit it (public repo).
+3. Run **Fix SiteMonitor emails** or push to `master` (deploy hook runs the same script over SSH).
+
+**Note:** “GitHub Environment `production`” (Phase E) is optional — repository secret `BREVO_API_KEY` is enough for current workflows.
 
 The deploy hook sets `BREVO_API_KEY_OVERRIDE` from that secret and updates both `petralian/.env` and `/opt/sitemonitor/.env`.
 
