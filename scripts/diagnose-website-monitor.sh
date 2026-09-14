@@ -25,7 +25,7 @@ done
 if [[ -z "$MONITOR_DIR" ]]; then
   echo "WARN: monitor dir not found in candidates; searching /www/wwwroot..."
   find /www/wwwroot -maxdepth 3 -name 'package.json' 2>/dev/null | while read -r pkg; do
-    if rg -q 'sitemonitor|website-monitor|mon\.petralian' "$pkg" 2>/dev/null; then
+    if grep -qE 'sitemonitor|website-monitor|mon\.petralian' "$pkg" 2>/dev/null; then
       echo "  candidate: $(dirname "$pkg")"
     fi
   done
@@ -74,7 +74,7 @@ systemctl status sitemonitor --no-pager 2>/dev/null | head -20 || echo "(no syst
 echo ""
 echo "=== aaPanel / system cron (monitor|digest|mon.petralian) ==="
 for f in /var/spool/cron/crontabs/* /etc/crontab; do
-  [[ -f "$f" ]] && rg -n 'monitor|digest|mon\.petralian|website-monitor' "$f" 2>/dev/null && echo "  (in $f)" || true
+  [[ -f "$f" ]] && grep -nE 'monitor|digest|mon\.petralian|website-monitor' "$f" 2>/dev/null && echo "  (in $f)" || true
 done
 bt default 2>/dev/null | head -3 || true
 
@@ -95,7 +95,7 @@ if [[ -n "$MONITOR_DIR" && -d "$MONITOR_DIR" ]]; then
   echo ""
   [[ -f package.json ]] && cat package.json | head -30
   echo ""
-  [[ -f .env ]] && echo ".env keys:" && rg '^[A-Z_]+=' .env | sed 's/=.*$/=***/' || echo "(no .env)"
+  [[ -f .env ]] && echo ".env keys:" && grep -E '^[A-Z_]+=' .env | sed 's/=.*$/=***/' || echo "(no .env)"
   echo ""
   for f in data/config.json data/settings.json data/digest-config.json config.json; do
     if [[ -f "$f" ]]; then
@@ -110,7 +110,7 @@ if [[ -n "$MONITOR_DIR" && -d "$MONITOR_DIR" ]]; then
     fi
   done
   echo "=== Recent PM2 logs (monitor) ==="
-  pm2 logs --nostream --lines 80 2>/dev/null | rg -i 'brevo|cron|digest|email|error|fail' | tail -40 || true
+  pm2 logs --nostream --lines 80 2>/dev/null | grep -iE 'brevo|cron|digest|email|error|fail' | tail -40 || true
   echo ""
   echo "=== data/digests (latest) ==="
   ls -lt data/digests 2>/dev/null | head -8 || ls -lt data 2>/dev/null | head -8 || echo "(no digest data dir)"

@@ -11,8 +11,14 @@ brevo_key_suffix() {
   [[ ${#k} -ge 6 ]] && echo "${k: -6}" || echo "(short-or-empty)"
 }
 
+normalize_brevo_key() {
+  local k="$1"
+  echo "$k" | tr -d '\r"' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'
+}
+
 brevo_account_ok() {
   local key="$1"
+  key="$(normalize_brevo_key "$key")"
   [[ -z "$key" ]] && return 1
   local code
   code="$(
@@ -22,6 +28,39 @@ brevo_account_ok() {
       https://api.brevo.com/v3/account 2>/dev/null || echo 000
   )"
   [[ "$code" == "200" ]]
+}
+
+# /v3/account can pass while /v3/smtp/email returns "Key not found" if the app uses a stale config.json key.
+brevo_smtp_auth_ok() {
+  local key="$1"
+  key="$(normalize_brevo_key "$key")"
+  [[ -z "$key" ]] && return 1
+  local body code
+  body="$(
+    curl -sS -w '\n%{http_code}' -X POST \
+      -H "api-key: ${key}" \
+      -H 'content-type: application/json' \
+      -H 'accept: application/json' \
+      -d '{}' \
+      https://api.brevo.com/v3/smtp/email 2>/dev/null || echo $'\n000'
+  )"
+  code="$(echo "$body" | tail -1)"
+  body="$(echo "$body" | sed '$d')"
+  if echo "$body" | grep -q 'Key not found'; then
+    return 1
+  fi
+  [[ "$code" != "401" ]]
+}
+
+log_brevo_smtp_check() {
+  local label="$1" key="$2"
+  key="$(normalize_brevo_key "$key")"
+  [[ -z "$key" ]] && return 0
+  if brevo_smtp_auth_ok "$key"; then
+    log "BREVO ${label}: suffix=...$(brevo_key_suffix "$key") smtp_auth=yes"
+  else
+    warn "BREVO ${label}: suffix=...$(brevo_key_suffix "$key") smtp_auth=no — rotate key in Brevo or fix config.json xkeysib-* drift"
+  fi
 }
 
 log_brevo_key_check() {
@@ -163,6 +202,87 @@ read_sitemonitor_config_cron_secret() {
   " 2>/dev/null || true
 }
 
+replace_xkeysib_in_json_file() {
+  local file="$1" new_key="$2"
+  [[ -f "$file" ]] || return 0
+  BREVO_SYNC_KEY="$new_key" BREVO_SYNC_FILE="$file" node -e "
+    const fs = require('fs');
+    const file = process.env.BREVO_SYNC_FILE;
+    const newKey = (process.env.BREVO_SYNC_KEY || '').trim();
+    if (!newKey) process.exit(0);
+    let o;
+    try { o = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { process.exit(0); }
+    let n = 0;
+    const walk = (obj) => {
+      if (!obj || typeof obj !== 'object') return;
+      for (const [k, v] of Object.entries(obj)) {
+        if (typeof v === 'string' && v.startsWith('xkeysib-') && v !== newKey) {
+          obj[k] = newKey;
+          n++;
+        } else if (v && typeof v === 'object') walk(v);
+      }
+    };
+    walk(o);
+    if (n > 0) {
+      fs.writeFileSync(file, JSON.stringify(o, null, 2));
+      console.log('brevo-config-sync', file, 'replaced', n);
+    }
+  " 2>/dev/null || true
+}
+
+sync_brevo_to_volume_configs() {
+  local key="$1"
+  key="$(normalize_brevo_key "$key")"
+  [[ -z "$key" ]] && return 0
+  local mount_dir
+  mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/app/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  [[ -z "$mount_dir" ]] && mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  if [[ -n "$mount_dir" && -d "$mount_dir" ]]; then
+    replace_xkeysib_in_json_file "$mount_dir/config.json" "$key"
+    for f in "$mount_dir"/settings.json "$mount_dir"/digest-config.json; do
+      replace_xkeysib_in_json_file "$f" "$key"
+    done
+  fi
+}
+
+write_sitemonitor_config_brevo_key() {
+  local key="$1"
+  key="$(normalize_brevo_key "$key")"
+  [[ -z "$key" ]] && return 0
+  docker exec -e SYNC_BREVO="$key" sitemonitor node -e "
+    const fs = require('fs');
+    const path = require('path');
+    const newKey = (process.env.SYNC_BREVO || '').trim();
+    const paths = ['data/config.json', '/app/data/config.json'];
+    const walk = (obj) => {
+      if (!obj || typeof obj !== 'object') return 0;
+      let n = 0;
+      for (const [k, v] of Object.entries(obj)) {
+        if (typeof v === 'string' && v.startsWith('xkeysib-') && v !== newKey) {
+          obj[k] = newKey;
+          n++;
+        } else if (v && typeof v === 'object') n += walk(v);
+      }
+      return n;
+    };
+    let total = 0;
+    for (const p of paths) {
+      try {
+        const raw = fs.readFileSync(p, 'utf8');
+        const o = JSON.parse(raw);
+        const n = walk(o);
+        if (n > 0) {
+          fs.mkdirSync(path.dirname(p), { recursive: true });
+          fs.writeFileSync(p, JSON.stringify(o, null, 2));
+          console.log('brevo-config-sync', p, 'replaced', n);
+          total += n;
+        }
+      } catch {}
+    }
+    if (total === 0) console.log('brevo-config-sync-skip');
+  " 2>/dev/null || true
+}
+
 write_sitemonitor_config_cron_secret() {
   local secret="$1"
   [[ -z "$secret" ]] && return 0
@@ -232,15 +352,33 @@ NEED_RECREATE=0
 # Optional: GitHub Actions secret BREVO_API_KEY (repo Settings → Secrets)
 if [[ -n "${BREVO_API_KEY_OVERRIDE:-}" ]]; then
   log "BREVO_API_KEY_OVERRIDE from CI — updating petralian .env and sitemonitor compose"
-  PETRALIAN_BREVO="$(echo "$BREVO_API_KEY_OVERRIDE" | tr -d '\r"')"
+  PETRALIAN_BREVO="$(normalize_brevo_key "$BREVO_API_KEY_OVERRIDE")"
   set_env_key "$PETRALIAN_ENV" "BREVO_API_KEY" "$PETRALIAN_BREVO"
   set_env_key "$ENV_FILE" "BREVO_API_KEY" "$PETRALIAN_BREVO"
   NEED_RECREATE=1
 fi
 
+PETRALIAN_BREVO="$(normalize_brevo_key "$PETRALIAN_BREVO")"
+
 log_brevo_key_check "petralian.env" "$PETRALIAN_BREVO"
+log_brevo_smtp_check "petralian.env" "$PETRALIAN_BREVO"
 SITEMON_FILE_BREVO="$(read_env_key "$ENV_FILE" BREVO_API_KEY)"
+SITEMON_FILE_BREVO="$(normalize_brevo_key "$SITEMON_FILE_BREVO")"
 log_brevo_key_check "sitemonitor.compose" "$SITEMON_FILE_BREVO"
+log_brevo_smtp_check "sitemonitor.compose" "$SITEMON_FILE_BREVO"
+
+# Align sender fields (digest uses same Brevo account as petralian.com)
+if [[ -f "$PETRALIAN_ENV" ]]; then
+  for pair in BREVO_SENDER_EMAIL BREVO_SENDER_NAME; do
+    val="$(read_env_key "$PETRALIAN_ENV" "$pair")"
+    [[ -n "$val" && -n "$ENV_FILE" ]] && set_env_key "$ENV_FILE" "$pair" "$val"
+  done
+fi
+
+if [[ -n "$PETRALIAN_BREVO" ]] && docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+  sync_brevo_to_volume_configs "$PETRALIAN_BREVO"
+  write_sitemonitor_config_brevo_key "$PETRALIAN_BREVO"
+fi
 
 CONTAINER_BREVO=""
 CONTAINER_CRON=""
@@ -261,10 +399,12 @@ if [[ -n "$PETRALIAN_BREVO" ]] && ! brevo_account_ok "$PETRALIAN_BREVO"; then
   warn "petralian BREVO_API_KEY fails Brevo API check — emails will fail until you paste the petralian.com key (Brevo → SMTP & API → API keys)"
 fi
 
-if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO" || "$CONTAINER_BREVO" != "$PETRALIAN_BREVO" ) ]]; then
+if [[ -n "$PETRALIAN_BREVO" && ( "$BREVO_BROKEN" == "1" || -z "$CONTAINER_BREVO" || "$(normalize_brevo_key "$CONTAINER_BREVO")" != "$PETRALIAN_BREVO" ) ]]; then
   log "Syncing BREVO_API_KEY from petralian .env into sitemonitor compose env"
   NEED_RECREATE=1
   set_env_key "$ENV_FILE" "BREVO_API_KEY" "$PETRALIAN_BREVO"
+  sync_brevo_to_volume_configs "$PETRALIAN_BREVO"
+  write_sitemonitor_config_brevo_key "$PETRALIAN_BREVO"
 fi
 
 # Do NOT sync CRON_SECRET from petralian — SiteMonitor uses its own digest auth secret.
@@ -328,6 +468,7 @@ if [[ "$NEED_RECREATE" == "1" ]]; then
   CONTAINER_BREVO="$(container_env_key BREVO_API_KEY)"
   CONTAINER_CRON="$(container_env_key CRON_SECRET)"
   CRON_SECRET="$(read_trigger_secret "$CONTAINER_CRON" || true)"
+  [[ -n "$PETRALIAN_BREVO" ]] && write_sitemonitor_config_brevo_key "$PETRALIAN_BREVO"
 fi
 
 if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
