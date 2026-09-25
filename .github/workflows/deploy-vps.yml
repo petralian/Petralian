@@ -57,6 +57,7 @@ jobs:
             bash scripts/deploy-on-vps.sh
 
       - name: Fix SiteMonitor daily emails
+        continue-on-error: true
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         uses: appleboy/ssh-action@v1.2.0
