@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Red_Hat_Text, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -80,11 +81,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const hdrs = await headers();
+  const isEnzoSite = hdrs.get("x-enzo-site") === "1";
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -147,19 +151,23 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body>
-        <DeferredProductionScripts>
-          <GoogleAnalytics />
-          <MicrosoftClarity />
-        </DeferredProductionScripts>
-        <Header />
-        <main>{children}</main>
-        <footer className="site-footer">
-          <div className="footer-inner">
-            <p>© {new Date().getFullYear()} {SITE_NAME} - Built and written by Nathan Petralia & AI - All rights reserved</p>
-          </div>
-        </footer>
-        <ClientScrollProgress />
+      <body className={isEnzoSite ? "enzo-chrome" : undefined}>
+        {!isEnzoSite && (
+          <DeferredProductionScripts>
+            <GoogleAnalytics />
+            <MicrosoftClarity />
+          </DeferredProductionScripts>
+        )}
+        {!isEnzoSite && <Header />}
+        <main className={isEnzoSite ? "enzo-chrome__main" : undefined}>{children}</main>
+        {!isEnzoSite && (
+          <footer className="site-footer">
+            <div className="footer-inner">
+              <p>© {new Date().getFullYear()} {SITE_NAME} - Built and written by Nathan Petralia & AI - All rights reserved</p>
+            </div>
+          </footer>
+        )}
+        {!isEnzoSite && <ClientScrollProgress />}
       </body>
     </html>
   );

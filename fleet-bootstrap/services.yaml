@@ -23,7 +23,7 @@ services:
     status: active
     repo: github.com/petralian/Petralian
     domain: petralian.com
-    domains_extra: [www.petralian.com]
+    domains_extra: [www.petralian.com, enzo.petralian.com]
     runtime: pm2
     app_dir: /www/wwwroot/petralian
     port: 3000
