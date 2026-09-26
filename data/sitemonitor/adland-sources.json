@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "profileMatchers": ["tag", "TAG"],
+  "interestAppend": "Prioritize APAC adland and agency trade press—especially Marketing Interactive, Campaign Asia, and similar outlets—for technology, martech, ad tech, and agency leadership moves (including TAG and yuu ecosystem partners). Do not over-weight generic enterprise-tech blogs when agency-specific sources have relevant stories.",
+  "topicKeys": ["petralian/agency-media", "petralian/adland-tech"],
+  "searchQueryBoosts": [
+    "Marketing Interactive technology",
+    "Marketing Interactive agencies",
+    "Campaign Asia martech",
+    "agency head of technology",
+    "TAG agency Hong Kong",
+    "APAC ad tech",
+    "adland martech"
+  ],
+  "rssSources": [
+    {
+      "id": "marketing-interactive",
+      "name": "Marketing Interactive",
+      "url": "https://www.marketing-interactive.com/rss-feed",
+      "weight": 1.35,
+      "categories": ["adland", "agencies", "tech", "hong-kong", "apac"]
+    },
+    {
+      "id": "marketing-interactive-tech",
+      "name": "Marketing Interactive — Tech",
+      "url": "https://www.marketing-interactive.com/tech",
+      "type": "site-section",
+      "weight": 1.25,
+      "categories": ["adland", "tech", "martech"]
+    },
+    {
+      "id": "campaign-asia",
+      "name": "Campaign Asia",
+      "url": "http://www.campaignasia.com/rss/rss.ashx",
+      "weight": 1.25,
+      "categories": ["adland", "agencies", "apac"]
+    },
+    {
+      "id": "campaign-asia-digital",
+      "name": "Campaign Asia — Digital",
+      "url": "http://www.campaignasia.com/rss/rss.ashx?section=Digital",
+      "weight": 1.2,
+      "categories": ["adland", "digital", "martech"]
+    },
+    {
+      "id": "mumbrella-asia",
+      "name": "Mumbrella Asia",
+      "url": "https://www.mumbrella.asia/feed",
+      "weight": 1.15,
+      "categories": ["adland", "apac", "agencies"]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Apply adland RSS + TAG profile boosts on VPS (no full Petralian build).
+name: Patch SiteMonitor adland (TAG)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch adland sources on VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: true
+          command_timeout: 5m
+          script: |
+            cd /www/wwwroot/petralian
+            git fetch origin master && git reset --hard origin/master
+            bash scripts/patch-sitemonitor-adland-sources.sh
