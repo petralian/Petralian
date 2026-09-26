@@ -69,7 +69,7 @@ jobs:
           script: |
             cd /www/wwwroot/petralian
             git fetch origin master && git reset --hard origin/master
-            bash scripts/patch-sitemonitor-adland-sources.sh || true
+            bash scripts/patch-sitemonitor-digest-sources.sh
 
       - name: Fix SiteMonitor daily emails
         continue-on-error: true

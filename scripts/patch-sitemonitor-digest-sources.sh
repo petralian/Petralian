@@ -28,22 +28,42 @@ if ! docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   exit 0
 fi
 
+sitemonitor_data_mount() {
+  local mount_dir=""
+  mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/app/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  [[ -z "$mount_dir" ]] && mount_dir="$(docker inspect sitemonitor --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)"
+  printf '%s' "$mount_dir"
+}
+
+DATA_MOUNT="$(sitemonitor_data_mount)"
+if [[ -n "$DATA_MOUNT" && -d "$DATA_MOUNT" ]]; then
+  log "Using host data mount: $DATA_MOUNT"
+else
+  warn "host data mount not found — will apply inside container (-w /app)"
+fi
+
 log "Discover digest-related paths in container"
 docker exec sitemonitor sh -c '
   ls -la data 2>/dev/null | head -20 || true
   ls -la data/topics/petralian 2>/dev/null | head -20 || true
 ' 2>/dev/null || true
 
-docker cp "$APPLY_SCRIPT" sitemonitor:/tmp/apply-digest-sources.mjs
-
 failed=0
 for PATCH_FILE in "${PATCH_FILES[@]}"; do
   base="$(basename "$PATCH_FILE")"
   log "Applying $base"
-  docker cp "$PATCH_FILE" "sitemonitor:/tmp/$base"
-  if ! docker exec sitemonitor node "/tmp/apply-digest-sources.mjs" "/tmp/$base"; then
-    warn "apply failed for $base"
-    failed=1
+  if [[ -n "$DATA_MOUNT" && -d "$DATA_MOUNT" ]]; then
+    if ! node "$APPLY_SCRIPT" "$PATCH_FILE" "$DATA_MOUNT"; then
+      warn "apply failed for $base (host mount)"
+      failed=1
+    fi
+  else
+    docker cp "$APPLY_SCRIPT" sitemonitor:/tmp/apply-digest-sources.mjs
+    docker cp "$PATCH_FILE" "sitemonitor:/tmp/$base"
+    if ! docker exec -w /app sitemonitor node "/tmp/apply-digest-sources.mjs" "/tmp/$base" "/app/data"; then
+      warn "apply failed for $base (container)"
+      failed=1
+    fi
   fi
 done
 

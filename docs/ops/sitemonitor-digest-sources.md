@@ -15,7 +15,7 @@ Holding sites often lack stable public RSS; those entries use `type: "site-secti
 
 | File | Role |
 |------|------|
-| `scripts/sitemonitor/apply-digest-sources.mjs` | Merges one `*-sources.json` into `data/config.json` + `data/topics/petralian/*.json` |
+| `scripts/sitemonitor/apply-digest-sources.mjs` | Merges one `*-sources.json` into `data/digest-tag.json` (or `config.json`) + `data/topics/petralian/*.json` via host volume mount |
 | `scripts/patch-sitemonitor-digest-sources.sh` | Copies apply script + **all** `data/sitemonitor/*-sources.json` into container, one restart |
 | `scripts/patch-sitemonitor-adland-sources.sh` | Thin wrapper → digest patch (back-compat) |
 
