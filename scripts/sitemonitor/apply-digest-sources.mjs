@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
  * Merge a data/sitemonitor/*-sources.json patch into SiteMonitor config + topic files.
- * Run inside the sitemonitor container (see scripts/patch-sitemonitor-digest-sources.sh).
+ * Usage: node apply-digest-sources.mjs <patch.json> [dataRoot]
+ * dataRoot: host mount or /app/data (defaults: data, /app/data)
  */
 import fs from "node:fs";
 import path from "node:path";
 
 const patchPath = process.argv[2];
+const dataRootArg = process.argv[3] || process.env.SITEMONITOR_DATA_ROOT || "";
+
 if (!patchPath || !fs.existsSync(patchPath)) {
-  console.error("usage: node apply-digest-sources.mjs <patch.json>");
+  console.error("usage: node apply-digest-sources.mjs <patch.json> [dataRoot]");
   process.exit(1);
 }
 const patch = JSON.parse(fs.readFileSync(patchPath, "utf8"));
@@ -16,12 +19,34 @@ const logLabel = patch.logLabel || "digest-patch";
 const log = (msg, ...rest) => console.log(`[${logLabel}]`, msg, ...rest);
 const warn = (msg, ...rest) => console.warn(`[${logLabel}]`, msg, ...rest);
 
-const configCandidates = ["data/config.json", "/app/data/config.json", "config.json"];
-const configPath = configCandidates.find((p) => fs.existsSync(p));
+function resolveConfigPath() {
+  const names = ["config.json", "digest-tag.json", "digest.json", "settings.json", "digest-config.json"];
+  const roots = [];
+  if (dataRootArg) roots.push(dataRootArg);
+  roots.push("data", "/app/data", ".");
+  const candidates = [];
+  for (const root of roots) {
+    for (const name of names) {
+      candidates.push(path.join(root, name));
+    }
+  }
+  candidates.push("data/config.json", "/app/data/config.json", "config.json");
+  const seen = new Set();
+  return candidates.find((p) => {
+    if (seen.has(p)) return false;
+    seen.add(p);
+    return fs.existsSync(p);
+  });
+}
+
+const configPath = resolveConfigPath();
 if (!configPath) {
-  console.error(`[${logLabel}] config.json not found in`, configCandidates.join(", "));
+  console.error(`[${logLabel}] no config found (tried digest-tag.json, config.json under data roots)`);
   process.exit(1);
 }
+
+const configBasename = path.basename(configPath);
+const isDigestTagFile = configBasename === "digest-tag.json";
 
 function mergeSources(into, sources) {
   const list = Array.isArray(into) ? into : [];
@@ -47,12 +72,14 @@ function matchesTag(profile) {
     domain: profile.domain,
     clientId: profile.clientId,
     key: profile.key,
+    profile: profile.profile,
+    client: profile.client,
   }).toLowerCase();
   return (patch.profileMatchers || []).some((m) => hay.includes(String(m).toLowerCase()));
 }
 
-function patchProfile(p) {
-  if (!matchesTag(p)) return false;
+function patchProfile(p, { force = false } = {}) {
+  if (!force && !matchesTag(p)) return false;
   const label = p.id || p.slug || p.name || p.key || "tag-profile";
   log("profile", label);
 
@@ -74,9 +101,13 @@ function patchProfile(p) {
     }
   }
 
-  if (Array.isArray(p.topics) && patch.topicKeys?.length) {
-    for (const t of patch.topicKeys) {
-      if (!p.topics.includes(t)) p.topics.push(t);
+  if (patch.topicKeys?.length) {
+    if (Array.isArray(p.topics)) {
+      for (const t of patch.topicKeys) {
+        if (!p.topics.includes(t)) p.topics.push(t);
+      }
+    } else if (!p.topics) {
+      p.topics = [...patch.topicKeys];
     }
   }
 
@@ -107,7 +138,13 @@ for (const bucket of [cfg.profiles, cfg.clients, cfg.sites, cfg.monitors, cfg.te
 
 if (cfg.tag && typeof cfg.tag === "object" && patchProfile(cfg.tag)) profileCount += 1;
 
+if (isDigestTagFile && patchProfile(cfg, { force: true })) profileCount += 1;
+else if (profileCount === 0 && patchProfile(cfg)) profileCount += 1;
+
+const dataRootForTopics = dataRootArg || path.dirname(configPath);
 const topicDirs = [
+  path.join(dataRootForTopics, "topics/petralian"),
+  path.join(dataRootForTopics, "topics"),
   "data/topics/petralian",
   "data/topics",
   "/app/data/topics/petralian",
@@ -115,9 +152,10 @@ const topicDirs = [
 ];
 
 const topicFlag = patch.topicFlag;
+const topicDirUsed = new Set();
 
 for (const dir of topicDirs) {
-  if (!fs.existsSync(dir)) continue;
+  if (topicDirUsed.has(dir)) continue;
   for (const topicKey of patch.topicKeys || []) {
     const short = topicKey.includes("/") ? topicKey.split("/").pop() : topicKey;
     const file = path.join(dir, `${short}.json`);
@@ -136,6 +174,7 @@ for (const dir of topicDirs) {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, JSON.stringify(topic, null, 2));
     log("topic file", file);
+    topicDirUsed.add(dir);
   }
 }
 
