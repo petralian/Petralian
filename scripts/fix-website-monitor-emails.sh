@@ -599,7 +599,9 @@ try_npm_digest_send() {
 }
 
 # ── Trigger digest now (catch-up) ────────────────────────────────────────────
-if docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
+if [[ "${SKIP_DIGEST_CATCHUP:-}" == "1" ]]; then
+  log "SKIP_DIGEST_CATCHUP=1 — skipping catch-up digest (deploy hook)"
+elif docker ps --format '{{.Names}}' | grep -qx sitemonitor; then
   TRIGGER_SECRET="$(read_volume_cron_secret || true)"
   [[ -z "$TRIGGER_SECRET" ]] && TRIGGER_SECRET="$(read_trigger_secret "$(container_env_key CRON_SECRET)" || true)"
   [[ -z "$TRIGGER_SECRET" && -n "$FILE_CRON" ]] && TRIGGER_SECRET="$FILE_CRON"

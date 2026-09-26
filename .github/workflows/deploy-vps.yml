@@ -56,6 +56,21 @@ jobs:
             cd /www/wwwroot/petralian
             bash scripts/deploy-on-vps.sh
 
+      - name: Patch SiteMonitor adland sources (TAG digest)
+        continue-on-error: true
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: false
+          command_timeout: 5m
+          script: |
+            cd /www/wwwroot/petralian
+            git fetch origin master && git reset --hard origin/master
+            bash scripts/patch-sitemonitor-adland-sources.sh || true
+
       - name: Fix SiteMonitor daily emails
         continue-on-error: true
         env:
@@ -72,5 +87,6 @@ jobs:
           script: |
             cd /www/wwwroot/petralian
             export BREVO_API_KEY_OVERRIDE="${BREVO_API_KEY:-}"
+            export SKIP_DIGEST_CATCHUP=1
             bash scripts/fix-website-monitor-emails.sh || true
             bash scripts/diagnose-website-monitor.sh || true
