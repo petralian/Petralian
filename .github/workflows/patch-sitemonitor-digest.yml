@@ -1,5 +1,5 @@
-# Back-compat alias — runs full digest patch (adland + creative-tech + future SSOT files).
-name: Patch SiteMonitor adland (TAG)
+# Apply all data/sitemonitor/*-sources.json patches on VPS (no full Petralian build).
+name: Patch SiteMonitor digest sources (TAG)
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Patch adland sources on VPS
+      - name: Patch digest sources on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -22,4 +22,4 @@ jobs:
           script: |
             cd /www/wwwroot/petralian
             git fetch origin master && git reset --hard origin/master
-            bash scripts/patch-sitemonitor-adland-sources.sh
+            bash scripts/patch-sitemonitor-digest-sources.sh

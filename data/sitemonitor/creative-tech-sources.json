@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "logLabel": "creative-tech-patch",
+  "topicFlag": "creativeTech",
+  "profileMatchers": ["tag", "TAG"],
+  "interestAppend": "Surface creative production, agency holding-company moves (WPP, Publicis, Omnicom, Dentsu, IPG, Havas, Accenture Song/Sapient), and creative-tech tooling (design systems, gen-AI video/image, DAM, review-and-approve, Adobe/Figma/Frame.io-class workflows) when relevant to a Head of Technology at a creative agency—not only generic enterprise IT.",
+  "topicKeys": ["petralian/creative-tech", "petralian/agency-competitors"],
+  "searchQueryBoosts": [
+    "WPP production",
+    "WPP Open",
+    "GroupM technology",
+    "Publicis Sapient",
+    "Publicis Groupe production",
+    "Accenture Song",
+    "Accenture interactive production",
+    "Omnicom production",
+    "Dentsu international technology",
+    "IPG Mediabrands tech",
+    "Havas market technology",
+    "S4 Capital Monks",
+    "Media.Monks",
+    "creative agency production workflow",
+    "agency in-house studio",
+    "gen AI creative production",
+    "Figma enterprise",
+    "Adobe Firefly enterprise",
+    "Runway Gen",
+    "Seedance video",
+    "Freepik AI",
+    "creative ops technology",
+    "ad production automation",
+    "martech creative",
+    "TAG agency Hong Kong"
+  ],
+  "rssSources": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/rss.xml",
+      "weight": 1.2,
+      "categories": ["gen-ai", "models", "creative"]
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "weight": 1.15,
+      "categories": ["gen-ai", "models"]
+    },
+    {
+      "id": "figma-blog",
+      "name": "Figma Blog",
+      "url": "https://www.figma.com/blog/feed/atom.xml",
+      "weight": 1.25,
+      "categories": ["design", "collaboration", "creative-tech"]
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "weight": 1.1,
+      "categories": ["gen-ai", "open-models"]
+    },
+    {
+      "id": "nvidia-blog",
+      "name": "NVIDIA Blog",
+      "url": "https://blogs.nvidia.com/feed/",
+      "weight": 1.05,
+      "categories": ["gpu", "gen-ai", "production"]
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch — AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "weight": 1.05,
+      "categories": ["gen-ai", "startups"]
+    },
+    {
+      "id": "theverge-ai",
+      "name": "The Verge — AI",
+      "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "weight": 1.0,
+      "categories": ["gen-ai", "consumer-tech"]
+    },
+    {
+      "id": "adweek",
+      "name": "Adweek",
+      "url": "https://www.adweek.com/feed/",
+      "weight": 1.2,
+      "categories": ["adland", "creative", "agencies"]
+    },
+    {
+      "id": "campaign-uk-news",
+      "name": "Campaign UK — News",
+      "url": "https://www.campaignlive.com/rss/news",
+      "weight": 1.15,
+      "categories": ["adland", "agencies", "global"]
+    },
+    {
+      "id": "lbb-news",
+      "name": "Little Black Book — News",
+      "url": "https://www.lbbonline.com/news/feed",
+      "weight": 1.15,
+      "categories": ["production", "creative", "agencies"]
+    },
+    {
+      "id": "havas-group",
+      "name": "Havas Group",
+      "url": "https://www.havas.com/feed/",
+      "weight": 1.2,
+      "categories": ["holding", "competitors"]
+    },
+    {
+      "id": "omnicom-group",
+      "name": "Omnicom Group News",
+      "url": "https://www.omnicomgroup.com/news/rss",
+      "weight": 1.2,
+      "categories": ["holding", "competitors"]
+    },
+    {
+      "id": "ipg-news",
+      "name": "IPG — News",
+      "url": "https://www.interpublic.com/news/rss",
+      "weight": 1.2,
+      "categories": ["holding", "competitors"]
+    },
+    {
+      "id": "groupm-feed",
+      "name": "GroupM",
+      "url": "https://www.groupm.com/feed",
+      "weight": 1.15,
+      "categories": ["holding", "wpp", "media"]
+    },
+    {
+      "id": "publicis-sapient",
+      "name": "Publicis Sapient",
+      "url": "https://www.sapient.com/feed",
+      "weight": 1.2,
+      "categories": ["holding", "publicis", "experience"]
+    },
+    {
+      "id": "wpp-news-insights",
+      "name": "WPP — News & insights",
+      "url": "https://www.wpp.com/en/news-insights",
+      "type": "site-section",
+      "weight": 1.25,
+      "categories": ["holding", "wpp", "competitors"]
+    },
+    {
+      "id": "publicis-groupe-news",
+      "name": "Publicis Groupe — News",
+      "url": "https://www.publicisgroupe.com/en/news",
+      "type": "site-section",
+      "weight": 1.25,
+      "categories": ["holding", "publicis", "competitors"]
+    },
+    {
+      "id": "accenture-newsroom",
+      "name": "Accenture Newsroom",
+      "url": "https://newsroom.accenture.com/",
+      "type": "site-section",
+      "weight": 1.2,
+      "categories": ["holding", "accenture", "consulting"]
+    },
+    {
+      "id": "accenture-song-blog",
+      "name": "Accenture — Song",
+      "url": "https://www.accenture.com/us-en/about/accenture-song-index",
+      "type": "site-section",
+      "weight": 1.2,
+      "categories": ["accenture", "experience", "creative"]
+    },
+    {
+      "id": "dentsu-news",
+      "name": "Dentsu — News",
+      "url": "https://www.dentsu.com/intl/en/news",
+      "type": "site-section",
+      "weight": 1.2,
+      "categories": ["holding", "dentsu", "apac"]
+    },
+    {
+      "id": "frame-io-blog",
+      "name": "Frame.io Blog",
+      "url": "https://blog.frame.io/",
+      "type": "site-section",
+      "weight": 1.15,
+      "categories": ["production", "review", "video"]
+    },
+    {
+      "id": "adobe-blog",
+      "name": "Adobe Blog",
+      "url": "https://blog.adobe.com/",
+      "type": "site-section",
+      "weight": 1.15,
+      "categories": ["creative-cloud", "firefly", "production"]
+    },
+    {
+      "id": "runway-blog",
+      "name": "Runway",
+      "url": "https://runwayml.com/blog",
+      "type": "site-section",
+      "weight": 1.1,
+      "categories": ["gen-ai", "video"]
+    },
+    {
+      "id": "freepik-blog",
+      "name": "Freepik Blog",
+      "url": "https://www.freepik.com/blog/",
+      "type": "site-section",
+      "weight": 1.05,
+      "categories": ["stock", "gen-ai", "design"]
+    }
+  ]
+}

@@ -56,7 +56,7 @@ jobs:
             cd /www/wwwroot/petralian
             bash scripts/deploy-on-vps.sh
 
-      - name: Patch SiteMonitor adland sources (TAG digest)
+      - name: Patch SiteMonitor digest sources (TAG)
         continue-on-error: true
         uses: appleboy/ssh-action@v1.2.0
         with:

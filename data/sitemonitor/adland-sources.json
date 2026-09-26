@@ -1,5 +1,7 @@
 {
   "version": 1,
+  "logLabel": "adland-patch",
+  "topicFlag": "adland",
   "profileMatchers": ["tag", "TAG"],
   "interestAppend": "Prioritize APAC adland and agency trade press—especially Marketing Interactive, Campaign Asia, and similar outlets—for technology, martech, ad tech, and agency leadership moves (including TAG and yuu ecosystem partners). Do not over-weight generic enterprise-tech blogs when agency-specific sources have relevant stories.",
   "topicKeys": ["petralian/agency-media", "petralian/adland-tech"],
