@@ -1,5 +1,7 @@
 # SiteMonitor — APAC adland sources (TAG digest)
 
+> **Ops:** Use `docs/ops/sitemonitor-digest-sources.md` for the unified patch flow (`*-sources.json`).
+
 ## Problem
 
 TAG digests were heavy on generic `petralian/*` topic buckets (enterprise AI, cursor, etc.) and rarely surfaced **agency trade press** (Marketing Interactive, Campaign Asia, …) even when stories were directly relevant (e.g. agency technology leadership).
