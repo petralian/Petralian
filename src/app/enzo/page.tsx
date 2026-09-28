@@ -106,7 +106,6 @@ export default function EnzoPage() {
                   width={800}
                   height={1000}
                   className="enzo-card__photo"
-                  style={item.rotate ? { transform: `rotate(${item.rotate}deg)` } : undefined}
                 />
               </div>
               <div className="enzo-card__body">

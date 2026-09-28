@@ -8,7 +8,6 @@ export type EnzoGalleryItem = {
   alt: string;
   caption: string;
   award: string;
-  rotate?: number;
 };
 
 export const ENZO_GALLERY: EnzoGalleryItem[] = [
@@ -17,14 +16,12 @@ export const ENZO_GALLERY: EnzoGalleryItem[] = [
     alt: "Enzo in bow tie and suspenders holding a globe",
     caption: "International diplomacy requires bare feet and a pink bow tie.",
     award: "Global Icon of the Year",
-    rotate: 90,
   },
   {
     src: "/images/enzo/school-polo.jpg",
     alt: "Enzo in a yellow school polo smiling at the camera",
     caption: "Official school portrait energy. The committee has spoken.",
     award: "People’s Choice (Self-Selected)",
-    rotate: -90,
   },
   {
     src: "/images/enzo/ny-camera.jpg",
