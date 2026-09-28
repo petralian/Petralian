@@ -9,7 +9,12 @@ Served by the same Next.js app as `petralian.com`. Host-based routing in `src/mi
 
 ## aaPanel / Nginx
 
-Add `enzo.petralian.com` as an **alias domain** on the existing Petralian site (same `proxy_pass http://127.0.0.1:3000` block as `deploy/nginx/petralian.conf`). No separate Node process.
+Deploy runs `scripts/ensure-enzo-subdomain-on-vps.sh`, which:
+
+1. Adds `enzo.petralian.com` to the main Petralian vhost `server_name` when found under `/www/server/panel/vhost/nginx/`.
+2. Replaces the placeholder `location /` on `enzo.petralian.com.conf` with `deploy/nginx/enzo.petralian.com.conf` (proxy to `:3000`).
+
+Manual fallback: alias domain on the Petralian site or paste the proxy snippet from `deploy/nginx/petralian.conf`.
 
 ## Local preview
 
