@@ -62,6 +62,9 @@ jobs:
             if [[ ! -d "$SRC" ]]; then
               SRC="/tmp/enzo-static-upload"
             fi
-            rsync -a --delete "$SRC"/ "$WEB_ROOT"/
+            rsync -a --delete \
+              --filter='protect .user.ini' \
+              --filter='protect .htaccess' \
+              "$SRC"/ "$WEB_ROOT"/
             chown -R www:www "$WEB_ROOT" 2>/dev/null || true
             echo "OK — $(ls -la "$WEB_ROOT/index.html")"
