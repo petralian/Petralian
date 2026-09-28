@@ -121,6 +121,7 @@ for ((i = 1; i <= HEALTH_RETRIES; i++)); do
   if health_check; then
     echo "OK — petralian healthy after deploy (${i}s)"
     rm -rf "${LIVE_DIST}.prev"
+    bash "$(dirname "$SCRIPT_PATH")/ensure-enzo-subdomain-on-vps.sh" || true
     exit 0
   fi
   sleep "$HEALTH_INTERVAL_SEC"
