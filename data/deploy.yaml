@@ -20,6 +20,7 @@ vps:
 domain:
   primary: petralian.com
   www: www.petralian.com
+  enzo: enzo.petralian.com
 
 cron:
   # Monday 09:00 Asia/Hong_Kong = 01:00 UTC
