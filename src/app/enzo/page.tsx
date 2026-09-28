@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { ENZO_GALLERY, ENZO_HK_BEST_ROWS, ENZO_SITE_URL } from "@/lib/enzo-site";
+import {
+  ENZO_GALLERY,
+  ENZO_HK_BEST_ROWS,
+  ENZO_SITE_URL,
+  ENZO_WORKSHEET_IMAGE,
+} from "@/lib/enzo-site";
 
 function SunglassesSeal() {
   return (
@@ -67,7 +72,7 @@ export default function EnzoPage() {
         <div className="enzo-worksheet__frame">
           <h2 id="worksheet-heading">Exhibit A — The Original Filing</h2>
           <Image
-            src="/images/enzo/worksheet-translated.png"
+            src={ENZO_WORKSHEET_IMAGE}
             alt="School worksheet listing Hong Kong superlatives with Enzo named most handsome man"
             width={897}
             height={1200}

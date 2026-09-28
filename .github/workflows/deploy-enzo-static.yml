@@ -1,0 +1,67 @@
+# Static glamour board → aaPanel docroot for enzo.petralian.com (SSH, no Next build).
+# Secrets: VPS_HOST, VPS_USER, VPS_SSH_KEY (port 2245)
+
+name: Deploy Enzo static site
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - "data/enzo-site.json"
+      - "public/images/enzo/**"
+      - "src/app/enzo/**"
+      - "scripts/build-enzo-static.mjs"
+      - ".github/workflows/deploy-enzo-static.yml"
+
+concurrency:
+  group: deploy-enzo-static
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build static bundle
+        run: node scripts/build-enzo-static.mjs
+
+      - name: Upload bundle to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          source: "enzo-static-out/*"
+          target: "/tmp/enzo-static-upload"
+          strip_components: 0
+
+      - name: Install into enzo docroot
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: true
+          command_timeout: 5m
+          script: |
+            set -euo pipefail
+            WEB_ROOT="${ENZO_WEB_ROOT:-/www/wwwroot/enzo.petralian.com}"
+            if [[ ! -d "$WEB_ROOT" ]]; then
+              WEB_ROOT="$(find /www/wwwroot -maxdepth 1 -type d -name 'enzo*' 2>/dev/null | head -1 || true)"
+            fi
+            if [[ -z "$WEB_ROOT" || ! -d "$WEB_ROOT" ]]; then
+              echo "Error: enzo docroot not found (tried /www/wwwroot/enzo.petralian.com)"
+              exit 1
+            fi
+            echo "Deploying to $WEB_ROOT"
+            SRC="/tmp/enzo-static-upload/enzo-static-out"
+            if [[ ! -d "$SRC" ]]; then
+              SRC="/tmp/enzo-static-upload"
+            fi
+            rsync -a --delete "$SRC"/ "$WEB_ROOT"/
+            chown -R www:www "$WEB_ROOT" 2>/dev/null || true
+            echo "OK — $(ls -la "$WEB_ROOT/index.html")"

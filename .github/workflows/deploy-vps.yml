@@ -55,7 +55,6 @@ jobs:
           script: |
             cd /www/wwwroot/petralian
             bash scripts/deploy-on-vps.sh
-            bash scripts/ensure-enzo-subdomain-on-vps.sh || true
 
       - name: Patch SiteMonitor digest sources (TAG)
         continue-on-error: true

@@ -1,0 +1,60 @@
+{
+  "host": "enzo.petralian.com",
+  "gallery": [
+    {
+      "file": "bowtie-globe.jpg",
+      "alt": "Enzo in bow tie and suspenders holding a globe",
+      "caption": "International diplomacy requires bare feet and a pink bow tie.",
+      "award": "Global Icon of the Year"
+    },
+    {
+      "file": "school-polo.jpg",
+      "alt": "Enzo in a yellow school polo smiling at the camera",
+      "caption": "Official school portrait energy. The committee has spoken.",
+      "award": "People's Choice (Self-Selected)"
+    },
+    {
+      "file": "ny-camera.jpg",
+      "alt": "Enzo with a toy camera on an orange lanyard",
+      "caption": "Paparazzi training complete. Please do not look directly at the lens.",
+      "award": "Best Red-Carpet Stare"
+    },
+    {
+      "file": "beach-ice-cream.jpg",
+      "alt": "Enzo on the beach making a dramatic face with an ice cream bar",
+      "caption": "Summer couture: GAP tee, duck face, dessert accessory.",
+      "award": "Most Photogenic Bite"
+    },
+    {
+      "file": "hearts-stage.jpg",
+      "alt": "Enzo hugged by his sister in front of a heart backdrop",
+      "caption": "Fan club president confirmed. Hearts optional but encouraged.",
+      "award": "Highest Fan Approval Rating"
+    },
+    {
+      "file": "couch-laugh.jpg",
+      "alt": "Enzo laughing on the sofa holding a remote",
+      "caption": "Candid laughter captured mid-acceptance speech rehearsal.",
+      "award": "Best Unscripted Moment"
+    },
+    {
+      "file": "duck-face-duo.jpg",
+      "alt": "Enzo and his sister making duck faces on a bed",
+      "caption": "Sibling symmetry module activated.",
+      "award": "Excellence in Lip Geometry"
+    },
+    {
+      "file": "glamour-extra.jpg",
+      "alt": "Enzo portrait",
+      "caption": "Additional evidence filed with the registry.",
+      "award": "Honourable Mention (Still Handsome)"
+    }
+  ],
+  "hkBestRows": [
+    { "label": "Highest mountain", "value": "Tai Mo Shan" },
+    { "label": "Largest island", "value": "Lantau Island" },
+    { "label": "Tallest building", "value": "ICC (环球贸易广场)" },
+    { "label": "Most handsome man", "value": "Enzo!!! 😎" }
+  ],
+  "worksheetImage": "worksheet-translated.png"
+}

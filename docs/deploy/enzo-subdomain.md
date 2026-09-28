@@ -1,26 +1,27 @@
-# enzo.petralian.com — family microsite
+# enzo.petralian.com — static glamour board
 
-Served by the same Next.js app as `petralian.com`. Host-based routing in `src/middleware.ts` rewrites `enzo.petralian.com` → `/enzo` (see `src/lib/enzo-site.ts`).
+**Hosting model:** plain static files in the aaPanel site folder (not Next.js proxy).
+
+| Item | Path |
+|------|------|
+| VPS docroot | `/www/wwwroot/enzo.petralian.com` (`data/deploy.yaml` → `domain.enzo_web_root`) |
+| Build output | `enzo-static-out/` (gitignored) via `node scripts/build-enzo-static.mjs` |
+| Content SSOT | `data/enzo-site.json` (also used by `/enzo` on petralian.com) |
+| CI deploy | `.github/workflows/deploy-enzo-static.yml` (SSH + rsync) |
 
 ## DNS (Cloudflare)
 
-1. Add **CNAME** `enzo` → same target as `petralian.com` (or A record to VPS IP).
-2. Proxy status: same as main site (orange cloud OK).
+CNAME `enzo` → same target as `petralian.com`.
 
-## aaPanel / Nginx
+## Manual deploy (SSH)
 
-Deploy runs `scripts/ensure-enzo-subdomain-on-vps.sh`, which:
+```bash
+cd /www/wwwroot/petralian
+git pull origin master
+node scripts/build-enzo-static.mjs
+rsync -a --delete enzo-static-out/ /www/wwwroot/enzo.petralian.com/
+```
 
-1. Adds `enzo.petralian.com` to the main Petralian vhost `server_name` when found under `/www/server/panel/vhost/nginx/`.
-2. Replaces the placeholder `location /` on `enzo.petralian.com.conf` with `deploy/nginx/enzo.petralian.com.conf` (proxy to `:3000`).
+## Also on main site
 
-Manual fallback: alias domain on the Petralian site or paste the proxy snippet from `deploy/nginx/petralian.conf`.
-
-## Local preview
-
-- Path: `http://localhost:3000/enzo`
-- Or add `127.0.0.1 enzo.localhost` and open `http://enzo.localhost:3000`
-
-## Privacy
-
-Page metadata uses `noindex, nofollow` (family board, not SEO).
+`https://petralian.com/enzo` remains the Next.js route (middleware + host rewrite) for previews.
