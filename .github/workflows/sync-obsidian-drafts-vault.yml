@@ -1,0 +1,59 @@
+# Mirror petralian-private Blog/01 Drafts/ into obsidian-mcp vault on VPS.
+# VPS_* secrets already live on this repo (see fleet-bootstrap/secrets.manifest.yaml).
+# Checkout needs PETRALIAN_PRIVATE_READ_TOKEN (fine-grained PAT: contents read on petralian-private).
+
+name: Sync Obsidian 01 Drafts to MCP vault
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Catch draft merges if private-repo workflow has no VPS secrets yet
+    - cron: "15 */6 * * *"
+  repository_dispatch:
+    types: [sync-obsidian-drafts]
+
+concurrency:
+  group: sync-obsidian-drafts-vault
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout petralian-private
+        uses: actions/checkout@v4
+        with:
+          repository: petralian/petralian-private
+          ref: master
+          path: blog-private
+          token: ${{ secrets.PETRALIAN_PRIVATE_READ_TOKEN }}
+
+      - name: Pack 01 Drafts
+        run: tar czf /tmp/petralian-drafts-01.tgz -C blog-private/Blog "01 Drafts"
+
+      - name: Upload archive to VPS
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          source: /tmp/petralian-drafts-01.tgz
+          target: /tmp/
+
+      - name: Extract into obsidian-mcp vault
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 2245
+          script_stop: true
+          script: |
+            set -e
+            DEST="/opt/obsidian-mcp/data/Vault/40_VSCode/Petralian/Blog"
+            mkdir -p "$DEST"
+            tar xzf /tmp/petralian-drafts-01.tgz -C "$DEST"
+            rm -f /tmp/petralian-drafts-01.tgz
+            echo "Draft notes: $(find "$DEST/01 Drafts" -maxdepth 1 -name '*.md' | wc -l)"
+            echo "Attachments: $(find "$DEST/01 Drafts/Attachments" -type f | wc -l)"
