@@ -26,7 +26,7 @@ Cloud **Nate Obsidian** stays up on the **VPS** while the 4090 sleeps. Agents ca
 | PC awake | Obsidian Sync pulls VPS/desktop vault changes to D: |
 | Desk only | `petralian-obsidian-mcp` `git_pull` / `write_attachment` on `D:\…\Petralian` |
 
-Ensure `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` are set on **`petralian/petralian-private`** GitHub Actions secrets (same as site deploy).
+**Automation:** `petralian/Petralian` workflow `sync-obsidian-drafts-vault.yml` (VPS secrets + `PETRALIAN_PRIVATE_READ_TOKEN`). Optionally copy `VPS_*` to **`petralian-private`** so its workflow runs on every draft push. Cloud agents can run `petralian-private/scripts/cloud-sync-drafts-to-vps.sh` when Actions secrets are missing.
 
 ## Desk CLI
 
