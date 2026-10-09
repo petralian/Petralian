@@ -13,6 +13,7 @@ excerpt: >-
   machine-readable source.
 featured_image: /images/posts/brand-voice-in-yaml-source-for-humans-and-agents.avif
 focus_keyword: brand voice YAML AI marketing
+seo_title: 'Brand Voice in YAML: One SSOT for Humans and Agents'
 seo_description: >-
   Put brand voice in YAML: tone, banned words, and claim limits as one SSOT for
   humans and agents. Complements file-based marketing governance.

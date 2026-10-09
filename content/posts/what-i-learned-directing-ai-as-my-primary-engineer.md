@@ -12,6 +12,7 @@ excerpt: >-
   operating-system design: rules, file memory, session handoffs, and gates
   before deploy. Lessons from running that model on production repos.
 featured_image: /images/posts/what-i-learned-directing-ai-as-my-primary-engineer.avif
+seo_title: 'Directing AI as My Primary Engineer: Lessons Learned'
 focus_keyword: directing AI as primary engineer
 seo_description: >-
   What changes when AI is your primary implementer: operating-system design,

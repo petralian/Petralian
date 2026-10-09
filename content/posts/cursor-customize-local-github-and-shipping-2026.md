@@ -14,6 +14,7 @@ excerpt: >-
   habits, small diffs, and handoffs - without turning this into another full
   harness handbook.
 featured_image: /images/posts/cursor-customize-local-github-and-shipping-2026.avif
+seo_title: 'Cursor Customize for Local Dev and GitHub Shipping 2026'
 focus_keyword: Cursor GitHub shipping workflow
 seo_description: >-
   Light Cursor Customize for local develop and GitHub shipping: directed agent

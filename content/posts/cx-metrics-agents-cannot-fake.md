@@ -12,6 +12,7 @@ excerpt: >-
   are easy to game. Operational metrics tied to customer behavior are harder.
 featured_image: /images/posts/cx-metrics-agents-cannot-fake.avif
 focus_keyword: customer experience metrics AI
+seo_title: 'CX Metrics Agents Cannot Fake: Operational KPIs 2026'
 seo_description: >-
   Which CX metrics resist agent gaming: repeat purchase, contact rate,
   resolution time, and which scores inflate under AI-generated surveys and
