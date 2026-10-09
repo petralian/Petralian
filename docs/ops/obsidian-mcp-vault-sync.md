@@ -9,9 +9,9 @@
 
 Vault files on the server live at `/opt/obsidian-mcp/data/Vault/` (bind mount). They sync **to your PC** via official Obsidian Sync when the desktop is on; they do **not** auto-track `petralian-private` until CI or a script copies attachments in.
 
-**Draft attachment CI:** `petralian-private` workflow `sync-obsidian-mcp-attachments.yml` rsyncs `Blog/01 Drafts/Attachments/**` to that path on every `master` push (needs `VPS_*` secrets on the private repo).
+**Draft CI mirror:** `petralian-private` workflow `sync-obsidian-mcp-attachments.yml` tar-extracts the full `Blog/01 Drafts/` tree (markdown + attachments) into the vault on every `master` push or manual `workflow_dispatch`. Needs `VPS_*` secrets on the private repo. See `petralian-private/scripts/OBSIDIAN-MCP-VPS-SYNC.md` (no fork of jclement/obsidian-mcp required).
 
-**Fork / extend jclement/obsidian-mcp** on the VPS if you want `git_pull` or `write_attachment` as native MCP tools; desk `petralian-obsidian-mcp` already has:
+**Optional fork** of jclement/obsidian-mcp only if you need native `git_pull` / `write_attachment` on the hosted MCP without a GitHub push. Desk `petralian-obsidian-mcp` already has:
 
 - `obsidian_git_pull` — `git pull --ff-only origin master` in `40_VSCode/Petralian`
 - `obsidian_write_attachment` — write bytes under `Blog/**/Attachments/` from base64
