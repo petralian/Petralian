@@ -48,11 +48,6 @@ const nextConfig: NextConfig = {
         destination: "/posts/cursor-token-saving-tools-beyond-headroom-2026",
         permanent: false,
       },
-      {
-        source: "/posts/hong-kong-loyalty-programs-yuu-effort-vs-rewards-2026",
-        destination: "/posts",
-        permanent: false,
-      },
       // GSC 404 / legacy slug fixes (2026-07-28 drilldown + live probe)
       { source: "/privacy-policy", destination: "/about", permanent: true },
       { source: "/privacy-policy/", destination: "/about", permanent: true },
