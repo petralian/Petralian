@@ -13,6 +13,7 @@
  */
 
 import { createInterface } from "node:readline";
+import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "node:fs";
 import { dirname, join, resolve, normalize } from "node:path";
 
@@ -65,6 +66,25 @@ function safePath(relPath) {
   return target;
 }
 
+function toPosixRel(relPath) {
+  return relPath.replace(/\\/g, "/");
+}
+
+/** Binary writes only under Blog attachment folders (not arbitrary vault paths). */
+function safeAttachmentPath(relPath) {
+  const target = safePath(relPath);
+  const rel = toPosixRel(relPath);
+  const ok =
+    /^Blog\/00 Attachments\//.test(rel) ||
+    /^Blog\/[^/]+\/Attachments\//.test(rel);
+  if (!ok) {
+    throw new Error(
+      "write_attachment only allowed under Blog/**/Attachments/ or Blog/00 Attachments/"
+    );
+  }
+  return target;
+}
+
 // ── Tool: obsidian_read ─────────────────────────────────────────────────────
 function toolRead({ path: relPath }) {
   const target = safePath(relPath);
@@ -99,6 +119,35 @@ function toolWrite({ path: relPath, content }) {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   writeFileSync(target, content, "utf8");
   return `Written ${content.length} characters to ${relPath}`;
+}
+
+// ── Tool: obsidian_git_pull ─────────────────────────────────────────────────
+function toolGitPull({ branch = "master" } = {}) {
+  if (!existsSync(join(VAULT_ROOT, ".git"))) {
+    throw new Error(`Not a git repo: ${VAULT_ROOT} (obsidian-git / petralian-private checkout)`);
+  }
+  const b = String(branch || "master");
+  execFileSync("git", ["fetch", "origin", b], { cwd: VAULT_ROOT, encoding: "utf8" });
+  const out = execFileSync("git", ["pull", "--ff-only", "origin", b], {
+    cwd: VAULT_ROOT,
+    encoding: "utf8",
+  });
+  const head = execFileSync("git", ["rev-parse", "--short", "HEAD"], {
+    cwd: VAULT_ROOT,
+    encoding: "utf8",
+  }).trim();
+  return `git pull origin ${b} OK @ ${head}\n${out}`.trim();
+}
+
+// ── Tool: obsidian_write_attachment (base64) ────────────────────────────────
+function toolWriteAttachment({ path: relPath, base64 }) {
+  if (!base64 || typeof base64 !== "string") throw new Error("base64 is required");
+  const target = safeAttachmentPath(relPath);
+  const buf = Buffer.from(base64, "base64");
+  if (buf.length < 8) throw new Error("attachment too small or invalid base64");
+  mkdirSync(dirname(target), { recursive: true });
+  writeFileSync(target, buf);
+  return `Wrote attachment ${relPath} (${buf.length} bytes)`;
 }
 
 // ── MCP handshake + dispatch ────────────────────────────────────────────────
@@ -153,6 +202,34 @@ const TOOLS = [
       required: ["path", "content"],
     },
   },
+  {
+    name: "obsidian_git_pull",
+    description:
+      "Run git fetch + ff-only pull in the Petralian vault checkout (petralian-private). Use after cloud agent merges so Blog/01 Drafts/Attachments/ matches GitHub. Only works while this MCP host is online.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        branch: {
+          type: "string",
+          default: "master",
+          description: "Remote branch to pull (default master).",
+        },
+      },
+    },
+  },
+  {
+    name: "obsidian_write_attachment",
+    description:
+      "Write a binary attachment under Blog/**/Attachments/ from base64. Safer than create_note on *.avif paths. Path vault-relative, e.g. Blog/01 Drafts/Attachments/slug.avif",
+    inputSchema: {
+      type: "object",
+      properties: {
+        path: { type: "string" },
+        base64: { type: "string", description: "Raw file bytes, base64-encoded." },
+      },
+      required: ["path", "base64"],
+    },
+  },
 ];
 
 const rl = createInterface({ input: process.stdin, terminal: false });
@@ -194,6 +271,8 @@ rl.on("line", (line) => {
       if (name === "obsidian_read") result = toolRead(args ?? {});
       else if (name === "obsidian_append") result = toolAppend(args ?? {});
       else if (name === "obsidian_write") result = toolWrite(args ?? {});
+      else if (name === "obsidian_git_pull") result = toolGitPull(args ?? {});
+      else if (name === "obsidian_write_attachment") result = toolWriteAttachment(args ?? {});
       else throw new Error(`Unknown tool: ${name}`);
       ok(id, result);
     } catch (e) {
