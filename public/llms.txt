@@ -40,8 +40,8 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 
 ## Topics
 
-- [Agentic AI](https://petralian.com/topics/agentic-ai): 55 articles
-- [Generative AI](https://petralian.com/topics/generative-ai): 32 articles
+- [Agentic AI](https://petralian.com/topics/agentic-ai): 56 articles
+- [Generative AI](https://petralian.com/topics/generative-ai): 33 articles
 - [Enterprise AI](https://petralian.com/topics/enterprise-ai): 31 articles
 - [Developer Tools](https://petralian.com/topics/developer-tools): 24 articles
 - [AI Memory](https://petralian.com/topics/ai-memory): 23 articles
@@ -49,16 +49,17 @@ Nathan Petralia writes from twenty years leading digital and commercial programs
 - [Marketing Technology](https://petralian.com/topics/marketing-technology): 22 articles
 - [Playbook](https://petralian.com/topics/playbook): 21 articles
 - [AI in Marketing](https://petralian.com/topics/ai-in-marketing): 18 articles
-- [Digital Transformation](https://petralian.com/topics/digital-transformation): 17 articles
-- [Ecommerce](https://petralian.com/topics/ecommerce): 17 articles
+- [Digital Transformation](https://petralian.com/topics/digital-transformation): 18 articles
+- [Ecommerce](https://petralian.com/topics/ecommerce): 18 articles
 - [AI Quality](https://petralian.com/topics/ai-quality): 15 articles
 - [Leadership](https://petralian.com/topics/leadership): 15 articles
 - [Customer Experience](https://petralian.com/topics/customer-experience): 12 articles
-- [GEO](https://petralian.com/topics/geo): 11 articles
+- [Agency Landscape](https://petralian.com/topics/agency-landscape): 11 articles
 
 ## Published articles
 
-- [Is Your Loyalty Program Worth the QR Code? What yuu's Terms Buy](https://petralian.com/posts/hong-kong-loyalty-programs-yuu-effort-vs-rewards-2026): yuu base rebate is about 0.5%. Read the points math, QR effort tax, and what the T&Cs and privacy policy say about your data, rights, and forfeited points.
+- [How GenAI Is Resetting Agency Pricing](https://petralian.com/posts/agency-pricing-genai-deliverables-2026): Agency pricing is shifting from retainers to AI deliverables. How buyers and agencies can scope outcomes, quality gates, and verification lines.
+- [Shopify Agentic Commerce for APAC: WeChat, LINE, and Grab Without Duplicating Catalogs](https://petralian.com/posts/shopify-agentic-commerce-apac-channels-2026): Shopify agentic commerce for APAC: tie WeChat, LINE, and Grab to one catalog without duplicate data entry, workflows for Hong Kong cross-border merchants.
 - [57% Deployed, 11% Hit Their Top AI Goals: What Kyndryl's 2026 Report Measures](https://petralian.com/posts/enterprise-ai-57-deployed-11-hit-goals-kyndryl-2026): Kyndryl 2026 report: 57% deploy AI enterprise-wide, only 11% hit both top goals. Workforce-readiness gap for APAC program owners moving past pilots.
 - [CX Metrics Agents Cannot Fake (and the Ones They Will)](https://petralian.com/posts/cx-metrics-agents-cannot-fake): Which CX metrics resist agent gaming: repeat purchase, contact rate, resolution time, and which scores inflate under AI-generated surveys and reports.
 - [WeChat Mini Programs vs Instagram Shop: Where Social Commerce Still Needs a Human Program Owner](https://petralian.com/posts/wechat-mini-programs-vs-instagram-shop-social-commerce): WeChat Mini Programs vs Instagram Shop: where social commerce still needs a human program owner for data, APAC pace, CRM handoffs, and consent.
