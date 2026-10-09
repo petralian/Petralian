@@ -4,27 +4,29 @@
 
 | Server | Where it runs | Cloud agent |
 |--------|----------------|-------------|
-| **Nate Obsidian** (Dashboard) | Your PC when Obsidian MCP bridge is up | Yes — `edit_note`, `browse_vault`, markdown |
-| **petralian-obsidian-mcp** (`scripts/obsidian-mcp-server.mjs`) | Local Cursor on 4090 box | Only if you add it to MCP config while online |
+| **Nate Obsidian** (Dashboard) | **VPS** `obsidian-mcp.petralian.com` — [jclement/obsidian-mcp](https://github.com/jclement/obsidian-mcp) | Yes — `edit_note`, `browse_vault`, markdown |
+| **petralian-obsidian-mcp** (`scripts/obsidian-mcp-server.mjs`) | Optional desk Cursor on 4090 | Local only |
 
-**Nate Obsidian** is maintained by Cursor/Obsidian; this repo cannot patch it. **`petralian-obsidian-mcp`** is yours; we added:
+Vault files on the server live at `/opt/obsidian-mcp/data/Vault/` (bind mount). They sync **to your PC** via official Obsidian Sync when the desktop is on; they do **not** auto-track `petralian-private` until CI or a script copies attachments in.
+
+**Draft attachment CI:** `petralian-private` workflow `sync-obsidian-mcp-attachments.yml` rsyncs `Blog/01 Drafts/Attachments/**` to that path on every `master` push (needs `VPS_*` secrets on the private repo).
+
+**Fork / extend jclement/obsidian-mcp** on the VPS if you want `git_pull` or `write_attachment` as native MCP tools; desk `petralian-obsidian-mcp` already has:
 
 - `obsidian_git_pull` — `git pull --ff-only origin master` in `40_VSCode/Petralian`
 - `obsidian_write_attachment` — write bytes under `Blog/**/Attachments/` from base64
 
 ## Sleep / offline 4090
 
-When the PC sleeps, **no MCP reaches the vault**. That is expected.
+Cloud **Nate Obsidian** stays up on the **VPS** while the 4090 sleeps. Agents can still edit vault markdown and (after CI) see attachments via `browse_vault`.
 
 | Phase | What works |
 |-------|------------|
-| PC asleep | Cloud agents commit/merge **`petralian-private`** on GitHub only |
-| PC awake, Obsidian open | Nate Obsidian markdown sync; optional **Obsidian Git pull on startup** catches binaries |
-| PC awake, local Cursor + petralian MCP | Agent (or you) can call `obsidian_git_pull` or `obsidian_write_attachment` |
+| PC asleep | GitHub merge + **VPS attachment sync workflow** → obsidian-mcp vault |
+| PC awake | Obsidian Sync pulls VPS/desktop vault changes to D: |
+| Desk only | `petralian-obsidian-mcp` `git_pull` / `write_attachment` on `D:\…\Petralian` |
 
-A self-hosted GitHub runner on the 4090 has the **same sleep problem** — not a substitute for always-on infra.
-
-**Sleep-safe catch-up:** Obsidian Git → **Pull on startup** (one-time setting). After wake, attachments from overnight agent merges appear without a manual pull habit.
+Ensure `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` are set on **`petralian/petralian-private`** GitHub Actions secrets (same as site deploy).
 
 ## Desk CLI
 
