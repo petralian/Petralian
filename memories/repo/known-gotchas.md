@@ -17,6 +17,8 @@
 - **Official Obsidian Sync** — no API; cloud/iPhone agents cannot read vault via Sync. Use private git mirror `petralian/vault-petralian` + Cursor `repositoryDependencies`.
 - **Retired:** self-hosted CouchDB + `obsidian-sync-mcp` on VPS — do not wire CouchDB MCP for vault access.
 - **Desk:** Official Sync → native `D:\` I/O and/or Obsidian MCP (`petralian-obsidian`). **Cloud:** Obsidian MCP (Dashboard) + `vault-petralian` git mirror fallback. **Retired:** VPS CouchDB / `obsidian-sync-mcp`.
+- **`petralian-private` ≠ vault auto-update** — Git push updates GitHub only. Cloud agents must **Nate Obsidian MCP**-sync `40_VSCode/Petralian/Blog/01 Drafts/` after draft work (`featured_image`, dates, `body_images`). Desktop saves can overwrite MCP; desk should pull git before editing.
+- **Hero path** — `featured_image: "[[Attachments/<slug>.avif]]"`; binaries in `Blog/01 Drafts/Attachments/`. Bare `[[slug.png]]` beside the note creates empty siblings in Obsidian.
 
 ## Session / memory
 - **Never skip Start of Session** — user expects Obsidian session note, summaries, bridge, and feature updates alongside code.
